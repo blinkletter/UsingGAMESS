@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2 Introduction &#8212; Fun With GAMESS</title>
+    <title>Building Your System &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Getting Started with Small Molecules" href="2_SmallMolecule.html" />
-    <link rel="prev" title="1. Table of Contents" href="start.html" />
+    <link rel="next" title="Methane: Visual Input and Output" href="3_Visual_Input.html" />
+    <link rel="prev" title="Introduction" href="start.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -91,19 +91,55 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="start.html">
-   1. Table of Contents
+   Introduction
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2 Introduction
+   Building Your System
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="2_SmallMolecule.html">
-   3. Getting Started with Small Molecules
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
   </a>
  </li>
 </ul>
@@ -147,9 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/1_Setup.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/1_Setup.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -157,22 +193,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 
             <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/blinkletter/UsingGAMESS"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/blinkletter/UsingGAMESS/issues/new?title=Issue%20on%20page%20%2F1_Setup.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
@@ -182,23 +202,6 @@ const thebe_selector_output = ".output, .cell_output"
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/blinkletter/UsingGAMESS/master?urlpath=tree/docs/1_Setup.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
         </div>
 
@@ -291,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
+    <a class="reference internal nav-link" href="#id2">
      Obtain and Install
     </a>
    </li>
@@ -313,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id22">
+    <a class="reference internal nav-link" href="#id4">
      Obtain and Install
     </a>
    </li>
@@ -330,7 +333,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id24">
+    <a class="reference internal nav-link" href="#id5">
      Obtain and Install
     </a>
    </li>
@@ -453,7 +456,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2 Introduction</h1>
+                <h1>Building Your System</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -544,7 +547,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
+    <a class="reference internal nav-link" href="#id2">
      Obtain and Install
     </a>
    </li>
@@ -566,7 +569,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id22">
+    <a class="reference internal nav-link" href="#id4">
      Obtain and Install
     </a>
    </li>
@@ -583,7 +586,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id24">
+    <a class="reference internal nav-link" href="#id5">
      Obtain and Install
     </a>
    </li>
@@ -705,12 +708,9 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>2 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>We have some intuition about chemical structure and energy. We know that butane is at its lowest energy in the <em>anti</em> conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its electronic structure. We can demonstrate these effects and explore consequences of changes in structure on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are free to all or free for academic use.</p>
-<p><em><strong>GAMESS</strong></em><a class="footnote-reference brackets" href="#gamess1" id="id1">1</a>,<a class="footnote-reference brackets" href="#gamess2" id="id2">2</a>,<a class="footnote-reference brackets" href="#gamess-link" id="id3">3</a>  is an ab initio computation package for investigating molecular structure and energy. There are others, such as <em><strong>NWChem</strong></em> <a class="footnote-reference brackets" href="#nwchem" id="id4">4</a>,<a class="footnote-reference brackets" href="#nwchem-link" id="id5">5</a>  and <em><strong>ORCA</strong></em> <a class="footnote-reference brackets" href="#orca" id="id6">6</a>,<a class="footnote-reference brackets" href="#orca-link" id="id7">7</a>. <em><strong>MacMolPlt</strong></em> <a class="footnote-reference brackets" href="#id26" id="id8">8</a>,<a class="footnote-reference brackets" href="#macmolplt-link" id="id9">9</a>  is a front end for GAMESS. It can build molecules, export input files and interpret the output files produced by GAMESS. <em><strong>Avogadro</strong></em> <a class="footnote-reference brackets" href="#id27" id="id10">10</a>,<a class="footnote-reference brackets" href="#avogadro-link" id="id11">11</a>  is a more modern option but lacks some useful tools compared to MacMolPlt. There are others, such as <em><strong>Gabedit</strong></em> <a class="footnote-reference brackets" href="#gabedit" id="id12">12</a>,<a class="footnote-reference brackets" href="#gabedit-link" id="id13">13</a>  and <em><strong>Molden</strong></em>. <a class="footnote-reference brackets" href="#molden" id="id14">14</a>,<a class="footnote-reference brackets" href="#molden-link" id="id15">15</a></p>
-<p>We will use <em>GAMESS</em> and <em>MacMolPlt</em> together. We will also use <em>Avagadro</em>.</p>
-<hr class="docutils" />
+  <div class="tex2jax_ignore mathjax_ignore section" id="building-your-system">
+<h1>Building Your System<a class="headerlink" href="#building-your-system" title="Permalink to this headline">¶</a></h1>
+<p>First we must build a system of tools for computational chemistry. You can access the software and install it on your computer using the following instructions.</p>
 <div class="section" id="the-software">
 <h2>The Software<a class="headerlink" href="#the-software" title="Permalink to this headline">¶</a></h2>
 <p>These instructions below assume that you are using a <em>Unix</em>-based computer, like a <em>Linux</em> system or an Apple <em>MacOS</em> computer. I have lived in this <em>Unix</em> world my whole academic life and am largely unfamiliar with <em>Windows</em> systems. However, the websites below have information on installing these tools on <em>Windows</em> systems.</p>
@@ -735,7 +735,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Required Tools<a class="headerlink" href="#required-tools" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="text-editor">
 <h4>Text Editor<a class="headerlink" href="#text-editor" title="Permalink to this headline">¶</a></h4>
-<p>We will need a text editor. We could use <em>TextEdit</em>, which comes with <em>MacOS</em>. I will be using <em>BBEdit</em>, which has a useful free version available for <em>MacOS</em>.<a class="footnote-reference brackets" href="#bbedit-link" id="id16">16</a></p>
+<p>We will need a text editor. We could use <em>TextEdit</em>, which comes with <em>MacOS</em>. I use <em><a class="reference external" href="https://www.barebones.com/products/bbedit/">BBEdit</a></em>, which has a useful free version available for <em>MacOS</em>. Also Microsoft provides a free tyext editor designed for writing code called <em><a class="reference external" href="https://code.visualstudio.com/">VisualStudio</a></em>.</p>
 </div>
 <div class="section" id="terminal-emulator">
 <h4>Terminal Emulator<a class="headerlink" href="#terminal-emulator" title="Permalink to this headline">¶</a></h4>
@@ -749,8 +749,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><em>GAMESS</em> is a modern and constantly updated suite of software. However, it has no interface that the user interacts with. Jobs will be sent to <em>GAMESS</em> and output files will be sent back. It is controlled from the command line or via helper applications like <em>GamessQ</em> (see below). So, we will need to do a small amount of configuring via a text editor.</p>
 <div class="section" id="obtain-and-install">
 <h3>Obtain and Install<a class="headerlink" href="#obtain-and-install" title="Permalink to this headline">¶</a></h3>
-<p>Apply for a license for <em>GAMESS</em> by following the instruction on the Mark Gordon group website.<a class="footnote-reference brackets" href="#gamess-link" id="id17">3</a>  You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer.</p>
-<p>The <em>GAMESS</em> application is available as a pre-compiled binary for <em>MacOS</em> and <em>Windows</em>.<a class="footnote-reference brackets" href="#linux" id="id18">17</a>  I received my email, followed the instructions and downloaded a file for the latest version of the <em>MacOS</em> binary. I decompressed the file and placed the resulting gamess directory folder in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder.</p>
+<p>Apply for a license for <em>GAMESS</em> by following the instruction on the Mark Gordon group website.[^gamess_link]  You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer.</p>
+<p>The <em>GAMESS</em> application is available as a pre-compiled binary for <em>MacOS</em> and <em>Windows</em>.<a class="footnote-reference brackets" href="#linux" id="id1">1</a>  I received my email, followed the instructions and downloaded a file for the latest version of the <em>MacOS</em> binary. I decompressed the file and placed the resulting gamess directory folder in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder.</p>
 </div>
 <div class="section" id="the-gamess-folder">
 <h3>The GAMESS Folder<a class="headerlink" href="#the-gamess-folder" title="Permalink to this headline">¶</a></h3>
@@ -822,9 +822,9 @@ const thebe_selector_output = ".output, .cell_output"
 <hr class="docutils" />
 <div class="section" id="installing-gamessq">
 <h2>Installing GamessQ<a class="headerlink" href="#installing-gamessq" title="Permalink to this headline">¶</a></h2>
-<p><em>GamessQ</em> is a batch queue for <em>GAMESS</em> provided by the Gordon group. It is available from the same web site.<a class="footnote-reference brackets" href="#gamess-link" id="id19">3</a></p>
-<div class="section" id="id20">
-<h3>Obtain and Install<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p><em>GamessQ</em> is a batch queue for <em>GAMESS</em> provided by the Gordon group. It is available from the same web site.[^gamess_link]</p>
+<div class="section" id="id2">
+<h3>Obtain and Install<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Download the compressed file and extract it. Put the resulting folder in <code class="docutils literal notranslate"><span class="pre">/Applications</span></code>. In the <code class="docutils literal notranslate"><span class="pre">/Applications/GamessQ</span></code> directory we will see the following files<span class="math notranslate nohighlight">\(\ldots\)</span></p>
 <table class="colwidths-auto table">
 <thead>
@@ -850,7 +850,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="using-gamessq">
 <h3>Using GamessQ<a class="headerlink" href="#using-gamessq" title="Permalink to this headline">¶</a></h3>
 <p>To use <em>GamessQ</em>, you drag and drop the input files onto its window. This will place the job in the queue. You can see when jobs are waiting, running and finished. You can drop in dozens of jobs and let them run over the weekend this way.</p>
-<p>There is a command line version of <em>GamessQ</em> that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run <em>GAMESS</em>. You will be able to <em>telnet</em> (look it up) using <em>ssh</em><a class="footnote-reference brackets" href="#telnet" id="id21">18</a> (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using <em>gamessq</em> directly.</p>
+<p>There is a command line version of <em>GamessQ</em> that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run <em>GAMESS</em>. You will be able to <em>telnet</em> (look it up) using <em>ssh</em><a class="footnote-reference brackets" href="#telnet" id="id3">2</a> (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using <em>gamessq</em> directly.</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -882,8 +882,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="installing-macmolplt">
 <h2>Installing MacMolPlt<a class="headerlink" href="#installing-macmolplt" title="Permalink to this headline">¶</a></h2>
 <p>MacMolPlt is a molecular editing and visualization application. It can be used to construct 3-D structures and create input files for GAMESS. It can interpret the resulting output files and produce visualization of bond vibrations and frequencies, molecular energies and molecular orbitals and other surfaces.</p>
-<div class="section" id="id22">
-<h3>Obtain and Install<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Obtain and Install<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>You can obtain MacMolPlt at the github repository. Just unpack the downloaded file and put the application folder in your /Applications directory. If you are running MacOS 12 (Monterey) or later you will have to edit a configuration file within the application itself. Don’t worry, instructions are below.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -897,7 +897,7 @@ On <em>MacOS 11</em> and earlier, you can check a box in the “Get Info” menu
 <div class="section" id="using-wxmacmolplt">
 <h3>Using wxMacMolPlt<a class="headerlink" href="#using-wxmacmolplt" title="Permalink to this headline">¶</a></h3>
 <p>The application itself is called <em>wxMacMolPlt</em>. I will continue to refer to it as <em>MacMolPlt</em> in this document. Just click on the application icon and you will get a blank window to start building a molecule. Explore the menu and you will quickly get the hang of it.</p>
-<p>An instruction manual is available on the website.<a class="footnote-reference brackets" href="#id26" id="id23">8</a> More specific instructions on using <em>MacMolPlt</em> will be given in each exercise where we build molecules, optimize their structure and analyze the results of GAMESS calculations. Practice makes perfect.</p>
+<p>An instruction manual is available on the website.[^macmolplt] More specific instructions on using <em>MacMolPlt</em> will be given in each exercise where we build molecules, optimize their structure and analyze the results of GAMESS calculations. Practice makes perfect.</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -905,9 +905,9 @@ On <em>MacOS 11</em> and earlier, you can check a box in the “Get Info” menu
 <h2>Installing Avogadro<a class="headerlink" href="#installing-avogadro" title="Permalink to this headline">¶</a></h2>
 <p><em>Avogadro</em> is an open source application for building molecules and can export and interpret input and output files for <em>GAMESS</em>. It has many interesting features to explore. One very useful tool is the auto-optimization feature that will minimize the energy of your molecule using molecular mechanics. This will produce a structure that is closer to ground state and therefore faster to optimize in <em>GAMESS</em>
 .</p>
-<div class="section" id="id24">
-<h3>Obtain and Install<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
-<p>You can download Avogadro from the project’s website.<a class="footnote-reference brackets" href="#avogadro-link" id="id25">11</a> Install the software and that’s it. Open it and explore the menus.</p>
+<div class="section" id="id5">
+<h3>Obtain and Install<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>You can download Avogadro from the project’s website.[^avogadro_link] Install the software and that’s it. Open it and explore the menus.</p>
 </div>
 <div class="section" id="using-avogadro">
 <h3>Using Avogadro<a class="headerlink" href="#using-avogadro" title="Permalink to this headline">¶</a></h3>
@@ -988,62 +988,10 @@ On <em>MacOS 11</em> and earlier, you can check a box in the “Get Info” menu
 <p>We are now ready to do some calculations. We can build molecules and create input files using <em>MacMolPlt</em> or <em>Avogadro</em>. We can submit the files to <em>GAMESS</em> using <em>GamessQ</em>. We can then extract specific information using <em>Unix</em> tools and shell scripts or load the result files into <em>MacMolPlt</em> or <em>Avogadro</em> and examine the result graphically. We will be able to explore how steric strain arises in molecules and how structure affects the transition state in reactions. We will be able to see graphical representations of molecular orbitals and, in many cases, the local bonding orbitals that more closely align with Lewis structure. I hope that you will gain a more intuitive understanding of molecular structure and reaction kinetics.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="gamess1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>“General atomic and molecular electronic structure system” Michael W. Schmidt et. al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. <a class="reference external" href="https://doi.org/10.1002/jcc.540141112">https://doi.org/10.1002/jcc.540141112</a></p>
-</dd>
-<dt class="label" id="gamess2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>“Recent developments in the general atomic and molecular electronic structure system”
-Giuseppe M.J. Barca et. al., J. Chem. Phys., 2020, 152, 154102, <a class="reference external" href="https://doi.org/10.1063/5.0005188">https://doi.org/10.1063/5.0005188</a></p>
-</dd>
-<dt class="label" id="gamess-link"><span class="brackets">3</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id17">2</a>,<a href="#id19">3</a>)</span></dt>
-<dd><p><a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">https://www.msg.chem.iastate.edu/gamess/</a></p>
-</dd>
-<dt class="label" id="nwchem"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>“NWChem: a comprehensive and scalable open-source solution for large scale molecular simulations”
-M. Valiev et. al.,  Comput. Phys. Commun., 2010, 181, 1477. <a class="reference external" href="https://doi.org/10.1016/j.cpc.2010.04.018">https://doi.org/10.1016/j.cpc.2010.04.018</a></p>
-</dd>
-<dt class="label" id="nwchem-link"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p><a class="reference external" href="https://nwchemgit.github.io">https://nwchemgit.github.io</a></p>
-</dd>
-<dt class="label" id="orca"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p>“Software update: The ORCA program system, version 4.0” Frank Neese, Wiley Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. <a class="reference external" href="https://doi.org/10.1002/wcms.1327">https://doi.org/10.1002/wcms.1327</a></p>
-</dd>
-<dt class="label" id="orca-link"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
-<dd><p><a class="reference external" href="https://orcaforum.kofo.mpg.de/app.php/portal">https://orcaforum.kofo.mpg.de/app.php/portal</a></p>
-</dd>
-<dt class="label" id="id26"><span class="brackets">8</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id23">2</a>)</span></dt>
-<dd><p>“MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, Mol. Graphics and Modeling, 1999, 16, 133-138. <a class="reference external" href="https://doi.org/10.1016/s1093-3263(99)00002-9">https://doi.org/10.1016/s1093-3263(99)00002-9</a></p>
-</dd>
-<dt class="label" id="macmolplt-link"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
-<dd><p><a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">http://brettbode.github.io/wxmacmolplt/</a></p>
-</dd>
-<dt class="label" id="id27"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
-<dd><p>“Avogadro: an advanced semantic chemical editor, visualization, and analysis platform”
-Marcus D Hanwell et. al., J. Cheminform., 2012, 4, 17. <a class="reference external" href="https://doi.org/10.1186/1758-2946-4-17">https://doi.org/10.1186/1758-2946-4-17</a></p>
-</dd>
-<dt class="label" id="avogadro-link"><span class="brackets">11</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id25">2</a>)</span></dt>
-<dd><p><a class="reference external" href="http://avogadro.cc">http://avogadro.cc</a></p>
-</dd>
-<dt class="label" id="gabedit"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
-<dd><p>“Gabedit - A graphical user interface for computational chemistry softwares”
-A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. <a class="reference external" href="https://doi.org/10.1002/jcc.21600">https://doi.org/10.1002/jcc.21600</a></p>
-</dd>
-<dt class="label" id="gabedit-link"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
-<dd><p><a class="reference external" href="http://gabedit.sourceforge.net/home.html">http://gabedit.sourceforge.net/home.html</a></p>
-</dd>
-<dt class="label" id="molden"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
-<dd><p>“Molden: a pre- and post-processing program for molecular and electronic structures” D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). <a class="reference external" href="https://doi.org/10.1023/A:1008193805436">https://doi.org/10.1023/A:1008193805436</a></p>
-</dd>
-<dt class="label" id="molden-link"><span class="brackets"><a class="fn-backref" href="#id15">15</a></span></dt>
-<dd><p><a class="reference external" href="https://www.theochem.ru.nl/molden/">https://www.theochem.ru.nl/molden/</a></p>
-</dd>
-<dt class="label" id="bbedit-link"><span class="brackets"><a class="fn-backref" href="#id16">16</a></span></dt>
-<dd><p><a class="reference external" href="https://www.barebones.com/products/bbedit/">https://www.barebones.com/products/bbedit/</a></p>
-</dd>
-<dt class="label" id="linux"><span class="brackets"><a class="fn-backref" href="#id18">17</a></span></dt>
+<dt class="label" id="linux"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Linux users will have to compile the source code. Go for it! Please make notes on your epic journey and share them with your peers. Everyone should use Linux, we just need you to show us the way. I am too timid to leave my soft warm bed and so I use MacOS. I envy you, but I will not join you; others may if you lead them. Rock on!</p>
 </dd>
-<dt class="label" id="telnet"><span class="brackets"><a class="fn-backref" href="#id21">18</a></span></dt>
+<dt class="label" id="telnet"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
 <dd><p>Your Unix system will have a secure shell (ssh) tool that can be called using the ssh command. It will likely be an implementation of the OpenSSH suite of internet tools. No one uses telnet anymore, but it has become a verb for the act of using ssh.</p>
 </dd>
 </dl>
@@ -1081,13 +1029,13 @@ A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. <a class="
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">1. Table of Contents</p>
+            <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_SmallMolecule.html" title="next page">
+    <a class='right-next' id="next-link" href="3_Visual_Input.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3. Getting Started with Small Molecules</p>
+        <p class="prev-next-title">Methane: Visual Input and Output</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

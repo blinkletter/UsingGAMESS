@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Table of Contents &#8212; Fun With GAMESS</title>
+    <title>Introduction &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2 Introduction" href="1_Setup.html" />
+    <link rel="next" title="Building Your System" href="1_Setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -88,19 +88,60 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   1. Table of Contents
+   Introduction
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="1_Setup.html">
-   2 Introduction
+   Building Your System
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="2_SmallMolecule.html">
-   3. Getting Started with Small Molecules
+  <a class="reference internal" href="2_SmallMolecules.html">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
   </a>
  </li>
 </ul>
@@ -155,22 +196,6 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/blinkletter/UsingGAMESS"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/blinkletter/UsingGAMESS/issues/new?title=Issue%20on%20page%20%2Fstart.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -209,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>1. Table of Contents</h1>
+                <h1>Introduction</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -220,10 +245,64 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="section" id="table-of-contents">
-<h1>1. Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
-<p>We will experience GAMESS!</p>
-<p><a class="reference internal" href="1_Setup.html"><span class="doc std std-doc">Getting Started</span></a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>We have some intuition about chemical structure and energy. We know that butane is at its lowest energy in the <em>anti</em> conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its electronic structure. We can demonstrate these effects and explore consequences of changes in structure on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are free to all or free for academic use.</p>
+<p><em><strong>GAMESS</strong></em><a class="footnote-reference brackets" href="#gamess1" id="id1">1</a>,<a class="footnote-reference brackets" href="#gamess2" id="id2">2</a>,<a class="footnote-reference brackets" href="#gamess-link" id="id3">3</a>  is an ab initio computation package for investigating molecular structure and energy. There are others, such as <em><strong>NWChem</strong></em> <a class="footnote-reference brackets" href="#nwchem" id="id4">4</a>,<a class="footnote-reference brackets" href="#nwchem-link" id="id5">5</a>  and <em><strong>ORCA</strong></em> <a class="footnote-reference brackets" href="#orca" id="id6">6</a>,<a class="footnote-reference brackets" href="#orca-link" id="id7">7</a>.</p>
+<p><em><strong>MacMolPlt</strong></em> <a class="footnote-reference brackets" href="#macmolplt" id="id8">8</a>,<a class="footnote-reference brackets" href="#macmolplt-link" id="id9">9</a>  is a graphical front end for <em>GAMESS</em>. It can build molecules, export input files and interpret the output files produced by GAMESS. <em><strong>Avogadro</strong></em> <a class="footnote-reference brackets" href="#avogadro" id="id10">10</a>,<a class="footnote-reference brackets" href="#avogadro-link" id="id11">11</a>  is a more modern option but lacks some useful tools compared to MacMolPlt. There are others, such as <em><strong>Gabedit</strong></em> <a class="footnote-reference brackets" href="#gabedit" id="id12">12</a>,<a class="footnote-reference brackets" href="#gabedit-link" id="id13">13</a>  and <em><strong>Molden</strong></em>. <a class="footnote-reference brackets" href="#molden" id="id14">14</a>,<a class="footnote-reference brackets" href="#molden-link" id="id15">15</a></p>
+<p>We will use <em>GAMESS</em> and <em>MacMolPlt</em> together. We will also use <em>Avagadro</em>.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="gamess1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>“General atomic and molecular electronic structure system” Michael W. Schmidt et. al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. <a class="reference external" href="https://doi.org/10.1002/jcc.540141112">https://doi.org/10.1002/jcc.540141112</a></p>
+</dd>
+<dt class="label" id="gamess2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>“Recent developments in the general atomic and molecular electronic structure system”
+Giuseppe M.J. Barca et. al., J. Chem. Phys., 2020, 152, 154102, <a class="reference external" href="https://doi.org/10.1063/5.0005188">https://doi.org/10.1063/5.0005188</a></p>
+</dd>
+<dt class="label" id="gamess-link"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">https://www.msg.chem.iastate.edu/gamess/</a></p>
+</dd>
+<dt class="label" id="nwchem"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>“NWChem: a comprehensive and scalable open-source solution for large scale molecular simulations”
+M. Valiev et. al.,  Comput. Phys. Commun., 2010, 181, 1477. <a class="reference external" href="https://doi.org/10.1016/j.cpc.2010.04.018">https://doi.org/10.1016/j.cpc.2010.04.018</a></p>
+</dd>
+<dt class="label" id="nwchem-link"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><a class="reference external" href="https://nwchemgit.github.io">https://nwchemgit.github.io</a></p>
+</dd>
+<dt class="label" id="orca"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>“Software update: The ORCA program system, version 4.0” Frank Neese, Wiley Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. <a class="reference external" href="https://doi.org/10.1002/wcms.1327">https://doi.org/10.1002/wcms.1327</a></p>
+</dd>
+<dt class="label" id="orca-link"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p><a class="reference external" href="https://orcaforum.kofo.mpg.de/app.php/portal">https://orcaforum.kofo.mpg.de/app.php/portal</a></p>
+</dd>
+<dt class="label" id="macmolplt"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p>“MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, Mol. Graphics and Modeling, 1999, 16, 133-138. <a class="reference external" href="https://doi.org/10.1016/s1093-3263(99)00002-9">https://doi.org/10.1016/s1093-3263(99)00002-9</a></p>
+</dd>
+<dt class="label" id="macmolplt-link"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p><a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">http://brettbode.github.io/wxmacmolplt/</a></p>
+</dd>
+<dt class="label" id="avogadro"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dd><p>“Avogadro: an advanced semantic chemical editor, visualization, and analysis platform”
+Marcus D Hanwell et. al., J. Cheminform., 2012, 4, 17. <a class="reference external" href="https://doi.org/10.1186/1758-2946-4-17">https://doi.org/10.1186/1758-2946-4-17</a></p>
+</dd>
+<dt class="label" id="avogadro-link"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
+<dd><p><a class="reference external" href="http://avogadro.cc">http://avogadro.cc</a></p>
+</dd>
+<dt class="label" id="gabedit"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
+<dd><p>“Gabedit - A graphical user interface for computational chemistry softwares”
+A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. <a class="reference external" href="https://doi.org/10.1002/jcc.21600">https://doi.org/10.1002/jcc.21600</a></p>
+</dd>
+<dt class="label" id="gabedit-link"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
+<dd><p><a class="reference external" href="http://gabedit.sourceforge.net/home.html">http://gabedit.sourceforge.net/home.html</a></p>
+</dd>
+<dt class="label" id="molden"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
+<dd><p>“Molden: a pre- and post-processing program for molecular and electronic structures” D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). <a class="reference external" href="https://doi.org/10.1023/A:1008193805436">https://doi.org/10.1023/A:1008193805436</a></p>
+</dd>
+<dt class="label" id="molden-link"><span class="brackets"><a class="fn-backref" href="#id15">15</a></span></dt>
+<dd><p><a class="reference external" href="https://www.theochem.ru.nl/molden/">https://www.theochem.ru.nl/molden/</a></p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -256,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="1_Setup.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2 Introduction</p>
+        <p class="prev-next-title">Building Your System</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

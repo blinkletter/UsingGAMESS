@@ -5,4 +5,11 @@ format: jb-book
 root: start
 chapters:
   - file: 1_Setup
-  - file: 2_SmallMolecule
+  - file: 2_SmallMolecules
+  - file: 3_Visual_Input
+  - file: 4_Ethane
+  - file: 5_Rotation_Profiles
+    sections:
+    - file: 5_Rotation_Profiles_Workflow
+    - file: 5_Rotation_Profiles_Workflow_Data
+  - file: 6_Pi_Orbitals
