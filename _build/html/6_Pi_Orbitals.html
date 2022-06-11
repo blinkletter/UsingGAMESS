@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Benzene: MOs and Symmetry" href="6_Benzene.html" />
     <link rel="prev" title="Data Workflow" href="5_Rotation_Profiles_Workflow_Data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -137,13 +138,30 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    Allyl Cation:
    <span class="math notranslate nohighlight">
     \(\pi\)
    </span>
    Orbitals
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Benzene.html">
+     Benzene: MOs and Symmetry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
   </a>
  </li>
 </ul>
@@ -319,10 +337,10 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>The Allyl System<a class="headerlink" href="#the-allyl-system" title="Permalink to this headline">¶</a></h2>
 <p>For an example we will build the allyl cation and examine the results of the calculation. First we will build the allyl group with MacMolPlt and attempt to use symmetry (MacMolPlt files often fail with GAMESS when applying symmetry). If that fails we will construct the molecule manually.</p>
 <p>In MacMolPlt first we will set the point group using <code class="docutils literal notranslate"><span class="pre">Molecule</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Point</span> <span class="pre">Group</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Group</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Cnv</span></code> and then <code class="docutils literal notranslate"><span class="pre">…</span></code><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Order</span> <span class="pre">of</span> <span class="pre">Principal</span> <span class="pre">Axis</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">2</span></code>. Set up the build with <code class="docutils literal notranslate"><span class="pre">Builder</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">with</span> <span class="pre">Symmetry</span></code> and then call the build window with <code class="docutils literal notranslate"><span class="pre">Builder</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. It helps to show the axes of the symmetry space via <code class="docutils literal notranslate"><span class="pre">View</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Axis</span></code>. After that, it is up to trial and error.</p>
-<p>You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See <a class="reference internal" href="#fig6a"><span class="std std-numref">Fig. 29</span></a> for an example.</p>
-<div class="figure align-default" id="fig6a">
+<p>You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See <a class="reference internal" href="#fig6a1"><span class="std std-numref">Fig. 29</span></a> for an example.</p>
+<div class="figure align-default" id="fig6a1">
 <a class="reference internal image-reference" href="_images/pi_symmetryBuild.png"><img alt="_images/pi_symmetryBuild.png" src="_images/pi_symmetryBuild.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using MacMolPlt. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using MacMolPlt. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a1" title="Permalink to this image">¶</a></p>
 </div>
 <p>I then exported an input file using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add d and p orbitals and use both diffuse functions. The diffuse functions are important as they improve results for charged systems. Here is the input file that was generated. Only the unique atoms (2 carbons, the third is defined by symmetry) are in the $DATA group.</p>
 <p><strong>AllylCat_6311_U.inp</strong></p>
@@ -397,7 +415,7 @@ H     1.0     0.00000     0.72580    -1.09270
 </tr>
 </tbody>
 </table>
-<p>We see that the ends of the allyl cation share the charge 50/50. This is consistent with the SHMO analysis, which would have placed the full charge of the group on the carbon atom alone (SHMO ignores all other atoms)</p>
+<p>We see that the ends of the allyl cation share the charge 50/50. This is consistent with the SHMO analysis, which would have placed the full charge of the group on the carbon atom alone (SHMO ignores the hydrogen atoms)</p>
 </div>
 </div>
 <div class="section" id="analysis-of-molecular-orbitals">
@@ -562,6 +580,8 @@ Now repeat the exercise for the following situations as assigned. Don’t bother
 </pre></div>
 </div>
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -595,6 +615,13 @@ Now repeat the exercise for the following situations as assigned. Don’t bother
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Data Workflow</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="6_Benzene.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Benzene: MOs and Symmetry</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
