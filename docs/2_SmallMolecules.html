@@ -1,0 +1,2045 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water: Getting Started &#8212; Fun With GAMESS</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Methane: Visual Input and Output" href="3_Visual_Input.html" />
+    <link rel="prev" title="Building Your System" href="1_Setup.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Setup.html">
+   Building Your System
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Benzene.html">
+     Benzene: MOs and Symmetry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2_SmallMolecules.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#small-molecules">
+   Small Molecules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water">
+   Water
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-3d-world">
+     The 3D World
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#symmetry">
+     Symmetry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-water">
+     Building Water
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-first-input-file">
+     Your First Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-structure-of-the-input-file">
+     The Structure of The Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gamess-groups">
+     GAMESS groups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-contrl-group">
+       The $CONTRL Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-system-group">
+       The $SYSTEM Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-basis-group">
+       The $BASIS Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-scf-group">
+       The $SCF Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-statpt-group">
+       The $STATPT Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-data-group">
+       The $DATA Group
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-first-gamess-job">
+   Your First GAMESS Job
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-first-output-file">
+   Your First Output File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higher-levels-of-theory">
+   Higher Levels of Theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-higher-level-hf-3-21g">
+     A Higher Level: HF/3-21G
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-power-hf-6-311g-d-p">
+     More Power: HF/6-311G(d,p)++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#units">
+   Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#internal-coordinates">
+   Internal Coordinates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-z-matrix-with-water">
+     The Z-matrix with Water
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-z-matrix-for-ammonia">
+     The Z-Matrix for Ammonia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dummy-atoms-in-the-z-matrix">
+     Dummy Atoms in the Z-Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-zmat-group">
+     The $ZMAT Group
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-activity">
+     The Activity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-report">
+     The Report
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-exercise-report">
+   Example Exercise Report
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methane-calculations">
+     Methane Calculations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methane-data">
+       Methane Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#commentary">
+       Commentary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#appendix-input-files">
+       Appendix: Input files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#water-calculations">
+     Water Calculations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#water-data">
+       Water Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Commentary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Appendix: Input files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ammonia-calculations">
+     Ammonia Calculations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ammonia-data">
+       Ammonia Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Commentary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Appendix: Input files
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Water: Getting Started</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#small-molecules">
+   Small Molecules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water">
+   Water
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-3d-world">
+     The 3D World
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#symmetry">
+     Symmetry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-water">
+     Building Water
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-first-input-file">
+     Your First Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-structure-of-the-input-file">
+     The Structure of The Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gamess-groups">
+     GAMESS groups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-contrl-group">
+       The $CONTRL Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-system-group">
+       The $SYSTEM Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-basis-group">
+       The $BASIS Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-scf-group">
+       The $SCF Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-statpt-group">
+       The $STATPT Group
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-data-group">
+       The $DATA Group
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-first-gamess-job">
+   Your First GAMESS Job
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-first-output-file">
+   Your First Output File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higher-levels-of-theory">
+   Higher Levels of Theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-higher-level-hf-3-21g">
+     A Higher Level: HF/3-21G
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-power-hf-6-311g-d-p">
+     More Power: HF/6-311G(d,p)++
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#units">
+   Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#internal-coordinates">
+   Internal Coordinates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-z-matrix-with-water">
+     The Z-matrix with Water
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-z-matrix-for-ammonia">
+     The Z-Matrix for Ammonia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dummy-atoms-in-the-z-matrix">
+     Dummy Atoms in the Z-Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-zmat-group">
+     The $ZMAT Group
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-activity">
+     The Activity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-report">
+     The Report
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-exercise-report">
+   Example Exercise Report
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methane-calculations">
+     Methane Calculations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methane-data">
+       Methane Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#commentary">
+       Commentary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#appendix-input-files">
+       Appendix: Input files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#water-calculations">
+     Water Calculations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#water-data">
+       Water Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Commentary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Appendix: Input files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ammonia-calculations">
+     Ammonia Calculations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ammonia-data">
+       Ammonia Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Commentary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Appendix: Input files
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="water-getting-started">
+<h1>Water: Getting Started<a class="headerlink" href="#water-getting-started" title="Permalink to this headline">¶</a></h1>
+<p>What can we explore with computational chemistry? Let us explore the electronic structure of some small molecules. In this chapter we will learn ways to input molecules into GAMESS via input files.</p>
+<hr class="docutils" />
+<div class="section" id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
+<p>This exercise will hopefully accomplish the following goals while learning new skills:</p>
+<ul class="simple">
+<li><p>We will confirm that your installation of GAMESS is working properly</p></li>
+<li><p>We will construct a GAMESS input file with a text editor.</p></li>
+<li><p>We will use three methods for creating a description of the atomic positions</p>
+<ul>
+<li><p>Cartesian coordinates (classic xyz 3D space)</p></li>
+<li><p>Unique Cartesian with symmetry point groups</p></li>
+<li><p>Internal coordinates using a Z-matrix</p></li>
+</ul>
+</li>
+<li><p>We will use GAMESS to determine the optimized structure of small molecules using semi-empirical methods.</p></li>
+<li><p>We will create new input files using the results of the previous calculation and calculate the optimized structure using more expensive methods.</p></li>
+<li><p>We will compare the methods that we try and choose a method for future work.</p></li>
+<li><p>We will humbly recognize that we are organic chemists and that we are using GAMESS as a recipe with poor understanding of the consequences of our choices. We will observe these consequences in our results as we move forward. If we knew what we were doing, we might avoid many inevitable pitfalls. However we have a whole box a band aids and always wear our safety goggles. Let’s go!</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="small-molecules">
+<h2>Small Molecules<a class="headerlink" href="#small-molecules" title="Permalink to this headline">¶</a></h2>
+<p>Methane, ammonia and water: these three molecules are sp3 hybridized and should be tetrahedral in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109˚</p>
+<p>To investigate these molecules will need to describe a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with xyz values; unique Cartesian coordinates, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the Z-matrix, where each atom is placed in space relative to the previous one in a carefully created list.</p>
+<p>GAMESS works by positioning the nuclei and then creating a mathematical function for the energy of the electrons. By taking the derivative of that function, GAMESS can determine if the current position is on a slope and then change the positions by a small amount to follow that slope downhill in energy. A new function is calculated and the process repeats again and again</p>
+<p>In this exercise we will be manually creating and running input files. In the future, we will learn how to use MacMolPlt and Avogadro to quickly build molecules and automatically create input files. But lets us first get our hands dirty before we start using power tools to do the hard work for us. Wax on, wax off!</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="water">
+<h2>Water<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h2>
+<p>Water has three atoms that have found an arrangement in space for the nuclei and electrons that is as low in energy as possible. Can we calculate that arrangement and see if it fits with observations? First, we must create a data set that describes the positions of the nuclei. Let us begin by discussing the nature of the 3D coordinate space used by GAMESS.</p>
+<div class="section" id="the-3d-world">
+<h3>The 3D World<a class="headerlink" href="#the-3d-world" title="Permalink to this headline">¶</a></h3>
+<p>x,y,z… That triplet describes the entire universe. But GAMESS does not treat x, y and z equally. Consider the axis diagram in <a class="reference internal" href="#fig1"><span class="std std-numref">Fig. 1</span></a>.</p>
+<div class="figure align-default" id="fig1">
+<a class="reference internal image-reference" href="_images/GAMESS_AXES.png"><img alt="_images/GAMESS_AXES.png" src="_images/GAMESS_AXES.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><em>The axis scheme for GAMESS atomic coordinates</em></span><a class="headerlink" href="#fig1" title="Permalink to this image">¶</a></p>
+</div>
+<p>When constructing a structure using either Cartesian coordinates or a Z-matrix, we don’t consider any priority for an axis. However, when using point groups and symmetry to define molecules with unique Cartesian coordinates, we must pay attention to how GAMESS manipulates symmetry. The primary axis of the point group is expected to be the z-axis. Any vertical <span class="math notranslate nohighlight">\(\sigma\)</span>-plane should first be set up in the zx plane. The horizontal <span class="math notranslate nohighlight">\(\sigma\)</span>-plane should be considered to be the xy plane. The first perpendicular 2-fold axis should be set up along the x-axis. Keep these ideas in mind as we construct our first molecules.</p>
+</div>
+<div class="section" id="symmetry">
+<h3>Symmetry<a class="headerlink" href="#symmetry" title="Permalink to this headline">¶</a></h3>
+<p>Symmetry is beautiful. It also helps with math. If a molecule has symmetry, we should use it to make the calculations performed by GAMESS less expensive. A molecule that is known to possess 2-fold symmetry may be half as difficult to analyze because we may only need half the math. This depends a lot on the basis set chosen to describe the math of each atomic orbital but, most of the time, it is to our advantage to declare and use a symmetry point group.</p>
+<p>Water has a <span class="math notranslate nohighlight">\(C_2\)</span> axis. There is no perpendicular <span class="math notranslate nohighlight">\(C_2\)</span> axis so we remain in the <span class="math notranslate nohighlight">\(C\)</span> group rather than rising to <span class="math notranslate nohighlight">\(D\)</span>. There is no <span class="math notranslate nohighlight">\(\sigma_h\)</span> but there are two <span class="math notranslate nohighlight">\(\sigma_v\)</span> planes. Therefore water is in the <span class="math notranslate nohighlight">\(C_{2v}\)</span> point group. We will use Cartesian coordinates that place the primary axis along the z-axis and the atoms in the xz plane. See <a class="reference internal" href="#fig2"><span class="std std-numref">Fig. 2</span></a> for how we will position water in the 3D space used by GAMESS.</p>
+<div class="figure align-default" id="fig2">
+<a class="reference internal image-reference" href="_images/WATER_AXES.png"><img alt="_images/WATER_AXES.png" src="_images/WATER_AXES.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>Water positioned in GAMESS 3D space with the <span class="math notranslate nohighlight">\(C_2\)</span> axis along the z-axis and the primary <span class="math notranslate nohighlight">\(\sigma_v\)</span> plane as the xz plane</em></span><a class="headerlink" href="#fig2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="building-water">
+<h3>Building Water<a class="headerlink" href="#building-water" title="Permalink to this headline">¶</a></h3>
+<p>So how shall we build water? We can provide cartesian coordinates that position oxygen at the origin. Then we can position a hydrogen in on xz quadrant and the second hydrogen in the opposite quadrant. Compare the below set of coordinates to <a class="reference internal" href="#fig2"><span class="std std-numref">Fig. 2</span></a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Atom</p></th>
+<th class="text-align:center head"><p>x</p></th>
+<th class="text-align:center head"><p>y</p></th>
+<th class="text-align:center head"><p>z</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Oxygen</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Hydrogen</p></td>
+<td class="text-align:center"><p>b</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>–a</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Hydrogen</p></td>
+<td class="text-align:center"><p>–b</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>–a</p></td>
+</tr>
+</tbody>
+</table>
+<p>What values should we use for a and b? We know that the bond angle should be 104.5˚ and that the bond length in water is 0.95 Å. We could use trigonometry and position the atoms accordingly. Or we could just throw some guess in and let GAMESS start there as it moves toward finding the optimal structure. I will set both a and b to 0.7 Å. Our initial guess at water will have a bond angle of 90˚ and a bond length of <span class="math notranslate nohighlight">\(\sqrt{(0.7+0.7)}\)</span>.</p>
+</div>
+<div class="section" id="your-first-input-file">
+<h3>Your First Input File<a class="headerlink" href="#your-first-input-file" title="Permalink to this headline">¶</a></h3>
+<p>We now need to create a text file that will be read into GAMESS to provide the information for the calculation. We must tell GAMESS what kind of calculation, the methods to use for determining energy, The conditions for declaring a satisfactory structure, and the data for the structure.</p>
+<p>Below is the text file for this first GAMESS run. I created a file called water.inp and typed in the following text (feel free to cut and paste.)</p>
+<p><strong>water.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 2
+
+O     8.0   0.0   0.0   0.0
+H     1.0  -0.7   0.0  -0.7
+H     1.0   0.7   0.0  -0.7
+ $END
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-structure-of-the-input-file">
+<h3>The Structure of The Input File<a class="headerlink" href="#the-structure-of-the-input-file" title="Permalink to this headline">¶</a></h3>
+<p>A GAMESS input file is a series of text lines called “cards.” (Before your parents were born, computers did not receive input via a keyboard, they used punched paper cards.) Each line must be less than 80 character (those paper cards were only so big.)</p>
+<p>The input is separated in a series a “groups.” Each group begins with a <span class="math notranslate nohighlight">\( character and ends with a \)</span>END string. There are many, many groups available to the sophisticated theoretical chemist. We will only use a handful. In the water.inp file, we use the following groups: <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code>, <code class="docutils literal notranslate"><span class="pre">$SYSTEM</span></code>, <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code>, <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> and <code class="docutils literal notranslate"><span class="pre">$DATA</span></code>. The <code class="docutils literal notranslate"><span class="pre">$</span></code> character for a group MUST be in the second column of a card (GAMESS is written in FORTRAN, an ancient computer language that is based on paper cards and therefore obsessive about columns in data input.) After several GAMESS jobs fail spectacularly on you, you will come to believe in this second column requirement.</p>
+</div>
+<div class="section" id="gamess-groups">
+<h3>GAMESS groups<a class="headerlink" href="#gamess-groups" title="Permalink to this headline">¶</a></h3>
+<p>Here is a quick overview of the groups used in our first job. We will add to our skills as we move forward.</p>
+<div class="section" id="the-contrl-group">
+<h4>The $CONTRL Group<a class="headerlink" href="#the-contrl-group" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code> group establishes the kind of calculation. It can contain many parameters. The ones used here are our beginning set.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
+</pre></div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Parameter</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">SCFTYP=RHF</span></code></p></td>
+<td class="text-align:left"><p>The method used is “restricted Hartee-Fock.” This assumes that all electrons are paired.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">RUNTYP=OPTIMIZE</span></code></p></td>
+<td class="text-align:left"><p>The calculation is a structural optimization.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MAXIT=30</span></code></p></td>
+<td class="text-align:left"><p>The maximum number of iterations to determine the derivative of the function that describes everything about everything in the molecule.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MULT=1</span></code></p></td>
+<td class="text-align:left"><p>The spin multiplicity (1 means all electron spins are paired)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">ICHARG=0</span></code></p></td>
+<td class="text-align:left"><p>The charge on the molecule</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">COORD=CART</span></code></p></td>
+<td class="text-align:left"><p>The coordinate system that we are using. We will use <code class="docutils literal notranslate"><span class="pre">CART</span></code> for describing the xyz of all atoms, <code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code> for describing the xyz coordinates of atoms unique in the symmetry point group, and <code class="docutils literal notranslate"><span class="pre">ZMT</span></code> for internal coordinates in Z-matrix format. The very first run with <code class="docutils literal notranslate"><span class="pre">COORD=CART</span></code> will convert the xyz data into a symmetrical system aligned with the primary axis (we are already there) and with the origin at the center of mass of the molecule (we are definitely not there). The first result file will contain the unique symmetry coordinates for the molecule and we should use these new coordinates and <code class="docutils literal notranslate"><span class="pre">COORD=UNIQUE</span></code> for all subsequent calculations.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">CART</span></code> coordinate option has been deprecated in modern versions of GAMESS. The new flag is <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code>. <code class="docutils literal notranslate"><span class="pre">CART</span></code> will perform the job of <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code>, but <code class="docutils literal notranslate"><span class="pre">CART</span></code> may someday be gone entirely. Both <code class="docutils literal notranslate"><span class="pre">CART</span></code> and <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code> will reorient the molecule along the primary axis of the point group and generate a set of Cartesian coordinates for the symmetry unique atoms. You will only ever run a <code class="docutils literal notranslate"><span class="pre">CART</span></code> or <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code> calculation once and thereafter will use the symmetry unique atoms and <code class="docutils literal notranslate"><span class="pre">COORD=UNIQUE</span></code> in all future calculations with your molecule.</p>
+</div>
+</div>
+<div class="section" id="the-system-group">
+<h4>The $SYSTEM Group<a class="headerlink" href="#the-system-group" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">$SYSTEM</span></code> group defines parameters for the computer system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+</pre></div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Parameter</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">TIMLIM=525600</span></code></p></td>
+<td class="text-align:left"><p>The time limit for the calculation. 525,600 minutes – how do you measure a year in the life?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MEMORY=1000000</span></code></p></td>
+<td class="text-align:left"><p>The memory to be used (for each processor core.) Increase this if your job crashes out and complains about a lack of memory.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-basis-group">
+<h4>The $BASIS Group<a class="headerlink" href="#the-basis-group" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code> group defines the theoretical rigor of the calculation. We will discuss this in more detail later. By using the AM1 level of theory we are declaring that we will use semi-empirical methods. This is a very low level calculation and requires little in computer resources. We will soon explore methods that will take some serious computer time (and time is money.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $BASIS GBASIS=AM1 $END
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-scf-group">
+<h4>The $SCF Group<a class="headerlink" href="#the-scf-group" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">$SCF</span></code> group is specific to the way the calculation is performed. The first derivative of the energy function is calculated and stored in a temporary file on disk. Later, when it is needed again, it is read from the disk (it is called several times in the calculation method.) Modern processors can actually recalculate this function from scratch faster than a computer hard disk can spin. The <code class="docutils literal notranslate"><span class="pre">DIRSCF=.TRUE.</span></code> command sets GAMESS to recalculate the function each time it is needed rather than read from the much slower disk drive (modern SSD storage may change this requirement – computers are improving all the time.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $SCF DIRSCF=.TRUE. $END
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-statpt-group">
+<h4>The $STATPT Group<a class="headerlink" href="#the-statpt-group" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group establishes the parameters for deciding when we have reached a “stationary point” where the derivative of the energy function is near zero (zero slope is likely the bottom of an energy well, the lowest point along the path that GAMESS has taken).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
+</pre></div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Parameter</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">OPTTOL=0.0001</span></code></p></td>
+<td class="text-align:left"><p>If the RMS average of the energy gradients (slopes) for the whole system is less than this value then we declare that we are finished.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">NSTEP=100</span></code></p></td>
+<td class="text-align:left"><p>The maximum number of steps that we take in the algorithm before we give up.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-data-group">
+<h4>The $DATA Group<a class="headerlink" href="#the-data-group" title="Permalink to this headline">¶</a></h4>
+<p>The above groups instructed GAMESS how to treat the next group, the star of the show, the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group. Let us now examine this importanjt part of the input file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $DATA 
+Water
+CNV 2
+
+O     8.0   0.0   0.0   0.0
+H     1.0  -0.7   0.0  -0.7
+H     1.0   0.7   0.0  -0.7
+ $END
+</pre></div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Line</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Line 1</p></td>
+<td class="text-align:left"><p>The first line in the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group is the name of the job. Put whatever you want there. I chose water, it seemed appropriate.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Line 2</p></td>
+<td class="text-align:left"><p>The next line is the symmetry point group. Water is <span class="math notranslate nohighlight">\(C_{2v}\)</span>. GAMESS establishes this in two parts: first we declare <span class="math notranslate nohighlight">\(C_{nv}\)</span> and then we set the value of <span class="math notranslate nohighlight">\(n\)</span> as 2.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Line 3</p></td>
+<td class="text-align:left"><p>The next line is blank. This is important. Leave it blank. (If we are not using symmetry, we will declare the point group to be <span class="math notranslate nohighlight">\(C_1\)</span> and then the blank line will not be used.  Don’t worry, after a few crashed jobs you will get the hang of this.)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Lines 4..n</p></td>
+<td class="text-align:left"><p>All the following lines are the data for the nuclei. The first column is the name (it can be anything up to 10 characters), the next is the nuclear charge (this defines the atom), and then the x,y,z coordinates. Like all GAMESS groups, the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group is ended by the <code class="docutils literal notranslate"><span class="pre">$END</span></code> string.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Since we defined <code class="docutils literal notranslate"><span class="pre">COORD=CART</span></code> in the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code> group, GAMESS will input all the atomic coordinates and attempt to interpret them via the <span class="math notranslate nohighlight">\(C_{2v}\)</span> point group. If your coordinates do not fit in that point group, the calculation will probably fail. If they fit the <span class="math notranslate nohighlight">\(C_{2v}\)</span> group, then GAMESS will identify the symmetry and use only the unique atoms within the point group in the subsequent calculation. Defining the symmetry point group is very useful in minimizing the costs of a calculation.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="your-first-gamess-job">
+<h2>Your First GAMESS Job<a class="headerlink" href="#your-first-gamess-job" title="Permalink to this headline">¶</a></h2>
+<p>Now we have an input file named <code class="docutils literal notranslate"><span class="pre">water.inp</span></code>. We can run that job via GamessQ, but in this exercise we will stay with the basics and run it via the command line.</p>
+<p>Open a terminal emulator window and type in the following command…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gms</span> <span class="n">water</span>
+</pre></div>
+</div>
+<p>gms is the script that calls GAMESS. After that is the input to the command, the file <code class="docutils literal notranslate"><span class="pre">water.inp</span></code>. (the script will add the “<code class="docutils literal notranslate"><span class="pre">.inp</span></code>” if it is not present.) The script will ask for a name for the result file. I just hit return to accept the default, <code class="docutils literal notranslate"><span class="pre">water.log</span></code>. That .log file will be written into the current directory. In about three seconds the job finished. That’s all there is to it.</p>
+<p>The exact syntax depends on the directory that you are in and the locations of the input files and the gms script involved. I set the environmental variable <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> to enable command calls to find gms in the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> directory on my own computer.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the following command to create a path to the gms script (change the path to suit your situation):
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH=$PATH:/Applications/gamess</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Enter <code class="docutils literal notranslate"><span class="pre">gms</span> <span class="pre">help</span></code> for information about using gms.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="your-first-output-file">
+<h2>Your First Output File<a class="headerlink" href="#your-first-output-file" title="Permalink to this headline">¶</a></h2>
+<p>The result file is named <code class="docutils literal notranslate"><span class="pre">water.log</span></code> in this case. Open it in a text editor and examine the contents.</p>
+<p>Search for the string NSERCH. Every time it appears involves setting up or declaring the results of an energy calculation. The first time it appears we see this…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">0</span> <span class="o">...</span>
+
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0783404292</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.6216595708</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0783404292</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.7000000000</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.6216595708</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.6216595708</span>
+</pre></div>
+</div>
+<p>We see that GAMESS has found the unique atoms of the point group. From these, all the atoms can be created. GAMESS is using our initial values but has positioned the center of mass at the origin by adding 0.0783 Å to the z-axis.</p>
+<p>Keep searching for NSERCH. A few appearances later we see this…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">12.8027678782</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0593284</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0244052</span>
+
+          <span class="n">FORCE</span> <span class="n">CONSTANT</span> <span class="n">MATRIX</span> <span class="n">NOT</span> <span class="n">UPDATED</span> <span class="o">---</span> <span class="n">TAKING</span> <span class="n">FIRST</span> <span class="n">STEP</span>
+          <span class="n">MIN</span> <span class="n">SEARCH</span><span class="p">,</span> <span class="n">CORRECT</span> <span class="n">HESSIAN</span><span class="p">,</span> <span class="n">TRYING</span> <span class="n">PURE</span> <span class="n">NR</span> <span class="n">STEP</span>
+               <span class="n">NR</span> <span class="n">STEP</span> <span class="n">HAS</span> <span class="n">LENGTH</span>         <span class="o">=</span>   <span class="mf">0.474433</span>
+          <span class="n">TRIM</span><span class="o">/</span><span class="n">QA</span> <span class="n">LAMBDA</span> <span class="n">FOR</span> <span class="n">NON</span><span class="o">-</span><span class="n">TS</span> <span class="n">MODES</span> <span class="o">=</span>  <span class="o">-</span><span class="mf">0.06454854</span>
+          <span class="n">TRIM</span><span class="o">/</span><span class="n">QA</span> <span class="n">STEP</span> <span class="n">HAS</span> <span class="n">LENGTH</span>         <span class="o">=</span>   <span class="mf">0.300000</span>
+          <span class="n">RADIUS</span> <span class="n">OF</span> <span class="n">STEP</span> <span class="n">TAKEN</span><span class="o">=</span>   <span class="mf">0.30000</span>  <span class="n">CURRENT</span> <span class="n">TRUST</span> <span class="n">RADIUS</span><span class="o">=</span>   <span class="mf">0.30000</span>
+
+ <span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">1</span> <span class="o">...</span>
+
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0197579410</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7733745023</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5726103857</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0197579410</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.7733745023</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5726103857</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7733745023</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5726103857</span>
+</pre></div>
+</div>
+<p>We have finished step zero. The initial energy has been calculated and the derivative (slope or gradient of the energy function) has been calculated. The gradient w.r.t. each axis will be used to compute a distance to move for each atom. Each change is applied and the data set for step one is declared a few lines later.</p>
+<p>The energy and gradients will be computed again and the coordinates altered accordingly. This will repeat until we fulfil the conditions for the stationary point set in the $STATPT group. In our example, the stationary point is declared to be located after we finish step 3.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">3</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">12.8093121210</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000133</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000072</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0083001974</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7550350900</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5866394549</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0083001974</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.7550350900</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5866394549</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7550350900</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5866394549</span>
+
+          <span class="n">INTERNUCLEAR</span> <span class="n">DISTANCES</span> <span class="p">(</span><span class="n">ANGS</span><span class="o">.</span><span class="p">)</span>
+          <span class="o">------------------------------</span>
+
+                <span class="mi">1</span> <span class="n">O</span>          <span class="mi">2</span> <span class="n">H</span>          <span class="mi">3</span> <span class="n">H</span>     
+
+   <span class="mi">1</span> <span class="n">O</span>       <span class="mf">0.0000000</span>    <span class="mf">0.9612654</span> <span class="o">*</span>  <span class="mf">0.9612654</span> <span class="o">*</span>
+   <span class="mi">2</span> <span class="n">H</span>       <span class="mf">0.9612654</span> <span class="o">*</span>  <span class="mf">0.0000000</span>    <span class="mf">1.5100702</span> <span class="o">*</span>
+   <span class="mi">3</span> <span class="n">H</span>       <span class="mf">0.9612654</span> <span class="o">*</span>  <span class="mf">1.5100702</span> <span class="o">*</span>  <span class="mf">0.0000000</span>  
+
+  <span class="o">*</span> <span class="o">...</span> <span class="n">LESS</span> <span class="n">THAN</span>  <span class="mf">3.000</span>
+</pre></div>
+</div>
+<p>We now have the energy that was calculated and the coordinates for the final iteration of the structure. Next, GAMESS will write molecular orbital data and any other sets of data requested in the input file. We will uses this extra data to visualize molecular orbitals in a future exercise.</p>
+<p>We see that the bond lengths are 0.961 Å and are identical, as required by the symmetry point group.</p>
+</div>
+<div class="section" id="higher-levels-of-theory">
+<h2>Higher Levels of Theory<a class="headerlink" href="#higher-levels-of-theory" title="Permalink to this headline">¶</a></h2>
+<p>AM1 uses precalculated values and assumptions to simplify the math. It is good for systems that it has been designed for, mostly simple organic molecules. However, if we want to explore strained systems or calculate accurate molecular orbitals we will have to use <em>ab initio</em> methods. We will use Hartree-Fock theory and basis sets of atomic orbitals to get more accurate answers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don’t think about it too much. The two levels of rigour described below are nowhere near the state of the art, but they will serve for what we need to do. To understand the theory and the choice of orbital basis sets you should enjoy the computational chemistry course that is taking place in parallel with this course. We will use GAMESS without having a clue what we are doing. Lives are not at stake here.</p>
+</div>
+<div class="section" id="a-higher-level-hf-3-21g">
+<h3>A Higher Level: HF/3-21G<a class="headerlink" href="#a-higher-level-hf-3-21g" title="Permalink to this headline">¶</a></h3>
+<p>It took my little laptop computer 0.2 seconds to calculate the final structure and energy of water at the AM1 level. AM1 uses pre-configured functions to enable fast calculations but may not be accurate in all situations (although small neutral molecules should give excellent results.)</p>
+<p>The next level up in mathematical rigour is Hartree-Fock. HF theory attempts to describe the atomic orbitals using mathematical approximations but makes no simplifications (it does ignore electron correlation and the Restricted Hartree Fock method (RHF) that we will be using enforces that all electrons are paired in molecular orbitals. The math approximations that describe the atomic orbitals use Gaussian functions to model the atomic orbitals. Gaussians are far easier for a computer to calculate and adding many Gaussians together can get very close to the real answer. The more Gaussians and the more ways they are combined will give better accuracy but will also be more expensive in computer time.</p>
+<p>We will use 3-21G, a very low cost basis set and 6-311G(d,p)++, a much more complete and much more expensive basis set in all our work.</p>
+<p>We will change the <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code> group in the <code class="docutils literal notranslate"><span class="pre">water.inp</span></code> file. For AM1 we had the following group. (Note that AM1 actually ignores the RHF setting in the $CONTRL group. AM1 is its own method, but these new basis sets will be used by the RHF method.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$BASIS GBASIS=AM1 $END
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code> group will be changed to the following to use the 3-21G basis set</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$BASIS GBASIS=N21 NGAUSS=3 $END
+</pre></div>
+</div>
+<p>We will also cut and paste the final coordinates from the AM1 job. We should always use the work of those who have gone before to advance our goals. We stand on the shoulders of giants. When we work up to very expensive methods, it is best to start with an optimized structure from a cheaper method.</p>
+<p><strong>water_321.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Water 3-21G
+CNV 2
+
+O           8.0   0.0000000000   0.0000000000   0.0083001974
+H           1.0  -0.7550350900   0.0000000000  -0.5866394549
+ $END
+</pre></div>
+</div>
+<p>The changes from the original input file have been highlighted. Note that the COORD parameter has been changed to UNIQUE. GAMESS reported the xyz coordinates of the symmetry unique atoms in the previous output file. Since we are now using unique coordinates we must inform the software of that fact.</p>
+<p>I ran the job via the gms script (the “.inp” will be added by the script if it is not present)…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gms</span> <span class="n">water_321</span>
+</pre></div>
+</div>
+<p>…and a result file named water_321.log was created. I searched for the last occurrence of NSERCH and found the results. The job reached a stationary point after five optimization steps. We now have the energy and structure at the HF/3-21G level. Here is an excerpt of the output file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">5</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">75.5859597578</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000143</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000060</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0081020518</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7804697613</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5784383303</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0081020518</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.7804697613</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5784383303</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7804697613</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5784383303</span>
+
+          <span class="n">INTERNUCLEAR</span> <span class="n">DISTANCES</span> <span class="p">(</span><span class="n">ANGS</span><span class="o">.</span><span class="p">)</span>
+          <span class="o">------------------------------</span>
+
+                <span class="mi">1</span> <span class="n">O</span>          <span class="mi">2</span> <span class="n">H</span>          <span class="mi">3</span> <span class="n">H</span>     
+
+   <span class="mi">1</span> <span class="n">O</span>       <span class="mf">0.0000000</span>    <span class="mf">0.9666522</span> <span class="o">*</span>  <span class="mf">0.9666522</span> <span class="o">*</span>
+   <span class="mi">2</span> <span class="n">H</span>       <span class="mf">0.9666522</span> <span class="o">*</span>  <span class="mf">0.0000000</span>    <span class="mf">1.5609395</span> <span class="o">*</span>
+   <span class="mi">3</span> <span class="n">H</span>       <span class="mf">0.9666522</span> <span class="o">*</span>  <span class="mf">1.5609395</span> <span class="o">*</span>  <span class="mf">0.0000000</span>  
+</pre></div>
+</div>
+<p>The bond lengths are slightly longer and the calculated energy is very different. We can’t compare AM1 energy values to HF because AM1 is a very different method. However we can compare HF/3-21G to HF/6-311G(d,p)++. It is the same method, but with a more complete basis set.</p>
+</div>
+<div class="section" id="more-power-hf-6-311g-d-p">
+<h3>More Power: HF/6-311G(d,p)++<a class="headerlink" href="#more-power-hf-6-311g-d-p" title="Permalink to this headline">¶</a></h3>
+<p>By changing the <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code> group to the following we will be implementing the 6-311G(d,p)++ basis set.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+</pre></div>
+</div>
+<p>We will use the coordinate data from the 3-21G run to start as close to the true answer as possible. After running the job with the following input file we reached a stationary point after three optimization steps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Water 3-21G
+CNV 2
+
+ O           8.0   0.0000000000   0.0000000000  -0.0081020518
+ H           1.0  -0.7804697613  -0.0000000000  -0.5784383303
+ $END
+</pre></div>
+</div>
+<p>Here is an excerpt from the output file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">5</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">76.0534461703</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000111</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000051</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0116217188</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7527830929</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5766784968</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0116217188</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.7527830929</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5766784968</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7527830929</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.5766784968</span>
+
+          <span class="n">INTERNUCLEAR</span> <span class="n">DISTANCES</span> <span class="p">(</span><span class="n">ANGS</span><span class="o">.</span><span class="p">)</span>
+          <span class="o">------------------------------</span>
+
+                <span class="mi">1</span> <span class="n">O</span>          <span class="mi">2</span> <span class="n">H</span>          <span class="mi">3</span> <span class="n">H</span>     
+
+   <span class="mi">1</span> <span class="n">O</span>       <span class="mf">0.0000000</span>    <span class="mf">0.9412606</span> <span class="o">*</span>  <span class="mf">0.9412606</span> <span class="o">*</span>
+   <span class="mi">2</span> <span class="n">H</span>       <span class="mf">0.9412606</span> <span class="o">*</span>  <span class="mf">0.0000000</span>    <span class="mf">1.5055662</span> <span class="o">*</span>
+   <span class="mi">3</span> <span class="n">H</span>       <span class="mf">0.9412606</span> <span class="o">*</span>  <span class="mf">1.5055662</span> <span class="o">*</span>  <span class="mf">0.0000000</span>  
+</pre></div>
+</div>
+<p>The HF/6311G(d,p)++ energy was -76.0534 Hartrees whereas the HF/3-21G energy was -75.5860 Hartrees. Higher levels of theory will give lower energy values.  The bond length is now shorter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general a calculated energy is always higher that the “true” energy. Only a perfect basis set that includes an exact model for the atomic orbitals will give the lowest value possible, the truth. Nothing is perfect, but we can get close if we take the time to run more expensive methods and basis sets.</p>
+</div>
+<p>If we calculate the HF/6-311G(d,p)++ energy using the HF/3-21G optimized structure, we get an energy value of -76.0520 Hartrees. The HF/3-21G structure has an HF/6-311G(d,p)++ energy that is very close to the energy of the HF/6-311G(d,p)++ optimized structure. Perhaps we can use cheaper methods to calculate optimized structures and then more expensive methods for single point energy calculations. Quite often stationary points are very similar between different levels of theory because we are dealing with relative energies and the bottom of the energy well is in the same location, even if the absolute energy is not accurate. With more complex systems, such as transition states, we may need to optimize structure at higher levels of theory for accuracy.</p>
+</div>
+</div>
+<div class="section" id="units">
+<h2>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h2>
+<p>Hartrees? You may notice that data tables in the output file report energy in Hartree units, distances in both Angstroms and Bohr atomic units and angles in degrees and in radians. Deep inside GAMESS, the math uses Bohr a.u. for distance and radians for angles in its calculations. It also uses the elementary charge and mass of the electron and Planck’s constant. The Hartree is an energy unit derived from the fundamental measurements of a hydrogen atom and the intrinsic properties of space and time.</p>
+<p>GAMESS will output distances and angles in familiar units such as Angstroms and degrees but will always report energy in Hartrees. One Hartree is <span class="math notranslate nohighlight">\(4.3597 \times 10^{−18}\, J\)</span>. When we multiply by Avogadro’s number we get <span class="math notranslate nohighlight">\(2625.50 \, \frac{kJ}{mole}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Keep this conversion factor close by: 1 Hartree = 2,625.5 kJ/mole.</p>
+</div>
+</div>
+<div class="section" id="internal-coordinates">
+<h2>Internal Coordinates<a class="headerlink" href="#internal-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>For many of our exercises, we will be building molecules using internal coordinates. These coordinates define atomic positions relative the first atom defined in list. This list is called the Z-matrix. A Z-matrix is a defined format for creating these internal coordinates.</p>
+<p>Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly. I will know the distance between A and C and all other angles from those first three coordinates.</p>
+<p>Here is a Z-matrix for our town map…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
+<span class="n">B</span>  <span class="mi">1</span>  <span class="mi">10</span>
+<span class="n">C</span>  <span class="mi">2</span>   <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">45</span>
+</pre></div>
+</div>
+<p>It can be interpreted as…</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Line</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Line 1</p></td>
+<td class="text-align:left"><p>Town A is declared to exist</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Line 2</p></td>
+<td class="text-align:left"><p>Town B is connected to line 1 by a distance of 10 miles</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Line 3</p></td>
+<td class="text-align:left"><p>Town C is connected to line 2 by a distance of 5 miles &amp; the angle through line 2 to line 1 is 45˚</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="the-z-matrix-with-water">
+<h3>The Z-matrix with Water<a class="headerlink" href="#the-z-matrix-with-water" title="Permalink to this headline">¶</a></h3>
+<p>Here is a Z-matrix for the molecule water. It is interpreted in <a class="reference internal" href="#fig3"><span class="std std-numref">Fig. 3</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Water</span>
+<span class="n">CNV</span> <span class="mi">2</span>
+
+<span class="n">H</span>
+<span class="n">O</span>  <span class="mi">1</span>  <span class="mf">1.0</span>
+<span class="n">H</span>  <span class="mi">2</span>  <span class="mf">1.0</span>  <span class="mi">1</span>  <span class="mf">109.5</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="fig3">
+<a class="reference internal image-reference" href="_images/Zmatrix.png"><img alt="_images/Zmatrix.png" src="_images/Zmatrix.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>Parsing the Z-matrix for water</em></span><a class="headerlink" href="#fig3" title="Permalink to this image">¶</a></p>
+</div>
+<p>GAMESS will attempt to fit the molecule to your declared symmetry point group and define a principal axis, etc. However, if your initial structure does not fit the point group the calculation will fail. To fit the C2v point group the two bond lengths must be the same in the Z-matrix for water. One way that we can make sure that this is true is to use variables in the Z-matrix. Consider the example below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Water</span>
+<span class="n">CNV</span> <span class="mi">2</span>
+
+<span class="n">H</span>
+<span class="n">O</span>  <span class="mi">1</span>  <span class="n">bond_length</span>
+<span class="n">H</span>  <span class="mi">2</span>  <span class="n">bond_length</span>  <span class="mi">1</span>  <span class="n">bond_angle</span>
+
+<span class="n">bond_length</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">bond_angle</span><span class="o">=</span><span class="mf">109.5</span>
+</pre></div>
+</div>
+<p>By using variables appropriately we can make sure that certain values are always identical as required in a given point group. However, sometime we must be creative to enforce symmetry in a Z-matrix. Below is the complete input file for an AM1 optimization of water using the Z-matrix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 2
+
+H
+O  1  1.0
+H  2  1.0  1  109.5
+ $END
+</pre></div>
+</div>
+<p>We see the Z-matrix used for the atomic coordinates in the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group and we also see that the <code class="docutils literal notranslate"><span class="pre">COORD=CART</span></code> has been changed to <code class="docutils literal notranslate"><span class="pre">COORD=ZMT</span></code>.</p>
+<p>When we submit the job, GAMESS will use the Z-matrix to create a set of Cartesian coordinates for the actual calculation. It will then attempt to identify the primary axis and apply the symmetry point group to create a set of unique Cartesian coordinates. It will then optimize the coordinates and, when a stationary point is reached, it will output the xyz coordinates, the unique coordinates and the new Z-matrix.</p>
+<p>The Z-matrix is useful because we can see directly the bond lengths and angles in the result. We will not have to use trigonometry to calculate the bond angle from the xyz data. In the excerpt from the result file shown below, we see that we reached an optimized geometry after 3 steps and that the AM1 Bond lengths were calculated to be 0.961 Å and the bond angle to be 103.5˚. Note that GAMESS oriented the water molecule in the xz plane, as expected, but that it has the molecule upside-down compared to our original Cartesian input file described above. Interesting.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">6</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">12.8093121220</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000047</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000020</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7550622398</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.5184764054</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>  <span class="o">-</span><span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0764358674</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.7550622398</span>  <span class="o">-</span><span class="mf">0.0000000000</span>   <span class="mf">0.5184764054</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.7550622398</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.5184764054</span>
+ <span class="n">O</span>           <span class="mf">8.0</span>  <span class="o">-</span><span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0764358674</span>
+
+ <span class="n">THE</span> <span class="n">CURRENT</span> <span class="n">FULLY</span> <span class="n">SUBSTITUTED</span> <span class="n">Z</span><span class="o">-</span><span class="n">MATRIX</span> <span class="n">IS</span>
+ <span class="n">H</span>   
+ <span class="n">O</span>      <span class="mi">1</span>   <span class="mf">0.9612698</span>
+ <span class="n">H</span>      <span class="mi">2</span>   <span class="mf">0.9612698</span>  <span class="mi">1</span>   <span class="mf">103.5309684</span>
+</pre></div>
+</div>
+<p>We could now past the new Z-matrix or the unique coordinates into the HF/3-21G and the HF/6-311(d,p)++ input files and carry on optimizing the structure at higher levels of theory. We should get identical structures and energies because the molecule is the same no matter which coordinate system that we used to describe it.</p>
+</div>
+<div class="section" id="the-z-matrix-for-ammonia">
+<h3>The Z-Matrix for Ammonia<a class="headerlink" href="#the-z-matrix-for-ammonia" title="Permalink to this headline">¶</a></h3>
+<p>Water is a planar system (for the atoms) but ammonia is going to require a third dimension. Here is one option for the Z-matrix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ammonia</span>
+<span class="n">CNV</span> <span class="mi">3</span>
+
+<span class="n">N</span>
+<span class="n">H</span>   <span class="mi">1</span>   <span class="mf">1.0</span>
+<span class="n">H</span>   <span class="mi">1</span>   <span class="mf">1.0</span>   <span class="mi">2</span>   <span class="mf">109.5</span>
+<span class="n">H</span>   <span class="mi">1</span>   <span class="mf">1.0</span>   <span class="mi">3</span>   <span class="mf">109.5</span>   <span class="mi">2</span>   <span class="mi">120</span>
+</pre></div>
+</div>
+<p>This describes the Z-matrix as shown parsed in <a class="reference internal" href="#fig4"><span class="std std-numref">Fig. 4</span></a></p>
+<div class="figure align-default" id="fig4">
+<a class="reference internal image-reference" href="_images/Zmatrix_Ammonia.png"><img alt="_images/Zmatrix_Ammonia.png" src="_images/Zmatrix_Ammonia.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><em>A Z-matrix for ammonia</em></span><a class="headerlink" href="#fig4" title="Permalink to this image">¶</a></p>
+</div>
+<p>But when I submit the job with the above the calculation failed. Near the end of the short result file that was produced was the following text message.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ERROR!
+ YOUR CART/ZMT/ZMTMPC INPUT GENERATED 12 ATOMS,
+ BUT ONLY 4 ATOMS WERE PRESENT IN YOUR $DATA.
+ THIS MEANS THERE IS A MISTAKE IN YOUR COORDINATES,
+ OR YOUR CHOICE OF GROUP. ADIOS, MY FRIEND!!
+</pre></div>
+</div>
+<p>Although the Z-matrix will create a structure that looks a lot like ammonia, the three bond angles between H and N will not all be identical as the Z-matrix is converted to Cartesian coordinates. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of positioning the atoms according to the Z-matrix (1.0Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane. This should give us the correct structure. However, after the math is done that third 4,1,3 bond angle is not EXACTLY the same as the stated 4,1,2 and 3,1,2 angles. As a result, GAMESS could not determine the correct primary axis because the structure was not an exact fit to <span class="math notranslate nohighlight">\(C_{3v}\)</span> symmetry.</p>
+<p>There is another way.</p>
+</div>
+<div class="section" id="dummy-atoms-in-the-z-matrix">
+<h3>Dummy Atoms in the Z-Matrix<a class="headerlink" href="#dummy-atoms-in-the-z-matrix" title="Permalink to this headline">¶</a></h3>
+<p>When constructing symmetrical molecules it can be useful to use dummy atoms. These are defined by the letter X in the Z-matrix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ammonia</span>
+<span class="n">CNV</span> <span class="mi">3</span>
+
+<span class="n">X</span>
+<span class="n">N</span>  <span class="mi">1</span>  <span class="mf">1.0</span>
+<span class="n">H</span>  <span class="mi">2</span>  <span class="mf">1.0</span>  <span class="mi">1</span>  <span class="mf">109.5</span>
+<span class="n">H</span>  <span class="mi">2</span>  <span class="mf">1.0</span>  <span class="mi">1</span>  <span class="mf">109.5</span>  <span class="mi">3</span>  <span class="o">+</span><span class="mf">120.0</span>
+<span class="n">H</span>  <span class="mi">2</span>  <span class="mf">1.0</span>  <span class="mi">1</span>  <span class="mf">109.5</span>  <span class="mi">3</span>  <span class="o">-</span><span class="mf">120.0</span>
+</pre></div>
+</div>
+<p>Using this matrix gives a successful calculation for the optimized geometry of ammonia at the AM1 level. Paste the matrix above into your input file, rename it and then submit the job. The Z-matrix is outlined in <a class="reference internal" href="#fig4"><span class="std std-numref">Fig. 4</span></a></p>
+<div class="figure align-default" id="fig5">
+<a class="reference internal image-reference" href="_images/Dummy_Atoms.png"><img alt="_images/Dummy_Atoms.png" src="_images/Dummy_Atoms.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text"><em>The Z-matrix for ammonia with a dummy atom to define symmetry</em></span><a class="headerlink" href="#fig5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Below is an excerpt from the result file. You will see that the Z-matrix was not recreated.  This is because the dummy atom was used and GAMESS does not want to include it, yet it cannot create a Z-matrix that is guaranteed to fit the <span class="math notranslate nohighlight">\(C_{2v}\)</span> symmetry without it. So it is sticking with Cartesian coordinates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">4</span>  <span class="n">E</span><span class="o">=</span>       <span class="o">-</span><span class="mf">9.1354556208</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000006</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000004</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">N</span>           <span class="mf">7.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0630644261</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.9385359335</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.2757943561</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">N</span>           <span class="mf">7.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0630644261</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.4692679667</span>   <span class="mf">0.8127959607</span>   <span class="mf">0.2757943561</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.4692679667</span>  <span class="o">-</span><span class="mf">0.8127959607</span>   <span class="mf">0.2757943561</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.9385359335</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.2757943561</span>
+
+          <span class="n">INTERNUCLEAR</span> <span class="n">DISTANCES</span> <span class="p">(</span><span class="n">ANGS</span><span class="o">.</span><span class="p">)</span>
+          <span class="o">------------------------------</span>
+
+                <span class="mi">1</span> <span class="n">N</span>          <span class="mi">2</span> <span class="n">H</span>          <span class="mi">3</span> <span class="n">H</span>          <span class="mi">4</span> <span class="n">H</span>     
+
+   <span class="mi">1</span> <span class="n">N</span>       <span class="mf">0.0000000</span>    <span class="mf">0.9978351</span> <span class="o">*</span>  <span class="mf">0.9978351</span> <span class="o">*</span>  <span class="mf">0.9978351</span> <span class="o">*</span>
+   <span class="mi">2</span> <span class="n">H</span>       <span class="mf">0.9978351</span> <span class="o">*</span>  <span class="mf">0.0000000</span>    <span class="mf">1.6255919</span> <span class="o">*</span>  <span class="mf">1.6255919</span> <span class="o">*</span>
+   <span class="mi">3</span> <span class="n">H</span>       <span class="mf">0.9978351</span> <span class="o">*</span>  <span class="mf">1.6255919</span> <span class="o">*</span>  <span class="mf">0.0000000</span>    <span class="mf">1.6255919</span> <span class="o">*</span>
+   <span class="mi">4</span> <span class="n">H</span>       <span class="mf">0.9978351</span> <span class="o">*</span>  <span class="mf">1.6255919</span> <span class="o">*</span>  <span class="mf">1.6255919</span> <span class="o">*</span>  <span class="mf">0.0000000</span>  
+</pre></div>
+</div>
+<p>We can see that the AM1 bond distances we optimized at 0.998 Å. But we cannot easily see the H–N–H bond angles.</p>
+</div>
+<div class="section" id="the-zmat-group">
+<h3>The $ZMAT Group<a class="headerlink" href="#the-zmat-group" title="Permalink to this headline">¶</a></h3>
+<p>The above job essentially just converted the Z-matrix with a dummy atom to unique cartesian coordinates for us. We can now use these Cartesian coordinates and ask GAMESS to keep track of the internal coordinates. We will create a new input file using the unique coordinates that were just generated by GAMESS.</p>
+<p>We will perform the AM1 calculation again now with internal coordinates declared via a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group. The <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group can be used to establish information about internal coordinates. Even if we submit the structure via Cartesian coordinates we can still have GAMESS use the internal coordinates of our choice. We no longer have a dummy atom, just the four atoms in <span class="math notranslate nohighlight">\(NH_3\)</span>. Recall the original Z-matrix for ammonia that we built above. We can use those coordinates for our current calculation.</p>
+<p>We must declare that we are using internal coordinates in the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code> group by specifying how many will be use. We will add <code class="docutils literal notranslate"><span class="pre">$NZVAR=6</span></code> to that group. There is a coordinate for each degree of freedom in a molecule. That is <span class="math notranslate nohighlight">\(3n-6\)</span>. (<span class="math notranslate nohighlight">\(3n-5\)</span> for linear molecules). For the four atoms of ammonia that is <span class="math notranslate nohighlight">\(3(4)-6=6\)</span> coordinates.</p>
+<p>We will then construct the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group as follows…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ZMAT IZMAT(1)=1,2,1,  
+               1,3,1,  2,3,1,2, 
+               1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> matrix is populated by a series of numbers. Each group starts with a number and then is followed by the expected atom numbers. Here is how the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> coordinates are declared.</p>
+<ul class="simple">
+<li><p>1 indicates a bond length and is followed by the two atoms involved. e.g. 1,2,1 is a coordinate for the bond length between atoms 2 and 1.</p></li>
+<li><p>2 indicates a bond angle and is followed by the three atoms involved. The central atom is the vertex. e.g. 2,3,1,2 is the bond angle between bonds 3,1 and 1,2.</p></li>
+<li><p>3 indicates a torsion and is followed by the four atoms involved. e.g. 3,4,1,2,3 is the angle between the planes defined by atoms 4,1,2 and 1,2,3.</p></li>
+</ul>
+<p>This would correspond to the failed Z-matrix that we used before we applied the dummy atoms. It is reproduced below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span>
+<span class="n">H</span>   <span class="mi">1</span>   <span class="mf">1.0</span>
+<span class="n">H</span>   <span class="mi">1</span>   <span class="mf">1.0</span>   <span class="mi">2</span>   <span class="mf">109.5</span>
+<span class="n">H</span>   <span class="mi">1</span>   <span class="mf">1.0</span>   <span class="mi">2</span>   <span class="mf">109.5</span>   <span class="mi">3</span>   <span class="mi">120</span>
+</pre></div>
+</div>
+<p>Now GAMESS will track those coordinates. In fact, GAMESS will be using those coordinates to calculate gradients. Rather than a gradient in each axis for each atom, GAMESS will use the gradient for the energy function of that coordinate. With carefully designed internal coordinates this can speed the calculation quite a bit. Below is the input file for an AM1 optimization using the results from the previous AM1 job.</p>
+<p><strong>ammonia_UZ.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia
+CNV 3
+
+N  7.0   0.0            0.0  -0.0630644261
+H  1.0   0.9385359335   0.0   0.2757943561
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END   
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Observe that the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code> group is split over two lines in this example. The single line was more than 80 columns and no characters after that will be read into the system. We can have as many new lines as we want. The group is terminated by the <code class="docutils literal notranslate"><span class="pre">$END</span></code> string, not the end of a line.</p>
+</div>
+<p>Take note of the list of internal coordinates that was written out by GAMESS. Each is classified as a STRETCH, BEND or TORSION. This corresponds to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120˚ like we had set up earlier. This is why the Z-matrix failed when we enforced <span class="math notranslate nohighlight">\(C_{3v}\)</span> symmetry.</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group was copied from the result of the same AM1 method we started at a stationary point and so no optimization was performed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">E</span><span class="o">=</span>       <span class="o">-</span><span class="mf">9.1354556208</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000009</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000004</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">N</span>           <span class="mf">7.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0630644261</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.9385359335</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.2757943561</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">N</span>           <span class="mf">7.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0630644261</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.4692679668</span>   <span class="mf">0.8127959608</span>   <span class="mf">0.2757943561</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.4692679668</span>  <span class="o">-</span><span class="mf">0.8127959608</span>   <span class="mf">0.2757943561</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.9385359335</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.2757943561</span>
+
+
+                     <span class="o">--------------------</span>
+                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
+                     <span class="o">--------------------</span>
+
+                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
+ <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
+ <span class="o">----------------------------------------------------------------</span>
+   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">1</span>                     <span class="mf">1.8856350</span>       <span class="mf">0.9978351</span>
+   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">1</span>                     <span class="mf">1.8856350</span>       <span class="mf">0.9978351</span>
+   <span class="mi">3</span> <span class="n">BEND</span>      <span class="mi">3</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9039384</span>     <span class="mf">109.0876324</span>
+   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">1</span>                     <span class="mf">1.8856350</span>       <span class="mf">0.9978351</span>
+   <span class="mi">5</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9039384</span>     <span class="mf">109.0876324</span>
+   <span class="mi">6</span> <span class="n">TORSION</span>   <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>              <span class="o">-</span><span class="mf">2.0782059</span>    <span class="o">-</span><span class="mf">119.0724272</span>
+</pre></div>
+</div>
+<p>We observe that the bond lengths are all exactly the same and the bond angles are also exactly the same. AM1 bond lengths and angles are 1.00 Å and 109.1˚</p>
+<p>We can take the result of the AM1 calculation and use it to build an input file for HF/3-21G and HF/6-3111G(d,p)++ optimizations. Below is a file for the more expensive option.</p>
+<p><strong>ammonia_UZ_6311.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia
+CNV 3
+
+N   7.0   0.0            0.0  -0.0630644261
+H   1.0   0.9385359335   0.0   0.2757943561
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  
+                        2,4,1,3   $END  
+</pre></div>
+</div>
+<p>In the above input file, I set up the <code class="docutils literal notranslate"><span class="pre">$IZMAT</span></code> matrix differently and applied a bend rather than a torsion for the last coordinate. This way I have coordinates that describe all three bond lengths and all three bends. I can do this because the torsion angles are set by the symmetry group (spaced evenly around the principal axis.) Now see how that is reflected in the results. An excerpt from the result file is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">3</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">56.2147746439</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000023</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000013</span>
+
+
+      <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">N</span>           <span class="mf">7.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0652973431</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.9365806163</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.2861359970</span>
+ <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+ <span class="o">------------------------------------------------------------</span>
+ <span class="n">N</span>           <span class="mf">7.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0652973431</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.4682903082</span>   <span class="mf">0.8111026064</span>   <span class="mf">0.2861359970</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.4682903082</span>  <span class="o">-</span><span class="mf">0.8111026064</span>   <span class="mf">0.2861359970</span>
+ <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">0.9365806163</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.2861359970</span>
+
+
+                     <span class="o">--------------------</span>
+                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
+                     <span class="o">--------------------</span>
+
+                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
+ <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
+ <span class="o">----------------------------------------------------------------</span>
+   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">1</span>                     <span class="mf">1.8903765</span>       <span class="mf">1.0003443</span>
+   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">1</span>                     <span class="mf">1.8903765</span>       <span class="mf">1.0003443</span>
+   <span class="mi">3</span> <span class="n">BEND</span>      <span class="mi">3</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.8911154</span>     <span class="mf">108.3529298</span>
+   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">1</span>                     <span class="mf">1.8903765</span>       <span class="mf">1.0003443</span>
+   <span class="mi">5</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.8911154</span>     <span class="mf">108.3529298</span>
+   <span class="mi">6</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">3</span>                  <span class="mf">1.8911154</span>     <span class="mf">108.3529298</span> 
+</pre></div>
+</div>
+<p>Now we see the HF/6311(d,p)++ results have bond lengths of 1.00 Å and bond angles of 108.4˚.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We have explored using GAMESS to calculate the structure and energy of some small molecules. We tried using Cartesian coordinates to describe the initial structure and using internal coordinates with the Z-matrix. We have used symmetry to simplify the structure to the unique Cartesian coordinates needed to describe the structure in a point group.</p>
+<p>We have run GAMESS using text input files that we created and submitting the jobs via the gms script from the command line.</p>
+<p>We have used the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group to establish internal coordinates when using Cartesian coordinates so that bond lengths and angles can be easily interpreted directly from the text result file. We have examined the text output and determined that the results were as expected.</p>
+<p>Now go to the instructions for the exercise that this discussion supports and explore GAMESS for yourself.</p>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Filename</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>water_AM1_C.inp</p></td>
+<td class="text-align:left"><p>The initial input for an AM1 optimization file demonstrating creating a starting structure for water with Cartesian coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>water_AM1_Z.inp</p></td>
+<td class="text-align:left"><p>An input file for an AM1 optimization using a Z-matrix for water</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>water_AM1_U.inp</p></td>
+<td class="text-align:left"><p>An input file using the unique coordinates that resulted from the initial calculation with either of the two previous input files.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>water_321_U.inp</p></td>
+<td class="text-align:left"><p>An input file for an HF/3-21G optimization</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>water_6311_U.inp</p></td>
+<td class="text-align:left"><p>An input file for an HF/6-311G(d,p)++ optimization</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>water_6311_U_E.inp</p></td>
+<td class="text-align:left"><p>An input file for an HF/6-311G(d,p)++ single point energy calculation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Read the accompanying introduction to GAMESS, “Getting Started with Small Molecules”, and then try the following exercises.</p>
+<div class="section" id="the-activity">
+<h3>The Activity<a class="headerlink" href="#the-activity" title="Permalink to this headline">¶</a></h3>
+<p>Write an input file for the tetrahedral methane molecule. Use the Td point group with a Z-matrix for the first attempt. Look to the ammonia Z-matrix with the dummy atom for inspiration. Run the job on your computer. If you are successful, you will have accomplished the first four of our learning goals. If it was not successful, try another way to build the molecule so that it fits <span class="math notranslate nohighlight">\(T_d\)</span> symmetry. Perhaps a different construction of the Z-matrix or a set of cartesian coordinates would work. Errors are learning opportunities. Give yourself time to make lots of them.</p>
+<p>After you get it working, copy the coordinate data into higher level input files and optimize for HF/3-21G and HF/6-311(d,p)++ levels of theory.</p>
+<p>If you use the optimized Z-matrix (no dummy atoms were needed for methane) then you will have a Z-matrix in the results from which you can locate bond lengths and angles. If you prefer the unique coordinates you can set up a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group to get those value directly from the output.</p>
+<p>What are the bond lengths and angles for methane at the three levels of theory? Perform HF/6311(d,p)++ energy calculation using the optimized coordinates from the results for all three levels of theory. How do they compare. Which had the lowest energy (and was therefore the most accurate of the three structures)?</p>
+<p>Using the input files in this document repeat the above for water and ammonia. Compare the bond angles and bond lengths for the most accurate structures in each case.</p>
+</div>
+<div class="section" id="the-report">
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>
+<p>Create a ONE PAGE document summarizing your results (energies, bond lengths and angles for methane) in a table.  Do the results fit with what you know about VSEPR theory?</p>
+<p>In the table, report the energies for AM1/HF/6-311(d,p)++ (optimized at AM1, energy calculated at HF/6-311(d,p)++), HF/3-21G/6-311(d,p)++ and HF/6-311(d,p)++ for each of the three molecules. The lowest energy should be the most accurate. Which was it in each case?</p>
+<p>Comment on how you did all this in a completely text-based world. Did you miss visualizing the molecules in 3-D graphics?  More complicated molecules could benefit from using visual molecule building/display programs. But, when you really want to control symmetry, it is best to manually create the input file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember that the visualization programs work for the machines. Sometimes you must look at the real world in its raw text format.</p>
+</div>
+<p>Include an appendix with the text for all the input files that you used. (Please do not include any result files – there will be no trees left!) Preface each with the file name and a note on its purpose and use a fixed-width font.</p>
+</div>
+</div>
+<div class="section" id="example-exercise-report">
+<h2>Example Exercise Report<a class="headerlink" href="#example-exercise-report" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="methane-calculations">
+<h3>Methane Calculations<a class="headerlink" href="#methane-calculations" title="Permalink to this headline">¶</a></h3>
+<p>The input file was created using unique Cartesian coordinates because the Z-matrix conversion by GAMESS failed to achieve <span class="math notranslate nohighlight">\(T_d\)</span> symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<div class="section" id="methane-data">
+<h4>Methane Data<a class="headerlink" href="#methane-data" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Optimization</p></th>
+<th class="text-align:left head"><p>C–H length (Å)</p></th>
+<th class="text-align:left head"><p>H–C–H angle</p></th>
+<th class="text-align:left head"><p>HF/6-311G(d,p)++ Energy</p></th>
+<th class="text-align:left head"><p>∆E (kJ/mole)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>AM1</p></td>
+<td class="text-align:left"><p>1.1119128</p></td>
+<td class="text-align:left"><p>109.4712206</p></td>
+<td class="text-align:left"><p>–40.2072033858</p></td>
+<td class="text-align:left"><p>+5.16</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>HF/3-21G</p></td>
+<td class="text-align:left"><p>1.0829028</p></td>
+<td class="text-align:left"><p>109.4712206</p></td>
+<td class="text-align:left"><p>–40.2091641123</p></td>
+<td class="text-align:left"><p>+0.0133</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>HF/6-311(d,p)++</p></td>
+<td class="text-align:left"><p>1.0829125</p></td>
+<td class="text-align:left"><p>109.4712206</p></td>
+<td class="text-align:left"><p>–40.2091691920</p></td>
+<td class="text-align:left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Experimental</p></td>
+<td class="text-align:left"><p>1.087</p></td>
+<td class="text-align:left"><p>109.471</p></td>
+<td class="text-align:left"><p>-40.2091492019</p></td>
+<td class="text-align:left"><p>+0.052</p></td>
+</tr>
+</tbody>
+</table>
+<p>Experimental results are from the <a class="reference external" href="https://cccbdb.nist.gov">Computational Chemistry Benchmark DataBase</a></p>
+</div>
+<div class="section" id="commentary">
+<h4>Commentary<a class="headerlink" href="#commentary" title="Permalink to this headline">¶</a></h4>
+<p>The HF/3-21G optimization produced a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was calculated to be very similar as well. The AM1 structure and energy was farther away.</p>
+</div>
+<div class="section" id="appendix-input-files">
+<h4>Appendix: Input files<a class="headerlink" href="#appendix-input-files" title="Permalink to this headline">¶</a></h4>
+<p><strong>methane_AM1_U.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Methane
+Td
+
+C     6.0     0.0    0.0     0.0
+H     1.0     0.7    0.7     0.7
+ $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
+</pre></div>
+</div>
+<p><strong>methane_321_U.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+ COORD=UNIQUE NZVAR=9 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Methane 321
+Td
+
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   0.6417914104   0.6417914104   0.6417914104
+ $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
+</pre></div>
+</div>
+<p><strong>Methane_6311_U.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  NZVAR=9 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 
+  DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Methane 6311
+Td
+
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   0.6260053431   0.6260053431   0.6260053431
+  $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
+</pre></div>
+</div>
+<p><strong>Methane_6311_U_E.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
+  NZVAR=9 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 
+  DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Methane 6311
+Td
+
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   0.6260053431   0.6260053431   0.6260053431
+  $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
+</pre></div>
+</div>
+<p>Paste in coordinates for the results of the AM1 and 3-21G calculations after running this file.
+ 
+The below file was made to check the energy of the experimental structure. Even with many decimal places, GAMESS still did not recognize the symmetry of the structure. So I used C1 symmetry instead. Note that there is NO BLANK LINE after the C1 symmetry designation.</p>
+<p><strong>Methane_6311_Z_E.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Methane
+C1
+H
+C  1  1.087
+H  2  1.087  1  109.4712206
+H  2  1.087  1  109.4712206  3  +120.0
+H  2  1.087  1  109.4712206  3  -120.0
+ $END
+</pre></div>
+</div>
+<p></p>
+</div>
+</div>
+<div class="section" id="water-calculations">
+<h3>Water Calculations<a class="headerlink" href="#water-calculations" title="Permalink to this headline">¶</a></h3>
+<p>The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<div class="section" id="water-data">
+<h4>Water Data<a class="headerlink" href="#water-data" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Optimization</p></th>
+<th class="text-align:left head"><p>O–H length (Å)</p></th>
+<th class="text-align:left head"><p>H–O–H angle</p></th>
+<th class="text-align:left head"><p>HF/6-311G(d,p)++ Energy</p></th>
+<th class="text-align:left head"><p>∆E (kJ/mole)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>AM1</p></td>
+<td class="text-align:left"><p>0.9613152</p></td>
+<td class="text-align:left"><p>103.5345005</p></td>
+<td class="text-align:left"><p>-76.0524943643</p></td>
+<td class="text-align:left"><p>+2.49</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>HF/3-21G</p></td>
+<td class="text-align:left"><p>0.9666698</p></td>
+<td class="text-align:left"><p>107.6785306</p></td>
+<td class="text-align:left"><p>-76.0519604402</p></td>
+<td class="text-align:left"><p>+3.89</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>HF/6-311(d,p)++</p></td>
+<td class="text-align:left"><p>0.9412543</p></td>
+<td class="text-align:left"><p>106.2149647</p></td>
+<td class="text-align:left"><p>-76.0534461704</p></td>
+<td class="text-align:left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>experimental</p></td>
+<td class="text-align:left"><p>0.958</p></td>
+<td class="text-align:left"><p>104.48</p></td>
+<td class="text-align:left"><p>-76.0528152807</p></td>
+<td class="text-align:left"><p>+1.65</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h4>Commentary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The HF/3-21G optimization produced a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was calculated to be very similar as well. The AM1 structure and energy seems closer, but not by much.</p>
+</div>
+<div class="section" id="id2">
+<h4>Appendix: Input files<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><strong>Water_AM1_Z.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=ZMT NZVAR=3 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 2
+
+O
+H  1  1.0
+H  1  1.0  2  109.5
+ $END
+ $ZMAT IZMAT(1)=1,2,1,
+                1,3,1,  2,3,1,2
+                $END
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ammonia-calculations">
+<h3>Ammonia Calculations<a class="headerlink" href="#ammonia-calculations" title="Permalink to this headline">¶</a></h3>
+<p>The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<div class="section" id="ammonia-data">
+<h4>Ammonia Data<a class="headerlink" href="#ammonia-data" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Optimization</p></th>
+<th class="text-align:left head"><p>N–H length (Å)</p></th>
+<th class="text-align:left head"><p>H–N–H angle</p></th>
+<th class="text-align:left head"><p>HF/6-311G(d,p)++ Energy</p></th>
+<th class="text-align:left head"><p>∆E (kJ/mole)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>AM1</p></td>
+<td class="text-align:left"><p>0.9978605</p></td>
+<td class="text-align:left"><p>109.0887396</p></td>
+<td class="text-align:left"><p>-56.2147354804</p></td>
+<td class="text-align:left"><p>+0.103</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>HF/3-21G</p></td>
+<td class="text-align:left"><p>1.0025827</p></td>
+<td class="text-align:left"><p>112.3967370</p></td>
+<td class="text-align:left"><p>-56.2137244548</p></td>
+<td class="text-align:left"><p>+2.73</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>HF/6-311(d,p)++</p></td>
+<td class="text-align:left"><p>1.0003408</p></td>
+<td class="text-align:left"><p>108.3541849</p></td>
+<td class="text-align:left"><p>-56.2147746437</p></td>
+<td class="text-align:left"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>experimental</p></td>
+<td class="text-align:left"><p>1.0124</p></td>
+<td class="text-align:left"><p>106.67</p></td>
+<td class="text-align:left"><p>-56.2143301556</p></td>
+<td class="text-align:left"><p>+1.17</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h4>Commentary<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The HF/3-21G optimization produced a structure that is NOT close to the HF/6-311G(d,p)++ optimized structure. The AM1 structure and energy seems closer, but not by much. The HF/6-311(d,p)++ seems to have given the most accurate structure compared to the experimental data.</p>
+</div>
+<div class="section" id="id4">
+<h4>Appendix: Input files<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p><strong>ammonia_AM1_ZD.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=ZMT NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia AM1
+CNV 3
+
+X
+N  1  1.0
+H  2  1.0  1  109.5
+H  2  1.0  1  109.5  3  +120.0
+H  2  1.0  1  109.5  3  -120.0
+ $END
+! NOTE: Pretend dummy atom does not exist when numbers the IZMAT matrix 
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+</pre></div>
+</div>
+<p><strong>ammonia_321_U.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Ammonia 3-21G
+CNV 3
+
+ N           7.0  -0.0000000000  -0.0000000000  -0.0601709286
+ H           1.0   0.9385662553   0.0000000000   0.2786785817
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+</pre></div>
+</div>
+<p><strong>ammonia_6311_U.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Ammonia 6-311G(d,p)++
+CNV 3
+
+ N           7.0   0.0000000000   0.0000000000  -0.0501412961
+ H           1.0   0.9619980493   0.0000000000   0.2322268510
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+</pre></div>
+</div>
+<p><strong>Ammonia_6331_U_E.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Ammonia 6-311G(d,p)++
+CNV 3
+
+ N           7.0   0.0000000000   0.0000000000  -0.0501412961
+ H           1.0   0.9619980493   0.0000000000   0.2322268510
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+</pre></div>
+</div>
+<p><strong>ammonia_exp_Z_E.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
+  COORD=ZMT $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 3
+
+X
+N  1  1.0
+H  2  1.0124  1  112.15
+H  2  1.0124  1  112.15  3  +120.0
+H  2  1.0124  1  112.15  3  -120.0
+ $END
+! Angle of 112.15 is the X-N-H angle (from the dummy atom)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1_Setup.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Building Your System</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3_Visual_Input.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Methane: Visual Input and Output</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Barry Linkletter<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

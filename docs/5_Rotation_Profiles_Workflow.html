@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GAMESS Workflow &#8212; Fun With GAMESS</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Workflow" href="5_Rotation_Profiles_Workflow_Data.html" />
+    <link rel="prev" title="Butane: Rotation Energy Profiles" href="5_Rotation_Profiles.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Setup.html">
+   Building Your System
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SmallMolecules.html">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Benzene.html">
+     Benzene: MOs and Symmetry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/5_Rotation_Profiles_Workflow.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-input-file">
+   The Input File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-the-series">
+   Making the Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-jobs">
+   Running the Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-the-results">
+   Extracting the Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspecting-the-result">
+   Inspecting the Result
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>GAMESS Workflow</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-input-file">
+   The Input File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-the-series">
+   Making the Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-jobs">
+   Running the Jobs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-the-results">
+   Extracting the Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspecting-the-result">
+   Inspecting the Result
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gamess-workflow">
+<h1>GAMESS Workflow<a class="headerlink" href="#gamess-workflow" title="Permalink to this headline">¶</a></h1>
+<p>Here will be presented the step by step process for calculating the neregy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly offset due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the optimized structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.</p>
+<div class="section" id="the-input-file">
+<h2>The Input File<a class="headerlink" href="#the-input-file" title="Permalink to this headline">¶</a></h2>
+<p>First we write an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the Z-matrix method because it will identify the central torsion as a coordinate. Then we can lock that coordinate.</p>
+<p><strong>butane-SCAN.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL 
+     SCFTYP=RHF 
+     RUNTYP=OPTIMIZE 
+     MAXIT=30 
+     MULT=1 
+     COORD=ZMT 
+     NZVAR=36 
+ $END
+ $SYSTEM 
+     TIMLIM=525600 
+     MEMORY=1000000 
+ $END
+ $BASIS 
+     GBASIS=N21 
+     NGAUSS=3 
+ $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT 
+     OPTTOL=0.0001 
+     NSTEP=1000 
+     IFREEZ(1)=6 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1 109.0
+C   1    1.54000  2 109.4712   3   NUMBER
+H   1    1.14000  2 109.4712   4 -120.0000
+H   1    1.14000  5 108.5      2  120.0000
+H   2    1.14000  1 109.4712   3 -120.0000
+H   2    1.14000  7 109.4712   1  120.0000
+H   3    1.14000  2 109.4712   8    0.0000
+H   3    1.14000  9 109.4712   2  120.0000
+H   3    1.14000  9 109.4712  10  120.0000
+H   4    1.14000  1 109.0      6   -0.0000
+H   4    1.14000  12 108.5     1  120.0000
+H   4    1.14000  12 109.4712 13  119.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 
+                1,3,2,  2,3,2,1, 
+                1,4,1,  2,4,1,2,   3,4,1,2,3, 
+                1,5,1,  2,5,1,2,   3,5,1,2,4, 
+                1,6,1,  2,6,1,5,   3,6,1,5,2, 
+                1,7,2,  2,7,2,1,   3,7,2,1,3, 
+                1,8,2,  2,8,2,7,   3,8,2,7,1, 
+                1,9,3,  2,9,3,2,   3,9,3,2,8, 
+                1,10,3, 2,10,3,9,  3,10,3,9,2, 
+                1,11,3, 2,11,3,9,  3,11,3,9,10, 
+                1,12,4, 2,12,4,1,  3,12,4,1,6, 
+                1,13,4, 2,13,4,12, 3,13,4,12,1, 
+                1,14,4, 2,14,4,12, 3,14,4,12,13 
+ $END
+</pre></div>
+</div>
+<p>You will see that not all angles are 109.47˚. I jiggled some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.</p>
+</div>
+<div class="section" id="making-the-series">
+<h2>Making the Series<a class="headerlink" href="#making-the-series" title="Permalink to this headline">¶</a></h2>
+<p>We will then use the following shell script to replace the string “NUMBER” with number from a list and create a new file with a name series based on the list. The scipt is shown below.</p>
+<p><strong><a class="reference external" href="http://makescan.sh">makescan.sh</a></strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">input_file</span><span class="o">=</span>butane-SCAN.inp
+<span class="nv">spacer</span><span class="o">=</span>_
+<span class="k">for</span> num <span class="k">in</span> <span class="k">$(</span>seq -w <span class="m">000</span> <span class="m">010</span> <span class="m">180</span><span class="k">)</span>
+<span class="k">do</span>
+  sed <span class="s2">&quot;s/NUMBER/</span><span class="nv">$num</span><span class="s2">/&quot;</span> <span class="nv">$input_file</span> &gt; <span class="s2">&quot;</span><span class="nv">$input_file$spacer$num</span><span class="s2">.inp&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>This script will take the contents of the <code class="docutils literal notranslate"><span class="pre">butane-SCAN.inp</span></code> file and use the sed tool to replace the string “<code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>” with the value <code class="docutils literal notranslate"><span class="pre">num</span></code>. The result is then written to a new file ending with the same value, <code class="docutils literal notranslate"><span class="pre">num</span></code>.</p>
+<p>I executed the script with the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash makescan.sh
+</pre></div>
+</div>
+<p>Nineteen new files are created with angles for the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion varying from <code class="docutils literal notranslate"><span class="pre">00</span></code> to <code class="docutils literal notranslate"><span class="pre">180</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">10</span></code>. Observe the sequence of commands shown in <a class="reference internal" href="#fig5w-1"><span class="std std-numref">Fig. 26</span></a>. We start with <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list the files in the directory and see the two files that we created. Then the bash script is executed. A second <code class="docutils literal notranslate"><span class="pre">ls</span></code> command then reveals all the new files that were created.</p>
+<div class="figure align-default" id="fig5w-1">
+<a class="reference internal image-reference" href="_images/workflow1.png"><img alt="_images/workflow1.png" src="_images/workflow1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text"><em>A Unix terminal running the command to setup the file list.</em></span><a class="headerlink" href="#fig5w-1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="running-the-jobs">
+<h2>Running the Jobs<a class="headerlink" href="#running-the-jobs" title="Permalink to this headline">¶</a></h2>
+<p>We now have nineteen jobs to submit to GAMESS. I will use the GamessQ GUI interface to do that. Execute the gamessQ application. Drag and drop the file series into the GamessQ window. GamessQ will copy the input files so we will have a set of identical input files created that we don’t care about. As GAMESS produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole GamessQ operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
+<div class="figure align-default" id="fig5w-2">
+<a class="reference internal image-reference" href="_images/workflow2.png"><img alt="_images/workflow2.png" src="_images/workflow2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text"><em>GamessQ running a queue of GAMESS jobs</em></span><a class="headerlink" href="#fig5w-2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="extracting-the-results">
+<h2>Extracting the Results<a class="headerlink" href="#extracting-the-results" title="Permalink to this headline">¶</a></h2>
+<p>When the jobs are all complete we will run a bash script that will extract the last <code class="docutils literal notranslate"><span class="pre">NSERCH</span> <span class="pre">ENERGY</span></code> line from each file and save this set of lines in a single result file that we will name <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code>. The script is presented below.</p>
+<p><strong><a class="reference external" href="http://extract.sh">extract.sh</a></strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> name <span class="k">in</span> butane_SCAN*.log<span class="p">;</span> <span class="k">do</span>
+    grep -H <span class="s2">&quot;NSERCH&quot;</span> <span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;GRAD&quot;</span> <span class="p">|</span> tail -n <span class="m">1</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>As you can see neither script was complicated, but they are both very cryptic. Everyday I promise myself that I will rewrite then in Python but, since they work, that may never happen.</p>
+<p>the output of <a class="reference external" href="http://extract.sh">extract.sh</a> will go to the STDOUT (the screen in most cases) but we can direct it into a file using the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> opertaor. I will execute the script using the following command. In <a class="reference internal" href="#fig5w-3"><span class="std std-numref">Fig. 28</span></a> we see a terminal with the command executed</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash extract.sh &gt; butane_result.txt
+</pre></div>
+</div>
+<div class="figure align-default" id="fig5w-3">
+<a class="reference internal image-reference" href="_images/workflow3.png"><img alt="_images/workflow3.png" src="_images/workflow3.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text"><em>Terminal window showing the execution of the <em><a class="reference external" href="http://extract.sh">extract.sh</a></em> script.</em></span><a class="headerlink" href="#fig5w-3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="inspecting-the-result">
+<h2>Inspecting the Result<a class="headerlink" href="#inspecting-the-result" title="Permalink to this headline">¶</a></h2>
+<p>If you open the <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code> file in a text editor you will see nineteen lines of data, one line for ezch file.</p>
+<p><strong>butane_result.txt</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_000_303</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4228465418</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000585</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000204</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_010_304</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4233726910</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000931</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000255</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_020_305</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">16</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4247889225</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000789</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000273</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_030_306</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">16</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267021853</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000394</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000149</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_040_307</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">19</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4286426893</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000765</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000260</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_050_308</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4301847220</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000241</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000105</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_060_309</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310615763</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000675</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000212</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_070_310</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">25</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4312168483</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000339</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000129</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_080_311</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">24</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4306888649</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000987</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000300</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_090_312</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">26</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4295739060</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000494</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000155</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_100_313</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span> <span class="mi">390</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4282209688</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000578</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000160</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_110_314</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4271414620</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000819</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000247</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_120_315</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">24</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267263463</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000884</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000234</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_130_316</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span> <span class="mi">362</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4271134870</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000551</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000145</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_140_317</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">21</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4281850977</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000701</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000323</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_150_318</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">21</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4296331216</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000712</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000225</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_160_319</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span> <span class="mi">646</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310600533</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000567</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000254</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_170_320</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">20</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4320918106</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000675</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000216</span>
+<span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_180_321</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4324667182</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000605</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000189</span>
+</pre></div>
+</div>
+<p>Observe that three of the jobs took a longer time to converge. We could open them in MacMolPlt and watch a “movie” of their journey and plot the energies along the way. Where did they get stuck? All three eventually found their way home, but only because this was a light-weight theory level and I was confidient in allowing for a large number of steps. If the level of theory was higher I might hav set the limit to 100 steps, or even 30 steps. All other jobs converged in less than 30 steps.</p>
+<p>Why did these three take so long? Bad luck with the exact structure of the input started them on the long path. Tweak a few bond lengths or angles and they might converge just like the others. Clearly, how you start matters. For high levels of theory it is important to start as close to the final answer as possible.</p>
+<p>We now have the raw data. Next we will process it and plot the results using Python.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="5_Rotation_Profiles.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Butane: Rotation Energy Profiles</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5_Rotation_Profiles_Workflow_Data.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Workflow</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Barry Linkletter<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
