@@ -1,8 +1,8 @@
 # Butadiene: Transition State for Rotation
 
-We expect butadiene to prefer a flat syn or anti conformation and to have an energy maximum when the torsion angle is 90˚ due to the loss of cojugation in that conformation. The change in electronic structure as the central bond rotates is similar to a chemical reaction. Molecular orbitals are being substatially changed. We could view the highest energy point in the rotational energy profile as a transition state in the change from syn to anti. In this chapter we will explore the rotational potential energy profile for butadiene and introduce the concept of optimizing a transition state structure.
+We expect butadiene to prefer a flat syn or anti conformation. These two possibile conformations are designated "*s-cis*" and "*s-trans*". The "s" referrs to the $\sigma$ bond involved. There should be an energy maximum when the torsion angle is 90˚ due to the loss of cojugation in when the two $\pi$ bonds are orthogonal. The change in electronic structure as the central bond rotates is similar to a chemical reaction. Molecular orbitals are being substatially changed. We could view the highest energy point in the rotational energy profile as a transition state in the change from syn to anti. In this chapter we will explore the rotational potential energy profile for butadiene and introduce the concept of optimizing a transition state structure.
 
-We will model butadiene and determine its most stable configuration in the “*trans*” and “*cis*” rotational conformers. We will then estimate the energy difference between the two conformers using different levels of theory and use these values to estimate the equilibrium constant between the two states. We will then scan through a rotation of the central bond to locate the highest energy structure along the path. We will then use the energy barrier to calculate an estimate for the rate of the process for rotating between the conformations and draw a conclusion as to whether there is a barrier to rotation.
+We will model butadiene and determine its most stable configuration in the *s-trans* and *s-cis* rotational conformers. We will then estimate the energy difference between the two conformers using different levels of theory and use these values to estimate the equilibrium constant between the two states. We will then scan through a rotation of the central bond to locate the highest energy structure along the path. We will then use the energy barrier to calculate an estimate for the rate of the process for rotating between the conformations and draw a conclusion as to whether there is a barrier to rotation.
 
 Finally we will use an optimized structure that is near the energy maximum as a starting point for optimizing the structure of the transition state for the bond rotation.
 
@@ -272,9 +272,9 @@ You can learn more about grep online.  Start at https://www-users.york.ac.uk/~mi
 ```
 
 
-## Optimized Geometry of the “*cis*” Conformer
+## Optimized Geometry of the *s-cis* Conformer
 
-Butadiene can rotate around the central C–C bond. It can exist as a “*cis*” or a “*trans*” conformer. The energy barrier is small and the central bond can easily rotate. We could calculate the optimized structure for the *cis* conformer and compare that energy to the *trans* conformer.
+Butadiene can rotate around the central C–C bond. It can exist as a *s-cis* or a *s-trans* conformer. The energy barrier is small and the central bond can easily rotate. We could calculate the optimized structure for the *cis* conformer and compare that energy to the *trans* conformer.
 
 ### Changing The Input File
 
@@ -361,14 +361,14 @@ caption: butadiene.log
  NSERCH:   8  E=     -154.0539432855  GRAD. MAX=  0.0000236  R.M.S.=  0.0000093
 ```
 
-We see the torsion `4,3,2,1` value is zero in the optimized structure. Is the electronic demand to maximize planarity and $\pi$-orbital overlap able to completely trump the steric cost of pushing the end groups into close proximity? I don’t know about that. Look at the 3,2,1 bend. It represents the angle in the carbon chain. It is 126˚. This is much larger than the ideal 120˚ angle. The bond angle is being forced to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the “*cis*” form of butadiene. {numref}`fig7_1E` shows a diagram for the result of this optimization.
+We see the torsion `4,3,2,1` value is zero in the optimized structure. Is the electronic demand to maximize planarity and $\pi$-orbital overlap able to completely trump the steric cost of pushing the end groups into close proximity? I don’t know about that. Look at the 3,2,1 bend. It represents the angle in the carbon chain. It is 126˚. This is much larger than the ideal 120˚ angle. The bond angle is being forced to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the *s-cis* form of butadiene. {numref}`fig7_1E` shows a diagram for the result of this optimization.
 
 ```{figure} images/Butadiene7.png
 ---
 width: 700px
 name: fig7_1E
 ---
-*Result of optimization of flat “*cis*” conformer.*
+*Result of optimization of flat *s-cis* conformer.*
 ```
 
 
@@ -380,9 +380,9 @@ The perfectly flat structure might be on a maximum energy point and unable to sn
 
 Let’s simply set the torsions to 5˚ away from flat and then let the calculation run. I will also set `NSTEP=100` in the `$STATPT` group of settings. The original value was `20` and the calculation was stopping at 20.  If we stop on a count rather than when we find the stationary point we won’t be at the optimized destination. NSTEP should be set so that the calculation cannot take too long but I’m not worried about that here.
 
-I’m going to do the same with the “*trans*” conformer as well. In that calculation we had set the 4,3,2,1 torsion to 180˚ and it had remained there. We will tweak all the torsions by 5˚ here as well.
+I’m going to do the same with the *s-trans* conformer as well. In that calculation we had set the 4,3,2,1 torsion to 180˚ and it had remained there. We will tweak all the torsions by 5˚ here as well.
 
-Here in {numref}`Butadiene_125` is the new input file for the “*cis*” conformer…
+Here in {numref}`Butadiene_125` is the new input file for the *s-cis* conformer…
 
 ```{code-block} 
 ---
@@ -419,7 +419,7 @@ H   4    1.14000  9 120.0000  3 175.0000
     1,8,3, 2,8,3,4, 3,8,3,4,2, 1,9,4, 2,9,4,3, 3,9,4,3,7, 1,10,4, 2,10,4,9, 
     3,10,4,9,3 $END
 ```
-### The True “*cis*” Structure 
+### The True *s-cis* Structure 
 
 Below in {numref}`butadiene_125log` is a text block from the result file. 
 
@@ -478,7 +478,7 @@ The vertical line is a “pipe”. It sends the output of the first command into
 width: 700px
 name: fig7_1F
 ---
-*The energy path for minimization of the symmetry broken “*cis*” butadiene conformer. The left plot shows all steps and the right shows the energy from step 3 to the end.*
+*The energy path for minimization of the symmetry broken *s-cis* butadiene conformer. The left plot shows all steps and the right shows the energy from step 3 to the end.*
 ```
 
 
@@ -486,9 +486,9 @@ You can see in {numref}`fig7_1F` that the path to lowest energy was not as smoot
 
 Try tweaking some of the torsions the other way. Set just some of the 5˚ torsions to –5˚ and some of the 175˚ torsions to –175˚. Run the optimization again and see if you achieved the same structure and energy. How did it go? Where we start can influence where we end up. The program just follows a path downwards. It has no idea if it is heading to a divot or a canyon. It will happily settle into the bottom of either.
 
-### Confirmimng the “*trans*” Structure
+### Confirmimng the *s-trans* Structure
 
-Below in {numref}`butadiene_transinp`is the input file for the tweaked “*trans*” conformer, followed by the final structure and energy from the optimization calculation.
+Below in {numref}`butadiene_transinp`is the input file for the tweaked *s-trans* conformer, followed by the final structure and energy from the optimization calculation.
 
 ```{code-block} 
 ---
@@ -684,7 +684,7 @@ caption: butadiene.log
 
 ## The Potential Energy Surface for Rotation
 
-We now have three energy points for the rotation of the central bond in butadiene. We found the best “*cis*” conformer where the central bond torsion was 38.15 ˚, We also found the best “*trans*” conformer where the torsion angle was 180˚. And we locked the torsion to 0˚ and then found the best structure with that constraint. We now have the following potential energy surface for the rotation of the central bond. See {numref}`fig7_1_9`.
+We now have three energy points for the rotation of the central bond in butadiene. We found the best *s-cis* conformer where the central bond torsion was 38.15 ˚, We also found the best *s-trans* conformer where the torsion angle was 180˚. And we locked the torsion to 0˚ and then found the best structure with that constraint. We now have the following potential energy surface for the rotation of the central bond. See {numref}`fig7_1_9`.
 
 
 ```{figure} images/Butadiene9.png
@@ -838,7 +838,7 @@ Why is the maximum energy found at around 102˚ rather than exactly 90˚? The el
 
 ## Finding A Transition State
 
-The peak of the energy barrier, between a C–C torsion of 100˚ and 105˚, is the transition state for converting between the “*trans*” and “*cis*” conformers of butadiene. Can we find the exact point at which we reach maximum energy along then path of change. 
+The peak of the energy barrier, between a C–C torsion of 100˚ and 105˚, is the transition state for converting between the *s-trans* and *s-cis* conformers of butadiene. Can we find the exact point at which we reach maximum energy along then path of change. 
 
 The coordinate that we are changing is the torsion angle along the central C–C bond. We have scanned that coordinate between 0˚ and 180˚. Scanning in this way is a good way to get close to a T.S. Each scan point is an optimized structure for that give torsion value. So all other coordinates have been minimized in energy (we hope) for each step in the scan. In theory, we are following the lowest energy path (a valley) uphill and down over a saddle point (a mountain pass). The saddle point is the transition state. There is one direction (coordinate) that takes you up and then down in energy.  All other coordinates will only take you uphill (assuming that they are at minimum energy values after them optimization).
  
@@ -1093,8 +1093,8 @@ name: fig7_1_15
 
 These are the operations that we have performed over the course of this activity.
 
-1.	Build and Optimize symmetrical butadiene. We calculated the optimized geometry of butadiene using an initial structure that was perfectly flat for the “*cis*” conformer and the “*trans*” conformer. The calculation easily found the bond lengths and angles for minimum energy but was trapped in stationary points for the torsion coordinates due to the flat symmetry.
-2.	Optimize the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the “*cis*” conformer actually occurred when the C–C torsion was 38˚. We also saw that the “*trans*” conformer did indeed find an almost flat optimized structure.
+1.	Build and Optimize symmetrical butadiene. We calculated the optimized geometry of butadiene using an initial structure that was perfectly flat for the *s-cis* conformer and the *s-trans* conformer. The calculation easily found the bond lengths and angles for minimum energy but was trapped in stationary points for the torsion coordinates due to the flat symmetry.
+2.	Optimize the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the *s-cis* conformer actually occurred when the C–C torsion was 38˚. We also saw that the *s-trans* conformer did indeed find an almost flat optimized structure.
 3.	Scan then torsion angle to create an energy profile. We then performed a series of optimization calculations with the torsion coordinate for the C–C bond frozen over a set of angles. This allowed us to observe that the transition state for rotation between *cis* and *trans* conformers was near a torsion angle of 102˚.
 44.	Evaluate the vibrations near the transition state. I used a structure from the torsion scan to calculate the vibrations in a structure that was close to the hypothesized T.S. This was to confirm that there was an imaginary vibration that would likely take us toward the true transition state.
 5.	Calculate an optimized structure for the transition state. After confirming that we had a good imaginary vibration, I performed a saddle point calculation that optimized the structure for the nearest transition state. We were very close already and found it easily. The T.S. was at a torsion angle of 102.0˚.
