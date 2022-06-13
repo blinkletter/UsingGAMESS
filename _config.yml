@@ -4,6 +4,9 @@
 title: Fun With GAMESS
 author: Barry Linkletter
 #logo: PhysOrg.png
+copyright: "2022"  # Copyright year to be placed in the footer
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
+# Auto-exclude files not in the toc
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -16,8 +19,8 @@ latex:
     targetname: book.tex
 
 # Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+# bibtex_bibfiles:
+#  - references.bib
 
 # Information about where the book exists on the web
 repository:
@@ -30,3 +33,4 @@ repository:
 html:
   use_issues_button: false
   use_repository_button: false
+  use_multitoc_numbering: true   # Continuous numbering across parts/chapters
