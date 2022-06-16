@@ -1,0 +1,1090 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Your System &#8212; Fun With GAMESS</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Water: Getting Started" href="2_SmallMolecules.html" />
+    <link rel="prev" title="Introduction" href="start.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Building Your System
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SmallMolecules.html">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Benzene.html">
+     Benzene: MOs and Symmetry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8A_Diels_Alder.html">
+   Transition States in GAMESS
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/1_Setup.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-software">
+   The Software
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gamess">
+     <em>
+      GAMESS
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gamessq">
+     <em>
+      GamessQ
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#macmolplt">
+     MacMolPlt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avogadro">
+     Avogadro
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#required-tools">
+     Required Tools
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#text-editor">
+       Text Editor
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#terminal-emulator">
+       Terminal Emulator
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-gamess">
+   Installing GAMESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtain-and-install">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-gamess-folder">
+     The GAMESS Folder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#editing-rungms">
+     Editing RUNGMS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-gamess">
+     Running GAMESS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-gamessq">
+   Installing GamessQ
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-gamessq">
+     Using GamessQ
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-system-setup">
+   Summary of System Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-macmolplt">
+   Installing MacMolPlt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-wxmacmolplt">
+     Using wxMacMolPlt
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-avogadro">
+   Installing Avogadro
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-avogadro">
+     Using Avogadro
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-unix">
+   Using Unix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-shell">
+     The Shell
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-terminal-application">
+     The Terminal Application
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unix-commands">
+     Unix Commands
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cd">
+       <em>
+        cd
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pwd">
+       <em>
+        pwd
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ls">
+       <em>
+        ls
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#man">
+       <em>
+        man
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulating-text-files">
+     Manipulating Text Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#grep">
+       <em>
+        grep
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#redirect">
+       Redirect
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pipes">
+       Pipes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sed">
+       <em>
+        sed
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#awk">
+       <em>
+        awk
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shell-scripts">
+     Shell Scripts
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ready-to-go">
+       Ready To Go
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Building Your System</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-software">
+   The Software
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gamess">
+     <em>
+      GAMESS
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gamessq">
+     <em>
+      GamessQ
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#macmolplt">
+     MacMolPlt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avogadro">
+     Avogadro
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#required-tools">
+     Required Tools
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#text-editor">
+       Text Editor
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#terminal-emulator">
+       Terminal Emulator
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-gamess">
+   Installing GAMESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtain-and-install">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-gamess-folder">
+     The GAMESS Folder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#editing-rungms">
+     Editing RUNGMS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-gamess">
+     Running GAMESS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-gamessq">
+   Installing GamessQ
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-gamessq">
+     Using GamessQ
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-system-setup">
+   Summary of System Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-macmolplt">
+   Installing MacMolPlt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-wxmacmolplt">
+     Using wxMacMolPlt
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-avogadro">
+   Installing Avogadro
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Obtain and Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-avogadro">
+     Using Avogadro
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-unix">
+   Using Unix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-shell">
+     The Shell
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-terminal-application">
+     The Terminal Application
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unix-commands">
+     Unix Commands
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cd">
+       <em>
+        cd
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pwd">
+       <em>
+        pwd
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ls">
+       <em>
+        ls
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#man">
+       <em>
+        man
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulating-text-files">
+     Manipulating Text Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#grep">
+       <em>
+        grep
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#redirect">
+       Redirect
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pipes">
+       Pipes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sed">
+       <em>
+        sed
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#awk">
+       <em>
+        awk
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shell-scripts">
+     Shell Scripts
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ready-to-go">
+       Ready To Go
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="building-your-system">
+<h1>Building Your System<a class="headerlink" href="#building-your-system" title="Permalink to this headline">¶</a></h1>
+<p>First we must build a system of tools for computational chemistry. You can access the software and install it on your computer using the following instructions.</p>
+<div class="section" id="the-software">
+<h2>The Software<a class="headerlink" href="#the-software" title="Permalink to this headline">¶</a></h2>
+<p>These instructions below assume that you are using a <em>Unix</em>-based computer, like a <em>Linux</em> system or an Apple <em>MacOS</em> computer. I have lived in this <em>Unix</em> world my whole academic life and am largely unfamiliar with <em>Windows</em> systems. However, the websites below have information on installing these tools on <em>Windows</em> systems.</p>
+<div class="section" id="gamess">
+<h3><em>GAMESS</em><a class="headerlink" href="#gamess" title="Permalink to this headline">¶</a></h3>
+<p><em>GAMESS</em> is proprietary application that performs quantum mechanical calculations. There is too much about quantum chemistry to even begin to explain it here. We will use it as a mysterious black box so be sure to follow the recipes. The <em>GAMESS</em> software and instructions can be obtained at <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/">https://www.msg.chem.iastate.edu/GAMESS/</a></p>
+<p>You will need to apply for a free academic license and wait for a reply with a password for downloading <em>GAMESS</em>. You can obtain compiled executable binaries for <em>Windows</em>, <em>Linux</em> and <em>MacOS</em> machines. You can also get the source code if you want to compile it yourself.</p>
+</div>
+<div class="section" id="gamessq">
+<h3><em>GamessQ</em><a class="headerlink" href="#gamessq" title="Permalink to this headline">¶</a></h3>
+<p><em>GamessQ</em> is a graphical batch queue for <em>GAMESS</em>. You will be able to add files to the queue and observe their progress. It is the best way to run <em>GAMESS</em> so I recommend using it. The software and instructions can be obtained at <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/GamessQ/">https://www.msg.chem.iastate.edu/GAMESS/GamessQ/</a></p>
+</div>
+<div class="section" id="macmolplt">
+<h3>MacMolPlt<a class="headerlink" href="#macmolplt" title="Permalink to this headline">¶</a></h3>
+<p><em>MacMolPlt</em> is a graphical interface for building molecules, creating input files for <em>GAMESS</em> and then visualizing the information in the output files produced by <em>GAMESS</em>. It can be obtained at <a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">http://brettbode.github.io/wxmacmolplt/</a></p>
+</div>
+<div class="section" id="avogadro">
+<h3>Avogadro<a class="headerlink" href="#avogadro" title="Permalink to this headline">¶</a></h3>
+<p><em>Avogadro</em> is similar to <em>MacMolPlt</em> but more modern is style. It is open source and benefits from many contributors. <em>Avogadro</em> can be obtained at <a class="reference external" href="http://avogadro.cc">http://avogadro.cc</a></p>
+</div>
+<div class="section" id="required-tools">
+<h3>Required Tools<a class="headerlink" href="#required-tools" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="text-editor">
+<h4>Text Editor<a class="headerlink" href="#text-editor" title="Permalink to this headline">¶</a></h4>
+<p>We will need a text editor. We could use <em>TextEdit</em>, which comes with <em>MacOS</em>. I use <em><a class="reference external" href="https://www.barebones.com/products/bbedit/">BBEdit</a></em>, which has a useful free version available for <em>MacOS</em>. Also Microsoft provides a free tyext editor designed for writing code called <em><a class="reference external" href="https://code.visualstudio.com/">VisualStudio</a></em>.</p>
+</div>
+<div class="section" id="terminal-emulator">
+<h4>Terminal Emulator<a class="headerlink" href="#terminal-emulator" title="Permalink to this headline">¶</a></h4>
+<p>We will be accessing the <em>Unix</em> file system and tools. On a <em>MacOS</em> system there is an application called <em>Terminal</em> that will allow us to access the real computer that lives inside your computer.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="installing-gamess">
+<h2>Installing GAMESS<a class="headerlink" href="#installing-gamess" title="Permalink to this headline">¶</a></h2>
+<p><em>GAMESS</em> is a modern and constantly updated suite of software. However, it has no interface that the user interacts with. Jobs will be sent to <em>GAMESS</em> and output files will be sent back. It is controlled from the command line or via helper applications like <em>GamessQ</em> (see below). So, we will need to do a small amount of configuring via a text editor.</p>
+<div class="section" id="obtain-and-install">
+<h3>Obtain and Install<a class="headerlink" href="#obtain-and-install" title="Permalink to this headline">¶</a></h3>
+<p>Apply for a license for <em>GAMESS</em> by following the instruction on the Mark Gordon group website.[^gamess_link]  You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer.</p>
+<p>The <em>GAMESS</em> application is available as a pre-compiled binary for <em>MacOS</em> and <em>Windows</em>.<a class="footnote-reference brackets" href="#linux" id="id1">1</a>  I received my email, followed the instructions and downloaded a file for the latest version of the <em>MacOS</em> binary. I decompressed the file and placed the resulting gamess directory folder in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder.</p>
+</div>
+<div class="section" id="the-gamess-folder">
+<h3>The GAMESS Folder<a class="headerlink" href="#the-gamess-folder" title="Permalink to this headline">¶</a></h3>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> directory are several important files. Two of which you may chose to edit. Below are the files and some brief descriptions.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>File</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>auxdata</p></td>
+<td class="text-align:left"><p>A directory with important data for calculations</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>gamess.30Jun2020R1.x</p></td>
+<td class="text-align:left"><p>The <em>GAMESS</em> application binary</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>gms-files.csh</p></td>
+<td class="text-align:left"><p>A shell script that defines environmental variables for <em>GAMESS</em></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>rungms</p></td>
+<td class="text-align:left"><p>A shell script that is use to send your input file to <em>GAMESS</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>tests</p></td>
+<td class="text-align:left"><p>A directory of sample jobs to test your installation</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>ddikick.x</p></td>
+<td class="text-align:left"><p>A binary application used by <em>GAMESS</em> to complete a run</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>gms</p></td>
+<td class="text-align:left"><p>A shell script used to call the <em>rungms</em> shell script</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>README</p></td>
+<td class="text-align:left"><p>Instructions for using the <em>gms</em> shell script to run **GAMESS</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <em>rungms</em> and <em>gms</em> scripts contain variables that can be changed to customize the behaviour of <em>GAMESS</em> on your computer.</p>
+</div>
+<div class="section" id="editing-rungms">
+<h3>Editing RUNGMS<a class="headerlink" href="#editing-rungms" title="Permalink to this headline">¶</a></h3>
+<p>Open <em>rungms</em> in a text editor. The first lines of the script define directories for the scratch files. These are important to define. The default is the home directory of the rungms script, but you will likely want your result files to appear somewhere else. I changed the first four lines of the script…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">TARGET</span><span class="o">=</span><span class="n">sockets</span>
+<span class="nb">set</span> <span class="n">SCR</span><span class="o">=./</span>
+<span class="nb">set</span> <span class="n">USERSCR</span><span class="o">=./</span>
+<span class="nb">set</span> <span class="n">GMSPATH</span><span class="o">=./</span>
+</pre></div>
+</div>
+<p>to…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">TARGET</span><span class="o">=</span><span class="n">sockets</span>
+<span class="nb">set</span> <span class="n">SCR</span><span class="o">=/</span><span class="n">Applications</span><span class="o">/</span><span class="n">gamess</span><span class="o">/</span><span class="n">scr</span>
+<span class="nb">set</span> <span class="n">USERSCR</span><span class="o">=/</span><span class="n">Users</span><span class="o">/</span><span class="n">Barry</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">CompChem</span><span class="o">/</span><span class="n">GAMESS</span><span class="o">-</span><span class="n">SCR</span>
+<span class="nb">set</span> <span class="n">GMSPATH</span><span class="o">=/</span><span class="n">Applications</span><span class="o">/</span><span class="n">gamess</span>
+</pre></div>
+</div>
+<p>This means that the <em>GAMESS</em> scratch directory (SCR) is no longer the home directory of the application but a directory within it called scr. The scratch directory contains huge temporary files that are generally deleted when the calculation is complete, but if it crashes the files may remain. I wanted a separate directory so that any leftover junk would be easy to delete every now and then.</p>
+<p>Be sure to create the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess/scr</span></code> directory.</p>
+<p>The user scratch (USERSCR) directory contains data files that are written out with the completion of a calculation. These files contain orbital and frequency data among many other sets of useful information. We only occasionally need these files but they will now be stored in a directory of my choice rather than the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> directory. Be sure to create that directory where it is expected to be.</p>
+<p>The location of the <em>GAMESS</em> binary file is specified with GMSPATH. I set it to the location of the <code class="docutils literal notranslate"><span class="pre">gamess.30Jun2020R1.x</span></code> binary in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder. The <em>gms</em> script generally does not need any changes, but you may want to change the very last line that declares the location of <em>rungms</em>. <em>gms</em> is used to run a <em>GAMESS</em> job from the command line and assumes that <em>rungms</em> is in the same directory as <em>gms</em>.</p>
+</div>
+<div class="section" id="running-gamess">
+<h3>Running GAMESS<a class="headerlink" href="#running-gamess" title="Permalink to this headline">¶</a></h3>
+<p><em>GAMESS</em> can be run from the terminal command line by calling <code class="docutils literal notranslate"><span class="pre">gms</span></code>. For example, the command:
+<code class="docutils literal notranslate"><span class="pre">gms</span> <span class="pre">cyclohexane.inp</span></code> will call the <em>rungms</em> script using 1 processor and produce a result file called <code class="docutils literal notranslate"><span class="pre">cyclohexane.log</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gms</span> <span class="pre">-l</span> <span class="pre">result.log</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">cyclohexane.inp</span></code> will do the same but write the result to a file named <code class="docutils literal notranslate"><span class="pre">result.log</span></code> and use 2 processors in your computer.</p>
+<p>We will begin with using the terminal command line to run <em>GAMESS</em>. Later, we will use a batch controller called <em>GamessQ</em>.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="installing-gamessq">
+<h2>Installing GamessQ<a class="headerlink" href="#installing-gamessq" title="Permalink to this headline">¶</a></h2>
+<p><em>GamessQ</em> is a batch queue for <em>GAMESS</em> provided by the Gordon group. It is available from the same web site.[^gamess_link]</p>
+<div class="section" id="id2">
+<h3>Obtain and Install<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Download the compressed file and extract it. Put the resulting folder in <code class="docutils literal notranslate"><span class="pre">/Applications</span></code>. In the <code class="docutils literal notranslate"><span class="pre">/Applications/GamessQ</span></code> directory we will see the following files<span class="math notranslate nohighlight">\(\ldots\)</span></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>File</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>GamessQ.app</p></td>
+<td class="text-align:left"><p>The application for the MacOS GUI interface</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>gamessq.html</p></td>
+<td class="text-align:left"><p>Instructions</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>gamessqd</p></td>
+<td class="text-align:left"><p>The background daemon application</p></td>
+</tr>
+</tbody>
+</table>
+<p>You will need to run the <em>gamessqd</em> application first. If you double-click on it it will run via a terminal window. The <em>Terminal</em> app will open and run the executable binary <em>gamessqd</em>. It will keep running as long as that terminal window is open. After this daemon has been launched, you will double-click on the <em>GamessQ</em> application to open the graphic interface. <em>GamessQ</em> will not run if <em>gamessqd</em> has not already been activated.</p>
+<p>Click on the <em>GammesQ</em> icon to run the program. In the menus, open [GamessQ<code class="docutils literal notranslate"><span class="pre">$\rightarrow$</span></code>Preferences] and you will see two important settings. The first is the location of the spool directory for <em>GamessQ</em>. This is where <em>GamessQ</em> will move the final result files from a <em>GAMESS</em> calculation. The second is the location of the directory for the <em>rungms</em> script that runs <em>GAMESS</em>.  Create a directory for the result files and point <em>GamessQ</em> there. And then enter the location of the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> folder. Now it is ready to launch jobs.</p>
+</div>
+<div class="section" id="using-gamessq">
+<h3>Using GamessQ<a class="headerlink" href="#using-gamessq" title="Permalink to this headline">¶</a></h3>
+<p>To use <em>GamessQ</em>, you drag and drop the input files onto its window. This will place the job in the queue. You can see when jobs are waiting, running and finished. You can drop in dozens of jobs and let them run over the weekend this way.</p>
+<p>There is a command line version of <em>GamessQ</em> that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run <em>GAMESS</em>. You will be able to <em>telnet</em> (look it up) using <em>ssh</em><a class="footnote-reference brackets" href="#telnet" id="id3">2</a> (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using <em>gamessq</em> directly.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="summary-of-system-setup">
+<h2>Summary of System Setup<a class="headerlink" href="#summary-of-system-setup" title="Permalink to this headline">¶</a></h2>
+<p>The following directories were created and files and settings altered accordingly:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Directory Created</p></th>
+<th class="text-align:left head"><p>Where to make changes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">/Applications/gamess/scr</span></code></p></td>
+<td class="text-align:left"><p>edit <em>rungms</em></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">~/Documents/CompChem/GAMESS-SCR</span></code></p></td>
+<td class="text-align:left"><p>edit <em>rungms</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">~/Documents/CompChem/GAMESS-RESULTS</span></code></p></td>
+<td class="text-align:left"><p>preferences in <em>GamessQ</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>With this setup we will see copies of the input files and the result file produced by calculation appear in the GAMESS-RESULTS directory. The data files will appear in the GAMESS-SCR directory. BEWARE! Result files and input file copies in GAMESS-RESULTS will be deleted whenever you clear the queue in GamessQ by clicking on the cleanup button. So be sure to copy them to somewhere else if you want to be sure to keep them.</p>
+<p>You can create your own setup however you like. Just edit the rungms script and the GamessQ preferences accordingly.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="installing-macmolplt">
+<h2>Installing MacMolPlt<a class="headerlink" href="#installing-macmolplt" title="Permalink to this headline">¶</a></h2>
+<p>MacMolPlt is a molecular editing and visualization application. It can be used to construct 3-D structures and create input files for GAMESS. It can interpret the resulting output files and produce visualization of bond vibrations and frequencies, molecular energies and molecular orbitals and other surfaces.</p>
+<div class="section" id="id4">
+<h3>Obtain and Install<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>You can obtain MacMolPlt at the github repository. Just unpack the downloaded file and put the application folder in your /Applications directory. If you are running MacOS 12 (Monterey) or later you will have to edit a configuration file within the application itself. Don’t worry, instructions are below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On more modern <em>MacOS</em> computers (<em>MacOS 12</em> and later) you will need to edit the <code class="docutils literal notranslate"><span class="pre">info.plist</span></code> file in the package of the <em>MacMolPlt</em> application and add the following parameter in the first <code class="docutils literal notranslate"><span class="pre">&lt;dict&gt;</span></code> group…</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;key&gt;NSHighResolutionCapable&lt;/key&gt;</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">&lt;string&gt;False&lt;/string&gt;</span></code></p>
+<p>This will avoid a scaling problem with the high-resolution screens on modern Apple computers. It will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.
+On <em>MacOS 11</em> and earlier, you can check a box in the “Get Info” menu item of <em>wxMacMolPlt</em> for “Open in Low Resolution.” Apple deprecated this option and eliminated it in <em>MacOS 12</em>, hence the awkward word-around above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.</p>
+</div>
+</div>
+<div class="section" id="using-wxmacmolplt">
+<h3>Using wxMacMolPlt<a class="headerlink" href="#using-wxmacmolplt" title="Permalink to this headline">¶</a></h3>
+<p>The application itself is called <em>wxMacMolPlt</em>. I will continue to refer to it as <em>MacMolPlt</em> in this document. Just click on the application icon and you will get a blank window to start building a molecule. Explore the menu and you will quickly get the hang of it.</p>
+<p>An instruction manual is available on the website.[^macmolplt] More specific instructions on using <em>MacMolPlt</em> will be given in each exercise where we build molecules, optimize their structure and analyze the results of GAMESS calculations. Practice makes perfect.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="installing-avogadro">
+<h2>Installing Avogadro<a class="headerlink" href="#installing-avogadro" title="Permalink to this headline">¶</a></h2>
+<p><em>Avogadro</em> is an open source application for building molecules and can export and interpret input and output files for <em>GAMESS</em>. It has many interesting features to explore. One very useful tool is the auto-optimization feature that will minimize the energy of your molecule using molecular mechanics. This will produce a structure that is closer to ground state and therefore faster to optimize in <em>GAMESS</em>
+.</p>
+<div class="section" id="id5">
+<h3>Obtain and Install<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>You can download Avogadro from the project’s website.[^avogadro_link] Install the software and that’s it. Open it and explore the menus.</p>
+</div>
+<div class="section" id="using-avogadro">
+<h3>Using Avogadro<a class="headerlink" href="#using-avogadro" title="Permalink to this headline">¶</a></h3>
+<p>An instruction manual is available at the same website. We will explore <em>Avogadro</em> as we perform our experiments. There is no substitute for experience.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="using-unix">
+<h2>Using Unix<a class="headerlink" href="#using-unix" title="Permalink to this headline">¶</a></h2>
+<p>The results file may contain thousands of lines of text. How can we find the useful bits. I am using a Unix (sort of) operating system and can access the enormously powerful Unix toolchain. I will be using the terminal running a shell (a command line interface), standard directory navigation and the Unix tools <em>grep</em>, <em>sed</em> and <em>awk</em>.</p>
+<div class="section" id="the-shell">
+<h3>The Shell<a class="headerlink" href="#the-shell" title="Permalink to this headline">¶</a></h3>
+<p>A common Unix shell is <em>bash</em>. It provides commands for navigating directories and for running programs. It also provides a scripting language so that I can make my own tools using a set of shell commands in a file. Lots of information is available about <em>bash</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recent versions of <em>MacOS</em> use <em>zsh</em> rather than <em>bash</em>. But <em>bash</em> is still available and we will be using it to run our scripts. <em>zsh</em> is almost completely compatible with <em>bash</em> and the scripts will run fine in <em>zsh</em>. I am a creature of habit.</p>
+</div>
+</div>
+<div class="section" id="the-terminal-application">
+<h3>The Terminal Application<a class="headerlink" href="#the-terminal-application" title="Permalink to this headline">¶</a></h3>
+<p>On my computer there is an application called <em>Terminal</em> that runs a terminal emulation window to the <em>Unix</em> system underneath the GUI interface. When the terminal window opens, we are already in the shell program. Most <em>Unix</em> systems will start with the <em>bash</em> shell  and you can change to other shell programs easily if you wish.</p>
+</div>
+<div class="section" id="unix-commands">
+<h3>Unix Commands<a class="headerlink" href="#unix-commands" title="Permalink to this headline">¶</a></h3>
+<p>Here are some essential Unix commands to know.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A starting point for learning Unix tools can be found at <a class="reference external" href="http://mally.stanford.edu/~sr/computing/basic-unix.html">http://mally.stanford.edu/~sr/computing/basic-unix.html</a> and also at <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Unix_commands">https://en.wikipedia.org/wiki/List_of_Unix_commands</a> . Search and you shall find.</p>
+</div>
+<div class="section" id="cd">
+<h4><em>cd</em><a class="headerlink" href="#cd" title="Permalink to this headline">¶</a></h4>
+<p>The <em>cd</em> this command will change the directory. The directory structure in Unix begins with ~. The squiggle is your home directory.  If you enter <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>, you will switch to your home directory. I entered <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Documents/CompChem/Folder</span></code> to switch to a directory named Folder in my CompChem directory in my Documents folder in my home (~) folder
+.</p>
+</div>
+<div class="section" id="pwd">
+<h4><em>pwd</em><a class="headerlink" href="#pwd" title="Permalink to this headline">¶</a></h4>
+<p>“Present working directory” is what <em>pwd</em> is. This command will return the directory where you are.  It is useful when you want to see exactly where you are in the directory system.</p>
+</div>
+<div class="section" id="ls">
+<h4><em>ls</em><a class="headerlink" href="#ls" title="Permalink to this headline">¶</a></h4>
+<p>This command will give you a list of files, applications and directories. Enter <code class="docutils literal notranslate"><span class="pre">ls</span></code> and you will get the list for the current directory.</p>
+</div>
+<div class="section" id="man">
+<h4><em>man</em><a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h4>
+<p>The <em>man</em> tool is very useful. It will call up the documentation any Unix command or tool it its database. Type <code class="docutils literal notranslate"><span class="pre">man</span></code> and see what happens. Use arrow keys to move around the document or the space bar to page down. Strike CTRL-Z to exit the <em>man</em> system. Between <em>man</em> and the internet you can learn much more about these essential commands.</p>
+</div>
+</div>
+<div class="section" id="manipulating-text-files">
+<h3>Manipulating Text Files<a class="headerlink" href="#manipulating-text-files" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="grep">
+<h4><em>grep</em><a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h4>
+<p>We can extract just the lines that we want from the large result file. <em>grep</em> will read a file (or a list of files) line by line and return only the lines that contain a given text string. The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;NSERCH&quot;</span> <span class="pre">ResultFile.log</span></code> will extract the text lines that contain the string NSERCH, which is the step number for each optimization step of an optimization calculation. The last step will include the final energy. Rather than scan through 2000 of more lines of text output we could just grep out the lines we want.</p>
+</div>
+<div class="section" id="redirect">
+<h4>Redirect<a class="headerlink" href="#redirect" title="Permalink to this headline">¶</a></h4>
+<p>You can redirect the output of command from the screen to a file. The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> character is a shell operator that will write output that would have been printed to your terminal window to a file instead.  The command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">&gt;</span> <span class="pre">directory.txt</span></code> will create a file called directory.txt and flow the output of ls into that file.</p>
+</div>
+<div class="section" id="pipes">
+<h4>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h4>
+<p>A “pipe” is the ‘|’ character.  This use usually over the backslash (\) on your keyboard and is accessed via [shift]-. (Usually located on the right-hand side of an ANSI QWERTY keyboard, above the [RETURN/ENTER] key and under the [BACKSPACE/DELETE] key.) It is a shell operator that can be used to combine commands. (Just like how the plus sign is an operator that can combine two numbers in math).</p>
+<p>A pipe is placed between two commands. The output of the first command is “piped” into the second command as its input. For example the command ls -l will produce a detailed file list for your current directory. What if you have hundreds of files in your directory and you are looking for just the details on one. The command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">ResultFile</span></code> will pipe the output of the directory command into the grep command, which will then output the lines that contain the string “ResultFile”, e.g. ResultFile.log and ResultFile.inp.</p>
+</div>
+<div class="section" id="sed">
+<h4><em>sed</em><a class="headerlink" href="#sed" title="Permalink to this headline">¶</a></h4>
+<p>We can search and substitute a string in a text file with the <em>sed</em> tool. It is a powerful command-line version of “search and replace.” For example the command <code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">&quot;s/NUMBER/100/&quot;</span> <span class="pre">InputFile.inp</span> <span class="pre">&gt;</span> <span class="pre">NewInputFile.inp</span></code> will read the file “InputFile.inp”, replace the string “NUMBER” with the string “100” and direct the output to a file names “NewInputFile.inp”.</p>
+</div>
+<div class="section" id="awk">
+<h4><em>awk</em><a class="headerlink" href="#awk" title="Permalink to this headline">¶</a></h4>
+<p>What <em>grep</em> and <em>sed</em> are to text lines, awk is to text columns. It is a powerful tool for manipulating table data in text files. There are many tables of data output in <em>GAMESS</em> result files. Perhaps we will use it someday.</p>
+</div>
+</div>
+<div class="section" id="shell-scripts">
+<h3>Shell Scripts<a class="headerlink" href="#shell-scripts" title="Permalink to this headline">¶</a></h3>
+<p>You can place a series of <em>Unix</em> tools and shell commands and operators in a text file and run it as a shell script. That way you can execute a series of commands and even use logic and loops to perform more complicated tasks. We will be using scripts to automate making a series of related input files using <em>sed</em> and also to extract final energies from a related series of output files using <em>grep</em>
+.</p>
+<div class="section" id="ready-to-go">
+<h4>Ready To Go<a class="headerlink" href="#ready-to-go" title="Permalink to this headline">¶</a></h4>
+<p>We are now ready to do some calculations. We can build molecules and create input files using <em>MacMolPlt</em> or <em>Avogadro</em>. We can submit the files to <em>GAMESS</em> using <em>GamessQ</em>. We can then extract specific information using <em>Unix</em> tools and shell scripts or load the result files into <em>MacMolPlt</em> or <em>Avogadro</em> and examine the result graphically. We will be able to explore how steric strain arises in molecules and how structure affects the transition state in reactions. We will be able to see graphical representations of molecular orbitals and, in many cases, the local bonding orbitals that more closely align with Lewis structure. I hope that you will gain a more intuitive understanding of molecular structure and reaction kinetics.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="linux"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Linux users will have to compile the source code. Go for it! Please make notes on your epic journey and share them with your peers. Everyone should use Linux, we just need you to show us the way. I am too timid to leave my soft warm bed and so I use MacOS. I envy you, but I will not join you; others may if you lead them. Rock on!</p>
+</dd>
+<dt class="label" id="telnet"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>Your Unix system will have a secure shell (ssh) tool that can be called using the ssh command. It will likely be an implementation of the OpenSSH suite of internet tools. No one uses telnet anymore, but it has become a verb for the act of using ssh.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="start.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_SmallMolecules.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Water: Getting Started</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Barry Linkletter<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

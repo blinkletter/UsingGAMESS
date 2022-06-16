@@ -4,7 +4,7 @@ Benzene is the iconic organic molecule. Imagine if I had to design a superhero o
 
 We created a molecular orbital diagram for the p-system using SHMO theory. Let us now repeat that exercise using GAMESS.
 
-##Goals
+## Goals
 
 In this exercise, we will accomplish the following…
 
@@ -71,7 +71,7 @@ All four input files started with the same coordinates (the optimized HF/6-31G s
 
 ## Visualization of Molecular Orbitals
 
-The molecular eigenvectors produced by the aug-cc-pCVTZ basis set included f-orbitals all the way out to the fifth energy shell. This huge number of interacting atomic orbitals gives more accurate results but it can complicate the images of molecular orbitals. The three bonding $\pi$-MOs and the first two antibonding MOs were fine , but the highest level antibonding $\pi$-MO ($\pi_6$) was mixed with higher level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The $\pi$-MOs fit much better to the textbook idea. Am I sticking with a comfortable lie? Should I accept the truth? 
+The molecular eigenvectors produced by the aug-cc-pCVTZ basis set included f-orbitals all the way out to the fifth energy shell. This huge number of interacting atomic orbitals gives more accurate results but it can complicate the images of molecular orbitals. The three bonding $\pi$-MOs and the first two antibonding MOs were fine, but the highest level antibonding $\pi$-MO ($\pi_6$) was mixed with higher level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The $\pi$-MOs fit much better to the textbook idea. Am I sticking with a comfortable lie? Should I accept the truth? 
 
 If you find it difficult to locate the higher level antibonding MOs in a sea of extra orbitals then try repeating the energy calculation with a smaller basis set. It will be less accurate but may give prettier pictures. {numref}`fig6_2C` presents the molecular orbitals produced from the two basis sets. Which do you prefer?
 

@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Fun With GAMESS</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building Your System" href="1_Setup.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Setup.html">
+   Building Your System
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SmallMolecules.html">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Benzene.html">
+     Benzene: MOs and Symmetry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8A_Diels_Alder.html">
+   Transition States in GAMESS
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/start.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>We have some intuition about chemical structure and energy. We know that butane is at its lowest energy in the <em>anti</em> conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its electronic structure. We can demonstrate these effects and explore consequences of changes in structure on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are free to all or free for academic use.</p>
+<p><em><strong>GAMESS</strong></em><a class="footnote-reference brackets" href="#gamess1" id="id1">1</a>,<a class="footnote-reference brackets" href="#gamess2" id="id2">2</a>,<a class="footnote-reference brackets" href="#gamess-link" id="id3">3</a>  is an ab initio computation package for investigating molecular structure and energy. There are others, such as <em><strong>NWChem</strong></em> <a class="footnote-reference brackets" href="#nwchem" id="id4">4</a>,<a class="footnote-reference brackets" href="#nwchem-link" id="id5">5</a>  and <em><strong>ORCA</strong></em> <a class="footnote-reference brackets" href="#orca" id="id6">6</a>,<a class="footnote-reference brackets" href="#orca-link" id="id7">7</a>.</p>
+<p><em><strong>MacMolPlt</strong></em> <a class="footnote-reference brackets" href="#macmolplt" id="id8">8</a>,<a class="footnote-reference brackets" href="#macmolplt-link" id="id9">9</a>  is a graphical front end for <em>GAMESS</em>. It can build molecules, export input files and interpret the output files produced by GAMESS. <em><strong>Avogadro</strong></em> <a class="footnote-reference brackets" href="#avogadro" id="id10">10</a>,<a class="footnote-reference brackets" href="#avogadro-link" id="id11">11</a>  is a more modern option but lacks some useful tools compared to MacMolPlt. There are others, such as <em><strong>Gabedit</strong></em> <a class="footnote-reference brackets" href="#gabedit" id="id12">12</a>,<a class="footnote-reference brackets" href="#gabedit-link" id="id13">13</a>  and <em><strong>Molden</strong></em>. <a class="footnote-reference brackets" href="#molden" id="id14">14</a>,<a class="footnote-reference brackets" href="#molden-link" id="id15">15</a></p>
+<p>We will use <em>GAMESS</em> and <em>MacMolPlt</em> together. We will also use <em>Avagadro</em>.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="gamess1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>“General atomic and molecular electronic structure system” Michael W. Schmidt et. al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. <a class="reference external" href="https://doi.org/10.1002/jcc.540141112">https://doi.org/10.1002/jcc.540141112</a></p>
+</dd>
+<dt class="label" id="gamess2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>“Recent developments in the general atomic and molecular electronic structure system”
+Giuseppe M.J. Barca et. al., J. Chem. Phys., 2020, 152, 154102, <a class="reference external" href="https://doi.org/10.1063/5.0005188">https://doi.org/10.1063/5.0005188</a></p>
+</dd>
+<dt class="label" id="gamess-link"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">https://www.msg.chem.iastate.edu/gamess/</a></p>
+</dd>
+<dt class="label" id="nwchem"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>“NWChem: a comprehensive and scalable open-source solution for large scale molecular simulations”
+M. Valiev et. al.,  Comput. Phys. Commun., 2010, 181, 1477. <a class="reference external" href="https://doi.org/10.1016/j.cpc.2010.04.018">https://doi.org/10.1016/j.cpc.2010.04.018</a></p>
+</dd>
+<dt class="label" id="nwchem-link"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><a class="reference external" href="https://nwchemgit.github.io">https://nwchemgit.github.io</a></p>
+</dd>
+<dt class="label" id="orca"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>“Software update: The ORCA program system, version 4.0” Frank Neese, Wiley Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. <a class="reference external" href="https://doi.org/10.1002/wcms.1327">https://doi.org/10.1002/wcms.1327</a></p>
+</dd>
+<dt class="label" id="orca-link"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p><a class="reference external" href="https://orcaforum.kofo.mpg.de/app.php/portal">https://orcaforum.kofo.mpg.de/app.php/portal</a></p>
+</dd>
+<dt class="label" id="macmolplt"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p>“MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, Mol. Graphics and Modeling, 1999, 16, 133-138. <a class="reference external" href="https://doi.org/10.1016/s1093-3263(99)00002-9">https://doi.org/10.1016/s1093-3263(99)00002-9</a></p>
+</dd>
+<dt class="label" id="macmolplt-link"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p><a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">http://brettbode.github.io/wxmacmolplt/</a></p>
+</dd>
+<dt class="label" id="avogadro"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dd><p>“Avogadro: an advanced semantic chemical editor, visualization, and analysis platform”
+Marcus D Hanwell et. al., J. Cheminform., 2012, 4, 17. <a class="reference external" href="https://doi.org/10.1186/1758-2946-4-17">https://doi.org/10.1186/1758-2946-4-17</a></p>
+</dd>
+<dt class="label" id="avogadro-link"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
+<dd><p><a class="reference external" href="http://avogadro.cc">http://avogadro.cc</a></p>
+</dd>
+<dt class="label" id="gabedit"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
+<dd><p>“Gabedit - A graphical user interface for computational chemistry softwares”
+A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. <a class="reference external" href="https://doi.org/10.1002/jcc.21600">https://doi.org/10.1002/jcc.21600</a></p>
+</dd>
+<dt class="label" id="gabedit-link"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
+<dd><p><a class="reference external" href="http://gabedit.sourceforge.net/home.html">http://gabedit.sourceforge.net/home.html</a></p>
+</dd>
+<dt class="label" id="molden"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
+<dd><p>“Molden: a pre- and post-processing program for molecular and electronic structures” D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). <a class="reference external" href="https://doi.org/10.1023/A:1008193805436">https://doi.org/10.1023/A:1008193805436</a></p>
+</dd>
+<dt class="label" id="molden-link"><span class="brackets"><a class="fn-backref" href="#id15">15</a></span></dt>
+<dd><p><a class="reference external" href="https://www.theochem.ru.nl/molden/">https://www.theochem.ru.nl/molden/</a></p>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="1_Setup.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Building Your System</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Barry Linkletter<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

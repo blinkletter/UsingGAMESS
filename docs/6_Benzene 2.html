@@ -51,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Butadiene: Transition State for Rotation" href="7_Butadiene.html" />
@@ -164,6 +164,11 @@ const thebe_selector_output = ".output, .cell_output"
    Butadiene: Transition State for Rotation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8A_Diels_Alder.html">
+   Transition States in GAMESS
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -236,6 +241,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals">
+   Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#building-benzene">
    Building Benzene
   </a>
@@ -281,6 +291,11 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals">
+   Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#building-benzene">
    Building Benzene
   </a>
@@ -318,13 +333,15 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Benzene: MOs and Symmetry<a class="headerlink" href="#benzene-mos-and-symmetry" title="Permalink to this headline">¶</a></h1>
 <p>Benzene is the iconic organic molecule. Imagine if I had to design a superhero outfit for “Chemistry Man” (He can change phase from solid to liquid but he requires a heat source to do so ). I would choose a hexagon, representing the planar benzene structure, as the superhero symbol emblazoned on the cape.</p>
 <p>We created a molecular orbital diagram for the p-system using SHMO theory. Let us now repeat that exercise using GAMESS.</p>
-<p>##Goals</p>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise, we will accomplish the following…</p>
 <ol class="simple">
 <li><p>Use MacMolPlt to benzene. We will use symmetry and the D6h point group. We will also use the C2v point group because that is the symmetry that will be applicable to derivatives of benzene that we will be creating.</p></li>
 <li><p>We will then optimize the structure and visualize the orbitals.</p></li>
 <li><p>This will be a good system to demonstrate the benefits of symmetry. We will try an expensive energy calculation using the two pint groups above and the C1 point group.</p></li>
 </ol>
+</div>
 <div class="section" id="building-benzene">
 <h2>Building Benzene<a class="headerlink" href="#building-benzene" title="Permalink to this headline">¶</a></h2>
 <p>Using the symmetry building tools in MacMolPlt, build benzene. With the <span class="math notranslate nohighlight">\(D_{6h}\)</span> point group you will be placing only two atoms in the xy plane. With the <span class="math notranslate nohighlight">\(C_{2v}\)</span> point group you will be placing 4 atoms in the xz plane with two of the atoms on the z-axis. Have fun and leave lots of time to make mistakes. We are beginning to leave behind the world of words; more and more you will find that doing will be your teacher.</p>
@@ -398,7 +415,7 @@ B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we
 </div>
 <div class="section" id="visualization-of-molecular-orbitals">
 <h2>Visualization of Molecular Orbitals<a class="headerlink" href="#visualization-of-molecular-orbitals" title="Permalink to this headline">¶</a></h2>
-<p>The molecular eigenvectors produced by the aug-cc-pCVTZ basis set included f-orbitals all the way out to the fifth energy shell. This huge number of interacting atomic orbitals gives more accurate results but it can complicate the images of molecular orbitals. The three bonding <span class="math notranslate nohighlight">\(\pi\)</span>-MOs and the first two antibonding MOs were fine , but the highest level antibonding <span class="math notranslate nohighlight">\(\pi\)</span>-MO (<span class="math notranslate nohighlight">\(\pi_6\)</span>) was mixed with higher level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The <span class="math notranslate nohighlight">\(\pi\)</span>-MOs fit much better to the textbook idea. Am I sticking with a comfortable lie? Should I accept the truth?</p>
+<p>The molecular eigenvectors produced by the aug-cc-pCVTZ basis set included f-orbitals all the way out to the fifth energy shell. This huge number of interacting atomic orbitals gives more accurate results but it can complicate the images of molecular orbitals. The three bonding <span class="math notranslate nohighlight">\(\pi\)</span>-MOs and the first two antibonding MOs were fine, but the highest level antibonding <span class="math notranslate nohighlight">\(\pi\)</span>-MO (<span class="math notranslate nohighlight">\(\pi_6\)</span>) was mixed with higher level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The <span class="math notranslate nohighlight">\(\pi\)</span>-MOs fit much better to the textbook idea. Am I sticking with a comfortable lie? Should I accept the truth?</p>
 <p>If you find it difficult to locate the higher level antibonding MOs in a sea of extra orbitals then try repeating the energy calculation with a smaller basis set. It will be less accurate but may give prettier pictures. <a class="reference internal" href="#fig6-2c"><span class="std std-numref">Fig. 35</span></a> presents the molecular orbitals produced from the two basis sets. Which do you prefer?</p>
 </div>
 <div class="section" id="summary">
@@ -470,7 +487,7 @@ B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we
     
       By Barry Linkletter<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2022.<br/>
   </p>
 </footer>
 </main>

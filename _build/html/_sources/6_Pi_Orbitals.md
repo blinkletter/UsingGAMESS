@@ -1,4 +1,4 @@
-# Allyl Cation: $\pi$ Orbitals
+# Allyl Cation: 𝜋 Orbitals
 
 Simplified Hückel Molecular Orbital Theory (SHMO) allows us to create $\pi$-molecular orbitals for planar systems. It is qualitatively accurate and often all one needs to interpret $\pi$-systems in physical organic chemistry. We have explored SHMO and created MO diagrams for ethylene, allyl anion & cation, butadiene and the cumyl cation. We have explored the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with Python and the NumPy \& SciPy packages.
 
@@ -227,8 +227,8 @@ Excerpt from  **AllylCat_B3LYP_U_E.log**
    54  C  3  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
    55  C  3  Z   -0.000000  -0.000000   0.000000   0.061031  -0.101278
    56  C  3  S   -0.000000  -0.000000   0.000000   0.418506  -0.489405
-...........................................
-``` 
+.............................
+```
 
 ## Summary 
 

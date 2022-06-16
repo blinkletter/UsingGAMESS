@@ -1,0 +1,1209 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Butane: Rotation Energy Profiles &#8212; Fun With GAMESS</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="GAMESS Workflow" href="5_Rotation_Profiles_Workflow.html" />
+    <link rel="prev" title="Ethane: Symmetry in Calculations" href="4_Ethane.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Setup.html">
+   Building Your System
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SmallMolecules.html">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     GAMESS Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation:
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+   Orbitals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Benzene.html">
+     Benzene: MOs and Symmetry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8A_Diels_Alder.html">
+   Transition States in GAMESS
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/5_Rotation_Profiles.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals">
+   Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-butane">
+   Building Butane
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-to-use-gamess">
+   Preparing to use GAMESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-gamess-input-file">
+     The GAMESS Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpreting-the-input-file">
+     Interpreting The Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-z-matrix">
+     The Z-Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-optimal-structure-using-gamess">
+   Finding Optimal Structure Using GAMESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimizing-the-structure">
+     Optimizing the Structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-output-file">
+     The Output File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#are-we-done">
+     Are We Done?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimized-structure-and-energy">
+     Optimized Structure and Energy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-other-conformer">
+   The Other Conformer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-the-results">
+   Communication The Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-energy">
+   The Energy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#freezing-a-coordinate">
+   Freezing a Coordinate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-energy-profile">
+   The Energy Profile
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#higher-level-theory">
+     Higher Level Theory
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-unix">
+   Using Unix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-information">
+     Extracting Information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-many-similar-files">
+     Making Many Similar Files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-activities">
+     The Activities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-report">
+     The Report
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Butane: Rotation Energy Profiles</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals">
+   Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-butane">
+   Building Butane
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-to-use-gamess">
+   Preparing to use GAMESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-gamess-input-file">
+     The GAMESS Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpreting-the-input-file">
+     Interpreting The Input File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-z-matrix">
+     The Z-Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-optimal-structure-using-gamess">
+   Finding Optimal Structure Using GAMESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimizing-the-structure">
+     Optimizing the Structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-output-file">
+     The Output File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#are-we-done">
+     Are We Done?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimized-structure-and-energy">
+     Optimized Structure and Energy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-other-conformer">
+   The Other Conformer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-the-results">
+   Communication The Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-energy">
+   The Energy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#freezing-a-coordinate">
+   Freezing a Coordinate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-energy-profile">
+   The Energy Profile
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#higher-level-theory">
+     Higher Level Theory
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-unix">
+   Using Unix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-information">
+     Extracting Information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-many-similar-files">
+     Making Many Similar Files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files">
+   Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-activities">
+     The Activities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-report">
+     The Report
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="butane-rotation-energy-profiles">
+<h1>Butane: Rotation Energy Profiles<a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this headline">¶</a></h1>
+<p>One of the easiest chemical transformations to model and explore in computational chemistry is conformational changes. We will start with the rotation potential energy profiles.
+We will now build butane using the build tools in wxMacMolPlt and then submit the data to GAMESS as an optimization calculation via GamessQ.
+No more symmetry (for now). If we want to rotate molecules around bonds, the symmetry will be changing with the rotation. Do consider that symmetry saved a lot of computational effort and should be considered carefully when using expensive methods. We will downgrade our method for optimizations to HF/3-21G</p>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>In this exercise, we will accomplish the following…</p>
+<ol class="simple">
+<li><p>Use MacMolPlt to build molecules, generate input files and interpret results.</p></li>
+<li><p>Freeze a coordinate in a series of internal coordinates.</p></li>
+<li><p>Change the frozen coordinate and obtain the optimized structure an energy within that limitation.</p></li>
+<li><p>Learn how to use the command-line Unix tools sed and grep to generate a large series of input files with different values for the frozen coordinate and to extract data quickly from large numbers of files. We will submit all these files at once via GamessQ.</p></li>
+<li><p>With these methods we will create a rotational energy profile around a given bond in an alkane.</p></li>
+</ol>
+</div>
+<div class="section" id="building-butane">
+<h2>Building Butane<a class="headerlink" href="#building-butane" title="Permalink to this headline">¶</a></h2>
+<p>Run MacMolPlt. Click on <code class="docutils literal notranslate"><span class="pre">Builder</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. Choose carbon atoms and set the coordination number to 4 (four bonds to an sp3 carbon). Then click in the window to build the molecule, A carbon with four connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change the build tool to hydrogen and then click on the remaining connections to include bonds. In the end you will have a window that looks like this perhaps.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can just click on <code class="docutils literal notranslate"><span class="pre">Builder</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Hydrogens</span></code> to fill in any remaining hydrogen atoms.</p>
+</div>
+<div class="figure align-default" id="fig5-1">
+<a class="reference internal image-reference" href="_images/profiles_Picture1B.png"><img alt="_images/profiles_Picture1B.png" src="_images/profiles_Picture1B.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text"><em>MacMolPlt window with the initial structure for butadiene.</em></span><a class="headerlink" href="#fig5-1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The structure in <a class="reference internal" href="#fig5-1"><span class="std std-numref">Fig. 13</span></a> is an initial rough sketch. Note that the terminal carbons are in eclipsed conformations. We will need to calculate the correct structure by creating an input file for GAMESS. Click on <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> $\rightarrow <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the following parameters:</p>
+<ul class="simple">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Control</span></code> menu section, set <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Optimization</span></code>. This will instruct GAMESS that we are doing a calculation to find the optimizes molecular geometry.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Basis</span></code> section, set <code class="docutils literal notranslate"><span class="pre">Basis</span> <span class="pre">Set</span></code> to <code class="docutils literal notranslate"><span class="pre">3-21G</span></code> and set <code class="docutils literal notranslate"><span class="pre">#D</span> <span class="pre">heavy</span> <span class="pre">atom</span> <span class="pre">polarizations</span> <span class="pre">functions</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>. This will run at the 3-21G</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Data</span></code> section, set <code class="docutils literal notranslate"><span class="pre">Coord.</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Z-Matrix</span></code> and set <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">of</span> <span class="pre">Z-matrix</span> <span class="pre">variables</span></code> to <code class="docutils literal notranslate"><span class="pre">36</span></code> (14 atoms, so 3N – 6 = 36)</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Misc.</span> <span class="pre">Prefs</span></code> section, check the <code class="docutils literal notranslate"><span class="pre">MolPlt</span></code> button. This will ensure that GAMESS outputs information in a format that can be read by the MacMolPlt application.</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">and</span> <span class="pre">Save</span></code> button in the bottom of the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> window. Then click on <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">As…</span></code> and save your file. Choose a name like <code class="docutils literal notranslate"><span class="pre">butane.inp</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="preparing-to-use-gamess">
+<h2>Preparing to use GAMESS<a class="headerlink" href="#preparing-to-use-gamess" title="Permalink to this headline">¶</a></h2>
+<p>We can now take the data file that was written out by MacMolPlt and use it as the input for GAMESS.</p>
+<div class="section" id="the-gamess-input-file">
+<h3>The GAMESS Input File<a class="headerlink" href="#the-gamess-input-file" title="Permalink to this headline">¶</a></h3>
+<p>Open the input file you just saved from MacMolPlt in a text editor.  You should see the following text…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1  109.4712
+C   1    1.54000  2  109.4712  3 -180.0000
+H   1    1.14000  2  109.4712  4 -120.0000
+H   1    1.14000  5  109.4712  2  120.0000
+H   2    1.14000  1  109.4712  3 -120.0000
+H   2    1.14000  7  109.4712  1  120.0000
+H   3    1.14000  2  109.4712  8    0.0000
+H   3    1.14000  9  109.4712  2  120.0000
+H   3    1.14000  9  109.4712  10 120.0000
+H   4    1.14000  1  109.4712  6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712  13 120.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unix comes with many text editors that will run in the terminal but most people would use a GUI tool. BBedit is a professional grade text editor and a free version is available for MacOS computers.</p>
+</div>
+</div>
+<div class="section" id="interpreting-the-input-file">
+<h3>Interpreting The Input File<a class="headerlink" href="#interpreting-the-input-file" title="Permalink to this headline">¶</a></h3>
+<p>The GAMESS input file starts off with essential settings and information is the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code>, <code class="docutils literal notranslate"><span class="pre">$SYSTEM</span></code>, <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code>, <code class="docutils literal notranslate"><span class="pre">$SCF</span></code> and <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> groups. Each group ends with <code class="docutils literal notranslate"><span class="pre">$END</span></code>. The settings within each group will be discussed where needed as we proceed, and detailed information is found in the GAMESS documentation at <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/">https://www.msg.chem.iastate.edu/GAMESS/</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All white space must be spaces, not tabs. And all lines that start with a <span class="math notranslate nohighlight">\( symbol must have that \)</span> symbol in the second column, not the first. Examine the above file and observe this fact.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group contains the description of the molecule. The first line after the declaration of <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> is the name of the molecule. You can change “Title” to “Butane” in the input builder if you wish.</p>
+<p>The next line is the symmetry. We are not using symmetry, so the symmetry point group is declared to be <span class="math notranslate nohighlight">\(C_1\)</span> (no symmetry). Using symmetry will greatly reduce the work of the calculation. We will ignore this useful idea for now.
+The next line begins the description of the molecule. We could use an xyz coordinate system but that is a block of numbers that can be difficult to interpret. We will use internal coordinates that describe each atoms relationship to another atom or atoms. This will make more sense when examined by the human eye and allows for greater control in setting up initial geometries and bond angles. The internal coordinate system that we will use is the Z-matrix</p>
+</div>
+<div class="section" id="the-z-matrix">
+<h3>The Z-Matrix<a class="headerlink" href="#the-z-matrix" title="Permalink to this headline">¶</a></h3>
+<p>The Z-matrix for butane is composed of 14 lines for the 14 atoms. Here is the Z-matrix that was produced by MacMolPlt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+<span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
+<span class="n">C</span>   <span class="mi">2</span>    <span class="mf">1.54000</span>  <span class="mi">1</span>  <span class="mf">109.4712</span>
+<span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>  <span class="mi">2</span>  <span class="mf">109.4712</span>  <span class="mi">3</span> <span class="o">-</span><span class="mf">180.0000</span>
+<span class="n">H</span>   <span class="mi">1</span>    <span class="mf">1.14000</span>  <span class="mi">2</span>  <span class="mf">109.4712</span>  <span class="mi">4</span> <span class="o">-</span><span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">1</span>    <span class="mf">1.14000</span>  <span class="mi">5</span>  <span class="mf">109.4712</span>  <span class="mi">2</span>  <span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">2</span>    <span class="mf">1.14000</span>  <span class="mi">1</span>  <span class="mf">109.4712</span>  <span class="mi">3</span> <span class="o">-</span><span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">2</span>    <span class="mf">1.14000</span>  <span class="mi">7</span>  <span class="mf">109.4712</span>  <span class="mi">1</span>  <span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">3</span>    <span class="mf">1.14000</span>  <span class="mi">2</span>  <span class="mf">109.4712</span>  <span class="mi">8</span>    <span class="mf">0.0000</span>
+<span class="n">H</span>   <span class="mi">3</span>    <span class="mf">1.14000</span>  <span class="mi">9</span>  <span class="mf">109.4712</span>  <span class="mi">2</span>  <span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">3</span>    <span class="mf">1.14000</span>  <span class="mi">9</span>  <span class="mf">109.4712</span>  <span class="mi">10</span> <span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">4</span>    <span class="mf">1.14000</span>  <span class="mi">1</span>  <span class="mf">109.4712</span>  <span class="mi">6</span>   <span class="o">-</span><span class="mf">0.0000</span>
+<span class="n">H</span>   <span class="mi">4</span>    <span class="mf">1.14000</span>  <span class="mi">12</span> <span class="mf">109.4712</span>  <span class="mi">1</span>  <span class="mf">120.0000</span>
+<span class="n">H</span>   <span class="mi">4</span>    <span class="mf">1.14000</span>  <span class="mi">12</span> <span class="mf">109.4712</span>  <span class="mi">13</span> <span class="mf">120.0000</span>
+</pre></div>
+</div>
+<p>Let us build the Z-matrix line by line using the example above.</p>
+<p>The first atom in the matrix is a carbon and will be atom #1 in the system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+</pre></div>
+</div>
+<p>The second atom is also a carbon and will be atom #2. It is 1.54 Å away from that atom #1. For two atoms, all we need to define the molecule is that single bond length value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+<span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
+</pre></div>
+</div>
+<p>The third line is atom #3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom #2 but now the distance no longer completely describes its position in the system. We know the distance from atom #2 to this atom #3, but we also now need a bond angle between atoms #3, 2 and 1. In <span class="math notranslate nohighlight">\(sp^3\)</span> carbons that angle is 109.4˚ (120 for <span class="math notranslate nohighlight">\(sp^2\)</span> and 180˚ for <span class="math notranslate nohighlight">\(sp\)</span>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+<span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
+<span class="n">C</span>   <span class="mi">2</span>    <span class="mf">1.54000</span>  <span class="mi">1</span>  <span class="mf">109.4712</span>
+</pre></div>
+</div>
+<p>The fourth line describes the fourth carbon atom, atom #4. It is 1.54 Å from atom #1. The bond angle between atoms #4, 1, and 2 is 109.5˚. However, this is not enough information for four atoms. Three atoms are in a plane, by definition. Distance and angle will locate them all. However, a fourth atom is potentially outside of the plane of the first three. We now will add the angle to that fourth atom relative to the plane of the first three. This is a dihedral angle. In the case of our structure, the angle of the bond between atoms #4 and #1 relative to the plane of atoms #1, 2 and 3 is 180˚. That is the same as saying that the plane described by #1,2,3 is 180˚ relative to the plane described by #4,1,2.</p>
+<p>This fourth line is very important. This dihedral angle is the bond rotation along the central C–C bond. This is the angle we will be using to rotate the centre bond of butane. <a class="reference internal" href="#fig5-2a"><span class="std std-numref">Fig. 14</span></a> shows the Z-matrix so far.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+<span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
+<span class="n">C</span>   <span class="mi">2</span>    <span class="mf">1.54000</span>  <span class="mi">1</span>  <span class="mf">109.4712</span>
+<span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>  <span class="mi">2</span>  <span class="mf">109.4712</span>  <span class="mi">3</span>  <span class="o">-</span><span class="mf">180.0000</span>
+</pre></div>
+</div>
+<p>And that describes the following structures as we read each line…</p>
+<div class="figure align-default" id="fig5-2a">
+<a class="reference internal image-reference" href="_images/profiles_Picture2A.png"><img alt="_images/profiles_Picture2A.png" src="_images/profiles_Picture2A.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>The 10th line of the Z-matrix is applied.</em></span><a class="headerlink" href="#fig5-2a" title="Permalink to this image">¶</a></p>
+</div>
+<p>By the last line, we will have constructed the following molecule. Note how the tenth line describes the bond, bond angle and dihedral angle for hydrogen atom #10 as shown in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 15</span></a>.</p>
+<div class="figure align-default" id="fig5-2">
+<a class="reference internal image-reference" href="_images/profiles_Picture2.png"><img alt="_images/profiles_Picture2.png" src="_images/profiles_Picture2.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>The 10th line of the Z-matrix is applied.</em></span><a class="headerlink" href="#fig5-2" title="Permalink to this image">¶</a></p>
+</div>
+<p>We now have our molecule with the nuclei positioned in space (relative to each other via internal coordinates). The GAMESS program will place the nuclei in a Cartesian space and then calculate the locations of electrons from first principles using ab initio quantum mechanical calculations. We did tell GAMESS that all electrons were paired (no radicals) by using the MULT=1 parameter and we did not specify a charge so that means there is no charge by default.</p>
+<p>We must always start close to the correct structure so that the calculation will snap to the closest lower energy minimum. If we start crazy, we might just end up crazy.</p>
+<p>The final $ZMAT group describes a list of descriptors for every bond length, bond angle and dihedral angle. We will leave it be for now but will return to it soon.</p>
+</div>
+</div>
+<div class="section" id="finding-optimal-structure-using-gamess">
+<h2>Finding Optimal Structure Using GAMESS<a class="headerlink" href="#finding-optimal-structure-using-gamess" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="optimizing-the-structure">
+<h3>Optimizing the Structure<a class="headerlink" href="#optimizing-the-structure" title="Permalink to this headline">¶</a></h3>
+<p>Now we will feed the input file into the GAMESS program. The job will run and produce an output file that will contain a description of the structure with the minimum overall energy. This might be the most stable structure for our molecule.</p>
+<p>Run the GamessQ program. You will get a window. Drag your input file into the window. GamessQ will ask you how many processors to use. Stick with one for now. Your modern computer probably has 4 cores or more so we can always throw more power at the problem but this small calculation won’t need any heavy iron.</p>
+</div>
+<div class="section" id="the-output-file">
+<h3>The Output File<a class="headerlink" href="#the-output-file" title="Permalink to this headline">¶</a></h3>
+<p>A detailed discussion of a GAMESS output file is presented in the next section where we repeat this exercise with butadiene. There will also be a discussion of useful Unix tools for making everything that we do here much easier. For now we will do things the hard way.</p>
+<p>The GamessQ program will copy the input file and produce an output file to the folder designated it its preference pane. The file will have a number appended. In our case, the input file was named butane.inp.  The files written are the copy of the input file and the output file: butane_246.inp and butane_246.log. (Yes, I have run 245 jobs already trying to figure out how to use GAMESS.)</p>
+<p>The log file has thousands of lines of text (assuming it didn’t crash out with an error because I goofed up the input file.) There is ultimately a line that states EXECUTION OF GAMESS TERMINATED NORMALLY. Open the log file and search for the word “normally” in the text. The phrase should appear near the end of the file. If you find the word ABNORMALLY instead, then the run has crashed out. Error information will be in the file to troubleshoot. Crashes are almost always a problem with the input file.</p>
+<p>The run exited in a controlled manner, but that does not mean that things went well. Let us examine the butane_246.log file. Each step of the search for an energy minimum involved calculating the function that describes the energy and then calculating the derivative of that function for each atom. The derivative is the slope. If the slope is zero then we are at a stationary point (either a maximum or minimum) and if the slope has a value then there is a direction downhill. GAMESS will calculate the change for each atom that will follow that gradient. The change will be applied to each atom and the new structure will be recalculated. This will repeat until the total gradient for the molecule has reached a very small value, indicating that we are at the bottom (or top!) of an energy surface.</p>
+</div>
+<div class="section" id="are-we-done">
+<h3>Are We Done?<a class="headerlink" href="#are-we-done" title="Permalink to this headline">¶</a></h3>
+<p>Each step in initiated in the text of the log file by the term NSERCH. If we search through the text file until the last time NSERCH appears we will find the final structural calculation and result (there are better ways to do this.) In our case we see the last line containing NSERCH is…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">20</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4322927357</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0017274</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0008046</span>
+</pre></div>
+</div>
+<p>The maximum number of iterations was set to 20 in the input file (look for NSTEP=20 in the butane.inp file). So we have reached that maximum. Just a few lines later we get the news…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="o">*****</span> <span class="n">FAILURE</span> <span class="n">TO</span> <span class="n">LOCATE</span> <span class="n">STATIONARY</span> <span class="n">POINT</span><span class="p">,</span> <span class="n">TOO</span> <span class="n">MANY</span> <span class="n">STEPS</span> <span class="n">TAKEN</span> <span class="o">*****</span>
+</pre></div>
+</div>
+<p>So no, we are not done. We need to set NSTEP to a higher number. Normally 20 steps is enough and we are likely close. I will open butane.inp in a text editor and change NSTEP=20 to NSTEP=30.</p>
+</div>
+<div class="section" id="optimized-structure-and-energy">
+<h3>Optimized Structure and Energy<a class="headerlink" href="#optimized-structure-and-energy" title="Permalink to this headline">¶</a></h3>
+<p>The new output file generated is butane_247.log and the final like containing NSERCH is…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">28</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4324667260</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000511</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000220</span>
+</pre></div>
+</div>
+<p>We reached the end of the calculation before the maximum number of steps had been reached. We also see the line…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="o">*****</span> <span class="n">EQUILIBRIUM</span> <span class="n">GEOMETRY</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+</pre></div>
+</div>
+<p>…So we now know that GAMESS has declared the calculation a success.</p>
+<p>We can open the log file in MacMolPlt and it will display the final structure shown in <a class="reference internal" href="#fig5-3"><span class="std std-numref">Fig. 16</span></a>. There is a slider at the bottom of the window that will show all the structures in the journey if you scrub it back and forth.</p>
+<div class="figure align-default" id="fig5-3">
+<a class="reference internal image-reference" href="_images/profiles_Picture3.png"><img alt="_images/profiles_Picture3.png" src="_images/profiles_Picture3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text"><em>The optimized structure as calculated by GAMESS.</em></span><a class="headerlink" href="#fig5-3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Immediately after the last NSERCH line is a series of data blocks containing the structural information. We can see the molecule described in Cartesian xyz coordinates. Following that we see a block that describes all the internal coordinates (bond lengths, angles and torsions). There are 36 such coordinates and observe how each corresponds to an entry in the $ZMAT group at the end of the butane.inp input file. This data block is reproduced below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                     <span class="o">--------------------</span>
+                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
+                     <span class="o">--------------------</span>
+
+                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
+ <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
+ <span class="o">----------------------------------------------------------------</span>
+   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">1</span>                     <span class="mf">2.9108112</span>       <span class="mf">1.5403351</span>
+   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">2</span>                     <span class="mf">2.9117022</span>       <span class="mf">1.5408066</span>
+   <span class="mi">3</span> <span class="n">BEND</span>      <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">1</span>                  <span class="mf">1.9568840</span>     <span class="mf">112.1211961</span>
+   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">1</span>                     <span class="mf">2.9117022</span>       <span class="mf">1.5408065</span>
+   <span class="mi">5</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9568842</span>     <span class="mf">112.1212082</span>
+   <span class="mi">6</span> <span class="n">TORSION</span>   <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>              <span class="o">-</span><span class="mf">3.1414618</span>    <span class="o">-</span><span class="mf">179.9925051</span>
+   <span class="mi">7</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">1</span>                     <span class="mf">2.0519139</span>       <span class="mf">1.0858261</span>
+   <span class="mi">8</span> <span class="n">BEND</span>      <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9050638</span>     <span class="mf">109.1521181</span>
+   <span class="mi">9</span> <span class="n">TORSION</span>   <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">4</span>              <span class="o">-</span><span class="mf">2.1213243</span>    <span class="o">-</span><span class="mf">121.5429320</span>
+  <span class="mi">10</span> <span class="n">STRETCH</span>   <span class="mi">6</span>  <span class="mi">1</span>                     <span class="mf">2.0519041</span>       <span class="mf">1.0858210</span>
+  <span class="mi">11</span> <span class="n">BEND</span>      <span class="mi">6</span>  <span class="mi">1</span>  <span class="mi">5</span>                  <span class="mf">1.8712475</span>     <span class="mf">107.2145814</span>
+  <span class="mi">12</span> <span class="n">TORSION</span>   <span class="mi">6</span>  <span class="mi">1</span>  <span class="mi">5</span>  <span class="mi">2</span>               <span class="mf">2.0616607</span>     <span class="mf">118.1244578</span>
+  <span class="mi">13</span> <span class="n">STRETCH</span>   <span class="mi">7</span>  <span class="mi">2</span>                     <span class="mf">2.0519138</span>       <span class="mf">1.0858261</span>
+  <span class="mi">14</span> <span class="n">BEND</span>      <span class="mi">7</span>  <span class="mi">2</span>  <span class="mi">1</span>                  <span class="mf">1.9050635</span>     <span class="mf">109.1520961</span>
+  <span class="mi">15</span> <span class="n">TORSION</span>   <span class="mi">7</span>  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">3</span>              <span class="o">-</span><span class="mf">2.1213244</span>    <span class="o">-</span><span class="mf">121.5429333</span>
+  <span class="mi">16</span> <span class="n">STRETCH</span>   <span class="mi">8</span>  <span class="mi">2</span>                     <span class="mf">2.0519041</span>       <span class="mf">1.0858210</span>
+  <span class="mi">17</span> <span class="n">BEND</span>      <span class="mi">8</span>  <span class="mi">2</span>  <span class="mi">7</span>                  <span class="mf">1.8712471</span>     <span class="mf">107.2145635</span>
+  <span class="mi">18</span> <span class="n">TORSION</span>   <span class="mi">8</span>  <span class="mi">2</span>  <span class="mi">7</span>  <span class="mi">1</span>               <span class="mf">2.0616608</span>     <span class="mf">118.1244625</span>
+  <span class="mi">19</span> <span class="n">STRETCH</span>   <span class="mi">9</span>  <span class="mi">3</span>                     <span class="mf">2.0493776</span>       <span class="mf">1.0844840</span>
+  <span class="mi">20</span> <span class="n">BEND</span>      <span class="mi">9</span>  <span class="mi">3</span>  <span class="mi">2</span>                  <span class="mf">1.9395112</span>     <span class="mf">111.1258057</span>
+  <span class="mi">21</span> <span class="n">TORSION</span>   <span class="mi">9</span>  <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">8</span>               <span class="mf">1.0234135</span>      <span class="mf">58.6372736</span>
+  <span class="mi">22</span> <span class="n">STRETCH</span>  <span class="mi">10</span>  <span class="mi">3</span>                     <span class="mf">2.0503225</span>       <span class="mf">1.0849840</span>
+  <span class="mi">23</span> <span class="n">BEND</span>     <span class="mi">10</span>  <span class="mi">3</span>  <span class="mi">9</span>                  <span class="mf">1.8878418</span>     <span class="mf">108.1653650</span>
+  <span class="mi">24</span> <span class="n">TORSION</span>  <span class="mi">10</span>  <span class="mi">3</span>  <span class="mi">9</span>  <span class="mi">2</span>               <span class="mf">2.1211950</span>     <span class="mf">121.5355228</span>
+  <span class="mi">25</span> <span class="n">STRETCH</span>  <span class="mi">11</span>  <span class="mi">3</span>                     <span class="mf">2.0503015</span>       <span class="mf">1.0849729</span>
+  <span class="mi">26</span> <span class="n">BEND</span>     <span class="mi">11</span>  <span class="mi">3</span>  <span class="mi">9</span>                  <span class="mf">1.8881259</span>     <span class="mf">108.1816436</span>
+  <span class="mi">27</span> <span class="n">TORSION</span>  <span class="mi">11</span>  <span class="mi">3</span>  <span class="mi">9</span> <span class="mi">10</span>               <span class="mf">2.0404044</span>     <span class="mf">116.9065612</span>
+  <span class="mi">28</span> <span class="n">STRETCH</span>  <span class="mi">12</span>  <span class="mi">4</span>                     <span class="mf">2.0493776</span>       <span class="mf">1.0844840</span>
+  <span class="mi">29</span> <span class="n">BEND</span>     <span class="mi">12</span>  <span class="mi">4</span>  <span class="mi">1</span>                  <span class="mf">1.9395113</span>     <span class="mf">111.1258133</span>
+  <span class="mi">30</span> <span class="n">TORSION</span>  <span class="mi">12</span>  <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">6</span>               <span class="mf">1.0234135</span>      <span class="mf">58.6372723</span>
+  <span class="mi">31</span> <span class="n">STRETCH</span>  <span class="mi">13</span>  <span class="mi">4</span>                     <span class="mf">2.0503225</span>       <span class="mf">1.0849840</span>
+  <span class="mi">32</span> <span class="n">BEND</span>     <span class="mi">13</span>  <span class="mi">4</span> <span class="mi">12</span>                  <span class="mf">1.8878418</span>     <span class="mf">108.1653687</span>
+  <span class="mi">33</span> <span class="n">TORSION</span>  <span class="mi">13</span>  <span class="mi">4</span> <span class="mi">12</span>  <span class="mi">1</span>               <span class="mf">2.1211951</span>     <span class="mf">121.5355240</span>
+  <span class="mi">34</span> <span class="n">STRETCH</span>  <span class="mi">14</span>  <span class="mi">4</span>                     <span class="mf">2.0503015</span>       <span class="mf">1.0849729</span>
+  <span class="mi">35</span> <span class="n">BEND</span>     <span class="mi">14</span>  <span class="mi">4</span> <span class="mi">12</span>                  <span class="mf">1.8881259</span>     <span class="mf">108.1816474</span>
+  <span class="mi">36</span> <span class="n">TORSION</span>  <span class="mi">14</span>  <span class="mi">4</span> <span class="mi">12</span> <span class="mi">13</span>               <span class="mf">2.0404045</span>     <span class="mf">116.9065642</span>
+</pre></div>
+</div>
+<p>The 6th coordinate in the list describes the torsion around the central C—C bond (atoms 1 and 2) as described by the dihedral angle between the bonds to the other two carbons. See <a class="reference internal" href="#fig5-4"><span class="std std-numref">Fig. 17</span></a> for a diagram describing that coordinate.</p>
+<div class="figure align-default" id="fig5-4">
+<a class="reference internal image-reference" href="_images/profiles_Picture4.png"><img alt="_images/profiles_Picture4.png" src="_images/profiles_Picture4.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text"><em>The coordinate describing the central C–C bond torsion.</em></span><a class="headerlink" href="#fig5-4" title="Permalink to this image">¶</a></p>
+</div>
+<p>We have found the structure and energy of the most stable conformer, the anti conformer.</p>
+</div>
+</div>
+<div class="section" id="the-other-conformer">
+<h2>The Other Conformer<a class="headerlink" href="#the-other-conformer" title="Permalink to this headline">¶</a></h2>
+<p>We started the calculation above with a structure that was already anti in conformation. It is no surprise that we then settled into a bottom of an energy well that describes that situation.</p>
+<p>There is another stable conformer, the gauche conformer. In this conformer the torsion angle should be near 60˚. If we set the 4,1,2,3 bond torsion to 60˚ in the input file and then run an optimization calculation, GAMESS will settle down into the nearest energy well, which should be the gauche conformer.</p>
+<p>Let us open the butane.inp file again with the text editor. We will change only the value for the 4,1,2,3 torsion angle. The new file is shown below. We will name it as butane60.inp.</p>
+<p><strong>butane60.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=30 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1  109.4712
+C   1    1.54000  2  109.4712  3   60.0000
+H   1    1.14000  2  109.4712  4 -120.0000
+H   1    1.14000  5  109.4712  2  120.0000
+H   2    1.14000  1  109.4712  3 -120.0000
+H   2    1.14000  7  109.4712  1  120.0000
+H   3    1.14000  2  109.4712  8    0.0000
+H   3    1.14000  9  109.4712  2  120.0000
+H   3    1.14000  9  109.4712  10 120.0000
+H   4    1.14000  1  109.4712  6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712  13 120.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+</pre></div>
+</div>
+<p>We submit the job via GamessQ and the file butane60_248.log is produced. Searching for the last occurrence of NSERCH reveals that we have reached a final structure after 23 steps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4312439164</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000721</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000279</span>
+</pre></div>
+</div>
+<p>Examining the first 10 lines of the internal coordinates of the result shows that the central C–C torsion is 67˚. This is very close to the expected value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                     <span class="o">--------------------</span>
+                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
+                     <span class="o">--------------------</span>
+
+                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
+ <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
+ <span class="o">----------------------------------------------------------------</span>
+   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">1</span>                     <span class="mf">2.9158702</span>       <span class="mf">1.5430121</span>
+   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">2</span>                     <span class="mf">2.9128559</span>       <span class="mf">1.5414171</span>
+   <span class="mi">3</span> <span class="n">BEND</span>      <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">1</span>                  <span class="mf">1.9742294</span>     <span class="mf">113.1150123</span>
+   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">1</span>                     <span class="mf">2.9128532</span>       <span class="mf">1.5414156</span>
+   <span class="mi">5</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9742485</span>     <span class="mf">113.1161071</span>
+   <span class="mi">6</span> <span class="n">TORSION</span>   <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>               <span class="mf">1.1739939</span>      <span class="mf">67.2648974</span>
+   <span class="mi">7</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">1</span>                     <span class="mf">2.0521415</span>       <span class="mf">1.0859466</span>
+   <span class="mi">8</span> <span class="n">BEND</span>      <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9051708</span>     <span class="mf">109.1582461</span>
+<span class="o">...</span><span class="n">Lines</span> <span class="n">Removed</span><span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="communication-the-results">
+<h2>Communication The Results<a class="headerlink" href="#communication-the-results" title="Permalink to this headline">¶</a></h2>
+<p>We can use MacMolPlt to create images of the two results. We will load in the log file of each. As an example we will use the most recent result stored as butane60_248.log. I will use the mouse pointer to select the four carbon atoms. Then I will display the value of the dihedral angle by choosing <code class="docutils literal notranslate"><span class="pre">View</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Annotations</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> Display Dihedral. I then choose <code class="docutils literal notranslate"><span class="pre">File</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Export…</span></code> and export the image as PNG. There are many settings here, feel free to explore. In the end I generated the two images shown in <a class="reference internal" href="#fig5-5"><span class="std std-numref">Fig. 18</span></a>.</p>
+<div class="figure align-default" id="fig5-5">
+<a class="reference internal image-reference" href="_images/profiles_Picture5.png"><img alt="_images/profiles_Picture5.png" src="_images/profiles_Picture5.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text"><em>The optimized gauche and anti conformations</em></span><a class="headerlink" href="#fig5-5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="the-energy">
+<h2>The Energy<a class="headerlink" href="#the-energy" title="Permalink to this headline">¶</a></h2>
+<p>The energy of each structure was calculated.  The energy reported is the “energy of atomization.” This is the energy released when these atoms come together. If a gas of neutral carbon atoms (only 4 electrons in their valence shells – very unhappy) combined with neutral hydrogen atoms (also with unfilled valence shells) then the energy reported by GAMESS is what is released (per molecule). The unit for this atomization energy is Hartrees.
+One Hartree is <span class="math notranslate nohighlight">\(4.360 \times 10^{−18}\, J\)</span>.</p>
+<p>Multiply by Avogadro’s number to get the Joules in a mole.</p>
+<p>One Hartree/mole is <span class="math notranslate nohighlight">\(2625.7 \, kJ/mole\)</span></p>
+<p>The energies for the final structures in our two calculations are:</p>
+<p><span class="math notranslate nohighlight">\(E = -156.4324667260\)</span> for the anti conformer and <span class="math notranslate nohighlight">\(E = -156.4312439164\)</span> for the gauche conformer. The difference is <span class="math notranslate nohighlight">\(0.001223 \, Ha\)</span>. This comes out to <span class="math notranslate nohighlight">\(3.21 \, kJ/mole\)</span>. The literature vale is <span class="math notranslate nohighlight">\(3.8 \,kJ/mole\)</span>, so even this low level of theory (3-21G) performed well.</p>
+</div>
+<div class="section" id="freezing-a-coordinate">
+<h2>Freezing a Coordinate<a class="headerlink" href="#freezing-a-coordinate" title="Permalink to this headline">¶</a></h2>
+<p>Allowing the structure to relax to minimums at torsional angles of near 180˚ (anti) and 60˚ (gauche) merely requires allowing it to happen. But how do we optimize a structure for a maximum? The syn conformer and the eclipsed conformer are each peaks in energy. We can freeze the value for any of the coordinates in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group using the <code class="docutils literal notranslate"><span class="pre">IFREEZ</span></code> setting within the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group.</p>
+<p>The 6<span class="math notranslate nohighlight">\(^{th}\)</span> coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group is for the central C–C bond torsion. If we add the command <code class="docutils literal notranslate"><span class="pre">IFREEZ(1)=6</span></code> then the value of that internal coordinate will not be able to change.  All the other bond lengths, angles and torsions will seek their lowest energy so we will hopefully find the lowest energy versions of the syn and eclipsed conformations.</p>
+<p>I will use a text editor to change our input file. We will change the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion to <code class="docutils literal notranslate"><span class="pre">0˚</span></code> (syn) and then lock the 6<span class="math notranslate nohighlight">\(^{th}\)</span> coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that corresponds to that internal coordinate. The new input file is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=50 IFREEZ(1)=6 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1 109.4712
+C   1    1.54000  2 109.4712   3    0.0000
+H   1    1.14000  2 109.4712   4 -120.0000
+H   1    1.14000  5 109.4712   2  120.0000
+H   2    1.14000  1 109.4712   3 -120.0000
+H   2    1.14000  7 109.4712   1  120.0000
+H   3    1.14000  2 109.4712   8    0.0000
+H   3    1.14000  9 109.4712   2  120.0000
+H   3    1.14000  9 109.4712  10  120.0000
+H   4    1.14000  1 109.4712   6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712 13  120.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+</pre></div>
+</div>
+<p>The calculation failed because of the high symmetry of this Z-matrix. I found this error message new the end of a short log file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UNABLE</span> <span class="n">TO</span> <span class="n">GENERATE</span> <span class="n">PRINCIPAL</span> <span class="n">AXES</span> 
+</pre></div>
+</div>
+<p>The zero degree torsion resulted in a situation where GAMESS was unable to take a guess at which atoms to place along the primary axis (the z-axis in most calculations). When this happens all we need to do is mess up the symmetry of the input file. I’m going to change a few of the 120.000 values to 119.000 and see if that helps.
+It did help. GAMESS converts your Z-matrix into Cartesian xyz data for the calculation. If it cannot decide how your molecule relates to the three axes then it will choke. If you get an error like the above just tweak a few values to break symmetry. Here is the final energy reported.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4228465004</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000753</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000261</span>
+</pre></div>
+</div>
+<p>I then set the torsion angle to 120˚ (eclipsed) and submitted the calculation again. I searched the log file for the final NSERCH line and again found an energy for the optimized structure with the C–C torsion frozen at 120˚. The reported energy was…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">26</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267263644</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000638</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000200</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-energy-profile">
+<h2>The Energy Profile<a class="headerlink" href="#the-energy-profile" title="Permalink to this headline">¶</a></h2>
+<p>We now have points for all four identified conformers. If we use the anti conformer as the base, we can calculate the difference in energy to the two maximums. We calculate that the anti conformer is <span class="math notranslate nohighlight">\(25.3 \, kJ/mole\)</span> higher in energy and the eclipsed conformer is <span class="math notranslate nohighlight">\(15.2 \, kJ/mole\)</span>.</p>
+<p>We could use this information to sketch out the rotational energy profile. The line in <a class="reference internal" href="#fig5-6"><span class="std std-numref">Fig. 19</span></a> is just drawn in and has no mathematical value, although it’s likely close to how the energy changes with torsion angle. Remember, we are using a low level of theory and are in gas phase so accuracy will be low but the trend is clear.</p>
+<div class="figure align-default" id="fig5-6">
+<a class="reference internal image-reference" href="_images/profiles_Picture6.png"><img alt="_images/profiles_Picture6.png" src="_images/profiles_Picture6.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>Rotational energy profile for butane.</em></span><a class="headerlink" href="#fig5-6" title="Permalink to this image">¶</a></p>
+</div>
+<p>We can display images that represent the minimized structures for the syn and eclipsed conformers using MacMolPlt as we did above. See <a class="reference internal" href="#fig5-7"><span class="std std-numref">Fig. 20</span></a>.</p>
+<div class="figure align-default" id="fig5-7">
+<a class="reference internal image-reference" href="_images/profiles_Picture7.png"><img alt="_images/profiles_Picture7.png" src="_images/profiles_Picture7.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>The calculated structure for the anti, eclipsed, gauche, and syn conformers.</em></span><a class="headerlink" href="#fig5-7" title="Permalink to this image">¶</a></p>
+</div>
+<p>We can repeat these calculations again and again using different values for the 4,1,2,3 torsion. All it takes is typing and time.</p>
+<p>In the next section you will see ways to use the power of your computer and Unix tools to enable these operations to be done quickly. Below is a plot of data points between zero and 180˚. I performed calculations at 5˚ intervals. It took only minutes to create the 36 input files and then drop them all into GamessQ. After a pause to brew a coffee, the jobs finished (it is a low cost level of theory – we could use basis sets that would result in run times of days on my little desktop computer.) I then was able to extract the energies with a single command and get a plot in less than a minute of effort. That is the power of Unix. See <a class="reference internal" href="#fig5-8"><span class="std std-numref">Fig. 21</span></a></p>
+<div class="figure align-default" id="fig5-8">
+<a class="reference internal image-reference" href="_images/profiles_Picture8.png"><img alt="_images/profiles_Picture8.png" src="_images/profiles_Picture8.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G level.</em></span><a class="headerlink" href="#fig5-8" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="higher-level-theory">
+<h3>Higher Level Theory<a class="headerlink" href="#higher-level-theory" title="Permalink to this headline">¶</a></h3>
+<p>For fun I set up a calculation for a scan of the central C–C torsion using the 6-311G(d,p)++ level of theory. I selected the 6-31G basis set then set the # D atom polarization functions to 1 and the # Light atom polarization functions to 1. <a class="reference internal" href="#fig5-9"><span class="std std-numref">Fig. 22</span></a> is a plot of the 3-21G level compared to the 6-311G(d,p)++ level.</p>
+<div class="figure align-default" id="fig5-9">
+<a class="reference internal image-reference" href="_images/profiles_Picture9.png"><img alt="_images/profiles_Picture9.png" src="_images/profiles_Picture9.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G (black) and 6-311G(d,p)++ level (orange).</em></span><a class="headerlink" href="#fig5-9" title="Permalink to this image">¶</a></p>
+</div>
+<p>You can see that they are very similar. The torsion angle for the gauche conformer was calculated to be 65˚ when using the 6-311G(d,p)++ basis set (compared to 67˚). The energy profile is very similar. When using 1st and 2nd row elements with no charges or strained bonds the 3-21G basis set gives good results.</p>
+</div>
+</div>
+<div class="section" id="using-unix">
+<h2>Using Unix<a class="headerlink" href="#using-unix" title="Permalink to this headline">¶</a></h2>
+<p>Using the Unix skills described in the Setting Up GAMESS document, we can manipulate the text output files to extract important pits of information. First open a window in your terminal emulator.</p>
+<div class="section" id="extracting-information">
+<h3>Extracting Information<a class="headerlink" href="#extracting-information" title="Permalink to this headline">¶</a></h3>
+<p>We will now extract just the lines that we want from the large log file. grep is a tool that can be called from the shell. It will read the file line by line and return only the lines that contain a given text string.
+The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;NSERCH&quot;</span> <span class="pre">butane60_248.log</span> <span class="pre">&gt;</span> <span class="pre">energy.txt</span></code> will extract the text lines that I observed contained both the calculated energy and the step number for each optimization step. The file <code class="docutils literal notranslate"><span class="pre">energy.txt</span></code> now contains the following content.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">0</span> <span class="o">...</span>
+          <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">0</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">156.3973907</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.3973906884</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0345239</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0202989</span>
+ <span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">1</span> <span class="o">...</span>
+          <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">1</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">156.4193191</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">1</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4193191232</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0156691</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0064738</span>
+ <span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">2</span> <span class="o">...</span>
+          <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">2</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">156.4203894</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">2</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4203894091</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0120703</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0050416</span>
+ <span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">3</span> <span class="o">...</span>
+          <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">3</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">156.4216985</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">3</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4216985281</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0038327</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0014703</span>
+<span class="o">.................................</span> <span class="mi">42</span> <span class="n">Lines</span> <span class="n">Removed</span><span class="o">.................................</span>
+<span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">17</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310603910</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0005127</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0001197</span>
+ <span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">18</span> <span class="o">...</span>
+          <span class="n">NSERCH</span><span class="o">=</span> <span class="mi">18</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">156.4310612</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310612168</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0002001</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000740</span>
+ <span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">19</span> <span class="o">...</span>
+          <span class="n">NSERCH</span><span class="o">=</span> <span class="mi">19</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">156.4310616</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">19</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310615872</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000573</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000161</span> 
+</pre></div>
+</div>
+<p>You can see that this is every line in the file that includes the string “NSERCH”. I want just the lines that contain the energy and the gradient. So I will grep this file again for “GRAD”.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;GRAD&quot;</span> <span class="pre">energy.txt</span> <span class="pre">&gt;</span> <span class="pre">energy2.txt</span></code> will produce the file named <code class="docutils literal notranslate"><span class="pre">energy2.txt</span></code> that contains the following lines.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.3973906884</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0345239</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0202989</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">1</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4193191232</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0156691</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0064738</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">2</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4203894091</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0120703</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0050416</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">3</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4216985281</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0038327</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0014703</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">4</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4217778293</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0030297</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0011089</span>
+ <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">5</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4218675393</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0016220</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0006746</span>
+<span class="o">...</span><span class="mf">.7</span> <span class="n">Lines</span> <span class="n">Removed</span><span class="o">.............................................................</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">13</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4284752043</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0145371</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0042503</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">14</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4297571137</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0059127</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0020276</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">15</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4309126800</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0023459</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0007784</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">16</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310541268</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0010362</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0003577</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">17</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310603910</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0005127</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0001197</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310612168</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0002001</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000740</span>
+ <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">19</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310615872</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000573</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000161</span> 
+</pre></div>
+</div>
+<p>I can then import <code class="docutils literal notranslate"><span class="pre">energy2.txt</span></code> into a spreadsheet program or pandas dataframe and make a graph of the energy and the gradient as we go through the steps. In <a class="reference internal" href="#fig5-10a"><span class="std std-numref">Fig. 23</span></a> and <a class="reference internal" href="#fig5-10b"><span class="std std-numref">Fig. 24</span></a>, we see these plots. The energy in the result table was in Hartrees, a unit common in computational chemistry. There are <span class="math notranslate nohighlight">\(627.51 \, kcal/mole\)</span> in a Hartree and <span class="math notranslate nohighlight">\(4.18 \, kcal\)</span> in a <span class="math notranslate nohighlight">\(kJ\)</span>.</p>
+<div class="figure align-default" id="fig5-10a">
+<a class="reference internal image-reference" href="_images/profiles_Picture10A.png"><img alt="_images/profiles_Picture10A.png" src="_images/profiles_Picture10A.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text"><em>Plot of relative energy energy at each optimization step as the minimization proceeds.</em></span><a class="headerlink" href="#fig5-10a" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig5-10b">
+<a class="reference internal image-reference" href="_images/profiles_Picture10B.png"><img alt="_images/profiles_Picture10B.png" src="_images/profiles_Picture10B.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text"><em>Plot of the gradient calculated before each optimization step.</em></span><a class="headerlink" href="#fig5-10b" title="Permalink to this image">¶</a></p>
+</div>
+<p>The energy changes quickly in the first few steps and then we keep making small changes until the GAMESS program halted the optimization. There was one phase where the process found a steeper path to the finish line. It’s like going down a ski hill. You will always follow the steepest line from where you are standing, not always the best line. And you will encounter trees occasionally.</p>
+<p>Instead of searching through the output file for the energy and gradient at each step, we used grep to extract the lines that we needed automatically.</p>
+</div>
+<div class="section" id="making-many-similar-files">
+<h3>Making Many Similar Files<a class="headerlink" href="#making-many-similar-files" title="Permalink to this headline">¶</a></h3>
+<p>We can use Unix tools to quickly produce a series of files for the scan of the torsion coordinate for the central C–C bond of butane.</p>
+<p>First I will create a new version of the input file that we have been using and I will replace the value for the frozen torsion coordinate with the string “NUMBER”.
+ 
+Below is the new input file</p>
+<p><strong>butane-SCAN.inp</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=1000 IFREEZ(1)=6 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1 109.4712
+C   1    1.54000  2 109.4712   3   NUMBER
+H   1    1.14000  2 109.4712   4 -120.0000
+H   1    1.14000  5 109.4712   2  120.0000
+H   2    1.14000  1 109.4712   3 -120.0000
+H   2    1.14000  7 109.4712   1  120.0000
+H   3    1.14000  2 109.4712   8    0.0000
+H   3    1.14000  9 109.4712   2  120.0000
+H   3    1.14000  9 109.4712  10  120.0000
+H   4    1.14000  1 109.4712   6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712 13  119.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+</pre></div>
+</div>
+<p>I then created the following script file in my text editor. You will have to change the first filename to suit your own series and can change the values in the series if you wish.</p>
+<p><strong><a class="reference external" href="http://makescan.sh">makescan.sh</a></strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>input_file=butane-SCAN.inp
+spacer=_
+for num in $(seq -w 000 010 180)
+do
+  sed &quot;s/NUMBER/$num/&quot; $input_file &gt; &quot;$input_file$spacer$num.inp&quot;
+done
+</pre></div>
+</div>
+<p>sed is a Unix tool that will replace one string of text with another. It has many options. The way it is used here it will replace the first instance of “NUMBER” with the string stored in the variable <code class="docutils literal notranslate"><span class="pre">$num</span></code>. The string in $num will also be appended to the output file created by the command.</p>
+<p>You can learn more about each tool used in this script by using the man tool, e.g. type man seq to learn more about the seq tool that created the list of numbers that was traversed by the for loop.</p>
+<p>Once I create the butane-SCAN.inp input file and the <a class="reference external" href="http://makescan.sh">makescan.sh</a> script, I am ready. I can run the script by calling it with the shell that I want to run it. We will use the bash shell. Use the following command to run the script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">makescan</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Nineteen files will be created with values written into the 4,1,2,3 torsion coordinate from 0 to 180 degrees. Examine any of the new files and see that this is true. Select all the new input files and drop them onto the GamessQ window. In a few minutes all the files will have been run and nineteen new output files will result.</p>
+<p>We now have nineteen outout files. We can use the previous grep commands and take the final energy from each file. Or we could automate the process with the following shell script.</p>
+<p><strong><a class="reference external" href="http://extract.sh">extract.sh</a></strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">*.</span><span class="n">log</span><span class="p">;</span> <span class="n">do</span>
+    <span class="n">grep</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;NSERCH&quot;</span> <span class="s2">&quot;$name&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;GRAD&quot;</span> <span class="o">|</span> <span class="n">tail</span> <span class="o">-</span><span class="n">n</span> <span class="mi">1</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+<p>The vertical characters are “pipes”. The output of a command is piped as the input of the next command. The first two grep commands will create the list of energies and gradients from a given file and the tail command will take the last line. The script will output the last NSERCH line in each .log file and we will write those lines into the butane-result.txt file as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">extract</span><span class="o">.</span><span class="n">sh</span> <span class="o">&gt;</span> <span class="n">butane</span><span class="o">-</span><span class="n">result</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>The butane-result.txt file now contains the last energy value for each result file.</p>
+<p><strong>butane-result.txt</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_000_113</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4228465418</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000585</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000204</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_010_114</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4233726910</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000931</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000255</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_020_115</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">16</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4247889225</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000789</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000273</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_030_116</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">16</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267021853</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000394</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000149</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_040_117</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">19</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4286426893</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000765</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000260</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_050_118</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4301847220</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000241</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000105</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_060_119</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310615763</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000675</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000212</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_070_120</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">25</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4312168483</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000339</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000129</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_080_121</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">24</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4306888649</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000987</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000300</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_090_122</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">26</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4295739060</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000494</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000155</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_100_123</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span><span class="mi">1000</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4251866611</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0059215</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0016768</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_110_124</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4271414620</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000819</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000247</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_120_125</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">24</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267263463</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000884</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000234</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_130_126</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span> <span class="mi">284</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4271134924</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000383</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000148</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_140_127</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">21</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4281850977</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000701</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000323</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_150_128</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">21</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4296331216</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000712</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000225</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_160_129</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span> <span class="mi">698</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4310602050</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000561</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000155</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_170_130</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">20</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4320918106</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000675</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000216</span>
+<span class="n">butane</span><span class="o">-</span><span class="n">SCAN</span><span class="o">.</span><span class="n">inp_180_131</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4324667182</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000605</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000189</span>
+</pre></div>
+</div>
+<p>You can see that one run failed to find a result. After 1000 steps it still had a large gradient and the energy is still high. We could graph the energy per step and the gradients as we did before and see the path taken. We could manually check that file and perhaps change a few values to see if that helps. However, we have lots of points so we could just drop that one from the data set. I loaded butane-result.txt into a spreadsheet and produced the following plot in <a class="reference internal" href="#fig5-11"><span class="std std-numref">Fig. 25</span></a>.</p>
+<p>We can load the log file into MacMolPlt and scrub along the minimization path. We can also plot the energy and gradients within MacMolPlt. Seek and you will find.</p>
+<div class="figure align-default" id="fig5-11">
+<a class="reference internal image-reference" href="_images/profiles_Picture11.png"><img alt="_images/profiles_Picture11.png" src="_images/profiles_Picture11.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text"><em>The rotational energy profile for butane. It behaves as expected.</em></span><a class="headerlink" href="#fig5-11" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We used MacMolPlt to build a model of butane and export an initial input file for an optimization calculation. We optimized the structure for the anti conformation and found the gauche conformation by starting with an initial structure that was to near that conformation. Thus we located the global minimum and a local minimum on the rotational energy surface.</p>
+<p>Then we edited the file to freeze the coordinate that corresponded to the central C–C bond rotation and the set the internal coordinate for that torsion to 0˚ and 120˚ to find the energy of the syn conformation and an eclipsed conformation. With this, we have the important parts of the rotational energy profile.</p>
+<p>We learned how to use Unix tools to extract information from large text files and from multiple text files and we learned how to create multiple input files using an automated process. We were introduced to the idea of shell scripts and to useful tools such as grep and sed.</p>
+<p>We examined the format of the Z-matrix in detail. We used the internal coordinates to easily create the series of input files for the rotational coordinate scan. Using Unix tools, we created many input files with frozen torsion coordinates to create a rotational energy profile. We used GamessQ to submit the files as a batch job. We extracted the energy from these files and plotted the complete rotational energy profile.</p>
+<p>Now open the exercise supported by this discussion and have fun.</p>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Filename</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><a class="reference external" href="http://makescan.sh">makescan.sh</a></p></td>
+<td class="text-align:left"><p>A shell script for creating a series of files with a changing coordinate value.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><a class="reference external" href="http://extract.sh">extract.sh</a></p></td>
+<td class="text-align:left"><p>A shell script for extracting the last line that contains the energy value from a set of result files in a coordinate scan.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Read the accompanying discussion and then try the following exercises.</p>
+<div class="section" id="the-activities">
+<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">¶</a></h3>
+<p>Construct ethane, propane, butane, 2-methylbutane using MacMolPlt. Export input files for GAMESS with Z-matrices and using the $ZMAT group for declaring internal coordinates.</p>
+<p>Identify all likely minima and maxima along the rotational energy surface using the central C–C torsion coordinate of each molecule. Calculate the HF/3-21G energy for optimized structures at these points in the coordinate. Use frozen coordinates (or symmetry) for the energy maxima. Create a table with the energies and torsion angles for all your calculations (relative to the global minimum in each) with units in kJ/mole and degrees.</p>
+<p>Using Unix tools (or brute force) generate input files for rotational energy scans of these molecules. Produce a
+plot of energy vs. angle to create a visual representation of the rotational energy profile of each molecule. Try placing all four profiles on the same plot for comparison.</p>
+</div>
+<div class="section" id="the-report">
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>
+<p>Present a ONE PAGE document with the table of angles and energies for maxima and minima that you generated. Include the plot of the entire rotational energy profile and comment if it fits with your table.</p>
+<p>If you brute forced the operation, please report the time it took to create all the files and extract the energy data from each result file. If you used the Unix tools, please report the time as well. The table and plot must be professional in appearance.</p>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="4_Ethane.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ethane: Symmetry in Calculations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5_Rotation_Profiles_Workflow.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GAMESS Workflow</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Barry Linkletter<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

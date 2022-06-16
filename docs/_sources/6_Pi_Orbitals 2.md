@@ -20,14 +20,14 @@ For an example we will build the allyl cation and examine the results of the cal
 
 In MacMolPlt first we will set the point group using `Molecule` $\rightarrow$ `Set Point Group` $\rightarrow$ `Point Group` $\rightarrow$ `Cnv` and then `…`$\rightarrow$ `Order of Principal Axis` $\rightarrow$ `2`. Set up the build with `Builder` $\rightarrow$ `Edit with Symmetry` and then call the build window with `Builder` $\rightarrow$ `Show Build Tools`. It helps to show the axes of the symmetry space via `View` $\rightarrow$ `Show Axis`. After that, it is up to trial and error.
 
-You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See {numref}`fig6A` for an example.
+You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See {numref}`fig6A1` for an example.
 
 
 
 ```{figure} images/pi_symmetryBuild.png
 ---
 width: 550
-name: fig6A
+name: fig6A1
 ---
 *Building an allyl cation with symmetry using MacMolPlt. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.*
 ```

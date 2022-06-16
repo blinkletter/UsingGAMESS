@@ -51,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Benzene: MOs and Symmetry" href="6_Benzene.html" />
@@ -162,6 +162,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="7_Butadiene.html">
    Butadiene: Transition State for Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8A_Diels_Alder.html">
+   Transition States in GAMESS
   </a>
  </li>
 </ul>
@@ -337,10 +342,10 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>The Allyl System<a class="headerlink" href="#the-allyl-system" title="Permalink to this headline">¶</a></h2>
 <p>For an example we will build the allyl cation and examine the results of the calculation. First we will build the allyl group with MacMolPlt and attempt to use symmetry (MacMolPlt files often fail with GAMESS when applying symmetry). If that fails we will construct the molecule manually.</p>
 <p>In MacMolPlt first we will set the point group using <code class="docutils literal notranslate"><span class="pre">Molecule</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Point</span> <span class="pre">Group</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Group</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Cnv</span></code> and then <code class="docutils literal notranslate"><span class="pre">…</span></code><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Order</span> <span class="pre">of</span> <span class="pre">Principal</span> <span class="pre">Axis</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">2</span></code>. Set up the build with <code class="docutils literal notranslate"><span class="pre">Builder</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">with</span> <span class="pre">Symmetry</span></code> and then call the build window with <code class="docutils literal notranslate"><span class="pre">Builder</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. It helps to show the axes of the symmetry space via <code class="docutils literal notranslate"><span class="pre">View</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Axis</span></code>. After that, it is up to trial and error.</p>
-<p>You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See <a class="reference internal" href="#fig6a"><span class="std std-numref">Fig. 29</span></a> for an example.</p>
-<div class="figure align-default" id="fig6a">
+<p>You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See <a class="reference internal" href="#fig6a1"><span class="std std-numref">Fig. 29</span></a> for an example.</p>
+<div class="figure align-default" id="fig6a1">
 <a class="reference internal image-reference" href="_images/pi_symmetryBuild.png"><img alt="_images/pi_symmetryBuild.png" src="_images/pi_symmetryBuild.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using MacMolPlt. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using MacMolPlt. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a1" title="Permalink to this image">¶</a></p>
 </div>
 <p>I then exported an input file using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add d and p orbitals and use both diffuse functions. The diffuse functions are important as they improve results for charged systems. Here is the input file that was generated. Only the unique atoms (2 carbons, the third is defined by symmetry) are in the $DATA group.</p>
 <p><strong>AllylCat_6311_U.inp</strong></p>
@@ -372,7 +377,7 @@ H     1.0     0.00000     0.72580    -1.09270
 </div>
 <p>By using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Electron</span> <span class="pre">Density</span></code> and choosing to colour by <code class="docutils literal notranslate"><span class="pre">MEP</span></code> (molecular electrostatic potential we can obtain an image that represents the electron density of the molecule and the colours mapped onto the surface represent the charge. Red are regions that repel a positive charge and blue are regions that attract a positive charge. Green is neutral. We can see in <a class="reference internal" href="#fig6c"><span class="std std-numref">Fig. 31</span></a> that the positive charge is located on the two terminal carbon groups, as expected.</p>
 <div class="figure align-default" id="fig6c">
-<a class="reference internal image-reference" href="images/pi_1.png"><img alt="images/pi_1.png" src="images/pi_1.png" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="_images/pi_1.png"><img alt="_images/pi_1.png" src="_images/pi_1.png" style="width: 550px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text"><em>Electron density surface coloured by electrostatic potential. MacMolPlt does not give the best color contrast, but it does the job.</em></span><a class="headerlink" href="#fig6c" title="Permalink to this image">¶</a></p>
 </div>
 <div class="admonition note">
@@ -632,7 +637,7 @@ Now repeat the exercise for the following situations as assigned. Don’t bother
     
       By Barry Linkletter<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2022.<br/>
   </p>
 </footer>
 </main>
