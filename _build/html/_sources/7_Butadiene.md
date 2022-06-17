@@ -14,7 +14,7 @@ We will begin with a review of building molecules and optimizing structure. We w
 
 ### Building *trans*-Butadiene
 
-Run *MacMolPlt*. Click on `Builder` → `Show Build Tools`. Choose `carbon atoms` and set the `coordination number` to `3` (three bonds to an *sp<sup>2</sup>* carbon). Then click in the window to build the molecule, A carbon with three connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change build the atom to hydrogen and then click on the remaining connections to include C-H bonds. Trial and error are your true teachers.
+Run *MacMolPlt*. Click on `Builder` &rarr; `Show Build Tools`. Choose `carbon atoms` and set the `coordination number` to `3` (three bonds to an *sp<sup>2</sup>* carbon). Then click in the window to build the molecule, A carbon with three connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change build the atom to hydrogen and then click on the remaining connections to include C-H bonds. Trial and error are your true teachers.
 
 ```{figure} images/Butadiene1.png
 ---
@@ -24,7 +24,7 @@ name: fig7_1A
 **MacMolPlt* window with the initial structure for butadiene.*
 ```
  
-The above initial structure is rough sketch. We will need to calculate the correct structure by creating an input file for *GAMESS*. Click on `Subwindow` → `Input Builder` and set the following parameters:
+The above initial structure is rough sketch. We will need to calculate the correct structure by creating an input file for *GAMESS*. Click on `Subwindow` &rarr; `Input Builder` and set the following parameters:
 
 - In the `Control` section, set `Run Type` to `Optimization`. This will instruct *GAMESS* that we are doing a calculation to find the optimizes molecular geometry.
 
@@ -862,7 +862,7 @@ It is easy for *GAMESS* to find a minimum. It just follows every gradient downwa
 
 A structure that is optimized (except for the frozen coordinate) and is very near the transition state structure should have an imaginary vibration. We need to perform a vibration calculation first.
 
-I start with the result file for the potential energy scan done above. I chose the result for the optimization where we froze the C–C torsion at 100˚. I opened the log file in *MacMolPlt* and then used `Subwindow` → `Input Builder` to create a new input file. I changed `RunType` to `Hessian`, which will calculate the information needed to determine the vibrations and their frequencies. These vibrations are the vectors along which the various coordinates are changed when we optimize. We usually use a guess for the Hessian matrix as approximations are more than good enough for finding the bottom of an energy well. 
+I start with the result file for the potential energy scan done above. I chose the result for the optimization where we froze the C–C torsion at 100˚. I opened the log file in *MacMolPlt* and then used `Subwindow` &rarr; `Input Builder` to create a new input file. I changed `RunType` to `Hessian`, which will calculate the information needed to determine the vibrations and their frequencies. These vibrations are the vectors along which the various coordinates are changed when we optimize. We usually use a guess for the Hessian matrix as approximations are more than good enough for finding the bottom of an energy well. 
 
 For finding the saddle point, we need to be close in structure and have a vector (the imaginary vibration) that points straight toward it. So we must calculate the Hessian matrix. With higher levels of theory this can take a long time, but we are using a very low level of theory and won’t have to wait long. In many cases 3-21G<sup>*</sup> will not be suitable for an accurate transition state in a reaction but, since we are not making or breaking bonds, we should be OK. We also set up a `Vibrational Analysis` so that vibrations would be calculated out of the Hessian data and reported in the result file.
 
@@ -905,7 +905,7 @@ H   5    1.07389  6 116.5615  4 180.0000
     3,10,5,6,4 $END
 ```
 
-I submitted the job through *GamessQ* and, when finished, I opened the result file using *MacMolPlt*. I used `Subwindow` → `Frequencies` to display the frequencies calculated from the Hessian matrix. I observe a single imaginary frequence and I can click on the line in the Frequency window to see vectors displayed graphically in the main window. I observe that these vectors are as expected for bond rotation, so I think we have a good starting point for a saddle point optimization.
+I submitted the job through *GamessQ* and, when finished, I opened the result file using *MacMolPlt*. I used `Subwindow` &rarr; `Frequencies` to display the frequencies calculated from the Hessian matrix. I observe a single imaginary frequence and I can click on the line in the Frequency window to see vectors displayed graphically in the main window. I observe that these vectors are as expected for bond rotation, so I think we have a good starting point for a saddle point optimization.
 
 ```{figure} images/Butadiene14.png
 ---

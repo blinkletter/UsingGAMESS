@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="start.html">
-   Introduction
+   Table of Contents
   </a>
  </li>
 </ul>
@@ -403,11 +403,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="point-groups-in-ethane">
 <h2>Point Groups in Ethane<a class="headerlink" href="#point-groups-in-ethane" title="Permalink to this headline">¶</a></h2>
-<p>Each of the extreme cases in ethane has symmetry. They have different symmetry and so we can use that to our advantage. The symmetry of the syn conformation is <span class="math notranslate nohighlight">\(D_{3h}\)</span> and for the anti it is <span class="math notranslate nohighlight">\(D_{3d}\)</span>. By declaring the symmetry group, the optimization will start with that symmetry and end with that symmetry. This will enforce the anti conformation for us. Additionally, by symmetry each molecule can be reduce to just two atoms for the purposes of the calculation. Using symmetry when possible will greatly reduce the cost of calculation.</p>
+<p>Each of the extreme cases in ethane has symmetry. They have different symmetry and so we can use that to our advantage. The symmetry of the syn conformation is <em>D<sub>3h</sub></em> and for the anti it is <em>D<sub>3d</sub></em>. By declaring the symmetry group, the optimization will start with that symmetry and end with that symmetry. This will enforce the anti conformation for us. Additionally, by symmetry each molecule can be reduce to just two atoms for the purposes of the calculation. Using symmetry when possible will greatly reduce the cost of calculation.</p>
 </div>
 <div class="section" id="z-matrix-for-ethane">
 <h2>Z-Matrix for Ethane<a class="headerlink" href="#z-matrix-for-ethane" title="Permalink to this headline">¶</a></h2>
-<p>We can start with a Z-matrix for ethane. If the structure described fits the symmetry group declared, then GAMESS will align it appropriately in the xyz coordinate system and identify the symmetry unique atoms. Take note of how the two methyl groups are set up so that they refer to their own atoms as much as possible and there is only one coordinate that describes the bond rotation. Below is the initial input file for the anti conformation with <span class="math notranslate nohighlight">\(D_{3d}\)</span> symmetry.</p>
+<p>We can start with a Z-matrix for ethane. If the structure described fits the symmetry group declared, then GAMESS will align it appropriately in the xyz coordinate system and identify the symmetry unique atoms. Take note of how the two methyl groups are set up so that they refer to their own atoms as much as possible and there is only one coordinate that describes the bond rotation. Below is the initial input file for the anti conformation with <em>D<sub>3d</sub></em> symmetry.</p>
 <p><strong>Ethane_anti_AM1_Z.inp</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
@@ -490,7 +490,7 @@ DND 3
 </div>
 <div class="section" id="the-syn-ethane-conformer">
 <h2>The Syn Ethane Conformer<a class="headerlink" href="#the-syn-ethane-conformer" title="Permalink to this headline">¶</a></h2>
-<p>The syn structure had <span class="math notranslate nohighlight">\(D_{3h}\)</span> symmetry and the Z-matrix is almost identical. We just had to change the one coordinate that defined the torsion angle between the two methyl groups. This is the 6,1,2,8 torsion angle (line 6 of the Z-matrix.) I just need to change the angle to zero degrees and the symmetry to <span class="math notranslate nohighlight">\(D_{3h}\)</span> and repeat all the above. First we altered the anti input file and submitted the job.</p>
+<p>The syn structure had <em>D<sub>3h</sub></em> symmetry and the Z-matrix is almost identical. We just had to change the one coordinate that defined the torsion angle between the two methyl groups. This is the 6,1,2,8 torsion angle (line 6 of the Z-matrix.) I just need to change the angle to zero degrees and the symmetry to <em>D<sub>3h</sub></em> and repeat all the above. First we altered the anti input file and submitted the job.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ethane_syn_AM1_Z.inp
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
@@ -513,7 +513,7 @@ H   1  1.0  2  110  6  -120
  $END
 </pre></div>
 </div>
-<p>Then we used the unique coordinate generated to create the HF/6-311G(d,p)++ input file. Observe that the unique coordinates have been aligned by GAMESS into a different plane. In the <span class="math notranslate nohighlight">\(D_{3d}\)</span> anti symmetry, the yz plane was used for the unique atoms, and in the <span class="math notranslate nohighlight">\(D_{3h}\)</span> syn case, the xz plane was chosen.  The x-axis is the perpendicular 2-fold axis of symmetry (that defines the <span class="math notranslate nohighlight">\(D\)</span> rather than <span class="math notranslate nohighlight">\(C\)</span> point groups). This places the primary <span class="math notranslate nohighlight">\(\sigma_d\)</span>-plane in the yz plane for the anti conformation and in the xz for the syn conformation.  I had tried to just change the symmetry to <span class="math notranslate nohighlight">\(D_{3h}\)</span> and use the previous unique <span class="math notranslate nohighlight">\(D_{3d}\)</span> coordinates and the symmetry failed. Below is the HF/6-311G(d,p)++ input file.</p>
+<p>Then we used the unique coordinate generated to create the HF/6-311G(d,p)++ input file. Observe that the unique coordinates have been aligned by GAMESS into a different plane. In the <em>D<sub>3d</sub></em> anti symmetry, the yz plane was used for the unique atoms, and in the <em>D<sub>3h</sub></em> syn case, the xz plane was chosen.  The x-axis is the perpendicular 2-fold axis of symmetry (that defines the <em>D</em> rather than <em>C</em> point groups). This places the primary <em>σ<sub>d</sub></em>-plane in the yz plane for the anti conformation and in the xz for the syn conformation.  I had tried to just change the symmetry to <em>D<sub>3h</sub></em> and use the previous unique <em>D<sub>3d</sub></em> coordinates and the symmetry failed. Below is the HF/6-311G(d,p)++ input file.</p>
 <p><strong>Ethane_syn_6311_U.inp</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=18 $END
@@ -591,7 +591,7 @@ DNH 3
 <td class="text-align:left"><p>107.2˚</p></td>
 <td class="text-align:left"><p>107.7˚</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Delta\)</span>E (kJ/mol)</p></td>
+<tr class="row-even"><td class="text-align:left"><p>ΔE (kJ/mol)</p></td>
 <td class="text-align:left"><p>+12.8</p></td>
 <td class="text-align:left"><p>0</p></td>
 </tr>
@@ -619,10 +619,10 @@ DNH 3
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Ethane_syn_AM1_Z.inp</p></td>
-<td class="text-align:left"><p>The initial input the <span class="math notranslate nohighlight">\(D_{3h}\)</span> symmetrical structure</p></td>
+<td class="text-align:left"><p>The initial input the <em>D<sub>3h</sub></em> symmetrical structure</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Ethane_anti_AM1_Z.inp</p></td>
-<td class="text-align:left"><p>The initial input the <span class="math notranslate nohighlight">\(D_{3d}\)</span> symmetrical structure</p></td>
+<td class="text-align:left"><p>The initial input the <em>D<sub>3d</sub></em> symmetrical structure</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Ethane_syn_6311_U.inp</p></td>
 <td class="text-align:left"><p>An input file that you can modify for doing calculations at the HF/6311(d,p)++ level.</p></td>
@@ -635,8 +635,8 @@ DNH 3
 <p>Read the accompanying discussion above and then try the following activities.</p>
 <div class="section" id="the-activities">
 <h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">¶</a></h3>
-<p>Repeat the activities described in the discussion but edit the input files to add a command to output data for localized orbitals. After you have result files for the optimized <span class="math notranslate nohighlight">\(D_{3h}\)</span> and <span class="math notranslate nohighlight">\(D_{3d}\)</span> structures, produce images of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique local bonding orbitals (one C–C <span class="math notranslate nohighlight">\(\sigma\)</span>-bond and one C–H <span class="math notranslate nohighlight">\(\sigma\)</span>-bond will suffice). Report the energy difference for the two symmetries (syn and anti). Then present images for the bonding MOs for both symmetries. Compare their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)</p>
-<p>Now set the symmetry of the syn structure to <span class="math notranslate nohighlight">\(C_1\)</span> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level? Is the result syn or anti. Discuss the result. If the result remains syn propose why GAMESS could not bring itself to start the bond rotation. Now change the torsion angle by 0.1˚. Run the optimization again. Discus the result. Compare the energies of the C1 anti and the C1 syn structures at the HF/6-311G(d,p)++ level. Compare bond lengths and angles as well. Do they match with the results that used symmetry?</p>
+<p>Repeat the activities described in the discussion but edit the input files to add a command to output data for localized orbitals. After you have result files for the optimized <em>D<sub>3h</sub></em> and <em>D<sub>3d</sub></em> structures, produce images of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique local bonding orbitals (one C–C σ-bond and one C–H σ-bond will suffice). Report the energy difference for the two symmetries (syn and anti). Then present images for the bonding MOs for both symmetries. Compare their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)</p>
+<p>Now set the symmetry of the syn structure to <em>C<sub>1</sub></em> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level? Is the result syn or anti. Discuss the result. If the result remains syn propose why GAMESS could not bring itself to start the bond rotation. Now change the torsion angle by 0.1˚. Run the optimization again. Discus the result. Compare the energies of the C1 anti and the C1 syn structures at the HF/6-311G(d,p)++ level. Compare bond lengths and angles as well. Do they match with the results that used symmetry?</p>
 </div>
 <div class="section" id="the-report">
 <h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>

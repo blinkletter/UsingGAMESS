@@ -47,20 +47,20 @@ name: fig1
 ---
 *The axis scheme for GAMESS atomic coordinates*
 ```
-When constructing a structure using either Cartesian coordinates or a Z-matrix, we don’t consider any priority for an axis. However, when using point groups and symmetry to define molecules with unique Cartesian coordinates, we must pay attention to how GAMESS manipulates symmetry. The primary axis of the point group is expected to be the z-axis. Any vertical $\sigma$-plane should first be set up in the zx plane. The horizontal $\sigma$-plane should be considered to be the xy plane. The first perpendicular 2-fold axis should be set up along the x-axis. Keep these ideas in mind as we construct our first molecules.
+When constructing a structure using either Cartesian coordinates or a Z-matrix, we don’t consider any priority for an axis. However, when using point groups and symmetry to define molecules with unique Cartesian coordinates, we must pay attention to how GAMESS manipulates symmetry. The primary axis of the point group is expected to be the z-axis. Any vertical &sigma;-plane should first be set up in the zx plane. The horizontal &sigma;-plane should be considered to be the xy plane. The first perpendicular 2-fold axis should be set up along the x-axis. Keep these ideas in mind as we construct our first molecules.
 
 ### Symmetry
 
 Symmetry is beautiful. It also helps with math. If a molecule has symmetry, we should use it to make the calculations performed by GAMESS less expensive. A molecule that is known to possess 2-fold symmetry may be half as difficult to analyze because we may only need half the math. This depends a lot on the basis set chosen to describe the math of each atomic orbital but, most of the time, it is to our advantage to declare and use a symmetry point group.
 
-Water has a $C_2$ axis. There is no perpendicular $C_2$ axis so we remain in the $C$ group rather than rising to $D$. There is no $\sigma_h$ but there are two $\sigma_v$ planes. Therefore water is in the $C_{2v}$ point group. We will use Cartesian coordinates that place the primary axis along the z-axis and the atoms in the xz plane. See {numref}`fig2` for how we will position water in the 3D space used by GAMESS.
+Water has a *C<sub>2</sub>* axis. There is no perpendicular *C<sub>2</sub>* axis so we remain in the *C* group rather than rising to *D*. There is no *&sigma;<sub>h</sub>* but there are two *&sigma;<sub>v</sub>* planes. Therefore water is in the *C<sub>2v</sub>* point group. We will use Cartesian coordinates that place the primary axis along the z-axis and the atoms in the xz plane. See {numref}`fig2` for how we will position water in the 3D space used by GAMESS.
 
 ```{figure} images/WATER_AXES.png
 ---
 width: 700px
 name: fig2
 ---
-*Water positioned in GAMESS 3D space with the $C_2$ axis along the z-axis and the primary $\sigma_v$ plane as the xz plane*
+*Water positioned in GAMESS 3D space with the *C<sub>2</sub>* axis along the z-axis and the primary *&sigma;<sub>v</sub>* plane as the xz plane*
 ```
  
 ### Building Water
@@ -187,11 +187,11 @@ H     1.0   0.7   0.0  -0.7
 | Line | Notes |
 | :---- | :---- |
 | Line 1 | The first line in the `$DATA` group is the name of the job. Put whatever you want there. I chose water, it seemed appropriate. |
-| Line 2 | The next line is the symmetry point group. Water is $C_{2v}$. GAMESS establishes this in two parts: first we declare $C_{nv}$ and then we set the value of $n$ as 2.|
-| Line 3 | The next line is blank. This is important. Leave it blank. (If we are not using symmetry, we will declare the point group to be $C_1$ and then the blank line will not be used.  Don’t worry, after a few crashed jobs you will get the hang of this.) |
+| Line 2 | The next line is the symmetry point group. Water is *C<sub>2v</sub>*. GAMESS establishes this in two parts: first we declare *C<sub>nv</sub>* and then we set the value of $n$ as 2.|
+| Line 3 | The next line is blank. This is important. Leave it blank. (If we are not using symmetry, we will declare the point group to be *C<sub>1</sub>* and then the blank line will not be used.  Don’t worry, after a few crashed jobs you will get the hang of this.) |
 | Lines 4..n | All the following lines are the data for the nuclei. The first column is the name (it can be anything up to 10 characters), the next is the nuclear charge (this defines the atom), and then the x,y,z coordinates. Like all GAMESS groups, the `$DATA` group is ended by the `$END` string. |
 
-Since we defined `COORD=CART` in the `$CONTRL` group, GAMESS will input all the atomic coordinates and attempt to interpret them via the $C_{2v}$ point group. If your coordinates do not fit in that point group, the calculation will probably fail. If they fit the $C_{2v}$ group, then GAMESS will identify the symmetry and use only the unique atoms within the point group in the subsequent calculation. Defining the symmetry point group is very useful in minimizing the costs of a calculation.
+Since we defined `COORD=CART` in the `$CONTRL` group, GAMESS will input all the atomic coordinates and attempt to interpret them via the *C<sub>2v</sub>* point group. If your coordinates do not fit in that point group, the calculation will probably fail. If they fit the *C<sub>2v</sub>* group, then GAMESS will identify the symmetry and use only the unique atoms within the point group in the subsequent calculation. Defining the symmetry point group is very useful in minimizing the costs of a calculation.
 
 
 -----
@@ -605,7 +605,7 @@ ERROR!
  OR YOUR CHOICE OF GROUP. ADIOS, MY FRIEND!!
 ```
 
-Although the Z-matrix will create a structure that looks a lot like ammonia, the three bond angles between H and N will not all be identical as the Z-matrix is converted to Cartesian coordinates. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of positioning the atoms according to the Z-matrix (1.0Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane. This should give us the correct structure. However, after the math is done that third 4,1,3 bond angle is not EXACTLY the same as the stated 4,1,2 and 3,1,2 angles. As a result, GAMESS could not determine the correct primary axis because the structure was not an exact fit to $C_{3v}$ symmetry.
+Although the Z-matrix will create a structure that looks a lot like ammonia, the three bond angles between H and N will not all be identical as the Z-matrix is converted to Cartesian coordinates. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of positioning the atoms according to the Z-matrix (1.0Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane. This should give us the correct structure. However, after the math is done that third 4,1,3 bond angle is not EXACTLY the same as the stated 4,1,2 and 3,1,2 angles. As a result, GAMESS could not determine the correct primary axis because the structure was not an exact fit to *C<sub>3v</sub>* symmetry.
 
 There is another way.
 
@@ -634,7 +634,7 @@ name: fig5
 *The Z-matrix for ammonia with a dummy atom to define symmetry*
 ```
 
-Below is an excerpt from the result file. You will see that the Z-matrix was not recreated.  This is because the dummy atom was used and GAMESS does not want to include it, yet it cannot create a Z-matrix that is guaranteed to fit the $C_{2v}$ symmetry without it. So it is sticking with Cartesian coordinates.
+Below is an excerpt from the result file. You will see that the Z-matrix was not recreated.  This is because the dummy atom was used and GAMESS does not want to include it, yet it cannot create a Z-matrix that is guaranteed to fit the *C<sub>2v</sub>* symmetry without it. So it is sticking with Cartesian coordinates.
 
 ``` 
 NSERCH:   4  E=       -9.1354556208  GRAD. MAX=  0.0000006  R.M.S.=  0.0000004
@@ -724,7 +724,7 @@ H  1.0   0.9385359335   0.0   0.2757943561
 Observe that the `$CONTRL` group is split over two lines in this example. The single line was more than 80 columns and no characters after that will be read into the system. We can have as many new lines as we want. The group is terminated by the `$END` string, not the end of a line.
 ```
 
-Take note of the list of internal coordinates that was written out by GAMESS. Each is classified as a STRETCH, BEND or TORSION. This corresponds to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120˚ like we had set up earlier. This is why the Z-matrix failed when we enforced $C_{3v}$ symmetry.
+Take note of the list of internal coordinates that was written out by GAMESS. Each is classified as a STRETCH, BEND or TORSION. This corresponds to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120˚ like we had set up earlier. This is why the Z-matrix failed when we enforced *C<sub>3v</sub>* symmetry.
 
 Since the `$DATA` group was copied from the result of the same AM1 method we started at a stationary point and so no optimization was performed.
 

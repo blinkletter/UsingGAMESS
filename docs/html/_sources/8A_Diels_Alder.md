@@ -35,7 +35,7 @@ name: fig8_2
 *The initial structure for cyclohexene in MacMolPlt.*
 ```
 
-Export an input file from `Subwindow` → `Input Builder`. We choose a `Runtype: Optimization`  with the `3-21G` basis set with `1 D Heavy Atom Polarization Function` (3-21G<sup>\*</sup>). We set `Coord. Type: Z-Matrix` and `# of Z-Matrix Variables` to `42` (3 × 16 atoms – 6).
+Export an input file from `Subwindow` &rarr; `Input Builder`. We choose a `Runtype: Optimization`  with the `3-21G` basis set with `1 D Heavy Atom Polarization Function` (3-21G<sup>\*</sup>). We set `Coord. Type: Z-Matrix` and `# of Z-Matrix Variables` to `42` (3 × 16 atoms – 6).
 I submitted the calculation to *GAMESS* via *GamessQ* and it ran successfully.  In {numref}`Cyclohexene-ZMAT.inp` is the input file and the Z-matrix for the resulting optimized structure.
 
 
@@ -141,7 +141,7 @@ caption: Cyclohexene-ZMAT.log
 
 The resulting log file, Cyclohexene_322.log, was opened and examined in a text editor. A selection from the log file is shown in {numref}`Cyclohexene-ZMAT.log`. We see that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two bond lengths are the 7th and 10th $ZMAT coordinates. 
 
-I will open the log file with *MacMolPlt* and I chose to view the atom labels. I chose to display the atom numbers by selecting `View` → `Atom Labels` → `Atom Number`. We can now clearly see that the bond lengths between carbons 4,5 and 3,6 are going to define the reaction coordinate. See {numref}`fig8_3`.
+I will open the log file with *MacMolPlt* and I chose to view the atom labels. I chose to display the atom numbers by selecting `View` &rarr; `Atom Labels` &rarr; `Atom Number`. We can now clearly see that the bond lengths between carbons 4,5 and 3,6 are going to define the reaction coordinate. See {numref}`fig8_3`.
 
 
 ```{figure} images/Diels_3.png
@@ -160,13 +160,13 @@ As an exercise, let us construct the boat and twist-boat versions of cyclohexene
 
 ### Building *C<sub>s</sub>* Cyclohexene
 
-Open *MacMolPlt* and start new file. Select `View` → `Show Axis` to display the three *xyz* axes. We must keep track of the axes when building with symmetry. The *C<sub>s</sub>* cyclohexene with have a σ<sub>xy</sub> plane so we will want the three unique atoms above or below that plane so they can be reflected to the other side. However, *MacMolPlt* will place the first three atoms that you drop in into the xy plane. We will solve this by adding a single atom and then dragging it above the plane. Follow along and all will become clear.
+Open *MacMolPlt* and start new file. Select `View` &rarr; `Show Axis` to display the three *xyz* axes. We must keep track of the axes when building with symmetry. The *C<sub>s</sub>* cyclohexene with have a σ<sub>xy</sub> plane so we will want the three unique atoms above or below that plane so they can be reflected to the other side. However, *MacMolPlt* will place the first three atoms that you drop in into the xy plane. We will solve this by adding a single atom and then dragging it above the plane. Follow along and all will become clear.
 
-Now let us set up the symmetry build. Click on `Builder` → `Edit with Symmetry`. Then we must define the symmetry we are using. Click on `Molecule` → `Set Point Group` → `Point Group` → `Cs`. We are now ready to add the first carbon.
+Now let us set up the symmetry build. Click on `Builder` &rarr; `Edit with Symmetry`. Then we must define the symmetry we are using. Click on `Molecule` &rarr; `Set Point Group` &rarr; `Point Group` &rarr; `Cs`. We are now ready to add the first carbon.
 
-Click on `Builder` → `Show Build Tools` and choose Carbon with a coordination number of 3 (this would be a *sp<sup>2</sup>* carbon). Click in the *MacMolPlt* window to place the atom. Now rotate the view in the window so that the xy plane becomes horizontal and the z-axis is vertical. Drag the carbon attom upwards and observe how its reflection appears on the other side of the xy plane. Drag it until you get a double bond between the atom and its doppelganger. Now go back to the Build Tools and choose carbon with a coordination number of 4 (this is *sp<sup>3</sup>*). Add a new carbon tom one of the bonds and then extend the chain one more carbon. You will have three atoms and three reflected atoms placed. Drag the finl carbon toward its mirror conterpart until *MacMolPlt* assigns a bond. Return to the Build Tools and choose Hyfrogen. Populate all the remaining bonds with hydrogen atoms. We now have a starting structure.
+Click on `Builder` &rarr; `Show Build Tools` and choose Carbon with a coordination number of 3 (this would be a *sp<sup>2</sup>* carbon). Click in the *MacMolPlt* window to place the atom. Now rotate the view in the window so that the xy plane becomes horizontal and the z-axis is vertical. Drag the carbon attom upwards and observe how its reflection appears on the other side of the xy plane. Drag it until you get a double bond between the atom and its doppelganger. Now go back to the Build Tools and choose carbon with a coordination number of 4 (this is *sp<sup>3</sup>*). Add a new carbon tom one of the bonds and then extend the chain one more carbon. You will have three atoms and three reflected atoms placed. Drag the finl carbon toward its mirror conterpart until *MacMolPlt* assigns a bond. Return to the Build Tools and choose Hyfrogen. Populate all the remaining bonds with hydrogen atoms. We now have a starting structure.
 
-Now we need to center the molecule in the symmetry system. MacMolPlt can make all the right decisions for us. Click on `Molecule` → `Set Coordinates to principal Orientation` and the molecule will be centered on the *xyz* coordinate system. Save your work. The image in the MacMolPlt window might look like {numref}`fig8_4`
+Now we need to center the molecule in the symmetry system. MacMolPlt can make all the right decisions for us. Click on `Molecule` &rarr; `Set Coordinates to principal Orientation` and the molecule will be centered on the *xyz* coordinate system. Save your work. The image in the MacMolPlt window might look like {numref}`fig8_4`
 
 ```{figure} images/Diels_4.png
 ---
@@ -178,7 +178,7 @@ name: fig8_4
 
 ### Optimizing *C<sub>s</sub>* Cyclohexene
 
-We know that *C<sub>s</sub>* cyclohexene is not the lowest energy conformer. But by enforcing the *C<sub>s</sub>* symmetry we can hold it in this conformation while it minimizes. Open `Subwindow` → `Input Builder` and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with Z-matrix coordinates but the calculation immediately failed. The nature of the Z-matrix often results in tiny rounding errors in the coordinate va;lues combining to a slightly bigger error by the time the positioning has worked its way along all the internal cooridnates. This error was obviously enough to place an atom or two outside of the tolerance for the symmetry calculation. We should use `Unique Coordinates` for symmetry calculations. the input file is reproduced in {numref}`Cyclohexene_Cs_cart.inp`.
+We know that *C<sub>s</sub>* cyclohexene is not the lowest energy conformer. But by enforcing the *C<sub>s</sub>* symmetry we can hold it in this conformation while it minimizes. Open `Subwindow` &rarr; `Input Builder` and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with Z-matrix coordinates but the calculation immediately failed. The nature of the Z-matrix often results in tiny rounding errors in the coordinate va;lues combining to a slightly bigger error by the time the positioning has worked its way along all the internal cooridnates. This error was obviously enough to place an atom or two outside of the tolerance for the symmetry calculation. We should use `Unique Coordinates` for symmetry calculations. the input file is reproduced in {numref}`Cyclohexene_Cs_cart.inp`.
 
 ```{code-block} 
 ---
@@ -605,7 +605,7 @@ We now have a starting position for a transition state optimization.
 
 ### The Hessian Calculation
 
-The `RUNTYPE` for a transition state optimization is `SADDLEPOINT`. We can set up the input file using *MacMolPlt*. Open the log file for the optimization with bond distances set at 2.2&nbsp;Å and use `Subwindow` → `Input Builder`. Set the `Run Type` to `Hessian` and set the `MO Guess` to `Huckel` (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the Vibrational Analysis button is checked so he file is set to perform a vibrational anaysis so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in {numref}`Cyclohexene_TS_Hess.inp`. 
+The `RUNTYPE` for a transition state optimization is `SADDLEPOINT`. We can set up the input file using *MacMolPlt*. Open the log file for the optimization with bond distances set at 2.2&nbsp;Å and use `Subwindow` &rarr; `Input Builder`. Set the `Run Type` to `Hessian` and set the `MO Guess` to `Huckel` (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the Vibrational Analysis button is checked so he file is set to perform a vibrational anaysis so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in {numref}`Cyclohexene_TS_Hess.inp`. 
 
 ```{code-block} 
 ---
@@ -638,7 +638,7 @@ H     1.0     0.00494     1.46786    -1.06282
  $END
 ```
 
-The input file was submitted to *GAMESS* and was successful. Now open the log file for the calculation. Go to `Subwindow` → `Frequencies`. I observe that there is an imaginary frequency listed at the top of the list. Clicking on it reveals the vectors in the display window. Check the display and observe if the vectors allign with the reation coordinate. As we can see in {numref}`fig8_10`, they do. This structure will lead to a transition state. We can now perform the saddlepoint optimiation.
+The input file was submitted to *GAMESS* and was successful. Now open the log file for the calculation. Go to `Subwindow` &rarr; `Frequencies`. I observe that there is an imaginary frequency listed at the top of the list. Clicking on it reveals the vectors in the display window. Check the display and observe if the vectors allign with the reation coordinate. As we can see in {numref}`fig8_10`, they do. This structure will lead to a transition state. We can now perform the saddlepoint optimiation.
 
 ```{figure} images/Diels_10.png
 ---
@@ -650,9 +650,9 @@ name: fig8_10
 
 ### The Transition State optimization
 
-Open the log file for the Hessian calculation. Click on `Subwindow` → `Input Builder`. Set the `Run Type` to `Saddle Point`. Set # of `Z-matrix variables` to `42`. We will need to supply a `$ZMAT` group. Set `Stat. Point` → `Initial Hessian` to `Calculate` (again, we could have cut this out of the .dat file and included it in the input file but the time saving is minimal in this case). Save the input file.
+Open the log file for the Hessian calculation. Click on `Subwindow` &rarr; `Input Builder`. Set the `Run Type` to `Saddle Point`. Set # of `Z-matrix variables` to `42`. We will need to supply a `$ZMAT` group. Set `Stat. Point` &rarr; `Initial Hessian` to `Calculate` (again, we could have cut this out of the .dat file and included it in the input file but the time saving is minimal in this case). Save the input file.
 
-To get a `$ZMAT` group we will again set up an energy check calcuylation with the internal coordinates set to auto generate. I will open the `Subwindow` → `Input Builder` and set the 'Run Type' to 'Energy' and the 'Exe. Type' to 'Check'. I will save the input file and then edit it to add the final line: `$ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END`. The input file is presented in {numref}`Cyclohexene_TS_ZMAT_Check.inp`. The `NONVDW` list will be very important here as the bond length if far past what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.
+To get a `$ZMAT` group we will again set up an energy check calcuylation with the internal coordinates set to auto generate. I will open the `Subwindow` &rarr; `Input Builder` and set the 'Run Type' to 'Energy' and the 'Exe. Type' to 'Check'. I will save the input file and then edit it to add the final line: `$ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END`. The input file is presented in {numref}`Cyclohexene_TS_ZMAT_Check.inp`. The `NONVDW` list will be very important here as the bond length if far past what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.
 
 ```{code-block} 
 ---

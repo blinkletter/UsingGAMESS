@@ -1,6 +1,6 @@
 # Allyl Cation: 𝜋 Orbitals
 
-Simplified Hückel Molecular Orbital Theory (SHMO) allows us to create $\pi$-molecular orbitals for planar systems. It is qualitatively accurate and often all one needs to interpret $\pi$-systems in physical organic chemistry. We have explored SHMO and created MO diagrams for ethylene, allyl anion & cation, butadiene and the cumyl cation. We have explored the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with Python and the NumPy \& SciPy packages.
+Simplified Hückel Molecular Orbital Theory (SHMO) allows us to create &pi;-molecular orbitals for planar systems. It is qualitatively accurate and often all one needs to interpret &pi;-systems in physical organic chemistry. We have explored SHMO and created MO diagrams for ethylene, allyl anion & cation, butadiene and the cumyl cation. We have explored the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with Python and the NumPy \& SciPy packages.
 
 Can we do the same, only better, with GAMESS? Let’s get busy.
 
@@ -18,7 +18,7 @@ In this exercise, we will accomplish the following…
 
 For an example we will build the allyl cation and examine the results of the calculation. First we will build the allyl group with MacMolPlt and attempt to use symmetry (MacMolPlt files often fail with GAMESS when applying symmetry). If that fails we will construct the molecule manually.
 
-In MacMolPlt first we will set the point group using `Molecule` $\rightarrow$ `Set Point Group` $\rightarrow$ `Point Group` $\rightarrow$ `Cnv` and then `…`$\rightarrow$ `Order of Principal Axis` $\rightarrow$ `2`. Set up the build with `Builder` $\rightarrow$ `Edit with Symmetry` and then call the build window with `Builder` $\rightarrow$ `Show Build Tools`. It helps to show the axes of the symmetry space via `View` $\rightarrow$ `Show Axis`. After that, it is up to trial and error.
+In MacMolPlt first we will set the point group using `Molecule` &rarr; `Set Point Group` &rarr; `Point Group` &rarr; `Cnv` and then `…` &rarr; `Order of Principal Axis` &rarr; `2`. Set up the build with `Builder` &rarr; `Edit with Symmetry` and then call the build window with `Builder` &rarr; `Show Build Tools`. It helps to show the axes of the symmetry space via `View` &rarr; `Show Axis`. After that, it is up to trial and error.
 
 You will find that each atom placed may be copied in space according to the point group. The z-axis is the principal axis. Give it a try. I managed to get a structure that resembles the basics of an allyl group. See {numref}`fig6A1` for an example.
 
@@ -32,7 +32,7 @@ name: fig6A1
 *Building an allyl cation with symmetry using MacMolPlt. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.*
 ```
  
-I then exported an input file using `Subwindow` $\rightarrow$ `Input Builder`. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add d and p orbitals and use both diffuse functions. The diffuse functions are important as they improve results for charged systems. Here is the input file that was generated. Only the unique atoms (2 carbons, the third is defined by symmetry) are in the $DATA group.
+I then exported an input file using `Subwindow` &rarr; `Input Builder`. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add d and p orbitals and use both diffuse functions. The diffuse functions are important as they improve results for charged systems. Here is the input file that was generated. Only the unique atoms (2 carbons, the third is defined by symmetry) are in the $DATA group.
 
 **AllylCat_6311_U.inp**
 ```
@@ -68,7 +68,7 @@ name: fig6B
 *HF/6-3111(d,p)++ optimized structure of the allyl cation.*
 ```
 
-By using `Subwindow` $\rightarrow$ `Surfaces` $\rightarrow$ `3D Electron Density` and choosing to colour by `MEP` (molecular electrostatic potential we can obtain an image that represents the electron density of the molecule and the colours mapped onto the surface represent the charge. Red are regions that repel a positive charge and blue are regions that attract a positive charge. Green is neutral. We can see in {numref}`fig6C` that the positive charge is located on the two terminal carbon groups, as expected.
+By using `Subwindow` &rarr; `Surfaces` &rarr; `3D Electron Density` and choosing to colour by `MEP` (molecular electrostatic potential we can obtain an image that represents the electron density of the molecule and the colours mapped onto the surface represent the charge. Red are regions that repel a positive charge and blue are regions that attract a positive charge. Green is neutral. We can see in {numref}`fig6C` that the positive charge is located on the two terminal carbon groups, as expected.
 
 ```{figure} images/pi_1.png
 ---
@@ -112,9 +112,9 @@ We see that the ends of the allyl cation share the charge 50/50. This is consist
 
 ## Analysis of Molecular Orbitals
 
-The molecular orbital diagram can be created using data from the GAMESS result file as interpreted by MacMolPlt. We can provide images of the local bonding $\sigma$-orbitals and the $\pi$-orbitals to create a basic interpretation of the bonding and reactivity of the allyl cation. We can also use the calculated bonding MOs and their relative energies (the eigenvalues for each MO). 
+The molecular orbital diagram can be created using data from the GAMESS result file as interpreted by MacMolPlt. We can provide images of the local bonding &sigma;-orbitals and the &pi;-orbitals to create a basic interpretation of the bonding and reactivity of the allyl cation. We can also use the calculated bonding MOs and their relative energies (the eigenvalues for each MO). 
 
-Use `Subwindow` $\rightarrow$ `Surfaces` $\rightarrow$ `3D Molecular Orbitals` and explore the options to create images as seen in figure 4. The energies for each molecular eigenvector (molecular orbital) is listed in the window. You can also find them in the result file. Search the .log file for “`MOLECULAR ORBITALS`” and you will see each MO as a column of values (the eigenvector) with an energy value at the top (the eigenvalue). The first three will be the 1s core orbitals of carbon. There will be 17 MOs that are created by the valence AOs. ($s$, $p_x$, $p_y$, $p_z$ for each carbon and s for each hydrogen). The first eight valence MOs will be filled (that means the first 11 are filled counting the core orbitals). Eigenvectors 4 through 20 represent the bonding and antibonding MOs. Rather than use just 17 valence shell AOs, GAMESS used 104 AOs! It’s just being thorough and these higher level empty MOs do have slight effects on the energy and structure and are there to provide greater accuracy.
+Use `Subwindow` &rarr; `Surfaces` &rarr; `3D Molecular Orbitals` and explore the options to create images as seen in figure 4. The energies for each molecular eigenvector (molecular orbital) is listed in the window. You can also find them in the result file. Search the .log file for “`MOLECULAR ORBITALS`” and you will see each MO as a column of values (the eigenvector) with an energy value at the top (the eigenvalue). The first three will be the 1s core orbitals of carbon. There will be 17 MOs that are created by the valence AOs. (*s*, *p<sub>x</sub>*, *p<sub>y</sub>*, *p<sub>z</sub>* for each carbon and s for each hydrogen). The first eight valence MOs will be filled (that means the first 11 are filled counting the core orbitals). Eigenvectors 4 through 20 represent the bonding and antibonding MOs. Rather than use just 17 valence shell AOs, GAMESS used 104 AOs! It’s just being thorough and these higher level empty MOs do have slight effects on the energy and structure and are there to provide greater accuracy.
 
 Can you make a diagram like the one in {numref}`fig6D`? I exported images from MacMolPlt and made the diagram using the graphics program [Affinity Designer](https://affinity.serif.com), but you could use the free [Inkscape](https://inkscape.org) program as well.  
 
@@ -155,9 +155,9 @@ CNV 2
 
 ## Comparing AO Coefficients
 
-In SHMO theory we get the coefficients of each p-atomic orbital as they contribute to each $\pi$-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the result file. On the following page is a section for the output file. Look for the last occurrence of the string “EIGENVECTORS”.
+In SHMO theory we get the coefficients of each p-atomic orbital as they contribute to each &pi;-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the result file. On the following page is a section for the output file. Look for the last occurrence of the string “EIGENVECTORS”.
 
-We see that the $\pi_x$ orbitals are the $p$-atomic orbitals that contribute to the $\pi$-MOs. (The molecule is in the zy-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following coefficients for the allyl $p_x$-AOs for their respective contributions to each of the $\pi$-MOs.
+We see that the *&pi;<sub>x</sub>* orbitals are the *p*-atomic orbitals that contribute to the &pi;-MOs. (The molecule is in the *zy*-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following coefficients for the allyl *p<sub>x</sub>*-AOs for their respective contributions to each of the &pi;-MOs.
 
 | Orbital	| $C_1 p_x$	| $C_3 p_x$ | $C_2 p_x$   |
 | :----     | :----     | :----     | :----       | 
@@ -166,7 +166,7 @@ We see that the $\pi_x$ orbitals are the $p$-atomic orbitals that contribute to 
 | 13	    | -0.134	|  0.219    | 	-0.134    |
 
 
-How do  these coefficients compare to the HMO method? They are smaller in magnitude because these $p$-orbitals are used in many of the other 104 orbitals that were included in the GAMESS calculation and SHMO only considers the three $\pi$-MOs.		
+How do  these coefficients compare to the HMO method? They are smaller in magnitude because these *p*-orbitals are used in many of the other 104 orbitals that were included in the GAMESS calculation and SHMO only considers the three &pi;-MOs.		
 
  
 Excerpt from  **AllylCat_B3LYP_U_E.log**
@@ -234,7 +234,7 @@ Excerpt from  **AllylCat_B3LYP_U_E.log**
 
 We have created input files and produced output files for a charged molecule. We have optimized the structure at HF/6-311(d,p)++ and calculated the energy at B3LYP/6-311(d,p)++. We then visualized the electron density and colored the surface with the values of the electrostatic potential. This revealed that the ends of the cation shared the positive charge. We examined the contents of the result file and calculated the partial charge on the carbon groups and again observed equal charge sharing at the ends.
 
-We then visualized the local bonding MOs for representative C–H and C–C bonds. We also visualized the three $\pi$-MOs and the seven $\sigma$-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the coefficients for the $p$-AOs that contributed from each carbon atom toward the $\pi$-system. 
+We then visualized the local bonding MOs for representative C–H and C–C bonds. We also visualized the three &pi;-MOs and the seven &sigma;-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the coefficients for the *p*-AOs that contributed from each carbon atom toward the &pi;-system. 
 
 ## Files
 The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.
@@ -255,11 +255,11 @@ Construct ethylene and then optimize the structure at HF/6-3111(d,p)++. Perform 
 
 ### The Report
 
-Present a ONE PAGE document with the molecular orbital diagram with images of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of p-orbital coefficients for each $\pi$-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)
+Present a ONE PAGE document with the molecular orbital diagram with images of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of p-orbital coefficients for each &pi;-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)
 
-Compare the $\pi$-MOs, coefficients and charges from your GAMESS calculations to the values from the exercise with SHMO $\pi$-systems.
+Compare the &pi;-MOs, coefficients and charges from your GAMESS calculations to the values from the exercise with SHMO &pi;-systems.
 
-Now repeat the exercise for the following situations as assigned. Don’t bother making any more images of $\sigma$-orbitals. Just show $\pi$-orbitals in your diagrams (but please do indicate the $\sigma$-orbitals with lines for relative energy levels and arrows for electrons).
+Now repeat the exercise for the following situations as assigned. Don’t bother making any more images of &sigma;-orbitals. Just show &pi;-orbitals in your diagrams (but please do indicate the &sigma;-orbitals with lines for relative energy levels and arrows for electrons).
 
 1.	Allyl anion 
 2.	Butadiene 

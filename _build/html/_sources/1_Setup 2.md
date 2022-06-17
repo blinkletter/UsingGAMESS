@@ -105,7 +105,7 @@ We will begin with using the terminal command line to run *GAMESS*. Later, we wi
 
 ### Obtain and Install
 
-Download the compressed file and extract it. Put the resulting folder in `/Applications`. In the `/Applications/GamessQ` directory we will see the following files$\ldots$
+Download the compressed file and extract it. Put the resulting folder in `/Applications`. In the `/Applications/GamessQ` directory we will see the following files&hellip;
 
 | File                  | Description                                                    |
 | :-------------------- | :------------------------------------------------------------- |
@@ -115,7 +115,7 @@ Download the compressed file and extract it. Put the resulting folder in `/Appli
 
 You will need to run the *gamessqd* application first. If you double-click on it it will run via a terminal window. The *Terminal* app will open and run the executable binary *gamessqd*. It will keep running as long as that terminal window is open. After this daemon has been launched, you will double-click on the *GamessQ* application to open the graphic interface. *GamessQ* will not run if *gamessqd* has not already been activated.
 
-Click on the *GammesQ* icon to run the program. In the menus, open \[GamessQ`$\rightarrow$`Preferences\] and you will see two important settings. The first is the location of the spool directory for *GamessQ*. This is where *GamessQ* will move the final result files from a *GAMESS* calculation. The second is the location of the directory for the *rungms* script that runs *GAMESS*.  Create a directory for the result files and point *GamessQ* there. And then enter the location of the `/Applications/gamess` folder. Now it is ready to launch jobs.
+Click on the *GammesQ* icon to run the program. In the menus, open \[GamessQ`&rarr;`Preferences\] and you will see two important settings. The first is the location of the spool directory for *GamessQ*. This is where *GamessQ* will move the final result files from a *GAMESS* calculation. The second is the location of the directory for the *rungms* script that runs *GAMESS*.  Create a directory for the result files and point *GamessQ* there. And then enter the location of the `/Applications/gamess` folder. Now it is ready to launch jobs.
 
 ### Using GamessQ
 

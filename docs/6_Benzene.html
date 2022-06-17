@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="start.html">
-   Introduction
+   Table of Contents
   </a>
  </li>
 </ul>
@@ -340,16 +340,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="building-benzene">
 <h2>Building Benzene<a class="headerlink" href="#building-benzene" title="Permalink to this headline">¶</a></h2>
-<p>Using the symmetry building tools in MacMolPlt, build benzene. With the <span class="math notranslate nohighlight">\(D_{6h}\)</span> point group you will be placing only two atoms in the xy plane. With the <span class="math notranslate nohighlight">\(C_{2v}\)</span> point group you will be placing 4 atoms in the xz plane with two of the atoms on the z-axis. Have fun and leave lots of time to make mistakes. We are beginning to leave behind the world of words; more and more you will find that doing will be your teacher.</p>
+<p>Using the symmetry building tools in MacMolPlt, build benzene. With the <em>D<sub>6h</sub></em> point group you will be placing only two atoms in the xy plane. With the <em>C<sub>2v</sub></em> point group you will be placing 4 atoms in the xz plane with two of the atoms on the z-axis. Have fun and leave lots of time to make mistakes. We are beginning to leave behind the world of words; more and more you will find that doing will be your teacher.</p>
 <p>After a brief struggle I created the following two builds. How did you fare?</p>
 <div class="figure align-default" id="fig6-2a">
 <a class="reference internal image-reference" href="_images/pi-Benzene-1.png"><img alt="_images/pi-Benzene-1.png" src="_images/pi-Benzene-1.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text"><em>Benzene built using D6h symmetry and <span class="math notranslate nohighlight">\(C_{2v}\)</span> symmetry. Take note that the z-axis is the highest order rotational axis (<span class="math notranslate nohighlight">\(C_6\)</span> for <span class="math notranslate nohighlight">\(D_{6h}\)</span> benzene and <span class="math notranslate nohighlight">\(C_2\)</span> for <span class="math notranslate nohighlight">\(C_{2v}\)</span> benzene).</em></span><a class="headerlink" href="#fig6-2a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text"><em>Benzene built using D6h symmetry and <em>C<sub>2v</sub></em> symmetry. Take note that the z-axis is the highest order rotational axis (<span class="math notranslate nohighlight">\(C_6\)</span> for <em>D<sub>6h</sub></em> benzene and <em>C<sub>2</sub></em> for <em>C<sub>2v</sub></em> benzene).</em></span><a class="headerlink" href="#fig6-2a" title="Permalink to this image">¶</a></p>
 </div>
-<p>The <span class="math notranslate nohighlight">\(C_{2v}\)</span> optimization succeeded but the <span class="math notranslate nohighlight">\(D_{6h}\)</span> file failed. MacMolPlt did not place the atoms precisely enough to fit the requirements of GAMESS. I decided to help it by keeping the unique atoms on the x-axis. After some thought, I realized that I could create a <span class="math notranslate nohighlight">\(C_{2v}\)</span> structure that had only three unique atoms. That would be 25% less expensive in our high-level energy calculation (I hope). It also fits better with some future builds for naphthalene and azulene that I have planned.  The four-atom <span class="math notranslate nohighlight">\(C_{2v}\)</span> will be useful for the creation of substituted benzene systems like the cumyl cation or aniline, so I will keep it around.</p>
+<p>The <em>C<sub>2v</sub></em> optimization succeeded but the <em>D<sub>6h</sub></em> file failed. MacMolPlt did not place the atoms precisely enough to fit the requirements of GAMESS. I decided to help it by keeping the unique atoms on the x-axis. After some thought, I realized that I could create a <em>C<sub>2v</sub></em> structure that had only three unique atoms. That would be 25% less expensive in our high-level energy calculation (I hope). It also fits better with some future builds for naphthalene and azulene that I have planned.  The four-atom <em>C<sub>2v</sub></em> will be useful for the creation of substituted benzene systems like the cumyl cation or aniline, so I will keep it around.</p>
 <div class="figure align-default" id="fig6-2b">
 <a class="reference internal image-reference" href="_images/pi-Benzene-2.png"><img alt="_images/pi-Benzene-2.png" src="_images/pi-Benzene-2.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text"><em>The new <span class="math notranslate nohighlight">\(D_{6h}\)</span> version of benzene and the three-atom <span class="math notranslate nohighlight">\(C_{2v}\)</span> version of benzene.</em></span><a class="headerlink" href="#fig6-2b" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text"><em>The new <em>D<sub>6h</sub></em> version of benzene and the three-atom <em>C<sub>2v</sub></em> version of benzene.</em></span><a class="headerlink" href="#fig6-2b" title="Permalink to this image">¶</a></p>
 </div>
 <p>Both the three-atom C2v and the x-axis D6h input files completed successfully. When a file fails, try different versions of coordinates and read the documentation if necessary. GAMESS is like a cat: you don’t train it, it trains you.
 Evaluating the Structure</p>
@@ -379,7 +379,7 @@ Evaluating the Structure</p>
 <p>We will calculate the energy of benzene using the HF/3-21G optimized structures. I will chose an extensive basis set and use an expensive method.</p>
 <p>We will use the B3LYP density functional method and use the Dunning aug-cc-pCVTZ basis set. This is a correlation consistent basis set that includes extra orbital polarization functions. The “aug” indicates the diffuse functions are also present. When you examine the output file you will see that each carbon atom was calculated using 69 atomic orbitals. Each hydrogen came with 24 atomic orbitals. There were 564 atomic orbitals used in the calculation of the 564 molecular orbitals!
 B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we increase the number or orbitals (and the gaussian functions that approximate them), we increase effort enormously.</p>
-<p>I performed a B3LYP/aug-cc-pCVTZ energy calculation using <span class="math notranslate nohighlight">\(D_{3h}\)</span>, <span class="math notranslate nohighlight">\(C_{2v}\)</span> (4 atom) and <span class="math notranslate nohighlight">\(C_{2v}\)</span> (3 atom) symmetry. I also performed a calculation with <span class="math notranslate nohighlight">\(C_1\)</span> symmetry (that means no symmetry). Below is a table of the time it took for each calculation.</p>
+<p>I performed a B3LYP/aug-cc-pCVTZ energy calculation using <em>D<sub>3h</sub></em>, <em>C<sub>2v</sub></em> (4 atom) and <em>C<sub>2v</sub></em> (3 atom) symmetry. I also performed a calculation with <em>C<sub>1</sub></em> symmetry (that means no symmetry). Below is a table of the time it took for each calculation.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Symmetry</p></th>
@@ -388,30 +388,30 @@ B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(C_1\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><em>C<sub>1</sub></em></p></td>
 <td class="text-align:left"><p>71.5 minutes</p></td>
 <td class="text-align:left"><p>-232.1862001924 Hartree</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(C_{2v}\)</span> (4 atom)</p></td>
+<tr class="row-odd"><td class="text-align:left"><p><em>C<sub>2v</sub></em> (4 atom)</p></td>
 <td class="text-align:left"><p>37.6</p></td>
 <td class="text-align:left"><p>-232.1861986292</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(C_{2v}\)</span> (3 atom)</p></td>
+<tr class="row-even"><td class="text-align:left"><p><em>C<sub>2v</sub></em> (3 atom)</p></td>
 <td class="text-align:left"><p>36.5</p></td>
 <td class="text-align:left"><p>-232.1862006973</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(D_{6h}\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><em>D<sub>6h</sub></em></p></td>
 <td class="text-align:left"><p>7.6</p></td>
 <td class="text-align:left"><p>-232.1861814727</p></td>
 </tr>
 </tbody>
 </table>
-<p>Wow! The <span class="math notranslate nohighlight">\(D_{6h}\)</span> symmetry was almost five times faster than <span class="math notranslate nohighlight">\(C_{2v}\)</span> and almost ten times faster than <span class="math notranslate nohighlight">\(C_1\)</span>. The number of atoms in <span class="math notranslate nohighlight">\(C_{2v}\)</span> did not make much difference. The same number or electrons was involved and the physical space was half the volume in both cases. The physical space was 1/6th for D6h compared to the <span class="math notranslate nohighlight">\(C_1\)</span> case (I actually have no idea how the space is divided when using symmetry groups. It will be used by the program to its best advantage. <span class="math notranslate nohighlight">\(D_{6h}\)</span> has a horizontal sigma plane that will further subdivide the 3D space compare to C6v. So perhaps we are at 1/12th the volume. It very much depends on how the software handles the opportunities provided by symmetry. Here we observe a huge benefit. We will always try to use the highest symmetry group possible when using expensive methods.</p>
+<p>Wow! The <em>D<sub>6h</sub></em> symmetry was almost five times faster than <em>C<sub>2v</sub></em> and almost ten times faster than <em>C<sub>1</sub></em>. The number of atoms in <em>C<sub>2v</sub></em> did not make much difference. The same number or electrons was involved and the physical space was half the volume in both cases. The physical space was 1/6th for D6h compared to the <em>C<sub>1</sub></em> case (I actually have no idea how the space is divided when using symmetry groups. It will be used by the program to its best advantage. <em>D<sub>6h</sub></em> has a horizontal sigma plane that will further subdivide the 3D space compare to C6v. So perhaps we are at 1/12th the volume. It very much depends on how the software handles the opportunities provided by symmetry. Here we observe a huge benefit. We will always try to use the highest symmetry group possible when using expensive methods.</p>
 <p>All four input files started with the same coordinates (the optimized HF/6-31G structures at each symmetry). The calculated energies were virtually identical. Symmetry did not change the answer, but it changed the cost.</p>
 </div>
 <div class="section" id="visualization-of-molecular-orbitals">
 <h2>Visualization of Molecular Orbitals<a class="headerlink" href="#visualization-of-molecular-orbitals" title="Permalink to this headline">¶</a></h2>
-<p>The molecular eigenvectors produced by the aug-cc-pCVTZ basis set included f-orbitals all the way out to the fifth energy shell. This huge number of interacting atomic orbitals gives more accurate results but it can complicate the images of molecular orbitals. The three bonding <span class="math notranslate nohighlight">\(\pi\)</span>-MOs and the first two antibonding MOs were fine, but the highest level antibonding <span class="math notranslate nohighlight">\(\pi\)</span>-MO (<span class="math notranslate nohighlight">\(\pi_6\)</span>) was mixed with higher level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The <span class="math notranslate nohighlight">\(\pi\)</span>-MOs fit much better to the textbook idea. Am I sticking with a comfortable lie? Should I accept the truth?</p>
+<p>The molecular eigenvectors produced by the aug-cc-pCVTZ basis set included f-orbitals all the way out to the fifth energy shell. This huge number of interacting atomic orbitals gives more accurate results but it can complicate the images of molecular orbitals. The three bonding π-MOs and the first two antibonding MOs were fine, but the highest level antibonding π-MO (<em>π<sub>6</sub></em>) was mixed with higher level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The π-MOs fit much better to the textbook idea. Am I sticking with a comfortable lie? Should I accept the truth?</p>
 <p>If you find it difficult to locate the higher level antibonding MOs in a sea of extra orbitals then try repeating the energy calculation with a smaller basis set. It will be less accurate but may give prettier pictures. <a class="reference internal" href="#fig6-2c"><span class="std std-numref">Fig. 35</span></a> presents the molecular orbitals produced from the two basis sets. Which do you prefer?</p>
 </div>
 <div class="section" id="summary">
@@ -421,10 +421,10 @@ B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>After reading the above discussion, use MacMolPlt to produce your own versions of the three symmetrical treatments of benzene above. Then build it without symmetry. You will have four versions of benzene structures at different symmetry. Optimize the structures at slightly higher theory than in this discussion (you could try HF/6-31G(d,p) or B3LYP/6-31G(d,p)).</p>
-<p>Report the bond lengths. Open the result files in MacMolPlt and export images of the <span class="math notranslate nohighlight">\(\pi\)</span>-MO system. Compare it to your results from the SHMO method.</p>
+<p>Report the bond lengths. Open the result files in MacMolPlt and export images of the π-MO system. Compare it to your results from the SHMO method.</p>
 <div class="figure align-default" id="fig6-2c">
 <a class="reference internal image-reference" href="_images/pi-Benzene-3.png"><img alt="_images/pi-Benzene-3.png" src="_images/pi-Benzene-3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text"><em><span class="math notranslate nohighlight">\(\pi\)</span>-MOs for benzene. The left-hand set is from the B3LYP/aug-cc-pCVTZ energy calculation and the right-hand set is from a HF/STO-3G energy calculation. Both sets were using the same optimized HF/3-21G geometry.</em></span><a class="headerlink" href="#fig6-2c" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text"><em>π-MOs for benzene. The left-hand set is from the B3LYP/aug-cc-pCVTZ energy calculation and the right-hand set is from a HF/STO-3G energy calculation. Both sets were using the same optimized HF/3-21G geometry.</em></span><a class="headerlink" href="#fig6-2c" title="Permalink to this image">¶</a></p>
 </div>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">

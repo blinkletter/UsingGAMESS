@@ -17,13 +17,13 @@ In this exercise, we will accomplish the following…
 
 ## Making Methane
 
-Open your copy of wxMacMolPlt and navigate to the build menu: `Builder` $\rightarrow$ `Show Build Tools`. Select carbon with a coordination number of 4 and click in the empty window. Then select `Builder` $\rightarrow$ `Add Hydrogens` to complete your structure of methane. Efforts to enforce symmetry on files created by MacMolPlt often fail and manual creation of files that use symmetry is preferred. GAMESS requires perfection when you are declaring symmetry. As a result, we will not use symmetry in this calculation. 
+Open your copy of wxMacMolPlt and navigate to the build menu: `Builder` &rarr; `Show Build Tools`. Select carbon with a coordination number of 4 and click in the empty window. Then select `Builder` &rarr; `Add Hydrogens` to complete your structure of methane. Efforts to enforce symmetry on files created by MacMolPlt often fail and manual creation of files that use symmetry is preferred. GAMESS requires perfection when you are declaring symmetry. As a result, we will not use symmetry in this calculation. 
 
-Select `Subwindow` $\rightarrow$ `Input Builder` to start making an input file for GAMESS. In the `Basia` window select 6-311G for the basis set. Set “1” for `D and light atom polarization functions` (this is the “d,p” in the 6-311G(d,p) basis set.) Check the `Diffuse l-shell` and `s-shell` options (this is the “++” in 6-311G(d,p)++.)
+Select `Subwindow` &rarr; `Input Builder` to start making an input file for GAMESS. In the `Basia` window select 6-311G for the basis set. Set “1” for `D and light atom polarization functions` (this is the “d,p” in the 6-311G(d,p) basis set.) Check the `Diffuse l-shell` and `s-shell` options (this is the “++” in 6-311G(d,p)++.)
 
 In the `Control` window select `Run Type: Optimization` and also select `Localization Method: Edmiston-Ruedenberg`. The localization method will command GAMESS to write information into the output file that can be used to make local bonding molecular orbitals (we will be using them very soon in this exercise).
 
-In the `Data` window make sure that the coordinate option is set to `Unique Cartesian`. Set the `symmetry point group` to $C_1$. With $C_1$, every atom will be unique as we are not declaring symmetry.
+In the `Data` window make sure that the coordinate option is set to `Unique Cartesian`. Set the `symmetry point group` to *C<sub>1</sub>*. With *C<sub>1</sub>*, every atom will be unique as we are not declaring symmetry.
 In the `Misc Prefs` window set the MacMolPlt option. This will result in data written into the output file that helps MacMolPlt interpret the results.
 
 In the `Stat. Point` window we can set the number of steps to a higher number that 20. We will use 20 for now.
@@ -58,9 +58,9 @@ Open GamessQ (run the binary in a terminal window and then start the GUI by clic
 
 Use MacMolPlt to open the .log file that was produced by GAMESS. You will see an image of the methane molecule. Practice rotating it and zooming in an out.
 
-We can measure lengths and angles in MacMolPlt. Click on an atom to select it. Then click on a second atom while holding `[SHIFT]`. Then select `View` $\rightarrow$ `Annotations` $\rightarrow$ `Display Length`. Do this with any three atoms and select `View` $\rightarrow$ `Annotations` $\rightarrow$ `Display Angle`. You can measure lengths angles and torsions right off the screen. You can display atom numbers with `View` $\rightarrow$ `Atoms Labels` $\rightarrow$ `Atom Number`. Explore the menus and see what you can do.
+We can measure lengths and angles in MacMolPlt. Click on an atom to select it. Then click on a second atom while holding `[SHIFT]`. Then select `View` &rarr; `Annotations` &rarr; `Display Length`. Do this with any three atoms and select `View` &rarr; `Annotations` &rarr; `Display Angle`. You can measure lengths angles and torsions right off the screen. You can display atom numbers with `View` &rarr; `Atoms Labels` &rarr; `Atom Number`. Explore the menus and see what you can do.
 
-You can save the image in the window using `File` $\rightarrow$ `Export`. Explore the options and see what makes the best image file for you. See {numref}`fig1A` for an example.
+You can save the image in the window using `File` &rarr; `Export`. Explore the options and see what makes the best image file for you. See {numref}`fig1A` for an example.
 
 
 
@@ -72,7 +72,7 @@ name: fig1A
 *MacMolPlt view of methane with some annotations added.*
 ```
 
-We can display the electron density surface of methane using `Subwindow` $\rightarrow$ `Surfaces`. Select `3D Total Electron Density` from the list and chose settings until you get a picture like the one in {numref}`fig2A`. 
+We can display the electron density surface of methane using `Subwindow` &rarr; `Surfaces`. Select `3D Total Electron Density` from the list and chose settings until you get a picture like the one in {numref}`fig2A`. 
 
 ```{figure} images/Methane_surface.png
 ---
@@ -126,7 +126,7 @@ name: fig4A
 Local Bonding Orbitals*
 ```
 
-We are used to describing bonds around 2nd row elements like carbon as $sp$, $sp^2$, or $sp^3$. A $sp^3$ bonding MO can be constructed from the overlap of the carbon $sp^3$ AO and the hydrogens $s$-orbital. This would be a simple model that describes the electron pair for that bond (not really) and relates more directly to Lewis structure (if you prefer stick drawings to the truth of MATH.) In the `Subwindow` $\rightarrow$ `Surfaces` window choose the 3D Orbital option and then choose the Localized Orbitals option from the Orbital Set menu. Select one of the orbitals and then choose settings that produce and image similar to what you see in {numref}`fig5A`. Have fun and try lots of settings.
+We are used to describing bonds around 2nd row elements like carbon as *sp*, *sp<sup>2</sup>*, or *sp<sup>3</sup>*. A *sp<sup>3</sup>* bonding MO can be constructed from the overlap of the carbon *sp<sup>3</sup>* AO and the hydrogens *s*-orbital. This would be a simple model that describes the electron pair for that bond (not really) and relates more directly to Lewis structure (if you prefer stick drawings to the truth of MATH.) In the `Subwindow` &rarr; `Surfaces` window choose the 3D Orbital option and then choose the Localized Orbitals option from the Orbital Set menu. Select one of the orbitals and then choose settings that produce and image similar to what you see in {numref}`fig5A`. Have fun and try lots of settings.
 
 ```{figure} images/Methane_LOCAL_4.png
 ---
@@ -161,11 +161,11 @@ name: fig7A
 ## The Multiverse
 The $T_d$ symmetry enforces that the hydrogens are each in one of the octants of 3D space. This means that the cardinal planes are not through any of the hydrogen atoms. If you considered that the four hydrogens were each at corners of the cube then the planes are slicing through the faces of the cube. This is why all three of the degenerate orbitals are identical in appearance.
 
-Your textbook may present different images of these orbitals. They are exactly the same orbitals, just with different placements of the cardinal planes w.r.t. the bonds. We used $C_{3v}$ symmetry for the ammonia molecule and, if we had used it with the methane Z-matrix that was created by modifying the ammonia Z-matrix, it would have worked just fine. The $C_{3v}$ symmetry requires that one of the four C–H bonds be along the $z$-axis. This means that two C–H bonds will be in a cardinal plane. The three degenerate orbitals all appear different because they each have a different relationship to the symmetry space. Despite this, they are identical. If orbitals have exactly the same energy then they are identical. The $C_{3v}$ arrangement is perhaps the most useful for interpreting a reaction. A hydrogen abstraction by a radical will occur by the radical approaching along a bond axis. Adding that element will reduce the symmetry to $C_{3v}$ from $T_d$. The molecular orbital that aligns with the $z$-axis best describes the frontier orbital that will guide the reaction as the atoms approach each other.
+Your textbook may present different images of these orbitals. They are exactly the same orbitals, just with different placements of the cardinal planes w.r.t. the bonds. We used *C<sub>3v</sub>* symmetry for the ammonia molecule and, if we had used it with the methane Z-matrix that was created by modifying the ammonia Z-matrix, it would have worked just fine. The *C<sub>3v</sub>* symmetry requires that one of the four C–H bonds be along the $z$-axis. This means that two C–H bonds will be in a cardinal plane. The three degenerate orbitals all appear different because they each have a different relationship to the symmetry space. Despite this, they are identical. If orbitals have exactly the same energy then they are identical. The *C<sub>3v</sub>* arrangement is perhaps the most useful for interpreting a reaction. A hydrogen abstraction by a radical will occur by the radical approaching along a bond axis. Adding that element will reduce the symmetry to *C<sub>3v</sub>* from $T_d$. The molecular orbital that aligns with the $z$-axis best describes the frontier orbital that will guide the reaction as the atoms approach each other.
 
-Another option is to use the $C_{2v}$ symmetry space. This will result in two separate pairs of C–H bonds being in cardinal planes. As a result two of the orbital images will appear identical with a third image being with a plane placed perpendicular to the other two. Again, it must be emphasized that all three degenerate molecular orbitals are identical.
+Another option is to use the *C<sub>2v</sub>* symmetry space. This will result in two separate pairs of C–H bonds being in cardinal planes. As a result two of the orbital images will appear identical with a third image being with a plane placed perpendicular to the other two. Again, it must be emphasized that all three degenerate molecular orbitals are identical.
 
-I prefer the $T_d$ MO set since it does emphasize the idea that all three degenerate MOs are identical. (How many times have I said that already?) The $C_{3v}$ set is best for explaining frontier orbital interactions with an approaching radical, but I prefer using the idea of a local bonding C–H $\sigma$-orbital when discussing a reaction with a C–H bond. Compare the local orbital with the $z$-axis MO and see how they are both great for discussing FMO theory.  The local orbital is far easier to use when we want to invoke the anti-bonding orbital that an approaching radical will actually be interacting with.
+I prefer the $T_d$ MO set since it does emphasize the idea that all three degenerate MOs are identical. (How many times have I said that already?) The *C<sub>3v</sub>* set is best for explaining frontier orbital interactions with an approaching radical, but I prefer using the idea of a local bonding C–H &sigma;-orbital when discussing a reaction with a C–H bond. Compare the local orbital with the $z$-axis MO and see how they are both great for discussing FMO theory.  The local orbital is far easier to use when we want to invoke the anti-bonding orbital that an approaching radical will actually be interacting with.
 
 You will be exploring these ideas in the exercise supported by this discussion. Good luck.
 
@@ -193,11 +193,11 @@ Read the accompanying discussion, "Visual Input and Output", above and then try 
 
 ### The Activities
 
-You will have HF/6-311G(d,p)++ optimized structures for methane ($T_d$), Ammonia ($C_{3v}$) and water ($C_{2v}$) from a previous exercise. Use the data for those structures to perform an energy (or optimization) calculation and add the local orbital command to the `$SYSTEM` group. 
+You will have HF/6-311G(d,p)++ optimized structures for methane ($T_d$), Ammonia (*C<sub>3v</sub>*) and water (*C<sub>2v</sub>*) from a previous exercise. Use the data for those structures to perform an energy (or optimization) calculation and add the local orbital command to the `$SYSTEM` group. 
 
 Use the result file with MacMolPlt to visualize the bonding molecular orbitals and the localized bonding orbitals. Are there degenerate sets in the molecular orbitals? Do any local orbitals resemble lone pairs? Do any of the MOs seem more closely related to lone pairs or more closely related to bonds? What are the relative energies of these MO sets and do the energies fit with expectations?
 
-Construct input files for methane using $C_{3v}$ and $C_{2v}$ symmetry and compare the shapes of these versions of the orbitals to those in ammonia and water. What similarities and differences do you observe?
+Construct input files for methane using *C<sub>3v</sub>* and *C<sub>2v</sub>* symmetry and compare the shapes of these versions of the orbitals to those in ammonia and water. What similarities and differences do you observe?
 
 ### The Report
 
@@ -205,7 +205,7 @@ Create a ONE-PAGE document summarizing your results. Create images for each of t
 
 Create a SECOND ONE-PAGE document with images of local and molecular bonding orbitals for all three molecules. Identify which orbitals in each set best represent lone pairs and which best represent bonds to hydrogen atoms.
 
-Create a THIRD ONE-PAGE document that presents the images of the methane molecular orbitals using $C_{3v}$ and $C_{2v}$ symmetry. Compare these with the corresponding orbitals in ammonia and water. 
+Create a THIRD ONE-PAGE document that presents the images of the methane molecular orbitals using *C<sub>3v</sub>* and *C<sub>2v</sub>* symmetry. Compare these with the corresponding orbitals in ammonia and water. 
 
 Include an appendix with the text input files used with GAMESS for all the above.
 

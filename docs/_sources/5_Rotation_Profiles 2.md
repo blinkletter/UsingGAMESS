@@ -16,10 +16,10 @@ In this exercise, we will accomplish the following…
 
 ## Building Butane
 
-Run MacMolPlt. Click on `Builder` $\rightarrow$ `Show Build Tools`. Choose carbon atoms and set the coordination number to 4 (four bonds to an sp3 carbon). Then click in the window to build the molecule, A carbon with four connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change the build tool to hydrogen and then click on the remaining connections to include bonds. In the end you will have a window that looks like this perhaps. 
+Run MacMolPlt. Click on `Builder` &rarr; `Show Build Tools`. Choose carbon atoms and set the coordination number to 4 (four bonds to an sp3 carbon). Then click in the window to build the molecule, A carbon with four connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change the build tool to hydrogen and then click on the remaining connections to include bonds. In the end you will have a window that looks like this perhaps. 
 
 ```{tip}
-You can just click on `Builder` $\rightarrow$ `Add Hydrogens` to fill in any remaining hydrogen atoms.
+You can just click on `Builder` &rarr; `Add Hydrogens` to fill in any remaining hydrogen atoms.
 ```
 
 ```{figure} images/profiles_Picture1B.png
@@ -92,7 +92,7 @@ All white space must be spaces, not tabs. And all lines that start with a $ symb
 
 The `$DATA` group contains the description of the molecule. The first line after the declaration of `$DATA` is the name of the molecule. You can change “Title” to “Butane” in the input builder if you wish.
 
-The next line is the symmetry. We are not using symmetry, so the symmetry point group is declared to be $C_1$ (no symmetry). Using symmetry will greatly reduce the work of the calculation. We will ignore this useful idea for now.
+The next line is the symmetry. We are not using symmetry, so the symmetry point group is declared to be *C<sub>1</sub>* (no symmetry). Using symmetry will greatly reduce the work of the calculation. We will ignore this useful idea for now.
 The next line begins the description of the molecule. We could use an xyz coordinate system but that is a block of numbers that can be difficult to interpret. We will use internal coordinates that describe each atoms relationship to another atom or atoms. This will make more sense when examined by the human eye and allows for greater control in setting up initial geometries and bond angles. The internal coordinate system that we will use is the Z-matrix
 
 ### The Z-Matrix
@@ -131,7 +131,7 @@ C
 C   1    1.54000
 ```
 
-The third line is atom #3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom #2 but now the distance no longer completely describes its position in the system. We know the distance from atom #2 to this atom #3, but we also now need a bond angle between atoms #3, 2 and 1. In $sp^3$ carbons that angle is 109.4˚ (120 for $sp^2$ and 180˚ for $sp$).
+The third line is atom #3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom #2 but now the distance no longer completely describes its position in the system. We know the distance from atom #2 to this atom #3, but we also now need a bond angle between atoms #3, 2 and 1. In *sp<sup>3</sup>* carbons that angle is 109.4˚ (120 for *sp<sup>2</sup>* and 180˚ for *sp*).
 
 ```
 C
@@ -360,7 +360,7 @@ Examining the first 10 lines of the internal coordinates of the result shows tha
 
 ## Communication The Results
 
-We can use MacMolPlt to create images of the two results. We will load in the log file of each. As an example we will use the most recent result stored as butane60_248.log. I will use the mouse pointer to select the four carbon atoms. Then I will display the value of the dihedral angle by choosing `View` $\rightarrow$ `Annotations` $\rightarrow$ Display Dihedral. I then choose `File` $\rightarrow$ `Export…` and export the image as PNG. There are many settings here, feel free to explore. In the end I generated the two images shown in {numref}`fig5-5`.
+We can use MacMolPlt to create images of the two results. We will load in the log file of each. As an example we will use the most recent result stored as butane60_248.log. I will use the mouse pointer to select the four carbon atoms. Then I will display the value of the dihedral angle by choosing `View` &rarr; `Annotations` &rarr; Display Dihedral. I then choose `File` &rarr; `Export…` and export the image as PNG. There are many settings here, feel free to explore. In the end I generated the two images shown in {numref}`fig5-5`.
 
 ```{figure} images/profiles_Picture5.png
 ---
