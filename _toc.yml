@@ -13,7 +13,9 @@ chapters:
     - file: 5_Rotation_Profiles_Workflow
     - file: 5_Rotation_Profiles_Workflow_Data
   - file: 6_Pi_Orbitals
-    sections:
-    - file: 6_Benzene
+  - file: 6_Benzene
   - file: 7_Butadiene
+    sections:
+    - file: butadiene.inp
+    - file: butadiene.log
   - file: 8A_Diels_Alder

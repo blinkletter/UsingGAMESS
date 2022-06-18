@@ -2,8 +2,14 @@
 
 Below is the output file for the butadiene optimization job.
 
-**Butadiene.inp**
-```
+```{code-block} 
+---
+name: Butadiene.inpFILE
+linenos: True
+lineno-start: 1
+emphasize-lines:
+caption: Butadiene.inp
+---
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
     MOLPLT=.TRUE. $END

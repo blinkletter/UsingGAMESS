@@ -1,10 +1,10 @@
-# GAMESS Workflow
+# *GAMESS* Workflow
 
 Here will be presented the **step by step** workflow for calculating the energy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly **offset** due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the **optimized** structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.
 
 ## The Input File
 
-First we **write** an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the `Z-matrix` method because it will identify the central **torsion** as a coordinate. Then we can **lock** that coordinate.
+First we **write** an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the *Z-matrix* method because it will identify the central **torsion** as a coordinate. Then we can **lock** that coordinate.
 
 ```{code-block}
 ---
@@ -108,14 +108,14 @@ name: fig5w-1
 
 ## Running the Jobs
 
-We now have nineteen jobs to submit to GAMESS. I will use the *GamessQ* GUI interface to do that. Execute the *GamessQ* application. Drag and drop the file series into the *GamessQ* window. *GamessQ* will copy the input files so we will have a set of identical input files created that we don't care about. As *GAMESS* produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole *GamessQ* operation in progress is shown in {numref}`fig5w-2`
+We now have nineteen jobs to submit to *GAMESS*. I will use the *GamessQ* GUI interface to do that. Execute the *GamessQ* application. Drag and drop the file series into the *GamessQ* window. *GamessQ* will copy the input files so we will have a set of identical input files created that we don't care about. As *GAMESS* produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole *GamessQ* operation in progress is shown in {numref}`fig5w-2`
 
 ```{figure} images/workflow2.png
 ---
 width: 500px
 name: fig5w-2
 ---
-*GamessQ running a queue of GAMESS jobs*
+**GamessQ* running a queue of *GAMESS* jobs*
 ```
 
 ## Extracting the Results

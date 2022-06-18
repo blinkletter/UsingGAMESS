@@ -1,10 +1,10 @@
-# Allyl Cation: 𝜋 Orbitals
+# Allyl Cation: &pi; Orbitals
 
 Simplified **Hückel Molecular Orbital Theory** (SHMO) allows us to create &pi;-molecular orbitals for planar systems. It is **qualitatively** accurate and often all one needs to interpret &pi;-systems in physical organic chemistry. We have explored SHMO and created **MO diagrams** for ethylene, allyl anion & cation, butadiene and the cumyl cation. We have modeled the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with *Python* and the *NumPy* \& *SciPy* packages.
 
 Can we do the same, only better, with *GAMESS*? Let’s get busy.
 
-## Goals
+## Learning Goals
 
 In this exercise, we will accomplish the following…
 
@@ -32,7 +32,7 @@ name: fig6A1
 *Building an allyl cation with symmetry using *MacMolPlt*. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.*
 ```
  
-I then exported an **input file** using `Subwindow` &rarr; `Input Builder`. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add d and p orbitals and use both diffuse functions. The diffuse functions are important as they improve results for charged systems. Here is the input file that was generated. Only the *unique atoms* (2 carbons, the third is defined by symmetry) are in the $DATA group.
+I then exported an **input file** using `Subwindow` &rarr; `Input Builder`. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add *d* and *p* orbitals and use both diffuse functions. The diffuse functions are important as they improve results for **charged** systems. Here is the input file that was generated. Only the *unique atoms* (2 carbons, the third is defined by symmetry) are in the `$DATA` group.
 
 ```{code-block} 
 ---
@@ -134,7 +134,7 @@ name: fig6D
 *MO diagrams for the allyl cation. Whether we imagine the system using combinations of hybrid atomic orbitals to create local MOs or use the true AOs to calculate the global MOs we see that the LUMO is the same with both approaches and that is what counts.*
 ```
 
-To get accurate energies for the **molecular orbitals**, I had to use a more advanced method. The *density functional theory* (DFT) method is another way of calculating wavefunctions. Like Hartee-Fock, it uses basis sets but rather than using Gaussian approximations of Slater-type atomic orbitals, it uses “functionals”. That’s all I know. There are many DFT methods. I used the B3LYP method, which I am told is good for ionic species. The orbitals above were from a B3LYP/6-311(d,p)++ energy calculation of the HF/6-311(d,p)++ optimized structure.
+To get accurate energies for the **molecular orbitals**, I had to use a more advanced method. The *density functional theory* (DFT) method is another way of calculating wavefunctions. Like Hartee-Fock, it uses basis sets but rather than using Gaussian approximations of Slater-type atomic orbitals, it uses “functionals”. That’s all I know. There are many DFT methods. I used the B3LYP method, which I am told is good for **ionic** species. The orbitals in {numref}`fig6D` were from a B3LYP/6-311(d,p)++ energy calculation of the HF/6-311(d,p)++ optimized structure.
 
 Below is the **input file** for the energy calculation that produced the orbitals in {numref}`fig6D`.
 
@@ -169,7 +169,7 @@ CNV 2
 
 In SHMO theory we get the **coefficients** of each *p*-atomic orbital as they contribute to each &pi;-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the **result file**. Presented in {numref}`AllylCat_B3LYP_U_E.log1` is a section for the output file. Look for the last occurrence of the string `EIGENVECTORS`.
 
-We see that the *&pi;<sub>x</sub>* orbitals are the *p*-atomic orbitals that contribute to the &pi;-MOs. (The molecule is in the *zy*-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following coefficients for the allyl *p<sub>x</sub>*-AOs for their respective contributions to each of the &pi;-MOs.
+We see that the *&pi;<sub>x</sub>* orbitals are the *p*-atomic orbitals that contribute to the &pi;-MOs. (The molecule is in the *zy*-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following **coefficients** for the allyl *p<sub>x</sub>*-AOs for their respective **contributions** to each of the &pi;-MOs.
 
 | Orbital	| $C_1 p_x$	| $C_3 p_x$ | $C_2 p_x$   |
 | :----     | :----     | :----     | :----       | 
@@ -178,11 +178,12 @@ We see that the *&pi;<sub>x</sub>* orbitals are the *p*-atomic orbitals that con
 | 13	    | -0.134	|  0.219    | 	-0.134    |
 
 
-How do  these coefficients compare to the HMO method? They are smaller in magnitude because these *p*-orbitals are used in many of the other 104 orbitals that were included in the *GAMESS* calculation and SHMO only considers the three &pi;-MOs.		
+How do  these coefficients **compare** to the HMO method? They are **smaller** in magnitude because these *p*-orbitals are used in many of the other 104 orbitals that were **included** in the *GAMESS* calculation while SHMO only considers the three &pi;-MOs.		
 
 ```{code-block} 
 ---
 name: AllylCat_B3LYP_U_E.log1
+emphasize-lines: 28, 38, 48
 caption: AllylCat_B3LYP_U_E.log
 ---
  FINAL R-B3LYP ENERGY IS     -116.9224892059 AFTER  17 ITERATIONS
@@ -245,34 +246,26 @@ caption: AllylCat_B3LYP_U_E.log
 
 ## Summary 
 
-We have created input files and produced output files for a charged molecule. We have optimized the structure at HF/6-311(d,p)++ and calculated the energy at B3LYP/6-311(d,p)++. We then visualized the electron density and colored the surface with the values of the electrostatic potential. This revealed that the ends of the cation shared the positive charge. We examined the contents of the result file and calculated the partial charge on the carbon groups and again observed equal charge sharing at the ends.
+We have created input files and produced output files for a **charged molecule**. We have optimized the **structure** at HF/6-311(d,p)++ and calculated the **energy** at B3LYP/6-311(d,p)++. We then **visualized** the electron density and colored the **surface** with the values of the **electrostatic potential**. This revealed that the ends of the cation shared the positive charge. We examined the contents of the result file and calculated the **partial charges** on the carbon groups and again observed equal charge sharing at the ends.
 
-We then visualized the local bonding MOs for representative C–H and C–C bonds. We also visualized the three &pi;-MOs and the seven &sigma;-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the coefficients for the *p*-AOs that contributed from each carbon atom toward the &pi;-system. 
-
-## Files
-The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.
-
-| Filename | Notes |
-| :---- | :---- |
-| AllylCat_6311_U.x	| The input file for the HF/6-311(d,p)++ optimization created using symmetry in the builder of *MacMolPlt*. |
-| AllylCat_B3LYP_U_E.x	| The input file for the B3LYP/6-311(d,p)++ energy calculation. Created with *MacMolPlt* and then the coordinates were pasted in from the output of the above file. |
+We then visualized the **local bonding MOs** for representative C–H and C–C bonds. We also **visualized** the three &pi;-MOs and the seven &sigma;-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the **coefficients** for the *p*-AOs that contributed from each carbon atom toward the &pi;-system. 
 
 
 ## Exercise
 
-Read the accompanying discussion and then try the following exercises.
+Read the accompanying discussion and then **try** the following exercises.
 
 ### The Activity
 
-Construct ethylene and then optimize the structure at HF/6-3111(d,p)++. Perform an energy calculation at B3LYP/6-311(d,p)++ with instructions to write data for localized MOs. Use symmetry in the construction of the input file.
+Construct **ethylene** and then optimize the structure at HF/6-3111(d,p)++. Perform an **energy** calculation at B3LYP/6-311(d,p)++ with instructions to write data for **localized MOs**. Use symmetry in the construction of the input file.
 
 ### The Report
 
-Present a ONE PAGE document with the molecular orbital diagram with images of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of p-orbital coefficients for each &pi;-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)
+Present a ONE PAGE document with the molecular orbital diagram with **images** of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of *p*-orbital **coefficients** for each &pi;-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)
 
-Compare the &pi;-MOs, coefficients and charges from your *GAMESS* calculations to the values from the exercise with SHMO &pi;-systems.
+**Compare** the &pi;-MOs, coefficients and **charges** from your *GAMESS* calculations to the values from the exercise with SHMO &pi;-systems.
 
-Now repeat the exercise for the following situations as assigned. Don’t bother making any more images of &sigma;-orbitals. Just show &pi;-orbitals in your diagrams (but please do indicate the &sigma;-orbitals with lines for relative energy levels and arrows for electrons).
+Now **repeat** the exercise for the following situations as assigned. Don’t bother making any more images of &sigma;-orbitals. Just show &pi;-orbitals in your **diagrams** (but please do indicate the &sigma;-orbitals with lines for relative energy levels and arrows for electrons).
 
 1.	Allyl anion 
 2.	Butadiene 
@@ -280,3 +273,11 @@ Now repeat the exercise for the following situations as assigned. Don’t bother
 4.	Cumyl cation 
 5.	Naphthalene 
 6.	Azulene 
+
+
+
+
+
+
+
+

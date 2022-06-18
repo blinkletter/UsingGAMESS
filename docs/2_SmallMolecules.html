@@ -128,7 +128,10 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     GAMESS Workflow
+     <em>
+      GAMESS
+     </em>
+     Workflow
     </a>
    </li>
    <li class="toctree-l2">
@@ -138,22 +141,15 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: 𝜋 Orbitals
+   Allyl Cation: π Orbitals
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Benzene.html">
-     Benzene: MOs and Symmetry
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7_Butadiene.html">
@@ -370,12 +366,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-z-matrix-for-ammonia">
-     The Z-Matrix for Ammonia
+     The
+     <em>
+      Z-matrix
+     </em>
+     for Ammonia
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dummy-atoms-in-the-z-matrix">
-     Dummy Atoms in the Z-Matrix
+     Dummy Atoms in the
+     <em>
+      Z-matrix
+     </em>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -634,12 +637,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-z-matrix-for-ammonia">
-     The Z-Matrix for Ammonia
+     The
+     <em>
+      Z-matrix
+     </em>
+     for Ammonia
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dummy-atoms-in-the-z-matrix">
-     Dummy Atoms in the Z-Matrix
+     Dummy Atoms in the
+     <em>
+      Z-matrix
+     </em>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -766,7 +776,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul>
 <li><p>Cartesian coordinates (classic <em>xyz</em> 3D space)</p></li>
 <li><p>Unique Cartesian coordinates with symmetry point groups</p></li>
-<li><p>Internal coordinates using a Z-matrix</p></li>
+<li><p>Internal coordinates using a <em>Z-matrix</em></p></li>
 </ul>
 </li>
 <li><p>We will use <em>GAMESS</em> to determine the <strong>optimized structure</strong> of small molecules using semi-empirical methods.</p></li>
@@ -777,7 +787,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="small-molecules">
 <h2>Small Molecules<a class="headerlink" href="#small-molecules" title="Permalink to this headline">¶</a></h2>
 <p><strong>Methane</strong>, <strong>ammonia</strong> and <strong>water</strong>: these three molecules are <em>sp<sup>3</sup></em> hybridized and should be <strong>tetrahedral</strong> in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109˚</p>
-<p>To investigate these molecules, will need to <strong>describe</strong> a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with <em>xyz</em> values; <strong>unique Cartesian coordinates</strong>, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the <strong>Z-matrix</strong>, where each atom is placed in space relative to the previous one in a carefully created list.</p>
+<p>To investigate these molecules, will need to <strong>describe</strong> a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with <em>xyz</em> values; <strong>unique Cartesian coordinates</strong>, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the <em><strong>Z-matrix</strong></em>, where each atom is placed in space relative to the previous one in a carefully created list.</p>
 <p><em>GAMESS</em> works by positioning the nuclei and then creating a mathematical function for the <strong>energy</strong> of the electrons. By taking the <strong>derivative</strong> of that function, <em>GAMESS</em> can determine if the current position is on a <strong>slope</strong> and then change the positions by a small amount to follow that slope downhill in energy. A new function is calculated and the process repeats again and again</p>
 <p>In this exercise, we will be <strong>manually</strong> creating and running input files. In the future, we will learn how to use <em>MacMolPlt</em> and <em>Avogadro</em> to quickly build molecules and <strong>automatically</strong> create input files. But lets us first get our hands dirty before we start using power tools to do the hard work for us. Wax on, wax off!</p>
 </div>
@@ -791,7 +801,7 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="_images/GAMESS_AXES.png"><img alt="_images/GAMESS_AXES.png" src="_images/GAMESS_AXES.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><em>The axis scheme for <em>GAMESS</em> atomic coordinates</em></span><a class="headerlink" href="#fig1" title="Permalink to this image">¶</a></p>
 </div>
-<p>When constructing a structure using either Cartesian coordinates or a Z-matrix, we don’t consider any priority for an axis. However, when using <strong>point groups</strong> and symmetry to define molecules with <strong>unique</strong> Cartesian coordinates, we must pay attention to how <em>GAMESS</em> manipulates <strong>symmetry</strong>. The <strong>primary axis</strong> of the point group is expected to be the <em>z</em>-axis. Any vertical σ-plane should first be set up in the <em>xz</em> plane. The horizontal σ-plane should be considered to be the <em>xy</em> plane. The first perpendicular 2-fold axis should be set up along the <em>x</em>-axis. Keep these ideas in mind as we construct our first molecules.</p>
+<p>When constructing a structure using either Cartesian coordinates or a <em>Z-matrix</em>, we don’t consider any priority for an axis. However, when using <strong>point groups</strong> and symmetry to define molecules with <strong>unique</strong> Cartesian coordinates, we must pay attention to how <em>GAMESS</em> manipulates <strong>symmetry</strong>. The <strong>primary axis</strong> of the point group is expected to be the <em>z</em>-axis. Any vertical σ-plane should first be set up in the <em>xz</em> plane. The horizontal σ-plane should be considered to be the <em>xy</em> plane. The first perpendicular 2-fold axis should be set up along the <em>x</em>-axis. Keep these ideas in mind as we construct our first molecules.</p>
 </div>
 <div class="section" id="symmetry">
 <h3>Symmetry<a class="headerlink" href="#symmetry" title="Permalink to this headline">¶</a></h3>
@@ -1268,7 +1278,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="internal-coordinates">
 <h2>Internal Coordinates<a class="headerlink" href="#internal-coordinates" title="Permalink to this headline">¶</a></h2>
-<p>For many of our exercises, we will be building molecules using <strong>internal coordinates</strong>. These coordinates define atomic positions relative the first atom defined in the list. This list is called the <em>Z-matrix</em>. A <strong>Z-matrix</strong> is a defined format for creating these internal coordinates.</p>
+<p>For many of our exercises, we will be building molecules using <strong>internal coordinates</strong>. These coordinates define atomic positions relative the first atom defined in the list. This list is called the <em>Z-matrix</em>. A <em><strong>Z-matrix</strong></em> is a defined format for creating these internal coordinates.</p>
 <p>Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly, relative to each other. I will know the distance between A and C and all other angles from those first three coordinates.</p>
 <p>Here is a <em>Z-matrix</em> for our town map…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
@@ -1310,7 +1320,7 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="_images/Zmatrix.png"><img alt="_images/Zmatrix.png" src="_images/Zmatrix.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>Parsing the <em>Z-matrix</em> for water</em></span><a class="headerlink" href="#fig3" title="Permalink to this image">¶</a></p>
 </div>
-<p><em>GAMESS</em> will <strong>attempt</strong> to fit the molecule to your declared symmetry point group and define a principal axis, etc. However, if your initial structure does not fit the point group the calculation will <strong>fail</strong>. To fit the <em>C<sub>2v</sun></em> point group, the two bond lengths must be the same in the <em>Z-matrix</em> for water. One way that we can make sure that this is true is to use <strong>variables</strong> in the Z-matrix. Consider the example below.</p>
+<p><em>GAMESS</em> will <strong>attempt</strong> to fit the molecule to your declared symmetry point group and define a principal axis, etc. However, if your initial structure does not fit the point group the calculation will <strong>fail</strong>. To fit the <em>C<sub>2v</sun></em> point group, the two bond lengths must be the same in the <em>Z-matrix</em> for water. One way that we can make sure that this is true is to use <strong>variables</strong> in the <em>Z-matrix</em>. Consider the example below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Water</span>
 <span class="n">CNV</span> <span class="mi">2</span>
 
@@ -1322,7 +1332,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">bond_angle</span><span class="o">=</span><span class="mf">109.5</span>
 </pre></div>
 </div>
-<p>By using variables appropriately we can <strong>make sure</strong> that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a <em>Z-matrix</em>. <a class="reference internal" href="#water-z-am1-inp1"><span class="std std-numref">Listing 15</span></a> shows the complete input file for an AM1 optimization of water using the Z-matrix.</p>
+<p>By using variables appropriately we can <strong>make sure</strong> that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a <em>Z-matrix</em>. <a class="reference internal" href="#water-z-am1-inp1"><span class="std std-numref">Listing 15</span></a> shows the complete input file for an AM1 optimization of water using the <em>Z-matrix</em>.</p>
 <div class="literal-block-wrapper docutils container" id="water-z-am1-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">water_Z_AM1.inp</span><a class="headerlink" href="#water-z-am1-inp1" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
@@ -1372,7 +1382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We could now paste the new <em>Z-matrix</em> or the unique coordinates into the HF/3-21G and the HF/6-311(d,p)++ input files and <strong>carry on</strong> optimizing the structure at <strong>higher</strong> levels of theory. We should get identical structures and energies as the equivalent calculations that started with <strong>xyz</strong> coordinates because the molecule is the <strong>same</strong> no matter which coordinate system we use.</p>
 </div>
 <div class="section" id="the-z-matrix-for-ammonia">
-<h3>The Z-Matrix for Ammonia<a class="headerlink" href="#the-z-matrix-for-ammonia" title="Permalink to this headline">¶</a></h3>
+<h3>The <em>Z-matrix</em> for Ammonia<a class="headerlink" href="#the-z-matrix-for-ammonia" title="Permalink to this headline">¶</a></h3>
 <p>Water is a planar system (for the atoms) but <strong>ammonia</strong> is going to require a <strong>third dimension</strong>. Here is one option for the <em>Z-matrix</em>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ammonia</span>
 <span class="n">CNV</span> <span class="mi">3</span>
@@ -1386,7 +1396,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This describes the <em>Z-matrix</em> as shown parsed in <a class="reference internal" href="#fig4"><span class="std std-numref">Fig. 4</span></a></p>
 <div class="figure align-default" id="fig4">
 <a class="reference internal image-reference" href="_images/Zmatrix_Ammonia.png"><img alt="_images/Zmatrix_Ammonia.png" src="_images/Zmatrix_Ammonia.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><em>A Z-matrix for ammonia</em></span><a class="headerlink" href="#fig4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><em>A <em>Z-matrix</em> for ammonia</em></span><a class="headerlink" href="#fig4" title="Permalink to this image">¶</a></p>
 </div>
 <p>But when I submit the job with the above the <strong>calculation failed</strong>. Near the end of the short result file that was produced was the following text message.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ERROR!
@@ -1400,7 +1410,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>There is another way.</p>
 </div>
 <div class="section" id="dummy-atoms-in-the-z-matrix">
-<h3>Dummy Atoms in the Z-Matrix<a class="headerlink" href="#dummy-atoms-in-the-z-matrix" title="Permalink to this headline">¶</a></h3>
+<h3>Dummy Atoms in the <em>Z-matrix</em><a class="headerlink" href="#dummy-atoms-in-the-z-matrix" title="Permalink to this headline">¶</a></h3>
 <p>When constructing symmetrical molecules it can be useful to use <strong>dummy atoms</strong>. These are defined by the letter X in the <em>Z-matrix</em>.</p>
 <div class="literal-block-wrapper docutils container" id="ammonia-zx-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">ammonia_ZX.inp</span><a class="headerlink" href="#ammonia-zx-inp1" title="Permalink to this code">¶</a></div>
@@ -1422,7 +1432,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<p>Using this matrix gives a <strong>successful</strong> calculation for the optimized geometry of ammonia at the AM1 level. The <em>Z-matrix</em> is outlined in <a class="reference internal" href="#fig4"><span class="std std-numref">Fig. 4</span></a> and the input file is described in <a class="reference internal" href="#ammonia-zx-inp1"><span class="std std-numref">Listing 17</span></a>.</p>
+<p>Using this matrix gives a <strong>successful</strong> calculation for the optimized geometry of ammonia at the AM1 level. The <strong>Z-matrix</strong> is outlined in <a class="reference internal" href="#fig4"><span class="std std-numref">Fig. 4</span></a> and the input file is described in <a class="reference internal" href="#ammonia-zx-inp1"><span class="std std-numref">Listing 17</span></a>.</p>
 <div class="figure align-default" id="fig5">
 <a class="reference internal image-reference" href="_images/Dummy_Atoms.png"><img alt="_images/Dummy_Atoms.png" src="_images/Dummy_Atoms.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text"><em>The Z-matrix for ammonia with a dummy atom to define symmetry</em></span><a class="headerlink" href="#fig5" title="Permalink to this image">¶</a></p>
@@ -1646,7 +1656,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Example Exercise Report<a class="headerlink" href="#example-exercise-report" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="methane-calculations">
 <h4>Methane Calculations<a class="headerlink" href="#methane-calculations" title="Permalink to this headline">¶</a></h4>
-<p>The input file was created using unique Cartesian coordinates because the Z-matrix conversion by <em>GAMESS</em> failed to achieve <span class="math notranslate nohighlight">\(T_d\)</span> symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<p>The input file was created using unique Cartesian coordinates because the <em>Z-matrix</em> conversion by <em>GAMESS</em> failed to achieve <span class="math notranslate nohighlight">\(T_d\)</span> symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
 <div class="section" id="methane-data">
 <h5>Methane Data<a class="headerlink" href="#methane-data" title="Permalink to this headline">¶</a></h5>
 <table class="colwidths-auto table">
@@ -1814,7 +1824,7 @@ The below file was made to check the energy of the experimental structure. Even 
 </div>
 <div class="section" id="water-calculations">
 <h4>Water Calculations<a class="headerlink" href="#water-calculations" title="Permalink to this headline">¶</a></h4>
-<p>The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<p>The first input file was created a <em>Z-matrix</em> and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
 <div class="section" id="water-data">
 <h5>Water Data<a class="headerlink" href="#water-data" title="Permalink to this headline">¶</a></h5>
 <table class="colwidths-auto table">
@@ -1886,7 +1896,7 @@ The below file was made to check the energy of the experimental structure. Even 
 </div>
 <div class="section" id="ammonia-calculations">
 <h4>Ammonia Calculations<a class="headerlink" href="#ammonia-calculations" title="Permalink to this headline">¶</a></h4>
-<p>The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<p>The first input file was created a <em>Z-matrix</em> and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
 <div class="section" id="ammonia-data">
 <h5>Ammonia Data<a class="headerlink" href="#ammonia-data" title="Permalink to this headline">¶</a></h5>
 <table class="colwidths-auto table">

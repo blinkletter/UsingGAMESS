@@ -11,7 +11,7 @@ This exercise will hopefully accomplish the following goals while learning new s
 -	We will use three methods for creating a description of the **atomic positions**
     -	Cartesian coordinates (classic *xyz* 3D space)
     -	Unique Cartesian coordinates with symmetry point groups
-    -	Internal coordinates using a Z-matrix
+    -	Internal coordinates using a *Z-matrix*
 -	We will use *GAMESS* to determine the **optimized structure** of small molecules using semi-empirical methods. 
 -	We will create new input files **using the results** of the previous calculation and calculate the optimized structure using **more expensive** methods.
 -	We will humbly recognize that we are organic chemists and that we are using *GAMESS* as a **recipe** with poor understanding of the **consequences** of our choices. We will observe these consequences in our results as we move forward. If we knew what we were doing, we might avoid many inevitable **pitfalls**. We have a whole box a band aids and always wear our safety goggles. Let’s go!
@@ -21,7 +21,7 @@ This exercise will hopefully accomplish the following goals while learning new s
 
 **Methane**, **ammonia** and **water**: these three molecules are *sp<sup>3</sup>* hybridized and should be **tetrahedral** in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109˚
 
-To investigate these molecules, will need to **describe** a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with *xyz* values; **unique Cartesian coordinates**, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the **Z-matrix**, where each atom is placed in space relative to the previous one in a carefully created list.
+To investigate these molecules, will need to **describe** a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with *xyz* values; **unique Cartesian coordinates**, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the ***Z-matrix***, where each atom is placed in space relative to the previous one in a carefully created list.
 
 *GAMESS* works by positioning the nuclei and then creating a mathematical function for the **energy** of the electrons. By taking the **derivative** of that function, *GAMESS* can determine if the current position is on a **slope** and then change the positions by a small amount to follow that slope downhill in energy. A new function is calculated and the process repeats again and again
 
@@ -43,7 +43,7 @@ name: fig1
 *The axis scheme for *GAMESS* atomic coordinates*
 ```
 
-When constructing a structure using either Cartesian coordinates or a Z-matrix, we don’t consider any priority for an axis. However, when using **point groups** and symmetry to define molecules with **unique** Cartesian coordinates, we must pay attention to how *GAMESS* manipulates **symmetry**. The **primary axis** of the point group is expected to be the *z*-axis. Any vertical &sigma;-plane should first be set up in the *xz* plane. The horizontal &sigma;-plane should be considered to be the *xy* plane. The first perpendicular 2-fold axis should be set up along the *x*-axis. Keep these ideas in mind as we construct our first molecules.
+When constructing a structure using either Cartesian coordinates or a *Z-matrix*, we don’t consider any priority for an axis. However, when using **point groups** and symmetry to define molecules with **unique** Cartesian coordinates, we must pay attention to how *GAMESS* manipulates **symmetry**. The **primary axis** of the point group is expected to be the *z*-axis. Any vertical &sigma;-plane should first be set up in the *xz* plane. The horizontal &sigma;-plane should be considered to be the *xy* plane. The first perpendicular 2-fold axis should be set up along the *x*-axis. Keep these ideas in mind as we construct our first molecules.
 
 ### Symmetry
 
@@ -550,7 +550,7 @@ Keep this conversion factor close by: 1 Hartree = 2,625.5 *kJ/mole*.
 
 ## Internal Coordinates
 
-For many of our exercises, we will be building molecules using **internal coordinates**. These coordinates define atomic positions relative the first atom defined in the list. This list is called the *Z-matrix*. A **Z-matrix** is a defined format for creating these internal coordinates. 
+For many of our exercises, we will be building molecules using **internal coordinates**. These coordinates define atomic positions relative the first atom defined in the list. This list is called the *Z-matrix*. A ***Z-matrix*** is a defined format for creating these internal coordinates. 
 
 Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly, relative to each other. I will know the distance between A and C and all other angles from those first three coordinates.
 
@@ -590,7 +590,7 @@ name: fig3
 *Parsing the *Z-matrix* for water*
 ```
 
-*GAMESS* will **attempt** to fit the molecule to your declared symmetry point group and define a principal axis, etc. However, if your initial structure does not fit the point group the calculation will **fail**. To fit the *C<sub>2v</sun>* point group, the two bond lengths must be the same in the *Z-matrix* for water. One way that we can make sure that this is true is to use **variables** in the Z-matrix. Consider the example below.
+*GAMESS* will **attempt** to fit the molecule to your declared symmetry point group and define a principal axis, etc. However, if your initial structure does not fit the point group the calculation will **fail**. To fit the *C<sub>2v</sun>* point group, the two bond lengths must be the same in the *Z-matrix* for water. One way that we can make sure that this is true is to use **variables** in the *Z-matrix*. Consider the example below.
 
 ```
 Water
@@ -604,7 +604,7 @@ bond_length=1.0
 bond_angle=109.5
 ```
 
-By using variables appropriately we can **make sure** that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a *Z-matrix*. {numref}`water_Z_AM1.inp1` shows the complete input file for an AM1 optimization of water using the Z-matrix.
+By using variables appropriately we can **make sure** that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a *Z-matrix*. {numref}`water_Z_AM1.inp1` shows the complete input file for an AM1 optimization of water using the *Z-matrix*.
 
 ```{code-block} 
 ---
@@ -667,7 +667,7 @@ NSERCH:   6  E=      -12.8093121220  GRAD. MAX=  0.0000047  R.M.S.=  0.0000020
 
 We could now paste the new *Z-matrix* or the unique coordinates into the HF/3-21G and the HF/6-311(d,p)++ input files and **carry on** optimizing the structure at **higher** levels of theory. We should get identical structures and energies as the equivalent calculations that started with **xyz** coordinates because the molecule is the **same** no matter which coordinate system we use.
 
-### The Z-Matrix for Ammonia
+### The *Z-matrix* for Ammonia
 
 Water is a planar system (for the atoms) but **ammonia** is going to require a **third dimension**. Here is one option for the *Z-matrix*.
 
@@ -688,7 +688,7 @@ This describes the *Z-matrix* as shown parsed in {numref}`fig4`
 width: 800px
 name: fig4
 ---
-*A Z-matrix for ammonia*
+*A *Z-matrix* for ammonia*
 ```
 
 But when I submit the job with the above the **calculation failed**. Near the end of the short result file that was produced was the following text message.
@@ -705,7 +705,7 @@ Although the *Z-matrix* will create a structure that looks a lot like ammonia, t
 
 There is another way.
 
-### Dummy Atoms in the Z-Matrix
+### Dummy Atoms in the *Z-matrix*
 
 When constructing symmetrical molecules it can be useful to use **dummy atoms**. These are defined by the letter X in the *Z-matrix*.
 
@@ -734,7 +734,7 @@ H  2  1.0  1  109.5  3  -120.0
  $END
 ```
 
-Using this matrix gives a **successful** calculation for the optimized geometry of ammonia at the AM1 level. The *Z-matrix* is outlined in {numref}`fig4` and the input file is described in {numref}`ammonia_ZX.inp1`.
+Using this matrix gives a **successful** calculation for the optimized geometry of ammonia at the AM1 level. The **Z-matrix** is outlined in {numref}`fig4` and the input file is described in {numref}`ammonia_ZX.inp1`.
 
 ```{figure} images/Dummy_Atoms.png
 ---
@@ -1013,7 +1013,7 @@ Include an appendix with the text for all the input files that you used. (Please
 
 #### Methane Calculations
 
-The input file was created using unique Cartesian coordinates because the Z-matrix conversion by *GAMESS* failed to achieve $T_d$ symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures. 
+The input file was created using unique Cartesian coordinates because the *Z-matrix* conversion by *GAMESS* failed to achieve $T_d$ symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures. 
 
 ##### Methane Data
 
@@ -1176,7 +1176,7 @@ H  2  1.087  1  109.4712206  3  -120.0
  
 #### Water Calculations
 
-The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.
+The first input file was created a *Z-matrix* and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.
 
 ##### Water Data
 | Optimization	  | O–H length (Å)|  H–O–H angle	   |  HF/6-311G(d,p)++ Energy    | ∆E (kJ/mole)  |
@@ -1221,7 +1221,7 @@ H  1  1.0  2  109.5
 
 #### Ammonia Calculations
 
-The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.
+The first input file was created a *Z-matrix* and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.
 
 ##### Ammonia Data
 

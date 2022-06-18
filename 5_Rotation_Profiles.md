@@ -170,7 +170,7 @@ And that describes the following structures as we read each line…
 width: 500px
 name: fig5-2A
 ---
-*The 10th line of the Z-matrix is applied.*
+*The 10th line of the *Z-matrix* is applied.*
 ```
  
 By the **last line**, we will have constructed the following molecule. Note how the tenth line describes the bond, bond angle and dihedral angle for hydrogen atom #10 as shown in {numref}`fig5-2`.
@@ -180,7 +180,7 @@ By the **last line**, we will have constructed the following molecule. Note how 
 width: 700px
 name: fig5-2
 ---
-*The 10th line of the Z-matrix is applied.*
+*The 10th line of the *Z-matrix* is applied.*
 ```
 
 We now have our molecule with the nuclei **positioned** in space (relative to each other via internal coordinates). The *GAMESS* program will place the nuclei in a Cartesian space and then calculate the locations of electrons from first principles using *ab initio* quantum mechanical calculations. We did tell *GAMESS* that all electrons were **paired** (no radicals) by using the `MULT=1` parameter and we did not specify a charge so that means there is no charge by **default**. 
@@ -654,7 +654,7 @@ I then created the following **script** file in my text editor. You will have to
 
 ```{code-block} bash
 ---
-name: makescan.sh1
+name: makescan.sh2
 caption: makescan.sh
 ---
 input_file=butane-SCAN.inp
@@ -681,7 +681,7 @@ We now have **nineteen outout files**. We can use the previous *grep* commands a
 
 ```{code-block} bash
 ---
-name: extract.sh1
+name: extract.sh2
 caption: extract.sh
 ---
 for name in butane-SCAN*.log; do

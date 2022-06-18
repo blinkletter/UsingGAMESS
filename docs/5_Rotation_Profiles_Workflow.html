@@ -126,7 +126,10 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     GAMESS Workflow
+     <em>
+      GAMESS
+     </em>
+     Workflow
     </a>
    </li>
    <li class="toctree-l2">
@@ -136,22 +139,15 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: 𝜋 Orbitals
+   Allyl Cation: π Orbitals
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Benzene.html">
-     Benzene: MOs and Symmetry
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7_Butadiene.html">
@@ -314,11 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="gamess-workflow">
-<h1>GAMESS Workflow<a class="headerlink" href="#gamess-workflow" title="Permalink to this headline">¶</a></h1>
+<h1><em>GAMESS</em> Workflow<a class="headerlink" href="#gamess-workflow" title="Permalink to this headline">¶</a></h1>
 <p>Here will be presented the <strong>step by step</strong> workflow for calculating the energy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly <strong>offset</strong> due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the <strong>optimized</strong> structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.</p>
 <div class="section" id="the-input-file">
 <h2>The Input File<a class="headerlink" href="#the-input-file" title="Permalink to this headline">¶</a></h2>
-<p>First we <strong>write</strong> an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the <code class="docutils literal notranslate"><span class="pre">Z-matrix</span></code> method because it will identify the central <strong>torsion</strong> as a coordinate. Then we can <strong>lock</strong> that coordinate.</p>
+<p>First we <strong>write</strong> an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the <em>Z-matrix</em> method because it will identify the central <strong>torsion</strong> as a coordinate. Then we can <strong>lock</strong> that coordinate.</p>
 <div class="literal-block-wrapper docutils container" id="butane-scan-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 50 </span><span class="caption-text">butane-SCAN.inp</span><a class="headerlink" href="#butane-scan-inp" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL 
@@ -406,10 +402,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="running-the-jobs">
 <h2>Running the Jobs<a class="headerlink" href="#running-the-jobs" title="Permalink to this headline">¶</a></h2>
-<p>We now have nineteen jobs to submit to GAMESS. I will use the <em>GamessQ</em> GUI interface to do that. Execute the <em>GamessQ</em> application. Drag and drop the file series into the <em>GamessQ</em> window. <em>GamessQ</em> will copy the input files so we will have a set of identical input files created that we don’t care about. As <em>GAMESS</em> produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole <em>GamessQ</em> operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
+<p>We now have nineteen jobs to submit to <em>GAMESS</em>. I will use the <em>GamessQ</em> GUI interface to do that. Execute the <em>GamessQ</em> application. Drag and drop the file series into the <em>GamessQ</em> window. <em>GamessQ</em> will copy the input files so we will have a set of identical input files created that we don’t care about. As <em>GAMESS</em> produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole <em>GamessQ</em> operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
 <div class="figure align-default" id="fig5w-2">
 <a class="reference internal image-reference" href="_images/workflow2.png"><img alt="_images/workflow2.png" src="_images/workflow2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text"><em>GamessQ running a queue of GAMESS jobs</em></span><a class="headerlink" href="#fig5w-2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text"><em><em>GamessQ</em> running a queue of <em>GAMESS</em> jobs</em></span><a class="headerlink" href="#fig5w-2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="extracting-the-results">

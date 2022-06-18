@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Allyl Cation: 𝜋 Orbitals &#8212; Fun With GAMESS</title>
+    <title>Allyl Cation: π Orbitals &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -128,7 +128,10 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     GAMESS Workflow
+     <em>
+      GAMESS
+     </em>
+     Workflow
     </a>
    </li>
    <li class="toctree-l2">
@@ -138,22 +141,15 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Allyl Cation: 𝜋 Orbitals
+   Allyl Cation: π Orbitals
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Benzene.html">
-     Benzene: MOs and Symmetry
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7_Butadiene.html">
@@ -237,8 +233,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -266,11 +262,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
    Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#files">
-   Files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -300,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Allyl Cation: 𝜋 Orbitals</h1>
+                <h1>Allyl Cation: π Orbitals</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -311,8 +302,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -343,11 +334,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#files">
-   Files
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise">
    Exercise
   </a>
@@ -374,11 +360,11 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="allyl-cation-orbitals">
-<h1>Allyl Cation: 𝜋 Orbitals<a class="headerlink" href="#allyl-cation-orbitals" title="Permalink to this headline">¶</a></h1>
+<h1>Allyl Cation: π Orbitals<a class="headerlink" href="#allyl-cation-orbitals" title="Permalink to this headline">¶</a></h1>
 <p>Simplified <strong>Hückel Molecular Orbital Theory</strong> (SHMO) allows us to create π-molecular orbitals for planar systems. It is <strong>qualitatively</strong> accurate and often all one needs to interpret π-systems in physical organic chemistry. We have explored SHMO and created <strong>MO diagrams</strong> for ethylene, allyl anion &amp; cation, butadiene and the cumyl cation. We have modeled the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with <em>Python</em> and the <em>NumPy</em> &amp; <em>SciPy</em> packages.</p>
 <p>Can we do the same, only better, with <em>GAMESS</em>? Let’s get busy.</p>
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise, we will accomplish the following…</p>
 <ol class="simple">
 <li><p>Use <em>MacMolPlt</em> to <strong>build</strong> molecules, generate input files and interpret results and use <em>GamessQ</em> to submit jobs to <em>GAMESS</em></p></li>
@@ -397,7 +383,7 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="_images/pi_symmetryBuild.png"><img alt="_images/pi_symmetryBuild.png" src="_images/pi_symmetryBuild.png" style="width: 550px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using <em>MacMolPlt</em>. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a1" title="Permalink to this image">¶</a></p>
 </div>
-<p>I then exported an <strong>input file</strong> using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add d and p orbitals and use both diffuse functions. The diffuse functions are important as they improve results for charged systems. Here is the input file that was generated. Only the <em>unique atoms</em> (2 carbons, the third is defined by symmetry) are in the $DATA group.</p>
+<p>I then exported an <strong>input file</strong> using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add <em>d</em> and <em>p</em> orbitals and use both diffuse functions. The diffuse functions are important as they improve results for <strong>charged</strong> systems. Here is the input file that was generated. Only the <em>unique atoms</em> (2 carbons, the third is defined by symmetry) are in the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-6311-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 54 </span><span class="caption-text">AllylCat_6311_U.inp</span><a class="headerlink" href="#allylcat-6311-u-inp" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
@@ -484,7 +470,7 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="_images/pi_MO-Diagram_lowres.png"><img alt="_images/pi_MO-Diagram_lowres.png" src="_images/pi_MO-Diagram_lowres.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text"><em>MO diagrams for the allyl cation. Whether we imagine the system using combinations of hybrid atomic orbitals to create local MOs or use the true AOs to calculate the global MOs we see that the LUMO is the same with both approaches and that is what counts.</em></span><a class="headerlink" href="#fig6d" title="Permalink to this image">¶</a></p>
 </div>
-<p>To get accurate energies for the <strong>molecular orbitals</strong>, I had to use a more advanced method. The <em>density functional theory</em> (DFT) method is another way of calculating wavefunctions. Like Hartee-Fock, it uses basis sets but rather than using Gaussian approximations of Slater-type atomic orbitals, it uses “functionals”. That’s all I know. There are many DFT methods. I used the B3LYP method, which I am told is good for ionic species. The orbitals above were from a B3LYP/6-311(d,p)++ energy calculation of the HF/6-311(d,p)++ optimized structure.</p>
+<p>To get accurate energies for the <strong>molecular orbitals</strong>, I had to use a more advanced method. The <em>density functional theory</em> (DFT) method is another way of calculating wavefunctions. Like Hartee-Fock, it uses basis sets but rather than using Gaussian approximations of Slater-type atomic orbitals, it uses “functionals”. That’s all I know. There are many DFT methods. I used the B3LYP method, which I am told is good for <strong>ionic</strong> species. The orbitals in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a> were from a B3LYP/6-311(d,p)++ energy calculation of the HF/6-311(d,p)++ optimized structure.</p>
 <p>Below is the <strong>input file</strong> for the energy calculation that produced the orbitals in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-b3lyp-u-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">AllylCat_B3LYP_U_E.inp</span><a class="headerlink" href="#allylcat-b3lyp-u-e-inp" title="Permalink to this code">¶</a></div>
@@ -512,7 +498,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="comparing-ao-coefficients">
 <h2>Comparing AO Coefficients<a class="headerlink" href="#comparing-ao-coefficients" title="Permalink to this headline">¶</a></h2>
 <p>In SHMO theory we get the <strong>coefficients</strong> of each <em>p</em>-atomic orbital as they contribute to each π-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the <strong>result file</strong>. Presented in <a class="reference internal" href="#allylcat-b3lyp-u-e-log1"><span class="std std-numref">Listing 56</span></a> is a section for the output file. Look for the last occurrence of the string <code class="docutils literal notranslate"><span class="pre">EIGENVECTORS</span></code>.</p>
-<p>We see that the <em>π<sub>x</sub></em> orbitals are the <em>p</em>-atomic orbitals that contribute to the π-MOs. (The molecule is in the <em>zy</em>-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following coefficients for the allyl <em>p<sub>x</sub></em>-AOs for their respective contributions to each of the π-MOs.</p>
+<p>We see that the <em>π<sub>x</sub></em> orbitals are the <em>p</em>-atomic orbitals that contribute to the π-MOs. (The molecule is in the <em>zy</em>-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following <strong>coefficients</strong> for the allyl <em>p<sub>x</sub></em>-AOs for their respective <strong>contributions</strong> to each of the π-MOs.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Orbital</p></th>
@@ -539,7 +525,7 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<p>How do  these coefficients compare to the HMO method? They are smaller in magnitude because these <em>p</em>-orbitals are used in many of the other 104 orbitals that were included in the <em>GAMESS</em> calculation and SHMO only considers the three π-MOs.</p>
+<p>How do  these coefficients <strong>compare</strong> to the HMO method? They are <strong>smaller</strong> in magnitude because these <em>p</em>-orbitals are used in many of the other 104 orbitals that were <strong>included</strong> in the <em>GAMESS</em> calculation while SHMO only considers the three π-MOs.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-b3lyp-u-e-log1">
 <div class="code-block-caption"><span class="caption-number">Listing 56 </span><span class="caption-text">AllylCat_B3LYP_U_E.log</span><a class="headerlink" href="#allylcat-b3lyp-u-e-log1" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">FINAL</span> <span class="n">R</span><span class="o">-</span><span class="n">B3LYP</span> <span class="n">ENERGY</span> <span class="n">IS</span>     <span class="o">-</span><span class="mf">116.9224892059</span> <span class="n">AFTER</span>  <span class="mi">17</span> <span class="n">ITERATIONS</span>
@@ -569,8 +555,8 @@ const thebe_selector_output = ".output, .cell_output"
                      <span class="n">B1</span>         <span class="n">A2</span>         <span class="n">B1</span>         <span class="n">A1</span>         <span class="n">A1</span>  
     <span class="mi">1</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.031188</span>  <span class="o">-</span><span class="mf">0.005795</span>
     <span class="mi">2</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.051222</span>  <span class="o">-</span><span class="mf">0.009720</span>
-    <span class="mi">3</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">X</span>    <span class="mf">0.133628</span>   <span class="mf">0.200023</span>  <span class="o">-</span><span class="mf">0.134213</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
-    <span class="mi">4</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">Y</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.038494</span>   <span class="mf">0.024973</span>
+<span class="hll">    <span class="mi">3</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">X</span>    <span class="mf">0.133628</span>   <span class="mf">0.200023</span>  <span class="o">-</span><span class="mf">0.134213</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
+</span>    <span class="mi">4</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">Y</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.038494</span>   <span class="mf">0.024973</span>
     <span class="mi">5</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">Z</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.034446</span>  <span class="o">-</span><span class="mf">0.075716</span>
     <span class="mi">6</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>   <span class="mf">0.174118</span>   <span class="mf">0.024304</span>
     <span class="mi">7</span>  <span class="n">C</span>  <span class="mi">1</span>  <span class="n">X</span>    <span class="mf">0.211607</span>   <span class="mf">0.312491</span>  <span class="o">-</span><span class="mf">0.199280</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
@@ -579,8 +565,8 @@ const thebe_selector_output = ".output, .cell_output"
 
    <span class="mi">24</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.031188</span>  <span class="o">-</span><span class="mf">0.005795</span>
    <span class="mi">25</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.051222</span>  <span class="o">-</span><span class="mf">0.009720</span>
-   <span class="mi">26</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">X</span>    <span class="mf">0.133628</span>  <span class="o">-</span><span class="mf">0.200023</span>  <span class="o">-</span><span class="mf">0.134213</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
-   <span class="mi">27</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">Y</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>   <span class="mf">0.038494</span>  <span class="o">-</span><span class="mf">0.024973</span>
+<span class="hll">   <span class="mi">26</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">X</span>    <span class="mf">0.133628</span>  <span class="o">-</span><span class="mf">0.200023</span>  <span class="o">-</span><span class="mf">0.134213</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
+</span>   <span class="mi">27</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">Y</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>   <span class="mf">0.038494</span>  <span class="o">-</span><span class="mf">0.024973</span>
    <span class="mi">28</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">Z</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.034446</span>  <span class="o">-</span><span class="mf">0.075716</span>
    <span class="mi">29</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>   <span class="mf">0.174118</span>   <span class="mf">0.024304</span>
    <span class="mi">30</span>  <span class="n">C</span>  <span class="mi">2</span>  <span class="n">X</span>    <span class="mf">0.211607</span>  <span class="o">-</span><span class="mf">0.312491</span>  <span class="o">-</span><span class="mf">0.199280</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
@@ -589,8 +575,8 @@ const thebe_selector_output = ".output, .cell_output"
 
    <span class="mi">47</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.012952</span>   <span class="mf">0.024036</span>
    <span class="mi">48</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.021349</span>   <span class="mf">0.039376</span>
-   <span class="mi">49</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">X</span>    <span class="mf">0.179738</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.218916</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
-   <span class="mi">50</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">Y</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
+<span class="hll">   <span class="mi">49</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">X</span>    <span class="mf">0.179738</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.218916</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
+</span>   <span class="mi">50</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">Y</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
    <span class="mi">51</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">Z</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>   <span class="mf">0.041306</span>  <span class="o">-</span><span class="mf">0.065483</span>
    <span class="mi">52</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">S</span>   <span class="o">-</span><span class="mf">0.000000</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>   <span class="mf">0.069751</span>  <span class="o">-</span><span class="mf">0.125935</span>
    <span class="mi">53</span>  <span class="n">C</span>  <span class="mi">3</span>  <span class="n">X</span>    <span class="mf">0.284633</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.337108</span>  <span class="o">-</span><span class="mf">0.000000</span>   <span class="mf">0.000000</span>
@@ -604,40 +590,21 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>We have created input files and produced output files for a charged molecule. We have optimized the structure at HF/6-311(d,p)++ and calculated the energy at B3LYP/6-311(d,p)++. We then visualized the electron density and colored the surface with the values of the electrostatic potential. This revealed that the ends of the cation shared the positive charge. We examined the contents of the result file and calculated the partial charge on the carbon groups and again observed equal charge sharing at the ends.</p>
-<p>We then visualized the local bonding MOs for representative C–H and C–C bonds. We also visualized the three π-MOs and the seven σ-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the coefficients for the <em>p</em>-AOs that contributed from each carbon atom toward the π-system.</p>
-</div>
-<div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
-<p>The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Filename</p></th>
-<th class="text-align:left head"><p>Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>AllylCat_6311_U.x</p></td>
-<td class="text-align:left"><p>The input file for the HF/6-311(d,p)++ optimization created using symmetry in the builder of <em>MacMolPlt</em>.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>AllylCat_B3LYP_U_E.x</p></td>
-<td class="text-align:left"><p>The input file for the B3LYP/6-311(d,p)++ energy calculation. Created with <em>MacMolPlt</em> and then the coordinates were pasted in from the output of the above file.</p></td>
-</tr>
-</tbody>
-</table>
+<p>We have created input files and produced output files for a <strong>charged molecule</strong>. We have optimized the <strong>structure</strong> at HF/6-311(d,p)++ and calculated the <strong>energy</strong> at B3LYP/6-311(d,p)++. We then <strong>visualized</strong> the electron density and colored the <strong>surface</strong> with the values of the <strong>electrostatic potential</strong>. This revealed that the ends of the cation shared the positive charge. We examined the contents of the result file and calculated the <strong>partial charges</strong> on the carbon groups and again observed equal charge sharing at the ends.</p>
+<p>We then visualized the <strong>local bonding MOs</strong> for representative C–H and C–C bonds. We also <strong>visualized</strong> the three π-MOs and the seven σ-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the <strong>coefficients</strong> for the <em>p</em>-AOs that contributed from each carbon atom toward the π-system.</p>
 </div>
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
-<p>Read the accompanying discussion and then try the following exercises.</p>
+<p>Read the accompanying discussion and then <strong>try</strong> the following exercises.</p>
 <div class="section" id="the-activity">
 <h3>The Activity<a class="headerlink" href="#the-activity" title="Permalink to this headline">¶</a></h3>
-<p>Construct ethylene and then optimize the structure at HF/6-3111(d,p)++. Perform an energy calculation at B3LYP/6-311(d,p)++ with instructions to write data for localized MOs. Use symmetry in the construction of the input file.</p>
+<p>Construct <strong>ethylene</strong> and then optimize the structure at HF/6-3111(d,p)++. Perform an <strong>energy</strong> calculation at B3LYP/6-311(d,p)++ with instructions to write data for <strong>localized MOs</strong>. Use symmetry in the construction of the input file.</p>
 </div>
 <div class="section" id="the-report">
 <h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>
-<p>Present a ONE PAGE document with the molecular orbital diagram with images of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of p-orbital coefficients for each π-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)</p>
-<p>Compare the π-MOs, coefficients and charges from your <em>GAMESS</em> calculations to the values from the exercise with SHMO π-systems.</p>
-<p>Now repeat the exercise for the following situations as assigned. Don’t bother making any more images of σ-orbitals. Just show π-orbitals in your diagrams (but please do indicate the σ-orbitals with lines for relative energy levels and arrows for electrons).</p>
+<p>Present a ONE PAGE document with the molecular orbital diagram with <strong>images</strong> of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of <em>p</em>-orbital <strong>coefficients</strong> for each π-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)</p>
+<p><strong>Compare</strong> the π-MOs, coefficients and <strong>charges</strong> from your <em>GAMESS</em> calculations to the values from the exercise with SHMO π-systems.</p>
+<p>Now <strong>repeat</strong> the exercise for the following situations as assigned. Don’t bother making any more images of σ-orbitals. Just show π-orbitals in your <strong>diagrams</strong> (but please do indicate the σ-orbitals with lines for relative energy levels and arrows for electrons).</p>
 <ol class="simple">
 <li><p>Allyl anion</p></li>
 <li><p>Butadiene</p></li>
@@ -647,8 +614,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Azulene</p></li>
 </ol>
 </div>
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 

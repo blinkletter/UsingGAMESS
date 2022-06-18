@@ -128,7 +128,10 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     GAMESS Workflow
+     <em>
+      GAMESS
+     </em>
+     Workflow
     </a>
    </li>
    <li class="toctree-l2">
@@ -138,22 +141,15 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: 𝜋 Orbitals
+   Allyl Cation: π Orbitals
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Benzene.html">
-     Benzene: MOs and Symmetry
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7_Butadiene.html">
@@ -693,12 +689,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>And that describes the following structures as we read each line…</p>
 <div class="figure align-default" id="fig5-2a">
 <a class="reference internal image-reference" href="_images/profiles_Picture2A.png"><img alt="_images/profiles_Picture2A.png" src="_images/profiles_Picture2A.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>The 10th line of the Z-matrix is applied.</em></span><a class="headerlink" href="#fig5-2a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>The 10th line of the <em>Z-matrix</em> is applied.</em></span><a class="headerlink" href="#fig5-2a" title="Permalink to this image">¶</a></p>
 </div>
 <p>By the <strong>last line</strong>, we will have constructed the following molecule. Note how the tenth line describes the bond, bond angle and dihedral angle for hydrogen atom #10 as shown in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 15</span></a>.</p>
 <div class="figure align-default" id="fig5-2">
 <a class="reference internal image-reference" href="_images/profiles_Picture2.png"><img alt="_images/profiles_Picture2.png" src="_images/profiles_Picture2.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>The 10th line of the Z-matrix is applied.</em></span><a class="headerlink" href="#fig5-2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>The 10th line of the <em>Z-matrix</em> is applied.</em></span><a class="headerlink" href="#fig5-2" title="Permalink to this image">¶</a></p>
 </div>
 <p>We now have our molecule with the nuclei <strong>positioned</strong> in space (relative to each other via internal coordinates). The <em>GAMESS</em> program will place the nuclei in a Cartesian space and then calculate the locations of electrons from first principles using <em>ab initio</em> quantum mechanical calculations. We did tell <em>GAMESS</em> that all electrons were <strong>paired</strong> (no radicals) by using the <code class="docutils literal notranslate"><span class="pre">MULT=1</span></code> parameter and we did not specify a charge so that means there is no charge by <strong>default</strong>.</p>
 <p>We must always start <strong>close</strong> to the correct structure so that the calculation will snap to the closest lower energy minimum. If we <strong>start</strong> crazy, we might just <strong>end up</strong> crazy.</p>
@@ -1069,8 +1065,8 @@ Below is the new input file</p>
 </div>
 </div>
 <p>I then created the following <strong>script</strong> file in my text editor. You will have to <strong>change</strong> the first filename to suit your own series and can change the values in the series if you wish.</p>
-<div class="literal-block-wrapper docutils container" id="makescan-sh1">
-<div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text"><a class="reference external" href="http://makescan.sh">makescan.sh</a></span><a class="headerlink" href="#makescan-sh1" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="makescan-sh2">
+<div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text"><a class="reference external" href="http://makescan.sh">makescan.sh</a></span><a class="headerlink" href="#makescan-sh2" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">input_file</span><span class="o">=</span>butane-SCAN.inp
 <span class="nv">spacer</span><span class="o">=</span>_
 <span class="k">for</span> num <span class="k">in</span> <span class="k">$(</span>seq -w <span class="m">000</span> <span class="m">010</span> <span class="m">180</span><span class="k">)</span>
@@ -1088,8 +1084,8 @@ Below is the new input file</p>
 </div>
 <p>Nineteen files will be <strong>created</strong> with values written into the 4,1,2,3 torsion coordinate from 0 to 180 degrees. <strong>Examine</strong> any of the new files and see that this is true. Select all the new input files and drop them onto the <em>GamessQ</em> window. In a few minutes all the files will have been run and nineteen new output files will result.</p>
 <p>We now have <strong>nineteen outout files</strong>. We can use the previous <em>grep</em> commands and take the final energy <strong>from each file</strong>. Or we could <strong>automate</strong> the process with the following shell script.</p>
-<div class="literal-block-wrapper docutils container" id="extract-sh1">
-<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text"><a class="reference external" href="http://extract.sh">extract.sh</a></span><a class="headerlink" href="#extract-sh1" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="extract-sh2">
+<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text"><a class="reference external" href="http://extract.sh">extract.sh</a></span><a class="headerlink" href="#extract-sh2" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> name <span class="k">in</span> butane-SCAN*.log<span class="p">;</span> <span class="k">do</span>
     grep -H <span class="s2">&quot;NSERCH&quot;</span> <span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;GRAD&quot;</span> <span class="p">|</span> tail -n <span class="m">1</span>
 <span class="k">done</span>
@@ -1194,7 +1190,7 @@ butane-SCAN.inp_180_131.log: NSERCH:  <span class="m">23</span>  <span class="nv
     <a class='right-next' id="next-link" href="5_Rotation_Profiles_Workflow.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">GAMESS Workflow</p>
+        <p class="prev-next-title"><em>GAMESS</em> Workflow</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

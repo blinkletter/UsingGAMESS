@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Butadiene.log" href="butadiene.log.html" />
+    <link rel="prev" title="Butadiene: Transition State for Rotation" href="7_Butadiene.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -91,7 +93,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="1_Setup.html">
    Building Your System
@@ -124,7 +126,10 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     GAMESS Workflow
+     <em>
+      GAMESS
+     </em>
+     Workflow
     </a>
    </li>
    <li class="toctree-l2">
@@ -134,27 +139,37 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: 𝜋 Orbitals
+   Allyl Cation: π Orbitals
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Butadiene.inp
+    </a>
+   </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_Benzene.html">
-     Benzene: MOs and Symmetry
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
@@ -248,33 +263,35 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="butadiene-inp">
 <h1>Butadiene.inp<a class="headerlink" href="#butadiene-inp" title="Permalink to this headline">¶</a></h1>
 <p>Below is the output file for the butadiene optimization job.</p>
-<p><strong>Butadiene.inp</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
- $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
-    MOLPLT=.TRUE. $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=20 HESS=GUESS $END
- $DATA 
-Title
-C1
-C
-C  1    1.54000
-C   2    1.54000  1 120.0000
-C   3    1.54000  2 120.0000  1 180.0000
-H   1    1.14000  2 120.0000  3   0.0000
-H   1    1.14000  5 120.0000  2 180.0000
-H   2    1.14000  1 120.0000  3 180.0000
-H   3    1.14000  4 120.0000  2 180.0000
-H   4    1.14000  3 120.0000  7   0.0000
-H   4    1.14000  9 120.0000  3 180.0000
- $END
- $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,3, 2,4,3,2, 3,4,3,2,1, 1,5,1, 
-    2,5,1,2, 3,5,1,2,3, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
-    1,8,3, 2,8,3,4, 3,8,3,4,2, 1,9,4, 2,9,4,3, 3,9,4,3,7, 1,10,4, 2,10,4,9, 
-    3,10,4,9,3 $END
+<div class="literal-block-wrapper docutils container" id="butadiene-inpfile">
+<div class="code-block-caption"><span class="caption-number">Listing 73 </span><span class="caption-text">Butadiene.inp</span><a class="headerlink" href="#butadiene-inpfile" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
+<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
+<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
+<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
+<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=20 HESS=GUESS $END
+<span class="linenos"> 8</span> $DATA 
+<span class="linenos"> 9</span>Title
+<span class="linenos">10</span>C1
+<span class="linenos">11</span>C
+<span class="linenos">12</span>C  1    1.54000
+<span class="linenos">13</span>C   2    1.54000  1 120.0000
+<span class="linenos">14</span>C   3    1.54000  2 120.0000  1 180.0000
+<span class="linenos">15</span>H   1    1.14000  2 120.0000  3   0.0000
+<span class="linenos">16</span>H   1    1.14000  5 120.0000  2 180.0000
+<span class="linenos">17</span>H   2    1.14000  1 120.0000  3 180.0000
+<span class="linenos">18</span>H   3    1.14000  4 120.0000  2 180.0000
+<span class="linenos">19</span>H   4    1.14000  3 120.0000  7   0.0000
+<span class="linenos">20</span>H   4    1.14000  9 120.0000  3 180.0000
+<span class="linenos">21</span> $END
+<span class="linenos">22</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,3, 2,4,3,2, 3,4,3,2,1, 1,5,1, 
+<span class="linenos">23</span>    2,5,1,2, 3,5,1,2,3, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+<span class="linenos">24</span>    1,8,3, 2,8,3,4, 3,8,3,4,2, 1,9,4, 2,9,4,3, 3,9,4,3,7, 1,10,4, 2,10,4,9, 
+<span class="linenos">25</span>    3,10,4,9,3 $END
 </pre></div>
+</div>
 </div>
 </div>
 
@@ -302,7 +319,21 @@ H   4    1.14000  9 120.0000  3 180.0000
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="7_Butadiene.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Butadiene: Transition State for Rotation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="butadiene.log.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Butadiene.log</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

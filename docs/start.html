@@ -125,7 +125,10 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     GAMESS Workflow
+     <em>
+      GAMESS
+     </em>
+     Workflow
     </a>
    </li>
    <li class="toctree-l2">
@@ -135,9 +138,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: 𝜋 Orbitals
+   Allyl Cation: π Orbitals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -146,16 +159,16 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_Benzene.html">
-     Benzene: MOs and Symmetry
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
@@ -276,16 +289,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benzene-mos-symmetry">
+   <span class="xref myst">
+    7. Benzene: MOs &amp; Symmetry
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#butadiene-transition-state-for-rotation">
    <span class="xref myst">
-    7. Butadiene: Transition State for Rotation
+    8. Butadiene: Transition State for Rotation
    </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diels-alder-reaction-intrinsic-reaction-coordinates">
    <span class="xref myst">
-    8. Diels-Alder Reaction: Intrinsic Reaction Coordinates
+    9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
    </span>
   </a>
  </li>
@@ -379,16 +399,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benzene-mos-symmetry">
+   <span class="xref myst">
+    7. Benzene: MOs &amp; Symmetry
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#butadiene-transition-state-for-rotation">
    <span class="xref myst">
-    7. Butadiene: Transition State for Rotation
+    8. Butadiene: Transition State for Rotation
    </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diels-alder-reaction-intrinsic-reaction-coordinates">
    <span class="xref myst">
-    8. Diels-Alder Reaction: Intrinsic Reaction Coordinates
+    9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
    </span>
   </a>
  </li>
@@ -454,14 +481,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="allyl-cation-orbitals">
 <h2><a class="reference internal" href="6_Pi_Orbitals.html"><span class="doc std std-doc">6. Allyl Cation: π Orbitals</span></a><a class="headerlink" href="#allyl-cation-orbitals" title="Permalink to this headline">¶</a></h2>
-<p>We have already used simplified Hückel molecular orbital theory and interactive <em>Python</em> to calculate the π-molecular orbitals for <strong>conjugated systems</strong>. Now let us demonstrate that goal with <em>GAMESS</em>. We will <strong>calculate and visualize</strong> the π-molecular orbitals for the <strong>allyl system</strong> and for <strong>benzene</strong> using <em>GAMESS</em> and <em>MacMolPlt</em>. We will revisit the idea of using <strong>symmetry</strong> in calculations.</p>
+<p>We have already used simplified Hückel molecular orbital theory and interactive <em>Python</em> to calculate the π-molecular orbitals for <strong>conjugated systems</strong>. Now let us demonstrate that goal with <em>GAMESS</em>. We will <strong>calculate and visualize</strong> the π-molecular orbitals for the <strong>allyl system</strong> using <em>GAMESS</em> and <em>MacMolPlt</em>. We will revisit the idea of using <strong>symmetry</strong> in calculations.</p>
+</div>
+<div class="section" id="benzene-mos-symmetry">
+<h2><a class="reference internal" href="6_Benzene.html"><span class="doc std std-doc">7. Benzene: MOs &amp; Symmetry</span></a><a class="headerlink" href="#benzene-mos-symmetry" title="Permalink to this headline">¶</a></h2>
+<p>We will explore <strong>more</strong> about π-molecular orbitals and aromaticity using benzene as an example. Along the way we will explore the symmetry builder tools in <em>MacMolPlt</em> in more detail and discuss some details of how symmetry affects the outcome of calculations.</p>
 </div>
 <div class="section" id="butadiene-transition-state-for-rotation">
-<h2><a class="reference internal" href="7_Butadiene.html"><span class="doc std std-doc">7. Butadiene: Transition State for Rotation</span></a><a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="7_Butadiene.html"><span class="doc std std-doc">8. Butadiene: Transition State for Rotation</span></a><a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">¶</a></h2>
 <p>We will use internal <em><strong>Z-matrix</strong></em> coordinates and <em>Unix</em> tools to create a series of input files for <strong>constrained optization</strong> of different rotational conformers of butadiene. Interactive <em>Python</em> will be used to analyze and plot the results. Then we will explore <strong>optimizing a transition state</strong> structure for the highest energy point in the bond rotation.</p>
 </div>
 <div class="section" id="diels-alder-reaction-intrinsic-reaction-coordinates">
-<h2><a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc">8. Diels-Alder Reaction: Intrinsic Reaction Coordinates</span></a><a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</span></a><a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>We’ve all seen those little movies of a <strong>reaction in progress</strong>. We can make our own movies. We will use the Diels-Alder cycloaddition reaction as an example to demonstrate a <strong>reaction coordinate scan</strong> using a new method to <strong>contrain coordinates</strong>. We will not use the <em>Z-matrix</em>, but will use unique Cartessian coordinates and freeze automatically-generated internal coordinates of specific atoms using the $ZMAT IFZMAT and FVALUE options. We can then use this system to generate a <strong>series of structures</strong> that may track near the <strong>reaction coordinate</strong>. From this series we will identify a structure that is near the transition state and perform a <strong>transition state optimization</strong>. Finally we will use the transition state as a starting point for following the potential energy surface down to the products on either side via an <strong>intrinsic reaction coordinate</strong> calculation. We will use <em>MacMolPlt</em> to assemble the complete reaction coordinate from the log files and <strong>visualize</strong> the structures. <em>MacMolPlt</em> will produce an <strong>energy plot</strong> for us. In the end, we will <strong>make a movie</strong>.</p>
 </div>
 <div class="section" id="notes-and-comments">
@@ -478,7 +509,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="other-font-highlights">
 <h3>Other Font Highlights<a class="headerlink" href="#other-font-highlights" title="Permalink to this headline">¶</a></h3>
-<p>There is a <strong>code style</strong> used throughout the book. It is rendered as a **monspace font **in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries.</p>
+<p>There is a <strong>code style</strong> used throughout the book. It is rendered as a <strong>monospace font</strong> in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries.</p>
 <p><strong>Italics</strong> are used for the traditional scientific uses and also for filenames of applications such as <em>GAMESS</em>.</p>
 </div>
 <div class="section" id="line-numbers">

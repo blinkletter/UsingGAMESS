@@ -27,13 +27,17 @@ We can extend the idea of locking specific elements of a structure and performin
 
 ## [6. Allyl Cation: &pi; Orbitals](6_Pi_Orbitals.md)
 
-We have already used simplified Hückel molecular orbital theory and interactive *Python* to calculate the &pi;-molecular orbitals for **conjugated systems**. Now let us demonstrate that goal with *GAMESS*. We will **calculate and visualize** the &pi;-molecular orbitals for the **allyl system** and for **benzene** using *GAMESS* and *MacMolPlt*. We will revisit the idea of using **symmetry** in calculations.
+We have already used simplified Hückel molecular orbital theory and interactive *Python* to calculate the &pi;-molecular orbitals for **conjugated systems**. Now let us demonstrate that goal with *GAMESS*. We will **calculate and visualize** the &pi;-molecular orbitals for the **allyl system** using *GAMESS* and *MacMolPlt*. We will revisit the idea of using **symmetry** in calculations.
 
-## [7. Butadiene: Transition State for Rotation](7_Butadiene.md)
+## [7. Benzene: MOs \& Symmetry](6_Benzene.md)
+
+We will explore **more** about &pi;-molecular orbitals and aromaticity using benzene as an example. Along the way we will explore the symmetry builder tools in *MacMolPlt* in more detail and discuss some details of how symmetry affects the outcome of calculations.
+
+## [8. Butadiene: Transition State for Rotation](7_Butadiene.md)
 
 We will use internal ***Z-matrix*** coordinates and *Unix* tools to create a series of input files for **constrained optization** of different rotational conformers of butadiene. Interactive *Python* will be used to analyze and plot the results. Then we will explore **optimizing a transition state** structure for the highest energy point in the bond rotation. 
 
-## [8. Diels-Alder Reaction: Intrinsic Reaction Coordinates](8A_Diels_Alder.md)
+## [9. Diels-Alder Reaction: Intrinsic Reaction Coordinates](8A_Diels_Alder.md)
 
 We've all seen those little movies of a **reaction in progress**. We can make our own movies. We will use the Diels-Alder cycloaddition reaction as an example to demonstrate a **reaction coordinate scan** using a new method to **contrain coordinates**. We will not use the *Z-matrix*, but will use unique Cartessian coordinates and freeze automatically-generated internal coordinates of specific atoms using the \$ZMAT IFZMAT and FVALUE options. We can then use this system to generate a **series of structures** that may track near the **reaction coordinate**. From this series we will identify a structure that is near the transition state and perform a **transition state optimization**. Finally we will use the transition state as a starting point for following the potential energy surface down to the products on either side via an **intrinsic reaction coordinate** calculation. We will use *MacMolPlt* to assemble the complete reaction coordinate from the log files and **visualize** the structures. *MacMolPlt* will produce an **energy plot** for us. In the end, we will **make a movie**.
 
@@ -53,7 +57,7 @@ Please let me know if this **bold experiment** is helpful or annoying.
 
 ### Other Font Highlights
 
-There is a **code style** used throughout the book. It is rendered as a **monspace font **in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries.
+There is a **code style** used throughout the book. It is rendered as a **monospace font** in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries.
 
 **Italics** are used for the traditional scientific uses and also for filenames of applications such as *GAMESS*.
 
