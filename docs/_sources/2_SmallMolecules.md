@@ -56,7 +56,7 @@ Symmetry is beautiful. It also helps with math. If a molecule has symmetry, we s
 width: 700px
 name: fig2
 ---
-*Water positioned in *GAMESS* 3D space with the *C<sub>2</sub>* axis along the z-axis and the primary *&sigma;<sub>v</sub>* plane as the xz plane*
+*Water positioned in *GAMESS* 3D space with the *C<sub>2</sub>* axis along the *z*-axis and the primary *&sigma;<sub>v</sub>* plane as the xz plane*
 ```
  
 ### Building Water
@@ -131,7 +131,7 @@ caption: water.inp
 | `MAXIT=30` | The **maximum** number of iterations to determine the derivative of the function that describes everything about everything in the molecule. |
 | `MULT=1` | The **spin** multiplicity (1 means all electron spins are paired) |
 | `ICHARG=0` | The **charge** on the molecule |
-| `COORD=CART` | The **coordinate** system that we are using. We will use `CART` for describing the xyz of all atoms, `UNIQUE` for describing the xyz coordinates of atoms unique in the symmetry point group, and `ZMT` for internal coordinates in *Z-matrix* format. The very first run with `COORD=CART` will convert the *xyz* data into a symmetrical system aligned with the **primary axis** (we are already there) and with the origin at the center of mass of the molecule (we are definitely not there). The first result file will report the unique symmetry coordinates for the molecule and we should use these new coordinates and `COORD=UNIQUE` for all subsequent calculations. |
+| `COORD=CART` | The **coordinate** system that we are using. We will use `CART` for describing the *xyz* of all atoms, `UNIQUE` for describing the *xyz* coordinates of atoms unique in the symmetry point group, and `ZMT` for internal coordinates in *Z-matrix* format. The very first run with `COORD=CART` will convert the *xyz* data into a symmetrical system aligned with the **primary axis** (we are already there) and with the origin at the center of mass of the molecule (we are definitely not there). The first result file will report the unique symmetry coordinates for the molecule and we should use these new coordinates and `COORD=UNIQUE` for all subsequent calculations. |
 
 ```{note}
 The `CART` coordinate option has been deprecated in modern versions of *GAMESS*. The new flag is `PRINAXIS`. The `CART` option will perform the job of `PRINAXIS`, but `CART` may someday be gone entirely. Both `CART` and `PRINAXIS` will reorient the molecule along the primary axis of the point group and generate a set of Cartesian coordinates for the symmetry unique atoms. You will only ever run a `CART` or `PRINAXIS` calculation once and thereafter will use the symmetry unique atoms and `COORD=UNIQUE` in all future calculations with your molecule.
@@ -289,7 +289,7 @@ BEGINNING GEOMETRY SEARCH POINT NSERCH=   0 ...
  H           1.0  -0.7000000000   0.0000000000  -0.6216595708
 ```
 
-We see that *GAMESS* has found the **unique atoms** of the **point group**. From these, all the atoms can be created. *GAMESS* is using our initial values but has positioned the center of mass at the origin by adding 0.0783 Å to the z-axis.
+We see that *GAMESS* has found the **unique atoms** of the **point group**. From these, all the atoms can be created. *GAMESS* is using our initial values but has positioned the center of mass at the origin by adding 0.0783 Å to the *z*-axis.
 
 Keep searching for NSERCH. Almost **200 lines later** in the water.log result file we see that we have finished step zero ({numref}`water.log2`.) 
 
@@ -393,7 +393,7 @@ We will change the `$BASIS` group in the `water.inp` file to use the 3-21G basis
 $BASIS GBASIS=N21 NGAUSS=3 $END
 ```
 
-We will also cut and paste the final coordinates from the AM1 job. We should always use the work of those who have gone before to advance our goals. We stand on the shoulders of giants. When we work up to very expensive methods, it is best to start with an optimized structure from a cheaper method.
+We will also **cut and paste** the final coordinates from the AM1 job. We should always use the work of those who have gone before to advance our goals. We stand on the shoulders of giants. When we work up to very **expensive** methods, it is best to start with an optimized structure from a **cheaper** method.
 
 ```{code-block} 
 ---
@@ -533,7 +533,7 @@ NSERCH:   5  E=      -76.0534461703  GRAD. MAX=  0.0000111  R.M.S.=  0.0000051
 The HF/6311G(d,p)++ energy was -76.0534 Hartrees whereas the HF/3-21G energy was -75.5860 Hartrees. **Higher** levels of theory will give **lower** energy values.  The bond length is also now shorter; is that closer to the truth?
 
 ```{note}
-In general, a calculated energy is always higher that the “true” energy. Only a perfect basis set that includes an exact model for the atomic orbitals will give the lowest value possible, the truth. Nothing is perfect, but we can get close if we take the time to run more expensive methods and basis sets.
+In general, a calculated energy is always higher than the “true” energy. Only a perfect basis set that includes an exact model for the atomic orbitals will give the lowest value possible. Nothing is perfect, but we can get close if we take the time to run more expensive methods and basis sets.
 ```
 
 If we **calculate** the HF/6-311G(d,p)++ energy **using** the HF/3-21G optimized structure, we get an energy value of -76.0520 Hartrees. The HF/3-21G structure has an HF/6-311G(d,p)++ energy that is very close to the energy of the HF/6-311G(d,p)++ optimized structure. Perhaps we can use **cheaper** methods to calculate optimized structures and then **more expensive** methods for single point energy calculations. Quite often, stationary points are very similar between different levels of theory because we are dealing with relative energies and the bottom of the energy well is in the almost the same location, even if the absolute energy is not accurate. With more complex systems, such as transition states, we may need to optimize structure at higher levels of theory for accuracy.
@@ -550,11 +550,11 @@ Keep this conversion factor close by: 1 Hartree = 2,625.5 *kJ/mole*.
 
 ## Internal Coordinates
 
-For many of our exercises, we will be building molecules using **internal coordinates**. These coordinates define atomic positions relative the first atom defined in list. This list is called the *Z-matrix*. A **Z-matrix** is a defined format for creating these internal coordinates. 
+For many of our exercises, we will be building molecules using **internal coordinates**. These coordinates define atomic positions relative the first atom defined in the list. This list is called the *Z-matrix*. A **Z-matrix** is a defined format for creating these internal coordinates. 
 
-Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly. I will know the distance between A and C and all other angles from those first three coordinates.
+Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly, relative to each other. I will know the distance between A and C and all other angles from those first three coordinates.
 
-Here is a Z-matrix for our town map…
+Here is a *Z-matrix* for our town map…
 
 ```
 A
@@ -665,7 +665,7 @@ NSERCH:   6  E=      -12.8093121220  GRAD. MAX=  0.0000047  R.M.S.=  0.0000020
  H      2   0.9612698  1   103.5309684
 ```
 
-We could now paste the new *Z-matrix* or the unique coordinates into the HF/3-21G and the HF/6-311(d,p)++ input files and **carry on** optimizing the structure at **higher** levels of theory. We should get identical structures and energies because the molecule is the **same** no matter which coordinate system that we used to describe it.
+We could now paste the new *Z-matrix* or the unique coordinates into the HF/3-21G and the HF/6-311(d,p)++ input files and **carry on** optimizing the structure at **higher** levels of theory. We should get identical structures and energies as the equivalent calculations that started with **xyz** coordinates because the molecule is the **same** no matter which coordinate system we use.
 
 ### The Z-Matrix for Ammonia
 
@@ -701,7 +701,7 @@ ERROR!
  OR YOUR CHOICE OF GROUP. ADIOS, MY FRIEND!!
 ```
 
-Although the *Z-matrix* will create a structure that looks a lot like ammonia, the three **bond angles** between H and N will not all be identical as the *Z-matrix* is converted to Cartesian coordinates. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of **positioning** the atoms according to the *Z-matrix* (1.0 Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane.) This should give us the correct structure. However, after the math is done that third 4,1,3 bond angle is **not exactly the same** as the stated 4,1,2 and 3,1,2 angles. As a result, *GAMESS* could not determine the correct primary axis because the structure was not an exact fit to *C<sub>3v</sub>* symmetry.
+Although the *Z-matrix* will create a structure that looks a lot like ammonia, the three **bond angles** between H and N will not all be identical in the *Z-matrix*. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of **positioning** the atoms according to the *Z-matrix* (1.0 Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane.) I thought that this would give us the correct structure. However, after the math is done that third 4,1,3 bond angle is **not exactly the same** as the stated 4,1,2 and 3,1,2 angles. As a result, *GAMESS* could not determine the correct primary axis because the structure was not an exact fit to *C<sub>3v</sub>* symmetry.
 
 There is another way.
 
@@ -744,7 +744,7 @@ name: fig5
 *The Z-matrix for ammonia with a dummy atom to define symmetry*
 ```
 
-{numref}`ammonia_ZX.log1` is an **excerpt** from the result file. You will see that the *Z-matrix* was **not recreated**.  This is because the **dummy atom** was used and *GAMESS* does not want to include it, yet it **cannot create** a *Z-matrix* that is guaranteed to fit the *C<sub>2v</sub>* symmetry without it. So it is sticking with Cartesian coordinates.
+{numref}`ammonia_ZX.log1` is an **excerpt** from the result file. You will see that the *Z-matrix* was **not recreated**.  This is because the **dummy atom** was used only in creating the initail *xyz* coordinates. It is not present in the calculation and *GAMESS* does not include it. *GAMESS* **cannot create** a *Z-matrix* that is guaranteed to fit the *C<sub>2v</sub>* symmetry without using dummy atoms, so it is sticking with Cartesian coordinates.
 
 ```{code-block} 
 ---
@@ -815,7 +815,7 @@ H   1   1.0   2   109.5
 H   1   1.0   2   109.5   3   120
 ```
 
-Now *GAMESS* will **track** those coordinates. In fact, *GAMESS* will be using those coordinates to calculate **gradients**. Rather than a gradient in each axis for each atom, *GAMESS* will use the gradient for the energy function of that coordinate. With **carefully designed** internal coordinates, this can speed the calculation quite a bit. Below is the input file for an AM1 optimization using the results from the previous AM1 job.
+Now *GAMESS* will **track** those coordinates. In fact, *GAMESS* will be using those coordinates to calculate **gradients**. Rather than a gradient in each axis for each atom, *GAMESS* will use the gradient for the energy function of that **internal coordinate**. With **carefully designed** internal coordinates, this can speed the calculation quite a bit. Below is the input file for an AM1 optimization using the results from the previous AM1 job.
 
 ```{code-block} 
 ---
@@ -923,7 +923,7 @@ H   1.0   0.9385359335   0.0   0.2757943561
                         2,4,1,3   $END  
 ```
 
-In the above input file, I set up the `$IZMAT` matrix differently and applied a bend rather than a torsion for the last coordinate. This way I have coordinates that describe all three bond lengths and all three bends. I can do this because the torsion angles are set by the symmetry group (spaced evenly around the principal axis.) Now see how that is reflected in the results. An excerpt from the result file is shown below.
+In the above input file, I set up the `$IZMAT` matrix differently and applied a **bend** rather than a **torsion** for the last coordinate. This way I have coordinates that describe all three bond lengths and all three bends. I can do this because the torsion angles are set by the **symmetry group** (spaced evenly around the principal axis.) Now see how that is reflected in the results. An excerpt from the result file is shown below. **Be careful** here, *GAMESS* must have a way to define the torsion angle via an internal coordinate when we are using internal coordinates. Here we had the symmetry constraints to handle that role. That won't always be the case.
 
 
 ```{code-block} 
@@ -979,19 +979,6 @@ We have used the `$ZMAT` group to **establish internal coordinates** when using 
 
 Now go to the instructions for the exercise that this discussion supports and explore *GAMESS* for yourself.
 
-## Files
-
-The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.
-
-| Filename | Notes |
-| :---- | :---- |
-|water_AM1_C.inp	| The initial input for an AM1 optimization file demonstrating creating a starting structure for water with Cartesian coordinates. |
-|water_AM1_Z.inp	| An input file for an AM1 optimization using a Z-matrix for water |
-|water_AM1_U.inp	| An input file using the unique coordinates that resulted from the initial calculation with either of the two previous input files. |
-|water_321_U.inp	| An input file for an HF/3-21G optimization |
-|water_6311_U.inp	| An input file for an HF/6-311G(d,p)++ optimization |
-|water_6311_U_E.inp	| An input file for an HF/6-311G(d,p)++ single point energy calculation. |
-
 ## Exercise
 
 Read the accompanying introduction to *GAMESS*, "Getting Started with Small Molecules", and then try the following exercises.
@@ -1022,13 +1009,13 @@ Remember that the visualization programs work for the machines. Sometimes you mu
 
 Include an appendix with the text for all the input files that you used. (Please do not include any result files – there will be no trees left!) Preface each with the file name and a note on its purpose and use a fixed-width font.
 
-## Example Exercise Report
+### Example Exercise Report
 
-### Methane Calculations
+#### Methane Calculations
 
 The input file was created using unique Cartesian coordinates because the Z-matrix conversion by *GAMESS* failed to achieve $T_d$ symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures. 
 
-#### Methane Data
+##### Methane Data
 
 | Optimization	  | C–H length (Å)|  H–C–H angle	  |  HF/6-311G(d,p)++ Energy           | ∆E (kJ/mole)  |
 | :-------------- | :------------ |  :--------------  |  :--------------                   | :-----------  |
@@ -1039,11 +1026,11 @@ The input file was created using unique Cartesian coordinates because the Z-matr
 
 Experimental results are from the [Computational Chemistry Benchmark DataBase](https://cccbdb.nist.gov)
 
-#### Commentary
+##### Commentary
 
 The HF/3-21G optimization produced a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was calculated to be very similar as well. The AM1 structure and energy was farther away.
 
-#### Appendix: Input files
+##### Appendix: Input files
 
 
 ```{code-block} 
@@ -1187,11 +1174,11 @@ H  2  1.087  1  109.4712206  3  -120.0
  $END
 ```
  
-### Water Calculations
+#### Water Calculations
 
 The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.
 
-#### Water Data
+##### Water Data
 | Optimization	  | O–H length (Å)|  H–O–H angle	   |  HF/6-311G(d,p)++ Energy    | ∆E (kJ/mole)  |
 | :-------------- | :------------ |   :--------------  |  :--------------            | :-----------  |
 | AM1	          |   0.9613152	  |  103.5345005	   | -76.0524943643	             |      +2.49    |
@@ -1199,11 +1186,11 @@ The first input file was created a Z-matrix and the geometry was calculated at A
 | HF/6-311(d,p)++ |   0.9412543   |  106.2149647	   | -76.0534461704	             |       0       |
 | experimental 	  |   0.958       |  104.48		       | -76.0528152807              |      +1.65    |
 
-#### Commentary
+##### Commentary
 
 The HF/3-21G optimization produced a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was calculated to be very similar as well. The AM1 structure and energy seems closer, but not by much.
 
-#### Appendix: Input files
+##### Appendix: Input files
 
 ```{code-block} 
 ---
@@ -1232,11 +1219,11 @@ H  1  1.0  2  109.5
                 $END
 ```
 
-### Ammonia Calculations
+#### Ammonia Calculations
 
 The first input file was created a Z-matrix and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.
 
-#### Ammonia Data
+##### Ammonia Data
 
 | Optimization	  | N–H length (Å)|  H–N–H angle	   |  HF/6-311G(d,p)++ Energy    | ∆E (kJ/mole)  |
 | :-------------- | :------------ |   :--------------  |  :--------------            | :-----------  |
@@ -1245,10 +1232,10 @@ The first input file was created a Z-matrix and the geometry was calculated at A
 | HF/6-311(d,p)++ |  1.0003408    |   108.3541849      |  -56.2147746437             |   0           |
 | experimental    |  1.0124       |   106.67           |  -56.2143301556             |  +1.17        |
 
-#### Commentary
+##### Commentary
 The HF/3-21G optimization produced a structure that is NOT close to the HF/6-311G(d,p)++ optimized structure. The AM1 structure and energy seems closer, but not by much. The HF/6-311(d,p)++ seems to have given the most accurate structure compared to the experimental data.
  
-#### Appendix: Input files
+##### Appendix: Input files
 
 ```{code-block} 
 ---

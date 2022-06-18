@@ -39,7 +39,7 @@ These instructions below **assume** that you are using a *Unix*-based computer, 
 
 ### *GAMESS*
 
-*GAMESS* is proprietary application that performs **quantum mechanical calculations**. There is too much about quantum chemistry to even begin to explain it here. We will use it as a mysterious black box so be sure to follow the recipes. The ***GAMESS* software and instructions** can be obtained at [here](https://www.msg.chem.iastate.edu/GAMESS/)
+*GAMESS* is proprietary application that performs **quantum mechanical calculations**. There is too much about quantum chemistry to even begin to explain it here. We will use it as a mysterious black box so be sure to follow the recipes. The ***GAMESS* software and instructions** can be obtained [here](https://www.msg.chem.iastate.edu/GAMESS/)
 
 You will need to apply for a **free academic license** and wait for a reply with a password for downloading *GAMESS*. You can obtain compiled executable binaries for *Windows*, *Linux* and *MacOS* machines. You can also get the source code if you want to compile it yourself.
 
@@ -129,7 +129,7 @@ We will **begin** with using the terminal **command line** to run *GAMESS*. Late
 
 ## Installing *GamessQ*
 
-*GamessQ* is a batch controller for *GAMESS* provided by the Gordon group. It is available from the same web site.[^gamess_link] It can **queue** a whole batch of filkes and send them to be executed one at a time while you sleep.
+*GamessQ* is a batch controller for *GAMESS* provided by the Gordon group. It is available from the [same web site](https://www.msg.chem.iastate.edu/gamess/).[^gamess_link] It can **queue** a whole batch of filkes and send them to be executed one at a time while you sleep.
 
 ### Obtain and Install
 
@@ -177,7 +177,7 @@ You can **create your own setup** however you like. Just edit the *rungms* scrip
 
 ### Obtain and Install
 
-You can obtain *MacMolPlt* at the [github repository](http://brettbode.github.io/wxmacmolplt/). Just unpack the downloaded file and put the application folder in your `/Applications` directory. If you are running *MacOS 12* (*Monterey*) or later you will have to edit a **configuration file ** within the application itself. Don’t worry, instructions are below. 
+You can obtain *MacMolPlt* at the [github repository](http://brettbode.github.io/wxmacmolplt/). Just unpack the downloaded file and put the application folder in your `/Applications` directory. If you are running *MacOS 12* (*Monterey*) or later, you will have to edit a **configuration file** within the application container itself. Don’t worry, instructions are in the warning box below. 
 
 ```{warning}
 On more modern *MacOS* computers (*MacOS 12* and later) you will need to **edit** the `info.plist` file in the package of the *MacMolPlt* application and add the following parameter in the first `<dict>` group…
@@ -185,8 +185,9 @@ On more modern *MacOS* computers (*MacOS 12* and later) you will need to **edit*
   `<key>NSHighResolutionCapable</key>` <br>
   `<string>False</string>`
 
-This will avoid a scaling problem with the high-resolution screens on modern Apple computers. It will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.
-On *MacOS 11* and earlier, you can check a box in the `Get Info` menu item of *wxMacMolPlt* for `Open in Low Resolution.` Apple deprecated this option and eliminated it in *MacOS 12*, hence the **awkward word-around** above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.
+Find the application icon and right-click on it. Select Show package Contents from the drop-down menu. navigate and find the info.plist file and open it to make your changes. Back it up before you do so. This will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.
+
+On *MacOS 11* and earlier, you can check a box in the `Get Info` menu item of *wxMacMolPlt* for `Open in Low Resolution.` Apple deprecated this option and eliminated it in *MacOS 12*, hence the **awkward work-around** above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.
 ```
 
 ### Using *wxMacMolPlt*
@@ -278,7 +279,7 @@ What *grep* and *sed* are to text lines, awk is to text **columns**. It is a pow
 
 You can place a series of *Unix* tools and shell commands and operators in a text file and run it as a shell script. That way you can **execute a series of commands** and even use **logic and loops** to perform more complicated tasks. We will be using scripts to **automate** making a series of related input files using *sed* and also to extract final energies from a related series of output files using *grep*.
 
-#### Ready To Go
+## Next Steps
 
 We are now ready to do some calculations. We can **build** molecules and create **input files** using *MacMolPlt* or *Avogadro*. We can **submit** the files to *GAMESS* using *GamessQ*. We can then **extract** specific information using *Unix* tools and shell scripts or load the result files into *MacMolPlt* or *Avogadro* to **visualize** the result. We will be able to explore how steric strain arises in molecules and how structure affects the transition state in reactions. We will be able to see graphical representations of molecular orbitals and, in many cases, the local bonding orbitals that more closely align with Lewis structure. I hope that you will gain a **more intuitive understanding** of molecular structure and reaction kinetics.
 

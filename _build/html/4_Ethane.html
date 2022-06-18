@@ -248,17 +248,26 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#z-matrix-for-ethane">
-   Z-Matrix for Ethane
+   <em>
+    Z-Matrix
+   </em>
+   for Ethane
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculating-the-structure-and-energy-of-anti-ethane">
-   Calculating the Structure and Energy of Anti-Ethane
+  <a class="reference internal nav-link" href="#anti-ethane">
+   <em>
+    anti
+   </em>
+   -Ethane
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-syn-ethane-conformer">
-   The Syn Ethane Conformer
+  <a class="reference internal nav-link" href="#syn-ethane">
+   <em>
+    syn
+   </em>
+   -Ethane
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -267,18 +276,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature-and-the-controversy">
-   Literature and The Controversy
+  <a class="reference internal nav-link" href="#the-controversy">
+   The Controversy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
    Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#files">
-   Files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -330,17 +334,26 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#z-matrix-for-ethane">
-   Z-Matrix for Ethane
+   <em>
+    Z-Matrix
+   </em>
+   for Ethane
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculating-the-structure-and-energy-of-anti-ethane">
-   Calculating the Structure and Energy of Anti-Ethane
+  <a class="reference internal nav-link" href="#anti-ethane">
+   <em>
+    anti
+   </em>
+   -Ethane
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-syn-ethane-conformer">
-   The Syn Ethane Conformer
+  <a class="reference internal nav-link" href="#syn-ethane">
+   <em>
+    syn
+   </em>
+   -Ethane
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -349,18 +362,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature-and-the-controversy">
-   Literature and The Controversy
+  <a class="reference internal nav-link" href="#the-controversy">
+   The Controversy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
    Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#files">
-   Files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -391,77 +399,81 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="ethane-symmetry-in-calculations">
 <h1>Ethane: Symmetry in Calculations<a class="headerlink" href="#ethane-symmetry-in-calculations" title="Permalink to this headline">¶</a></h1>
-<p>Ethane can rotate freely along the C–C bond. The lowest energy conformation is the anti form and the highest energy is the syn form. It is easy to get GAMESS to optimize the anti structure, the software will seek the lowest energy state. How do we get the syn form? We could use ways to lock coordinates but another way is to enforce symmetry.</p>
+<p>Ethane can <strong>rotate</strong> freely along the C–C bond. The lowest energy <strong>conformation</strong> is the <em>anti</em> form and the highest energy is the <em>syn</em> form. It is easy to get <em>GAMESS</em> to optimize the <em>anti</em> structure, the software will <strong>seek</strong> the lowest energy state. How do we get the <em>syn</em> form? We could do this by <strong>enforcing</strong> symmetry.</p>
 <div class="section" id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
-<p>This exercise will hopefully accomplish the following goals while learning new skills:</p>
+<p>This exercise will hopefully accomplish the following <strong>goals</strong> while learning new <strong>skills</strong>:</p>
 <ol class="simple">
-<li><p>We will manually construct Z-matrices for larger molecules and identify an internal coordinate that defines the torsion angle between the two methyl groups of ethane.</p></li>
-<li><p>We will use the symmetry of the anti and syn conformations to lock their conformations</p></li>
-<li><p>We will determine optimized structure and the energy difference between the syn and anti-conformations and compare our results to literature values.</p></li>
+<li><p>We will manually <strong>construct</strong> <em>Z-matrices</em> for larger molecules and identify an internal coordinate that defines the torsion angle between the two methyl groups of ethane.</p></li>
+<li><p>We will use the <strong>symmetry</strong> of the <em>anti</em> and <em>syn</em> conformations to <strong>lock</strong> their conformations</p></li>
+<li><p>We will determine optimized <strong>structure</strong> and the <strong>energy</strong> difference between the <em>syn</em> and <em>anti</em>-conformations and <strong>compare</strong> our results to literature values.</p></li>
 </ol>
 </div>
 <div class="section" id="point-groups-in-ethane">
 <h2>Point Groups in Ethane<a class="headerlink" href="#point-groups-in-ethane" title="Permalink to this headline">¶</a></h2>
-<p>Each of the extreme cases in ethane has symmetry. They have different symmetry and so we can use that to our advantage. The symmetry of the syn conformation is <em>D<sub>3h</sub></em> and for the anti it is <em>D<sub>3d</sub></em>. By declaring the symmetry group, the optimization will start with that symmetry and end with that symmetry. This will enforce the anti conformation for us. Additionally, by symmetry each molecule can be reduce to just two atoms for the purposes of the calculation. Using symmetry when possible will greatly reduce the cost of calculation.</p>
+<p>Each of the extreme cases in ethane has <strong>symmetry</strong>. They have <strong>different</strong> symmetry and so we can use that to our advantage. The symmetry of the <em>syn</em> conformation is <em>D<sub>3h</sub></em> and for the <em>anti</em> it is <em>D<sub>3d</sub></em>. By declaring the <strong>symmetry group</strong>, the optimization will start with that symmetry and end with that symmetry. This will enforce the <em>anti</em> conformation for us. Additionally, by symmetry, each molecule can be reduce to just two atoms for the purposes of the calculation. Using symmetry when possible will greatly <strong>reduce the cost</strong> of calculation.</p>
 </div>
 <div class="section" id="z-matrix-for-ethane">
-<h2>Z-Matrix for Ethane<a class="headerlink" href="#z-matrix-for-ethane" title="Permalink to this headline">¶</a></h2>
-<p>We can start with a Z-matrix for ethane. If the structure described fits the symmetry group declared, then GAMESS will align it appropriately in the xyz coordinate system and identify the symmetry unique atoms. Take note of how the two methyl groups are set up so that they refer to their own atoms as much as possible and there is only one coordinate that describes the bond rotation. Below is the initial input file for the anti conformation with <em>D<sub>3d</sub></em> symmetry.</p>
-<p><strong>Ethane_anti_AM1_Z.inp</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-  COORD=ZMT $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=AM1 $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=100 $END
- $DATA 
-anti ethane
-DND 3
-
-C  
-C   1  1.5
-H   2  1.0  1  110
-H   2  1.0  1  110  3  120
-H   2  1.0  1  110  3  -120
-H   1  1.0  2  110  3  180
-H   1  1.0  2  110  6  120
-H   1  1.0  2  110  6  -120
- $END
+<h2><em>Z-Matrix</em> for Ethane<a class="headerlink" href="#z-matrix-for-ethane" title="Permalink to this headline">¶</a></h2>
+<p>We can start with a <em>Z-matrix</em> for ethane. If the structure <strong>described</strong> fits the symmetry group declared, then <em>GAMESS</em> will <strong>align</strong> it appropriately in the <em>xyz</em> coordinate system and <strong>identify</strong> the symmetry unique atoms. Take note of how the two methyl groups are set up so that they <strong>refer</strong> to their own atoms as much as possible and there is only one coordinate that describes the bond <strong>rotation</strong>. Below is the initial input file for the <em>anti</em> conformation with <em>D<sub>3d</sub></em> symmetry.</p>
+<div class="literal-block-wrapper docutils container" id="ethane-anti-am1-z-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 37 </span><span class="caption-text">Ethane_anti_AM1_Z.inp</span><a class="headerlink" href="#ethane-anti-am1-z-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+<span class="linenos"> 2</span>  COORD=ZMT $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=AM1 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
+<span class="linenos"> 7</span> $DATA 
+<span class="linenos"> 8</span>anti ethane
+<span class="linenos"> 9</span>DND 3
+<span class="linenos">10</span>
+<span class="linenos">11</span>C  
+<span class="linenos">12</span>C   1  1.5
+<span class="linenos">13</span>H   2  1.0  1  110
+<span class="linenos">14</span>H   2  1.0  1  110  3  120
+<span class="linenos">15</span>H   2  1.0  1  110  3  -120
+<span class="hll"><span class="linenos">16</span>H   1  1.0  2  110  3  180
+</span><span class="linenos">17</span>H   1  1.0  2  110  6  120
+<span class="linenos">18</span>H   1  1.0  2  110  6  -120
+<span class="linenos">19</span> $END
 </pre></div>
 </div>
 </div>
-<div class="section" id="calculating-the-structure-and-energy-of-anti-ethane">
-<h2>Calculating the Structure and Energy of Anti-Ethane<a class="headerlink" href="#calculating-the-structure-and-energy-of-anti-ethane" title="Permalink to this headline">¶</a></h2>
-<p>The result file produced the symmetry unique coordinates optimized at the AM1 level. I used those to construct an input file for the HF/6-311(d,p)++ optimization. That file is reproduced below. The IZMAT matrix was constructed using the ENCODED Z MATRIX section of the AM1 result file.</p>
-<p><strong>Ethane_anti_6311_U.inp</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-  COORD=UNIQUE NZVAR=18 $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=20 $END
- $DATA 
-anti ethane
-DND 3
-
- C           6.0   0.0000000000   0.0000000000  -0.7501162007
- H           1.0   0.0000000000   1.0448521625   1.1453263085
- $END
- $ZMAT IZMAT(1)=1,1,2,
-                1,8,1,  2,8,1,2,
-                1,4,1,  2,4,1,2,  3,4,1,2,8,
-                1,3,1,  2,3,1,2,  3,3,1,2,8,
-                1,5,2,  2,5,2,1,  3,5,2,1,8,
-                1,6,2,  2,6,2,1,  3,6,2,1,5,
-                1,7,2,  2,7,2,6,  3,7,2,1,5   $END  
-</pre></div>
+</div>
+<div class="section" id="anti-ethane">
+<h2><em>anti</em>-Ethane<a class="headerlink" href="#anti-ethane" title="Permalink to this headline">¶</a></h2>
+<p>The result file produced the symmetry unique coordinates optimized at the AM1 level. I used those to <strong>construct</strong> an input file for the HF/6-311(d,p)++ optimization. That file is reproduced below. The IZMAT matrix was <strong>constructed</strong> using the <code class="docutils literal notranslate"><span class="pre">ENCODED</span> <span class="pre">Z</span> <span class="pre">MATRIX</span></code> section of the AM1 result file.</p>
+<div class="literal-block-wrapper docutils container" id="ethane-anti-6311-u-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 38 </span><span class="caption-text">Ethane_anti_6311_U.inp</span><a class="headerlink" href="#ethane-anti-6311-u-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+<span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=18 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
+<span class="linenos"> 7</span> $DATA 
+<span class="linenos"> 8</span>anti ethane
+<span class="linenos"> 9</span>DND 3
+<span class="linenos">10</span>
+<span class="linenos">11</span> C           6.0   0.0000000000   0.0000000000  -0.7501162007
+<span class="linenos">12</span> H           1.0   0.0000000000   1.0448521625   1.1453263085
+<span class="linenos">13</span> $END
+<span class="linenos">14</span> $ZMAT IZMAT(1)=1,1,2,
+<span class="linenos">15</span>                1,8,1,  2,8,1,2,
+<span class="linenos">16</span>                1,4,1,  2,4,1,2,  3,4,1,2,8,
+<span class="linenos">17</span>                1,3,1,  2,3,1,2,  3,3,1,2,8,
+<span class="linenos">18</span>                1,5,2,  2,5,2,1,  3,5,2,1,8,
+<span class="linenos">19</span>                1,6,2,  2,6,2,1,  3,6,2,1,5,
+<span class="hll"><span class="linenos">20</span>                1,7,2,  2,7,2,6,  3,7,2,1,5   $END  
+</span></pre></div>
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>I altered one of the IZMAT coordinates to correspond to a H–C–H bond angle. In the last line, I changes the <code class="docutils literal notranslate"><span class="pre">2,7,2,1</span></code> (an H–C–C angle) to <code class="docutils literal notranslate"><span class="pre">2,7,2,6</span></code> (an H–C–H angle.)</p>
 </div>
-<p>We get an energy from this calculation and a geometry that we can read from the INTERNAL COORDINATES section of the result file. This section is available because we set NZVAR=18 and provided the IZMAT list. Here is a summary of the calculated data at HF/6311(d,p)++ level. Note that the internal coordinates chosen by GAMESS are not in the same pattern as the Z-matrix. We can manually choose these coordinates if we wish, but the number or coordinates must match the number of degrees of freedom (3n-6) and the coordinates must be able to be used to describe the position of all atoms.</p>
+<p>We get an <strong>energy</strong> from this calculation and a <strong>geometry</strong> that we can read from the <code class="docutils literal notranslate"><span class="pre">INTERNAL</span> <span class="pre">COORDINATES</span></code> section of the result file. This section is available because we set <code class="docutils literal notranslate"><span class="pre">NZVAR=18</span></code> and provided the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> list. Here is a summary of the calculated <strong>data</strong> at HF/6311(d,p)++ level. Note that the internal coordinates chosen by <em>GAMESS</em> are not in the same pattern as the <em>Z-matrix</em>. We can manually <strong>choose</strong> these coordinates if we wish, but the number or coordinates must match the number of degrees of freedom (3n-6) and the coordinates must be able to be used to <strong>describe</strong> the position of all atoms.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Coordinate</p></th>
@@ -486,58 +498,62 @@ DND 3
 </tr>
 </tbody>
 </table>
-<p>The absolute QM energy value is just a number until we compare it to a similar structure. In this case we will compare it to a very similar structure, the syn conformation. This is probably the best case scenario for calculating relative energies between two situations.</p>
+<p>The absolute QM energy value is just a number until we compare it to a similar structure. In this case we will <strong>compare</strong> it to a very similar structure, the <em>syn</em> conformation. This is probably the best case scenario for calculating <strong>relative</strong> energies between two situations.</p>
 </div>
-<div class="section" id="the-syn-ethane-conformer">
-<h2>The Syn Ethane Conformer<a class="headerlink" href="#the-syn-ethane-conformer" title="Permalink to this headline">¶</a></h2>
-<p>The syn structure had <em>D<sub>3h</sub></em> symmetry and the Z-matrix is almost identical. We just had to change the one coordinate that defined the torsion angle between the two methyl groups. This is the 6,1,2,8 torsion angle (line 6 of the Z-matrix.) I just need to change the angle to zero degrees and the symmetry to <em>D<sub>3h</sub></em> and repeat all the above. First we altered the anti input file and submitted the job.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ethane_syn_AM1_Z.inp
- $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-  COORD=ZMT $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=AM1 $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=100 $END
- $DATA 
-anti ethane
-DNH 3
-
-C  
-C   1  1.5
-H   2  1.0  1  110
-H   2  1.0  1  110  3  120
-H   2  1.0  1  110  3  -120
-H   1  1.0  2  110  3  0
-H   1  1.0  2  110  6  120
-H   1  1.0  2  110  6  -120
- $END
+<div class="section" id="syn-ethane">
+<h2><em>syn</em>-Ethane<a class="headerlink" href="#syn-ethane" title="Permalink to this headline">¶</a></h2>
+<p>The <em>syn</em> structure had <em>D<sub>3h</sub></em> symmetry and the <em>Z-matrix</em> is <strong>almost</strong> identical. We just had to <strong>change</strong> the one coordinate that defined the <strong>torsion</strong> angle between the two methyl groups. This is the 6,1,2,8 torsion angle (line 6 of the <em>Z-matrix</em>.) I just need to change the angle to zero degrees and the symmetry to <em>D<sub>3h</sub></em> and <strong>repeat</strong> all the above. First we altered the <em>anti</em> input file and submitted the job.</p>
+<div class="literal-block-wrapper docutils container" id="ethane-syn-am1-z-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 39 </span><span class="caption-text">Ethane_syn_AM1_Z.inp</span><a class="headerlink" href="#ethane-syn-am1-z-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+<span class="linenos"> 2</span>  COORD=ZMT $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=AM1 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
+<span class="linenos"> 7</span> $DATA 
+<span class="linenos"> 8</span>anti ethane
+<span class="linenos"> 9</span>DNH 3
+<span class="linenos">10</span>
+<span class="linenos">11</span>C  
+<span class="linenos">12</span>C   1  1.5
+<span class="linenos">13</span>H   2  1.0  1  110
+<span class="linenos">14</span>H   2  1.0  1  110  3  120
+<span class="linenos">15</span>H   2  1.0  1  110  3  -120
+<span class="hll"><span class="linenos">16</span>H   1  1.0  2  110  3  0
+</span><span class="linenos">17</span>H   1  1.0  2  110  6  120
+<span class="linenos">18</span>H   1  1.0  2  110  6  -120
+<span class="linenos">19</span> $END
 </pre></div>
 </div>
-<p>Then we used the unique coordinate generated to create the HF/6-311G(d,p)++ input file. Observe that the unique coordinates have been aligned by GAMESS into a different plane. In the <em>D<sub>3d</sub></em> anti symmetry, the yz plane was used for the unique atoms, and in the <em>D<sub>3h</sub></em> syn case, the xz plane was chosen.  The x-axis is the perpendicular 2-fold axis of symmetry (that defines the <em>D</em> rather than <em>C</em> point groups). This places the primary <em>σ<sub>d</sub></em>-plane in the yz plane for the anti conformation and in the xz for the syn conformation.  I had tried to just change the symmetry to <em>D<sub>3h</sub></em> and use the previous unique <em>D<sub>3d</sub></em> coordinates and the symmetry failed. Below is the HF/6-311G(d,p)++ input file.</p>
-<p><strong>Ethane_syn_6311_U.inp</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-  COORD=UNIQUE NZVAR=18 $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=20 $END
- $DATA 
-syn ethane
-DNH 3
-
- C           6.0   0.0000000000  -0.0000000000  -0.7517425284
- H           1.0   1.0424482146   0.0000000000   1.1528384766
- $END
- $ZMAT IZMAT(1)=1,1,2,
-                1,8,1,  2,8,1,2,
-                1,4,1,  2,4,1,2,  3,4,1,2,8,
-                1,3,1,  2,3,1,2,  3,3,1,2,8,
-                1,5,2,  2,5,2,1,  3,5,2,1,8,
-                1,6,2,  2,6,2,1,  3,6,2,1,5,
-                1,7,2,  2,7,2,6,  3,7,2,1,5   $END  
-</pre></div>
 </div>
-<p>By examining the output file, a summary of the result for the syn conformation can be made.</p>
+<p>Then we <strong>used</strong> the unique coordinate generated to create the HF/6-311G(d,p)++ input file. Observe that the unique coordinates have been <strong>aligned</strong> by <em>GAMESS</em> into a <strong>different</strong> plane. In the <em>D<sub>3d</sub></em> <em>anti</em> symmetry, the <em>yz</em> plane was used for the unique atoms, and in the <em>D<sub>3h</sub></em> <em>syn</em> case, the <em>xz</em> plane was chosen.  The <em>x</em>-axis is the perpendicular 2-fold axis of symmetry (that defines the <em>D</em> rather than <em>C</em> point groups). This places the primary <em>σ<sub>d</sub></em>-plane in the <em>yz</em> plane for the <em>anti</em> conformation and in the <em>xz</em> for the <em>syn</em> conformation.  I had tried to just change the symmetry to <em>D<sub>3h</sub></em> and use the <strong>previous</strong> unique <em>D<sub>3d</sub></em> coordinates and the symmetry <strong>failed</strong>. Below is the HF/6-311G(d,p)++ input file.</p>
+<div class="literal-block-wrapper docutils container" id="ethane-syn-6311-u-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 40 </span><span class="caption-text">Ethane_syn_6311_U.inp</span><a class="headerlink" href="#ethane-syn-6311-u-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+<span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=18 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
+<span class="linenos"> 7</span> $DATA 
+<span class="linenos"> 8</span>syn ethane
+<span class="linenos"> 9</span>DNH 3
+<span class="linenos">10</span>
+<span class="linenos">11</span> C           6.0   0.0000000000  -0.0000000000  -0.7517425284
+<span class="linenos">12</span> H           1.0   1.0424482146   0.0000000000   1.1528384766
+<span class="linenos">13</span> $END
+<span class="linenos">14</span> $ZMAT IZMAT(1)=1,1,2,
+<span class="linenos">15</span>                1,8,1,  2,8,1,2,
+<span class="linenos">16</span>                1,4,1,  2,4,1,2,  3,4,1,2,8,
+<span class="linenos">17</span>                1,3,1,  2,3,1,2,  3,3,1,2,8,
+<span class="linenos">18</span>                1,5,2,  2,5,2,1,  3,5,2,1,8,
+<span class="linenos">19</span>                1,6,2,  2,6,2,1,  3,6,2,1,5,
+<span class="hll"><span class="linenos">20</span>                1,7,2,  2,7,2,6,  3,7,2,1,5   $END  
+</span></pre></div>
+</div>
+</div>
+<p>By <strong>examining</strong> the output file, a summary of the result for the <em>syn</em> conformation can be made.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Coordinate</p></th>
@@ -562,16 +578,16 @@ DNH 3
 </tr>
 </tbody>
 </table>
-<p>We can now make some comparisons.</p>
+<p>We can now make some <strong>comparisons</strong>.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Here is the data gather together so that we can explore the differences in bond lengths, angles and molecular energy.</p>
+<p>Here is the <strong>data</strong> gathered together so that we can explore the <strong>differences</strong> in bond lengths, angles and molecular energy.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Coordinate</p></th>
-<th class="text-align:left head"><p>syn conformer</p></th>
-<th class="text-align:left head"><p>anti conformer</p></th>
+<th class="text-align:left head"><p><em>syn</em> conformer</p></th>
+<th class="text-align:left head"><p><em>anti</em> conformer</p></th>
 </tr>
 </thead>
 <tbody>
@@ -597,53 +613,31 @@ DNH 3
 </tr>
 </tbody>
 </table>
-<p>The C–C bond is shorter in the anti conformer, as expected. And the H–C–H angle was larger, as expected.</p>
+<p>The C–C bond is <strong>shorter</strong> in the <em>anti</em> conformer, as expected. And the H–C–H angle was <strong>larger</strong>, as expected.</p>
 </div>
-<div class="section" id="literature-and-the-controversy">
-<h2>Literature and The Controversy<a class="headerlink" href="#literature-and-the-controversy" title="Permalink to this headline">¶</a></h2>
-<p>The literature value for the ethane rotational energy barrier is 12.1 kJ/mole.<a class="footnote-reference brackets" href="#hirota1979" id="id1">1</a>  We were pretty close with what today is considered a low level of theory. There has been lots of recent work in this subject. Despite its simplicity, or because of it, it has been a focus for theoretical investigations. It started with an argument that molecular orbital interactions stabilizing the anti conformation were the more important contributor to the energy difference compared to electronic repulsion in the syn conformation.<a class="footnote-reference brackets" href="#goodman2001" id="id2">2</a>  This is an idea that has been floated since the 1970’s<a class="footnote-reference brackets" href="#lowe1973" id="id3">3</a> but it gained new life with the Nature publication. People disagreed and the fight was on.<a class="footnote-reference brackets" href="#bickelhaupt2004" id="id4">4</a> There are ongoing efforts to further refine the model for the energy difference.<a class="footnote-reference brackets" href="#baranac2015" id="id5">5</a><a class="footnote-reference brackets" href="#mo2011" id="id6">6</a></p>
+<div class="section" id="the-controversy">
+<h2>The Controversy<a class="headerlink" href="#the-controversy" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>literature</strong> value for the ethane rotational energy barrier is 12.1 kJ/mole.<a class="footnote-reference brackets" href="#hirota1979" id="id1">1</a>  We were pretty close with this low level of theory. There has been lots of <strong>recent</strong> work in this subject. Despite its simplicity, or because of it, it has been a focus for theoretical investigations. It started with an argument that molecular orbital interactions <strong>stabilizing</strong> the <em>anti</em> conformation were the <strong>more important</strong> contributor to the energy difference compared to electronic <strong>repulsion</strong> in the <em>syn</em> conformation.<a class="footnote-reference brackets" href="#goodman2001" id="id2">2</a>  This is an idea that has been floated since the 1970’s<a class="footnote-reference brackets" href="#lowe1973" id="id3">3</a> but it gained new life with the Nature publication. People <strong>disagreed</strong> and the fight was on.<a class="footnote-reference brackets" href="#bickelhaupt2004" id="id4">4</a> There are ongoing efforts to further refine the <strong>model</strong> for the energy difference.<a class="footnote-reference brackets" href="#baranac2015" id="id5">5</a><a class="footnote-reference brackets" href="#mo2011" id="id6">6</a></p>
 </div>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>We have learned more about constructing a Z-matrix and applied this knowledge to design a Z-matrix for ethane within which we can easily create any torsion angle we wish. We have observed how defining symmetry can enforce a given conformation while optimizing a structure. We have observed that the structures and the energy difference were reasonably close to literature values.</p>
+<p>We have learned more about <strong>constructing</strong> a <em>Z-matrix</em> and applied this knowledge to design a <em>Z-matrix</em> for ethane within which we can easily create any <strong>torsion angle</strong> we wish. We have observed how defining symmetry can <strong>enforce</strong> a given conformation while optimizing a structure. We have observed that the structures and the energy difference were reasonably close to <strong>literature values</strong>.</p>
 <p>In the exercise, you will also explore what happens when we remove the symmetry declaration. Go to the instructions for the exercise and have fun.</p>
-</div>
-<div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
-<p>The following files were created during this tutorial and are available with this document. Feel free to use them as templates and cut and paste as you build the other calculations.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Filename</p></th>
-<th class="text-align:left head"><p>Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>Ethane_syn_AM1_Z.inp</p></td>
-<td class="text-align:left"><p>The initial input the <em>D<sub>3h</sub></em> symmetrical structure</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Ethane_anti_AM1_Z.inp</p></td>
-<td class="text-align:left"><p>The initial input the <em>D<sub>3d</sub></em> symmetrical structure</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Ethane_syn_6311_U.inp</p></td>
-<td class="text-align:left"><p>An input file that you can modify for doing calculations at the HF/6311(d,p)++ level.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Read the accompanying discussion above and then try the following activities.</p>
 <div class="section" id="the-activities">
 <h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">¶</a></h3>
-<p>Repeat the activities described in the discussion but edit the input files to add a command to output data for localized orbitals. After you have result files for the optimized <em>D<sub>3h</sub></em> and <em>D<sub>3d</sub></em> structures, produce images of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique local bonding orbitals (one C–C σ-bond and one C–H σ-bond will suffice). Report the energy difference for the two symmetries (syn and anti). Then present images for the bonding MOs for both symmetries. Compare their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)</p>
-<p>Now set the symmetry of the syn structure to <em>C<sub>1</sub></em> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level? Is the result syn or anti. Discuss the result. If the result remains syn propose why GAMESS could not bring itself to start the bond rotation. Now change the torsion angle by 0.1˚. Run the optimization again. Discus the result. Compare the energies of the C1 anti and the C1 syn structures at the HF/6-311G(d,p)++ level. Compare bond lengths and angles as well. Do they match with the results that used symmetry?</p>
+<p><strong>Repeat</strong> the activities described in the discussion but edit the input files to <strong>add</strong> a command to output data for <strong>localized</strong> orbitals. After you have result files for the optimized <em>D<sub>3h</sub></em> and <em>D<sub>3d</sub></em> structures, produce <strong>images</strong> of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique <strong>local bonding orbitals</strong> (one C–C σ-bond and one C–H σ-bond will suffice). Report the energy difference for the two symmetries (<em>syn</em> and anti). Then present images for the bonding MOs for both symmetries. <strong>Compare</strong> their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)</p>
+<p>Now <strong>set the symmetry</strong> of the <em>syn</em> structure to <em>C<sub>1</sub></em> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level. Is the result <em>syn</em> or <em>anti</em>. <strong>Discuss</strong> the result. If the result remains <em>syn</em> <strong>propose</strong> why <em>GAMESS</em> could not bring itself to start the bond rotation. Now <strong>change</strong> the torsion angle by 0.1˚. Run the optimization <strong>again</strong>. Discus the result. <strong>Compare</strong> the energies of the <em>C<sub>1</sub></em> anti and the <em>C<sub>1</sub></em> <em>syn</em> structures at the HF/6-311G(d,p)++ level. <strong>Compare</strong> bond lengths and angles as well. Do they match with the results that used symmetry?</p>
 </div>
 <div class="section" id="the-report">
 <h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>
-<p>Create a ONE-PAGE document that presents the images of the molecules and local and molecular orbitals described above. Discuss the relative energies of the orbitals. Are there any degenerate sets? How many nodal planes are in each set? Can you see how the local orbitals could be combined to make the molecular orbitals?</p>
-<p>Did fixing the symmetry also fix the bond angles in the syn configuration? Present the consequences of removing the symmetry constraint. If there was no change in torsion when the symmetry was removed propose a reason why. Why did a slight tip in the torsion angle solve the problem? Present the bond lengths and angles for the HF/6-311G(d,p)++ and discuss how they relate to the values with symmetry.</p>
-<p>Try running energy calculations at the HF/6-311G(d,p)++ level with and without symmetry and see if there is a difference in the time each calculation takes. Discuss the difference in time (there may be none as these are small molecules and modern personal computers are enormously powerful).</p>
-<p>Include an appendix with the text for all the input files that you used (please do not include any result files – there will be no trees left!) For these files preface each with the file name and a note on its purpose and use a fixed-width font.</p>
+<p>Create a ONE-PAGE <strong>document</strong> that presents the images of the molecules and local and molecular orbitals described above. <strong>Discuss</strong> the relative energies of the orbitals. Are there any degenerate sets? How many nodal planes are in each set? Can you see how the local orbitals could be combined to make the molecular orbitals?</p>
+<p>Did fixing the <strong>symmetry</strong> also fix the bond angles in the <em>syn</em> configuration? <strong>Present</strong> the consequences of removing the symmetry constraint. If there was no change in torsion when the symmetry was removed, <strong>propose</strong> a reason why. Why did a slight tip in the torsion angle <strong>solve</strong> the problem? Present the bond lengths and angles for the HF/6-311G(d,p)++ and discuss how they relate to the values with symmetry.</p>
+<p>Try <strong>running</strong> energy calculations at the HF/6-311G(d,p)++ level with and without symmetry and see if there is a difference in the <strong>time</strong> each calculation takes. Discuss the difference in time (there may be none as these are small molecules and modern personal computers are enormously powerful).</p>
+<p>Include an <strong>appendix</strong> with the text for all the input files that you used (please do not include any result files – there will be no trees left!) For these files preface each with the file name and a note on its purpose and use a fixed-width font.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="hirota1979"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

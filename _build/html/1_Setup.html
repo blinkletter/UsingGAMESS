@@ -479,15 +479,13 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#shell-scripts">
      Shell Scripts
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ready-to-go">
-       Ready To Go
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps
+  </a>
  </li>
 </ul>
 
@@ -754,15 +752,13 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#shell-scripts">
      Shell Scripts
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ready-to-go">
-       Ready To Go
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps
+  </a>
  </li>
 </ul>
 
@@ -785,7 +781,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>These instructions below <strong>assume</strong> that you are using a <em>Unix</em>-based computer, like a <em>Linux</em> system or an Apple <em>MacOS</em> computer. I have lived in this <em>Unix</em> world my whole academic life and am largely unfamiliar with <em>Windows</em> systems. However, the websites below have information on installing these tools on <em>Windows</em> systems.</p>
 <div class="section" id="gamess">
 <h3><em>GAMESS</em><a class="headerlink" href="#gamess" title="Permalink to this headline">¶</a></h3>
-<p><em>GAMESS</em> is proprietary application that performs <strong>quantum mechanical calculations</strong>. There is too much about quantum chemistry to even begin to explain it here. We will use it as a mysterious black box so be sure to follow the recipes. The <strong><em>GAMESS</em> software and instructions</strong> can be obtained at <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/">here</a></p>
+<p><em>GAMESS</em> is proprietary application that performs <strong>quantum mechanical calculations</strong>. There is too much about quantum chemistry to even begin to explain it here. We will use it as a mysterious black box so be sure to follow the recipes. The <strong><em>GAMESS</em> software and instructions</strong> can be obtained <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/">here</a></p>
 <p>You will need to apply for a <strong>free academic license</strong> and wait for a reply with a password for downloading <em>GAMESS</em>. You can obtain compiled executable binaries for <em>Windows</em>, <em>Linux</em> and <em>MacOS</em> machines. You can also get the source code if you want to compile it yourself.</p>
 </div>
 <div class="section" id="gamessq">
@@ -889,7 +885,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="installing-gamessq">
 <h2>Installing <em>GamessQ</em><a class="headerlink" href="#installing-gamessq" title="Permalink to this headline">¶</a></h2>
-<p><em>GamessQ</em> is a batch controller for <em>GAMESS</em> provided by the Gordon group. It is available from the same web site.<a class="footnote-reference brackets" href="#gamess-link" id="id18">3</a> It can <strong>queue</strong> a whole batch of filkes and send them to be executed one at a time while you sleep.</p>
+<p><em>GamessQ</em> is a batch controller for <em>GAMESS</em> provided by the Gordon group. It is available from the <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">same web site</a>.<a class="footnote-reference brackets" href="#gamess-link" id="id18">3</a> It can <strong>queue</strong> a whole batch of filkes and send them to be executed one at a time while you sleep.</p>
 <div class="section" id="id19">
 <h3>Obtain and Install<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <p>Download the compressed file and extract it. Put the resulting folder in <code class="docutils literal notranslate"><span class="pre">/Applications</span></code>. In the <code class="docutils literal notranslate"><span class="pre">/Applications/GamessQ</span></code> directory we will see the following files…</p>
@@ -952,14 +948,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p><em>MacMolPlt</em> is a molecular editing and visualization application. It can be used to <strong>construct</strong> 3-D structures and create <strong>input files</strong> for <em>GAMESS</em>. It can <strong>interpret</strong> the resulting output files and produce <strong>visualizations</strong> of bond vibrations and frequencies, molecular energies and molecular orbitals and more.</p>
 <div class="section" id="id21">
 <h3>Obtain and Install<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
-<p>You can obtain <em>MacMolPlt</em> at the <a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">github repository</a>. Just unpack the downloaded file and put the application folder in your <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> directory. If you are running <em>MacOS 12</em> (<em>Monterey</em>) or later you will have to edit a **configuration file ** within the application itself. Don’t worry, instructions are below.</p>
+<p>You can obtain <em>MacMolPlt</em> at the <a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">github repository</a>. Just unpack the downloaded file and put the application folder in your <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> directory. If you are running <em>MacOS 12</em> (<em>Monterey</em>) or later, you will have to edit a <strong>configuration file</strong> within the application container itself. Don’t worry, instructions are in the warning box below.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>On more modern <em>MacOS</em> computers (<em>MacOS 12</em> and later) you will need to <strong>edit</strong> the <code class="docutils literal notranslate"><span class="pre">info.plist</span></code> file in the package of the <em>MacMolPlt</em> application and add the following parameter in the first <code class="docutils literal notranslate"><span class="pre">&lt;dict&gt;</span></code> group…</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;key&gt;NSHighResolutionCapable&lt;/key&gt;</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;False&lt;/string&gt;</span></code></p>
-<p>This will avoid a scaling problem with the high-resolution screens on modern Apple computers. It will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.
-On <em>MacOS 11</em> and earlier, you can check a box in the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Info</span></code> menu item of <em>wxMacMolPlt</em> for <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Low</span> <span class="pre">Resolution.</span></code> Apple deprecated this option and eliminated it in <em>MacOS 12</em>, hence the <strong>awkward word-around</strong> above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.</p>
+<p>Find the application icon and right-click on it. Select Show package Contents from the drop-down menu. navigate and find the info.plist file and open it to make your changes. Back it up before you do so. This will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.</p>
+<p>On <em>MacOS 11</em> and earlier, you can check a box in the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Info</span></code> menu item of <em>wxMacMolPlt</em> for <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Low</span> <span class="pre">Resolution.</span></code> Apple deprecated this option and eliminated it in <em>MacOS 12</em>, hence the <strong>awkward work-around</strong> above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.</p>
 </div>
 </div>
 <div class="section" id="using-wxmacmolplt">
@@ -1047,8 +1043,10 @@ On <em>MacOS 11</em> and earlier, you can check a box in the <code class="docuti
 <div class="section" id="shell-scripts">
 <h3>Shell Scripts<a class="headerlink" href="#shell-scripts" title="Permalink to this headline">¶</a></h3>
 <p>You can place a series of <em>Unix</em> tools and shell commands and operators in a text file and run it as a shell script. That way you can <strong>execute a series of commands</strong> and even use <strong>logic and loops</strong> to perform more complicated tasks. We will be using scripts to <strong>automate</strong> making a series of related input files using <em>sed</em> and also to extract final energies from a related series of output files using <em>grep</em>.</p>
-<div class="section" id="ready-to-go">
-<h4>Ready To Go<a class="headerlink" href="#ready-to-go" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
 <p>We are now ready to do some calculations. We can <strong>build</strong> molecules and create <strong>input files</strong> using <em>MacMolPlt</em> or <em>Avogadro</em>. We can <strong>submit</strong> the files to <em>GAMESS</em> using <em>GamessQ</em>. We can then <strong>extract</strong> specific information using <em>Unix</em> tools and shell scripts or load the result files into <em>MacMolPlt</em> or <em>Avogadro</em> to <strong>visualize</strong> the result. We will be able to explore how steric strain arises in molecules and how structure affects the transition state in reactions. We will be able to see graphical representations of molecular orbitals and, in many cases, the local bonding orbitals that more closely align with Lewis structure. I hope that you will gain a <strong>more intuitive understanding</strong> of molecular structure and reaction kinetics.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
@@ -1108,8 +1106,6 @@ A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. <a class="
 <dd><p>Your <em>Unix</em> system will have a secure shell (<em>ssh</em>) tool that can be called using the <em>ssh</em> command. It will likely be an implementation of the <em>OpenSSH</em> suite of internet tools. No one uses <em>telnet</em> anymore, but it has become a verb for the act of using <em>ssh</em>.</p>
 </dd>
 </dl>
-</div>
-</div>
 </div>
 </div>
 

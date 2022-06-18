@@ -89,7 +89,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="start.html">
-   Introduction
+   Table of Contents
   </a>
  </li>
 </ul>
@@ -315,73 +315,76 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="gamess-workflow">
 <h1>GAMESS Workflow<a class="headerlink" href="#gamess-workflow" title="Permalink to this headline">¶</a></h1>
-<p>Here will be presented the step by step process for calculating the neregy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly offset due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the optimized structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.</p>
+<p>Here will be presented the <strong>step by step</strong> workflow for calculating the energy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly <strong>offset</strong> due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the <strong>optimized</strong> structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.</p>
 <div class="section" id="the-input-file">
 <h2>The Input File<a class="headerlink" href="#the-input-file" title="Permalink to this headline">¶</a></h2>
-<p>First we write an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the Z-matrix method because it will identify the central torsion as a coordinate. Then we can lock that coordinate.</p>
-<p><strong>butane-SCAN.inp</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL 
-     SCFTYP=RHF 
-     RUNTYP=OPTIMIZE 
-     MAXIT=30 
-     MULT=1 
-     COORD=ZMT 
-     NZVAR=36 
- $END
- $SYSTEM 
-     TIMLIM=525600 
-     MEMORY=1000000 
- $END
- $BASIS 
-     GBASIS=N21 
-     NGAUSS=3 
- $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT 
-     OPTTOL=0.0001 
-     NSTEP=1000 
-     IFREEZ(1)=6 $END
- $DATA 
-Butane
-C1
-C
-C   1    1.54000
-C   2    1.54000  1 109.0
-C   1    1.54000  2 109.4712   3   NUMBER
-H   1    1.14000  2 109.4712   4 -120.0000
-H   1    1.14000  5 108.5      2  120.0000
-H   2    1.14000  1 109.4712   3 -120.0000
-H   2    1.14000  7 109.4712   1  120.0000
-H   3    1.14000  2 109.4712   8    0.0000
-H   3    1.14000  9 109.4712   2  120.0000
-H   3    1.14000  9 109.4712  10  120.0000
-H   4    1.14000  1 109.0      6   -0.0000
-H   4    1.14000  12 108.5     1  120.0000
-H   4    1.14000  12 109.4712 13  119.0000
- $END
- $ZMAT IZMAT(1)=1,2,1, 
-                1,3,2,  2,3,2,1, 
-                1,4,1,  2,4,1,2,   3,4,1,2,3, 
-                1,5,1,  2,5,1,2,   3,5,1,2,4, 
-                1,6,1,  2,6,1,5,   3,6,1,5,2, 
-                1,7,2,  2,7,2,1,   3,7,2,1,3, 
-                1,8,2,  2,8,2,7,   3,8,2,7,1, 
-                1,9,3,  2,9,3,2,   3,9,3,2,8, 
-                1,10,3, 2,10,3,9,  3,10,3,9,2, 
-                1,11,3, 2,11,3,9,  3,11,3,9,10, 
-                1,12,4, 2,12,4,1,  3,12,4,1,6, 
-                1,13,4, 2,13,4,12, 3,13,4,12,1, 
-                1,14,4, 2,14,4,12, 3,14,4,12,13 
- $END
+<p>First we <strong>write</strong> an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the <code class="docutils literal notranslate"><span class="pre">Z-matrix</span></code> method because it will identify the central <strong>torsion</strong> as a coordinate. Then we can <strong>lock</strong> that coordinate.</p>
+<div class="literal-block-wrapper docutils container" id="butane-scan-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 50 </span><span class="caption-text">butane-SCAN.inp</span><a class="headerlink" href="#butane-scan-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL 
+<span class="linenos"> 2</span>     SCFTYP=RHF 
+<span class="linenos"> 3</span>     RUNTYP=OPTIMIZE 
+<span class="linenos"> 4</span>     MAXIT=30 
+<span class="linenos"> 5</span>     MULT=1 
+<span class="linenos"> 6</span>     COORD=ZMT 
+<span class="linenos"> 7</span>     NZVAR=36 
+<span class="linenos"> 8</span> $END
+<span class="linenos"> 9</span> $SYSTEM 
+<span class="linenos">10</span>     TIMLIM=525600 
+<span class="linenos">11</span>     MEMORY=1000000 
+<span class="linenos">12</span> $END
+<span class="linenos">13</span> $BASIS 
+<span class="linenos">14</span>     GBASIS=N21 
+<span class="linenos">15</span>     NGAUSS=3 
+<span class="linenos">16</span> $END
+<span class="linenos">17</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos">18</span> $STATPT 
+<span class="linenos">19</span>     OPTTOL=0.0001 
+<span class="linenos">20</span>     NSTEP=1000 
+<span class="linenos">21</span>     IFREEZ(1)=6 $END
+<span class="linenos">22</span> $DATA 
+<span class="linenos">23</span>Butane
+<span class="linenos">24</span>C1
+<span class="linenos">25</span>C
+<span class="linenos">26</span>C   1    1.54000
+<span class="linenos">27</span>C   2    1.54000  1 109.0
+<span class="linenos">28</span>C   1    1.54000  2 109.4712   3   NUMBER
+<span class="linenos">29</span>H   1    1.14000  2 109.4712   4 -120.0000
+<span class="linenos">30</span>H   1    1.14000  5 108.5      2  120.0000
+<span class="linenos">31</span>H   2    1.14000  1 109.4712   3 -120.0000
+<span class="linenos">32</span>H   2    1.14000  7 109.4712   1  120.0000
+<span class="linenos">33</span>H   3    1.14000  2 109.4712   8    0.0000
+<span class="linenos">34</span>H   3    1.14000  9 109.4712   2  120.0000
+<span class="linenos">35</span>H   3    1.14000  9 109.4712  10  120.0000
+<span class="linenos">36</span>H   4    1.14000  1 109.0      6   -0.0000
+<span class="linenos">37</span>H   4    1.14000  12 108.5     1  120.0000
+<span class="linenos">38</span>H   4    1.14000  12 109.4712 13  119.0000
+<span class="linenos">39</span> $END
+<span class="linenos">40</span> $ZMAT IZMAT(1)=1,2,1, 
+<span class="linenos">41</span>                1,3,2,  2,3,2,1, 
+<span class="linenos">42</span>                1,4,1,  2,4,1,2,   3,4,1,2,3, 
+<span class="linenos">43</span>                1,5,1,  2,5,1,2,   3,5,1,2,4, 
+<span class="linenos">44</span>                1,6,1,  2,6,1,5,   3,6,1,5,2, 
+<span class="linenos">45</span>                1,7,2,  2,7,2,1,   3,7,2,1,3, 
+<span class="linenos">46</span>                1,8,2,  2,8,2,7,   3,8,2,7,1, 
+<span class="linenos">47</span>                1,9,3,  2,9,3,2,   3,9,3,2,8, 
+<span class="linenos">48</span>                1,10,3, 2,10,3,9,  3,10,3,9,2, 
+<span class="linenos">49</span>                1,11,3, 2,11,3,9,  3,11,3,9,10, 
+<span class="linenos">50</span>                1,12,4, 2,12,4,1,  3,12,4,1,6, 
+<span class="linenos">51</span>                1,13,4, 2,13,4,12, 3,13,4,12,1, 
+<span class="linenos">52</span>                1,14,4, 2,14,4,12, 3,14,4,12,13 
+<span class="linenos">53</span> $END
 </pre></div>
 </div>
-<p>You will see that not all angles are 109.47˚. I jiggled some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.</p>
+</div>
+<p>You will see that not all angles are 109.47˚. I <strong>jiggled</strong> some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.</p>
 </div>
 <div class="section" id="making-the-series">
 <h2>Making the Series<a class="headerlink" href="#making-the-series" title="Permalink to this headline">¶</a></h2>
-<p>We will then use the following shell script to replace the string “NUMBER” with number from a list and create a new file with a name series based on the list. The scipt is shown below.</p>
-<p><strong><a class="reference external" href="http://makescan.sh">makescan.sh</a></strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">input_file</span><span class="o">=</span>butane-SCAN.inp
+<p>We will then use the following <strong>shell script</strong> to replace the string “NUMBER” with number from a list and create a new file with a name series based on the list. The script is shown below.</p>
+<div class="literal-block-wrapper docutils container" id="makescan-sh1">
+<div class="code-block-caption"><span class="caption-number">Listing 51 </span><span class="caption-text"><a class="reference external" href="http://makescan.sh">makescan.sh</a></span><a class="headerlink" href="#makescan-sh1" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">input_file</span><span class="o">=</span>butane-SCAN.inp
 <span class="nv">spacer</span><span class="o">=</span>_
 <span class="k">for</span> num <span class="k">in</span> <span class="k">$(</span>seq -w <span class="m">000</span> <span class="m">010</span> <span class="m">180</span><span class="k">)</span>
 <span class="k">do</span>
@@ -389,20 +392,21 @@ H   4    1.14000  12 109.4712 13  119.0000
 <span class="k">done</span>
 </pre></div>
 </div>
-<p>This script will take the contents of the <code class="docutils literal notranslate"><span class="pre">butane-SCAN.inp</span></code> file and use the sed tool to replace the string “<code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>” with the value <code class="docutils literal notranslate"><span class="pre">num</span></code>. The result is then written to a new file ending with the same value, <code class="docutils literal notranslate"><span class="pre">num</span></code>.</p>
-<p>I executed the script with the following command:</p>
+</div>
+<p>This script will take the <strong>contents</strong> of the <code class="docutils literal notranslate"><span class="pre">butane-SCAN.inp</span></code> file and use the <em>sed</em> tool to replace the string “<code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>” with the value <code class="docutils literal notranslate"><span class="pre">num</span></code>. The result is then <strong>written</strong> to a new file ending with the same value, <code class="docutils literal notranslate"><span class="pre">num</span></code>.</p>
+<p>I <strong>executed</strong> the script with the following command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash makescan.sh
 </pre></div>
 </div>
-<p>Nineteen new files are created with angles for the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion varying from <code class="docutils literal notranslate"><span class="pre">00</span></code> to <code class="docutils literal notranslate"><span class="pre">180</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">10</span></code>. Observe the sequence of commands shown in <a class="reference internal" href="#fig5w-1"><span class="std std-numref">Fig. 26</span></a>. We start with <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list the files in the directory and see the two files that we created. Then the bash script is executed. A second <code class="docutils literal notranslate"><span class="pre">ls</span></code> command then reveals all the new files that were created.</p>
+<p>Nineteen new files are created with angles for the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion varying from <code class="docutils literal notranslate"><span class="pre">00</span></code> to <code class="docutils literal notranslate"><span class="pre">180</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">10</span></code>. <strong>Observe</strong> the sequence of commands shown in <a class="reference internal" href="#fig5w-1"><span class="std std-numref">Fig. 26</span></a>. We start with <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list the files in the directory and see the two files that we created. Then the bash script is executed. A second <code class="docutils literal notranslate"><span class="pre">ls</span></code> command then reveals all the new files that were created.</p>
 <div class="figure align-default" id="fig5w-1">
 <a class="reference internal image-reference" href="_images/workflow1.png"><img alt="_images/workflow1.png" src="_images/workflow1.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text"><em>A Unix terminal running the command to setup the file list.</em></span><a class="headerlink" href="#fig5w-1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text"><em>A <em>Unix</em> terminal running the command to setup the file list.</em></span><a class="headerlink" href="#fig5w-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="running-the-jobs">
 <h2>Running the Jobs<a class="headerlink" href="#running-the-jobs" title="Permalink to this headline">¶</a></h2>
-<p>We now have nineteen jobs to submit to GAMESS. I will use the GamessQ GUI interface to do that. Execute the gamessQ application. Drag and drop the file series into the GamessQ window. GamessQ will copy the input files so we will have a set of identical input files created that we don’t care about. As GAMESS produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole GamessQ operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
+<p>We now have nineteen jobs to submit to GAMESS. I will use the <em>GamessQ</em> GUI interface to do that. Execute the <em>GamessQ</em> application. Drag and drop the file series into the <em>GamessQ</em> window. <em>GamessQ</em> will copy the input files so we will have a set of identical input files created that we don’t care about. As <em>GAMESS</em> produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole <em>GamessQ</em> operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
 <div class="figure align-default" id="fig5w-2">
 <a class="reference internal image-reference" href="_images/workflow2.png"><img alt="_images/workflow2.png" src="_images/workflow2.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text"><em>GamessQ running a queue of GAMESS jobs</em></span><a class="headerlink" href="#fig5w-2" title="Permalink to this image">¶</a></p>
@@ -410,15 +414,17 @@ H   4    1.14000  12 109.4712 13  119.0000
 </div>
 <div class="section" id="extracting-the-results">
 <h2>Extracting the Results<a class="headerlink" href="#extracting-the-results" title="Permalink to this headline">¶</a></h2>
-<p>When the jobs are all complete we will run a bash script that will extract the last <code class="docutils literal notranslate"><span class="pre">NSERCH</span> <span class="pre">ENERGY</span></code> line from each file and save this set of lines in a single result file that we will name <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code>. The script is presented below.</p>
-<p><strong><a class="reference external" href="http://extract.sh">extract.sh</a></strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> name <span class="k">in</span> butane_SCAN*.log<span class="p">;</span> <span class="k">do</span>
+<p>When the jobs are all complete we will run a <em>bash</em> script that will <strong>extract</strong> the last <code class="docutils literal notranslate"><span class="pre">NSERCH</span> <span class="pre">ENERGY</span></code> line from each file and save this set of lines in a single result file that we will name <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code>. The script is presented below.</p>
+<div class="literal-block-wrapper docutils container" id="extract-sh1">
+<div class="code-block-caption"><span class="caption-number">Listing 52 </span><span class="caption-text"><a class="reference external" href="http://extract.sh">extract.sh</a></span><a class="headerlink" href="#extract-sh1" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> name <span class="k">in</span> butane_SCAN*.log<span class="p">;</span> <span class="k">do</span>
     grep -H <span class="s2">&quot;NSERCH&quot;</span> <span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;GRAD&quot;</span> <span class="p">|</span> tail -n <span class="m">1</span>
 <span class="k">done</span>
 </pre></div>
 </div>
-<p>As you can see neither script was complicated, but they are both very cryptic. Everyday I promise myself that I will rewrite then in Python but, since they work, that may never happen.</p>
-<p>the output of <a class="reference external" href="http://extract.sh">extract.sh</a> will go to the STDOUT (the screen in most cases) but we can direct it into a file using the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> opertaor. I will execute the script using the following command. In <a class="reference internal" href="#fig5w-3"><span class="std std-numref">Fig. 28</span></a> we see a terminal with the command executed</p>
+</div>
+<p>As you can see neither script was complicated, but they are both very cryptic. Everyday I promise myself that I will rewrite then in <em>Python</em> but, since they work, that may never happen.</p>
+<p>the output of <a class="reference external" href="http://extract.sh">extract.sh</a> will go to the STDOUT (the screen in most cases) but we can direct it into a file using the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> operator. I will execute the script using the following command. In <a class="reference internal" href="#fig5w-3"><span class="std std-numref">Fig. 28</span></a> we see a <strong>terminal</strong> with the command executed</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash extract.sh &gt; butane_result.txt
 </pre></div>
 </div>
@@ -430,7 +436,8 @@ H   4    1.14000  12 109.4712 13  119.0000
 <div class="section" id="inspecting-the-result">
 <h2>Inspecting the Result<a class="headerlink" href="#inspecting-the-result" title="Permalink to this headline">¶</a></h2>
 <p>If you open the <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code> file in a text editor you will see nineteen lines of data, one line for ezch file.</p>
-<p><strong>butane_result.txt</strong></p>
+<div class="literal-block-wrapper docutils container" id="butane-result-txt">
+<div class="code-block-caption"><span class="caption-number">Listing 53 </span><span class="caption-text">butane_result.txt</span><a class="headerlink" href="#butane-result-txt" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_000_303</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4228465418</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000585</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000204</span>
 <span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_010_304</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">18</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4233726910</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000931</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000255</span>
 <span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_020_305</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">16</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4247889225</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000789</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000273</span>
@@ -452,9 +459,10 @@ H   4    1.14000  12 109.4712 13  119.0000
 <span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_180_321</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4324667182</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000605</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000189</span>
 </pre></div>
 </div>
-<p>Observe that three of the jobs took a longer time to converge. We could open them in MacMolPlt and watch a “movie” of their journey and plot the energies along the way. Where did they get stuck? All three eventually found their way home, but only because this was a light-weight theory level and I was confidient in allowing for a large number of steps. If the level of theory was higher I might hav set the limit to 100 steps, or even 30 steps. All other jobs converged in less than 30 steps.</p>
-<p>Why did these three take so long? Bad luck with the exact structure of the input started them on the long path. Tweak a few bond lengths or angles and they might converge just like the others. Clearly, how you start matters. For high levels of theory it is important to start as close to the final answer as possible.</p>
-<p>We now have the raw data. Next we will process it and plot the results using Python.</p>
+</div>
+<p>Observe that three of the jobs took a <strong>longer time</strong> to converge. We could open them in <em>MacMolPlt</em> and watch a “movie” of their journey and plot the energies along the way. Where did they get stuck? All three eventually found their way home, but only because this was a light-weight theory level and I was confidient in <strong>allowing</strong> for a large number of steps. If the level of theory was higher I might have set the <strong>limit</strong> to 100 steps, or even 30 steps. All other jobs converged in less than 30 steps.</p>
+<p>Why did these three take so long? <strong>Bad luck</strong> with the exact structure of the input started them on the long path. Tweak a few bond lengths or angles and they might converge just like the others. Clearly, <strong>how you start matters</strong>. For high levels of theory it is important to start as close to the final answer as possible.</p>
+<p>We now have the raw data. Next we will process it and <strong>plot the results</strong> using Python. The next subchapter is an <strong>interactive <em>Python</em></strong> notebook that details this workflow.</p>
 </div>
 </div>
 
