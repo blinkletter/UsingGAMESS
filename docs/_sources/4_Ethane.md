@@ -91,8 +91,8 @@ We get an **energy** from this calculation and a **geometry** that we can read f
 | :-------         | :-------        |
 | C–C length       |    1.527 Å      |
 | C–H length       |    1.086 Å      |
-| H–C–C angle      |  111.2˚         |
-| H–C–H angle      |  107.7˚         |
+| H–C–C angle      |  111.2&deg;         |
+| H–C–H angle      |  107.7&deg;         |
 | Energy (Ha)      | -79.2520118108  |
 
 
@@ -169,8 +169,8 @@ By **examining** the output file, a summary of the result for the *syn* conforma
 | :-------     | :-------      |
 | C–C length   |   1.541 Å     |
 | C–H length   |   1.085 Å     |
-| H–C–C angle  | 111.6˚        |
-| H–C–H angle  | 107.2˚        |
+| H–C–C angle  | 111.6&deg;        |
+| H–C–H angle  | 107.2&deg;        |
 | Energy (Ha)  | -79.2471515134|
    
 We can now make some **comparisons**.
@@ -183,8 +183,8 @@ Here is the **data** gathered together so that we can explore the **differences*
 | :-------     | :-------      | :---------     |
 | C–C length   |      1.541 Å  |     1.527 Å    |
 | C–H length   |      1.085 Å  |     1.086 Å    |
-| H–C–C angle  |    111.6˚     |   111.2˚       |
-| H–C–H angle  |    107.2˚     |   107.7˚       |
+| H–C–C angle  |    111.6&deg;     |   111.2&deg;       |
+| H–C–H angle  |    107.2&deg;     |   107.7&deg;       |
 | &Delta;E (kJ/mol)  |    +12.8      |     0          |
 
 The C–C bond is **shorter** in the *anti* conformer, as expected. And the H–C–H angle was **larger**, as expected.
@@ -216,7 +216,7 @@ Read the accompanying discussion above and then try the following activities.
 
 **Repeat** the activities described in the discussion but edit the input files to **add** a command to output data for **localized** orbitals. After you have result files for the optimized *D<sub>3h</sub>* and *D<sub>3d</sub>* structures, produce **images** of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique **local bonding orbitals** (one C–C &sigma;-bond and one C–H &sigma;-bond will suffice). Report the energy difference for the two symmetries (*syn* and anti). Then present images for the bonding MOs for both symmetries. **Compare** their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)
 
-Now **set the symmetry** of the *syn* structure to *C<sub>1</sub>* (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level. Is the result *syn* or *anti*. **Discuss** the result. If the result remains *syn* **propose** why *GAMESS* could not bring itself to start the bond rotation. Now **change** the torsion angle by 0.1˚. Run the optimization **again**. Discus the result. **Compare** the energies of the *C<sub>1</sub>* anti and the *C<sub>1</sub>* *syn* structures at the HF/6-311G(d,p)++ level. **Compare** bond lengths and angles as well. Do they match with the results that used symmetry? 
+Now **set the symmetry** of the *syn* structure to *C<sub>1</sub>* (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level. Is the result *syn* or *anti*. **Discuss** the result. If the result remains *syn* **propose** why *GAMESS* could not bring itself to start the bond rotation. Now **change** the torsion angle by 0.1&deg;. Run the optimization **again**. Discus the result. **Compare** the energies of the *C<sub>1</sub>* anti and the *C<sub>1</sub>* *syn* structures at the HF/6-311G(d,p)++ level. **Compare** bond lengths and angles as well. Do they match with the results that used symmetry? 
 
 ### The Report
 

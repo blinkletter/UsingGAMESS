@@ -1,6 +1,6 @@
 # Butadiene: Transition State for Rotation
 
-We expect butadiene to prefer a **flat** *syn* or *anti* conformation. These **two** possibile **conformations** are designated "*s-cis*" and "*s-trans*". The "s" referrs to the &sigma; bond involved. There should be an energy maximum when the **torsion** angle is 90˚ due to the loss of **cojugation** in when the two &pi; bonds are orthogonal. 
+We expect butadiene to prefer a **flat** *syn* or *anti* conformation. These **two** possibile **conformations** are designated "*s-cis*" and "*s-trans*". The "s" referrs to the &sigma; bond involved. There should be an energy maximum when the **torsion** angle is 90&deg; due to the loss of **cojugation** in when the two &pi; bonds are orthogonal. 
 
 The **change** in electronic structure as the central bond rotates is similar to a chemical **reaction**. Molecular orbitals are being substatially changed and we proceed from one stable conformation **to another**. We could view the highest energy point in this potential energy profile for rotation as a **transition state** in the change from *s-cis* to *s-trans*. In this chapter, we will explore the **rotational potential energy profile** for butadiene and introduce the concept of **optimizing** a transition state structure.
 
@@ -116,7 +116,7 @@ This process is **repeated again and again**. The energy and gradient are calcul
 The energy is reported near the end of each optimization. We could **extract** these values and plot the progress with each step. Give it a try.
 
 #### Lines 2890 to 3031: Final Results
-At the end of all this we have the **final structure** expressed in both Cartesian and internal coordinates and the final energy value for that structure. We can take these coordinates and use them in a new experiment if we wished. **Examining** the internal coordinates reported at the end of step 8 in lines 2909 to 2939 reveals that the C=C bond lengths (2,1 and 4,3) are 1.32 Å and the C–C bond length (3,2) is 1.47 Å. The dihedral angle along the C–C bond (4,3,2,1) is 180˚.
+At the end of all this we have the **final structure** expressed in both Cartesian and internal coordinates and the final energy value for that structure. We can take these coordinates and use them in a new experiment if we wished. **Examining** the internal coordinates reported at the end of step 8 in lines 2909 to 2939 reveals that the C=C bond lengths (2,1 and 4,3) are 1.32 Å and the C–C bond length (3,2) is 1.47 Å. The dihedral angle along the C–C bond (4,3,2,1) is 180&deg;.
 
 Below in {numref}`selection1` is a section of the log file from step 8 that reports the **final atomic coordinates** and the energy. I extracted lines 2946 to 2995 and added line numbers.
 
@@ -281,7 +281,7 @@ Butadiene can **rotate** around the central C–C bond. It can exist as a *s-cis
 
 ### Changing The Input File
 
-Let us rotate the central bond all the way around. The simplest way to do this is to **change** the 4,3,2,1 torsional angle from 180˚ to 0˚ in the **input file**. Here is the changed input file, butadiene.inp shown in {numref}`butadiene_122inp`. 
+Let us rotate the central bond all the way around. The simplest way to do this is to **change** the 4,3,2,1 torsional angle from 180&deg; to 0&deg; in the **input file**. Here is the changed input file, butadiene.inp shown in {numref}`butadiene_122inp`. 
 
 ```{code-block} 
 ---
@@ -364,7 +364,7 @@ caption: butadiene.log
  NSERCH:   8  E=     -154.0539432855  GRAD. MAX=  0.0000236  R.M.S.=  0.0000093
 ```
 
-We see the torsion `4,3,2,1` value is **zero** in the optimized structure. Is the **electronic demand** to maximize planarity and &pi;-orbital overlap able to completely trump the **steric cost** of pushing the end groups into close proximity? I don’t know about that. Look at the `3,2,1` bend. It represents the **angle** in the carbon chain. It is 126˚. This is much larger than the ideal 120˚ angle. The bond angle is being **forced** to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the *s-cis* form of butadiene. {numref}`fig7_1E` shows a **diagram** for the result of this optimization.
+We see the torsion `4,3,2,1` value is **zero** in the optimized structure. Is the **electronic demand** to maximize planarity and &pi;-orbital overlap able to completely trump the **steric cost** of pushing the end groups into close proximity? I don’t know about that. Look at the `3,2,1` bend. It represents the **angle** in the carbon chain. It is 126&deg;. This is much larger than the ideal 120&deg; angle. The bond angle is being **forced** to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the *s-cis* form of butadiene. {numref}`fig7_1E` shows a **diagram** for the result of this optimization.
 
 ```{figure} images/Butadiene7.png
 ---
@@ -381,9 +381,9 @@ The perfectly **flat** structure might be on a **maximum** energy point and unab
 
 ### Breaking The Symmetry
 
-Let’s simply **set** the torsions to 5˚ away from flat and then let the calculation run. I will also set `NSTEP=100` in the `$STATPT` group of settings. The original value was `20` and the calculation was stopping at 20.  If we stop on a count rather than when we find the stationary point we won’t be at the optimized **destination**. `NSTEP` should be set so that the calculation cannot take too long but I’m not worried about that here.
+Let’s simply **set** the torsions to 5&deg; away from flat and then let the calculation run. I will also set `NSTEP=100` in the `$STATPT` group of settings. The original value was `20` and the calculation was stopping at 20.  If we stop on a count rather than when we find the stationary point we won’t be at the optimized **destination**. `NSTEP` should be set so that the calculation cannot take too long but I’m not worried about that here.
 
-I’m going to do the same with the *s-trans* conformer as well. In that calculation we had set the `4,3,2,1` torsion to 180˚ and it had remained there. We will **tweak** all the torsions by 5˚ here as well.
+I’m going to do the same with the *s-trans* conformer as well. In that calculation we had set the `4,3,2,1` torsion to 180&deg; and it had remained there. We will **tweak** all the torsions by 5&deg; here as well.
 
 Here in {numref}`Butadiene_125` is the new input file for the *s-cis* conformer…
 
@@ -470,7 +470,7 @@ caption: butadiene.log
  NSERCH:  32  E=     -154.0551401544  GRAD. MAX=  0.0000855  R.M.S.=  0.0000275
 ```
 
-Once the **symmetry** of the flat structure was **broken**, the molecule had a whole other dimension to explore and it took 32 steps to reach a minimum energy. Most of the torsions are almost flat, as expected. However, the central C–C bond **settled** to a torsion angle of 38˚! That is very not flat. The *sp<sup>2</sup>* hybridization and the orbital overlap demand a flat structure, but the **realities** of steric clash push against that goal. We ended up being pushed out of planar as we maximized electron delocalization and minimized steric clash. It’s called **compromise** and it’s how the world gets along.
+Once the **symmetry** of the flat structure was **broken**, the molecule had a whole other dimension to explore and it took 32 steps to reach a minimum energy. Most of the torsions are almost flat, as expected. However, the central C–C bond **settled** to a torsion angle of 38&deg;! That is very not flat. The *sp<sup>2</sup>* hybridization and the orbital overlap demand a flat structure, but the **realities** of steric clash push against that goal. We ended up being pushed out of planar as we maximized electron delocalization and minimized steric clash. It’s called **compromise** and it’s how the world gets along.
 
 The **result file** was named butadiene125.log. I entered the following command to **extract** the energy result for each step: `grep "NSERCH" Butadiene_125.log | grep "GRAD" > energy3.txt`
 
@@ -487,7 +487,7 @@ name: fig7_1F
 
 You can see in {numref}`fig7_1F` that the **path** to lowest energy was **not** as **smooth** when there are more options to explore. *GAMESS* took a **wrong turn** at least once. The changes applied according to the gradients were too large and we went **too far** along one of the energy gradients (there are 24 bond lengths, angles and torsions that are being adjusted) and various points. But *GAMESS* did find a **minimum** in the end. Is it the true minimum?
 
-Try **tweaking** some of the torsions the other way. Set just some of the 5˚ torsions to –5˚ and some of the 175˚ torsions to –175˚. Run the optimization **again** and see if you achieved the **same** structure and energy. How did it go? Where we start can influence where we end up. The program just **follows** a path **downwards**. It has no idea if it is heading to a divot or a canyon. It will happily **settle** into the bottom of either.
+Try **tweaking** some of the torsions the other way. Set just some of the 5&deg; torsions to –5&deg; and some of the 175&deg; torsions to –175&deg;. Run the optimization **again** and see if you achieved the **same** structure and energy. How did it go? Where we start can influence where we end up. The program just **follows** a path **downwards**. It has no idea if it is heading to a divot or a canyon. It will happily **settle** into the bottom of either.
 
 ### Confirmimng the *s-trans* Structure
 
@@ -687,7 +687,7 @@ caption: butadiene.log
 
 ## The Potential Energy Surface for Rotation
 
-We now have three energy points for the **rotation** of the central bond in butadiene. We found the best *s-cis* conformer where the central bond **torsion** was 38.15˚, We also found the best *s-trans* conformer where the **torsion angle** was 180˚. And we **locked** the torsion to 0˚ and then found the best structure with that **constraint**. We now have the following potential energy **surface** for the rotation of the central bond. See {numref}`fig7_1_9`.
+We now have three energy points for the **rotation** of the central bond in butadiene. We found the best *s-cis* conformer where the central bond **torsion** was 38.15&deg;, We also found the best *s-trans* conformer where the **torsion angle** was 180&deg;. And we **locked** the torsion to 0&deg; and then found the best structure with that **constraint**. We now have the following potential energy **surface** for the rotation of the central bond. See {numref}`fig7_1_9`.
 
 
 ```{figure} images/Butadiene9.png
@@ -700,13 +700,13 @@ name: fig7_1_9
 
 ### The Hypothesis
 
-I have determined that there are **two stable conformers** (at least) at 38.15˚ and 180˚. There will be a third conformer at –38.15˚ due to symmetry. I have a proposed **energy barrier** of rotation between the two *s-cis* forms at 38.15˚ and –38.15˚ around the C–C bond in butadiene. The energy calculated when holding the torsion at 0˚ is expected to be this barrier. The maximum electron stabilization occurs when π-orbitals are parallel and it is at a minimum when π-orbitals are at 90˚. 
+I have determined that there are **two stable conformers** (at least) at 38.15&deg; and 180&deg;. There will be a third conformer at –38.15&deg; due to symmetry. I have a proposed **energy barrier** of rotation between the two *s-cis* forms at 38.15&deg; and –38.15&deg; around the C–C bond in butadiene. The energy calculated when holding the torsion at 0&deg; is expected to be this barrier. The maximum electron stabilization occurs when π-orbitals are parallel and it is at a minimum when π-orbitals are at 90&deg;. 
 
-I therefore **hypothesize** that the energy barrier between the *s-cis* and *s-trans* forms will be at 90˚. Will the energy barrier be greater or less than the barrier due to steric strain at 0˚? It is time to perform an **experiment**.
+I therefore **hypothesize** that the energy barrier between the *s-cis* and *s-trans* forms will be at 90&deg;. Will the energy barrier be greater or less than the barrier due to steric strain at 0&deg;? It is time to perform an **experiment**.
 
 ### Experimental Design
 
-I will perform the same geometry **optimization** calculations using a **frozen** torsion coordinate as before. I will choose 90˚ for the angle and then run the calculation. I will **also** calculate torsion angles of 85˚ and 95˚ to ensure that I am at or near a maximum at 90˚.
+I will perform the same geometry **optimization** calculations using a **frozen** torsion coordinate as before. I will choose 90&deg; for the angle and then run the calculation. I will **also** calculate torsion angles of 85&deg; and 95&deg; to ensure that I am at or near a maximum at 90&deg;.
 
 Below is an example **input file**. All we need to do is to change the angle of the `4,3,2,1` torsion coordinate. It will be frozen by the `IFREEZ(1)=6` command. We just submit the job to *GAMESS* via *GamessQ* and then dig through the log file to find the final **structure and energy**. Tools like *grep* will help a lot. 
 
@@ -766,12 +766,12 @@ There is no `> filename.txt` destination for the output so it is echoed to the t
 
 This is the workflow: 1) **change** torsion angle in the butadiene.inp file; 2) **submit** the file through *GAMESS*; 3) **Extract** the last energy value and type it into a **list**; 4) repeat.
 
-That will give me a **set of data** for as many angles as I want to try. Below are the energies extracted from the runs for 90˚ and the two checks at 85˚ and 95˚. In {numref}`fig7_1_10`, these values are added to the **plot** for the potential energy surface.
+That will give me a **set of data** for as many angles as I want to try. Below are the energies extracted from the runs for 90&deg; and the two checks at 85&deg; and 95&deg;. In {numref}`fig7_1_10`, these values are added to the **plot** for the potential energy surface.
 
 ```
-85˚  -154.0513571936
-90˚  -154.0509342723
-95˚  -154.0506280903
+85&deg;  -154.0513571936
+90&deg;  -154.0509342723
+95&deg;  -154.0506280903
 ```
 
 
@@ -783,7 +783,7 @@ name: fig7_1_10
 *The potential energy surface for bond rotation in butadiene.*
 ```
 
-Surprise! We are **not at a maximum**. I will just keep changing the angle until we start coming back down. I will try 100˚, 105˚ and 110˚. I found that the energy value **peaks** at the 100˚ point and then starts to decrease. I then did many more angles and the results are plotted in {numref}`fig7_1_11`.
+Surprise! We are **not at a maximum**. I will just keep changing the angle until we start coming back down. I will try 100&deg;, 105&deg; and 110&deg;. I found that the energy value **peaks** at the 100&deg; point and then starts to decrease. I then did many more angles and the results are plotted in {numref}`fig7_1_11`.
 
  Below is a table of the final energies and frozen torsion angles for each experiment that we performed.
 
@@ -825,7 +825,7 @@ name: fig7_1_11
 *The potential energy surface for bond rotation in butadiene.*
 ```
 
-The peak in energy occurs **somewhere** between 100˚ and 105˚. The values at each angle are very close, so I **estimate** the maximum energy is about midway between.
+The peak in energy occurs **somewhere** between 100&deg; and 105&deg;. The values at each angle are very close, so I **estimate** the maximum energy is about midway between.
  
 
 ```{figure} images/Butadiene12.png
@@ -836,13 +836,13 @@ name: fig7_1_12
 *The structures corresponding to the maxima and minima in {numref}`fig7_1_11`*
 ```
 
-Why is the maximum energy **found** at around 102˚ rather than exactly 90˚? The **electronic** energy likely hits a maximum at 90˚ and then starts to decrease as the angle rotates forward to 180˚. **Steric** repulsion from the other end of the molecule is still present and contributing to the total energy. It is decreasing as the angle opens up but results in an energy contribution that puts the maximum **nearer** to 100˚ compared to 90. It seems that the steric interaction between the ends of the molecule pushed both stationary points to the right. The expected electronic minimum of 0˚ was 38˚ and the **expected** maximum of 90˚ was >100˚ when the steric effect is added in.
+Why is the maximum energy **found** at around 102&deg; rather than exactly 90&deg;? The **electronic** energy likely hits a maximum at 90&deg; and then starts to decrease as the angle rotates forward to 180&deg;. **Steric** repulsion from the other end of the molecule is still present and contributing to the total energy. It is decreasing as the angle opens up but results in an energy contribution that puts the maximum **nearer** to 100&deg; compared to 90. It seems that the steric interaction between the ends of the molecule pushed both stationary points to the right. The expected electronic minimum of 0&deg; was 38&deg; and the **expected** maximum of 90&deg; was >100&deg; when the steric effect is added in.
 
 ## Finding A Transition State
 
-The **peak** of the energy barrier, between a C–C torsion of 100˚ and 105˚, is the **transition state** for converting between the *s-trans* and *s-cis* conformers of butadiene. Can we find the **exact point** at which we reach maximum energy along then path of change? 
+The **peak** of the energy barrier, between a C–C torsion of 100&deg; and 105&deg;, is the **transition state** for converting between the *s-trans* and *s-cis* conformers of butadiene. Can we find the **exact point** at which we reach maximum energy along then path of change? 
 
-The coordinate that we are changing is the torsion angle along the central C–C bond. We have **scanned** that coordinate between 0˚ and 180˚. Scanning in this way is a good way to get **close** to a transition state. Each scan point is an optimized structure for that give **torsion value**. So all other coordinates have been minimized in energy (we hope) for each step in the scan. In theory, we are following the **lowest energy path** (a valley) uphill and down over a **saddle point** (a mountain pass). The saddle point is the transition state. There is one direction (coordinate) that takes you **up and then down** in energy as the saddle point is crossed.  All other coordinates will only take you uphill (assuming that they are at minimum energy values after optimization).
+The coordinate that we are changing is the torsion angle along the central C–C bond. We have **scanned** that coordinate between 0&deg; and 180&deg;. Scanning in this way is a good way to get **close** to a transition state. Each scan point is an optimized structure for that give **torsion value**. So all other coordinates have been minimized in energy (we hope) for each step in the scan. In theory, we are following the **lowest energy path** (a valley) uphill and down over a **saddle point** (a mountain pass). The saddle point is the transition state. There is one direction (coordinate) that takes you **up and then down** in energy as the saddle point is crossed.  All other coordinates will only take you uphill (assuming that they are at minimum energy values after optimization).
  
 ```{figure} images/Butadiene13.png
 ---
@@ -856,7 +856,7 @@ name: fig7_1_13
 It is easy for *GAMESS* to find a **minimum**. It just follows every gradient downward. It is more challenging to find a **saddle point**, where one coordinate is maximized and all others are minimized. How do you find that balance point?
 
 
-*GAMESS* has a **calculation** type called `RUNTYP=SADPOINT` that can do this. However, it needs to know what coordinate to follow to find the saddlepoint. The best way to do this is to construct a structure that is **close** to a hypothetical saddle point (our optimized scan for 100˚ seems like a good starting point)
+*GAMESS* has a **calculation** type called `RUNTYP=SADPOINT` that can do this. However, it needs to know what coordinate to follow to find the saddlepoint. The best way to do this is to construct a structure that is **close** to a hypothetical saddle point (our optimized scan for 100&deg; seems like a good starting point)
 
 ### Finding The Imaginary Vibration
 
@@ -864,7 +864,7 @@ It is easy for *GAMESS* to find a **minimum**. It just follows every gradient do
 
 A **structure** that is optimized (except for the frozen coordinate) and is very near the transition state structure should have an imaginary vibration. We need to perform a **vibration calculation** first.
 
-I start with the result file for the potential energy scan done above. I **chose** the result for the optimization where we froze the C–C torsion at 100˚. I opened the log file in *MacMolPlt* and then used `Subwindow` &rarr; `Input Builder` to create a new input file. I **changed** `RunType` to `Hessian`, which will calculate the information needed to determine the **vibrations** and their **frequencies**. These vibrations are the **vectors** along which the various coordinates are changed when we optimize.  
+I start with the result file for the potential energy scan done above. I **chose** the result for the optimization where we froze the C–C torsion at 100&deg;. I opened the log file in *MacMolPlt* and then used `Subwindow` &rarr; `Input Builder` to create a new input file. I **changed** `RunType` to `Hessian`, which will calculate the information needed to determine the **vibrations** and their **frequencies**. These vibrations are the **vectors** along which the various coordinates are changed when we optimize.  
 
 For **finding** the saddle point, we need to be **close** in structure and have a **vector** (the imaginary vibration) that **points** straight toward it. So we must calculate the **Hessian** matrix. With higher levels of theory this can take a long time, but we are using a very low level of theory and won’t have to wait long. In many cases 3-21G<sup>*</sup> will not be suitable for an accurate **transition state** in a reaction but, since we are not making or breaking bonds, we should be OK. We also set up a `Vibrational Analysis` so that vibrations would be **calculated** out of the Hessian data and reported in the result file.
 
@@ -1046,7 +1046,7 @@ caption: butadiene_saddle.log
  NSERCH:   2  E=     -154.0504557511  GRAD. MAX=  0.0000005  R.M.S.=  0.0000002
 ```
 
-The *GAMESS* calculation has determined that a **saddle point** exists when the C–C torsion angle (the 5,4,3,2 torsion in this example) is 102.02˚. I can now add that data point into my potential energy surface. The complete table is produced below with the stationary points (maxima and minima) highlighted.
+The *GAMESS* calculation has determined that a **saddle point** exists when the C–C torsion angle (the 5,4,3,2 torsion in this example) is 102.02&deg;. I can now add that data point into my potential energy surface. The complete table is produced below with the stationary points (maxima and minima) highlighted.
 
 ```{code-block} 
 ---
@@ -1083,7 +1083,7 @@ emphasize-lines: 4, 10, 20, 28
       180      -154.0594778      0
 ````
 
-I had hypothesized that the transition state for bond rotation would occur between 100˚ and 105˚ and a little closer to 100˚ than 105˚. I chose 102˚ to make the diagram in {numref}`fig7_1_12`. *GAMESS* proposes that the transition state occurs at 102.02˚. Great minds think alike.
+I had hypothesized that the transition state for bond rotation would occur between 100&deg; and 105&deg; and a little closer to 100&deg; than 105&deg;. I chose 102&deg; to make the diagram in {numref}`fig7_1_12`. *GAMESS* proposes that the transition state occurs at 102.02&deg;. Great minds think alike.
 
 ```{figure} images/Butadiene15.png
 ---
@@ -1097,10 +1097,10 @@ name: fig7_1_15
 These are the operations that we have performed over the course of this activity.
 
 1.	**Build and Optimize** symmetrical butadiene. We calculated the optimized geometry of butadiene using an initial structure that was perfectly flat for the *s-cis* conformer and the *s-trans* conformer. The calculation easily found the bond lengths and angles for minimum energy but was trapped in stationary points for the torsion coordinates due to the flat symmetry.
-2.	**Optimize** the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the *s-cis* conformer actually occurred when the C–C torsion was 38˚. We also saw that the *s-trans* conformer did indeed find an almost flat optimized structure.
-3.	Scan the torsion angle to create an **energy profile**. We then performed a series of optimization calculations with the torsion coordinate for the σ C–C bond frozen over a set of angles. This allowed us to observe that the transition state for rotation between *cis* and *trans* conformers was near a torsion angle of 102˚.
+2.	**Optimize** the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the *s-cis* conformer actually occurred when the C–C torsion was 38&deg;. We also saw that the *s-trans* conformer did indeed find an almost flat optimized structure.
+3.	Scan the torsion angle to create an **energy profile**. We then performed a series of optimization calculations with the torsion coordinate for the σ C–C bond frozen over a set of angles. This allowed us to observe that the transition state for rotation between *cis* and *trans* conformers was near a torsion angle of 102&deg;.
 4. Evaluate the **vibrations** near the transition state. I used a structure from the torsion scan to calculate the vibrations in a structure that was close to the hypothesized transition state. This was to confirm that there was an imaginary vibration that would likely take us toward the true transition state.
-5.	Calculate an optimized **structure** for the **transition state**. After confirming that we had a good imaginary vibration, I performed a saddle point calculation that optimized the structure for the nearest transition state. We were very close already and found it easily. The T.S. was at a torsion angle of 102.0˚.
+5.	Calculate an optimized **structure** for the **transition state**. After confirming that we had a good imaginary vibration, I performed a saddle point calculation that optimized the structure for the nearest transition state. We were very close already and found it easily. The T.S. was at a torsion angle of 102.0&deg;.
 
 ## Challenges
 

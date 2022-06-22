@@ -25,7 +25,7 @@ display(df.head())
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/var/folders/47/77583m4574g5my09v13lx7vr0000gp/T/ipykernel_99115/749626737.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/47/77583m4574g5my09v13lx7vr0000gp/T/ipykernel_36815/749626737.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0;34m[0m[0m
 [0;32m----> 3[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m"/Users/blink/Documents/CompChem/GAMESS-RESULTS/results.txt"[0m[0;34m,[0m [0mheader[0m [0;34m=[0m [0;32mNone[0m[0;34m,[0m [0msep[0m [0;34m=[0m [0;34mr"\s+|_"[0m[0;34m,[0m [0mengine[0m [0;34m=[0m [0;34m"python"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

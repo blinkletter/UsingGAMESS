@@ -175,6 +175,28 @@ const thebe_selector_output = ".output, .cell_output"
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10_Solvent_IRC_Plots.html">
+     Data Cleaning Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
+     Data Cleaning Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -282,9 +304,9 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#allyl-cation-orbitals">
+  <a class="reference internal nav-link" href="#allyl-cation-benzene-orbitals">
    <span class="xref myst">
-    6. Allyl Cation: π Orbitals
+    6. Allyl Cation * Benzene: π Orbitals
    </span>
   </a>
  </li>
@@ -306,6 +328,13 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#diels-alder-reaction-intrinsic-reaction-coordinates">
    <span class="xref myst">
     9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solvent-models">
+   <span class="xref myst">
+    10. Solvent Models
    </span>
   </a>
  </li>
@@ -392,9 +421,9 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#allyl-cation-orbitals">
+  <a class="reference internal nav-link" href="#allyl-cation-benzene-orbitals">
    <span class="xref myst">
-    6. Allyl Cation: π Orbitals
+    6. Allyl Cation * Benzene: π Orbitals
    </span>
   </a>
  </li>
@@ -416,6 +445,13 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#diels-alder-reaction-intrinsic-reaction-coordinates">
    <span class="xref myst">
     9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solvent-models">
+   <span class="xref myst">
+    10. Solvent Models
    </span>
   </a>
  </li>
@@ -479,8 +515,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2><a class="reference internal" href="5_Rotation_Profiles.html"><span class="doc std std-doc">5. Butane: Rotation Energy Profiles</span></a><a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this headline">¶</a></h2>
 <p>We can extend the idea of locking specific elements of a structure and performing a constrained optimization to explore the full <strong>potential energy surface</strong> for the rotation of the central C-C bond in butane. We will use <strong>internal coordinates</strong> to set values of for the torsion angle  and <strong>constrain</strong> that value using the $STATPT IFREEZ option. We will also use <em><strong>Unix</strong></em> tools to <strong>build</strong> a series of input files and <strong>extract</strong> the data from the result files. Interactive <em><strong>Python</strong></em> will be demonstrated for <strong>analyzing and plotting</strong> the data.</p>
 </div>
-<div class="section" id="allyl-cation-orbitals">
-<h2><a class="reference internal" href="6_Pi_Orbitals.html"><span class="doc std std-doc">6. Allyl Cation: π Orbitals</span></a><a class="headerlink" href="#allyl-cation-orbitals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="allyl-cation-benzene-orbitals">
+<h2><a class="reference internal" href="6_Pi_Orbitals.html"><span class="doc std std-doc">6. Allyl Cation * Benzene: π Orbitals</span></a><a class="headerlink" href="#allyl-cation-benzene-orbitals" title="Permalink to this headline">¶</a></h2>
 <p>We have already used simplified Hückel molecular orbital theory and interactive <em>Python</em> to calculate the π-molecular orbitals for <strong>conjugated systems</strong>. Now let us demonstrate that goal with <em>GAMESS</em>. We will <strong>calculate and visualize</strong> the π-molecular orbitals for the <strong>allyl system</strong> using <em>GAMESS</em> and <em>MacMolPlt</em>. We will revisit the idea of using <strong>symmetry</strong> in calculations.</p>
 </div>
 <div class="section" id="benzene-mos-symmetry">
@@ -494,6 +530,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="diels-alder-reaction-intrinsic-reaction-coordinates">
 <h2><a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</span></a><a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>We’ve all seen those little movies of a <strong>reaction in progress</strong>. We can make our own movies. We will use the Diels-Alder cycloaddition reaction as an example to demonstrate a <strong>reaction coordinate scan</strong> using a new method to <strong>contrain coordinates</strong>. We will not use the <em>Z-matrix</em>, but will use unique Cartessian coordinates and freeze automatically-generated internal coordinates of specific atoms using the $ZMAT IFZMAT and FVALUE options. We can then use this system to generate a <strong>series of structures</strong> that may track near the <strong>reaction coordinate</strong>. From this series we will identify a structure that is near the transition state and perform a <strong>transition state optimization</strong>. Finally we will use the transition state as a starting point for following the potential energy surface down to the products on either side via an <strong>intrinsic reaction coordinate</strong> calculation. We will use <em>MacMolPlt</em> to assemble the complete reaction coordinate from the log files and <strong>visualize</strong> the structures. <em>MacMolPlt</em> will produce an <strong>energy plot</strong> for us. In the end, we will <strong>make a movie</strong>.</p>
+</div>
+<div class="section" id="solvent-models">
+<h2><a class="reference internal" href="9_Solvent.html"><span class="doc std std-doc">10. Solvent Models</span></a><a class="headerlink" href="#solvent-models" title="Permalink to this headline">¶</a></h2>
+<p>Organic chemists do not live in <strong>gas phase</strong>. Our reactions occur in <strong>solvents</strong>. <em>GAMESS</em> can include solvemnt effects through a variety of methods.  We will use the PCM method to <strong>simulate a solvent environment</strong> and observe the difference in calculations for an <em>S<sub>N</sub>2</em> reaction. We will again explore using <strong>symmetry</strong> to enforce geometry during optimization, <strong>saddle point</strong> optimization and <strong>intrinsic reaction coordinate</strong> calculations. This exercise will place an emphasis on using <strong>text-based</strong> tools.</p>
 </div>
 <div class="section" id="notes-and-comments">
 <h2>Notes and Comments<a class="headerlink" href="#notes-and-comments" title="Permalink to this headline">¶</a></h2>

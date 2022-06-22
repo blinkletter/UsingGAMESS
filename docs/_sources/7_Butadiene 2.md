@@ -1,20 +1,20 @@
 # Butadiene: Transition State for Rotation
 
-We expect butadiene to prefer a flat syn or anti conformation. These two possibile conformations are designated "*s-cis*" and "*s-trans*". The "s" referrs to the σ bond involved. There should be an energy maximum when the torsion angle is 90˚ due to the loss of cojugation in when the two π bonds are orthogonal. 
+We expect butadiene to prefer a **flat** *syn* or *anti* conformation. These **two** possibile **conformations** are designated "*s-cis*" and "*s-trans*". The "s" referrs to the &sigma; bond involved. There should be an energy maximum when the **torsion** angle is 90&deg; due to the loss of **cojugation** in when the two &pi; bonds are orthogonal. 
 
-The change in electronic structure as the central bond rotates is similar to a chemical reaction. Molecular orbitals are being substatially changed and we proceed from one stable conformation to another. We could view the highest energy point in this potential energy profile for rotation as a transition state in the change from *s-cis* to *s-trans*. In this chapter we will explore the rotational potential energy profile for butadiene and introduce the concept of optimizing a transition state structure.
+The **change** in electronic structure as the central bond rotates is similar to a chemical **reaction**. Molecular orbitals are being substatially changed and we proceed from one stable conformation **to another**. We could view the highest energy point in this potential energy profile for rotation as a **transition state** in the change from *s-cis* to *s-trans*. In this chapter, we will explore the **rotational potential energy profile** for butadiene and introduce the concept of **optimizing** a transition state structure.
 
-We will model butadiene and determine its most stable configuration in the *s-trans* and *s-cis* rotational conformers. We will then estimate the energy difference between the two conformers using different levels of theory and use these values to estimate the equilibrium constant between the two states. We will  scan through a rotation of the central bond to locate the highest energy structure along the path. We will  use the energy barrier to calculate an estimate for the rate of the process for rotating between the conformations and draw a conclusion as to whether there is a barrier to rotation.
+We will **model** butadiene and determine its most stable **configuration** in the *s-trans* and *s-cis* rotational conformers. We will then estimate the energy **difference** between the two conformers using different levels of theory and use these values to estimate the equilibrium constant between the two states. We will  **scan** through a rotation of the central bond to locate the highest energy structure along the path. We will  use the **energy barrier** to calculate an estimate for the rate of the process for rotating between the conformations and draw a **conclusion** as to whether there is a barrier to rotation.
 
-Finally we will use an optimized structure that is near the energy maximum as a starting point for optimizing the structure of the transition state for the bond rotation.
+Finally we will use an optimized **structure** that is near the energy **maximum** as a starting point for **optimizing** the structure of the **transition state** for the bond rotation.
 
 ## Optimizing the *trans* Conformer
 
-We will begin with a review of building molecules and optimizing structure. We will build both *cis* and *trans*-butadiene and attempt to optimize the structures. We will learn about some oitfalls along the way. Let us now begin with *trans*.
+We will begin with a **review** of building molecules and optimizing structure. We will **build** both *cis* and *trans*-butadiene and attempt to **optimize** the structures. We will learn about some pitfalls along the way. Let us now **begin** with *trans*.
 
 ### Building *trans*-Butadiene
 
-Run *MacMolPlt*. Click on `Builder` &rarr; `Show Build Tools`. Choose `carbon atoms` and set the `coordination number` to `3` (three bonds to an *sp<sup>2</sup>* carbon). Then click in the window to build the molecule, A carbon with three connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change build the atom to hydrogen and then click on the remaining connections to include C-H bonds. Trial and error are your true teachers.
+Run *MacMolPlt*. Click on `Builder` &rarr; `Show Build Tools`. Choose `carbon atoms` and set the `coordination number` to `3` (three bonds to an *sp<sup>2</sup>* carbon). Then click in the window to **build** the molecule, A carbon with three connections will appear. Then click on one of the **connections** to add a new carbon. When you have added all four carbon atoms, change the atom to hydrogen and then click on the remaining connections to include C-H bonds. **Trial and error** are your true teachers.
 
 ```{figure} images/Butadiene1.png
 ---
@@ -24,15 +24,15 @@ name: fig7_1A
 **MacMolPlt* window with the initial structure for butadiene.*
 ```
  
-The above initial structure is rough sketch. We will need to calculate the correct structure by creating an input file for *GAMESS*. Click on `Subwindow` &rarr; `Input Builder` and set the following parameters:
+The above **initial structure** is rough sketch. We will need to calculate the correct structure by creating an input file for *GAMESS*. Click on `Subwindow` &rarr; `Input Builder` and set the following parameters:
 
-- In the `Control` section, set `Run Type` to `Optimization`. This will instruct *GAMESS* that we are doing a calculation to find the optimizes molecular geometry.
+- In the `Control` section, set `Run Type` to `Optimization`. This will instruct *GAMESS* that we are doing a calculation to find the **optimizes** molecular geometry.
 
-- In the `Basis` section, set `Basis Set` to `3-21G` and set `#D and F heavy atom polarizations functions` to `1`. This means that we are running the calculation using the 3-21G<sup>*</sup> basis set. This is a low level of theory and is suitable for quick calculkation that we want to be able to use and interpret during class.
+- In the `Basis` section, set `Basis Set` to `3-21G` and set `#D and F heavy atom polarizations functions` to `1`. This means that we are running the calculation using the 3-21G<sup>*</sup> basis set. This is a low level of theory and is suitable for quick **calculation** that we want to be able to use and interpret during class.
 
 - In the `Data` section, set `Coord. Type` to `Z-Matrix` and set `# of Z-matrix variables` to `24` (10 atoms so 3N – 6 = 24)
 
-- In the `Misc. Prefs` section, check the `MolPlt` button. This will ensure that *GAMESS* outputs information in a format that can be read by the *MacMolPlt* application.
+- In the `Misc. Prefs` section, check the `MolPlt` button. This will ensure that *GAMESS* outputs information in a **format** that can be read by the *MacMolPlt* application.
 
 - Click on the `Edit and Save` button in the bottom of the `Input Builder` window. Then click on `Save As…` and save your file. Choose a name like `butadiene.inp`
 
@@ -75,12 +75,13 @@ H   4    1.14000  9 120.0000  3 180.0000
 
 ### Optimizing the Structure
 
-Now we will feed the input file into the *GAMESS* program. The job will run and produce an output file that will contain a description of the structure with the minimum calculated overall energy. This might be the most stable structure for our molecule.
+Now we will feed the **input file** into the *GAMESS* program. The job will run and produce an output file that will contain a description of the **structure** with the minimum calculated overall energy. This might be the most **stable** structure for our molecule.
 
-Run the *GamessQ* program as we did previously for [butane](5_Rotation_Profiles.md). This will produce an output file that is rich in information. Below we will also pause for a detailed discussion of the contents of the output .log file.
+Run the *GamessQ* program as we did previously for [butane](5_Rotation_Profiles.md). This will produce an **output file** that is rich in information. Below, we will also pause for a detailed **discussion** of the contents of the output .log file.
  
 ### The Output File
-The *GamessQ* window will show you when the job is done. An output file with the extension “.log” will be created.  This has all the results of the calculation. The entire file is presented in fig. 4 in very tiny print. The sections that will be discussed next are highlighted in the {numref}`fig7_1B`. The [input file](butadiene.inp.md) and the [output file](butadiene.log.md) are available in text format.
+
+The *GamessQ* window will **show** you when the job is done. An output file with the extension “.log” will be created.  This has all the **results** of the calculation. The entire file is presented in {numref}`fig7_1B` in very tiny print. The sections that will be discussed next are highlighted. The [input file](butadiene.inp.md) and the [output file](butadiene.log.md) are available in text format.
 
 ```{figure} images/BUTADIENE_Rotation-ALL.png
 ---
@@ -91,37 +92,37 @@ name: fig7_1B
 ```
 
 #### Lines 1 to 100: System Information and *GAMESS* Header
-The first part of the file is information about the computer running *GAMESS* and the standard *GAMESS* header with credits and references.
+The **first part** of the file is information about the **computer** running *GAMESS* and the standard *GAMESS* header with credits and references.
 
 #### Lines 114 to 139: Input File
-The next section is a copy of the input file. The “`INPUT CARD>`” at the start of each line is an artifact of the FORTRAN heritage of *GAMESS*. There was once a day when each line would have been read in via a stack of paper punch cards. Never fold, spindle or mutilate your input file.
+The next section is a **copy** of the **input file**. The “`INPUT CARD>`” at the start of each line is an artifact of the FORTRAN heritage of *GAMESS*. There was once a day when each line would have been read in via a stack of **paper punch cards**. Never fold, spindle or mutilate your input file.
 
 #### Lines 140 to 470: Setup
-This section chronicles the *GAMESS* program setting up your calculations.  We see outputs of our structure in Cartesian coordinates and in internal coordinates. This is followed by a list of the basis set parameters. Then the electrons are described according to the instructions of the input file. Toward the end of the setup, we see the final statement of internal coordinates in lines 400 to 430. This was set up by the `$ZMAT` group at the end of the input file.  
+This section chronicles the *GAMESS* program **setting up** your calculations.  We see outputs of our structure in **Cartesian coordinates** and in **internal coordinates**. This is followed by a list of the basis set **parameters**. Then the electrons are described according to the instructions of the input file. Toward the end of the setup, we see the final statement of internal coordinates in lines 400 to 430. This was set up by the `$ZMAT` group at the end of the input file.  
 
-The important item here is that the sixth parameter in that set of internal coordinates is the dihedral angle along the central C–C bond of butadiene. It will always be the sixth item because the 1,2,3,4 parameter (the angle involving atoms 1,2,3 and 4) is the sixth in the `$ZMAT` list. We will be freezing this sixth parameter when we get to exploring all possible angles for this dihedral. That is the purpose of the `$ZMAT` group. We declare the parameters in the Z-matrix and can then address them by their position in the list.  If we did not declare the `$ZMAT` list then we would never know where *GAMESS* chose to put that parameter in the list.
+The important item here is that the **sixth parameter** in that set of internal **coordinates** is the **dihedral angle** along the central C–C bond of butadiene. It will always be the sixth item because the 1,2,3,4 parameter (the angle involving atoms 1,2,3 and 4) is the **sixth** in the `$ZMAT` list. We will be **freezing** this sixth parameter when we get to exploring all possible angles for this dihedral. That is the purpose of the `$ZMAT` group. We **declare** the parameters in the *Z-matrix* and can then address them by their position in the list.  If we did not declare the `$ZMAT` list then we would not know in advance where *GAMESS* chose to put that parameter in the list.
 
 #### Lines 471 to 1431: Initial Energy Calculation
-Next *GAMESS* performs an energy calculation using our initial input structure. The output includes data for molecular orbitals as well. *GAMESS* will give the MO information for the first and last calculations in an optimization run.
+Next *GAMESS* performs an **energy** calculation using our initial input structure. The output includes data for molecular orbitals as well. *GAMESS* will give the MO information for the **first and last** calculations in an optimization run.
 
-This calculation provides the energy and the first derivative of the energy, the gradient. The gradient tells *GAMESS* which direction to change bond lengths and angles to follow a downhill slope in the energy function. We will keep following that slope to the bottom, hopefully.
+This calculation provides the **energy** and the first derivative of the energy, the **gradient**. The gradient tells *GAMESS* which **direction** to change bond lengths and angles to follow a **downhill** slope in the energy function. We will keep following that slope to the **bottom**, hopefully.
 
 #### Lines 1432 to 1626: The First Optimization Step
-The *GAMESS* program takes the input structure and changes the bond lengths and angles according to the gradient. It takes baby steps so as not to overshoot a possible minimum-energy destination. After applying these small changes, *GAMESS* performs another energy and gradient calculation. You will see the new structure reported at the beginning of this calculation. If you compare the internal coordinates used in the initial energy calculation to the internal coordinates used in step 1 (compare lines 495-518 to lines 1457-1480) you will see the changes made. For example, the C=C double bond between atoms 1 and 2 has changed from 1.54 Å to 1.44 Å.
+The *GAMESS* program takes the input structure and changes the **bond lengths and angles** according to the gradient. It takes baby steps so as not to overshoot a possible minimum-energy destination. After applying these small changes, *GAMESS* performs another energy and gradient **calculation**. You will see the new structure reported at the beginning of this calculation. If you **compare** the internal coordinates used in the initial energy calculation to the internal coordinates used in step 1 (compare lines 495-518 to lines 1457-1480) you will see the **changes** made. For example, the C=C double bond between atoms 1 and 2 has changed from 1.54 Å to 1.44 Å.
 
 #### Lines 1627 to 2949: Seven More Optimization Steps
-This process is repeated again and again. The energy and gradient are calculated and then that information is used to change the structure along the downward slope of the energy function. This new structure is the input for the next energy and gradient calculation. We will repeat this process until the molecule is no longer changing. When the changes proposed by *GAMESS* drop below a certain threshold value, the program will declare that a “stationary point” has been reached. This is the place where the first derivative of the energy function is zero. It is the bottom of a well or the peak of a hill. Since we have been following the gradient downwards, we will assume that we have reached a minimum in energy.
+This process is **repeated again and again**. The energy and gradient are calculated and then that information is used to change the structure along the downward slope of the energy function. This new structure is the input for the next energy and gradient calculation. We will repeat this process until the molecule is **no longer changing**. When the changes proposed by *GAMESS* drop below a certain threshold value, the program will declare that a “stationary point” has been reached. This is the place where the **first derivative** of the energy function is **zero**. It is the bottom of a well or the peak of a hill. Since we have been following the gradient downwards, we will assume that we have reached a **minimum** in energy.
 
-The energy is reported near the end of each optimization. We could extract these values and plot the progress with each step. Give it a try.
+The energy is reported near the end of each optimization. We could **extract** these values and plot the progress with each step. Give it a try.
 
 #### Lines 2890 to 3031: Final Results
-At the end of all this we have the final structure expressed in both Cartesian and internal coordinates and the final energy value for that structure. We can take these coordinates and use them in a new experiment if we wished. Examining the internal coordinates reported at the end of step 8 in lines 2909 to 2939 reveals that the C=C bond lengths (2,1 and 4,3) are 1.32 Å and the C–C bond length (3,2) is 1.47 Å. The dihedral angle along the C–C bond (4,3,2,1) is 180˚.
+At the end of all this we have the **final structure** expressed in both Cartesian and internal coordinates and the final energy value for that structure. We can take these coordinates and use them in a new experiment if we wished. **Examining** the internal coordinates reported at the end of step 8 in lines 2909 to 2939 reveals that the C=C bond lengths (2,1 and 4,3) are 1.32 Å and the C–C bond length (3,2) is 1.47 Å. The dihedral angle along the C–C bond (4,3,2,1) is 180&deg;.
 
-Below in {numref}`selection1` is a section of the log file from step 8 that reports the final atomic coordinates nd the energy. I extracted lines 2946 to 2995 and added line numbers.
+Below in {numref}`selection1` is a section of the log file from step 8 that reports the **final atomic coordinates** and the energy. I extracted lines 2946 to 2995 and added line numbers.
 
-The energy is reported in line 2946. The internal coordinates that list bond lengths and angles are start at line 2969.  The set of Cartesian coordinates is useful as input for 3-diemsional molecular visualization programs like UCSF Chimera, VMD or Avagadro. The block of xyz Cartesian coordinates starts at line 2951.
+The energy is reported in line 2946. The internal coordinates that list bond lengths and angles are start at line 2969.  The set of Cartesian coordinates is **useful** as input for 3-diemsional molecular **visualization** programs like UCSF Chimera, VMD or Avagadro. The block of *xyz* Cartesian coordinates starts at line 2951.
 
-From the below internal coordinates, I can create a diagram of the optimized structure. See {numref}`fig7_1C`.
+From the below internal coordinates, I can create a **diagram** of the optimized structure. See {numref}`fig7_1C`.
 
 ```{code-block} 
 ---
@@ -190,17 +191,17 @@ name: fig7_1C
 ---
 *Final results from the output file (step 8)*
 ```
-Take note that the diagram in {numref}`fig7_1C` was constructed by examining the text of the log file. We don't have to use a graphical interface such as *MacMolPlt*. Often, using internal coordinates give us easy access to structural deatails. 
+Take note that the diagram in {numref}`fig7_1C` was **constructed** by examining the **text** of the log file. We don't have to use a graphical interface such as *MacMolPlt*. Often, using internal coordinates give us **easy** access to structural details. 
 
 ## Using Unix
 
-Using the Unix skills described in the [Building Your System](1_Setup.md) document, we can manipulate the text output files to extract important pits of information.
+Using the *Unix* skills described in the [Building Your System](1_Setup.md) document, we can **manipulate** the text output files to extract important pits of information.
 
 ### Extracting Information
 
-We will now extract just the lines that we want from the large log file. *grep* is a tool that can be called from the shell. It will read the file line by line and return the lines that contain a text string. 
+We will now **extract** just the lines that we want from the large log file. *grep* is a tool that can be called from the shell. It will read the file line by line and return the lines that contain a text string. 
 
-The command `grep "NSERCH" Butadiene_121.log > energy.txt` will extract the text lines that I observed contained both the calculated energy and the step number for each optimization step. The file `energy.txt` now contains the following content shown in {numref}`energies1`.
+The command `grep "NSERCH" Butadiene_121.log > energy.txt` will extract the **text lines** that I observed contained both the calculated energy and the step number for each optimization step. The file `energy.txt` now contains the following content shown in {numref}`energies1`.
 
 ```{code-block} 
 ---
@@ -236,7 +237,7 @@ BEGINNING GEOMETRY SEARCH POINT NSERCH=   0 ...
  NSERCH:   8  E=     -154.0594565686  GRAD. MAX=  0.0000626  R.M.S.=  0.0000215
 ```
 
-You can see that this is every line in the file that includes the string “`NSERCH`”. I want just the lines that contain the energy and the gradient. So I will grep this file again for “`GRAD`”.
+You can see that this is **every line** in the file **that contains** the string “`NSERCH`”. I want just the lines that contain the energy and the gradient. So I will grep this file again for “`GRAD`”.
 
 The command `grep "GRAD" energy.txt > energy2.txt` will produce the file named `energy2.txt` that contains the following lines shown in {numref}`energies2`
 
@@ -257,7 +258,7 @@ caption: energy2.txt
  NSERCH:   8  E=     -154.0594565686  GRAD. MAX=  0.0000626  R.M.S.=  0.0000215
 ```
 
-I can then import `energy2.txt` into a Jupyter notebook and make a graph of the energy and the gradient as we go through the steps. In {numref}`fig7_1D`, we see a plot of the relative energies in each step. The energy in the result table was in Hartrees (Ha), a unit common in computational chemistry. There are 2625.5 kJ/mole in a Hartree. 
+I can then import `energy2.txt` into a Jupyter notebook and make a **graph** of the energy and the gradient as we go through the steps. In {numref}`fig7_1D`, we see a plot of the **relative energies** in each step. The energy in the result table was in Hartrees (*Ha*), a unit common in computational chemistry. There are 2625.5 *kJ/mole* in a Hartree. 
 
 ```{figure} images/Butadiene6.png
 ---
@@ -267,7 +268,7 @@ name: fig7_1D
 *Plot of relative energy as the optimization proceeds. The left plot shows all steps and the right plot shows the energy from step 3 to the end.*
 ```
 
-The energy changes quickly in the first few steps and then we keep making small changes until the *GAMESS* program halted the optimization.
+The energy changes **quickly** in the first few steps and then we keep making **small changes** until the *GAMESS* program halted the optimization.
 
 ```{note}
 You can learn more about *grep* online.  Start at https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf and then keep going. When you are ready for the next level search the web for “regular expressions”. 
@@ -276,11 +277,11 @@ You can learn more about *grep* online.  Start at https://www-users.york.ac.uk/~
 
 ## Optimized Geometry of the *s-cis* Conformer
 
-Butadiene can rotate around the central C–C bond. It can exist as a *s-cis* or a *s-trans* conformer. The energy barrier is small and the central bond can easily rotate. We could calculate the optimized structure for the *cis* conformer and compare that energy to the *trans* conformer.
+Butadiene can **rotate** around the central C–C bond. It can exist as a *s-cis* or a *s-trans* conformer. The energy barrier is small and the central bond can easily rotate. We could calculate the **optimized** structure for the *cis* conformer and compare that energy to the *trans* conformer.
 
 ### Changing The Input File
 
-Let us rotate the central bond all the way around. The simplest way to do this is to change the 4,3,2,1 torsional angle from 180˚ to 0˚ in the input file. Here is the changed input file, butadiene.inp shown in {numref}`butadiene_122inp`. 
+Let us rotate the central bond all the way around. The simplest way to do this is to **change** the 4,3,2,1 torsional angle from 180&deg; to 0&deg; in the **input file**. Here is the changed input file, butadiene.inp shown in {numref}`butadiene_122inp`. 
 
 ```{code-block} 
 ---
@@ -317,7 +318,7 @@ H   4    1.14000  9 120.0000  3 180.0000
 
 ### Running The Job
 
-We will drop the changed file onto the *GamessQ* window to submit the calculation to *GAMESS*. In three seconds we are done and a new log file is created. I opened the file in a text editor, scrolled down to the last iteration and found the resulting optimized structure and energy. This text selection is shown in {numref}`butadiene_122log`.
+We will drop the changed file **onto** the *GamessQ* window to submit the calculation to *GAMESS*. In three seconds we are done and a new log file is created. I opened the file in a **text editor**, scrolled down to the last iteration and **found** the resulting optimized structure and energy. This text selection is shown in {numref}`butadiene_122log`.
 
 ```{code-block} 
 ---
@@ -363,7 +364,7 @@ caption: butadiene.log
  NSERCH:   8  E=     -154.0539432855  GRAD. MAX=  0.0000236  R.M.S.=  0.0000093
 ```
 
-We see the torsion `4,3,2,1` value is zero in the optimized structure. Is the electronic demand to maximize planarity and π-orbital overlap able to completely trump the steric cost of pushing the end groups into close proximity? I don’t know about that. Look at the `3,2,1` bend. It represents the angle in the carbon chain. It is 126˚. This is much larger than the ideal 120˚ angle. The bond angle is being forced to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the *s-cis* form of butadiene. {numref}`fig7_1E` shows a diagram for the result of this optimization.
+We see the torsion `4,3,2,1` value is **zero** in the optimized structure. Is the **electronic demand** to maximize planarity and &pi;-orbital overlap able to completely trump the **steric cost** of pushing the end groups into close proximity? I don’t know about that. Look at the `3,2,1` bend. It represents the **angle** in the carbon chain. It is 126&deg;. This is much larger than the ideal 120&deg; angle. The bond angle is being **forced** to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the *s-cis* form of butadiene. {numref}`fig7_1E` shows a **diagram** for the result of this optimization.
 
 ```{figure} images/Butadiene7.png
 ---
@@ -376,13 +377,13 @@ name: fig7_1E
 
 ### Avoiding Traps and Pitfalls
 
-The perfectly flat structure might be on a maximum energy point and unable to snap out of it because the gradients for the torsions are all calculated to be zero. Are we at a peak or in a valley? 
+The perfectly **flat** structure might be on a **maximum** energy point and unable to **snap out of it** because the gradients for the torsions are all calculated to be zero. Are we at a **peak** or in a valley? 
 
 ### Breaking The Symmetry
 
-Let’s simply set the torsions to 5˚ away from flat and then let the calculation run. I will also set `NSTEP=100` in the `$STATPT` group of settings. The original value was `20` and the calculation was stopping at 20.  If we stop on a count rather than when we find the stationary point we won’t be at the optimized destination. NSTEP should be set so that the calculation cannot take too long but I’m not worried about that here.
+Let’s simply **set** the torsions to 5&deg; away from flat and then let the calculation run. I will also set `NSTEP=100` in the `$STATPT` group of settings. The original value was `20` and the calculation was stopping at 20.  If we stop on a count rather than when we find the stationary point we won’t be at the optimized **destination**. `NSTEP` should be set so that the calculation cannot take too long but I’m not worried about that here.
 
-I’m going to do the same with the *s-trans* conformer as well. In that calculation we had set the `4,3,2,1` torsion to 180˚ and it had remained there. We will tweak all the torsions by 5˚ here as well.
+I’m going to do the same with the *s-trans* conformer as well. In that calculation we had set the `4,3,2,1` torsion to 180&deg; and it had remained there. We will **tweak** all the torsions by 5&deg; here as well.
 
 Here in {numref}`Butadiene_125` is the new input file for the *s-cis* conformer…
 
@@ -469,11 +470,11 @@ caption: butadiene.log
  NSERCH:  32  E=     -154.0551401544  GRAD. MAX=  0.0000855  R.M.S.=  0.0000275
 ```
 
-Once the symmetry of the flat structure was broken the molecule had a whole other dimension to explore and it took 32 steps to reach a minimum energy. Most of the torsions are almost flat, as expected. However, the central C–C bond settled to a torsion angle of 38˚! That is very not flat. The *sp<sup>2</sup>* hybridization and the demands of orbital overlap demand a flat structure, but the realities of steric clash push against that goal. We ended up being pushed out of planar as we maximized electron delocalization and minimized steric clash. It’s called compromise and it’s how the world gets along.
+Once the **symmetry** of the flat structure was **broken**, the molecule had a whole other dimension to explore and it took 32 steps to reach a minimum energy. Most of the torsions are almost flat, as expected. However, the central C–C bond **settled** to a torsion angle of 38&deg;! That is very not flat. The *sp<sup>2</sup>* hybridization and the orbital overlap demand a flat structure, but the **realities** of steric clash push against that goal. We ended up being pushed out of planar as we maximized electron delocalization and minimized steric clash. It’s called **compromise** and it’s how the world gets along.
 
-The result file was named butadiene125.log. I entered the following command to strip out the energy result for each step: `grep "NSERCH" Butadiene_125.log | grep "GRAD" > energy3.txt`
+The **result file** was named butadiene125.log. I entered the following command to **extract** the energy result for each step: `grep "NSERCH" Butadiene_125.log | grep "GRAD" > energy3.txt`
 
-The vertical line is a “pipe”. It sends the output of the first command into the second. Pipes allow for stringing Unix tools together to do complex operations in a single command.  The result of that operation is in the file `energy3.txt` and I used the data to graph the energy change with each step. I opened the file in a Jupyter notebook and made the plot shown in {numref}`fig7_1F`.
+The vertical line is a “pipe”. It **sends the output** of the first command into the second. **Pipes** allow for stringing Unix tools **together** to do complex operations in a single command.  The result of that operation is in the file `energy3.txt` and I used the data to graph the energy change with each step. I opened the file in a Jupyter notebook and made the **plot** shown in {numref}`fig7_1F`.
 
 ```{figure} images/Butadiene8.png
 ---
@@ -484,9 +485,9 @@ name: fig7_1F
 ```
 
 
-You can see in {numref}`fig7_1F` that the path to lowest energy was not as smooth when there are more options to explore. *GAMESS* took a wrong turn at least once. The changes applied according to the gradients were too large and we went too far along one of the energy gradients (there are 24 bond lengths, angles and torsions that are being adjusted.) But *GAMESS* did find a minimum. Is it the true minimum?
+You can see in {numref}`fig7_1F` that the **path** to lowest energy was **not** as **smooth** when there are more options to explore. *GAMESS* took a **wrong turn** at least once. The changes applied according to the gradients were too large and we went **too far** along one of the energy gradients (there are 24 bond lengths, angles and torsions that are being adjusted) and various points. But *GAMESS* did find a **minimum** in the end. Is it the true minimum?
 
-Try tweaking some of the torsions the other way. Set just some of the 5˚ torsions to –5˚ and some of the 175˚ torsions to –175˚. Run the optimization again and see if you achieved the same structure and energy. How did it go? Where we start can influence where we end up. The program just follows a path downwards. It has no idea if it is heading to a divot or a canyon. It will happily settle into the bottom of either.
+Try **tweaking** some of the torsions the other way. Set just some of the 5&deg; torsions to –5&deg; and some of the 175&deg; torsions to –175&deg;. Run the optimization **again** and see if you achieved the **same** structure and energy. How did it go? Where we start can influence where we end up. The program just **follows** a path **downwards**. It has no idea if it is heading to a divot or a canyon. It will happily **settle** into the bottom of either.
 
 ### Confirmimng the *s-trans* Structure
 
@@ -528,7 +529,7 @@ H   4    1.14000  9 120.0000  3 175.0000
     3,10,4,9,3 $END
 ```
 
-Below is the final structure and energy.
+Below is the **final structure** and energy.
 
 ```{code-block} 
 ---
@@ -574,27 +575,27 @@ caption: butadiene.log
  NSERCH:  16  E=     -154.0594564864  GRAD. MAX=  0.0000632  R.M.S.=  0.0000311
 ```
 
-The torsion angles were nearly identical to those when we began flat. Obviously the *trans* conformer prefers to be flat. The very slight perturbations from flat seen in the torsion angles can be attributed to a snapshot of a vibrating molecule. 
+The **torsion** angles were nearly identical to those when we began flat. Obviously the *s-trans* conformer **prefers** to be flat. The very slight perturbations from flat seen in the torsion angles can be attributed to a **snapshot** of a vibrating molecule. 
 
-For the tweaked *trans* conformer input file, the energy was found to be –154.0594564864 Ha in this case. For the optimized flat structure from our very first calculation, we see that the energy is -154.0594565686 Ha. That works out to an energy difference of 0.0002 kJ/mole (there are 627.5&nbsp;kcal/mole or 2625.5&nbsp;kJ/mole in a Hartree).
+For the **tweaked** *s-trans* conformer input file, the energy was found to be –154.0594564864&nbsp;*Ha* in this case. For the **optimized** flat structure from our very first calculation, we see that the energy is -154.0594565686&nbsp;*Ha*. That works out to an energy difference of 0.0002 kJ/mole (there are 627.5&nbsp;*kcal/mole* or 2625.5&nbsp;*kJ/mole* in a Hartree).
 
-The energy difference between the flat result of the flat *cis* input file (-154.0539432855&nbsp;Ha) and the result of the tweaked version (that escaped the “lock” of the perfectly symmetrical flat starting structure, (-154.0551401544&nbsp;Ha) was 3.14&nbsp;kJ/mole.  That is not a lot, but it is significant.
+The **energy** difference between the flat result of the flat *s-cis* input file (-154.0539432855&nbsp;*Ha*) and the result of the tweaked version (that escaped the “lock” of the perfectly symmetrical flat starting structure, (-154.0551401544&nbsp;*Ha*) was 3.14&nbsp;*kJ/mole*.  That is not a lot, but it is significant.
 
 ## Freezing a Coordinate
 
-We can freeze any coordinate in a calculation. This kind of calculation is not a true optimization as one length, angle or torsion (or even more than one if you wish) is being held at the initial value while the others are allowed to find the lowest energy possible. We could freeze the `4,3,2,1` torsion and allow all the others to settle to what is best.
+We can **freeze** any coordinate in a calculation. This kind of calculation is not a true optimization as one length, angle or torsion (or even more than one if you wish) is being **held** at the initial value while the others are **allowed** to find the lowest energy possible. We could freeze the `4,3,2,1` torsion and allow all the others to **settle** to what is best.
 
-In every coordinate list in our input files, the `4,3,2,1` torsion was the sixth coordinate in the list.  This was established in the `$ZMAT` group that lists the coordinates in order in the `IZMAT(1)` matrix. This `IZMAT(1)` matrix was created by the *MacMolPlt* program that we used when we originally built the molecule. When you enter a value for the number of `ZMAT` variables in the `Input Builder` then *MacMolPlt* will create the `$ZMAT` group.
+In every coordinate list in our input files, the `4,3,2,1` torsion was the **sixth coordinate** in the list.  This was established in the `$ZMAT` group that **lists** the coordinates in order in the `IZMAT(1)` matrix. This `IZMAT(1)` matrix was created by the *MacMolPlt* program that we used when we originally built the molecule. When you enter a value for the number of `ZMAT` variables in the `Input Builder` then *MacMolPlt* will create the `$ZMAT` group.
 
 ### The IZMAT(1) Matrix
 
-The `IZMAT(1)` matrix in the input file presented below is a series of numbers separated by commas.  The white space inserted by *MacMolPlt* is unnecessary but helps to group each coordinate for the reader. 
+The `IZMAT(1)` matrix in the **input file** presented below is a series of numbers separated by commas.  The white space inserted by *MacMolPlt* is unnecessary but **helps** to group each coordinate for the reader. 
 
-The first number encountered is a “1”. This means that there will follow two atom numbers that define a bond. `1,2,1` defines a bond between atoms 2 and 1. 
+The **first number** encountered is a “1”. This means that there will follow two atom numbers that define a *bond*. `1,2,1` defines a bond between atoms 2 and 1. 
 
-If the next number encountered is a “2”, then the program considers the next three values to be the atom numbers that define a bond angle. `2,3,2,1` defines the angle between atoms 3,2 and 1.  It is also the third element in the list shown and we see that the bond angle `3,2,1` is the third coordinate in the output file data. 
+If the **next number** encountered is a “2”, then the program considers the next three values to be the atom numbers that define a **bond angle**. `2,3,2,1` defines the angle between atoms 3,2 and 1.  It is also the third element in the list shown and we see that the bond angle `3,2,1` is the third coordinate in the output file data. 
 
-When the number “3” is encountered at the start of a set then *GAMESS* looks to the following four values to define the atom numbers in a dihedral or bond torsion angle. `3,4,3,2,1` is the sixth set of values and defines the bond torsion for atoms 4,3,2 and 1.  This is the central C–C bond torsion. It is the sixth set of values in the `ZMAT` list and is the sixth line in the list of `ZMAT` coordinates used in *GAMESS*. This sixth coordinate is the coordinate that we want to freeze.
+When the number “3” is encountered at the **start** of a set then *GAMESS* looks to the following four values to define the atom numbers in a dihedral or bond **torsion angle**. `3,4,3,2,1` is the sixth set of values and defines the bond torsion for atoms 4,3,2 and 1.  This is the central C–C bond torsion. It is the sixth set of values in the `ZMAT` list and is the sixth line in the list of `ZMAT` coordinates used in *GAMESS*. This **sixth coordinate** is the coordinate that we want to freeze.
 
 ```{code-block} 
 ---
@@ -636,9 +637,9 @@ H   4    1.14000  9 120.0000  3 175.0000
 
 ### The IFREEZ(1) Command
 
-In the input file above, we see the command `IFREEZ(1)=6` in the `$STATPT` group. This will freeze the sixth `ZMAT` coordinate. We know that the C–C bond torsion is the sixth coordinate because of the `IZMAT(1)` matrix. 
+In the **input file** above, we see the command `IFREEZ(1)=6` in the `$STATPT` group. This will freeze the **sixth** `ZMAT` coordinate. We know that the C–C bond torsion is the sixth coordinate because of the `IZMAT(1)` matrix. 
 
-When we run the optimization, we get the following output file. Observe that the sixth line for torsion `4,3,2,1` is held at zero degrees in the final structure.
+When we run the **optimization**, we get the following output file. **Observe** that the **sixth** line for torsion `4,3,2,1` is **held** at zero degrees in the final structure.
 
 ```{code-block} 
 ---
@@ -686,7 +687,7 @@ caption: butadiene.log
 
 ## The Potential Energy Surface for Rotation
 
-We now have three energy points for the rotation of the central bond in butadiene. We found the best *s-cis* conformer where the central bond torsion was 38.15˚, We also found the best *s-trans* conformer where the torsion angle was 180˚. And we locked the torsion to 0˚ and then found the best structure with that constraint. We now have the following potential energy surface for the rotation of the central bond. See {numref}`fig7_1_9`.
+We now have three energy points for the **rotation** of the central bond in butadiene. We found the best *s-cis* conformer where the central bond **torsion** was 38.15&deg;, We also found the best *s-trans* conformer where the **torsion angle** was 180&deg;. And we **locked** the torsion to 0&deg; and then found the best structure with that **constraint**. We now have the following potential energy **surface** for the rotation of the central bond. See {numref}`fig7_1_9`.
 
 
 ```{figure} images/Butadiene9.png
@@ -699,15 +700,15 @@ name: fig7_1_9
 
 ### The Hypothesis
 
-I have determined that there are two stable conformers (at least) at 38.15˚ and 180˚. There will be a third conformer at –38.15˚ due to symmetry. I have a proposed energy barrier of rotation between the two *cis* forms at 38.15˚ and –38.15˚ around the C–C bond in butadiene. The energy calculated when holding the torsion at 0˚ is expected to be this barrier. The maximum electron stabilization occurs when π-orbitals are parallel and it is at a minimum when π-orbitals are at 90˚. 
+I have determined that there are **two stable conformers** (at least) at 38.15&deg; and 180&deg;. There will be a third conformer at –38.15&deg; due to symmetry. I have a proposed **energy barrier** of rotation between the two *s-cis* forms at 38.15&deg; and –38.15&deg; around the C–C bond in butadiene. The energy calculated when holding the torsion at 0&deg; is expected to be this barrier. The maximum electron stabilization occurs when π-orbitals are parallel and it is at a minimum when π-orbitals are at 90&deg;. 
 
-I therefore hypothesize that the energy barrier between the *cis* and *trans* forms will be at 90˚. Will it be greater or less than that the barrier due to steric strain at 0˚? It is time to perform an experiment.
+I therefore **hypothesize** that the energy barrier between the *s-cis* and *s-trans* forms will be at 90&deg;. Will the energy barrier be greater or less than the barrier due to steric strain at 0&deg;? It is time to perform an **experiment**.
 
 ### Experimental Design
 
-I will perform the same geometry optimization calculations using a frozen torsion coordinate as before. I will choose 90˚ for the angle and then run the calculation. I will also calculate torsion angles of 85˚ and 95˚ to ensure that I am at or near a maximum at 90˚.
+I will perform the same geometry **optimization** calculations using a **frozen** torsion coordinate as before. I will choose 90&deg; for the angle and then run the calculation. I will **also** calculate torsion angles of 85&deg; and 95&deg; to ensure that I am at or near a maximum at 90&deg;.
 
-Below is an example input file. All we need to do is to change the angle of the `4,3,2,1` torsion coordinate. It will be frozen by the `IFREEZ(1)=6` command. We just submit the job to *GAMESS* via *GamessQ* and then dig through the log file to find the final structure and energy. Tools like *grep* will help a lot. 
+Below is an example **input file**. All we need to do is to change the angle of the `4,3,2,1` torsion coordinate. It will be frozen by the `IFREEZ(1)=6` command. We just submit the job to *GAMESS* via *GamessQ* and then dig through the log file to find the final **structure and energy**. Tools like *grep* will help a lot. 
 
 ```{code-block} 
 ---
@@ -763,14 +764,14 @@ There is no `> filename.txt` destination for the output so it is echoed to the t
  NSERCH:   7  E=     -154.0509342723  GRAD. MAX=  0.0000858  R.M.S.=  0.0000274
 ```
 
-This is the workflow: 1) change torsion angle in the butadiene.inp file; 2) submit the file through *GAMESS*; 3) Extract the last energy value and type it into a list; 4) repeat.
+This is the workflow: 1) **change** torsion angle in the butadiene.inp file; 2) **submit** the file through *GAMESS*; 3) **Extract** the last energy value and type it into a **list**; 4) repeat.
 
-That will give me a set of data for as many angles as I want to try. Below are the energies extracted from the runs for 90˚ and the two checks at 85˚ and 95˚. In {numref}`fig7_1_10`, these values are added to the plot for the potential energy surface.
+That will give me a **set of data** for as many angles as I want to try. Below are the energies extracted from the runs for 90&deg; and the two checks at 85&deg; and 95&deg;. In {numref}`fig7_1_10`, these values are added to the **plot** for the potential energy surface.
 
 ```
-85˚  -154.0513571936
-90˚  -154.0509342723
-95˚  -154.0506280903
+85&deg;  -154.0513571936
+90&deg;  -154.0509342723
+95&deg;  -154.0506280903
 ```
 
 
@@ -782,13 +783,13 @@ name: fig7_1_10
 *The potential energy surface for bond rotation in butadiene.*
 ```
 
-Surprise! We are not at a maximum. I will just keep changing the angle until we start coming back down. I will try 100˚, 105˚ and 110˚. I found that the energy value peaks at the 100˚ point and then starts to decrease. I then did many more angles and the results are plotted in {numref}`fig7_1_11`.
+Surprise! We are **not at a maximum**. I will just keep changing the angle until we start coming back down. I will try 100&deg;, 105&deg; and 110&deg;. I found that the energy value **peaks** at the 100&deg; point and then starts to decrease. I then did many more angles and the results are plotted in {numref}`fig7_1_11`.
 
  Below is a table of the final energies and frozen torsion angles for each experiment that we performed.
 
 ```
     Angle      Energy       Rel. Energy
-               (Hartrees)  (kJ/mole)
+               e(Hartrees)  (kJ/mole)
     
     0        -154.0539433     14.52
     5        -154.0539921     14.39
@@ -824,7 +825,7 @@ name: fig7_1_11
 *The potential energy surface for bond rotation in butadiene.*
 ```
 
-The peak in energy occurs somewhere between 100˚ and 105˚. The values at each angle are very close, so I estimate the maximum energy is about midway between.
+The peak in energy occurs **somewhere** between 100&deg; and 105&deg;. The values at each angle are very close, so I **estimate** the maximum energy is about midway between.
  
 
 ```{figure} images/Butadiene12.png
@@ -835,13 +836,13 @@ name: fig7_1_12
 *The structures corresponding to the maxima and minima in {numref}`fig7_1_11`*
 ```
 
-Why is the maximum energy found at around 102˚ rather than exactly 90˚? The electronic energy likely hits a maximum at 90˚ and then starts to decrease as the angle rotates forward to 180˚. Steric repulsion from the other end of the molecule is still present and contributing to the total energy. It is decreasing as the angle opens up but results in an energy contribution that puts the maximum nearer to 100˚ compared to 90. It seems that the steric interaction between the ends of the molecule pushed both stationary points to the right. The expected electronic minimum of 0˚ was 38˚ and the expected maximum of 90˚ was >100˚ when the steric effect is added in.
+Why is the maximum energy **found** at around 102&deg; rather than exactly 90&deg;? The **electronic** energy likely hits a maximum at 90&deg; and then starts to decrease as the angle rotates forward to 180&deg;. **Steric** repulsion from the other end of the molecule is still present and contributing to the total energy. It is decreasing as the angle opens up but results in an energy contribution that puts the maximum **nearer** to 100&deg; compared to 90. It seems that the steric interaction between the ends of the molecule pushed both stationary points to the right. The expected electronic minimum of 0&deg; was 38&deg; and the **expected** maximum of 90&deg; was >100&deg; when the steric effect is added in.
 
 ## Finding A Transition State
 
-The peak of the energy barrier, between a C–C torsion of 100˚ and 105˚, is the transition state for converting between the *s-trans* and *s-cis* conformers of butadiene. Can we find the exact point at which we reach maximum energy along then path of change? 
+The **peak** of the energy barrier, between a C–C torsion of 100&deg; and 105&deg;, is the **transition state** for converting between the *s-trans* and *s-cis* conformers of butadiene. Can we find the **exact point** at which we reach maximum energy along then path of change? 
 
-The coordinate that we are changing is the torsion angle along the central C–C bond. We have scanned that coordinate between 0˚ and 180˚. Scanning in this way is a good way to get close to a transition state. Each scan point is an optimized structure for that give torsion value. So all other coordinates have been minimized in energy (we hope) for each step in the scan. In theory, we are following the lowest energy path (a valley) uphill and down over a saddle point (a mountain pass). The saddle point is the transition state. There is one direction (coordinate) that takes you up and then down in energy as the saddle point is crossed.  All other coordinates will only take you uphill (assuming that they are at minimum energy values after optimization).
+The coordinate that we are changing is the torsion angle along the central C–C bond. We have **scanned** that coordinate between 0&deg; and 180&deg;. Scanning in this way is a good way to get **close** to a transition state. Each scan point is an optimized structure for that give **torsion value**. So all other coordinates have been minimized in energy (we hope) for each step in the scan. In theory, we are following the **lowest energy path** (a valley) uphill and down over a **saddle point** (a mountain pass). The saddle point is the transition state. There is one direction (coordinate) that takes you **up and then down** in energy as the saddle point is crossed.  All other coordinates will only take you uphill (assuming that they are at minimum energy values after optimization).
  
 ```{figure} images/Butadiene13.png
 ---
@@ -852,21 +853,22 @@ name: fig7_1_13
 ```
 [^saddle2021]: Image of saddle point is adapted from https://commons.wikimedia.org/wiki/File:Saddle_point.svg (accessed Nov. 15, 2021)
 
-It is easy for *GAMESS* to find a minimum. It just follows every gradient downward. It is more challenging to find a saddle point, where one coordinate is maximized and all others are minimized. How do you find that balance point?
+It is easy for *GAMESS* to find a **minimum**. It just follows every gradient downward. It is more challenging to find a **saddle point**, where one coordinate is maximized and all others are minimized. How do you find that balance point?
 
-*GAMESS* has a calculation type called `RUNTYP=SADPOINT` that can do this. However, it needs to know what coordinate to follow to find the saddlepoint. The best way to do this is to construct a structure that is close to a hypothetical saddle point (our optimized scan for 100˚ seems like a good starting point)
+
+*GAMESS* has a **calculation** type called `RUNTYP=SADPOINT` that can do this. However, it needs to know what coordinate to follow to find the saddlepoint. The best way to do this is to construct a structure that is **close** to a hypothetical saddle point (our optimized scan for 100&deg; seems like a good starting point)
 
 ### Finding The Imaginary Vibration
 
-*GAMESS* still needs lots of help. First we need an imaginary vibration to follow. So we will have to perform a vibration calculation first. The imaginary vibration is often designated with a negative frequency. It is a vibration that moves along the reaction coordinate. All normal vibrations increase in energy as they move away from their centre points. The imaginary vibration is at a maximum at its centre. It is going downhill toward starting material or product as it moves away from the center.
+*GAMESS* still needs **lots of help**. First we need an **imaginary vibration** to follow. So we will have to perform a vibration calculation first. The imaginary vibration is often designated with a negative frequency. It is a vibration that moves along the **reaction coordinate**. All normal vibrations increase in energy as they move away from their centre points. The imaginary vibration is at a maximum at its centre. It is going downhill toward starting material or product as it **moves away** from the center.
 
-A structure that is optimized (except for the frozen coordinate) and is very near the transition state structure should have an imaginary vibration. We need to perform a vibration calculation first.
+A **structure** that is optimized (except for the frozen coordinate) and is very near the transition state structure should have an imaginary vibration. We need to perform a **vibration calculation** first.
 
-I start with the result file for the potential energy scan done above. I chose the result for the optimization where we froze the C–C torsion at 100˚. I opened the log file in *MacMolPlt* and then used `Subwindow` &rarr; `Input Builder` to create a new input file. I changed `RunType` to `Hessian`, which will calculate the information needed to determine the vibrations and their frequencies. These vibrations are the vectors along which the various coordinates are changed when we optimize. We usually use a guess for the Hessian matrix as approximations are more than good enough for finding the bottom of an energy well. 
+I start with the result file for the potential energy scan done above. I **chose** the result for the optimization where we froze the C–C torsion at 100&deg;. I opened the log file in *MacMolPlt* and then used `Subwindow` &rarr; `Input Builder` to create a new input file. I **changed** `RunType` to `Hessian`, which will calculate the information needed to determine the **vibrations** and their **frequencies**. These vibrations are the **vectors** along which the various coordinates are changed when we optimize.  
 
-For finding the saddle point, we need to be close in structure and have a vector (the imaginary vibration) that points straight toward it. So we must calculate the Hessian matrix. With higher levels of theory this can take a long time, but we are using a very low level of theory and won’t have to wait long. In many cases 3-21G<sup>*</sup> will not be suitable for an accurate transition state in a reaction but, since we are not making or breaking bonds, we should be OK. We also set up a `Vibrational Analysis` so that vibrations would be calculated out of the Hessian data and reported in the result file.
+For **finding** the saddle point, we need to be **close** in structure and have a **vector** (the imaginary vibration) that **points** straight toward it. So we must calculate the **Hessian** matrix. With higher levels of theory this can take a long time, but we are using a very low level of theory and won’t have to wait long. In many cases 3-21G<sup>*</sup> will not be suitable for an accurate **transition state** in a reaction but, since we are not making or breaking bonds, we should be OK. We also set up a `Vibrational Analysis` so that vibrations would be **calculated** out of the Hessian data and reported in the result file.
 
-I saved the input file. It is reproduced below. You will see that the atom numbering is different than in the above cases. I set up a hydrogen as the first atom when I was building butadiene for the larger, more extensive torsion scan presented in figure 11. As a result the C–C torsion is represented by the `5,4,3,2` torsion coordinate and that is listed as the ninth element in the `IZMAT(1)` list. Nothing changed that matters, you just need to be aware of where the torsion angle is in the Z-matrix so you can interpret the input file.
+I saved the input file. It is reproduced below. You will see that the atom numbering is **different** than in the above cases. I set up a hydrogen as the first atom when I was building butadiene for the larger, more extensive torsion scan presented in figure 11. As a result the C–C torsion is **represented** by the `5,4,3,2` torsion coordinate and that is listed as the ninth element in the `IZMAT(1)` list. Nothing changed that matters, you just need to be **aware** of where the torsion angle is in the `Z-matrix` so you can interpret the input file.
 
 
 ```{code-block} 
@@ -905,7 +907,7 @@ H   5    1.07389  6 116.5615  4 180.0000
     3,10,5,6,4 $END
 ```
 
-I submitted the job through *GamessQ* and, when finished, I opened the result file using *MacMolPlt*. I used `Subwindow` &rarr; `Frequencies` to display the frequencies calculated from the Hessian matrix. I observe a single imaginary frequence and I can click on the line in the Frequency window to see vectors displayed graphically in the main window. I observe that these vectors are as expected for bond rotation, so I think we have a good starting point for a saddle point optimization.
+I **submitted** the job through *GamessQ* and, when finished, I opened the **result file** using *MacMolPlt*. I used `Subwindow` &rarr; `Frequencies` to **display the frequencies** calculated from the Hessian matrix. I observe a single **imaginary** frequence and I can click on the line in the Frequency window to see vectors displayed graphically in the main window. I observe that these vectors are as expected for bond rotation, so I think we have a **good starting point** for a saddle point optimization.
 
 ```{figure} images/Butadiene14.png
 ---
@@ -915,7 +917,7 @@ name: fig7_1_14
 **MacMolPlt* display with frequencies and vectors.*
 ```
 
-The frequency list is shown below. The letter “i” after the first frequency indicates that it is imaginary. Don’t trust the numbers too much but I am impressed that we are within the ball park. For example, the C–H stretch frequencies should be in the 3040-3100 cm<sup>–1</sup> range and the calculation finds them near 3350 cm<sup>–1</sup>. Not bad.
+The frequency list is shown below. The letter “i” after the first frequency indicates that it is **imaginary**. Don’t trust the numbers too much but I am impressed that we are within the ball park. For example, the C–H stretch frequencies should be in the 3040-3100 cm<sup>–1</sup> range and the calculation finds them near 3350 cm<sup>–1</sup>. Not bad.
 
 ```{code-block} 
 ---
@@ -956,10 +958,10 @@ Frequency    Intensity
 
 ### Calculating The Saddle Point
 
-Now that we know we have an acceptable imaginary frequency in our structure we can conduct a saddle point optimization calculation. I used *MacMolPlt* and the result file of the Hessian calculation to create a new input file for the transition state calculation. I set the `Run Type = Saddle Point` and then set the `Initial Hessian` to `Calculate`. This will run a saddle point optimization using a newly calculated Hessian matrix.  I could have read in the previous Hessian result that we just calculated by choosing `Read` (from `$HESS`). This would be useful if that calculation had been expensive.
+Now that we know we have an acceptable **imaginary frequency** in our structure we can conduct a saddle point optimization calculation. I used *MacMolPlt* and the result file of the Hessian calculation to create a new input file for the **transition state calculation**. I set the `Run Type = Saddle Point` and then set the `Initial Hessian` to `Calculate`. This will run a **saddle point optimization** using a newly calculated Hessian matrix.  I could have read in the previous Hessian result that we just calculated by choosing `Read` (from `$HESS`). This would be useful if that calculation had been expensive.
 
-Below is the input file for the saddle point calculation. Observe that I edited the file and set the optimization tolerance to `OPTTOL=0.00001`. This is ten-fold tighter than for a typical optimization. 
-
+Below is the **input file** for the saddle point calculation. Observe that I edited the file and set the optimization tolerance to `OPTTOL=0.00001`. This is ten-fold **tighter** than for a typical optimization. 
+z
 ```{code-block} 
 ---
 name: butadiene_saddle_inp
@@ -997,7 +999,7 @@ H   5    1.07389  6 116.5615  4 180.0000
     3,10,5,6,4 $END
 ```
 
-I ran the job via *GamessQ* and a result file was produced. It completed without errors and I found the coordinates and energy near the end of the text file. The selected output is shown below.
+I ran the job via *GamessQ* and a **result file** was produced. It completed without errors and I found the coordinates and energy near the end of the text file. The selected **output** is shown below.
 
 
 ```{code-block} 
@@ -1044,7 +1046,7 @@ caption: butadiene_saddle.log
  NSERCH:   2  E=     -154.0504557511  GRAD. MAX=  0.0000005  R.M.S.=  0.0000002
 ```
 
-The *GAMESS* calculation has determined that a saddle point exists when the C–C torsion angle (the 5,4,3,2 torsion in this example) is 102.02˚. I can now add that data point into my potential energy surface. The complete table is produced below with the stationary points (maxima and minima) highlighted.
+The *GAMESS* calculation has determined that a **saddle point** exists when the C–C torsion angle (the 5,4,3,2 torsion in this example) is 102.02&deg;. I can now add that data point into my potential energy surface. The complete table is produced below with the stationary points (maxima and minima) highlighted.
 
 ```{code-block} 
 ---
@@ -1081,7 +1083,7 @@ emphasize-lines: 4, 10, 20, 28
       180      -154.0594778      0
 ````
 
-I had hypothesized that the transition state for bond rotation would occur between 100˚ and 105˚ and a little closer to 100˚ than 105˚. I chose 102˚ to make the diagram in {numref}`fig7_1_12`. *GAMESS* proposes that the transition state occurs at 102.02˚. Great minds think alike.
+I had hypothesized that the transition state for bond rotation would occur between 100&deg; and 105&deg; and a little closer to 100&deg; than 105&deg;. I chose 102&deg; to make the diagram in {numref}`fig7_1_12`. *GAMESS* proposes that the transition state occurs at 102.02&deg;. Great minds think alike.
 
 ```{figure} images/Butadiene15.png
 ---
@@ -1094,16 +1096,16 @@ name: fig7_1_15
 
 These are the operations that we have performed over the course of this activity.
 
-1.	Build and Optimize symmetrical butadiene. We calculated the optimized geometry of butadiene using an initial structure that was perfectly flat for the *s-cis* conformer and the *s-trans* conformer. The calculation easily found the bond lengths and angles for minimum energy but was trapped in stationary points for the torsion coordinates due to the flat symmetry.
-2.	Optimize the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the *s-cis* conformer actually occurred when the C–C torsion was 38˚. We also saw that the *s-trans* conformer did indeed find an almost flat optimized structure.
-3.	Scan the torsion angle to create an energy profile. We then performed a series of optimization calculations with the torsion coordinate for the σ C–C bond frozen over a set of angles. This allowed us to observe that the transition state for rotation between *cis* and *trans* conformers was near a torsion angle of 102˚.
-4. Evaluate the vibrations near the transition state. I used a structure from the torsion scan to calculate the vibrations in a structure that was close to the hypothesized transition state. This was to confirm that there was an imaginary vibration that would likely take us toward the true transition state.
-5.	Calculate an optimized structure for the transition state. After confirming that we had a good imaginary vibration, I performed a saddle point calculation that optimized the structure for the nearest transition state. We were very close already and found it easily. The T.S. was at a torsion angle of 102.0˚.
+1.	**Build and Optimize** symmetrical butadiene. We calculated the optimized geometry of butadiene using an initial structure that was perfectly flat for the *s-cis* conformer and the *s-trans* conformer. The calculation easily found the bond lengths and angles for minimum energy but was trapped in stationary points for the torsion coordinates due to the flat symmetry.
+2.	**Optimize** the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the *s-cis* conformer actually occurred when the C–C torsion was 38&deg;. We also saw that the *s-trans* conformer did indeed find an almost flat optimized structure.
+3.	Scan the torsion angle to create an **energy profile**. We then performed a series of optimization calculations with the torsion coordinate for the σ C–C bond frozen over a set of angles. This allowed us to observe that the transition state for rotation between *cis* and *trans* conformers was near a torsion angle of 102&deg;.
+4. Evaluate the **vibrations** near the transition state. I used a structure from the torsion scan to calculate the vibrations in a structure that was close to the hypothesized transition state. This was to confirm that there was an imaginary vibration that would likely take us toward the true transition state.
+5.	Calculate an optimized **structure** for the **transition state**. After confirming that we had a good imaginary vibration, I performed a saddle point calculation that optimized the structure for the nearest transition state. We were very close already and found it easily. The T.S. was at a torsion angle of 102.0&deg;.
 
 ## Challenges
 
-Here are some activities that you can perform to increase your understanding of using *GAMESSS* to calculate potential energy profiles and transition states for bond rotations.
+Here are some activities that you can perform to **increase** your understanding of using *GAMESSS* to calculate potential energy profiles and transition states for bond rotations.
 
-Calculate the rotational energy profile for ethane and for the C-C bond of propane. Compare the energy barriers between them and also with the butadiene and butane calculations. How does a steric energy barrier in ethane compare that of butane? How does the electronic cost of breaking the conjugation in butadiene compare to breaking the C=C bond in ethylene.
+Calculate the **rotational** energy profile for **ethane** and for the C-C bond of propane. Compare the energy barriers between them and also with the butadiene and butane calculations. How does a steric energy barrier in ethane compare that of butane? How does the electronic **cost** of **breaking** the conjugation in butadiene compare to breaking the C=C bond in ethylene.
 
-Calculate the energy profile for rotating ethylene across the C=C double bond. What is the energy cost of effectively breaking a π-bond during a bond rotation. Compare that to the cost of breaking the conjugation in butadiene.
+Calculaate the energy profile for **rotating** ethylene across the C=C double bond. What is the energy cost of effectively breaking a &pi;-bond during a bond rotation. **Compare** that to the cost of breaking the conjugation in butadiene,

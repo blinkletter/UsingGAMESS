@@ -151,14 +151,36 @@ const thebe_selector_output = ".output, .cell_output"
    Benzene: MOs and Symmetry
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
    Butadiene: Transition State for Rotation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
   </a>
  </li>
 </ul>
@@ -408,7 +430,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="analysis-of-charges">
 <h3>Analysis of Charges<a class="headerlink" href="#analysis-of-charges" title="Permalink to this headline">¶</a></h3>
 <p>The file was <strong>submitted</strong> to <em>GAMESS</em> via <em>GamessQ</em>. The resulting .log file was opened with <em>MacMolPlt</em>.</p>
-<p>Bond distances and angles were <strong>measured</strong> as shown in <a class="reference internal" href="#fig6b"><span class="std std-numref">Fig. 30</span></a>. The structure is not a close match to the literature values.  For example, the C–C–C bond angle is 118˚ while the literature value is 124.6˚. It is <strong>expected</strong> that the angle should be greater than 120˚ so I was suspicious of the result. Ions are <strong>tough</strong>. More expensive methods will be needed but we can still obtain fairly decent descriptions of the orbitals and charge density. They won’t be perfect, but will give us the general idea.</p>
+<p>Bond distances and angles were <strong>measured</strong> as shown in <a class="reference internal" href="#fig6b"><span class="std std-numref">Fig. 30</span></a>. The structure is not a close match to the literature values.  For example, the C–C–C bond angle is 118° while the literature value is 124.6°. It is <strong>expected</strong> that the angle should be greater than 120° so I was suspicious of the result. Ions are <strong>tough</strong>. More expensive methods will be needed but we can still obtain fairly decent descriptions of the orbitals and charge density. They won’t be perfect, but will give us the general idea.</p>
 <div class="figure align-default" id="fig6b">
 <a class="reference internal image-reference" href="_images/pi_allylresult.png"><img alt="_images/pi_allylresult.png" src="_images/pi_allylresult.png" style="width: 550px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text"><em>HF/6-3111(d,p)++ optimized structure of the allyl cation.</em></span><a class="headerlink" href="#fig6b" title="Permalink to this image">¶</a></p>

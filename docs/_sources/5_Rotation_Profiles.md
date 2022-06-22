@@ -144,7 +144,7 @@ C
 C   1    1.54000
 ```
 
-The **third** line is atom \#3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom \#2 but now the distance no longer completely describes its position in the system. We know the **distance** from atom \#2 to this atom \#3, but we also now need a bond **angle** between atoms \#3, 2 and 1. In *sp<sup>3</sup>* carbons that angle is 109.4˚ (120 for *sp<sup>2</sup>* and 180˚ for *sp*).
+The **third** line is atom \#3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom \#2 but now the distance no longer completely describes its position in the system. We know the **distance** from atom \#2 to this atom \#3, but we also now need a bond **angle** between atoms \#3, 2 and 1. In *sp<sup>3</sup>* carbons that angle is 109.4&deg; (120 for *sp<sup>2</sup>* and 180&deg; for *sp*).
 
 ```
 C
@@ -152,7 +152,7 @@ C   1    1.54000
 C   2    1.54000  1  109.4712
 ```
 
-The **fourth** line describes the fourth carbon atom, atom \#4. It is 1.54 Å from atom \#1. The bond angle between atoms \#4, 1, and 2 is 109.5˚. However, this is not enough information for four atoms. Three atoms are in a **plane**, by definition. Distance and angle will locate them all. However, a fourth atom is potentially outside of the plane of the first three. We now will add the angle to that fourth atom relative to the plane of the first three. This is a **dihedral angle**. In the case of our structure, the angle of the bond between atoms \#4 and \#1 relative to the plane of atoms \#1, 2 and 3 is 180˚. That is the same as saying that the plane described by \#1,2,3 is 180˚ relative to the plane described by \#4,1,2.
+The **fourth** line describes the fourth carbon atom, atom \#4. It is 1.54 Å from atom \#1. The bond angle between atoms \#4, 1, and 2 is 109.5&deg;. However, this is not enough information for four atoms. Three atoms are in a **plane**, by definition. Distance and angle will locate them all. However, a fourth atom is potentially outside of the plane of the first three. We now will add the angle to that fourth atom relative to the plane of the first three. This is a **dihedral angle**. In the case of our structure, the angle of the bond between atoms \#4 and \#1 relative to the plane of atoms \#1, 2 and 3 is 180&deg;. That is the same as saying that the plane described by \#1,2,3 is 180&deg; relative to the plane described by \#4,1,2.
 
 This fourth line is very important. This dihedral angle is the **bond rotation** along the central C–C bond. This is the angle we will be using to rotate the centre bond of butane. {numref}`fig5-2A` shows the `Z-matrix` so far.
 
@@ -314,7 +314,7 @@ We have found the **structure and energy** of the most stable conformer, the *an
 
 We started the calculation above with a structure that was already *anti* in conformation. It is no surprise that we then **settled** into a bottom of an energy well that describes that situation.
 
-There is another **stable** conformer, the *gauche* conformer. In this conformer the torsion angle should be near 60˚. If we set the 4,1,2,3 bond torsion to 60˚ in the input file and then run an optimization calculation, *GAMESS* will settle down into the **nearest** energy well, which should be the *gauche* conformer.
+There is another **stable** conformer, the *gauche* conformer. In this conformer the torsion angle should be near 60&deg;. If we set the 4,1,2,3 bond torsion to 60&deg; in the input file and then run an optimization calculation, *GAMESS* will settle down into the **nearest** energy well, which should be the *gauche* conformer.
 
 Let us open the butane.inp file again with the text editor. We will **change** only the value for the 4,1,2,3 torsion angle. The new file is shown below. We will name it as butane60.inp.
 
@@ -363,7 +363,7 @@ We **submit** the job via *GamessQ* and the **log file** butane60_248.log is pro
 ```
 NSERCH:  23  E=     -156.4312439164  GRAD. MAX=  0.0000721  R.M.S.=  0.0000279
 ```
-Examining the first 10 lines of the **internal coordinates** of the result shows that the central C–C torsion is 67˚. This is very close to the expected value. It is not exactly 60˚ because of the **steric size** of the methyl group.
+Examining the first 10 lines of the **internal coordinates** of the result shows that the central C–C torsion is 67&deg;. This is very close to the expected value. It is not exactly 60&deg; because of the **steric size** of the methyl group.
 
 ```{code-block} 
 ---
@@ -413,11 +413,11 @@ The **energies** for the final structures in our two calculations are: E = -156.
 
 ## Freezing a Coordinate
 
-Allowing the structure to **relax** to minimums at torsional angles of near 180˚ (*anti*) and 60˚ (*gauche*) merely requires **allowing** it to happen. But how do we optimize a structure for a maximum? The *syn* conformer and the *eclipsed* conformer are each **peaks** in energy. We can **freeze** the value for any of the coordinates in the `$ZMAT` group using the `IFREEZ` setting within the `$STATPT` group.
+Allowing the structure to **relax** to minimums at torsional angles of near 180&deg; (*anti*) and 60&deg; (*gauche*) merely requires **allowing** it to happen. But how do we optimize a structure for a maximum? The *syn* conformer and the *eclipsed* conformer are each **peaks** in energy. We can **freeze** the value for any of the coordinates in the `$ZMAT` group using the `IFREEZ` setting within the `$STATPT` group.
 
 The sixth coordinate in the `$ZMAT` group is for the central C–C bond **torsion**. If we add the command `IFREEZ(1)=6` then the value of that **internal coordinate** will not be able to change.  All the other bond lengths, angles and torsions will seek their lowest energy so we will hopefully find the lowest energy versions of the *syn* and *eclipsed* conformations.
 
-I will use a text editor to change our input file. We will change the `4,1,2,3` torsion to `0˚` (*syn*) and then lock the sixth coordinate in the `$ZMAT` group that **corresponds** to that internal coordinate. The new input file is shown below.
+I will use a text editor to change our input file. We will change the `4,1,2,3` torsion to `0&deg;` (*syn*) and then lock the sixth coordinate in the `$ZMAT` group that **corresponds** to that internal coordinate. The new input file is shown below.
 
 ```{code-block} 
 ---
@@ -473,7 +473,7 @@ It did help. *GAMESS* converts your *Z-matrix* into Cartesian *xyz* data for the
 NSERCH:  23  E=     -156.4228465004  GRAD. MAX=  0.0000753  R.M.S.=  0.0000261
 ```
 
-I then set the **torsion angle** to 120˚ (*eclipsed*) and submitted the calculation again. I searched the log file for the final NSERCH line and again found an energy for the optimized **structure** with the C–C torsion frozen at 120˚. The reported energy was…
+I then set the **torsion angle** to 120&deg; (*eclipsed*) and submitted the calculation again. I searched the log file for the final NSERCH line and again found an energy for the optimized **structure** with the C–C torsion frozen at 120&deg;. The reported energy was…
 
 ```
 NSERCH:  26  E=     -156.4267263644  GRAD. MAX=  0.0000638  R.M.S.=  0.0000200
@@ -505,7 +505,7 @@ name: fig5-7
 
 We can **repeat** these calculations again and again using **different values** for the 4,1,2,3 torsion. All it takes is typing and time.
 
-In the **next chapter** you will see ways to use the power of your computer and *Unix* tools to enable these operations to be **done quickly**. Below is a plot of data points between zero and 180˚. I performed calculations at 5˚ intervals. It took only minutes to manually **create** the 36 input files and then drop them all into *GamessQ*. After a pause to brew a coffee, the jobs finished (it is a low cost level of theory – we could use basis sets that would result in run times of days on my little desktop computer.) I then was able to **extract** the energies with a single command and get a **plot** in less than a minute of effort. That is the power of *Unix*. See {numref}`fig5-8`
+In the **next chapter** you will see ways to use the power of your computer and *Unix* tools to enable these operations to be **done quickly**. Below is a plot of data points between zero and 180&deg;. I performed calculations at 5&deg; intervals. It took only minutes to manually **create** the 36 input files and then drop them all into *GamessQ*. After a pause to brew a coffee, the jobs finished (it is a low cost level of theory – we could use basis sets that would result in run times of days on my little desktop computer.) I then was able to **extract** the energies with a single command and get a **plot** in less than a minute of effort. That is the power of *Unix*. See {numref}`fig5-8`
 
 
 ```{figure} images/profiles_Picture8.png
@@ -528,7 +528,7 @@ name: fig5-9
 *Rotational energy profile for butane at 3-21G (black) and 6-311G(d,p)++ level (orange).*
 ```
 
-You can see that they are very similar. The **torsion angle** for the *gauche* conformer was calculated to be 65˚ when using the 6-311G(d,p)++ basis set (compared to 67˚). The **energy profile** is very similar. When using 1st and 2nd row elements with no charges or strained bonds, the 3-21G basis set gives good results. 
+You can see that they are very similar. The **torsion angle** for the *gauche* conformer was calculated to be 65&deg; when using the 6-311G(d,p)++ basis set (compared to 67&deg;). The **energy profile** is very similar. When using 1st and 2nd row elements with no charges or strained bonds, the 3-21G basis set gives good results. 
 
 ## Using Unix
 
@@ -738,7 +738,7 @@ name: fig5-11
 
 We used *MacMolPlt* to **build** a model of butane and export an initial input file for an optimization calculation. We **optimized** the structure for the *anti* conformation and found the *gauche* conformation by starting with an initial structure that was to **near** that conformation. Thus we located the **global** minimum and a **local** minimum on the **rotational energy surface**.
 
-Then we edited the file to **freeze** the coordinate that corresponded to the central C–C **bond rotation** and the set the internal coordinate for that **torsion** to 0˚ and 120˚ to find the energy of the *syn* conformation and an *eclipsed* conformation. With this, we have the important parts of the rotational energy profile.
+Then we edited the file to **freeze** the coordinate that corresponded to the central C–C **bond rotation** and the set the internal coordinate for that **torsion** to 0&deg; and 120&deg; to find the energy of the *syn* conformation and an *eclipsed* conformation. With this, we have the important parts of the rotational energy profile.
 
 We learned how to use *Unix* tools to **extract** information from large text files and from multiple text files and we learned how to **create** multiple input files using an **automated** process. We were introduced to the idea of shell scripts and to useful tools such as *grep* and *sed*.
 

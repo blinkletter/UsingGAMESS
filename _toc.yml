@@ -19,3 +19,7 @@ chapters:
     - file: butadiene.inp
     - file: butadiene.log
   - file: 8A_Diels_Alder
+  - file: 9_Solvent
+    sections:
+    - file: 10_Solvent_IRC_Plots
+    - file: 10_Solvent_IRC_Plots-Data

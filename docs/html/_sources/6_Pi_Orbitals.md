@@ -58,7 +58,7 @@ H     1.0     0.00000     0.72580    -1.09270
 
 The file was submitted to GAMESS via GamessQ. The resulting .log file was opened with MacMolPlt. 
 
-Bond distances and angles were measured as shown in {numref}`fig6B`. The structure is not a close match to the literature values.  For example, the C–C–C bond angle is 118˚ while the literature value is 124.6˚. It is expected that the angle should be greater than 120˚ so I was suspicious of the result. Ions are tough. More expensive methods will be needed but we can still obtain fairly decent descriptions of the orbitals and charge density. They won’t be perfect, but will give us the general idea.
+Bond distances and angles were measured as shown in {numref}`fig6B`. The structure is not a close match to the literature values.  For example, the C–C–C bond angle is 118&deg; while the literature value is 124.6&deg;. It is expected that the angle should be greater than 120&deg; so I was suspicious of the result. Ions are tough. More expensive methods will be needed but we can still obtain fairly decent descriptions of the orbitals and charge density. They won’t be perfect, but will give us the general idea.
 
 ```{figure} images/pi_allylresult.png
 ---

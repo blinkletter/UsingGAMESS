@@ -151,14 +151,36 @@ const thebe_selector_output = ".output, .cell_output"
    Benzene: MOs and Symmetry
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
    Butadiene: Transition State for Rotation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
   </a>
  </li>
 </ul>
@@ -672,13 +694,13 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
 </pre></div>
 </div>
-<p>The <strong>third</strong> line is atom #3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom #2 but now the distance no longer completely describes its position in the system. We know the <strong>distance</strong> from atom #2 to this atom #3, but we also now need a bond <strong>angle</strong> between atoms #3, 2 and 1. In <em>sp<sup>3</sup></em> carbons that angle is 109.4˚ (120 for <em>sp<sup>2</sup></em> and 180˚ for <em>sp</em>).</p>
+<p>The <strong>third</strong> line is atom #3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom #2 but now the distance no longer completely describes its position in the system. We know the <strong>distance</strong> from atom #2 to this atom #3, but we also now need a bond <strong>angle</strong> between atoms #3, 2 and 1. In <em>sp<sup>3</sup></em> carbons that angle is 109.4° (120 for <em>sp<sup>2</sup></em> and 180° for <em>sp</em>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
 <span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
 <span class="n">C</span>   <span class="mi">2</span>    <span class="mf">1.54000</span>  <span class="mi">1</span>  <span class="mf">109.4712</span>
 </pre></div>
 </div>
-<p>The <strong>fourth</strong> line describes the fourth carbon atom, atom #4. It is 1.54 Å from atom #1. The bond angle between atoms #4, 1, and 2 is 109.5˚. However, this is not enough information for four atoms. Three atoms are in a <strong>plane</strong>, by definition. Distance and angle will locate them all. However, a fourth atom is potentially outside of the plane of the first three. We now will add the angle to that fourth atom relative to the plane of the first three. This is a <strong>dihedral angle</strong>. In the case of our structure, the angle of the bond between atoms #4 and #1 relative to the plane of atoms #1, 2 and 3 is 180˚. That is the same as saying that the plane described by #1,2,3 is 180˚ relative to the plane described by #4,1,2.</p>
+<p>The <strong>fourth</strong> line describes the fourth carbon atom, atom #4. It is 1.54 Å from atom #1. The bond angle between atoms #4, 1, and 2 is 109.5°. However, this is not enough information for four atoms. Three atoms are in a <strong>plane</strong>, by definition. Distance and angle will locate them all. However, a fourth atom is potentially outside of the plane of the first three. We now will add the angle to that fourth atom relative to the plane of the first three. This is a <strong>dihedral angle</strong>. In the case of our structure, the angle of the bond between atoms #4 and #1 relative to the plane of atoms #1, 2 and 3 is 180°. That is the same as saying that the plane described by #1,2,3 is 180° relative to the plane described by #4,1,2.</p>
 <p>This fourth line is very important. This dihedral angle is the <strong>bond rotation</strong> along the central C–C bond. This is the angle we will be using to rotate the centre bond of butane. <a class="reference internal" href="#fig5-2a"><span class="std std-numref">Fig. 14</span></a> shows the <code class="docutils literal notranslate"><span class="pre">Z-matrix</span></code> so far.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
 <span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
@@ -803,7 +825,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="the-other-conformer">
 <h2>The Other Conformer<a class="headerlink" href="#the-other-conformer" title="Permalink to this headline">¶</a></h2>
 <p>We started the calculation above with a structure that was already <em>anti</em> in conformation. It is no surprise that we then <strong>settled</strong> into a bottom of an energy well that describes that situation.</p>
-<p>There is another <strong>stable</strong> conformer, the <em>gauche</em> conformer. In this conformer the torsion angle should be near 60˚. If we set the 4,1,2,3 bond torsion to 60˚ in the input file and then run an optimization calculation, <em>GAMESS</em> will settle down into the <strong>nearest</strong> energy well, which should be the <em>gauche</em> conformer.</p>
+<p>There is another <strong>stable</strong> conformer, the <em>gauche</em> conformer. In this conformer the torsion angle should be near 60°. If we set the 4,1,2,3 bond torsion to 60° in the input file and then run an optimization calculation, <em>GAMESS</em> will settle down into the <strong>nearest</strong> energy well, which should be the <em>gauche</em> conformer.</p>
 <p>Let us open the butane.inp file again with the text editor. We will <strong>change</strong> only the value for the 4,1,2,3 torsion angle. The new file is shown below. We will name it as butane60.inp.</p>
 <div class="literal-block-wrapper docutils container" id="butane60-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 43 </span><span class="caption-text">butane60.inp</span><a class="headerlink" href="#butane60-inp" title="Permalink to this code">¶</a></div>
@@ -844,7 +866,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4312439164</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000721</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000279</span>
 </pre></div>
 </div>
-<p>Examining the first 10 lines of the <strong>internal coordinates</strong> of the result shows that the central C–C torsion is 67˚. This is very close to the expected value. It is not exactly 60˚ because of the <strong>steric size</strong> of the methyl group.</p>
+<p>Examining the first 10 lines of the <strong>internal coordinates</strong> of the result shows that the central C–C torsion is 67°. This is very close to the expected value. It is not exactly 60° because of the <strong>steric size</strong> of the methyl group.</p>
 <div class="literal-block-wrapper docutils container" id="butane60-248-log1">
 <div class="code-block-caption"><span class="caption-number">Listing 44 </span><span class="caption-text">butane60_248.log</span><a class="headerlink" href="#butane60-248-log1" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>                     <span class="o">--------------------</span>
@@ -883,9 +905,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="freezing-a-coordinate">
 <h2>Freezing a Coordinate<a class="headerlink" href="#freezing-a-coordinate" title="Permalink to this headline">¶</a></h2>
-<p>Allowing the structure to <strong>relax</strong> to minimums at torsional angles of near 180˚ (<em>anti</em>) and 60˚ (<em>gauche</em>) merely requires <strong>allowing</strong> it to happen. But how do we optimize a structure for a maximum? The <em>syn</em> conformer and the <em>eclipsed</em> conformer are each <strong>peaks</strong> in energy. We can <strong>freeze</strong> the value for any of the coordinates in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group using the <code class="docutils literal notranslate"><span class="pre">IFREEZ</span></code> setting within the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group.</p>
+<p>Allowing the structure to <strong>relax</strong> to minimums at torsional angles of near 180° (<em>anti</em>) and 60° (<em>gauche</em>) merely requires <strong>allowing</strong> it to happen. But how do we optimize a structure for a maximum? The <em>syn</em> conformer and the <em>eclipsed</em> conformer are each <strong>peaks</strong> in energy. We can <strong>freeze</strong> the value for any of the coordinates in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group using the <code class="docutils literal notranslate"><span class="pre">IFREEZ</span></code> setting within the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group.</p>
 <p>The sixth coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group is for the central C–C bond <strong>torsion</strong>. If we add the command <code class="docutils literal notranslate"><span class="pre">IFREEZ(1)=6</span></code> then the value of that <strong>internal coordinate</strong> will not be able to change.  All the other bond lengths, angles and torsions will seek their lowest energy so we will hopefully find the lowest energy versions of the <em>syn</em> and <em>eclipsed</em> conformations.</p>
-<p>I will use a text editor to change our input file. We will change the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion to <code class="docutils literal notranslate"><span class="pre">0˚</span></code> (<em>syn</em>) and then lock the sixth coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that <strong>corresponds</strong> to that internal coordinate. The new input file is shown below.</p>
+<p>I will use a text editor to change our input file. We will change the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion to <code class="docutils literal notranslate"><span class="pre">0&amp;deg;</span></code> (<em>syn</em>) and then lock the sixth coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that <strong>corresponds</strong> to that internal coordinate. The new input file is shown below.</p>
 <div class="literal-block-wrapper docutils container" id="butane-scan-0-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">butane_scan_0.inp</span><a class="headerlink" href="#butane-scan-0-inp1" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
@@ -930,7 +952,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4228465004</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000753</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000261</span>
 </pre></div>
 </div>
-<p>I then set the <strong>torsion angle</strong> to 120˚ (<em>eclipsed</em>) and submitted the calculation again. I searched the log file for the final NSERCH line and again found an energy for the optimized <strong>structure</strong> with the C–C torsion frozen at 120˚. The reported energy was…</p>
+<p>I then set the <strong>torsion angle</strong> to 120° (<em>eclipsed</em>) and submitted the calculation again. I searched the log file for the final NSERCH line and again found an energy for the optimized <strong>structure</strong> with the C–C torsion frozen at 120°. The reported energy was…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">26</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267263644</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000638</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000200</span>
 </pre></div>
 </div>
@@ -949,7 +971,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>The calculated structure for the <em>anti</em>, <em>eclipsed</em>, <em>gauche</em>, and <em>syn</em> conformers.</em></span><a class="headerlink" href="#fig5-7" title="Permalink to this image">¶</a></p>
 </div>
 <p>We can <strong>repeat</strong> these calculations again and again using <strong>different values</strong> for the 4,1,2,3 torsion. All it takes is typing and time.</p>
-<p>In the <strong>next chapter</strong> you will see ways to use the power of your computer and <em>Unix</em> tools to enable these operations to be <strong>done quickly</strong>. Below is a plot of data points between zero and 180˚. I performed calculations at 5˚ intervals. It took only minutes to manually <strong>create</strong> the 36 input files and then drop them all into <em>GamessQ</em>. After a pause to brew a coffee, the jobs finished (it is a low cost level of theory – we could use basis sets that would result in run times of days on my little desktop computer.) I then was able to <strong>extract</strong> the energies with a single command and get a <strong>plot</strong> in less than a minute of effort. That is the power of <em>Unix</em>. See <a class="reference internal" href="#fig5-8"><span class="std std-numref">Fig. 21</span></a></p>
+<p>In the <strong>next chapter</strong> you will see ways to use the power of your computer and <em>Unix</em> tools to enable these operations to be <strong>done quickly</strong>. Below is a plot of data points between zero and 180°. I performed calculations at 5° intervals. It took only minutes to manually <strong>create</strong> the 36 input files and then drop them all into <em>GamessQ</em>. After a pause to brew a coffee, the jobs finished (it is a low cost level of theory – we could use basis sets that would result in run times of days on my little desktop computer.) I then was able to <strong>extract</strong> the energies with a single command and get a <strong>plot</strong> in less than a minute of effort. That is the power of <em>Unix</em>. See <a class="reference internal" href="#fig5-8"><span class="std std-numref">Fig. 21</span></a></p>
 <div class="figure align-default" id="fig5-8">
 <a class="reference internal image-reference" href="_images/profiles_Picture8.png"><img alt="_images/profiles_Picture8.png" src="_images/profiles_Picture8.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G level.</em></span><a class="headerlink" href="#fig5-8" title="Permalink to this image">¶</a></p>
@@ -961,7 +983,7 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="_images/profiles_Picture9.png"><img alt="_images/profiles_Picture9.png" src="_images/profiles_Picture9.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G (black) and 6-311G(d,p)++ level (orange).</em></span><a class="headerlink" href="#fig5-9" title="Permalink to this image">¶</a></p>
 </div>
-<p>You can see that they are very similar. The <strong>torsion angle</strong> for the <em>gauche</em> conformer was calculated to be 65˚ when using the 6-311G(d,p)++ basis set (compared to 67˚). The <strong>energy profile</strong> is very similar. When using 1st and 2nd row elements with no charges or strained bonds, the 3-21G basis set gives good results.</p>
+<p>You can see that they are very similar. The <strong>torsion angle</strong> for the <em>gauche</em> conformer was calculated to be 65° when using the 6-311G(d,p)++ basis set (compared to 67°). The <strong>energy profile</strong> is very similar. When using 1st and 2nd row elements with no charges or strained bonds, the 3-21G basis set gives good results.</p>
 </div>
 </div>
 <div class="section" id="using-unix">
@@ -1132,7 +1154,7 @@ butane-SCAN.inp_180_131.log: NSERCH:  <span class="m">23</span>  <span class="nv
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>We used <em>MacMolPlt</em> to <strong>build</strong> a model of butane and export an initial input file for an optimization calculation. We <strong>optimized</strong> the structure for the <em>anti</em> conformation and found the <em>gauche</em> conformation by starting with an initial structure that was to <strong>near</strong> that conformation. Thus we located the <strong>global</strong> minimum and a <strong>local</strong> minimum on the <strong>rotational energy surface</strong>.</p>
-<p>Then we edited the file to <strong>freeze</strong> the coordinate that corresponded to the central C–C <strong>bond rotation</strong> and the set the internal coordinate for that <strong>torsion</strong> to 0˚ and 120˚ to find the energy of the <em>syn</em> conformation and an <em>eclipsed</em> conformation. With this, we have the important parts of the rotational energy profile.</p>
+<p>Then we edited the file to <strong>freeze</strong> the coordinate that corresponded to the central C–C <strong>bond rotation</strong> and the set the internal coordinate for that <strong>torsion</strong> to 0° and 120° to find the energy of the <em>syn</em> conformation and an <em>eclipsed</em> conformation. With this, we have the important parts of the rotational energy profile.</p>
 <p>We learned how to use <em>Unix</em> tools to <strong>extract</strong> information from large text files and from multiple text files and we learned how to <strong>create</strong> multiple input files using an <strong>automated</strong> process. We were introduced to the idea of shell scripts and to useful tools such as <em>grep</em> and <em>sed</em>.</p>
 <p>We examined the <strong>format</strong> of the <code class="docutils literal notranslate"><span class="pre">Z-matrix</span></code> in detail. We used the <strong>internal coordinates</strong> to easily create the series of input files for the rotational coordinate scan. Using <em>Unix</em> tools, we created many input files with frozen torsion coordinates to create a rotational energy profile. We used <em>GamessQ</em> to submit the files as a <strong>batch job</strong>. We extracted the energy from these files and plotted the complete rotational energy profile.</p>
 </div>

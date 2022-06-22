@@ -22,7 +22,7 @@ This exercise will hopefully accomplish the following goals while learning new s
 
 ## Small Molecules
 
-Methane, ammonia and water: these three molecules are sp3 hybridized and should be tetrahedral in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109˚
+Methane, ammonia and water: these three molecules are sp3 hybridized and should be tetrahedral in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109&deg;
 
 To investigate these molecules will need to describe a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with xyz values; unique Cartesian coordinates, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the Z-matrix, where each atom is placed in space relative to the previous one in a carefully created list.
 
@@ -73,7 +73,7 @@ So how shall we build water? We can provide cartesian coordinates that position 
 | Hydrogen | b	   | 0	   | –a    |
 | Hydrogen | –b    | 0     | –a    |
 
-What values should we use for a and b? We know that the bond angle should be 104.5˚ and that the bond length in water is 0.95 Å. We could use trigonometry and position the atoms accordingly. Or we could just throw some guess in and let GAMESS start there as it moves toward finding the optimal structure. I will set both a and b to 0.7 Å. Our initial guess at water will have a bond angle of 90˚ and a bond length of $\sqrt{(0.7+0.7)}$.
+What values should we use for a and b? We know that the bond angle should be 104.5&deg; and that the bond length in water is 0.95 Å. We could use trigonometry and position the atoms accordingly. Or we could just throw some guess in and let GAMESS start there as it moves toward finding the optimal structure. I will set both a and b to 0.7 Å. Our initial guess at water will have a bond angle of 90&deg; and a bond length of $\sqrt{(0.7+0.7)}$.
  
 ### Your First Input File
 
@@ -470,7 +470,7 @@ Keep this conversion factor close by: 1 Hartree = 2,625.5 kJ/mole.
 
 For many of our exercises, we will be building molecules using internal coordinates. These coordinates define atomic positions relative the first atom defined in list. This list is called the Z-matrix. A Z-matrix is a defined format for creating these internal coordinates. 
 
-Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly. I will know the distance between A and C and all other angles from those first three coordinates.
+Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45&deg; left and travel 5 miles to town C, then I can place the towns exactly. I will know the distance between A and C and all other angles from those first three coordinates.
 
 Here is a Z-matrix for our town map…
 
@@ -485,7 +485,7 @@ It can be interpreted as…
 | :---- | :---- |
 | Line 1 |	Town A is declared to exist |
 | Line 2 |	Town B is connected to line 1 by a distance of 10 miles |
-| Line 3 |	Town C is connected to line 2 by a distance of 5 miles \& the angle through line 2 to line 1 is 45˚|
+| Line 3 |	Town C is connected to line 2 by a distance of 5 miles \& the angle through line 2 to line 1 is 45&deg;|
  
 ### The Z-matrix with Water
 
@@ -544,7 +544,7 @@ We see the Z-matrix used for the atomic coordinates in the `$DATA` group and we 
 
 When we submit the job, GAMESS will use the Z-matrix to create a set of Cartesian coordinates for the actual calculation. It will then attempt to identify the primary axis and apply the symmetry point group to create a set of unique Cartesian coordinates. It will then optimize the coordinates and, when a stationary point is reached, it will output the xyz coordinates, the unique coordinates and the new Z-matrix.
 
-The Z-matrix is useful because we can see directly the bond lengths and angles in the result. We will not have to use trigonometry to calculate the bond angle from the xyz data. In the excerpt from the result file shown below, we see that we reached an optimized geometry after 3 steps and that the AM1 Bond lengths were calculated to be 0.961 Å and the bond angle to be 103.5˚. Note that GAMESS oriented the water molecule in the xz plane, as expected, but that it has the molecule upside-down compared to our original Cartesian input file described above. Interesting.
+The Z-matrix is useful because we can see directly the bond lengths and angles in the result. We will not have to use trigonometry to calculate the bond angle from the xyz data. In the excerpt from the result file shown below, we see that we reached an optimized geometry after 3 steps and that the AM1 Bond lengths were calculated to be 0.961 Å and the bond angle to be 103.5&deg;. Note that GAMESS oriented the water molecule in the xz plane, as expected, but that it has the molecule upside-down compared to our original Cartesian input file described above. Interesting.
 
 ```
 NSERCH:   6  E=      -12.8093121220  GRAD. MAX=  0.0000047  R.M.S.=  0.0000020
@@ -605,7 +605,7 @@ ERROR!
  OR YOUR CHOICE OF GROUP. ADIOS, MY FRIEND!!
 ```
 
-Although the Z-matrix will create a structure that looks a lot like ammonia, the three bond angles between H and N will not all be identical as the Z-matrix is converted to Cartesian coordinates. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of positioning the atoms according to the Z-matrix (1.0Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane. This should give us the correct structure. However, after the math is done that third 4,1,3 bond angle is not EXACTLY the same as the stated 4,1,2 and 3,1,2 angles. As a result, GAMESS could not determine the correct primary axis because the structure was not an exact fit to *C<sub>3v</sub>* symmetry.
+Although the Z-matrix will create a structure that looks a lot like ammonia, the three bond angles between H and N will not all be identical as the Z-matrix is converted to Cartesian coordinates. We defined the 3,1,2 and the 4,1,2 angles as 109.5&deg;, However we did not define the 4,1,3 bond angle. It will be the result of positioning the atoms according to the Z-matrix (1.0Å from the nitrogen, 109.5&deg; from the 2,1 bond and 120&deg; from the 1,2,3 plane. This should give us the correct structure. However, after the math is done that third 4,1,3 bond angle is not EXACTLY the same as the stated 4,1,2 and 3,1,2 angles. As a result, GAMESS could not determine the correct primary axis because the structure was not an exact fit to *C<sub>3v</sub>* symmetry.
 
 There is another way.
 
@@ -724,7 +724,7 @@ H  1.0   0.9385359335   0.0   0.2757943561
 Observe that the `$CONTRL` group is split over two lines in this example. The single line was more than 80 columns and no characters after that will be read into the system. We can have as many new lines as we want. The group is terminated by the `$END` string, not the end of a line.
 ```
 
-Take note of the list of internal coordinates that was written out by GAMESS. Each is classified as a STRETCH, BEND or TORSION. This corresponds to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120˚ like we had set up earlier. This is why the Z-matrix failed when we enforced *C<sub>3v</sub>* symmetry.
+Take note of the list of internal coordinates that was written out by GAMESS. Each is classified as a STRETCH, BEND or TORSION. This corresponds to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120&deg; like we had set up earlier. This is why the Z-matrix failed when we enforced *C<sub>3v</sub>* symmetry.
 
 Since the `$DATA` group was copied from the result of the same AM1 method we started at a stationary point and so no optimization was performed.
 
@@ -762,7 +762,7 @@ NSERCH:   0  E=       -9.1354556208  GRAD. MAX=  0.0000009  R.M.S.=  0.0000004
    6 TORSION   4  1  2  3              -2.0782059    -119.0724272
 ```
 
-We observe that the bond lengths are all exactly the same and the bond angles are also exactly the same. AM1 bond lengths and angles are 1.00 Å and 109.1˚
+We observe that the bond lengths are all exactly the same and the bond angles are also exactly the same. AM1 bond lengths and angles are 1.00 Å and 109.1&deg;
 
 We can take the result of the AM1 calculation and use it to build an input file for HF/3-21G and HF/6-3111G(d,p)++ optimizations. Below is a file for the more expensive option.
 
@@ -823,7 +823,7 @@ NSERCH:   3  E=      -56.2147746439  GRAD. MAX=  0.0000023  R.M.S.=  0.0000013
    6 BEND      4  1  3                  1.8911154     108.3529298 
 ```
 
-Now we see the HF/6311(d,p)++ results have bond lengths of 1.00 Å and bond angles of 108.4˚.
+Now we see the HF/6311(d,p)++ results have bond lengths of 1.00 Å and bond angles of 108.4&deg;.
 
 ## Summary
 
@@ -882,7 +882,7 @@ Include an appendix with the text for all the input files that you used. (Please
 
 ### Methane Calculations
 
-The input file was created using unique Cartesian coordinates because the Z-matrix conversion by GAMESS failed to achieve $T_d$ symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures. 
+The input file was created using unique Cartesian coordinates because the Z-matrix conversion by GAMESS failed to achieve $T_d$ symmetry. (Bond angles of 109.5&deg; did not fit the definition of Td. They should be 109.4712206&deg;.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures. 
 
 #### Methane Data
 

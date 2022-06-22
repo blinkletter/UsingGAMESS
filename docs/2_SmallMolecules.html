@@ -151,14 +151,36 @@ const thebe_selector_output = ".output, .cell_output"
    Benzene: MOs and Symmetry
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
    Butadiene: Transition State for Rotation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
   </a>
  </li>
 </ul>
@@ -786,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="small-molecules">
 <h2>Small Molecules<a class="headerlink" href="#small-molecules" title="Permalink to this headline">¶</a></h2>
-<p><strong>Methane</strong>, <strong>ammonia</strong> and <strong>water</strong>: these three molecules are <em>sp<sup>3</sup></em> hybridized and should be <strong>tetrahedral</strong> in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109˚</p>
+<p><strong>Methane</strong>, <strong>ammonia</strong> and <strong>water</strong>: these three molecules are <em>sp<sup>3</sup></em> hybridized and should be <strong>tetrahedral</strong> in their VSEPR geometry. We expect to see bonds or lone pairs at angles of near 109°</p>
 <p>To investigate these molecules, will need to <strong>describe</strong> a molecule for a computer. We will discuss two methods: Cartesian coordinates, where every atom is placed in 3D space with <em>xyz</em> values; <strong>unique Cartesian coordinates</strong>, where only atoms that are symmetry unique are placed and the rest are automatically generated to satisfy the symmetry point group; and the <em><strong>Z-matrix</strong></em>, where each atom is placed in space relative to the previous one in a carefully created list.</p>
 <p><em>GAMESS</em> works by positioning the nuclei and then creating a mathematical function for the <strong>energy</strong> of the electrons. By taking the <strong>derivative</strong> of that function, <em>GAMESS</em> can determine if the current position is on a <strong>slope</strong> and then change the positions by a small amount to follow that slope downhill in energy. A new function is calculated and the process repeats again and again</p>
 <p>In this exercise, we will be <strong>manually</strong> creating and running input files. In the future, we will learn how to use <em>MacMolPlt</em> and <em>Avogadro</em> to quickly build molecules and <strong>automatically</strong> create input files. But lets us first get our hands dirty before we start using power tools to do the hard work for us. Wax on, wax off!</p>
@@ -841,7 +863,7 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<p>What values should we use for <em>a</em> and <em>b</em>? We know that the <strong>bond angle</strong> should be 104.5˚ and that the <strong>bond length</strong> in water is 0.95 Å. We could use trigonometry and position the atoms accordingly. Or we could just throw some <strong>guess</strong> in and let <em>GAMESS</em> start there as it moves toward finding the optimal structure. I will set both a and b to 0.7 Å. Our initial guess at water will have a bond angle of 90˚ and a bond length of <span class="math notranslate nohighlight">\(\sqrt{(0.7+0.7)}\)</span>.</p>
+<p>What values should we use for <em>a</em> and <em>b</em>? We know that the <strong>bond angle</strong> should be 104.5° and that the <strong>bond length</strong> in water is 0.95 Å. We could use trigonometry and position the atoms accordingly. Or we could just throw some <strong>guess</strong> in and let <em>GAMESS</em> start there as it moves toward finding the optimal structure. I will set both a and b to 0.7 Å. Our initial guess at water will have a bond angle of 90° and a bond length of <span class="math notranslate nohighlight">\(\sqrt{(0.7+0.7)}\)</span>.</p>
 </div>
 <div class="section" id="your-first-input-file">
 <h3>Your First Input File<a class="headerlink" href="#your-first-input-file" title="Permalink to this headline">¶</a></h3>
@@ -1279,7 +1301,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="internal-coordinates">
 <h2>Internal Coordinates<a class="headerlink" href="#internal-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>For many of our exercises, we will be building molecules using <strong>internal coordinates</strong>. These coordinates define atomic positions relative the first atom defined in the list. This list is called the <em>Z-matrix</em>. A <em><strong>Z-matrix</strong></em> is a defined format for creating these internal coordinates.</p>
-<p>Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45˚ left and travel 5 miles to town C, then I can place the towns exactly, relative to each other. I will know the distance between A and C and all other angles from those first three coordinates.</p>
+<p>Imagine three towns in a flat prairie, the last three towns on Earth. If I start at town A and travel 10 miles to town B, turn 45° left and travel 5 miles to town C, then I can place the towns exactly, relative to each other. I will know the distance between A and C and all other angles from those first three coordinates.</p>
 <p>Here is a <em>Z-matrix</em> for our town map…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
 <span class="n">B</span>  <span class="mi">1</span>  <span class="mi">10</span>
@@ -1301,7 +1323,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>Town B is connected to line 1 by a <strong>distance</strong> of 10 miles</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Line 3</p></td>
-<td class="text-align:left"><p>Town C is connected to line 2 by a <strong>distance</strong> of 5 miles &amp; the <strong>angle</strong> through line 2 to line 1 is 45˚</p></td>
+<td class="text-align:left"><p>Town C is connected to line 2 by a <strong>distance</strong> of 5 miles &amp; the <strong>angle</strong> through line 2 to line 1 is 45°</p></td>
 </tr>
 </tbody>
 </table>
@@ -1353,7 +1375,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>We see the <em>Z-matrix</em> used for the atomic coordinates in the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group and we also see that the <code class="docutils literal notranslate"><span class="pre">COORD=CART</span></code> has been changed to <code class="docutils literal notranslate"><span class="pre">COORD=ZMT</span></code>.</p>
 <p>When we submit the job, <em>GAMESS</em> will use the <em>Z-matrix</em> to create a set of Cartesian coordinates for the actual calculation. It will then attempt to identify the <strong>primary axis</strong> and apply the symmetry point group to create a set of <strong>unique Cartesian coordinates</strong>. It will then optimize the coordinates and, when a stationary point is reached, it will output the <em>xyz</em> coordinates, the unique coordinates and the new <em>Z-matrix</em>.</p>
-<p>The <em>Z-matrix</em> is useful because we can <strong>see</strong> directly the <strong>bond lengths and angles</strong> in the result. We will not have to use trigonometry to calculate the bond angle from the <em>xyz</em> data. In the excerpt from the result file shown below, we see that we reached an <strong>optimized</strong> geometry after 3 steps and that the AM1 Bond lengths were calculated to be 0.961 Å and the bond angle to be 103.5˚. Note that <em>GAMESS</em> oriented the water molecule in the <em>xz</em> plane, as expected, but that it has the molecule <strong>upside-down</strong> compared to our original Cartesian input file described above. Interesting.</p>
+<p>The <em>Z-matrix</em> is useful because we can <strong>see</strong> directly the <strong>bond lengths and angles</strong> in the result. We will not have to use trigonometry to calculate the bond angle from the <em>xyz</em> data. In the excerpt from the result file shown below, we see that we reached an <strong>optimized</strong> geometry after 3 steps and that the AM1 Bond lengths were calculated to be 0.961 Å and the bond angle to be 103.5°. Note that <em>GAMESS</em> oriented the water molecule in the <em>xz</em> plane, as expected, but that it has the molecule <strong>upside-down</strong> compared to our original Cartesian input file described above. Interesting.</p>
 <div class="literal-block-wrapper docutils container" id="water-z-am1-log1">
 <div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">water_Z_AM1.log</span><a class="headerlink" href="#water-z-am1-log1" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">976</span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">6</span>  <span class="n">E</span><span class="o">=</span>      <span class="o">-</span><span class="mf">12.8093121220</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000047</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000020</span>
@@ -1406,7 +1428,7 @@ const thebe_selector_output = ".output, .cell_output"
  OR YOUR CHOICE OF GROUP. ADIOS, MY FRIEND!!
 </pre></div>
 </div>
-<p>Although the <em>Z-matrix</em> will create a structure that looks a lot like ammonia, the three <strong>bond angles</strong> between H and N will not all be identical in the <em>Z-matrix</em>. We defined the 3,1,2 and the 4,1,2 angles as 109.5˚, However we did not define the 4,1,3 bond angle. It will be the result of <strong>positioning</strong> the atoms according to the <em>Z-matrix</em> (1.0 Å from the nitrogen, 109.5˚ from the 2,1 bond and 120˚ from the 1,2,3 plane.) I thought that this would give us the correct structure. However, after the math is done that third 4,1,3 bond angle is <strong>not exactly the same</strong> as the stated 4,1,2 and 3,1,2 angles. As a result, <em>GAMESS</em> could not determine the correct primary axis because the structure was not an exact fit to <em>C<sub>3v</sub></em> symmetry.</p>
+<p>Although the <em>Z-matrix</em> will create a structure that looks a lot like ammonia, the three <strong>bond angles</strong> between H and N will not all be identical in the <em>Z-matrix</em>. We defined the 3,1,2 and the 4,1,2 angles as 109.5°, However we did not define the 4,1,3 bond angle. It will be the result of <strong>positioning</strong> the atoms according to the <em>Z-matrix</em> (1.0 Å from the nitrogen, 109.5° from the 2,1 bond and 120° from the 1,2,3 plane.) I thought that this would give us the correct structure. However, after the math is done that third 4,1,3 bond angle is <strong>not exactly the same</strong> as the stated 4,1,2 and 3,1,2 angles. As a result, <em>GAMESS</em> could not determine the correct primary axis because the structure was not an exact fit to <em>C<sub>3v</sub></em> symmetry.</p>
 <p>There is another way.</p>
 </div>
 <div class="section" id="dummy-atoms-in-the-z-matrix">
@@ -1521,7 +1543,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Tip</p>
 <p>Observe that the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code> group is split over two lines in this example. The single line was more than 80 columns and no characters after that will be read into the system. We can have as many new lines as we want. The group is terminated by the <code class="docutils literal notranslate"><span class="pre">$END</span></code> string, not the end of a line.</p>
 </div>
-<p>Take note of the <strong>list</strong> of internal coordinates that was written out by <em>GAMESS</em>. Each is <strong>classified</strong> as a STRETCH, BEND or TORSION. This <strong>corresponds</strong> to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120˚ like we had set up earlier. This is why the <em>Z-matrix</em> failed when we enforced <em>C<sub>3v</sub></em> symmetry.</p>
+<p>Take note of the <strong>list</strong> of internal coordinates that was written out by <em>GAMESS</em>. Each is <strong>classified</strong> as a STRETCH, BEND or TORSION. This <strong>corresponds</strong> to the 1, 2 and 3 that we used to set up each coordinate. The 4,1,2,3 torsion is not 120° like we had set up earlier. This is why the <em>Z-matrix</em> failed when we enforced <em>C<sub>3v</sub></em> symmetry.</p>
 <p>Since the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group was copied from the result of the <strong>same</strong> AM1 method, we started at a stationary point and so no optimization was performed. What is <strong>different</strong> is that <em>GAMESS</em> now includes the list of internal coordinates with the structural data. We can easily <strong>see the values</strong> for all the lengths and angles.</p>
 <div class="literal-block-wrapper docutils container" id="ammonia-uz-log1">
 <div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">ammonia_UZ.log</span><a class="headerlink" href="#ammonia-uz-log1" title="Permalink to this code">¶</a></div>
@@ -1559,7 +1581,7 @@ const thebe_selector_output = ".output, .cell_output"
 </span></pre></div>
 </div>
 </div>
-<p>We observe that the bond lengths are all <strong>exactly</strong> the same and the bond angles are also <strong>exactly</strong> the same. AM1 bond lengths and angles are 1.00 Å and 109.1˚</p>
+<p>We observe that the bond lengths are all <strong>exactly</strong> the same and the bond angles are also <strong>exactly</strong> the same. AM1 bond lengths and angles are 1.00 Å and 109.1°</p>
 <p>We can take the result of the AM1 calculation and use it to build an <strong>input file</strong> for HF/3-21G and HF/6-3111G(d,p)++ optimizations. Below is a file for the <strong>more expensive</strong> option.</p>
 <div class="literal-block-wrapper docutils container" id="ammonia-uz-6311g-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 21 </span><span class="caption-text">ammonia_UZ_6311G.inp</span><a class="headerlink" href="#ammonia-uz-6311g-inp1" title="Permalink to this code">¶</a></div>
@@ -1620,7 +1642,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<p>Now we see the HF/6311(d,p)++ results have bond <strong>lengths</strong> of 1.00 Å and bond <strong>angles</strong> of 108.4˚.</p>
+<p>Now we see the HF/6311(d,p)++ results have bond <strong>lengths</strong> of 1.00 Å and bond <strong>angles</strong> of 108.4°.</p>
 </div>
 </div>
 <div class="section" id="summary">
@@ -1656,7 +1678,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Example Exercise Report<a class="headerlink" href="#example-exercise-report" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="methane-calculations">
 <h4>Methane Calculations<a class="headerlink" href="#methane-calculations" title="Permalink to this headline">¶</a></h4>
-<p>The input file was created using unique Cartesian coordinates because the <em>Z-matrix</em> conversion by <em>GAMESS</em> failed to achieve <span class="math notranslate nohighlight">\(T_d\)</span> symmetry. (Bond angles of 109.5˚ did not fit the definition of Td. They should be 109.4712206˚.)  Once that problem was solved the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<p>The input file was created using <strong>unique</strong> Cartesian coordinates because the <em>Z-matrix</em> conversion by <em>GAMESS</em> <strong>failed</strong> to achieve <em>T<sub>d</sub></em> symmetry. (Bond angles of 109.5° did not fit the definition of <em>T<sub>d</sub></em>. They should be 109.4712206°.) Once that problem was solved, the <strong>geometry</strong> was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
 <div class="section" id="methane-data">
 <h5>Methane Data<a class="headerlink" href="#methane-data" title="Permalink to this headline">¶</a></h5>
 <table class="colwidths-auto table">
@@ -1699,7 +1721,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="commentary">
 <h5>Commentary<a class="headerlink" href="#commentary" title="Permalink to this headline">¶</a></h5>
-<p>The HF/3-21G optimization produced a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was calculated to be very similar as well. The AM1 structure and energy was farther away.</p>
+<p>The HF/3-21G <strong>optimization</strong> produced a structure that is <strong>very close</strong> to the HF/6-311G(d,p)++ optimized structure and the <strong>energy</strong> was calculated to be very <strong>similar</strong> as well. The AM1 structure and energy was farther away.</p>
 </div>
 <div class="section" id="appendix-input-files">
 <h5>Appendix: Input files<a class="headerlink" href="#appendix-input-files" title="Permalink to this headline">¶</a></h5>
@@ -1797,9 +1819,8 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<p>Paste in coordinates for the results of the AM1 and 3-21G calculations after running this file.
- 
-The below file was made to check the energy of the experimental structure. Even with many decimal places, <em>GAMESS</em> still did not recognize the symmetry of the structure. So I used C1 symmetry instead. Note that there is NO BLANK LINE after the C1 symmetry designation.</p>
+<p><strong>Paste</strong> in coordinates for the results of the AM1 and 3-21G calculations after running this job.</p>
+<p>The below file was made to <strong>check</strong> the energy of the experimental structure. Even with many decimal places, <em>GAMESS</em> still did not recognize the <strong>symmetry</strong> of the structure. So I used <em>C<sub>1</sub></em> symmetry instead. Note that there is NO BLANK LINE after the <em>C<sub>1</sub></em> symmetry designation.</p>
 <div class="literal-block-wrapper docutils container" id="methane-6311-z-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Methane_6311_Z_E.inp</span><a class="headerlink" href="#methane-6311-z-e-inp" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
@@ -1824,7 +1845,7 @@ The below file was made to check the energy of the experimental structure. Even 
 </div>
 <div class="section" id="water-calculations">
 <h4>Water Calculations<a class="headerlink" href="#water-calculations" title="Permalink to this headline">¶</a></h4>
-<p>The first input file was created a <em>Z-matrix</em> and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<p>The <strong>first</strong> input file was created a <em>Z-matrix</em> and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the <strong>energy</strong> was calculated at HF/6-311G(d,p)++ for all three structures.</p>
 <div class="section" id="water-data">
 <h5>Water Data<a class="headerlink" href="#water-data" title="Permalink to this headline">¶</a></h5>
 <table class="colwidths-auto table">
@@ -1866,7 +1887,7 @@ The below file was made to check the energy of the experimental structure. Even 
 </div>
 <div class="section" id="id1">
 <h5>Commentary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
-<p>The HF/3-21G optimization produced a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was calculated to be very similar as well. The AM1 structure and energy seems closer, but not by much.</p>
+<p>The HF/3-21G optimization <strong>produced</strong> a structure that is very close to the HF/6-311G(d,p)++ optimized structure and the energy was <strong>calculated</strong> to be very similar as well. The AM1 structure and energy seems closer, but not by much.</p>
 </div>
 <div class="section" id="id2">
 <h5>Appendix: Input files<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
@@ -1896,7 +1917,7 @@ The below file was made to check the energy of the experimental structure. Even 
 </div>
 <div class="section" id="ammonia-calculations">
 <h4>Ammonia Calculations<a class="headerlink" href="#ammonia-calculations" title="Permalink to this headline">¶</a></h4>
-<p>The first input file was created a <em>Z-matrix</em> and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the energy was calculated at HF/6-311G(d,p)++ for all three structures.</p>
+<p>The first input file was <strong>created</strong> a <em>Z-matrix</em> and the geometry was calculated at AM1, HF/3-21G and HF/6-311G(d,p)++ levels. Then the <strong>energy</strong> was calculated at HF/6-311G(d,p)++ for all three structures.</p>
 <div class="section" id="ammonia-data">
 <h5>Ammonia Data<a class="headerlink" href="#ammonia-data" title="Permalink to this headline">¶</a></h5>
 <table class="colwidths-auto table">
@@ -1938,7 +1959,7 @@ The below file was made to check the energy of the experimental structure. Even 
 </div>
 <div class="section" id="id3">
 <h5>Commentary<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
-<p>The HF/3-21G optimization produced a structure that is NOT close to the HF/6-311G(d,p)++ optimized structure. The AM1 structure and energy seems closer, but not by much. The HF/6-311(d,p)++ seems to have given the most accurate structure compared to the experimental data.</p>
+<p>The HF/3-21G <strong>optimization</strong> produced a structure that is NOT close to the HF/6-311G(d,p)++ optimized structure. The AM1 structure and energy seems <strong>closer</strong>, but not by much. The HF/6-311(d,p)++ seems to have given the most <strong>accurate</strong> structure compared to the experimental data.</p>
 </div>
 <div class="section" id="id4">
 <h5>Appendix: Input files<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
@@ -1960,7 +1981,7 @@ The below file was made to check the energy of the experimental structure. Even 
 <span class="linenos">14</span>H  2  1.0  1  109.5  3  +120.0
 <span class="linenos">15</span>H  2  1.0  1  109.5  3  -120.0
 <span class="linenos">16</span> $END
-<span class="linenos">17</span>! NOTE: Pretend dummy atom does not exist when numbers the IZMAT matrix 
+<span class="linenos">17</span>! NOTE: Pretend dummy atom does not exist in the IZMAT matrix 
 <span class="linenos">18</span> $ZMAT IZMAT(1)=1,2,1,  
 <span class="linenos">19</span>                1,3,1,  2,3,1,2, 
 <span class="linenos">20</span>                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  

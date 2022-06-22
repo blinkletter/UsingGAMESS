@@ -85,11 +85,11 @@ After the **optimization**, the following structure was calculated to have a min
 
 ```{code-block} 
 ---
-name: Z-matrix from final structure in Cyclohexene_322.log
+name: Cyclohexene-ZMAT.log
 linenos: True
 lineno-start: 7359
 emphasize-lines: 4, 10, 13
-caption: Cyclohexene-ZMAT.log
+caption: Z-matrix from final structure in Cyclohexene_322.log
 ---
                  - - ATOMS - -         COORDINATE      COORDINATE
  NO.   TYPE    I  J  K  L  M  N        (BOHR,RAD)       (ANG,DEG)
@@ -894,7 +894,7 @@ We can now **visualize** the starting material, transition state and product. A 
 
 The 5,6 bond length is a C-C single-bond in the cyclohexene with *sp<sup>3</sup>* carbons. Observe how the **bond length** changes from 1.55 to 1.32&nbsp;Å over the course of the **reaction**. the carbon atoms also clearly change from tetrahedral *sp<sup>3</sup>* to planar *sp<sup>2</sup>*.
 
-We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3˚ in the cyclohexene and ends up at 99.2˚ in the product. This is **consistent** with the &pi;-orbital interactions between **frontier molecular orbitals**.
+We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3&deg; in the cyclohexene and ends up at 99.2&deg; in the product. This is **consistent** with the &pi;-orbital interactions between **frontier molecular orbitals**.
 
 ```{figure} images/Diels_11.png
 ---
@@ -1031,8 +1031,16 @@ name: fig8_12
 
 ## A Challenge
 
+### Make It Break the Rules
+
 We know that Diels-Alder reactions proceed with *suprafacial-suprafacial* (*ss*) **stereochemistry**. We can also obey the Woodward-Hoffmann orbital symmetry rules for this reaction with an *antarafacial-antarafacial* (*aa*) process. This process already has a starting point, the half-chair *C<sub>2</sub>* cyclohexene.
 
 Optimize the structure of *C<sub>2</sub>* cyclohexene. Then use it as a **starting point** for a reaction coordinate scan **enforcing** *C<sub>2</sub>* symmetry. Can you oprimize the *C<sub>2</sub>* transition state? If so, can an IRC be performed? It would be cool to **compare** the movies for the two reactions. Compare a plot of the potential energies across the reaction coordinate and **comment** on whether the *ss* or the *aa* is faster.
 
 I dare you. No, I double-dog-dare you. Now you **cannot refuse** my challenge.
+
+### Other Reactions
+
+Can you take the methods **demonstrated** in this chapter and create an IRC for a **conrotatory** and a **disrotatory** electrocyclic reaction? Make the movie. All we really want to do is direct.
+
+Can you create an IRC of a [1,5]-H-shift **sigmatropic rearrangement**? Also try a [3,3] rearrangement. Model the **Claisen** rearrangement and the **Cope** rearrangement. Compare bond lengths in the transitions states and apply **Hammond's postulate** when discussing these observations. Make the movies. They might go viral.

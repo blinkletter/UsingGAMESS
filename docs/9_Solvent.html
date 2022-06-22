@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solvent: The Environment Matters &#8212; Fun With GAMESS</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Cleaning Workflow" href="10_Solvent_IRC_Plots.html" />
+    <link rel="prev" title="Diels-Alder Reaction: Intrinsic Reaction Coordinates" href="8A_Diels_Alder.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Setup.html">
+   Building Your System
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SmallMolecules.html">
+   Water: Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Visual_Input.html">
+   Methane: Visual Input and Output
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Ethane.html">
+   Ethane: Symmetry in Calculations
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5_Rotation_Profiles.html">
+   Butane: Rotation Energy Profiles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
+     <em>
+      GAMESS
+     </em>
+     Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Pi_Orbitals.html">
+   Allyl Cation: π Orbitals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Benzene.html">
+   Benzene: MOs and Symmetry
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="7_Butadiene.html">
+   Butadiene: Transition State for Rotation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8A_Diels_Alder.html">
+   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Solvent: The Environment Matters
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10_Solvent_IRC_Plots.html">
+     Data Cleaning Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
+     Data Cleaning Workflow
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/9_Solvent.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solvent-models">
+   Solvent Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pcm-group">
+   The $PCM Group
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-the-irc">
+   Setting Up the IRC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-input-files">
+     The Input Files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initial-results">
+     Initial Results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hessian-calculations">
+     Hessian Calculations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saddle-point-calculations">
+     Saddle Point Calculations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-irc">
+   Running the IRC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyzing-the-ts-structures">
+     Analyzing the TS structures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-documentation">
+     Read the Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-the-input-files">
+     Build the Input Files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation-of-irc-results">
+   Interpretation of IRC Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-ground-state">
+     The Ground State
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-results">
+   Plotting Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#processing-the-data">
+     Processing the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lots-of-plots">
+     Lots of Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cleaning-the-data">
+     Cleaning the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-the-data">
+     Plotting the Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comparing-irc-plots">
+       Comparing IRC Plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comparing-more-o-ferrell-jencks-plots">
+       Comparing More-O’Ferrell Jencks Plots
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-challenge">
+   A Challenge
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Solvent: The Environment Matters</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solvent-models">
+   Solvent Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pcm-group">
+   The $PCM Group
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-the-irc">
+   Setting Up the IRC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-input-files">
+     The Input Files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initial-results">
+     Initial Results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hessian-calculations">
+     Hessian Calculations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saddle-point-calculations">
+     Saddle Point Calculations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-irc">
+   Running the IRC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyzing-the-ts-structures">
+     Analyzing the TS structures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-documentation">
+     Read the Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-the-input-files">
+     Build the Input Files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation-of-irc-results">
+   Interpretation of IRC Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-ground-state">
+     The Ground State
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-results">
+   Plotting Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#processing-the-data">
+     Processing the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lots-of-plots">
+     Lots of Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cleaning-the-data">
+     Cleaning the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-the-data">
+     Plotting the Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comparing-irc-plots">
+       Comparing IRC Plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comparing-more-o-ferrell-jencks-plots">
+       Comparing More-O’Ferrell Jencks Plots
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-challenge">
+   A Challenge
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="solvent-the-environment-matters">
+<h1>Solvent: The Environment Matters<a class="headerlink" href="#solvent-the-environment-matters" title="Permalink to this headline">¶</a></h1>
+<p>Every calculation demonstrated so far had been performed in <strong>gas phase</strong>. We are modelling a single molecule in a vacuum. That is not the real world. Reactions occur at air pressure, at somewhat sane temperatures (generally less than 200 °C) and in <strong>solvent</strong>.</p>
+<div class="section" id="solvent-models">
+<h2>Solvent Models<a class="headerlink" href="#solvent-models" title="Permalink to this headline">¶</a></h2>
+<p>A charged system will be very high in energy in a <strong>vacuum</strong> but may be perfectly stable in <strong>water</strong>, where dipoles can arrange to oppose the charge and relax the system. Solvent can have many effects. protic solvents can assist the reaction by interacting <strong>directly</strong> with the reactants. Solvents might serve as an acid or a base <strong>catalyst</strong>, for example. Solvents can form structured <strong>cages</strong> around reactants and affect the outcome of very fast reactions.</p>
+<p>But the biggest effect will be <strong>stabilization</strong> of charges by dipole-dipole interactions. There is a lot to think about for solvent effects and so models that adjust the energies of the calculation by including solvent effects can be <strong>quite complex</strong>. We can include the molecules of the solvent in our <em><strong>ab initio</strong></em> calculations, we could model the solvent using <strong>molecular mechanics</strong> to account for its random motion but still involve its presence when atoms become near enough to the reactant to be included in <em>ab initio</em> methods. These methods will be costly.</p>
+<p>A common method that is less costly is to treat solvent like an electric field. this is the <strong>continuum model</strong>. The solvent is mathematically modelled as a field that <strong>interacts</strong> with the molecule being modelled. There are many optiions and we will be using the popular PCM continuum model.</p>
+</div>
+<div class="section" id="the-pcm-group">
+<h2>The $PCM Group<a class="headerlink" href="#the-pcm-group" title="Permalink to this headline">¶</a></h2>
+<p>The PCM model can be included in the <em>GAMESS</em> calculation by adding a <code class="docutils literal notranslate"><span class="pre">$PCM</span></code> group. There are many <strong>parameters</strong> that can be included but we will use it without any changes by simply declaring the <code class="docutils literal notranslate"><span class="pre">SOLVNT</span></code> parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $PCM SOLVNT = WATER $END
+</pre></div>
+</div>
+<p>There are many solvent <strong>options</strong>. See the <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/documentation.html"><em>GAMESS</em> documentation</a> for more information. Other <strong>popular</strong> choices are WATER, CH3OH, BENZENE, C6H12, THF and DMSO</p>
+<p>We could <strong>repeat</strong> any exercise that we have performed so far by adding the <code class="docutils literal notranslate"><span class="pre">$PCM</span></code> group to the input files. The results would likely be a little different, but not in an important way. Nothing we have tried so far involves <strong>charged</strong> systems. The effect of solvent will be most obvious relative to gas phase if we use ions.</p>
+<p>We will <strong>set up</strong> an transition state for a <em>S<sub>N</sun>2</em> reaction and <strong>optimize</strong> it in a polar <strong>solvent</strong> and in <strong>gas phase</strong>. then we will run an IRC calculation and compare the two reaction coordinates.</p>
+</div>
+<div class="section" id="setting-up-the-irc">
+<h2>Setting Up the IRC<a class="headerlink" href="#setting-up-the-irc" title="Permalink to this headline">¶</a></h2>
+<p>Symmetry makes life easy. If we consider chloride <strong>reacting</strong> with methylchloride in a <em>S<sub>N</sun>2</em> manner, we will have a <em>D<sub>3h</sub></em> structure. I will try to set it up using my understanding of the coordinate space used by <em>GAMESS</em> and the <strong>nature</strong> of the <em>D<sub>3h</sub></em> point group.</p>
+<div class="figure align-default" id="fig9-1">
+<a class="reference internal image-reference" href="_images/Solvent_1.png"><img alt="_images/Solvent_1.png" src="_images/Solvent_1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">*A symmetrical <em>S<sub>N</sun>2</em> reaction. *</span><a class="headerlink" href="#fig9-1" title="Permalink to this image">¶</a></p>
+</div>
+<p>There will be only <strong>three</strong> unique atoms. The primary axis in <em>GAMESS</em> is the <em>z</em>-axis. The carbon will be at the <strong>origin</strong> and the chloride will be on the <em>z</em>-axis. It will be <strong>reflected</strong> down to the other side along the <em>z</em>-axis by the symmetry to give the second chloride. The primary <em>σ<sub>v</sub></em> plane is the <em>xz</em> plane. The unique C-H bond will <strong>along</strong> the <em>x</em>-axis and the two other hydrogens will be <strong>positioned</strong> by symmetry in the other two <em>σ<sub>v</sub></em> planes with in the <em>xy</em> <em>σ<sub>h</sub></em> plane.</p>
+<div class="figure align-default" id="fig9-2">
+<a class="reference internal image-reference" href="_images/Solvent_2.png"><img alt="_images/Solvent_2.png" src="_images/Solvent_2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">*A symmetrical <em>S<sub>N</sun>2</em> reaction. *</span><a class="headerlink" href="#fig9-2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="the-input-files">
+<h3>The Input Files<a class="headerlink" href="#the-input-files" title="Permalink to this headline">¶</a></h3>
+<p>Our first input file will be in the ags phase. I used the B3LYP DFT <strong>method</strong> by including <code class="docutils literal notranslate"><span class="pre">DFTTYP=B3LYP</span></code> in the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code> group. I picked the 3-21G <strong>basis set</strong> (probably a poor choice, but I wanted to finish the calculation quickly). I set up a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group for automatic generation of redundant <strong>internal coordinates</strong> so that I can read bond distances and angles out of the text file. The <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> options are to make sure that both C-Cl bonds are <strong>included</strong> in the auto generation even if they are <strong>too long</strong> to fit the definition of a bond.</p>
+<p>The <strong>unique</strong> coordinates will be 0,0,0 for <strong>carbon</strong>, 1,0,0 for the unique <strong>hydrogen</strong> and 0,0,2 for the unique <strong>chloride</strong>. I know that C-H bonds are generally about 1 Å and a typical C-Cl bond is 1.7 Å so I chose 2 Å since the bonds should be breaking and forming. Nobody knows the true values, but some people think that they can be calculated. The whole system will have a <strong>charge</strong> of -1.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-321-u-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 90 </span><span class="caption-text">SN2_321_U.inp</span><a class="headerlink" href="#sn2-321-u-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+<span class="linenos"> 7</span> $DATA 
+<span class="linenos"> 8</span>SN2
+<span class="linenos"> 9</span>DNH 3
+<span class="linenos">10</span>
+<span class="linenos">11</span>Cl    17.0    0.00000     0.00000     2.00000
+<span class="linenos">12</span>C     6.0     0.00000     0.00000     0.00000
+<span class="linenos">13</span>H     1.0     1.00000     0.00000     0.00000
+<span class="linenos">14</span> $END
+<span class="linenos">15</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 $END
+</pre></div>
+</div>
+</div>
+<p>The transition state must, by symmetry, be <strong>defined</strong> by the <em>D<sub>3h</sub></em> point group. So I don’t have to constrain anything. The C-Cl bonds will be <strong>forced</strong> to be identical by the symmetry requirements. As long as they don’t fly away to infinity, we should get something that looks like a <em>S<sub>N</sun>2</em> transition state.</p>
+<p>The second input file will be a <strong>copy</strong> of the first. All I will do is <strong>add</strong> the $PCM group for a <strong>solvent</strong>. I will choose water.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-h2o-321-u-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 91 </span><span class="caption-text">N2_H2O_321_U.inp</span><a class="headerlink" href="#sn2-h2o-321-u-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+<span class="hll"><span class="linenos"> 7</span> $PCM SOLVNT = WATER $END
+</span><span class="linenos"> 8</span> $DATA 
+<span class="linenos"> 9</span>SN2
+<span class="linenos">10</span>DNH 3
+<span class="linenos">11</span>
+<span class="linenos">12</span>Cl    17.0    0.00000     0.00000     2.00000
+<span class="linenos">13</span>C     6.0     0.00000     0.00000     0.00000
+<span class="linenos">14</span>H     1.0     1.00000     0.00000     0.00000
+<span class="linenos">15</span> $END
+<span class="linenos">16</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 $END
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="initial-results">
+<h3>Initial Results<a class="headerlink" href="#initial-results" title="Permalink to this headline">¶</a></h3>
+<p>I submitted the jobs to <em>GAMESS</em> and after a <strong>few minutes</strong> I had my result files in hand.  I openned them and found the last occurance of <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code>, which usually occurs at the <strong>final optimized structure</strong>. I found the list of internal coordinates and took note of the bond distances (the angles are defined by the point group and will be perfect, by definition.) What are the C-H and C-Cl bond lengths?</p>
+<p>The water calculation setteld down to a seemingly <strong>stable</strong> <em>D<sub>3h</sub></em> structure but it <strong>kept fighting</strong> that answer. the gradient never found a low value that would end the calculation as the structure <strong>thrashed</strong> (ever so slightly) around the saddle point. Eventually it fell over the edge and broke symmetry to find a structure that appears to be the <strong>starting materials</strong>/products. It <strong>failed</strong> to find a transition state-like structure.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I had used <em>C<sub>3h</sub></em> symmetry in my first attempts while learning how to do this. What can I say, point groups are not my thing. As a result the calculation completed in both cases but gave an incorrect structure for the solvent job. We are actually optimizing a saddle point here and <code class="docutils literal notranslate"><span class="pre">GAMESS</span></code> will try to escape downhill unless the symmetry makes an air-tight constraint.</p>
+</div>
+</div>
+<div class="section" id="hessian-calculations">
+<h3>Hessian Calculations<a class="headerlink" href="#hessian-calculations" title="Permalink to this headline">¶</a></h3>
+<p>I will <strong>take</strong> the coordinates from the <strong>gas phase</strong> optimization where the <em>D<sub>3h</sub></em> symmetry held up and use them in <strong>both</strong> new calculations for vibrational analysis, with and without solvent. If <strong>imaginary vibrations</strong> are found then I will copy in the orbital and vibrational data (the <span class="math notranslate nohighlight">\(VEC and \)</span>HESS groups from the .dat files) and perform the saddle point optimization.</p>
+<p>So I <strong>copied</strong> in the coordinates, <strong>changed</strong> to <code class="docutils literal notranslate"><span class="pre">RUNTYP=HESSIAN</span></code> and ran the jobs. They failed again and again. Eventually I read the error information at the end of the file. It stated that the system was unable to create a derivative of at least one of the needed functions. It then <strong>suggested</strong> that I change <code class="docutils literal notranslate"><span class="pre">METHOD=ANALYTIC</span></code> to <code class="docutils literal notranslate"><span class="pre">METHOD=SEMINUM</span></code> in the <code class="docutils literal notranslate"><span class="pre">$FORCE</span></code> group. When you can’t get a derivative by using <strong>calculus</strong>, you can still get it <strong>using numeric</strong> methods.</p>
+<p>Below are the Hessian input files for the two jobs. Observe how they <strong>differ</strong> only by the presence of the <code class="docutils literal notranslate"><span class="pre">$PCM</span></code> group.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-321g-hess-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 92 </span><span class="caption-text">SN2_D3h_321G_HESS.inp</span><a class="headerlink" href="#sn2-d3h-321g-hess-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
+<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+<span class="linenos"> 7</span> $GUESS GUESS=HUCKEL $END
+<span class="hll"><span class="linenos"> 8</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+</span><span class="linenos"> 9</span> $DATA 
+<span class="linenos">10</span>SN2
+<span class="linenos">11</span>DNH 3
+<span class="linenos">12</span>
+<span class="linenos">13</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+<span class="linenos">14</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
+<span class="linenos">15</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+<span class="linenos">16</span> $END
+<span class="linenos">17</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+<span class="linenos">18</span> $END
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-hess-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 93 </span><span class="caption-text">SN2_D3h_H2O_321G_HESS.inp</span><a class="headerlink" href="#sn2-d3h-h2o-321g-hess-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
+<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+<span class="linenos"> 7</span> $GUESS GUESS=HUCKEL $END
+<span class="hll"><span class="linenos"> 8</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+</span><span class="hll"><span class="linenos"> 9</span> $PCM SOLVNT = WATER $END
+</span><span class="linenos">10</span> $DATA 
+<span class="linenos">11</span>SN2
+<span class="linenos">12</span>DNH 3
+<span class="linenos">13</span>
+<span class="linenos">14</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+<span class="linenos">15</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
+<span class="linenos">16</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+<span class="linenos">17</span> $END
+<span class="linenos">18</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+<span class="linenos">19</span> $END
+</pre></div>
+</div>
+</div>
+<p>The <strong>log files</strong> showed that the Hessian calculations took over two minutes each. I was using a very small basis set so you can imagine that this job might take hours with a higher level of theory. Let us hope that the 3-21G basis set is enough for this task.</p>
+<p>The results revealed an imaginary vibration in both files. Look for the block of frequency results at the end of the Hessian log file. A small section is excerpted below.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-321g-hess-log">
+<div class="code-block-caption"><span class="caption-number">Listing 94 </span><span class="caption-text">Excerpt from SN2_D3h_321G_HESS.log</span><a class="headerlink" href="#sn2-d3h-321g-hess-log" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">2764</span> <span class="o">---</span> <span class="n">SYMMETRY</span> <span class="n">FOR</span> <span class="n">NORMAL</span> <span class="n">MODES</span> <span class="o">---</span>
+<span class="linenos">2765</span> <span class="n">INCLUDING</span> <span class="n">TRANSLATION</span> <span class="n">AND</span> <span class="n">ROTATION</span>
+<span class="linenos">2766</span>    <span class="mi">2</span><span class="o">*</span><span class="n">A1</span><span class="s1">&#39;    0*A1&quot;    3*A2&#39;</span>    <span class="mi">6</span><span class="o">*</span><span class="n">A2</span><span class="s2">&quot;    7*E&#39;&#39;   10*E&#39;  </span>
+<span class="linenos">2767</span> <span class="n">EXCLUDING</span> <span class="n">TRANSLATION</span> <span class="n">AND</span> <span class="n">ROTATION</span> <span class="p">(</span><span class="n">SAYVETZ</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="linenos">2768</span>    <span class="mi">2</span><span class="o">*</span><span class="n">A1</span><span class="s1">&#39;    0*A1&quot;    0*A2&#39;</span>    <span class="mi">1</span><span class="o">*</span><span class="n">A2</span><span class="s2">&quot;    0*E&#39;&#39;    4*E&#39;  </span>
+<span class="linenos">2769</span>
+<span class="linenos">2770</span>     <span class="n">FREQUENCIES</span> <span class="n">IN</span> <span class="n">CM</span><span class="o">**-</span><span class="mi">1</span><span class="p">,</span> <span class="n">IR</span> <span class="n">INTENSITIES</span> <span class="n">IN</span> <span class="n">DEBYE</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">AMU</span><span class="o">-</span><span class="n">ANGSTROM</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">2771</span>     <span class="n">REDUCED</span> <span class="n">MASSES</span> <span class="n">IN</span> <span class="n">AMU</span><span class="o">.</span>
+<span class="linenos">2772</span>
+<span class="linenos">2773</span>                            <span class="mi">1</span>           <span class="mi">2</span>           <span class="mi">3</span>           <span class="mi">4</span>           <span class="mi">5</span>
+<span class="hll"><span class="linenos">2774</span>       <span class="n">FREQUENCY</span><span class="p">:</span>       <span class="mf">207.30</span> <span class="n">I</span>     <span class="mf">28.09</span>        <span class="mf">8.07</span>        <span class="mf">3.43</span>        <span class="mf">2.19</span>  
+</span><span class="linenos">2775</span>        <span class="n">SYMMETRY</span><span class="p">:</span>         <span class="n">A2</span><span class="s2">&quot;         A2&#39;         E&#39;          E&#39;&#39;         E&#39;  </span>
+<span class="linenos">2776</span>    <span class="n">REDUCED</span> <span class="n">MASS</span><span class="p">:</span>     <span class="mf">13.20895</span>     <span class="mf">1.01510</span>    <span class="mf">16.26869</span>    <span class="mf">21.20951</span>    <span class="mf">18.17196</span>
+<span class="linenos">2777</span>    <span class="n">IR</span> <span class="n">INTENSITY</span><span class="p">:</span>     <span class="mf">19.94752</span>     <span class="mf">0.00000</span>     <span class="mf">0.00001</span>     <span class="mf">0.00020</span>     <span class="mf">0.00002</span>
+<span class="linenos">2778</span>
+<span class="hll"><span class="linenos">2779</span>  <span class="mi">1</span>   <span class="n">CL</span>           <span class="n">X</span> <span class="o">-</span><span class="mf">0.00024042</span> <span class="o">-</span><span class="mf">0.00016391</span>  <span class="mf">0.02390436</span>  <span class="mf">0.08918910</span>  <span class="mf">0.03907482</span>
+</span><span class="linenos">2780</span>                   <span class="n">Y</span> <span class="o">-</span><span class="mf">0.00000030</span> <span class="o">-</span><span class="mf">0.00202211</span>  <span class="mf">0.13898461</span> <span class="o">-</span><span class="mf">0.05936660</span> <span class="o">-</span><span class="mf">0.02570863</span>
+<span class="linenos">2781</span>                   <span class="n">Z</span> <span class="o">-</span><span class="mf">0.04586490</span>  <span class="mf">0.00957406</span> <span class="o">-</span><span class="mf">0.00312118</span> <span class="o">-</span><span class="mf">0.06143099</span>  <span class="mf">0.02482619</span>
+<span class="hll"><span class="linenos">2782</span>  <span class="mi">2</span>   <span class="n">CL</span>           <span class="n">X</span>  <span class="mf">0.00022961</span>  <span class="mf">0.00017522</span> <span class="o">-</span><span class="mf">0.05170792</span> <span class="o">-</span><span class="mf">0.07725766</span>  <span class="mf">0.08478517</span>
+</span><span class="linenos">2783</span>                   <span class="n">Y</span>  <span class="mf">0.00000018</span> <span class="o">-</span><span class="mf">0.00046495</span>  <span class="mf">0.04672898</span>  <span class="mf">0.04280349</span>  <span class="mf">0.12249206</span>
+<span class="linenos">2784</span>                   <span class="n">Z</span> <span class="o">-</span><span class="mf">0.04586570</span>  <span class="mf">0.00922298</span> <span class="o">-</span><span class="mf">0.00311768</span> <span class="o">-</span><span class="mf">0.06144903</span>  <span class="mf">0.02477948</span>
+<span class="hll"><span class="linenos">2785</span>  <span class="mi">3</span>   <span class="n">C</span>            <span class="n">X</span> <span class="o">-</span><span class="mf">0.00002341</span>  <span class="mf">0.00002374</span> <span class="o">-</span><span class="mf">0.01450706</span>  <span class="mf">0.00598728</span>  <span class="mf">0.06233970</span>
+</span><span class="linenos">2786</span>                   <span class="n">Y</span> <span class="o">-</span><span class="mf">0.00000032</span> <span class="o">-</span><span class="mf">0.00146562</span>  <span class="mf">0.09277105</span> <span class="o">-</span><span class="mf">0.00817242</span>  <span class="mf">0.04812668</span>
+<span class="linenos">2787</span>                   <span class="n">Z</span>  <span class="mf">0.26652151</span>  <span class="mf">0.00952704</span> <span class="o">-</span><span class="mf">0.00289935</span> <span class="o">-</span><span class="mf">0.06046632</span>  <span class="mf">0.02447910</span>
+<span class="linenos">2788</span>  <span class="mi">4</span>   <span class="n">H</span>            <span class="n">X</span>  <span class="mf">0.00030897</span> <span class="o">-</span><span class="mf">0.49610162</span> <span class="o">-</span><span class="mf">0.02223393</span> <span class="o">-</span><span class="mf">0.01719531</span>  <span class="mf">0.07180766</span>
+<span class="linenos">2789</span>                   <span class="n">Y</span>  <span class="mf">0.00019186</span> <span class="o">-</span><span class="mf">0.28790877</span>  <span class="mf">0.08833730</span> <span class="o">-</span><span class="mf">0.02155593</span>  <span class="mf">0.05361895</span>
+</pre></div>
+</div>
+</div>
+<p>Observe that in <a class="reference internal" href="#sn2-d3h-321g-hess-log"><span class="std std-numref">Listing 94</span></a>, there is a frequency labelled <code class="docutils literal notranslate"><span class="pre">207.30</span> <span class="pre">I</span></code>. The “I” indicates an <strong>imaginary frequency</strong>. We might say that is has a frequency of -207.3 <em>cm<sub>-1</sub></em>. Below it are the vectors for <strong>motion</strong> of each atom in the vibrations. We can see that there is motion of the <em>z</em>-axis for the C and both Cl atoms. Both chlorides are moving at 0.046 in one direction (let us say “left”) and the central carbon is moving at 0.267 in the other direction (to the “right”). The <strong>carbon</strong> is the <strong>lightest</strong> element and will take on the <strong>largest</strong> motion in this vibration. One bond is getting <strong>shorter</strong> and one is getting <strong>longer</strong>. This is consistent with the outcome of the reaction. We have <strong>found</strong> the imaginary vibration that aligns with the transition state. <strong>Both</strong> log files showed similar results. I used <em>MacMolPlt</em> to visiualize the vibration as shown in <a class="reference internal" href="#fig9-3"><span class="std std-numref">Fig. 60</span></a>.</p>
+<div class="figure align-default" id="fig9-3">
+<a class="reference internal image-reference" href="_images/Solvent_3.png"><img alt="_images/Solvent_3.png" src="_images/Solvent_3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text"><em>The imaginary vibration for the gas-phase Hessian calculation. The solvent calculation gave similar results.</em></span><a class="headerlink" href="#fig9-3" title="Permalink to this image">¶</a></p>
+</div>
+<p>We are now <strong>ready</strong> to set up the saddle point calculation.</p>
+</div>
+<div class="section" id="saddle-point-calculations">
+<h3>Saddle Point Calculations<a class="headerlink" href="#saddle-point-calculations" title="Permalink to this headline">¶</a></h3>
+<p><strong>Take</strong> the Hessian input file and <strong>change</strong> the <code class="docutils literal notranslate"><span class="pre">RUNTYP</span></code> to <code class="docutils literal notranslate"><span class="pre">SADPOINT</span></code>. Track down the .dat file. It can be found in the <em>GAMESS</em> scratch directory (I just searched for “filename.dat” on my computer). Open it and <strong>cut and paste</strong> the <code class="docutils literal notranslate"><span class="pre">$HESS</span></code> group into the new input file. Save the file and run it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must use the <code class="docutils literal notranslate"><span class="pre">$HESS</span></code> group from the solvent run for the solvent saddlepoint. The vibrations for gas phase, although similar, are not the same.</p>
+</div>
+<p>Now I will have the two input files that <strong>differ</strong> by having different <code class="docutils literal notranslate"><span class="pre">$HESS</span></code> groups and by whether a <code class="docutils literal notranslate"><span class="pre">$PCM</span></code> group is present to declare <strong>solvent</strong>. The solvent calculation input file is shown below.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-sadl-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 95 </span><span class="caption-text">Excerpt from SN2_D3h_H2O_321G_SADL.inp</span><a class="headerlink" href="#sn2-d3h-h2o-321g-sadl-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=SADPOINT DFTTYP=B3LYP MAXIT=30 
+</span><span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+<span class="linenos"> 7</span> $GUESS GUESS=HUCKEL $END
+<span class="linenos"> 8</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+<span class="hll"><span class="linenos"> 9</span> $PCM SOLVNT = WATER $END
+</span><span class="linenos">10</span> $DATA 
+<span class="linenos">11</span>SN2
+<span class="linenos">12</span>DNH 3
+<span class="linenos">13</span>
+<span class="linenos">14</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+<span class="linenos">15</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
+<span class="linenos">16</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+<span class="linenos">17</span> $END
+<span class="linenos">18</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+<span class="linenos">19</span> $END
+<span class="hll"><span class="linenos">20</span> $HESS
+</span><span class="linenos">21</span>ENERGY IS     -955.6969584956 E(NUC) IS      107.7130912280
+<span class="linenos">22</span> 1  1 7.24722865E-03 4.72760552E-09 1.40751890E-03 1.64032676E-03 6.23241611E-09
+<span class="linenos">23</span> 1  2-3.73066173E-05-1.28704249E-02 3.54710281E-09-5.72539922E-04 6.79441863E-04
+<span class="linenos">24</span> 1  3-8.50832638E-04 3.79570720E-03 6.79439778E-04 8.50829497E-04 3.79570862E-03
+<span class="linenos">25</span> ...
+<span class="linenos">26</span> ...
+<span class="linenos">27</span> Many More Lines...
+</pre></div>
+</div>
+</div>
+<p>I ran both calculations and both were <strong>successfull</strong>.</p>
+</div>
+</div>
+<div class="section" id="running-the-irc">
+<h2>Running the IRC<a class="headerlink" href="#running-the-irc" title="Permalink to this headline">¶</a></h2>
+<p>We now have data for optimized saddle points of <strong>both gas-phase and solvent</strong> conditions.</p>
+<div class="section" id="analyzing-the-ts-structures">
+<h3>Analyzing the TS structures<a class="headerlink" href="#analyzing-the-ts-structures" title="Permalink to this headline">¶</a></h3>
+<p>Below are the coordinates for the <strong>two results</strong>.  We immediately see that, while the <strong>gas phase</strong> system maintained the <em>D<sub>3h</sub></em> symmetry, the <strong>solvent</strong> calculation again broke symmetry.  It was held at the saddle point by the math of the saddle point calculation, but was clearly fighting to twist out of the <em>D<sub>3h</sub></em> shape.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-321g-sadl-log">
+<div class="code-block-caption"><span class="caption-number">Listing 96 </span><span class="caption-text">Excerpt from SN2_D3h_321G_SADL.log</span><a class="headerlink" href="#sn2-d3h-321g-sadl-log" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1295</span>      <span class="o">*****</span> <span class="n">SADDLE</span> <span class="n">POINT</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+<span class="linenos">1296</span> <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">SYMMETRY</span> <span class="n">UNIQUE</span> <span class="n">ATOMS</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+<span class="linenos">1297</span>   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+<span class="linenos">1298</span> <span class="o">------------------------------------------------------------</span>
+<span class="linenos">1299</span> <span class="n">CL</span>         <span class="mf">17.0</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0000000000</span>   <span class="mf">2.3842905066</span>
+<span class="linenos">1300</span> <span class="n">C</span>           <span class="mf">6.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>
+<span class="linenos">1301</span> <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">1.0737765052</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0000000000</span>
+<span class="linenos">1302</span> <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+<span class="linenos">1303</span>   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+<span class="linenos">1304</span> <span class="o">------------------------------------------------------------</span>
+<span class="hll"><span class="linenos">1305</span> <span class="n">CL</span>         <span class="mf">17.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">2.3842905066</span>
+</span><span class="hll"><span class="linenos">1306</span> <span class="n">CL</span>         <span class="mf">17.0</span>   <span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0000000000</span>   <span class="mf">2.3842905066</span>
+</span><span class="hll"><span class="linenos">1307</span> <span class="n">C</span>           <span class="mf">6.0</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>   <span class="mf">0.0000000000</span>
+</span><span class="linenos">1308</span> <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.5368882526</span>   <span class="mf">0.9299177315</span>   <span class="mf">0.0000000000</span>
+<span class="linenos">1309</span> <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.5368882526</span>  <span class="o">-</span><span class="mf">0.9299177315</span>   <span class="mf">0.0000000000</span>
+<span class="hll"><span class="linenos">1310</span> <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">1.0737765052</span>  <span class="o">-</span><span class="mf">0.0000000000</span>  <span class="o">-</span><span class="mf">0.0000000000</span>
+</span></pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-sadl-log">
+<div class="code-block-caption"><span class="caption-number">Listing 97 </span><span class="caption-text">Excerpt from SN2_D3h_H2O_321G_SADL.log</span><a class="headerlink" href="#sn2-d3h-h2o-321g-sadl-log" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1705</span>      <span class="o">*****</span> <span class="n">SADDLE</span> <span class="n">POINT</span> <span class="n">LOCATED</span> <span class="o">*****</span>
+<span class="linenos">1706</span> <span class="n">COORDINATES</span> <span class="n">OF</span> <span class="n">ALL</span> <span class="n">ATOMS</span> <span class="n">ARE</span> <span class="p">(</span><span class="n">ANGS</span><span class="p">)</span>
+<span class="linenos">1707</span>   <span class="n">ATOM</span>   <span class="n">CHARGE</span>       <span class="n">X</span>              <span class="n">Y</span>              <span class="n">Z</span>
+<span class="linenos">1708</span> <span class="o">------------------------------------------------------------</span>
+<span class="hll"><span class="linenos">1709</span> <span class="n">CL</span>         <span class="mf">17.0</span>   <span class="mf">0.0000240609</span>  <span class="o">-</span><span class="mf">0.0000000004</span>  <span class="o">-</span><span class="mf">2.3912433892</span>
+</span><span class="hll"><span class="linenos">1710</span> <span class="n">CL</span>         <span class="mf">17.0</span>   <span class="mf">0.0000539071</span>  <span class="o">-</span><span class="mf">0.0000000002</span>   <span class="mf">2.3907345964</span>
+</span><span class="hll"><span class="linenos">1711</span> <span class="n">C</span>           <span class="mf">6.0</span>  <span class="o">-</span><span class="mf">0.0001082120</span>  <span class="o">-</span><span class="mf">0.0000000588</span>   <span class="mf">0.0011965211</span>
+</span><span class="linenos">1712</span> <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.5383474068</span>   <span class="mf">0.9310013615</span>   <span class="mf">0.0003691778</span>
+<span class="linenos">1713</span> <span class="n">H</span>           <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.5383478700</span>  <span class="o">-</span><span class="mf">0.9310011483</span>   <span class="mf">0.0003691615</span>
+<span class="hll"><span class="linenos">1714</span> <span class="n">H</span>           <span class="mf">1.0</span>   <span class="mf">1.0752784580</span>   <span class="mf">0.0000005078</span>   <span class="mf">0.0026686497</span>
+</span></pre></div>
+</div>
+</div>
+<p>The motions that broke symmetry are very small. <strong>Perhaps</strong> starting with the gas phase strucrture and applying a solvent Hessian calculation resulted in a bad start. <strong>Perhaps</strong> the solvent environment breaks the symmetry (it is modelling a “cavity” that may not fit the <em>D<sub>3h</sub></em> point group).</p>
+</div>
+<div class="section" id="read-the-documentation">
+<h3>Read the Documentation<a class="headerlink" href="#read-the-documentation" title="Permalink to this headline">¶</a></h3>
+<p>I <strong>looked up</strong> the <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/GAMESS_Manual/docs-references.txt">documentation</a> and see that <strong>PCM methods ignore symmetry</strong>. So the symmetry lock is not present when using the $PCM group. The transition state in the solvent calculation is almost perfectly symmetrical and the small perturbations away from <em>D<sub>3h</sub></em> are within the error induced by bond vibrations. We are about 0.2% away from perfect <em>D<sub>3h</sub></em>.</p>
+<p>There are <strong>other solvent models</strong> that may respect symmetry (I would actually have to look them up and learn about them) but we will <strong>stick with PCM</strong> here.</p>
+</div>
+<div class="section" id="build-the-input-files">
+<h3>Build the Input Files<a class="headerlink" href="#build-the-input-files" title="Permalink to this headline">¶</a></h3>
+<p>To be fair, I will <strong>not use symmetry</strong> with the gas phase calculation. I will use the <code class="docutils literal notranslate"><span class="pre">C1</span></code> symmetry setting and the full set of cartessian <strong>coordinates</strong> in the IRC input files. I will have to again track down the $HESS groups from the .dat files for the saddle point calculations and cut and paste them into the respective input files for IRC.</p>
+<p>I <strong>copied</strong> a previous IRC input file (from the <a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc">Diels Alder project</span></a>) and <strong>added</strong> in the coordinates from the results above for each case. I added the $PCM group for the solvent input file. I then <strong>pasted</strong> in the appropriate $HESS group from the corresponding .dat file.</p>
+<p>The recipe looks like this…</p>
+<ol class="simple">
+<li><p>Take a previous input file</p></li>
+<li><p>Swap out the coordinates</p></li>
+<li><p>Add a $PCM group if needed</p></li>
+<li><p>Swap out the $HESS group</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once you get used to the text-based world of <em>Unix</em> you will find that it is often faster to modify text files than to plod through the menus of a GUI tool to do the same thing.</p>
+</div>
+<p>In this case, I am <strong>calculating</strong> the orbitals, so I will not need the $VEC group from the .dat files and I am using <strong>auto</strong> generation of internal coordinates so I will not need the IZMAT matrix in the $ZMAT group.</p>
+<p><strong>Below</strong> are the first lines of the input files for the IRC calculations.  They will each have to be run again after <strong>changing</strong> <code class="docutils literal notranslate"><span class="pre">FORWRD=.TRUE.</span></code> to <code class="docutils literal notranslate"><span class="pre">FORWRD=.FALSE.</span></code> to run the other direction in the IRC.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-321g-irc-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 98 </span><span class="caption-text">Excerpt from SN2_D3h_321G_IRC.inp</span><a class="headerlink" href="#sn2-d3h-321g-irc-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
+</span><span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="hll"><span class="linenos"> 6</span> $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
+</span><span class="hll"><span class="linenos"> 7</span>      SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
+</span><span class="linenos"> 8</span> $GUESS GUESS=HUCKEL $END
+<span class="linenos"> 9</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+<span class="linenos">10</span> $DATA 
+<span class="linenos">11</span>SN2
+<span class="linenos">12</span>C1
+<span class="linenos">13</span> CL         17.0   0.0000000000   0.0000000000  -2.3842905066
+<span class="linenos">14</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+<span class="linenos">15</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
+<span class="linenos">16</span> H           1.0  -0.5368882526   0.9299177315   0.0000000000
+<span class="linenos">17</span> H           1.0  -0.5368882526  -0.9299177315   0.0000000000
+<span class="linenos">18</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+<span class="linenos">19</span> $END
+<span class="linenos">20</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+<span class="linenos">21</span> $END
+<span class="linenos">22</span> $HESS
+<span class="linenos">23</span>ENERGY IS     -955.6090406225 E(NUC) IS      107.7130912280
+<span class="linenos">24</span> 1  1 6.79543992E-03-5.28518145E-10-1.13662054E-05 1.86962073E-03-4.41178632E-07
+<span class="linenos">25</span> 1  2 1.84498964E-07-1.17868321E-02 4.91464415E-06 9.80471951E-06 3.79074842E-04
+<span class="linenos">26</span> 1  3-1.10591017E-03 3.64577504E-03 3.80950771E-04 1.10401128E-03 3.64690486E-03
+<span class="linenos">27</span> 1  4 2.36174580E-03-2.57404697E-06-7.29130292E-03
+<span class="linenos">28</span> 2  1-5.28518145E-10 6.86601184E-03-2.97887583E-09 4.40191839E-07 1.94030136E-03
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-irc-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 99 </span><span class="caption-text">Excerpt from SN2_D3h_H2O_321G_IRC.inp</span><a class="headerlink" href="#sn2-d3h-h2o-321g-irc-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
+</span><span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
+<span class="hll"><span class="linenos"> 6</span> $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
+</span><span class="hll"><span class="linenos"> 7</span>      SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
+</span><span class="linenos"> 8</span> $GUESS GUESS=HUCKEL $END
+<span class="linenos"> 9</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+<span class="hll"><span class="linenos">10</span> $PCM SOLVNT = WATER $END
+</span><span class="linenos">11</span> $DATA 
+<span class="linenos">12</span>SN2
+<span class="linenos">13</span>C1
+<span class="linenos">14</span> CL         17.0   0.0000240609  -0.0000000004  -2.3912433892
+<span class="linenos">15</span> CL         17.0   0.0000539071  -0.0000000002   2.3907345964
+<span class="linenos">16</span> C           6.0  -0.0001082120  -0.0000000588   0.0011965211
+<span class="linenos">17</span> H           1.0  -0.5383474068   0.9310013615   0.0003691778
+<span class="linenos">18</span> H           1.0  -0.5383478700  -0.9310011483   0.0003691615
+<span class="linenos">19</span> H           1.0   1.0752784580   0.0000005078   0.0026686497
+<span class="linenos">20</span> $END
+<span class="linenos">21</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+<span class="linenos">22</span> $END
+<span class="linenos">23</span> $HESS
+<span class="linenos">24</span>ENERGY IS     -955.6969739956 E(NUC) IS      107.4285285723
+<span class="linenos">25</span> 1  1 6.95543756E-03 3.42600959E-09 9.55860879E-04 1.93857897E-03 1.77783245E-09
+<span class="linenos">26</span> 1  2-1.95792854E-04-1.25911383E-02 9.12793077E-09-4.63052182E-04 5.56425838E-04
+</pre></div>
+</div>
+</div>
+<p>All four calculation completed <strong>successfully</strong>.</p>
+</div>
+</div>
+<div class="section" id="interpretation-of-irc-results">
+<h2>Interpretation of IRC Results<a class="headerlink" href="#interpretation-of-irc-results" title="Permalink to this headline">¶</a></h2>
+<p>Below qre the <strong>animations</strong> of the reaction coordinate using <em>MacMolPlt</em> for both IRC calculations. As demonstrated in the <a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc">Diels-Alder exercise</span></a>, I <strong>loaded</strong> in the .log file for one of the IRC results and then <strong>appended</strong> frames using the second file that used the <strong>reverse</strong> direction. I then <strong>annotated</strong> the bond lengths and <strong>exported</strong> the animation.</p>
+<p>We can see that the solvent IRC we see that the C-Cl bond length is much longer at the end compared to the gas phase IRC.</p>
+<p>Compare the two IRC profiles below. In the “products”, the gas phase profile keeps the chloride closer and the C-Cl bond is longer. The energy minimum is also much higher than in the solvent case (don’t trust the values with thses low level methods, but the relative magnitudes are instructive). In gas phase, the lowest energy <strong>complex</strong> is actually slightly along the reaction coordinate to the transition state. Chloride anion in a <strong>vacuum</strong> is very high in energy and <strong>pushing</strong> electron density into the back of the methyl chloride results in a charge-transfer comples with some of the negative charge now being <strong>shared</strong> on the chloride of the methyl chloride. Sharing the charge lowers the energy even though bonds are “starting” to change. Gas phase is an <strong>extreme</strong> environment and charged species will be <strong>very high</strong> in energy here.</p>
+<div class="figure align-default" id="fig9-5">
+<a class="reference internal image-reference" href="_images/SN2_2.gif"><img alt="_images/SN2_2.gif" src="_images/SN2_2.gif" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text"><em>The IRC result for gas phase</em></span><a class="headerlink" href="#fig9-5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig9-6">
+<a class="reference internal image-reference" href="_images/SN2_H2O_2.gif"><img alt="_images/SN2_H2O_2.gif" src="_images/SN2_H2O_2.gif" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text"><em>The IRC result for solvent</em></span><a class="headerlink" href="#fig9-6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="the-ground-state">
+<h3>The Ground State<a class="headerlink" href="#the-ground-state" title="Permalink to this headline">¶</a></h3>
+<p>What is the calculated C-Cl <strong>bond length</strong> in the methyl chloride starting material? We can quickly modify the input file that we used for the transtion state search. All we need to do is <strong>change</strong> the point group. The transition state was <em>D<sub>3h</sub></em> and methyl chloride is <em>C<sub>3v</sub></em>. That change alone will give us the methyl chloride arrangement. Below are the <strong>two input files</strong> for this calculation. Compare them to <a class="reference internal" href="#sn2-321-u-inp"><span class="std std-numref">Listing 90</span></a> and <a class="reference internal" href="#sn2-h2o-321-u-inp"><span class="std std-numref">Listing 91</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="sn2-c3v-h2o-ch3cl-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 100 </span><span class="caption-text">SN2_C3V_H2O_CH3Cl.inp</span><a class="headerlink" href="#sn2-c3v-h2o-ch3cl-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1705</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+<span class="linenos">1706</span>    ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
+<span class="linenos">1707</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos">1708</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="hll"><span class="linenos">1709</span> $SCF DIRSCF=.TRUE. $END
+</span><span class="hll"><span class="linenos">1710</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+</span><span class="hll"><span class="linenos">1711</span> $PCM SOLVNT = WATER $END
+</span><span class="linenos">1712</span> $DATA 
+<span class="linenos">1713</span>methyl Chloride
+<span class="hll"><span class="linenos">1714</span>CNV 3
+</span><span class="linenos">1715</span>
+<span class="linenos">1716</span>Cl    17.0    0.00000     0.00000     2.00000
+<span class="linenos">1717</span>C     6.0     0.00000     0.00000     0.00000
+<span class="linenos">1718</span>H     1.0     1.00000     0.00000     0.00000
+<span class="linenos">1719</span> $END
+<span class="linenos">1720</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="sn2-c3v-ch3cl-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 101 </span><span class="caption-text">SN2_C3V_CH3Cl.inp</span><a class="headerlink" href="#sn2-c3v-ch3cl-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1705</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+<span class="linenos">1706</span>    ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
+<span class="linenos">1707</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos">1708</span> $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="hll"><span class="linenos">1709</span> $SCF DIRSCF=.TRUE. $END
+</span><span class="hll"><span class="linenos">1710</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+</span><span class="hll"><span class="linenos">1711</span> $DATA 
+</span><span class="linenos">1712</span>methyl Chloride
+<span class="linenos">1713</span>CNV 3
+<span class="hll"><span class="linenos">1714</span>
+</span><span class="linenos">1715</span>Cl    17.0    0.00000     0.00000     2.00000
+<span class="linenos">1716</span>C     6.0     0.00000     0.00000     0.00000
+<span class="linenos">1717</span>H     1.0     1.00000     0.00000     0.00000
+<span class="linenos">1718</span> $END
+<span class="linenos">1719</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
+</pre></div>
+</div>
+</div>
+<p>In the results we again see the slight off-symmetry of the PCM result. Without symmetry being enforced it will not be perfect but it is within 1% of <em>C<sub>3v</sub></em> symmetry. The key observation is that in methyl choride, the calculated for the C-Cl bond <strong>in solvent</strong> is 1.92 Å. The IRC settles down to a ground state with the two C-Cl distances being 1.96 Å and 3.11 Å. This is very much like a chloride and a methyl chloride. <strong>In water</strong>, the chloride ion is much <strong>more stable</strong> on its own and will be able to relax to a fully non-bonding distance.</p>
+<p>In <strong>gas-phase</strong>, the calculated C-Cl length in methyl chloride is 1.92 Å In the IRC, the ground state was reached with C-Cl lengths of 2.10 Å and 2.73 Å We have a bond that is significantly <strong>longer</strong> than the covalent C-Cl distance for methyl chloride and the other is significantly <strong>shorter</strong> than a non-bonded distance.</p>
+</div>
+</div>
+<div class="section" id="plotting-results">
+<h2>Plotting Results<a class="headerlink" href="#plotting-results" title="Permalink to this headline">¶</a></h2>
+<p><em>MacMolPlt</em> produces an energy plot, but we can make other <strong>plots</strong> easily using interactive <em>Python</em> and the <em>Unix</em> toolchain. The first thing that I need is a <strong>table</strong> of the two C–Cl bond lengths and the energy for each point on the IRC bath. The .log file is enormous. How can I get my data quickly?</p>
+<div class="section" id="processing-the-data">
+<h3>Processing the Data<a class="headerlink" href="#processing-the-data" title="Permalink to this headline">¶</a></h3>
+<p>We can use <em>grep</em> to <strong>isolate</strong> the lines that contain the <strong>information</strong> that we want. We could use <em>awk</em> if we wanted to be elegant but I will keep things simpole and brute force this job with <em>grep</em>.</p>
+<p>I want to <strong>collect</strong> the following infomation…</p>
+<ul class="simple">
+<li><p>The step number</p></li>
+<li><p>The “stride” value (representative of the overall change between steps)</p></li>
+<li><p>The energy at that step</p></li>
+<li><p>The two C-Cl internal coordinates</p></li>
+</ul>
+<p>I have found <strong>text</strong> that is associated with each datum. I can <strong>extract</strong> the lines using <em>grep</em>.</p>
+<p>I <strong>observe</strong> that the reaction progression (total stride distance) is in lines that contain “<code class="docutils literal notranslate"><span class="pre">AT</span> <span class="pre">PATH</span> <span class="pre">DISTANCE</span> <span class="pre">STOTAL</span></code>” The command below will make a file that contains the <strong>stride</strong> distance (and other text as well).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="s2">&quot;AT PATH DISTANCE STOTAL&quot;</span> SN2_H2O_321G_D3h_IRC_3.log &gt; stride.txt
+</pre></div>
+</div>
+<p>I found that the string “`          TOTAL ENERGY’” (with all eleven spaces) was used to report the <strong>final energy</strong> after each step of the IRC. So the command…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="s2">&quot;          TOTAL ENERGY&quot;</span> IRClogfilename.log &gt; energy.txt
+</pre></div>
+</div>
+<p>…will strip out the energies at each step. I could now <strong>plot energy vs. reaction progression</strong> (the stride value).</p>
+<p>The string “<code class="docutils literal notranslate"><span class="pre">STRETCH</span>&#160;&#160; <span class="pre">1</span>&#160; <span class="pre">3</span></code>” appears on each line with the C-Cl <strong>internal coordinate</strong> for the 1-3 C-Cl bond. Look at the coordinates: Carbon is the third atom and the two chlorides are atoms first and second in the list. The string “<code class="docutils literal notranslate"><span class="pre">STRETCH</span>&#160;&#160; <span class="pre">2</span>&#160; <span class="pre">3</span></code>” appears on each line with the other C-Cl <strong>bond distance</strong>.</p>
+<p>The following two commands will give me <strong>a list</strong> of lines with the bond lengths.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="s2">&quot;STRETCH   1  3&quot;</span> IRClogfilename.log &gt; C-Cl-1-3.txt
+grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; C-Cl-2-3.txt
+</pre></div>
+</div>
+<p>I could write a quick <strong>shell script</strong> to do all this and generate the four files. But I’m too lazy to make my life easier.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Here we see that there are 50 entries in the C-Cl lists but only 49 in the energy.txt and stride.txt lists. this is because step zero had a stride of zero (not explicitly reported, but obvious when you think about it) and the energy for step zero was the saddle point energy which is reported with the text “<code class="docutils literal notranslate"><span class="pre">FINAL</span> <span class="pre">RO-B3LYP</span> <span class="pre">ENERGY</span></code>” on a line near the beginning of the .log file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Experience is a good teacher. You will learn what to look for and when you do this again you will have everything set up for. Always take notes as you work.</p>
+</div>
+<p>If I did write a <strong>shell script</strong> I might just collect the commands all in one file so that they can be run as a batch. Below in <a class="reference internal" href="#processirc-sh"><span class="std std-numref">Listing 102</span></a> is an example. Here I am <strong>processing</strong> the data for the gas phase IRC. You can modify the filenames to suit.</p>
+<div class="literal-block-wrapper docutils container" id="processirc-sh">
+<div class="code-block-caption"><span class="caption-number">Listing 102 </span><span class="caption-text"><a class="reference external" href="http://processIRC.sh">processIRC.sh</a></span><a class="headerlink" href="#processirc-sh" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="s2">&quot;AT PATH DISTANCE STOTAL&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">gstride_r</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;          TOTAL ENERGY&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">genergy_r</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;STRETCH   1  3&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">gC</span><span class="o">-</span><span class="n">Cl</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="n">_r</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;STRETCH   2  3&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">gC</span><span class="o">-</span><span class="n">Cl</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="n">_r</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;AT PATH DISTANCE STOTAL&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">gstride</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;          TOTAL ENERGY&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">genergy</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;STRETCH   1  3&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">gC</span><span class="o">-</span><span class="n">Cl</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mf">3.</span><span class="n">txt</span>
+<span class="n">grep</span> <span class="s2">&quot;STRETCH   2  3&quot;</span> <span class="n">SN2_321G_D3h_IRC_3R</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;</span> <span class="n">gC</span><span class="o">-</span><span class="n">Cl</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mf">3.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+<p>All I need to do is place this script in the same directory as my .log files and then run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash processIRC.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="lots-of-plots">
+<h3>Lots of Plots<a class="headerlink" href="#lots-of-plots" title="Permalink to this headline">¶</a></h3>
+<p>After I performed the commands again with the reverse direction IRC log file and doubled my files to 8. I could easily extract the columns with a text editor but I am going to do it all in a <strong>Jupyter notebook</strong> so that all my work is <strong>documented</strong>. If there is a mistake the stepwise code in the notebook can be examined. We now have the following <strong>data files</strong>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Files</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>stride.txt &amp; stride_r.txt</p></td>
+<td class="text-align:left"><p>The stride distance. neither file includes zero</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>energy.txt &amp; energy_r.txt</p></td>
+<td class="text-align:left"><p>The energies, neither file includes energy at step zero</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>C-Cl-1-3.txt &amp; C-Cl-1-3_r.txt</p></td>
+<td class="text-align:left"><p>The C-Cl bond length at all steps, including step zero in both files</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>C-Cl-2-3.txt &amp; C-Cl-2-3_r.txt</p></td>
+<td class="text-align:left"><p>The other C-Cl bond length. Also includes step zero in bioth files</p></td>
+</tr>
+</tbody>
+</table>
+<p>We also observe from the .log file (by searching for <code class="docutils literal notranslate"> <span class="pre">$HESS</span> <span class="pre">GROUP</span> <span class="pre">READ</span> <span class="pre">FROM</span> <span class="pre">CARDS</span></code>) that the <strong>energy</strong> of the original saddle point is -955.6969739956 <em>Ha</em>. With these facts in mind we will depart to the Jupyter notebook to clean and collate the processed data and then make plots to help us <strong>interpret</strong> the IRC data for both the gas-phase and the solvent IRC calculations.</p>
+</div>
+<div class="section" id="cleaning-the-data">
+<h3>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h3>
+<p>We now have the data in a series of <strong>text files</strong>. i would like to <strong>clean and collate</strong> the data so that it is in a nice neat table. I could use a text editor to do this. I could paste the data into Microsoft Excel and organize it that way. But I will use a <em>Jupyter</em> notebook. That way I can also provide detailed <strong>documentation</strong> in both text and code that others can follow when interpreting my work.</p>
+<p>The process of importing the data files and arranging a table is best <strong>presented</strong> in the <em>Jupyter</em> notebooks themselves. You can <strong>download</strong> the notebooks using the link at the top right corner of this web book. You can also see an typeset version (not executable) as part of this book.</p>
+<p>F\In the <a class="reference internal" href="10_Solvent_IRC_Plots.html"><span class="doc std std-doc">first notebook</span></a> we need to clean and collate the data. Then we will save the data tables for future use. In the <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html"><span class="doc std std-doc">second notebook</span></a> we will import the tables and plot some data.</p>
+</div>
+<div class="section" id="plotting-the-data">
+<h3>Plotting the Data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h3>
+<p>First we must <strong>decide</strong> what to plot.</p>
+<div class="section" id="comparing-irc-plots">
+<h4>Comparing IRC Plots<a class="headerlink" href="#comparing-irc-plots" title="Permalink to this headline">¶</a></h4>
+<p>The stride value should be similar for each since it is the same bonds in both cases that are changing (stride is a composite value that encompases the totality of bond changes). How do the energies <strong>compare</strong> in gas phase vs. water as bonds break and form across the transition state? Let us plot the <strong>relative energy</strong> vs. <strong>stride</strong>.</p>
+<div class="figure align-default" id="fig9-7">
+<a class="reference internal image-reference" href="_images/Solvent_plot1.png"><img alt="_images/Solvent_plot1.png" src="_images/Solvent_plot1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text"><em>The IRC expressed as a plot of relative energy vs. stride. Black is the solvent IRC and red is the gas phase IRC</em></span><a class="headerlink" href="#fig9-7" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the gas phase, the <strong>relative energy</strong> between the ground state and the transition stste is <strong>much smaller</strong>. This is because the <strong>negatively charged</strong> chloride nucleophile/leaving group is very <strong>high in energy</strong> in a <strong>vacuum</strong> where it cannot share its electrons. In the <strong>solvent</strong> model, the energy is less as chloride can be stabilized by the <strong>electric dipole</strong> of water. In fact the gas phase IRC ends early because the <strong>energy</strong> is actually about to start <strong>going back up</strong> as the nucleophile moves away. In a vacumm, chloride separated widely from the methyl chloride is actually <strong>higher in energy</strong> than the transition state.</p>
+</div>
+<div class="section" id="comparing-more-o-ferrell-jencks-plots">
+<h4>Comparing More-O’Ferrell Jencks Plots<a class="headerlink" href="#comparing-more-o-ferrell-jencks-plots" title="Permalink to this headline">¶</a></h4>
+<p>The famous More-O’Ferrell Jencks plot follows one <strong>coordinate</strong> of the reaction with respect to <strong>another</strong>. This reaction has a <strong>nucleophile</strong> that moves in to make a bond and a <strong>leaving group</strong> that departs, breaking a bond. We could plot “making” on one axis and “breaking” on the other.</p>
+<p>There are <strong>two</strong> C-Cl distances in each IRC: the <strong>incoming</strong> nucleophile and the departing leaving group. The C-Cl bond in methyl chlorife is calculated to be about 1.95 Å. The incoming nucleophile starts at a longer distance and <strong>moves</strong> in. The leaving group bond will begin to break. At the transition state, they should be identical (defined by symmetry). Let us plot <strong>one</strong> length against the <strong>other</strong>. Will it be a straight line? Will it be a curve?</p>
+<div class="figure align-default" id="fig9-8">
+<a class="reference internal image-reference" href="_images/Solvent_plot2.png"><img alt="_images/Solvent_plot2.png" src="_images/Solvent_plot2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text"><em>TThe IRC expressed as a plot of distances to nucleophile and leaving group. Black is the solvent IRC and red is the gas phase IRC</em></span><a class="headerlink" href="#fig9-8" title="Permalink to this image">¶</a></p>
+</div>
+<p>The black line is the <strong>solvent</strong> IRC. What would you call that? I vote for “double ended hockey stick”. It is clear that, at the beginning, <strong>most</strong> of the stride score is due to the nucleophile <strong>moving in</strong> towards the carbon. When it has moved in from 3.1 Å to about 2.85 Å we finally see the leaving group <strong>start to move</strong> in concert. Would you say that the reaction “begins” when the nucleophile <strong>reaches</strong> 2.85 Å? Does it end when the leaving group reaches that distance on the <strong>other side</strong>? Or should be include the translation of the nucleophile in from 3.1 Å (or even farther)?</p>
+<p>The <strong>gas phase</strong> IRC is shorter because of the high cost of moving the chloride away in a vacuum. The key takeaway here is that solvent modeling has a <strong>very large effect</strong> in charged systems and probably a significant effect in every system.</p>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Adding the <strong>solvent model</strong> made a huge difference in the energy of the reaction.  The IRC for <em>S<sub>N</sub>2</em> was familiar to us when modelled in <strong>water</strong> but was not when modelled in <strong>gas phase</strong>.</p>
+<p>In the <strong>solvent model</strong>, the system moves to lower energy as the chloride <strong>leaves</strong> into the pool of mathematical water. We can easily imagine <strong>separate</strong> chloride and methyl chloride that meet and react.</p>
+<p>In <strong>gas phase</strong>, the chloride is not stabilized and is a high energy when it is alone. To relax its electron density it is actually the lowests energy state to have a <strong>partial bond</strong> to the carbon of methyl chloride and, consequently, to have the C-Cl bond in methyl chloride <strong>partialy broken</strong>. This is a state that we would consider to be “on the way” to reacting and not a ground state. But we are familiar with solvent reactions, not gas phase.</p>
+<p><strong>Gas phase is not the same as solvent</strong>. Should we redo everything that we did up until now by adding a $PCM group to all our input files and running them again? That will be left as an exercise for the reader.</p>
+</div>
+<div class="section" id="a-challenge">
+<h2>A Challenge<a class="headerlink" href="#a-challenge" title="Permalink to this headline">¶</a></h2>
+<p>I wasn’t kidding about that redo idea. Get busy.</p>
+<p>Is the rotational energy profile of butane different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.</p>
+<p>Is the rotational energy profile of butadiene different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be a detectable, but not large difference. We do have large changes in electronic structure as the π system changes with rotation but no charges are involved.</p>
+<p>Is the IRC of the Diels-Alder reaction different in water and cyclohexane solvents compared to gas phase? I think this would respond similarly to the butadiene rotation for the same reasons. But we could be surprised. Go try it.</p>
+<p>Modify the butane rotational energy profile by using ethylene glycol. Does the energy at different torsional values change between water, cyclohexane and gas phase?</p>
+<p>Modify the butadiene rotational energy profile by using glyoxal. Does the energy at different torsional values change between water, cyclohexane and gas phase?</p>
+<p>Are the energies (Eigenvalues) and coefficients (Eigenvectors) of molecular orbitals different when solvent is applied? Model butadiene in the <em>s-trans</em> form and see. Then do the same with acrolein.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="8A_Diels_Alder.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Diels-Alder Reaction: Intrinsic Reaction Coordinates</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="10_Solvent_IRC_Plots.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Cleaning Workflow</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Barry Linkletter<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

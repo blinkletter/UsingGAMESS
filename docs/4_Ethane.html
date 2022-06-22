@@ -151,14 +151,36 @@ const thebe_selector_output = ".output, .cell_output"
    Benzene: MOs and Symmetry
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
    Butadiene: Transition State for Rotation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
   </a>
  </li>
 </ul>
@@ -484,10 +506,10 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>1.086 Å</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>H–C–C angle</p></td>
-<td class="text-align:left"><p>111.2˚</p></td>
+<td class="text-align:left"><p>111.2°</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>H–C–H angle</p></td>
-<td class="text-align:left"><p>107.7˚</p></td>
+<td class="text-align:left"><p>107.7°</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Energy (Ha)</p></td>
 <td class="text-align:left"><p>-79.2520118108</p></td>
@@ -564,10 +586,10 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>1.085 Å</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>H–C–C angle</p></td>
-<td class="text-align:left"><p>111.6˚</p></td>
+<td class="text-align:left"><p>111.6°</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>H–C–H angle</p></td>
-<td class="text-align:left"><p>107.2˚</p></td>
+<td class="text-align:left"><p>107.2°</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Energy (Ha)</p></td>
 <td class="text-align:left"><p>-79.2471515134</p></td>
@@ -596,12 +618,12 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:left"><p>1.086 Å</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>H–C–C angle</p></td>
-<td class="text-align:left"><p>111.6˚</p></td>
-<td class="text-align:left"><p>111.2˚</p></td>
+<td class="text-align:left"><p>111.6°</p></td>
+<td class="text-align:left"><p>111.2°</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>H–C–H angle</p></td>
-<td class="text-align:left"><p>107.2˚</p></td>
-<td class="text-align:left"><p>107.7˚</p></td>
+<td class="text-align:left"><p>107.2°</p></td>
+<td class="text-align:left"><p>107.7°</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>ΔE (kJ/mol)</p></td>
 <td class="text-align:left"><p>+12.8</p></td>
@@ -626,7 +648,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="the-activities">
 <h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">¶</a></h3>
 <p><strong>Repeat</strong> the activities described in the discussion but edit the input files to <strong>add</strong> a command to output data for <strong>localized</strong> orbitals. After you have result files for the optimized <em>D<sub>3h</sub></em> and <em>D<sub>3d</sub></em> structures, produce <strong>images</strong> of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique <strong>local bonding orbitals</strong> (one C–C σ-bond and one C–H σ-bond will suffice). Report the energy difference for the two symmetries (<em>syn</em> and anti). Then present images for the bonding MOs for both symmetries. <strong>Compare</strong> their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)</p>
-<p>Now <strong>set the symmetry</strong> of the <em>syn</em> structure to <em>C<sub>1</sub></em> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level. Is the result <em>syn</em> or <em>anti</em>. <strong>Discuss</strong> the result. If the result remains <em>syn</em> <strong>propose</strong> why <em>GAMESS</em> could not bring itself to start the bond rotation. Now <strong>change</strong> the torsion angle by 0.1˚. Run the optimization <strong>again</strong>. Discus the result. <strong>Compare</strong> the energies of the <em>C<sub>1</sub></em> anti and the <em>C<sub>1</sub></em> <em>syn</em> structures at the HF/6-311G(d,p)++ level. <strong>Compare</strong> bond lengths and angles as well. Do they match with the results that used symmetry?</p>
+<p>Now <strong>set the symmetry</strong> of the <em>syn</em> structure to <em>C<sub>1</sub></em> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level. Is the result <em>syn</em> or <em>anti</em>. <strong>Discuss</strong> the result. If the result remains <em>syn</em> <strong>propose</strong> why <em>GAMESS</em> could not bring itself to start the bond rotation. Now <strong>change</strong> the torsion angle by 0.1°. Run the optimization <strong>again</strong>. Discus the result. <strong>Compare</strong> the energies of the <em>C<sub>1</sub></em> anti and the <em>C<sub>1</sub></em> <em>syn</em> structures at the HF/6-311G(d,p)++ level. <strong>Compare</strong> bond lengths and angles as well. Do they match with the results that used symmetry?</p>
 </div>
 <div class="section" id="the-report">
 <h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>

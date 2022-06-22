@@ -53,6 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solvent: The Environment Matters" href="9_Solvent.html" />
     <link rel="prev" title="Butadiene.log" href="butadiene.log.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -173,6 +174,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
   </a>
  </li>
 </ul>
@@ -386,6 +392,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#a-challenge">
    A Challenge
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-it-break-the-rules">
+     Make It Break the Rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-reactions">
+     Other Reactions
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -547,6 +565,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#a-challenge">
    A Challenge
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-it-break-the-rules">
+     Make It Break the Rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-reactions">
+     Other Reactions
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -618,8 +648,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>After the <strong>optimization</strong>, the following structure was calculated to have a minimum energy. It may not be the global minimum but it is the conformer that will relate to the path <strong>toward</strong> the transition state. Observe the changes. One large change is the distance between atoms 1 and 2 (the C=C alkene bond). In the <strong>initial</strong> structure it was created with the length of a single bond (1.54 Å) but it <strong>settled down</strong> to the length of a double bond (1.32 Å).</p>
-<div class="literal-block-wrapper docutils container" id="z-matrix-from-final-structure-in-cyclohexene-322-log">
-<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Cyclohexene-ZMAT.log</span><a class="headerlink" href="#z-matrix-from-final-structure-in-cyclohexene-322-log" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-log">
+<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Z-matrix from final structure in Cyclohexene_322.log</span><a class="headerlink" href="#cyclohexene-zmat-log" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7359</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
 <span class="linenos">7360</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
 <span class="linenos">7361</span> <span class="o">----------------------------------------------------------------</span>
@@ -668,7 +698,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<p>The resulting <strong>log file</strong>, Cyclohexene_322.log, was opened and <strong>examined</strong> in a text editor. A selection from the log file is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Cyclohexene-ZMAT.log</span></code>. We <strong>see</strong> that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two <strong>bond lengths</strong> are the 7<sup>th</sup> and 10<sup>th</sup> <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> coordinates.</p>
+<p>The resulting <strong>log file</strong>, Cyclohexene_322.log, was opened and <strong>examined</strong> in a text editor. A selection from the log file is shown in <a class="reference internal" href="#cyclohexene-zmat-log"><span class="std std-numref">Listing 76</span></a>. We <strong>see</strong> that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two <strong>bond lengths</strong> are the 7<sup>th</sup> and 10<sup>th</sup> <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> coordinates.</p>
 <p>I will <strong>open</strong> the log file with <em>MacMolPlt</em> and I chose to <strong>view</strong> the atom labels. I chose to <strong>display</strong> the atom numbers by selecting <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Labels</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Number</span></code>. We can now clearly <strong>see</strong> that the bond lengths between carbons 4,5 and 3,6 are going to define the reaction coordinate. See <a class="reference internal" href="#fig8-3"><span class="std std-numref">Fig. 51</span></a>.</p>
 <div class="figure align-default" id="fig8-3">
 <a class="reference internal image-reference" href="_images/Diels_3.png"><img alt="_images/Diels_3.png" src="_images/Diels_3.png" style="width: 600px;" /></a>
@@ -1327,7 +1357,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>We can now <strong>visualize</strong> the starting material, transition state and product. A <strong>diagram</strong> using the bond length coordinates and also the MacMolPlt display for each log file is shown in <a class="reference internal" href="#fig8-11"><span class="std std-numref">Fig. 56</span></a>.</p>
 <p>The 5,6 bond length is a C-C single-bond in the cyclohexene with <em>sp<sup>3</sup></em> carbons. Observe how the <strong>bond length</strong> changes from 1.55 to 1.32 Å over the course of the <strong>reaction</strong>. the carbon atoms also clearly change from tetrahedral <em>sp<sup>3</sup></em> to planar <em>sp<sup>2</sup></em>.</p>
-<p>We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3˚ in the cyclohexene and ends up at 99.2˚ in the product. This is <strong>consistent</strong> with the π-orbital interactions between <strong>frontier molecular orbitals</strong>.</p>
+<p>We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3° in the cyclohexene and ends up at 99.2° in the product. This is <strong>consistent</strong> with the π-orbital interactions between <strong>frontier molecular orbitals</strong>.</p>
 <div class="figure align-default" id="fig8-11">
 <a class="reference internal image-reference" href="_images/Diels_11.png"><img alt="_images/Diels_11.png" src="_images/Diels_11.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text"><em>The starting material, transition state and product for the retro-Diels-Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-11" title="Permalink to this image">¶</a></p>
@@ -1442,15 +1472,23 @@ H     1.0     0.00682     1.46650    -1.06163
 </div>
 <div class="section" id="a-challenge">
 <h2>A Challenge<a class="headerlink" href="#a-challenge" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="make-it-break-the-rules">
+<h3>Make It Break the Rules<a class="headerlink" href="#make-it-break-the-rules" title="Permalink to this headline">¶</a></h3>
 <p>We know that Diels-Alder reactions proceed with <em>suprafacial-suprafacial</em> (<em>ss</em>) <strong>stereochemistry</strong>. We can also obey the Woodward-Hoffmann orbital symmetry rules for this reaction with an <em>antarafacial-antarafacial</em> (<em>aa</em>) process. This process already has a starting point, the half-chair <em>C<sub>2</sub></em> cyclohexene.</p>
 <p>Optimize the structure of <em>C<sub>2</sub></em> cyclohexene. Then use it as a <strong>starting point</strong> for a reaction coordinate scan <strong>enforcing</strong> <em>C<sub>2</sub></em> symmetry. Can you oprimize the <em>C<sub>2</sub></em> transition state? If so, can an IRC be performed? It would be cool to <strong>compare</strong> the movies for the two reactions. Compare a plot of the potential energies across the reaction coordinate and <strong>comment</strong> on whether the <em>ss</em> or the <em>aa</em> is faster.</p>
 <p>I dare you. No, I double-dog-dare you. Now you <strong>cannot refuse</strong> my challenge.</p>
+</div>
+<div class="section" id="other-reactions">
+<h3>Other Reactions<a class="headerlink" href="#other-reactions" title="Permalink to this headline">¶</a></h3>
+<p>Can you take the methods <strong>demonstrated</strong> in this chapter and create an IRC for a <strong>conrotatory</strong> and a <strong>disrotatory</strong> electrocyclic reaction? Make the movie. All we really want to do is direct.</p>
+<p>Can you create an IRC of a [1,5]-H-shift <strong>sigmatropic rearrangement</strong>? Also try a [3,3] rearrangement. Model the <strong>Claisen</strong> rearrangement and the <strong>Cope</strong> rearrangement. Compare bond lengths in the transitions states and apply <strong>Hammond’s postulate</strong> when discussing these observations. Make the movies. They might go viral.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="shishkin2011"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>“Unusual Properties of Usual Molecules. Conformational Analysis of Cyclohexene, Its Derivatives and Heterocyclic Analogues.” O.V. Shishkin &amp; S.V. Shishkina, <em>Practical Aspects of Computational Chemistry I</em>, Leszczynski J., Shukla M. (eds), I. Springer, Dordrecht, <strong>2011</strong>, <em>557–578</em>. <a class="reference external" href="https://doi.org/10.1007/978-94-007-0919-5_19">https://doi.org/10.1007/978-94-007-0919-5_19</a></p>
 </dd>
 </dl>
+</div>
 </div>
 </div>
 
@@ -1485,6 +1523,13 @@ H     1.0     0.00682     1.46650    -1.06163
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Butadiene.log</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="9_Solvent.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solvent: The Environment Matters</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

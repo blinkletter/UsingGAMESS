@@ -893,7 +893,7 @@ We can now visualize the starting material, transition state and product. A diag
 
 The 5,6 bond length is a C-C single-bond in the cyclohexene with *sp<sup>3</sup>* carbons. Observe how the bond length changes from 1.55 to 1.32&nbsp;Å over the course of the reaction. the carbon atoms also clearly change from tetrahedral *sp<sup>3</sup>* to planar *sp<sup>2</sup>*.
 
-We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3˚ in the cyclohexene and ends up at 99.2˚ in the product. This is consistent with the 𝜋-orbital interactions between frontier molecular orbitals.
+We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3&deg; in the cyclohexene and ends up at 99.2&deg; in the product. This is consistent with the 𝜋-orbital interactions between frontier molecular orbitals.
 
 ```{figure} images/Diels_11.png
 ---

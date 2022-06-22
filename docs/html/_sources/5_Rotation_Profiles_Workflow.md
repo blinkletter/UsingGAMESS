@@ -1,6 +1,6 @@
 # GAMESS Workflow
 
-Here will be presented the step by step process for calculating the neregy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly offset due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the optimized structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.
+Here will be presented the step by step process for calculating the neregy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180&deg; and 67&deg;. It also has a maximum at 0&deg;. Is the other maxima at 120&deg; or is it slightly offset due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0&deg; to 180&deg; and then calculate the optimized structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.
 
 ## The Input File
 
@@ -63,7 +63,7 @@ H   4    1.14000  12 109.4712 13  119.0000
  $END
 ```
 
-You will see that not all angles are 109.47˚. I jiggled some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.
+You will see that not all angles are 109.47&deg;. I jiggled some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.
 
 ## Making the Series
 

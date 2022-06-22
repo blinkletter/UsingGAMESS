@@ -149,14 +149,36 @@ const thebe_selector_output = ".output, .cell_output"
    Benzene: MOs and Symmetry
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
    Butadiene: Transition State for Rotation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.inp.html">
+     Butadiene.inp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="butadiene.log.html">
+     Butadiene.log
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8A_Diels_Alder.html">
    Diels-Alder Reaction: Intrinsic Reaction Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Solvent.html">
+   Solvent: The Environment Matters
   </a>
  </li>
 </ul>
@@ -311,7 +333,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="gamess-workflow">
 <h1><em>GAMESS</em> Workflow<a class="headerlink" href="#gamess-workflow" title="Permalink to this headline">¶</a></h1>
-<p>Here will be presented the <strong>step by step</strong> workflow for calculating the energy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180˚ and 67˚. It also has a maximum at 0˚. Is the other maxima at 120˚ or is it slightly <strong>offset</strong> due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0˚ to 180˚ and then calculate the <strong>optimized</strong> structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.</p>
+<p>Here will be presented the <strong>step by step</strong> workflow for calculating the energy profile for rotating the central bond of butane. We have seen that butane has energy minima at torsion angles of 180° and 67°. It also has a maximum at 0°. Is the other maxima at 120° or is it slightly <strong>offset</strong> due to the size difference between a hydrogen and a methyl group? We will make many input files with locked torsion angles varying fro 0° to 180° and then calculate the <strong>optimized</strong> structures at each locked angle. The energies will be extracted from the output files and we will then plot the potential energy profile for bond rotation.</p>
 <div class="section" id="the-input-file">
 <h2>The Input File<a class="headerlink" href="#the-input-file" title="Permalink to this headline">¶</a></h2>
 <p>First we <strong>write</strong> an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the <em>Z-matrix</em> method because it will identify the central <strong>torsion</strong> as a coordinate. Then we can <strong>lock</strong> that coordinate.</p>
@@ -373,7 +395,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<p>You will see that not all angles are 109.47˚. I <strong>jiggled</strong> some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.</p>
+<p>You will see that not all angles are 109.47°. I <strong>jiggled</strong> some to avoid any perfect symmetry locks that prevented the energy minimization from converging in one of the jobs last time.</p>
 </div>
 <div class="section" id="making-the-series">
 <h2>Making the Series<a class="headerlink" href="#making-the-series" title="Permalink to this headline">¶</a></h2>
