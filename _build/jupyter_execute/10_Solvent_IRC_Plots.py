@@ -44,7 +44,7 @@ import matplotlib.pyplot as plt
 # In[2]:
 
 
-path = "/Users/Barry/Documents/CompChem/Exercises/temp/"
+path = "/Users/blink/Documents/CompChem/Exercises/temp/"
 
 stride_file = path + "stride.txt"
 stride_r_file = path + "stride_r.txt"
@@ -196,7 +196,8 @@ display(data.head())
 
 
 #writefilename = "SN2_IRC_Solvent_Data.txt"
-writefilename = "SN2_IRC_Data_GasPhase_Data.txt"
+#writefilename = "SN2_IRC_Data_GasPhase_Data.txt"
+writefilename = "temp.txt"   # placeholder name. Use one of the names above.
 
 data.to_csv(path+writefilename)
 
@@ -208,7 +209,7 @@ data.to_csv(path+writefilename)
 # In[13]:
 
 
-path = "/Users/Barry/Documents/CompChem/Exercises/temp/"
+path = "/Users/blink/Documents/CompChem/Exercises/temp/"
 
 stride_file = path + "gstride.txt"
 stride_r_file = path + "gstride_r.txt"

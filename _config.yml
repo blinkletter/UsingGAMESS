@@ -3,7 +3,7 @@
 
 title: Fun With GAMESS
 author: Barry Linkletter
-#logo: PhysOrg.png
+logo: images/Solvent_plot3.png
 copyright: "2022"  # Copyright year to be placed in the footer
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc

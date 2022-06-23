@@ -528,6 +528,10 @@ In the results we again see the slight off-symmetry of the PCM result. Without s
 
 In **gas-phase**, the calculated C-Cl length in methyl chloride is 1.92&nbsp;&angst; In the IRC, the ground state was reached with C-Cl lengths of 2.10&nbsp;&angst; and 2.73&nbsp;&angst; We have a bond that is significantly **longer** than the covalent C-Cl distance for methyl chloride and the other is significantly **shorter** than a non-bonded distance.
 
+### Conclusion
+
+We can conclude that the solvent model made a **large difference**. This fact will be amde even more obvious if we visualize the data by plotting it.
+
 ## Plotting Results
 
 *MacMolPlt* produces an energy plot, but we can make other **plots** easily using interactive *Python* and the *Unix* toolchain. The first thing that I need is a **table** of the two C–Cl bond lengths and the energy for each point on the IRC bath. The .log file is enormous. How can I get my data quickly?
@@ -595,8 +599,6 @@ All I need to do is place this script in the same directory as my .log files and
 bash processIRC.sh
 ```
 
-### Lots of Plots
-
 After I performed the commands again with the reverse direction IRC log file and doubled my files to 8. I could easily extract the columns with a text editor but I am going to do it all in a **Jupyter notebook** so that all my work is **documented**. If there is a mistake the stepwise code in the notebook can be examined. We now have the following **data files**. 
 
 
@@ -617,13 +619,11 @@ We now have the data in a series of **text files**. i would like to **clean and 
 
 The process of importing the data files and arranging a table is best **presented** in the *Jupyter* notebooks themselves. You can **download** the notebooks using the link at the top right corner of this web book. You can also see an typeset version (not executable) as part of this book.
 
-F\In the [first notebook](10_Solvent_IRC_Plots.ipynb) we need to clean and collate the data. Then we will save the data tables for future use. In the [second notebook](10_Solvent_IRC_Plots-Data.ipynb) we will import the tables and plot some data.
+In the [first notebook](10_Solvent_IRC_Plots.ipynb) we need to clean and collate the data. Then we will save the data tables for future use. In the [second notebook](10_Solvent_IRC_Plots-Data.ipynb) we will import the tables and plot some data.
 
-### Plotting the Data
+First we must **decide** what to plot. Below are some ideas.
 
-First we must **decide** what to plot. 
-
-#### Comparing IRC Plots
+### Comparing IRC Plots
 
 The stride value should be similar for each since it is the same bonds in both cases that are changing (stride is a composite value that encompases the totality of bond changes). How do the energies **compare** in gas phase vs. water as bonds break and form across the transition state? Let us plot the **relative energy** vs. **stride**.
 
@@ -636,7 +636,7 @@ name: fig9_7
 ```
 In the gas phase, the **relative energy** between the ground state and the transition stste is **much smaller**. This is because the **negatively charged** chloride nucleophile/leaving group is very **high in energy** in a **vacuum** where it cannot share its electrons. In the **solvent** model, the energy is less as chloride can be stabilized by the **electric dipole** of water. In fact the gas phase IRC ends early because the **energy** is actually about to start **going back up** as the nucleophile moves away. In a vacumm, chloride separated widely from the methyl chloride is actually **higher in energy** than the transition state.
 
-#### Comparing More-O'Ferrell Jencks Plots
+### Comparing More-O'Ferrell Jencks Plots
 
 The famous More-O'Ferrell Jencks plot follows one **coordinate** of the reaction with respect to **another**. This reaction has a **nucleophile** that moves in to make a bond and a **leaving group** that departs, breaking a bond. We could plot "making" on one axis and "breaking" on the other. 
 
@@ -647,11 +647,24 @@ There are **two** C-Cl distances in each IRC: the **incoming** nucleophile and t
 width: 500px
 name: fig9_8
 ---
-*TThe IRC expressed as a plot of distances to nucleophile and leaving group. Black is the solvent IRC and red is the gas phase IRC*
+*The IRC expressed as a plot of distances to nucleophile and leaving group. Black is the solvent IRC and red is the gas phase IRC*
 ```
 The black line is the **solvent** IRC. What would you call that? I vote for "double ended hockey stick". It is clear that, at the beginning, **most** of the stride score is due to the nucleophile **moving in** towards the carbon. When it has moved in from 3.1&nbsp;&angst; to about 2.85&nbsp;&angst; we finally see the leaving group **start to move** in concert. Would you say that the reaction "begins" when the nucleophile **reaches** 2.85&nbsp;&angst;? Does it end when the leaving group reaches that distance on the **other side**? Or should be include the translation of the nucleophile in from 3.1&nbsp;&angst; (or even farther)?
 
 The **gas phase** IRC is shorter because of the high cost of moving the chloride away in a vacuum. The key takeaway here is that solvent modeling has a **very large effect** in charged systems and probably a significant effect in every system.
+
+### The 3<sup>rd</sup> Dimension
+
+We can use a 3D plot to combine the information in the two previous plots above. Below is a 3D plot of the solvent IRC. Does that help you to imagine the nucleophile translating in, the making and breaking of bonds, and the leaving group translating away? I wonder what other kinds of plots we could use.
+
+```{figure} images/Solvent_plot3.png
+---
+width: 500px
+name: fig9_9
+---
+*The IRC for the reaction in solvent*
+```
+
 
 ## Summary
 
@@ -665,18 +678,18 @@ In **gas phase**, the chloride is not stabilized and is a high energy when it is
 
 ## A Challenge
 
-I wasn't kidding about that redo idea. Get busy. 
+I **wasn't kidding** about that redo idea. Get busy. 
 
-Is the rotational energy profile of butane different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.
+Is the rotational energy profile of **butane** different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.
 
-Is the rotational energy profile of butadiene different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be a detectable, but not large difference. We do have large changes in electronic structure as the &pi; system changes with rotation but no charges are involved.
+Is the rotational energy profile of **butadiene** different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be a detectable, but not large difference. We do have large changes in electronic structure as the &pi; system changes with rotation but no charges are involved.
 
-Is the IRC of the Diels-Alder reaction different in water and cyclohexane solvents compared to gas phase? I think this would respond similarly to the butadiene rotation for the same reasons. But we could be surprised. Go try it.
+Is the IRC of the **Diels-Alder** reaction different in water and cyclohexane solvents compared to gas phase? I think this would respond similarly to the butadiene rotation for the same reasons. But we could be surprised. Go try it.
 
-Modify the butane rotational energy profile by using ethylene glycol. Does the energy at different torsional values change between water, cyclohexane and gas phase? 
+Modify the butane rotational energy profile by using **ethylene glycol**. Does the energy at different torsional values change between water, cyclohexane and gas phase? 
 
-Modify the butadiene rotational energy profile by using glyoxal. Does the energy at different torsional values change between water, cyclohexane and gas phase? 
+Modify the butadiene rotational energy profile by using **glyoxal**. Does the energy at different torsional values change between water, cyclohexane and gas phase? 
 
-Are the energies (Eigenvalues) and coefficients (Eigenvectors) of molecular orbitals different when solvent is applied? Model butadiene in the *s-trans* form and see. Then do the same with acrolein.
+Are the energies (Eigenvalues) and coefficients (Eigenvectors) of **molecular orbitals** different when solvent is applied? Model **butadiene** in the *s-trans* conformer and see. Then do the same with **acrolein**.
 
 

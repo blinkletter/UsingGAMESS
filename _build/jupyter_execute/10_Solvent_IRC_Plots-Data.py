@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Data Cleaning Workflow
+# # Data Plotting Workflow
 # 
 # As discussed in the [previous workbook](10_Solvent_IRC_Plots.ipynb), we now have **two data files** with the gas phase and solvent IRC calculation data.
 # 
@@ -21,7 +21,10 @@
 
 import pandas as pd
 import numpy as np
+from mpl_toolkits import mplot3d
 import matplotlib.pyplot as plt
+import sys
+sys.version
 
 
 # ## Importing Stored Data
@@ -30,7 +33,7 @@ import matplotlib.pyplot as plt
 # In[2]:
 
 
-path = "/Users/Barry/Documents/CompChem/Exercises/temp/"
+path = "/Users/blink/Documents/CompChem/Exercises/temp/"
 
 solvent_file = path + "SN2_IRC_Solvent_Data.txt"
 gas_phase_file = path + "SN2_IRC_Data_GasPhase_Data.txt"
@@ -108,6 +111,42 @@ plt.show()
 # The **gas phase** IRC is shorter because of the high cost of moving the chloride away in a vacuum. The key takeaway here is that solvent modeling has a **very large effect** in charged systems and probably a significant effect in every system.
 # 
 # Should we **redo everything** that we did up until now by adding a $PCM group to all our input files and running them again? That will be left as an exercise for the reader.
+
+# ## Exploring the 3rd Dimension
+# Below is a 3D plot. I am just trying this out. I found some [instructions](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html) in another useful online book. I also found information [here](http://omz-software.com/pythonista/matplotlib/mpl_toolkits/mplot3d/index.html#:~:text=The%20mplot3d%20toolkit%20adds%20simple,and%20zoom%20the%203D%20scene.), [here](https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html) and [here](https://pythonprogramming.net/3d-graphs-matplotlib-tutorial/)
+
+# In[5]:
+
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.view_init(15, -60)
+# Data for a three-dimensional line
+zline = solvent[:]["E(kJ/mole)"]
+xline = solvent[:]["C-Cl1"]
+yline = solvent[:]["C-Cl2"]
+
+ax.plot(xline, yline, zs=-23.17, zdir='z', color="lightgray")
+ax.plot(xline, zline, zs=1.96, zdir='x', color="lightgray")
+ax.plot(yline, zline, zs=3.11, zdir='y', color="lightgray")
+
+ax.plot3D(xline, yline, zline, 'k')
+
+
+# Data for three-dimensional scattered points
+#ax.scatter3D(xline, yline, zline, c=zline, cmap='Greens');
+
+ax.set_xlabel(r"C3-Cl2 Distance $\left( \AA \right)$")
+ax.set_ylabel(r"C3-Cl1 Distance $\left( \AA \right)$")
+ax.set_zlabel(r"$\Delta E \  \left(kJ/mole\right)$")
+ax.set_title("Intrinsic Reaction Coordinate")
+ax.set_xlim(1.96,3.11)
+ax.set_ylim(1.96,3.11)
+ax.set_zlim(-23.17,1)
+
+fig.savefig("plot3.pdf")
+plt.show()
+
 
 # In[ ]:
 
