@@ -51,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Cleaning Workflow" href="10_Solvent_IRC_Plots.html" />
@@ -78,6 +78,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
@@ -195,7 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
-     Data Cleaning Workflow
+     Data Plotting Workflow
     </a>
    </li>
   </ul>
@@ -353,31 +358,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lots-of-plots">
-     Lots of Plots
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cleaning-the-data">
      Cleaning the Data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-the-data">
-     Plotting the Data
+    <a class="reference internal nav-link" href="#comparing-irc-plots">
+     Comparing IRC Plots
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#comparing-irc-plots">
-       Comparing IRC Plots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#comparing-more-o-ferrell-jencks-plots">
-       Comparing More-O’Ferrell Jencks Plots
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-more-o-ferrell-jencks-plots">
+     Comparing More-O’Ferrell Jencks Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-3-sup-rd-sup-dimension">
+     The 3
+     <sup>
+      rd
+     </sup>
+     Dimension
+    </a>
    </li>
   </ul>
  </li>
@@ -493,31 +495,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lots-of-plots">
-     Lots of Plots
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cleaning-the-data">
      Cleaning the Data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-the-data">
-     Plotting the Data
+    <a class="reference internal nav-link" href="#comparing-irc-plots">
+     Comparing IRC Plots
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#comparing-irc-plots">
-       Comparing IRC Plots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#comparing-more-o-ferrell-jencks-plots">
-       Comparing More-O’Ferrell Jencks Plots
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-more-o-ferrell-jencks-plots">
+     Comparing More-O’Ferrell Jencks Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-3-sup-rd-sup-dimension">
+     The 3
+     <sup>
+      rd
+     </sup>
+     Dimension
+    </a>
    </li>
   </ul>
  </li>
@@ -1013,9 +1012,6 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash processIRC.sh
 </pre></div>
 </div>
-</div>
-<div class="section" id="lots-of-plots">
-<h3>Lots of Plots<a class="headerlink" href="#lots-of-plots" title="Permalink to this headline">¶</a></h3>
 <p>After I performed the commands again with the reverse direction IRC log file and doubled my files to 8. I could easily extract the columns with a text editor but I am going to do it all in a <strong>Jupyter notebook</strong> so that all my work is <strong>documented</strong>. If there is a mistake the stepwise code in the notebook can be examined. We now have the following <strong>data files</strong>.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1044,13 +1040,11 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
 <h3>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h3>
 <p>We now have the data in a series of <strong>text files</strong>. i would like to <strong>clean and collate</strong> the data so that it is in a nice neat table. I could use a text editor to do this. I could paste the data into Microsoft Excel and organize it that way. But I will use a <em>Jupyter</em> notebook. That way I can also provide detailed <strong>documentation</strong> in both text and code that others can follow when interpreting my work.</p>
 <p>The process of importing the data files and arranging a table is best <strong>presented</strong> in the <em>Jupyter</em> notebooks themselves. You can <strong>download</strong> the notebooks using the link at the top right corner of this web book. You can also see an typeset version (not executable) as part of this book.</p>
-<p>F\In the <a class="reference internal" href="10_Solvent_IRC_Plots.html"><span class="doc std std-doc">first notebook</span></a> we need to clean and collate the data. Then we will save the data tables for future use. In the <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html"><span class="doc std std-doc">second notebook</span></a> we will import the tables and plot some data.</p>
+<p>In the <a class="reference internal" href="10_Solvent_IRC_Plots.html"><span class="doc std std-doc">first notebook</span></a> we need to clean and collate the data. Then we will save the data tables for future use. In the <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html"><span class="doc std std-doc">second notebook</span></a> we will import the tables and plot some data.</p>
+<p>First we must <strong>decide</strong> what to plot. Below are some ideas.</p>
 </div>
-<div class="section" id="plotting-the-data">
-<h3>Plotting the Data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h3>
-<p>First we must <strong>decide</strong> what to plot.</p>
 <div class="section" id="comparing-irc-plots">
-<h4>Comparing IRC Plots<a class="headerlink" href="#comparing-irc-plots" title="Permalink to this headline">¶</a></h4>
+<h3>Comparing IRC Plots<a class="headerlink" href="#comparing-irc-plots" title="Permalink to this headline">¶</a></h3>
 <p>The stride value should be similar for each since it is the same bonds in both cases that are changing (stride is a composite value that encompases the totality of bond changes). How do the energies <strong>compare</strong> in gas phase vs. water as bonds break and form across the transition state? Let us plot the <strong>relative energy</strong> vs. <strong>stride</strong>.</p>
 <div class="figure align-default" id="fig9-7">
 <a class="reference internal image-reference" href="_images/Solvent_plot1.png"><img alt="_images/Solvent_plot1.png" src="_images/Solvent_plot1.png" style="width: 500px;" /></a>
@@ -1059,15 +1053,22 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
 <p>In the gas phase, the <strong>relative energy</strong> between the ground state and the transition stste is <strong>much smaller</strong>. This is because the <strong>negatively charged</strong> chloride nucleophile/leaving group is very <strong>high in energy</strong> in a <strong>vacuum</strong> where it cannot share its electrons. In the <strong>solvent</strong> model, the energy is less as chloride can be stabilized by the <strong>electric dipole</strong> of water. In fact the gas phase IRC ends early because the <strong>energy</strong> is actually about to start <strong>going back up</strong> as the nucleophile moves away. In a vacumm, chloride separated widely from the methyl chloride is actually <strong>higher in energy</strong> than the transition state.</p>
 </div>
 <div class="section" id="comparing-more-o-ferrell-jencks-plots">
-<h4>Comparing More-O’Ferrell Jencks Plots<a class="headerlink" href="#comparing-more-o-ferrell-jencks-plots" title="Permalink to this headline">¶</a></h4>
+<h3>Comparing More-O’Ferrell Jencks Plots<a class="headerlink" href="#comparing-more-o-ferrell-jencks-plots" title="Permalink to this headline">¶</a></h3>
 <p>The famous More-O’Ferrell Jencks plot follows one <strong>coordinate</strong> of the reaction with respect to <strong>another</strong>. This reaction has a <strong>nucleophile</strong> that moves in to make a bond and a <strong>leaving group</strong> that departs, breaking a bond. We could plot “making” on one axis and “breaking” on the other.</p>
 <p>There are <strong>two</strong> C-Cl distances in each IRC: the <strong>incoming</strong> nucleophile and the departing leaving group. The C-Cl bond in methyl chlorife is calculated to be about 1.95 Å. The incoming nucleophile starts at a longer distance and <strong>moves</strong> in. The leaving group bond will begin to break. At the transition state, they should be identical (defined by symmetry). Let us plot <strong>one</strong> length against the <strong>other</strong>. Will it be a straight line? Will it be a curve?</p>
 <div class="figure align-default" id="fig9-8">
 <a class="reference internal image-reference" href="_images/Solvent_plot2.png"><img alt="_images/Solvent_plot2.png" src="_images/Solvent_plot2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text"><em>TThe IRC expressed as a plot of distances to nucleophile and leaving group. Black is the solvent IRC and red is the gas phase IRC</em></span><a class="headerlink" href="#fig9-8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text"><em>The IRC expressed as a plot of distances to nucleophile and leaving group. Black is the solvent IRC and red is the gas phase IRC</em></span><a class="headerlink" href="#fig9-8" title="Permalink to this image">¶</a></p>
 </div>
 <p>The black line is the <strong>solvent</strong> IRC. What would you call that? I vote for “double ended hockey stick”. It is clear that, at the beginning, <strong>most</strong> of the stride score is due to the nucleophile <strong>moving in</strong> towards the carbon. When it has moved in from 3.1 Å to about 2.85 Å we finally see the leaving group <strong>start to move</strong> in concert. Would you say that the reaction “begins” when the nucleophile <strong>reaches</strong> 2.85 Å? Does it end when the leaving group reaches that distance on the <strong>other side</strong>? Or should be include the translation of the nucleophile in from 3.1 Å (or even farther)?</p>
 <p>The <strong>gas phase</strong> IRC is shorter because of the high cost of moving the chloride away in a vacuum. The key takeaway here is that solvent modeling has a <strong>very large effect</strong> in charged systems and probably a significant effect in every system.</p>
+</div>
+<div class="section" id="the-3-sup-rd-sup-dimension">
+<h3>The 3<sup>rd</sup> Dimension<a class="headerlink" href="#the-3-sup-rd-sup-dimension" title="Permalink to this headline">¶</a></h3>
+<p>We can use a 3D plot to combine the information in the two previous plots above. Below is a 3D plot of the solvent IRC. Does that help you to imagine the nucleophile translating in, the making and breaking of bonds, and the leaving group translating away? I wonder what other kinds of plots we could use.</p>
+<div class="figure align-default" id="fig9-9">
+<a class="reference internal image-reference" href="_images/Solvent_plot3.png"><img alt="_images/Solvent_plot3.png" src="_images/Solvent_plot3.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text"><em>The IRC for the reaction in solvent</em></span><a class="headerlink" href="#fig9-9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -1080,13 +1081,13 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
 </div>
 <div class="section" id="a-challenge">
 <h2>A Challenge<a class="headerlink" href="#a-challenge" title="Permalink to this headline">¶</a></h2>
-<p>I wasn’t kidding about that redo idea. Get busy.</p>
-<p>Is the rotational energy profile of butane different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.</p>
-<p>Is the rotational energy profile of butadiene different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be a detectable, but not large difference. We do have large changes in electronic structure as the π system changes with rotation but no charges are involved.</p>
-<p>Is the IRC of the Diels-Alder reaction different in water and cyclohexane solvents compared to gas phase? I think this would respond similarly to the butadiene rotation for the same reasons. But we could be surprised. Go try it.</p>
-<p>Modify the butane rotational energy profile by using ethylene glycol. Does the energy at different torsional values change between water, cyclohexane and gas phase?</p>
-<p>Modify the butadiene rotational energy profile by using glyoxal. Does the energy at different torsional values change between water, cyclohexane and gas phase?</p>
-<p>Are the energies (Eigenvalues) and coefficients (Eigenvectors) of molecular orbitals different when solvent is applied? Model butadiene in the <em>s-trans</em> form and see. Then do the same with acrolein.</p>
+<p>I <strong>wasn’t kidding</strong> about that redo idea. Get busy.</p>
+<p>Is the rotational energy profile of <strong>butane</strong> different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.</p>
+<p>Is the rotational energy profile of <strong>butadiene</strong> different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be a detectable, but not large difference. We do have large changes in electronic structure as the π system changes with rotation but no charges are involved.</p>
+<p>Is the IRC of the <strong>Diels-Alder</strong> reaction different in water and cyclohexane solvents compared to gas phase? I think this would respond similarly to the butadiene rotation for the same reasons. But we could be surprised. Go try it.</p>
+<p>Modify the butane rotational energy profile by using <strong>ethylene glycol</strong>. Does the energy at different torsional values change between water, cyclohexane and gas phase?</p>
+<p>Modify the butadiene rotational energy profile by using <strong>glyoxal</strong>. Does the energy at different torsional values change between water, cyclohexane and gas phase?</p>
+<p>Are the energies (Eigenvalues) and coefficients (Eigenvectors) of <strong>molecular orbitals</strong> different when solvent is applied? Model <strong>butadiene</strong> in the <em>s-trans</em> conformer and see. Then do the same with <strong>acrolein</strong>.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
