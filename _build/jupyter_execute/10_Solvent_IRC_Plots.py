@@ -206,7 +206,7 @@ data.to_csv(path+writefilename)
 # 
 # **Execute** the code block below and **then go back** to the top of this notebook and execute all the data cleaning and processing code **again**. You will now have a table of the gas phase data and will save it with the indicated filename. These *Jupyter* notebooks are meant to be **used and re-used** and copied and pasted.
 
-# In[13]:
+# In[2]:
 
 
 path = "/Users/blink/Documents/CompChem/Exercises/temp/"
@@ -231,7 +231,7 @@ TS_energy = -955.6090406225
 # 
 # I am leaving them here for your information. Please **proceed** to the next notebook to compare the data sets.
 
-# In[14]:
+# In[160]:
 
 
 import matplotlib.pyplot as plt
@@ -242,7 +242,7 @@ plt.plot(x,y, "k-")
 plt.show()
 
 
-# In[15]:
+# In[161]:
 
 
 x = data[:]["C-Cl1"]        # 1,3 bond distance
@@ -252,7 +252,7 @@ plt.plot(x,y, "k-")
 plt.show()
 
 
-# In[16]:
+# In[162]:
 
 
 x = data[:]["C-Cl2"]            # 2,3 bond distance
@@ -262,7 +262,7 @@ plt.plot(x,y, "k-")
 plt.show()
 
 
-# In[17]:
+# In[163]:
 
 
 x = data.index             # step number
