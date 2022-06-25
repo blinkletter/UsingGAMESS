@@ -51,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Cleaning Workflow" href="10_Solvent_IRC_Plots.html" />
@@ -96,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="start.html">
-   Table of Contents
+   Fun With GAMESS
   </a>
  </li>
 </ul>
@@ -345,6 +345,11 @@ const thebe_selector_output = ".output, .cell_output"
      The Ground State
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -480,6 +485,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-ground-state">
      The Ground State
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
     </a>
    </li>
   </ul>
@@ -954,6 +964,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>In the results we again see the slight off-symmetry of the PCM result. Without symmetry being enforced it will not be perfect but it is within 1% of <em>C<sub>3v</sub></em> symmetry. The key observation is that in methyl choride, the calculated for the C-Cl bond <strong>in solvent</strong> is 1.92 Å. The IRC settles down to a ground state with the two C-Cl distances being 1.96 Å and 3.11 Å. This is very much like a chloride and a methyl chloride. <strong>In water</strong>, the chloride ion is much <strong>more stable</strong> on its own and will be able to relax to a fully non-bonding distance.</p>
 <p>In <strong>gas-phase</strong>, the calculated C-Cl length in methyl chloride is 1.92 Å In the IRC, the ground state was reached with C-Cl lengths of 2.10 Å and 2.73 Å We have a bond that is significantly <strong>longer</strong> than the covalent C-Cl distance for methyl chloride and the other is significantly <strong>shorter</strong> than a non-bonded distance.</p>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>We can conclude that the solvent model made a <strong>large difference</strong>. This fact will be amde even more obvious if we visualize the data by plotting it.</p>
 </div>
 </div>
 <div class="section" id="plotting-results">

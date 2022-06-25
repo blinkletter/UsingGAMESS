@@ -528,6 +528,10 @@ In the results we again see the slight off-symmetry of the PCM result. Without s
 
 In **gas-phase**, the calculated C-Cl length in methyl chloride is 1.92&nbsp;&angst; In the IRC, the ground state was reached with C-Cl lengths of 2.10&nbsp;&angst; and 2.73&nbsp;&angst; We have a bond that is significantly **longer** than the covalent C-Cl distance for methyl chloride and the other is significantly **shorter** than a non-bonded distance.
 
+### Conclusion
+
+We can conclude that the solvent model made a **large difference**. This fact will be amde even more obvious if we visualize the data by plotting it.
+
 ## Plotting Results
 
 *MacMolPlt* produces an energy plot, but we can make other **plots** easily using interactive *Python* and the *Unix* toolchain. The first thing that I need is a **table** of the two C–Cl bond lengths and the energy for each point on the IRC bath. The .log file is enormous. How can I get my data quickly?
