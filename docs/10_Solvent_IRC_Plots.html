@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Cleaning Workflow" href="10_Solvent_IRC_Plots-Data.html" />
+    <link rel="next" title="Data Plotting Workflow" href="10_Solvent_IRC_Plots-Data.html" />
     <link rel="prev" title="Solvent: The Environment Matters" href="9_Solvent.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -76,6 +76,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
@@ -193,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
-     Data Cleaning Workflow
+     Data Plotting Workflow
     </a>
    </li>
   </ul>
@@ -499,7 +504,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The block of code <strong>below</strong> sets up the data files for importing the solvent data. This way we can change the filenames here and will not need to edit them in the document later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/Barry/Documents/CompChem/Exercises/temp/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/blink/Documents/CompChem/Exercises/temp/&quot;</span>
 
 <span class="n">stride_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;stride.txt&quot;</span>
 <span class="n">stride_r_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;stride_r.txt&quot;</span>
@@ -615,6 +620,12 @@ const thebe_selector_output = ".output, .cell_output"
 4  0.39990
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_25812/650307833.py:3: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  stride_all = stride.append(stride_r)  # add reverse data at end of
+/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_25812/650307833.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  stride_all = stride_zero.append(stride_all)  # The zero point is appended to top of dataframe
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="rinse-and-repeat">
@@ -649,6 +660,14 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_25812/2253062382.py:3: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  energy_all = energy.append(energy_r)  # append the reverse list under the orward list
+/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_25812/2253062382.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  energy_all = energy_zero.append(energy_all)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="more-cleaning">
@@ -678,6 +697,12 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_25812/4261056779.py:3: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  CCl1_all = CCl1.append(CCl1_r)  #
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -701,6 +726,12 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">CCl2_all</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#print(CCl2_all)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_25812/2091093923.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  CCl2_all = CCl2.append(CCl2_r)
 </pre></div>
 </div>
 </div>
@@ -801,7 +832,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#writefilename = &quot;SN2_IRC_Solvent_Data.txt&quot;</span>
-<span class="n">writefilename</span> <span class="o">=</span> <span class="s2">&quot;SN2_IRC_Data_GasPhase_Data.txt&quot;</span>
+<span class="c1">#writefilename = &quot;SN2_IRC_Data_GasPhase_Data.txt&quot;</span>
+<span class="n">writefilename</span> <span class="o">=</span> <span class="s2">&quot;temp.txt&quot;</span>   <span class="c1"># placeholder name. Use one of the names above.</span>
 
 <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">writefilename</span><span class="p">)</span>
 </pre></div>
@@ -815,7 +847,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Execute</strong> the code block below and <strong>then go back</strong> to the top of this notebook and execute all the data cleaning and processing code <strong>again</strong>. You will now have a table of the gas phase data and will save it with the indicated filename. These <em>Jupyter</em> notebooks are meant to be <strong>used and re-used</strong> and copied and pasted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/Barry/Documents/CompChem/Exercises/temp/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/blink/Documents/CompChem/Exercises/temp/&quot;</span>
 
 <span class="n">stride_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;gstride.txt&quot;</span>
 <span class="n">stride_r_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;gstride_r.txt&quot;</span>
@@ -934,7 +966,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="10_Solvent_IRC_Plots-Data.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Cleaning Workflow</p>
+        <p class="prev-next-title">Data Plotting Workflow</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

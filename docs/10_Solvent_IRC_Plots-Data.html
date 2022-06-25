@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Cleaning Workflow &#8212; Fun With GAMESS</title>
+    <title>Data Plotting Workflow &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -75,6 +75,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
@@ -192,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Data Cleaning Workflow
+     Data Plotting Workflow
     </a>
    </li>
   </ul>
@@ -305,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Changing Bond Lengths
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-the-3rd-dimension">
+   Exploring the 3rd Dimension
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -315,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data Cleaning Workflow</h1>
+                <h1>Data Plotting Workflow</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -345,6 +355,11 @@ const thebe_selector_output = ".output, .cell_output"
    Changing Bond Lengths
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-the-3rd-dimension">
+   Exploring the 3rd Dimension
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -354,8 +369,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-cleaning-workflow">
-<h1>Data Cleaning Workflow<a class="headerlink" href="#data-cleaning-workflow" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-plotting-workflow">
+<h1>Data Plotting Workflow<a class="headerlink" href="#data-plotting-workflow" title="Permalink to this headline">¶</a></h1>
 <p>As discussed in the <a class="reference internal" href="10_Solvent_IRC_Plots.html"><span class="doc std std-doc">previous workbook</span></a>, we now have <strong>two data files</strong> with the gas phase and solvent IRC calculation data.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -380,7 +395,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.9.7 (default, Oct 13 2021, 06:45:31) \n[Clang 13.0.0 (clang-1300.0.29.3)]&#39;
 </pre></div>
 </div>
 </div>
@@ -391,7 +414,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>No need to use the raw data and process the files.  We have <strong>stored</strong> that work as text files and <strong>documented</strong> the process that we used to clean and process the data. Now we can load them in and use them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/Barry/Documents/CompChem/Exercises/temp/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/blink/Documents/CompChem/Exercises/temp/&quot;</span>
 
 <span class="n">solvent_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;SN2_IRC_Solvent_Data.txt&quot;</span>
 <span class="n">gas_phase_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;SN2_IRC_Data_GasPhase_Data.txt&quot;</span>
@@ -509,43 +532,43 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>0</th>
-      <td>-4.85695</td>
-      <td>-955.705800</td>
-      <td>-23.172149</td>
-      <td>1.958707</td>
-      <td>3.107504</td>
+      <td>-2.23195</td>
+      <td>-955.610457</td>
+      <td>-3.717911</td>
+      <td>2.093683</td>
+      <td>2.741895</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-4.83761</td>
-      <td>-955.705800</td>
-      <td>-23.171362</td>
-      <td>1.958823</td>
-      <td>3.105239</td>
+      <td>-2.18819</td>
+      <td>-955.610456</td>
+      <td>-3.717124</td>
+      <td>2.092207</td>
+      <td>2.747936</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-4.81292</td>
-      <td>-955.705799</td>
-      <td>-23.170049</td>
-      <td>1.958993</td>
-      <td>3.102160</td>
+      <td>-2.09775</td>
+      <td>-955.610455</td>
+      <td>-3.713448</td>
+      <td>2.095404</td>
+      <td>2.735233</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-4.76930</td>
-      <td>-955.705798</td>
-      <td>-23.166373</td>
-      <td>1.959371</td>
-      <td>3.096809</td>
+      <td>-1.99792</td>
+      <td>-955.610444</td>
+      <td>-3.684830</td>
+      <td>2.099408</td>
+      <td>2.720882</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-4.69106</td>
-      <td>-955.705794</td>
-      <td>-23.155871</td>
-      <td>1.959962</td>
-      <td>3.087264</td>
+      <td>-1.89818</td>
+      <td>-955.610423</td>
+      <td>-3.628907</td>
+      <td>2.104742</td>
+      <td>2.705797</td>
     </tr>
   </tbody>
 </table>
@@ -621,6 +644,47 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The black line is the <strong>solvent</strong> IRC. What would you call that? I vote for “double ended hockey stick”. It is clear that, at the beginning, <strong>most</strong> of the stride score is due to the nucleophile <strong>moving in</strong> towards the carbon. When it has moved in from 3.1 Å to about 2.85 Å we finally see the leaving group <strong>start to move</strong> in concert. Would you say that the reaction “begins” when the nucleophile <strong>reaches</strong> 2.85 Å? Does it end when the leaving group reaches that distance on the <strong>other side</strong>? Or should be include the translation of the nucleophile in from 3.1 Å (or even farther)?</p>
 <p>The <strong>gas phase</strong> IRC is shorter because of the high cost of moving the chloride away in a vacuum. The key takeaway here is that solvent modeling has a <strong>very large effect</strong> in charged systems and probably a significant effect in every system.</p>
 <p>Should we <strong>redo everything</strong> that we did up until now by adding a $PCM group to all our input files and running them again? That will be left as an exercise for the reader.</p>
+</div>
+<div class="section" id="exploring-the-3rd-dimension">
+<h2>Exploring the 3rd Dimension<a class="headerlink" href="#exploring-the-3rd-dimension" title="Permalink to this headline">¶</a></h2>
+<p>Below is a 3D plot. I am just trying this out. I found some <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html">instructions</a> in another useful online book. I also found information <a class="reference external" href="http://omz-software.com/pythonista/matplotlib/mpl_toolkits/mplot3d/index.html#:~:text=The%20mplot3d%20toolkit%20adds%20simple,and%20zoom%20the%203D%20scene.">here</a>, <a class="reference external" href="https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html">here</a> and <a class="reference external" href="https://pythonprogramming.net/3d-graphs-matplotlib-tutorial/">here</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">)</span>
+<span class="c1"># Data for a three-dimensional line</span>
+<span class="n">zline</span> <span class="o">=</span> <span class="n">solvent</span><span class="p">[:][</span><span class="s2">&quot;E(kJ/mole)&quot;</span><span class="p">]</span>
+<span class="n">xline</span> <span class="o">=</span> <span class="n">solvent</span><span class="p">[:][</span><span class="s2">&quot;C-Cl1&quot;</span><span class="p">]</span>
+<span class="n">yline</span> <span class="o">=</span> <span class="n">solvent</span><span class="p">[:][</span><span class="s2">&quot;C-Cl2&quot;</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">,</span> <span class="n">zs</span><span class="o">=-</span><span class="mf">23.17</span><span class="p">,</span> <span class="n">zdir</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgray&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">zline</span><span class="p">,</span> <span class="n">zs</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">zdir</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgray&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yline</span><span class="p">,</span> <span class="n">zline</span><span class="p">,</span> <span class="n">zs</span><span class="o">=</span><span class="mf">3.11</span><span class="p">,</span> <span class="n">zdir</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgray&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">,</span> <span class="n">zline</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Data for three-dimensional scattered points</span>
+<span class="c1">#ax.scatter3D(xline, yline, zline, c=zline, cmap=&#39;Greens&#39;);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C3-Cl2 Distance $\left( \AA \right)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C3-Cl1 Distance $\left( \AA \right)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta E \  \left(kJ/mole\right)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Intrinsic Reaction Coordinate&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">1.96</span><span class="p">,</span><span class="mf">3.11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">1.96</span><span class="p">,</span><span class="mf">3.11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">23.17</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot3.pdf&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/10_Solvent_IRC_Plots-Data_12_0.png" src="_images/10_Solvent_IRC_Plots-Data_12_0.png" />
+</div>
+</div>
 </div>
 </div>
 
