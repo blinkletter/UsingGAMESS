@@ -33,7 +33,7 @@ sys.version
 # In[2]:
 
 
-path = "/Users/blink/Documents/CompChem/Exercises/temp/"
+path = "/Users/barry/Documents/CompChem/Exercises/temp/"
 
 solvent_file = path + "SN2_IRC_Solvent_Data.txt"
 gas_phase_file = path + "SN2_IRC_Data_GasPhase_Data.txt"
@@ -115,7 +115,7 @@ plt.show()
 # ## Exploring the 3rd Dimension
 # Below is a 3D plot. I am just trying this out. I found some [instructions](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html) in another useful online book. I also found information [here](http://omz-software.com/pythonista/matplotlib/mpl_toolkits/mplot3d/index.html#:~:text=The%20mplot3d%20toolkit%20adds%20simple,and%20zoom%20the%203D%20scene.), [here](https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html) and [here](https://pythonprogramming.net/3d-graphs-matplotlib-tutorial/)
 
-# In[66]:
+# In[5]:
 
 
 fig = plt.figure()

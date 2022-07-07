@@ -9,9 +9,9 @@ First we must build a system of ***tools*** for computational chemistry. You can
 
 We have some intuition about **chemical structure and energy**. We know that butane is at its lowest energy in the *anti* conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond the nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its **electronic structure**. We can demonstrate these effects and **explore consequences of changes in structure** on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are **free to all** or free for academic use.
 
-***GAMESS***[^gamess1],[^gamess2],[^gamess_link]  is an *ab initio* computation package for investigating molecular structure and energy. There are others, such as ***NWChem*** [^nwchem],[^nwchem_link]  and ***ORCA*** [^orca],[^orca_link]. 
+***GAMESS***[^gamess1][^gamess2][^gamess_link]  is an *ab initio* computation package for investigating molecular structure and energy. There are others, such as ***NWChem*** [^nwchem][^nwchem_link] and ***ORCA*** [^orca][^orca_link]. 
 
-***MacMolPlt*** [^macmolplt],[^macmolplt_link]  is a graphical front end for *GAMESS*. It can build molecules, export input files and interpret the output files produced by GAMESS. ***Avogadro*** [^avogadro],[^avogadro_link]  is a more modern option but lacks some useful tools compared to *MacMolPlt*. There are others, such as ***Gabedit*** [^gabedit],[^gabedit_link]  and ***Molden***. [^molden],[^molden_link] 
+***MacMolPlt*** [^macmolplt][^macmolplt_link]  is a graphical front end for *GAMESS*. It can build molecules, export input files and interpret the output files produced by GAMESS. ***Avogadro*** [^avogadro][^avogadro_link] is a more modern option but lacks some useful tools compared to *MacMolPlt*. There are others, such as ***Gabedit*** [^gabedit][^gabedit_link] and ***Molden***. [^molden][^molden_link] 
 
 We will use *GAMESS* and *MacMolPlt* together. We will also use *Avagadro*. 
 
