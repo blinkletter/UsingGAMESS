@@ -1,4 +1,4 @@
-# Butadiene: Transition State for Rotation
+# 8. Butadiene: Transition State for Rotation
 
 We expect butadiene to prefer a **flat** *syn* or *anti* conformation. These **two** possibile **conformations** are designated "*s-cis*" and "*s-trans*". The "s" referrs to the &sigma; bond involved. There should be an energy maximum when the **torsion** angle is 90&deg; due to the loss of **cojugation** in when the two &pi; bonds are orthogonal. 
 

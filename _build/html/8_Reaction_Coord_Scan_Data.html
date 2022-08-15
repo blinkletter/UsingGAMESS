@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -55,6 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Solvent: The Environment Matters" href="9_Solvent.html" />
+    <link rel="prev" title="9. Diels-Alder Reaction: Intrinsic Reaction Coordinates" href="8A_Diels_Alder.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,33 +101,45 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -146,20 +161,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -176,17 +191,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -427,141 +454,80 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/Barry/Documents/CompChem/GAMESS-RESULTS/results.txt&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/blink/Documents/CompChem/GAMESS-RESULTS/results.txt&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">47</span><span class="o">/</span><span class="mi">77583</span><span class="n">m4574g5my09v13lx7vr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_4947</span><span class="o">/</span><span class="mf">749626737.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/blink/Documents/CompChem/GAMESS-RESULTS/results.txt&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-      <th>10</th>
-      <th>11</th>
-      <th>12</th>
-      <th>13</th>
-      <th>14</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Cyclohexene</td>
-      <td>Cs</td>
-      <td>scan.inp</td>
-      <td>SCAN</td>
-      <td>1.45</td>
-      <td>330.log:</td>
-      <td>NSERCH:</td>
-      <td>11</td>
-      <td>E=</td>
-      <td>-232.999550</td>
-      <td>GRAD.</td>
-      <td>MAX=</td>
-      <td>0.000071</td>
-      <td>R.M.S.=</td>
-      <td>0.000028</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Cyclohexene</td>
-      <td>Cs</td>
-      <td>scan.inp</td>
-      <td>SCAN</td>
-      <td>1.50</td>
-      <td>331.log:</td>
-      <td>NSERCH:</td>
-      <td>10</td>
-      <td>E=</td>
-      <td>-233.007405</td>
-      <td>GRAD.</td>
-      <td>MAX=</td>
-      <td>0.000065</td>
-      <td>R.M.S.=</td>
-      <td>0.000029</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Cyclohexene</td>
-      <td>Cs</td>
-      <td>scan.inp</td>
-      <td>SCAN</td>
-      <td>1.55</td>
-      <td>332.log:</td>
-      <td>NSERCH:</td>
-      <td>5</td>
-      <td>E=</td>
-      <td>-233.009127</td>
-      <td>GRAD.</td>
-      <td>MAX=</td>
-      <td>0.000074</td>
-      <td>R.M.S.=</td>
-      <td>0.000028</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Cyclohexene</td>
-      <td>Cs</td>
-      <td>scan.inp</td>
-      <td>SCAN</td>
-      <td>1.60</td>
-      <td>333.log:</td>
-      <td>NSERCH:</td>
-      <td>11</td>
-      <td>E=</td>
-      <td>-233.006111</td>
-      <td>GRAD.</td>
-      <td>MAX=</td>
-      <td>0.000063</td>
-      <td>R.M.S.=</td>
-      <td>0.000030</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Cyclohexene</td>
-      <td>Cs</td>
-      <td>scan.inp</td>
-      <td>SCAN</td>
-      <td>1.65</td>
-      <td>334.log:</td>
-      <td>NSERCH:</td>
-      <td>19</td>
-      <td>E=</td>
-      <td>-232.999486</td>
-      <td>GRAD.</td>
-      <td>MAX=</td>
-      <td>0.000084</td>
-      <td>R.M.S.=</td>
-      <td>0.000030</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> 
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> 
+<span class="g g-Whitespace">    </span><span class="mi">588</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> 
+<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span> 
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> 
+<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> 
+<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/python_parser.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>             <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">f</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>             <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span> <span class="s2">&quot;readline&quot;</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHandles</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         self.handles = get_handle(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2">             src,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2">             &quot;r&quot;,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span><span class="s2">         if ioargs.encoding and &quot;b&quot; not in ioargs.mode:</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2">             # Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">702</span><span class="s2">             handle = open(</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">                 handle,</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">                 ioargs.mode,</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/blink/Documents/CompChem/GAMESS-RESULTS/results.txt&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="cleaning-the-data">
@@ -646,7 +612,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Processing the Data<a class="headerlink" href="#processing-the-data" title="Permalink to this headline">¶</a></h2>
 <p>We now have a cleaned up data set. We could have done all of this in Excel by importing the text file, setting column breaks manually, deleting unwanted columns manually and then typing in names for the columns. Python and pandas may seem like a bit of work but it is not any more than you would do setting up the data in Excel.</p>
 <p>We know that a Hartree is <span class="math notranslate nohighlight">\(2625.7\, kJ/mole\)</span>. So we can convert the energy to a more familiar unit. Then we should set our lowest energy structure as the zero referemce and substract that value from all the energies to establish a relative scale.</p>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">hartree_conversion</span> <span class="o">=</span> <span class="mf">2625.7</span>
@@ -1103,7 +1069,21 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="8A_Diels_Alder.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="9_Solvent.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">10. Solvent: The Environment Matters</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

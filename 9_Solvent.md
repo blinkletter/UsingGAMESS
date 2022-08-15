@@ -1,4 +1,4 @@
-# Solvent: The Environment Matters
+# 10. Solvent: The Environment Matters
 
 Every calculation demonstrated so far had been performed in **gas phase**. We are modelling a single molecule in a vacuum. That is not the real world. Reactions occur at air pressure, at somewhat sane temperatures (generally less than 200 &deg;C) and in **solvent**. 
 
@@ -110,12 +110,12 @@ H     1.0     1.00000     0.00000     0.00000
 ### Initial Results
 
 I submitted the jobs to *GAMESS* and after a **few minutes** I had my result files in hand.  I openned them and found the last occurance of `NSERCH`, which usually occurs at the **final optimized structure**. I found the list of internal coordinates and took note of the bond distances (the angles are defined by the point group and will be perfect, by definition.) What are the C-H and C-Cl bond lengths?
-
+```{margin}
+I had used *C<sub>3h</sub>* symmetry in my first attempts while learning how to do this. What can I say, point groups are not my thing. As a result the calculation completed in both cases but gave an incorrect structure for the solvent job. We are actually optimizing a saddle point here and *GAMESS* will try to escape downhill unless the symmetry makes an air-tight constraint. 
+```
 The water calculation setteld down to a seemingly **stable** *D<sub>3h</sub>* structure but it **kept fighting** that answer. the gradient never found a low value that would end the calculation as the structure **thrashed** (ever so slightly) around the saddle point. Eventually it fell over the edge and broke symmetry to find a structure that appears to be the **starting materials**/products. It **failed** to find a transition state-like structure.
 
-```{note}
-I had used *C<sub>3h</sub>* symmetry in my first attempts while learning how to do this. What can I say, point groups are not my thing. As a result the calculation completed in both cases but gave an incorrect structure for the solvent job. We are actually optimizing a saddle point here and `GAMESS` will try to escape downhill unless the symmetry makes an air-tight constraint. 
-```
+
 
 ### Hessian Calculations
 
@@ -568,14 +568,14 @@ grep "STRETCH   1  3" IRClogfilename.log > C-Cl-1-3.txt
 grep "STRETCH   2  3" IRClogfilename.log > C-Cl-2-3.txt
 ```
 I could write a quick **shell script** to do all this and generate the four files. But I'm too lazy to make my life easier.
+```{margin}
+Experience is a good teacher. You will learn what to look for and when you do this again you will have everything set up for. Always take notes as you work. 
+```
 
 ```{warning}
 Here we see that there are 50 entries in the C-Cl lists but only 49 in the energy.txt and stride.txt lists. this is because step zero had a stride of zero (not explicitly reported, but obvious when you think about it) and the energy for step zero was the saddle point energy which is reported with the text "`FINAL RO-B3LYP ENERGY`" on a line near the beginning of the .log file.
 ```
 
-```{note}
-Experience is a good teacher. You will learn what to look for and when you do this again you will have everything set up for. Always take notes as you work. 
-```
 If I did write a **shell script** I might just collect the commands all in one file so that they can be run as a batch. Below in {numref}`processIRC.sh` is an example. Here I am **processing** the data for the gas phase IRC. You can modify the filenames to suit.
 
 ```{code-block} 
@@ -677,8 +677,6 @@ In **gas phase**, the chloride is not stabilized and is a high energy when it is
 **Gas phase is not the same as solvent**. Should we redo everything that we did up until now by adding a $PCM group to all our input files and running them again? That will be left as an exercise for the reader.
 
 ## A Challenge
-
-I **wasn't kidding** about that redo idea. Get busy. 
 
 Is the rotational energy profile of **butane** different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.
 

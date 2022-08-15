@@ -1,4 +1,4 @@
-# Methane: Visual Input and Output
+# 3. Methane: Visual Input and Output
 
 A **hand crafted** input file is a powerful thing. We can set it up exactly as we like. But there is another way. We can use various helper programs that enable the **visual creation** of a molecule and automatic generation of *GAMESS* input files. These files will often need further editing to get what you want out of *GAMESS* but, after we start using molecules larger than benzene, we will appreciate the **graphical interface** (and curse it often).
 
@@ -19,8 +19,8 @@ In this exercise, we will **accomplish** the following…
 
 Open your copy of *wxMacMolPlt* and **navigate** to the build menu: `Builder` &rarr; `Show Build Tools`. Select carbon with a coordination number of 4 and click in the empty window. Then select `Builder` &rarr; `Add Hydrogens` to complete your structure of methane. Efforts to enforce symmetry on files created by *MacMolPlt* often fail and manual creation of files that use symmetry is preferred. *GAMESS* requires perfection when you are declaring symmetry. As a result, we will **not use** symmetry in this calculation. 
 
-```{note}
-*MacMolPlt* has a symmetry builder function that can apply the point group as you build the molecule. We will discuss it later and build without symmetry for now.
+```{margin}
+*MacMolPlt* has a **symmetry builder** function that can apply the point group as you build the molecule. We will discuss it later.
 ```
 
 Select `Subwindow` &rarr; `Input Builder` to start making an **input file** for *GAMESS*. In the `Basis` window select 6-311G for the basis set. Set “1” for `D and light atom polarization functions` (this is the “d,p” in the 6-311G(d,p) basis set.) Check the `Diffuse l-shell` and `s-shell` options (this is the “++” in 6-311G(d,p)++.)

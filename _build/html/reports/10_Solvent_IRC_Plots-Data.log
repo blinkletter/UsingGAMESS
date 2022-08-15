@@ -33,7 +33,7 @@ display(gasphase.head())
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/var/folders/47/77583m4574g5my09v13lx7vr0000gp/T/ipykernel_87514/787513424.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/47/77583m4574g5my09v13lx7vr0000gp/T/ipykernel_4891/787513424.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      4[0m [0mgas_phase_file[0m [0;34m=[0m [0mpath[0m [0;34m+[0m [0;34m"SN2_IRC_Data_GasPhase_Data.txt"[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m [0;34m[0m[0m
 [0;32m----> 6[0;31m [0msolvent[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0msolvent_file[0m[0;34m,[0m [0mindex_col[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

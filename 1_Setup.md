@@ -1,5 +1,5 @@
 
-# Building Your System
+# 1. Building Your System
 
 First we must build a system of ***tools*** for computational chemistry. You can **acquire** the software and **install** it on your computer using the following **instructions**.
 
@@ -9,7 +9,7 @@ First we must build a system of ***tools*** for computational chemistry. You can
 
 We have some intuition about **chemical structure and energy**. We know that butane is at its lowest energy in the *anti* conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond the nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its **electronic structure**. We can demonstrate these effects and **explore consequences of changes in structure** on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are **free to all** or free for academic use.
 
-***GAMESS***[^gamess1][^gamess2][^gamess_link]  is an *ab initio* computation package for investigating molecular structure and energy. There are others, such as ***NWChem*** [^nwchem][^nwchem_link] and ***ORCA*** [^orca][^orca_link]. 
+***GAMESS***[^gamess1][^gamess2][^gamess_link] is an *ab initio* computation package for investigating molecular structure and energy. There are others, such as ***NWChem*** [^nwchem][^nwchem_link] and ***ORCA*** [^orca][^orca_link]. 
 
 ***MacMolPlt*** [^macmolplt][^macmolplt_link]  is a graphical front end for *GAMESS*. It can build molecules, export input files and interpret the output files produced by GAMESS. ***Avogadro*** [^avogadro][^avogadro_link] is a more modern option but lacks some useful tools compared to *MacMolPlt*. There are others, such as ***Gabedit*** [^gabedit][^gabedit_link] and ***Molden***. [^molden][^molden_link] 
 
@@ -56,13 +56,9 @@ You will need to apply for a **free academic license** and wait for a reply with
 
 ### Required Tools
 
-#### Text Editor
+We will need a text editor. Microsoft provides a **free cross-platform text editor** designed for writing code called *[Visual Studio Code](https://code.visualstudio.com/)*. I will be using *Visual Studio Code* in my demonstrations as it works on all our computers.
 
-We will need a text editor. We could use *TextEdit*, which comes with *MacOS*. I use *[BBEdit](https://www.barebones.com/products/bbedit/)*, which has a useful free version available for *MacOS*. Microsoft provides a **free cross-platform text editor** designed for writing code called *[Visual Studio Code](https://code.visualstudio.com/)*. I will be using *Visual Studio Code* in my demonstrations as it works on all our computers.
-
-#### Terminal Emulator
-
-We will be accessing the *Unix* file system and tools. On a *MacOS* system there is an application called *Terminal* that will allow us to access the real computer that lives inside your computer. 
+You will need a **Terminal Emulator**. We will be accessing the *Unix* file system and tools. On a *MacOS* system there is an application called *Terminal* that will allow us to access the real computer that lives inside your computer. *Visual Studio Code* has a built-in terminal emulator.
 
 ## Installing GAMESS
 
@@ -70,7 +66,7 @@ We will be accessing the *Unix* file system and tools. On a *MacOS* system there
 
 ### Obtain and Install
 
-Apply for a **license** for *GAMESS* by following the instruction on the [Mark Gordon group website](https://www.msg.chem.iastate.edu/gamess/).[^gamess_link]  You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer. 
+Apply for a **license** for *GAMESS* by following the instruction on the [Mark Gordon group website](https://www.msg.chem.iastate.edu/gamess/). You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer. 
 
 The *GAMESS* application is available as a pre-compiled binary for *MacOS* and *Windows*.[^linux]  I received my email, **followed the instructions** and downloaded a file for the latest version of the *MacOS* binary. I decompressed the file and placed the resulting `gamess` directory folder in my `/Applications` folder.
 
@@ -129,7 +125,7 @@ We will **begin** with using the terminal **command line** to run *GAMESS*. Late
 
 ## Installing *GamessQ*
 
-*GamessQ* is a batch controller for *GAMESS* provided by the Gordon group. It is available from the [same web site](https://www.msg.chem.iastate.edu/gamess/).[^gamess_link] It can **queue** a whole batch of filkes and send them to be executed one at a time while you sleep.
+*GamessQ* is a batch controller for *GAMESS* provided by the Gordon group. It is available from the [same web site](https://www.msg.chem.iastate.edu/gamess/). It can **queue** a whole batch of filkes and send them to be executed one at a time while you sleep.
 
 ### Obtain and Install
 
@@ -180,6 +176,7 @@ You can **create your own setup** however you like. Just edit the *rungms* scrip
 You can obtain *MacMolPlt* at the [github repository](http://brettbode.github.io/wxmacmolplt/). Just unpack the downloaded file and put the application folder in your `/Applications` directory. If you are running *MacOS 12* (*Monterey*) or later, you will have to edit a **configuration file** within the application container itself. Don’t worry, instructions are in the warning box below. 
 
 ```{warning}
+:class: dropdown
 On more modern *MacOS* computers (*MacOS 12* and later) you will need to **edit** the `info.plist` file in the package of the *MacMolPlt* application and add the following parameter in the first `<dict>` group…
   
   `<key>NSHighResolutionCapable</key>` <br>
@@ -194,7 +191,7 @@ On *MacOS 11* and earlier, you can check a box in the `Get Info` menu item of *w
 
 The application itself is called *wxMacMolPlt*. I will continue to refer to it as *MacMolPlt* in this document. Just click on the application icon and you will get a blank window to **start building** a molecule. Explore the menu and you will quickly get the hang of it.
 
-An [instruction manual](http://brettbode.github.io/wxmacmolplt/) is available on the website.[^macmolplt] More specific instructions on using *MacMolPlt* will be given in each exercise where we **build** molecules, **optimize** their structure and **analyze** the results of *GAMESS* calculations. Practice makes perfect.
+An [instruction manual](http://brettbode.github.io/wxmacmolplt/) is available on the website. More specific instructions on using *MacMolPlt* will be given in each exercise where we **build** molecules, **optimize** their structure and **analyze** the results of *GAMESS* calculations. Practice makes perfect.
 
 
 
@@ -204,7 +201,7 @@ An [instruction manual](http://brettbode.github.io/wxmacmolplt/) is available on
 
 ### Obtain and Install
 
-You can [download *Avogadro*](http://avogadro.cc) from the project’s website.[^avogadro_link] Install the software and that’s it. Open it and **explore** the menus.
+You can [download *Avogadro*](http://avogadro.cc) from the project’s website. Install the software and that’s it. Open it and **explore** the menus.
 
 ### Using Avogadro
 
@@ -212,72 +209,6 @@ An [instruction manual](http://avogadro.cc) is available at the same website. We
 
 
 
-## Using Unix
-
-The results file may contain **thousands of lines** of text. How can we find the useful bits? I am using a *Unix* (sort of) operating system and can access the enormously powerful ***Unix* toolchain**. I will be using the **terminal** running a **shell** (a command line interface), standard directory navigation and the *Unix* tools ***grep***, ***sed*** and ***awk***.
-
-### The Shell
-A common *Unix* shell is ***bash***. It provides commands for **navigating** directories and for **running** programs. It also provides a **scripting language** so that I can make my own tools using a set of **shell commands** in a file. Lots of information is available about *bash*.
-
-```{note} 
-Recent versions of *MacOS* use *zsh* rather than *bash*. But *bash* is still available and we will be using it to run our scripts. *zsh* is almost completely compatible with *bash* and the scripts will run fine in *zsh*. I am a creature of habit.
-```
-
-### The Terminal Application
-
-On my computer there is an application called ***Terminal*** that runs a terminal emulation window to the *Unix* system underneath the GUI interface. When the terminal window opens, we are already in the shell program. Most *Unix* systems will start with the *bash* shell and you can change to other shell programs easily if you wish. 
-
-
-### Unix Commands
-
-Here are some essential *Unix* commands to know. 
-
-``` {note}
-A starting point for learning Unix tools can be found [here](http://mally.stanford.edu/~sr/computing/basic-unix.html) and [here](https://en.wikipedia.org/wiki/List_of_Unix_commands). Search and you shall find.
-```
-
-#### *cd*
-
-The *cd* command will **change the directory**. The directory structure in *Unix* begins with `~`. The squiggle is your home directory.  If you enter `cd ~`, you will switch to your home directory. I entered `cd ~/Documents/CompChem/Folder` to switch to a directory named Folder in my CompChem directory in my Documents folder in my home (~) folder
-.
-#### *pwd*
-
-“**Present working directory**” is what *pwd* is. This command will return the directory where you are.  It is useful when you want to see exactly where you are in the directory system.
-
-#### *ls*
-
-This command will give you a **list of files**, applications and directories. Enter `ls` and you will get the list for the current directory.
-
-#### *man*
-
-The *man* tool is very useful. It will call up the **documentation** any *Unix* command or tool it its database. Type `man` and see what happens. Use arrow keys to move around the document or the space bar to page down. Strike CTRL-Z to exit the *man* system. Between *man* and the internet you can **learn more** about all of these essential commands.
-
-### Manipulating Text Files
-
-#### *grep*
-
-We can **extract** just the lines that we want from the large result file. *grep* will read a file (or a list of files) line by line and return **only the lines** that contain a given text string. The command `grep "NSERCH" ResultFile.log` will extract the text lines that contain the string NSERCH, which is the step number for each optimization step in a calculation. The last optimization step will include the final energy. Rather than scan through 2000 of more lines of text output we could just *grep* out the lines we want.
-
-#### Redirect
-
-You can **redirect** the output of command from the screen **to a file**. The `>` character is a shell operator that will write output (that would have been printed to your terminal window) to a file.  The command `ls > directory.txt` will create a file called directory.txt and flow the output of *ls* into that file.
-
-#### Pipes
-A “pipe” is the ‘\|’ character.  This use usually over the backslash (\\) on your keyboard and is accessed via \[shift\]-\\ . (It is usually located on the right-hand side of an ANSI QWERTY keyboard, above the \[RETURN/ENTER\] key and under the \[BACKSPACE/DELETE\] key.) It is a shell operator that can be used to **combine commands**. (Just like how the plus sign is an operator that can combine two numbers in math).
-
-A pipe is placed **between** two commands. The output of the first command is “piped” into the second command as its input. For example the command `ls -l` will produce a detailed file list for your current directory. What if you have hundreds of files in your directory and you are looking for just the details on one? The command `ls -l | grep ResultFile` will pipe the output of the directory command into the *grep* command, which will then output the lines that contain the string `ResultFile`, e.g. ResultFile.log and ResultFile.inp.
-
-#### *sed*
-
-We can **search and substitute** in a line in a text file with the *sed* tool. It is a powerful command-line version of “search and replace.” For example, the command `sed "s/NUMBER/100/" InputFile.inp > NewInputFile.inp` will read the file “InputFile.inp”, replace the string “NUMBER” with the string “100” and direct the output to a file named “NewInputFile.inp”.
-
-#### *awk*
-
-What *grep* and *sed* are to text lines, awk is to text **columns**. It is a powerful tool for manipulating table data in text files. There are many **tables** of data output in *GAMESS* result files. Perhaps we will use it someday.
-
-### Shell Scripts
-
-You can place a series of *Unix* tools and shell commands and operators in a text file and run it as a shell script. That way you can **execute a series of commands** and even use **logic and loops** to perform more complicated tasks. We will be using scripts to **automate** making a series of related input files using *sed* and also to extract final energies from a related series of output files using *grep*.
 
 ## Next Steps
 

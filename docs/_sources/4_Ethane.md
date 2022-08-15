@@ -1,4 +1,4 @@
-# Ethane: Symmetry in Calculations
+# 4. Ethane: Symmetry in Calculations
 
 Ethane can **rotate** freely along the C–C bond. The lowest energy **conformation** is the *anti* form and the highest energy is the *syn* form. It is easy to get *GAMESS* to optimize the *anti* structure, the software will **seek** the lowest energy state. How do we get the *syn* form? We could do this by **enforcing** symmetry.
 

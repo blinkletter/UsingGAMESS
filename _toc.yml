@@ -5,6 +5,8 @@ format: jb-book
 root: start
 chapters:
   - file: 1_Setup
+    sections:
+    - file: 1A_Unix
   - file: 2_SmallMolecules
   - file: 3_Visual_Input
   - file: 4_Ethane
@@ -19,6 +21,8 @@ chapters:
     - file: butadiene.inp
     - file: butadiene.log
   - file: 8A_Diels_Alder
+    sections:
+    - file: 8_Reaction_Coord_Scan_Data.ipynb
   - file: 9_Solvent
     sections:
     - file: 10_Solvent_IRC_Plots

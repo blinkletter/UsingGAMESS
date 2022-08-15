@@ -53,7 +53,7 @@
 
 import pandas as pd
 
-df = pd.read_csv("/Users/Barry/Documents/CompChem/GAMESS-RESULTS/results.txt", header = None, sep = r"\s+|_", engine = "python") 
+df = pd.read_csv("/Users/blink/Documents/CompChem/GAMESS-RESULTS/results.txt", header = None, sep = r"\s+|_", engine = "python") 
 display(df.head())
 
 
@@ -63,7 +63,7 @@ display(df.head())
 # 
 # In the code below I create a new dataframe by selecting the four chosen columns out of the previous dataframe. Then I renamed the column headres from numbers to labels so I don't forget what they are.
 
-# In[2]:
+# In[4]:
 
 
 coord = df[:][[4,7,9,12]]
@@ -77,7 +77,7 @@ display(coord.head())
 # 
 # We know that a Hartree is $2625.7\, kJ/mole$. So we can convert the energy to a more familiar unit. Then we should set our lowest energy structure as the zero referemce and substract that value from all the energies to establish a relative scale.
 
-# In[3]:
+# In[5]:
 
 
 import numpy as np
@@ -92,7 +92,7 @@ display(coord)
 # 
 # Now we have a set of data that we can plot. Let us visualize the profile using the MatPlotLib library.
 
-# In[4]:
+# In[6]:
 
 
 import matplotlib.pyplot as plt
@@ -111,7 +111,7 @@ plt.show()
 # Divverent journals have different standards for plots. Just follow their instructions. many will hae stylesheets available for your word processor, for $\LaTeX$ and  even for MacMolPlt. use the `savefig()` method of the `fig` object to save the plot as a file. The `.pdf` extension will tell it to save in PDF format. 
 # 
 
-# In[5]:
+# In[7]:
 
 
 x = coord[:]["Length"]
@@ -135,7 +135,7 @@ plt.show()
 
 # The plot above is a "connect-the-dots" style plot.  There are many data points and it looks fine. We do not have an exact function to which to fit the data but we could apply the infamous "cubic spline." We will use the `CubicSpline` function available from the `scipy.interpolate` library ([Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html)) to generate a function that represents the curve fit.  We will then feed an x-axis of many data points into that function to create a x,y data set that represents that curve fit as a smooth line.
 
-# In[6]:
+# In[8]:
 
 
 from scipy.interpolate import CubicSpline
@@ -167,7 +167,7 @@ plt.show()
 # 
 # We have imported, cleaned and processed the data. maybe we should save our work so we can use this data set directly and easily next time.  The dataframe object contains methods to do this. We will use the 'pandas.DataFrame.to_csv()' method([documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)) to save the dataframe object as a csv text file.
 
-# In[7]:
+# In[ ]:
 
 
 coord.to_csv("coord_profile.csv")

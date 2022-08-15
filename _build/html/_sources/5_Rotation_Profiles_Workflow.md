@@ -95,9 +95,7 @@ I **executed** the script with the following command:
 ```shell
 bash makescan.sh
 ```
-
-Nineteen new files are created with angles for the `4,1,2,3` torsion varying from `00` to `180` in steps of `10`. **Observe** the sequence of commands shown in {numref}`fig5w-1`. We start with `ls` to list the files in the directory and see the two files that we created. Then the bash script is executed. A second `ls` command then reveals all the new files that were created.
-
+````{margin}
 ```{figure} images/workflow1.png
 ---
 width: 500px
@@ -105,11 +103,13 @@ name: fig5w-1
 ---
 *A *Unix* terminal running the command to setup the file list.*
 ```
+````
+
+Nineteen new files are created with angles for the `4,1,2,3` torsion varying from `00` to `180` in steps of `10`. **Observe** the sequence of commands shown in {numref}`fig5w-1`. We start with `ls` to list the files in the directory and see the two files that we created. Then the bash script is executed. A second `ls` command then reveals all the new files that were created.
+
 
 ## Running the Jobs
-
-We now have nineteen jobs to submit to *GAMESS*. I will use the *GamessQ* GUI interface to do that. Execute the *GamessQ* application. Drag and drop the file series into the *GamessQ* window. *GamessQ* will copy the input files so we will have a set of identical input files created that we don't care about. As *GAMESS* produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole *GamessQ* operation in progress is shown in {numref}`fig5w-2`
-
+````{margin}
 ```{figure} images/workflow2.png
 ---
 width: 500px
@@ -117,7 +117,9 @@ name: fig5w-2
 ---
 **GamessQ* running a queue of *GAMESS* jobs*
 ```
+````
 
+We now have nineteen jobs to submit to *GAMESS*. I will use the *GamessQ* GUI interface to do that. Execute the *GamessQ* application. Drag and drop the file series into the *GamessQ* window. *GamessQ* will copy the input files so we will have a set of identical input files created that we don't care about. As *GAMESS* produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole *GamessQ* operation in progress is shown in {numref}`fig5w-2`
 ## Extracting the Results
 
 When the jobs are all complete we will run a *bash* script that will **extract** the last `NSERCH ENERGY` line from each file and save this set of lines in a single result file that we will name `butane_result.txt`. The script is presented below.
@@ -133,13 +135,7 @@ done
 ```
 
 As you can see neither script was complicated, but they are both very cryptic. Everyday I promise myself that I will rewrite then in *Python* but, since they work, that may never happen.
-
-the output of extract.sh will go to the STDOUT (the screen in most cases) but we can direct it into a file using the `>` operator. I will execute the script using the following command. In {numref}`fig5w-3` we see a **terminal** with the command executed
-
-```shell
-bash extract.sh > butane_result.txt
-```
-
+````{margin}
 ```{figure} images/workflow3.png
 ---
 width: 500px
@@ -147,10 +143,16 @@ name: fig5w-3
 ---
 *Terminal window showing the execution of the *extract.sh* script.*
 ```
+````
 
+the output of extract.sh will go to the STDOUT (the screen in most cases) but we can direct it into a file using the `>` operator. I will execute the script using the following command. In {numref}`fig5w-3` we see a **terminal** with the command executed
+
+```shell
+bash extract.sh > butane_result.txt
+```
 ## Inspecting the Result
 
-If you open the `butane_result.txt` file in a text editor you will see nineteen lines of data, one line for ezch file. 
+If you open the `butane_result.txt` file in a text editor you will see nineteen lines of data, one line for each file. 
 
 ```{code-block}
 ---

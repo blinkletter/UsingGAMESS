@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Butadiene: Transition State for Rotation &#8212; Fun With GAMESS</title>
+    <title>8. Butadiene: Transition State for Rotation &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -54,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Butadiene.inp" href="butadiene.inp.html" />
-    <link rel="prev" title="Benzene: MOs and Symmetry" href="6_Benzene.html" />
+    <link rel="prev" title="7. Benzene: MOs and Symmetry" href="6_Benzene.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,32 +100,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -146,20 +159,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -176,17 +189,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -485,7 +510,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Butadiene: Transition State for Rotation</h1>
+                <h1>8. Butadiene: Transition State for Rotation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -706,7 +731,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="butadiene-transition-state-for-rotation">
-<h1>Butadiene: Transition State for Rotation<a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">¶</a></h1>
+<h1>8. Butadiene: Transition State for Rotation<a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">¶</a></h1>
 <p>We expect butadiene to prefer a <strong>flat</strong> <em>syn</em> or <em>anti</em> conformation. These <strong>two</strong> possibile <strong>conformations</strong> are designated “<em>s-cis</em>” and “<em>s-trans</em>”. The “s” referrs to the σ bond involved. There should be an energy maximum when the <strong>torsion</strong> angle is 90° due to the loss of <strong>cojugation</strong> in when the two π bonds are orthogonal.</p>
 <p>The <strong>change</strong> in electronic structure as the central bond rotates is similar to a chemical <strong>reaction</strong>. Molecular orbitals are being substatially changed and we proceed from one stable conformation <strong>to another</strong>. We could view the highest energy point in this potential energy profile for rotation as a <strong>transition state</strong> in the change from <em>s-cis</em> to <em>s-trans</em>. In this chapter, we will explore the <strong>rotational potential energy profile</strong> for butadiene and introduce the concept of <strong>optimizing</strong> a transition state structure.</p>
 <p>We will <strong>model</strong> butadiene and determine its most stable <strong>configuration</strong> in the <em>s-trans</em> and <em>s-cis</em> rotational conformers. We will then estimate the energy <strong>difference</strong> between the two conformers using different levels of theory and use these values to estimate the equilibrium constant between the two states. We will  <strong>scan</strong> through a rotation of the central bond to locate the highest energy structure along the path. We will  use the <strong>energy barrier</strong> to calculate an estimate for the rate of the process for rotating between the conformations and draw a <strong>conclusion</strong> as to whether there is a barrier to rotation.</p>
@@ -1660,7 +1685,7 @@ z</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Benzene: MOs and Symmetry</p>
+            <p class="prev-next-title">7. Benzene: MOs and Symmetry</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="butadiene.inp.html" title="next page">

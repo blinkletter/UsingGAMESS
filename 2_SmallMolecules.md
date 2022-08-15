@@ -1,4 +1,4 @@
-# Water: Getting Started
+# 2. Water: Getting Started
 
 What can we explore with computational chemistry? Let us **explore the electronic structure** of some small molecules. In this chapter we will learn ways to input molecules into *GAMESS* via input files and interpret the resulting log files. 
 
@@ -133,9 +133,9 @@ caption: water.inp
 | `ICHARG=0` | The **charge** on the molecule |
 | `COORD=CART` | The **coordinate** system that we are using. We will use `CART` for describing the *xyz* of all atoms, `UNIQUE` for describing the *xyz* coordinates of atoms unique in the symmetry point group, and `ZMT` for internal coordinates in *Z-matrix* format. The very first run with `COORD=CART` will convert the *xyz* data into a symmetrical system aligned with the **primary axis** (we are already there) and with the origin at the center of mass of the molecule (we are definitely not there). The first result file will report the unique symmetry coordinates for the molecule and we should use these new coordinates and `COORD=UNIQUE` for all subsequent calculations. |
 
-```{note}
+
 The `CART` coordinate option has been deprecated in modern versions of *GAMESS*. The new flag is `PRINAXIS`. The `CART` option will perform the job of `PRINAXIS`, but `CART` may someday be gone entirely. Both `CART` and `PRINAXIS` will reorient the molecule along the primary axis of the point group and generate a set of Cartesian coordinates for the symmetry unique atoms. You will only ever run a `CART` or `PRINAXIS` calculation once and thereafter will use the symmetry unique atoms and `COORD=UNIQUE` in all future calculations with your molecule.
-```
+
 
 #### The \$SYSTEM Group
 
@@ -542,11 +542,11 @@ If we **calculate** the HF/6-311G(d,p)++ energy **using** the HF/3-21G optimized
 
 Hartrees? You may notice that data tables in the output file report energy in **Hartree units**, distances in both **Angstroms** and **Bohr atomic units** and angles in degrees and in radians. Deep inside *GAMESS*, the math uses Bohr a.u. for distance and radians for angles in its calculations. It also uses the elementary charge and mass of the electron and Planck’s constant. The Hartree is an energy unit derived from the **fundamental** measurements of a hydrogen atom and the intrinsic properties of space and time. 
 
-*GAMESS* will output distances and angles in **familiar** units such as Angstroms and degrees but will always report energy in Hartrees. One Hartree is 4.3597 &times; 10<sup>−18</sup> *J*. When we multiply by Avogadro’s number we get 2625.50 *kJ/mole*.
-
-```{note}
+```{margin}
 Keep this conversion factor close by: 1 Hartree = 2,625.5 *kJ/mole*.
 ```
+*GAMESS* will output distances and angles in **familiar** units such as Angstroms and degrees but will always report energy in Hartrees. One Hartree is 4.3597 &times; 10<sup>−18</sup> *J*. When we multiply by Avogadro’s number we get 2625.50 *kJ/mole*.
+
 
 ## Internal Coordinates
 
@@ -565,9 +565,9 @@ It can be interpreted as…
 
 | Line | Notes |
 | :---- | :---- |
-| Line 1 |	Town A is declared to **exist** |
-| Line 2 |	Town B is connected to line 1 by a **distance** of 10 miles |
-| Line 3 |	Town C is connected to line 2 by a **distance** of 5 miles \& the **angle** through line 2 to line 1 is 45&deg;|
+|  1 |	Town A is declared to **exist** |
+|  2 |	Town B is connected to line 1 by a **distance** of 10 miles |
+|  3 |	Town C is connected to line 2 by a **distance** of 5 miles \& the **angle** through line 2 to line 1 is 45&deg;|
  
 ### The *Z-matrix* with Water
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Water: Getting Started &#8212; Fun With GAMESS</title>
+    <title>2. Water: Getting Started &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -55,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Methane: Visual Input and Output" href="3_Visual_Input.html" />
-    <link rel="prev" title="Building Your System" href="1_Setup.html" />
+    <link rel="next" title="3. Methane: Visual Input and Output" href="3_Visual_Input.html" />
+    <link rel="prev" title="Using Unix" href="1A_Unix.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,32 +102,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -148,20 +161,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -178,17 +191,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -537,7 +562,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Water: Getting Started</h1>
+                <h1>2. Water: Getting Started</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -808,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="water-getting-started">
-<h1>Water: Getting Started<a class="headerlink" href="#water-getting-started" title="Permalink to this headline">¶</a></h1>
+<h1>2. Water: Getting Started<a class="headerlink" href="#water-getting-started" title="Permalink to this headline">¶</a></h1>
 <p>What can we explore with computational chemistry? Let us <strong>explore the electronic structure</strong> of some small molecules. In this chapter we will learn ways to input molecules into <em>GAMESS</em> via input files and interpret the resulting log files.</p>
 <div class="section" id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
@@ -954,10 +979,7 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">CART</span></code> coordinate option has been deprecated in modern versions of <em>GAMESS</em>. The new flag is <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code>. The <code class="docutils literal notranslate"><span class="pre">CART</span></code> option will perform the job of <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code>, but <code class="docutils literal notranslate"><span class="pre">CART</span></code> may someday be gone entirely. Both <code class="docutils literal notranslate"><span class="pre">CART</span></code> and <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code> will reorient the molecule along the primary axis of the point group and generate a set of Cartesian coordinates for the symmetry unique atoms. You will only ever run a <code class="docutils literal notranslate"><span class="pre">CART</span></code> or <code class="docutils literal notranslate"><span class="pre">PRINAXIS</span></code> calculation once and thereafter will use the symmetry unique atoms and <code class="docutils literal notranslate"><span class="pre">COORD=UNIQUE</span></code> in all future calculations with your molecule.</p>
-</div>
 </div>
 <div class="section" id="the-system-group">
 <h4>The $SYSTEM Group<a class="headerlink" href="#the-system-group" title="Permalink to this headline">¶</a></h4>
@@ -1314,11 +1336,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="units">
 <h2>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h2>
 <p>Hartrees? You may notice that data tables in the output file report energy in <strong>Hartree units</strong>, distances in both <strong>Angstroms</strong> and <strong>Bohr atomic units</strong> and angles in degrees and in radians. Deep inside <em>GAMESS</em>, the math uses Bohr a.u. for distance and radians for angles in its calculations. It also uses the elementary charge and mass of the electron and Planck’s constant. The Hartree is an energy unit derived from the <strong>fundamental</strong> measurements of a hydrogen atom and the intrinsic properties of space and time.</p>
-<p><em>GAMESS</em> will output distances and angles in <strong>familiar</strong> units such as Angstroms and degrees but will always report energy in Hartrees. One Hartree is 4.3597 × 10<sup>−18</sup> <em>J</em>. When we multiply by Avogadro’s number we get 2625.50 <em>kJ/mole</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <p>Keep this conversion factor close by: 1 Hartree = 2,625.5 <em>kJ/mole</em>.</p>
 </div>
+<p><em>GAMESS</em> will output distances and angles in <strong>familiar</strong> units such as Angstroms and degrees but will always report energy in Hartrees. One Hartree is 4.3597 × 10<sup>−18</sup> <em>J</em>. When we multiply by Avogadro’s number we get 2625.50 <em>kJ/mole</em>.</p>
 </div>
 <div class="section" id="internal-coordinates">
 <h2>Internal Coordinates<a class="headerlink" href="#internal-coordinates" title="Permalink to this headline">¶</a></h2>
@@ -1338,13 +1360,13 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>Line 1</p></td>
+<tr class="row-even"><td class="text-align:left"><p>1</p></td>
 <td class="text-align:left"><p>Town A is declared to <strong>exist</strong></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Line 2</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2</p></td>
 <td class="text-align:left"><p>Town B is connected to line 1 by a <strong>distance</strong> of 10 miles</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Line 3</p></td>
+<tr class="row-even"><td class="text-align:left"><p>3</p></td>
 <td class="text-align:left"><p>Town C is connected to line 2 by a <strong>distance</strong> of 5 miles &amp; the <strong>angle</strong> through line 2 to line 1 is 45°</p></td>
 </tr>
 </tbody>
@@ -2127,17 +2149,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="1_Setup.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="1A_Unix.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Building Your System</p>
+            <p class="prev-next-title">Using Unix</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="3_Visual_Input.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Methane: Visual Input and Output</p>
+        <p class="prev-next-title">3. Methane: Visual Input and Output</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

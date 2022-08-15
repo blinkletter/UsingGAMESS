@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -54,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Workflow" href="5_Rotation_Profiles_Workflow_Data.html" />
-    <link rel="prev" title="Butane: Rotation Energy Profiles" href="5_Rotation_Profiles.html" />
+    <link rel="prev" title="5. Butane: Rotation Energy Profiles" href="5_Rotation_Profiles.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,32 +100,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -146,20 +159,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -176,17 +189,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -438,19 +463,25 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash makescan.sh
 </pre></div>
 </div>
-<p>Nineteen new files are created with angles for the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion varying from <code class="docutils literal notranslate"><span class="pre">00</span></code> to <code class="docutils literal notranslate"><span class="pre">180</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">10</span></code>. <strong>Observe</strong> the sequence of commands shown in <a class="reference internal" href="#fig5w-1"><span class="std std-numref">Fig. 26</span></a>. We start with <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list the files in the directory and see the two files that we created. Then the bash script is executed. A second <code class="docutils literal notranslate"><span class="pre">ls</span></code> command then reveals all the new files that were created.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="figure align-default" id="fig5w-1">
 <a class="reference internal image-reference" href="_images/workflow1.png"><img alt="_images/workflow1.png" src="_images/workflow1.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text"><em>A <em>Unix</em> terminal running the command to setup the file list.</em></span><a class="headerlink" href="#fig5w-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
+<p>Nineteen new files are created with angles for the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion varying from <code class="docutils literal notranslate"><span class="pre">00</span></code> to <code class="docutils literal notranslate"><span class="pre">180</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">10</span></code>. <strong>Observe</strong> the sequence of commands shown in <a class="reference internal" href="#fig5w-1"><span class="std std-numref">Fig. 26</span></a>. We start with <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list the files in the directory and see the two files that we created. Then the bash script is executed. A second <code class="docutils literal notranslate"><span class="pre">ls</span></code> command then reveals all the new files that were created.</p>
+</div>
 <div class="section" id="running-the-jobs">
 <h2>Running the Jobs<a class="headerlink" href="#running-the-jobs" title="Permalink to this headline">¶</a></h2>
-<p>We now have nineteen jobs to submit to <em>GAMESS</em>. I will use the <em>GamessQ</em> GUI interface to do that. Execute the <em>GamessQ</em> application. Drag and drop the file series into the <em>GamessQ</em> window. <em>GamessQ</em> will copy the input files so we will have a set of identical input files created that we don’t care about. As <em>GAMESS</em> produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole <em>GamessQ</em> operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="figure align-default" id="fig5w-2">
 <a class="reference internal image-reference" href="_images/workflow2.png"><img alt="_images/workflow2.png" src="_images/workflow2.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text"><em><em>GamessQ</em> running a queue of <em>GAMESS</em> jobs</em></span><a class="headerlink" href="#fig5w-2" title="Permalink to this image">¶</a></p>
 </div>
+</div>
+<p>We now have nineteen jobs to submit to <em>GAMESS</em>. I will use the <em>GamessQ</em> GUI interface to do that. Execute the <em>GamessQ</em> application. Drag and drop the file series into the <em>GamessQ</em> window. <em>GamessQ</em> will copy the input files so we will have a set of identical input files created that we don’t care about. As <em>GAMESS</em> produces output files they will be saved alongside the copied input files. I set up the destination to be the same folder as where the original files were placed. The window of the whole <em>GamessQ</em> operation in progress is shown in <a class="reference internal" href="#fig5w-2"><span class="std std-numref">Fig. 27</span></a></p>
 </div>
 <div class="section" id="extracting-the-results">
 <h2>Extracting the Results<a class="headerlink" href="#extracting-the-results" title="Permalink to this headline">¶</a></h2>
@@ -464,18 +495,21 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>As you can see neither script was complicated, but they are both very cryptic. Everyday I promise myself that I will rewrite then in <em>Python</em> but, since they work, that may never happen.</p>
-<p>the output of <a class="reference external" href="http://extract.sh">extract.sh</a> will go to the STDOUT (the screen in most cases) but we can direct it into a file using the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> operator. I will execute the script using the following command. In <a class="reference internal" href="#fig5w-3"><span class="std std-numref">Fig. 28</span></a> we see a <strong>terminal</strong> with the command executed</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash extract.sh &gt; butane_result.txt
-</pre></div>
-</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="figure align-default" id="fig5w-3">
 <a class="reference internal image-reference" href="_images/workflow3.png"><img alt="_images/workflow3.png" src="_images/workflow3.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text"><em>Terminal window showing the execution of the <em><a class="reference external" href="http://extract.sh">extract.sh</a></em> script.</em></span><a class="headerlink" href="#fig5w-3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
+<p>the output of <a class="reference external" href="http://extract.sh">extract.sh</a> will go to the STDOUT (the screen in most cases) but we can direct it into a file using the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> operator. I will execute the script using the following command. In <a class="reference internal" href="#fig5w-3"><span class="std std-numref">Fig. 28</span></a> we see a <strong>terminal</strong> with the command executed</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash extract.sh &gt; butane_result.txt
+</pre></div>
+</div>
+</div>
 <div class="section" id="inspecting-the-result">
 <h2>Inspecting the Result<a class="headerlink" href="#inspecting-the-result" title="Permalink to this headline">¶</a></h2>
-<p>If you open the <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code> file in a text editor you will see nineteen lines of data, one line for ezch file.</p>
+<p>If you open the <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code> file in a text editor you will see nineteen lines of data, one line for each file.</p>
 <div class="literal-block-wrapper docutils container" id="butane-result-txt">
 <div class="code-block-caption"><span class="caption-number">Listing 53 </span><span class="caption-text">butane_result.txt</span><a class="headerlink" href="#butane-result-txt" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">butane_SCAN</span><span class="o">.</span><span class="n">inp_000_303</span><span class="o">.</span><span class="n">log</span><span class="p">:</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">23</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4228465418</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000585</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000204</span>
@@ -535,7 +569,7 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Butane: Rotation Energy Profiles</p>
+            <p class="prev-next-title">5. Butane: Rotation Energy Profiles</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="5_Rotation_Profiles_Workflow_Data.html" title="next page">

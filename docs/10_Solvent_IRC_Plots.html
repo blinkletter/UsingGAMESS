@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -54,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Plotting Workflow" href="10_Solvent_IRC_Plots-Data.html" />
-    <link rel="prev" title="Solvent: The Environment Matters" href="9_Solvent.html" />
+    <link rel="prev" title="10. Solvent: The Environment Matters" href="9_Solvent.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,32 +100,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -146,20 +159,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -176,17 +189,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -504,7 +529,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The block of code <strong>below</strong> sets up the data files for importing the solvent data. This way we can change the filenames here and will not need to edit them in the document later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/blink/Documents/CompChem/Exercises/temp/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/blink/Documents/CompChem/Exercises/temp/&quot;</span>   <span class="c1"># This is the folder where the data is. You will have your own different path.</span>
 
 <span class="n">stride_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;stride.txt&quot;</span>
 <span class="n">stride_r_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;stride_r.txt&quot;</span>
@@ -522,9 +547,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="cleaning-the-data">
 <h2>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h2>
-<p>Data cleaning is <strong>half the work</strong> in data analysis. We need to drop empty and malformed records (each line could be considered a record in this case). We will need to drop any fields (the columns in each record are the fields). that we don’t need. Inspecting the dataframe shows me that I only need a single column frommeach file. We will also rename the column for what it represents.</p>
+<p>Data cleaning is <strong>half the work</strong> in data analysis. We need to drop empty and malformed records (each line could be considered a record in this case). We will need to drop any fields (the columns in each record are the fields). that we don’t need. Inspecting the dataframe shows me that I only need a single column from each file. We will also rename the column for what it represents.</p>
 <p>In the code below I create a new dataframe by <strong>selecting</strong> the chosen column out of the previous dataframe. we will need to <strong>invert</strong> the sign on the stride_r (reaction progress) for the <strong>reverse data</strong>. Then we will <strong>append</strong> it to the stride dataframe. We will then create a dataframe for the stride value of <strong>zero</strong> and append it to the the top of the dataframe (this value will be the first in the dataframe.) Then I <strong>renamed</strong> the column header so I don’t forget what it is.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">stride_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
 <span class="n">df_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">stride_r_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
@@ -536,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">47</span><span class="o">/</span><span class="mi">77583</span><span class="n">m4574g5my09v13lx7vr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_80131</span><span class="o">/</span><span class="mf">932983359.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">47</span><span class="o">/</span><span class="mi">77583</span><span class="n">m4574g5my09v13lx7vr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_4873</span><span class="o">/</span><span class="mf">932983359.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">stride_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">stride_r_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
@@ -603,16 +628,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stride</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:][[</span><span class="mi">5</span><span class="p">]]</span>               <span class="c1"># forward progress </span>
 <span class="n">stride_r</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[:][[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># reverse the progress for reverse IRC</span>
-<span class="n">stride_all</span> <span class="o">=</span> <span class="n">stride</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stride_r</span><span class="p">)</span>  <span class="c1"># add reverse data at end of </span>
+
+<span class="n">stride_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">stride</span><span class="p">,</span><span class="n">stride_r</span><span class="p">])</span>     <span class="c1"># combine forward and reverse data</span>
 <span class="n">stride_all</span> <span class="o">=</span> <span class="n">stride_all</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">5</span><span class="p">:</span><span class="s2">&quot;stride&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 
 <span class="n">stride_zero</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="mf">0.000</span><span class="p">},</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;stride&quot;</span><span class="p">])</span>  <span class="c1"># make a single-entry dataframe for zero</span>
 
-<span class="n">stride_all</span> <span class="o">=</span> <span class="n">stride_zero</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stride_all</span><span class="p">)</span>  <span class="c1"># The zero point is appended to top of dataframe</span>
+<span class="n">stride_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">stride_zero</span><span class="p">,</span><span class="n">stride_all</span><span class="p">])</span>
 <span class="n">stride_all</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># reorder the index numbers</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">stride_all</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
@@ -622,15 +648,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    stride
 0  0.00000
 1  0.09998
-2  0.19997
-3  0.29996
-4  0.39994
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_15200/650307833.py:3: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  stride_all = stride.append(stride_r)  # add reverse data at end of
-/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_15200/650307833.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  stride_all = stride_zero.append(stride_all)  # The zero point is appended to top of dataframe
+2  0.19993
+3  0.29991
+4  0.39990
 </pre></div>
 </div>
 </div>
@@ -638,40 +658,157 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="rinse-and-repeat">
 <h3>Rinse and Repeat<a class="headerlink" href="#rinse-and-repeat" title="Permalink to this headline">¶</a></h3>
 <p>We will <strong>repeat</strong> this for the energy files, adding the transition state energy to the top as above.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">energy_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
 <span class="n">df_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">energy_r_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
-<span class="c1">#display(df.head(3))</span>
-<span class="c1">#display(df_r.head(3))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_r</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TOTAL</td>
+      <td>ENERGY</td>
+      <td>=</td>
+      <td>-955.696996</td>
+      <td>HARTREE</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TOTAL</td>
+      <td>ENERGY</td>
+      <td>=</td>
+      <td>-955.697061</td>
+      <td>HARTREE</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>TOTAL</td>
+      <td>ENERGY</td>
+      <td>=</td>
+      <td>-955.697168</td>
+      <td>HARTREE</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TOTAL</td>
+      <td>ENERGY</td>
+      <td>=</td>
+      <td>-955.696996</td>
+      <td>HARTREE</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TOTAL</td>
+      <td>ENERGY</td>
+      <td>=</td>
+      <td>-955.697060</td>
+      <td>HARTREE</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>TOTAL</td>
+      <td>ENERGY</td>
+      <td>=</td>
+      <td>-955.697166</td>
+      <td>HARTREE</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">energy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:][[</span><span class="mi">3</span><span class="p">]]</span>       <span class="c1"># the forward energy list</span>
 <span class="n">energy_r</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[:][[</span><span class="mi">3</span><span class="p">]]</span>   <span class="c1"># the reverse energy list</span>
-<span class="n">energy_all</span> <span class="o">=</span> <span class="n">energy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy_r</span><span class="p">)</span>  <span class="c1"># append the reverse list under the orward list</span>
+
+<span class="n">energy_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">energy</span><span class="p">,</span><span class="n">energy_r</span><span class="p">])</span>
 <span class="n">energy_all</span> <span class="o">=</span> <span class="n">energy_all</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span><span class="s2">&quot;energy&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 
 <span class="n">energy_zero</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">TS_energy</span><span class="p">},</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
 
-<span class="n">energy_all</span> <span class="o">=</span> <span class="n">energy_zero</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy_all</span><span class="p">)</span>
+<span class="n">energy_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">energy_zero</span><span class="p">,</span><span class="n">energy_all</span><span class="p">])</span>
 <span class="n">energy_all</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">max_energy</span> <span class="o">=</span> <span class="n">energy_all</span><span class="p">[:][</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>    <span class="c1"># Find maximum energy in the list</span>
 <span class="n">energy_all</span><span class="p">[</span><span class="s2">&quot;E(kJ/mole)&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">((</span><span class="n">energy_all</span> <span class="o">-</span> <span class="n">max_energy</span><span class="p">)</span><span class="o">*</span><span class="mf">2625.5</span><span class="p">)</span>   <span class="c1"># subtract it to get relative energies</span>
 
-<span class="c1">#print(energy_all)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">energy_all</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_15200/2253062382.py:3: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  energy_all = energy.append(energy_r)  # append the reverse list under the orward list
-/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_15200/2253062382.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  energy_all = energy_zero.append(energy_all)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         energy  E(kJ/mole)
+0   -955.696974    0.000000
+1   -955.696996   -0.057247
+2   -955.697061   -0.227905
+3   -955.697168   -0.508833
+4   -955.697314   -0.893732
+..          ...         ...
+96  -955.705794  -23.155871
+97  -955.705798  -23.166373
+98  -955.705799  -23.170049
+99  -955.705800  -23.171362
+100 -955.705800  -23.172149
+
+[101 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -696,17 +833,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CCl1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:][[</span><span class="mi">5</span><span class="p">]]</span>       <span class="c1"># the forward C-C1 (1,3) distances</span>
 <span class="n">CCl1_r</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[:][[</span><span class="mi">5</span><span class="p">]]</span>   <span class="c1"># the forward C-C1 (1,3) distances</span>
-<span class="n">CCl1_all</span> <span class="o">=</span> <span class="n">CCl1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CCl1_r</span><span class="p">)</span>  <span class="c1">#</span>
+<span class="n">CCl1_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">CCl1</span><span class="p">,</span><span class="n">CCl1_r</span><span class="p">])</span>
 <span class="n">CCl1_all</span> <span class="o">=</span> <span class="n">CCl1_all</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">5</span><span class="p">:</span><span class="s2">&quot;C-Cl1&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 
 <span class="n">CCl1_all</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#print(CCl1_all)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_15200/4261056779.py:3: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  CCl1_all = CCl1.append(CCl1_r)  #
 </pre></div>
 </div>
 </div>
@@ -728,17 +859,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">CCl2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:][[</span><span class="mi">5</span><span class="p">]]</span>
 <span class="n">CCl2_r</span> <span class="o">=</span> <span class="n">df_r</span><span class="p">[:][[</span><span class="mi">5</span><span class="p">]]</span>   <span class="c1"># reverse the progress for reverse IRC</span>
-<span class="n">CCl2_all</span> <span class="o">=</span> <span class="n">CCl2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CCl2_r</span><span class="p">)</span>
+<span class="n">CCl2_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">CCl2</span><span class="p">,</span><span class="n">CCl2_r</span><span class="p">])</span>
 <span class="n">CCl2_all</span> <span class="o">=</span> <span class="n">CCl2_all</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">5</span><span class="p">:</span><span class="s2">&quot;C-Cl2&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 
 <span class="n">CCl2_all</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#print(CCl2_all)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3h/d_p2gtjd78g8c7m6c14chsg00000gq/T/ipykernel_15200/2091093923.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  CCl2_all = CCl2.append(CCl2_r)
 </pre></div>
 </div>
 </div>
@@ -791,43 +916,43 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>0</th>
-      <td>-2.23195</td>
-      <td>-955.610457</td>
-      <td>-3.717911</td>
-      <td>2.093683</td>
-      <td>2.741895</td>
+      <td>-4.85695</td>
+      <td>-955.705800</td>
+      <td>-23.172149</td>
+      <td>1.958707</td>
+      <td>3.107504</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-2.18819</td>
-      <td>-955.610456</td>
-      <td>-3.717124</td>
-      <td>2.092207</td>
-      <td>2.747936</td>
+      <td>-4.83761</td>
+      <td>-955.705800</td>
+      <td>-23.171362</td>
+      <td>1.958823</td>
+      <td>3.105239</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-2.09775</td>
-      <td>-955.610455</td>
-      <td>-3.713448</td>
-      <td>2.095404</td>
-      <td>2.735233</td>
+      <td>-4.81292</td>
+      <td>-955.705799</td>
+      <td>-23.170049</td>
+      <td>1.958993</td>
+      <td>3.102160</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.99792</td>
-      <td>-955.610444</td>
-      <td>-3.684830</td>
-      <td>2.099408</td>
-      <td>2.720882</td>
+      <td>-4.76930</td>
+      <td>-955.705798</td>
+      <td>-23.166373</td>
+      <td>1.959371</td>
+      <td>3.096809</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-1.89818</td>
-      <td>-955.610423</td>
-      <td>-3.628907</td>
-      <td>2.104742</td>
-      <td>2.705797</td>
+      <td>-4.69106</td>
+      <td>-955.705794</td>
+      <td>-23.155871</td>
+      <td>1.959962</td>
+      <td>3.087264</td>
     </tr>
   </tbody>
 </table>
@@ -967,7 +1092,7 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Solvent: The Environment Matters</p>
+            <p class="prev-next-title">10. Solvent: The Environment Matters</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="10_Solvent_IRC_Plots-Data.html" title="next page">

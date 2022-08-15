@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solvent: The Environment Matters &#8212; Fun With GAMESS</title>
+    <title>10. Solvent: The Environment Matters &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -56,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Cleaning Workflow" href="10_Solvent_IRC_Plots.html" />
-    <link rel="prev" title="Diels-Alder Reaction: Intrinsic Reaction Coordinates" href="8A_Diels_Alder.html" />
+    <link rel="prev" title="Data Workflow" href="8_Reaction_Coord_Scan_Data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,32 +102,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -148,20 +161,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -178,17 +191,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -408,7 +433,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Solvent: The Environment Matters</h1>
+                <h1>10. Solvent: The Environment Matters</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -550,7 +575,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="solvent-the-environment-matters">
-<h1>Solvent: The Environment Matters<a class="headerlink" href="#solvent-the-environment-matters" title="Permalink to this headline">¶</a></h1>
+<h1>10. Solvent: The Environment Matters<a class="headerlink" href="#solvent-the-environment-matters" title="Permalink to this headline">¶</a></h1>
 <p>Every calculation demonstrated so far had been performed in <strong>gas phase</strong>. We are modelling a single molecule in a vacuum. That is not the real world. Reactions occur at air pressure, at somewhat sane temperatures (generally less than 200 °C) and in <strong>solvent</strong>.</p>
 <div class="section" id="solvent-models">
 <h2>Solvent Models<a class="headerlink" href="#solvent-models" title="Permalink to this headline">¶</a></h2>
@@ -631,11 +656,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="initial-results">
 <h3>Initial Results<a class="headerlink" href="#initial-results" title="Permalink to this headline">¶</a></h3>
 <p>I submitted the jobs to <em>GAMESS</em> and after a <strong>few minutes</strong> I had my result files in hand.  I openned them and found the last occurance of <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code>, which usually occurs at the <strong>final optimized structure</strong>. I found the list of internal coordinates and took note of the bond distances (the angles are defined by the point group and will be perfect, by definition.) What are the C-H and C-Cl bond lengths?</p>
-<p>The water calculation setteld down to a seemingly <strong>stable</strong> <em>D<sub>3h</sub></em> structure but it <strong>kept fighting</strong> that answer. the gradient never found a low value that would end the calculation as the structure <strong>thrashed</strong> (ever so slightly) around the saddle point. Eventually it fell over the edge and broke symmetry to find a structure that appears to be the <strong>starting materials</strong>/products. It <strong>failed</strong> to find a transition state-like structure.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>I had used <em>C<sub>3h</sub></em> symmetry in my first attempts while learning how to do this. What can I say, point groups are not my thing. As a result the calculation completed in both cases but gave an incorrect structure for the solvent job. We are actually optimizing a saddle point here and <code class="docutils literal notranslate"><span class="pre">GAMESS</span></code> will try to escape downhill unless the symmetry makes an air-tight constraint.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>I had used <em>C<sub>3h</sub></em> symmetry in my first attempts while learning how to do this. What can I say, point groups are not my thing. As a result the calculation completed in both cases but gave an incorrect structure for the solvent job. We are actually optimizing a saddle point here and <em>GAMESS</em> will try to escape downhill unless the symmetry makes an air-tight constraint.</p>
 </div>
+<p>The water calculation setteld down to a seemingly <strong>stable</strong> <em>D<sub>3h</sub></em> structure but it <strong>kept fighting</strong> that answer. the gradient never found a low value that would end the calculation as the structure <strong>thrashed</strong> (ever so slightly) around the saddle point. Eventually it fell over the edge and broke symmetry to find a structure that appears to be the <strong>starting materials</strong>/products. It <strong>failed</strong> to find a transition state-like structure.</p>
 </div>
 <div class="section" id="hessian-calculations">
 <h3>Hessian Calculations<a class="headerlink" href="#hessian-calculations" title="Permalink to this headline">¶</a></h3>
@@ -1000,13 +1025,13 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
 </pre></div>
 </div>
 <p>I could write a quick <strong>shell script</strong> to do all this and generate the four files. But I’m too lazy to make my life easier.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Experience is a good teacher. You will learn what to look for and when you do this again you will have everything set up for. Always take notes as you work.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Here we see that there are 50 entries in the C-Cl lists but only 49 in the energy.txt and stride.txt lists. this is because step zero had a stride of zero (not explicitly reported, but obvious when you think about it) and the energy for step zero was the saddle point energy which is reported with the text “<code class="docutils literal notranslate"><span class="pre">FINAL</span> <span class="pre">RO-B3LYP</span> <span class="pre">ENERGY</span></code>” on a line near the beginning of the .log file.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Experience is a good teacher. You will learn what to look for and when you do this again you will have everything set up for. Always take notes as you work.</p>
 </div>
 <p>If I did write a <strong>shell script</strong> I might just collect the commands all in one file so that they can be run as a batch. Below in <a class="reference internal" href="#processirc-sh"><span class="std std-numref">Listing 102</span></a> is an example. Here I am <strong>processing</strong> the data for the gas phase IRC. You can modify the filenames to suit.</p>
 <div class="literal-block-wrapper docutils container" id="processirc-sh">
@@ -1095,7 +1120,6 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
 </div>
 <div class="section" id="a-challenge">
 <h2>A Challenge<a class="headerlink" href="#a-challenge" title="Permalink to this headline">¶</a></h2>
-<p>I <strong>wasn’t kidding</strong> about that redo idea. Get busy.</p>
 <p>Is the rotational energy profile of <strong>butane</strong> different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be little difference.</p>
 <p>Is the rotational energy profile of <strong>butadiene</strong> different in water and cyclohexane solvents compared to gas phase? My hypothesis is that there will be a detectable, but not large difference. We do have large changes in electronic structure as the π system changes with rotation but no charges are involved.</p>
 <p>Is the IRC of the <strong>Diels-Alder</strong> reaction different in water and cyclohexane solvents compared to gas phase? I think this would respond similarly to the butadiene rotation for the same reasons. But we could be surprised. Go try it.</p>
@@ -1132,11 +1156,11 @@ grep <span class="s2">&quot;STRETCH   2  3&quot;</span> IRClogfilename.log &gt; 
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="8A_Diels_Alder.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="8_Reaction_Coord_Scan_Data.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Diels-Alder Reaction: Intrinsic Reaction Coordinates</p>
+            <p class="prev-next-title">Data Workflow</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="10_Solvent_IRC_Plots.html" title="next page">

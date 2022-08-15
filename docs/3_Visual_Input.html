@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Methane: Visual Input and Output &#8212; Fun With GAMESS</title>
+    <title>3. Methane: Visual Input and Output &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -53,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Ethane: Symmetry in Calculations" href="4_Ethane.html" />
-    <link rel="prev" title="Water: Getting Started" href="2_SmallMolecules.html" />
+    <link rel="next" title="4. Ethane: Symmetry in Calculations" href="4_Ethane.html" />
+    <link rel="prev" title="2. Water: Getting Started" href="2_SmallMolecules.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,32 +100,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -146,20 +159,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -176,17 +189,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -377,7 +402,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Methane: Visual Input and Output</h1>
+                <h1>3. Methane: Visual Input and Output</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -490,7 +515,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="methane-visual-input-and-output">
-<h1>Methane: Visual Input and Output<a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this headline">¶</a></h1>
+<h1>3. Methane: Visual Input and Output<a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this headline">¶</a></h1>
 <p>A <strong>hand crafted</strong> input file is a powerful thing. We can set it up exactly as we like. But there is another way. We can use various helper programs that enable the <strong>visual creation</strong> of a molecule and automatic generation of <em>GAMESS</em> input files. These files will often need further editing to get what you want out of <em>GAMESS</em> but, after we start using molecules larger than benzene, we will appreciate the <strong>graphical interface</strong> (and curse it often).</p>
 <p>When interpreting the <strong>output file</strong>, we can evaluate energies and bond lengths and angles easily. But <strong>visualization</strong> of the whole molecule will help see the <strong>relationships</strong> between distant atoms and also quickly identify structures that optimized to a nonsense answer. In addition, we can now interpret more mathematical aspects of the output like bond <strong>vibrations</strong> and mathematical <strong>surfaces</strong> that represent electron density and <strong>molecular orbital</strong> functions.</p>
 <p>The two applications that we will use are <em>MacMolPlt</em> and <em>Avogadro</em>. Both have different <strong>strengths</strong> and we will get to know them both. In this exercise, we will use <em>MacMolPlt</em>.</p>
@@ -507,9 +532,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="making-methane">
 <h2>Making Methane<a class="headerlink" href="#making-methane" title="Permalink to this headline">¶</a></h2>
 <p>Open your copy of <em>wxMacMolPlt</em> and <strong>navigate</strong> to the build menu: <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. Select carbon with a coordination number of 4 and click in the empty window. Then select <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Hydrogens</span></code> to complete your structure of methane. Efforts to enforce symmetry on files created by <em>MacMolPlt</em> often fail and manual creation of files that use symmetry is preferred. <em>GAMESS</em> requires perfection when you are declaring symmetry. As a result, we will <strong>not use</strong> symmetry in this calculation.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><em>MacMolPlt</em> has a symmetry builder function that can apply the point group as you build the molecule. We will discuss it later and build without symmetry for now.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><em>MacMolPlt</em> has a <strong>symmetry builder</strong> function that can apply the point group as you build the molecule. We will discuss it later.</p>
 </div>
 <p>Select <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> to start making an <strong>input file</strong> for <em>GAMESS</em>. In the <code class="docutils literal notranslate"><span class="pre">Basis</span></code> window select 6-311G for the basis set. Set “1” for <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">and</span> <span class="pre">light</span> <span class="pre">atom</span> <span class="pre">polarization</span> <span class="pre">functions</span></code> (this is the “d,p” in the 6-311G(d,p) basis set.) Check the <code class="docutils literal notranslate"><span class="pre">Diffuse</span> <span class="pre">l-shell</span></code> and <code class="docutils literal notranslate"><span class="pre">s-shell</span></code> options (this is the “++” in 6-311G(d,p)++.)</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">Control</span></code> window select <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type:</span> <span class="pre">Optimization</span></code> and also select <code class="docutils literal notranslate"><span class="pre">Localization</span> <span class="pre">Method:</span> <span class="pre">Edmiston-Ruedenberg</span></code>. The localization method will command <em>GAMESS</em> to write <strong>information</strong> into the output file that can be used to make <strong>local</strong> bonding molecular orbitals (we will be using them very soon in this exercise).</p>
@@ -713,13 +738,13 @@ Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Per
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Water: Getting Started</p>
+            <p class="prev-next-title">2. Water: Getting Started</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="4_Ethane.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ethane: Symmetry in Calculations</p>
+        <p class="prev-next-title">4. Ethane: Symmetry in Calculations</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

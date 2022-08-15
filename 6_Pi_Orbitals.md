@@ -1,4 +1,4 @@
-# Allyl Cation: &pi; Orbitals
+# 6. Allyl Cation: &pi; Orbitals
 
 Simplified **Hückel Molecular Orbital Theory** (SHMO) allows us to create &pi;-molecular orbitals for planar systems. It is **qualitatively** accurate and often all one needs to interpret &pi;-systems in physical organic chemistry. We have explored SHMO and created **MO diagrams** for ethylene, allyl anion & cation, butadiene and the cumyl cation. We have modeled the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with *Python* and the *NumPy* \& *SciPy* packages.
 
@@ -75,6 +75,9 @@ name: fig6B
 ```
 
 By using `Subwindow` &rarr; `Surfaces` &rarr; `3D Electron Density` and choosing to colour by `MEP` (molecular electrostatic potential) we can obtain an **image** that represents the electron density of the molecule and the colours mapped onto the surface represent the **charge**. Red are regions that repel a positive charge and blue are regions that attract a positive charge. Green is neutral. We can see in {numref}`fig6C` that the positive charge is **located** on the two terminal carbon groups, as expected.
+```{margin}
+Someday, I will explore using *Multiwfn*, a package for analyzing molecular wavefunction data produced by programs like *GAMESS*. Perhaps you will be the pioneer. See more [here](http://sobereva.com/multiwfn/index.html).
+```
 
 ```{figure} images/pi_1.png
 ---
@@ -84,9 +87,6 @@ name: fig6C
 *Electron density surface coloured by electrostatic potential. *MacMolPlt* does not give the best color contrast, but it does the job.*
 ```
 
-```{note}
-Someday, I will explore using *Multiwfn*, a package for analyzing molecular wavefunction data produced by programs like *GAMESS*. Perhaps you will be the pioneer. See more at http://sobereva.com/multiwfn/index.html
-```
 
 We can get an **approximation** of the charge held by each group from the data in the result .log file. Open the result file in a text editor and **search** for the word “`LOWDIN`”. Find the last occurrence of that word in the file. You should see a block of text like the one below.
 

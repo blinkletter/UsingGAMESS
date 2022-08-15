@@ -1,4 +1,4 @@
-# Benzene: MOs and Symmetry
+# 7. Benzene: MOs and Symmetry
 
 Benzene is the **iconic** organic molecule. Imagine if I had to design a superhero outfit for “Chemistry Man” (He can change phase from solid to liquid, but he requires a heat source to do so). I would choose a **hexagon**, representing the planar benzene structure, as the superhero **symbol** emblazoned on the cape.
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diels-Alder Reaction: Intrinsic Reaction Coordinates &#8212; Fun With GAMESS</title>
+    <title>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -53,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solvent: The Environment Matters" href="9_Solvent.html" />
+    <link rel="next" title="Data Workflow" href="8_Reaction_Coord_Scan_Data.html" />
     <link rel="prev" title="Butadiene.log" href="butadiene.log.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -99,32 +100,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -146,20 +159,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -176,17 +189,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -437,7 +462,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Diels-Alder Reaction: Intrinsic Reaction Coordinates</h1>
+                <h1>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -610,7 +635,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="diels-alder-reaction-intrinsic-reaction-coordinates">
-<h1>Diels-Alder Reaction: Intrinsic Reaction Coordinates<a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h1>
+<h1>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates<a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h1>
 <p>One of the most <strong>useful</strong> activities in computational chemistry is examining <strong>reaction energy barriers</strong>. If we can compare the energy of a <strong>transition state</strong> as we change structure, we can learn the reasons for these <strong>kinetic</strong> effects and make predictions. Calculating transition state structure and energy is <strong>challenging</strong>. Partially formed bonds and separated charges require <strong>higher levels</strong> of theory to accurately describe and so the computation <strong>cost</strong> rises rapidly. The T.S. itself may not be easy to find, especially when there are high degrees of freedom (lots of ways to arrange the structure).</p>
 <p>So let us start with a common example, the <strong>Diels Alder reaction</strong>.  This pericyclic addition reaction is a good candidate for these calculations because of its <strong>organized</strong> transition state (fewer degrees of freedom) and lack of charge separation. We will perform a reaction coordinate <strong>scan</strong> in hopes of <strong>finding</strong> a structure that is <strong>close</strong> to the transitions state. We will then perform a Hessian calculation to confirm the presense of an <strong>imaginary vibration</strong>. If we have an imaginary vibration, we have a direction towards the transition state. We will then perform a <strong>saddlepoint optimization</strong> to find the transition state. Finally, we will perform an <strong>intrinsic reaction coordinate</strong> calculation to calculate the path from the transition state to the ground-state reactants on either side.</p>
 <div class="section" id="starting-the-journey-to-the-t-s">
@@ -630,48 +655,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text"><em>The initial structure for cyclohexene in MacMolPlt.</em></span><a class="headerlink" href="#fig8-2" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Export</strong> an input file from <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. We choose a <code class="docutils literal notranslate"><span class="pre">Runtype:</span> <span class="pre">Optimization</span></code>  with the <code class="docutils literal notranslate"><span class="pre">3-21G</span></code> basis set with <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">D</span> <span class="pre">Heavy</span> <span class="pre">Atom</span> <span class="pre">Polarization</span> <span class="pre">Function</span></code> (3-21G<sup>*</sup>). We set <code class="docutils literal notranslate"><span class="pre">Coord.</span> <span class="pre">Type:</span> <span class="pre">Z-Matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">of</span> <span class="pre">Z-Matrix</span> <span class="pre">Variables</span></code> to <code class="docutils literal notranslate"><span class="pre">42</span></code> (3 × 16 atoms – 6).</p>
-<p>I <strong>submitted</strong> the calculation to <em>GAMESS</em> via <em>GamessQ</em> and it ran successfully.  In <a class="reference internal" href="#cyclohexene-zmat-inp"><span class="std std-numref">Listing 75</span></a> is the input file and the <em>Z-matrix</em> for the resulting optimized structure.</p>
-<div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Cyclohexene.inp</span><a class="headerlink" href="#cyclohexene-zmat-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
-<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=50 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Cyclohexene
-<span class="linenos">10</span>C1
-<span class="linenos">11</span>C
-<span class="hll"><span class="linenos">12</span>C   1    1.54000
-</span><span class="linenos">13</span>C   2    1.54000  1 120.0000
-<span class="linenos">14</span>C   1    1.54000  2 120.0000  3   0.0000
-<span class="hll"><span class="linenos">15</span>C   4    1.41037  1  89.6402  2  47.3676
-</span><span class="hll"><span class="linenos">16</span>C   3    1.42617  2  96.3800  5 -23.8081
-</span><span class="linenos">17</span>H   1    1.14000  4 120.0000  2 180.0000
-<span class="linenos">18</span>H   2    1.14000  1 120.0000  3 180.0000
-<span class="linenos">19</span>H   3    1.14000  6 112.6374  2 117.7914
-<span class="linenos">20</span>H   3    1.14000  9 110.4255  6 -126.1402
-<span class="linenos">21</span>H   4    1.14000  5 114.1752  1 116.4929
-<span class="linenos">22</span>H   4    1.14000  11 111.0397  5 -129.4079
-<span class="linenos">23</span>H   5    1.14000  4 104.3204  6 -122.5757
-<span class="linenos">24</span>H   5    1.14000  13 108.4843  4 111.1625
-<span class="linenos">25</span>H   6    1.14000  3 107.6066  5 -121.0604
-<span class="linenos">26</span>H   6    1.14000  15 109.0496  3 116.6663
-<span class="linenos">27</span> $END
-<span class="linenos">28</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,4, 
-<span class="linenos">29</span>    2,5,4,1, 3,5,4,1,2, 1,6,3, 2,6,3,2, 3,6,3,2,5, 1,7,1, 2,7,1,4, 3,7,1,4,2, 
-<span class="linenos">30</span>    1,8,2, 2,8,2,1, 3,8,2,1,3, 1,9,3, 2,9,3,6, 3,9,3,6,2, 1,10,3, 2,10,3,9, 
-<span class="linenos">31</span>    3,10,3,9,6, 1,11,4, 2,11,4,5, 3,11,4,5,1, 1,12,4, 2,12,4,11, 3,12,4,11,5, 
-<span class="linenos">32</span>    1,13,5, 2,13,5,4, 3,13,5,4,6, 1,14,5, 2,14,5,13, 3,14,5,13,4, 1,15,6, 
-<span class="linenos">33</span>    2,15,6,3, 3,15,6,3,5, 1,16,6, 2,16,6,15, 3,16,6,15,3 $END
-</pre></div>
-</div>
-</div>
-<p>After the <strong>optimization</strong>, the following structure was calculated to have a minimum energy. It may not be the global minimum but it is the conformer that will relate to the path <strong>toward</strong> the transition state. Observe the changes. One large change is the distance between atoms 1 and 2 (the C=C alkene bond). In the <strong>initial</strong> structure it was created with the length of a single bond (1.54 Å) but it <strong>settled down</strong> to the length of a double bond (1.32 Å).</p>
+<p>I <strong>submitted</strong> the calculation to <em>GAMESS</em> via <em>GamessQ</em> and it ran successfully.  In <a class="reference internal" href="#cyclohexene-zmat-inp"><span class="std std-numref">Listing 76</span></a> is the input file and the <em>Z-matrix</em> for the resulting optimized structure.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-log">
-<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Z-matrix from final structure in Cyclohexene_322.log</span><a class="headerlink" href="#cyclohexene-zmat-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Z-matrix from final structure in Cyclohexene_322.log</span><a class="headerlink" href="#cyclohexene-zmat-log" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7359</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
 <span class="linenos">7360</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
 <span class="linenos">7361</span> <span class="o">----------------------------------------------------------------</span>
@@ -720,7 +708,47 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<p>The resulting <strong>log file</strong>, Cyclohexene_322.log, was opened and <strong>examined</strong> in a text editor. A selection from the log file is shown in <a class="reference internal" href="#cyclohexene-zmat-log"><span class="std std-numref">Listing 76</span></a>. We <strong>see</strong> that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two <strong>bond lengths</strong> are the 7<sup>th</sup> and 10<sup>th</sup> <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> coordinates.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Cyclohexene.inp</span><a class="headerlink" href="#cyclohexene-zmat-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
+<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
+<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
+<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
+<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=50 $END
+<span class="linenos"> 8</span> $DATA 
+<span class="linenos"> 9</span>Cyclohexene
+<span class="linenos">10</span>C1
+<span class="linenos">11</span>C
+<span class="hll"><span class="linenos">12</span>C   1    1.54000
+</span><span class="linenos">13</span>C   2    1.54000  1 120.0000
+<span class="linenos">14</span>C   1    1.54000  2 120.0000  3   0.0000
+<span class="hll"><span class="linenos">15</span>C   4    1.41037  1  89.6402  2  47.3676
+</span><span class="hll"><span class="linenos">16</span>C   3    1.42617  2  96.3800  5 -23.8081
+</span><span class="linenos">17</span>H   1    1.14000  4 120.0000  2 180.0000
+<span class="linenos">18</span>H   2    1.14000  1 120.0000  3 180.0000
+<span class="linenos">19</span>H   3    1.14000  6 112.6374  2 117.7914
+<span class="linenos">20</span>H   3    1.14000  9 110.4255  6 -126.1402
+<span class="linenos">21</span>H   4    1.14000  5 114.1752  1 116.4929
+<span class="linenos">22</span>H   4    1.14000  11 111.0397  5 -129.4079
+<span class="linenos">23</span>H   5    1.14000  4 104.3204  6 -122.5757
+<span class="linenos">24</span>H   5    1.14000  13 108.4843  4 111.1625
+<span class="linenos">25</span>H   6    1.14000  3 107.6066  5 -121.0604
+<span class="linenos">26</span>H   6    1.14000  15 109.0496  3 116.6663
+<span class="linenos">27</span> $END
+<span class="linenos">28</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,4, 
+<span class="linenos">29</span>    2,5,4,1, 3,5,4,1,2, 1,6,3, 2,6,3,2, 3,6,3,2,5, 1,7,1, 2,7,1,4, 3,7,1,4,2, 
+<span class="linenos">30</span>    1,8,2, 2,8,2,1, 3,8,2,1,3, 1,9,3, 2,9,3,6, 3,9,3,6,2, 1,10,3, 2,10,3,9, 
+<span class="linenos">31</span>    3,10,3,9,6, 1,11,4, 2,11,4,5, 3,11,4,5,1, 1,12,4, 2,12,4,11, 3,12,4,11,5, 
+<span class="linenos">32</span>    1,13,5, 2,13,5,4, 3,13,5,4,6, 1,14,5, 2,14,5,13, 3,14,5,13,4, 1,15,6, 
+<span class="linenos">33</span>    2,15,6,3, 3,15,6,3,5, 1,16,6, 2,16,6,15, 3,16,6,15,3 $END
+</pre></div>
+</div>
+</div>
+<p>After the <strong>optimization</strong>, the following structure was calculated to have a minimum energy. It may not be the global minimum but it is the conformer that will relate to the path <strong>toward</strong> the transition state. Observe the changes. One large change is the distance between atoms 1 and 2 (the C=C alkene bond). In the <strong>initial</strong> structure it was created with the length of a single bond (1.54 Å) but it <strong>settled down</strong> to the length of a double bond (1.32 Å).</p>
+<p>The resulting <strong>log file</strong>, Cyclohexene_322.log, was opened and <strong>examined</strong> in a text editor. A selection from the log file is shown in <a class="reference internal" href="#cyclohexene-zmat-log"><span class="std std-numref">Listing 75</span></a>. We <strong>see</strong> that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two <strong>bond lengths</strong> are the 7<sup>th</sup> and 10<sup>th</sup> <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> coordinates.</p>
 <p>I will <strong>open</strong> the log file with <em>MacMolPlt</em> and I chose to <strong>view</strong> the atom labels. I chose to <strong>display</strong> the atom numbers by selecting <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Labels</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Number</span></code>. We can now clearly <strong>see</strong> that the bond lengths between carbons 4,5 and 3,6 are going to define the reaction coordinate. See <a class="reference internal" href="#fig8-3"><span class="std std-numref">Fig. 51</span></a>.</p>
 <div class="figure align-default" id="fig8-3">
 <a class="reference internal image-reference" href="_images/Diels_3.png"><img alt="_images/Diels_3.png" src="_images/Diels_3.png" style="width: 600px;" /></a>
@@ -742,42 +770,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="optimizing-c-sub-s-sub-cyclohexene">
 <h3>Optimizing <em>C<sub>s</sub></em> Cyclohexene<a class="headerlink" href="#optimizing-c-sub-s-sub-cyclohexene" title="Permalink to this headline">¶</a></h3>
-<p>We know that <em>C<sub>s</sub></em> cyclohexene is not the lowest energy conformer. But by <strong>enforcing</strong> the <em>C<sub>s</sub></em> symmetry we can hold it in this conformation while it minimizes. Open <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with <em>Z-matrix</em> coordinates but the calculation immediately failed. The nature of the <em>Z-matrix</em> often results in tiny <strong>rounding errors</strong> in the coordinate values <strong>combining</strong> to a slightly bigger error by the time the positioning has worked its way <strong>along</strong> all the internal cooridnates. This error was obviously enough to place an atom or two outside of the <strong>tolerance</strong> for the symmetry calculation. We should use <code class="docutils literal notranslate"><span class="pre">Unique</span> <span class="pre">Coordinates</span></code> for symmetry calculations. The input file is reproduced in <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 77</span></a>.</p>
-<div class="literal-block-wrapper docutils container" id="cyclohexene-cs-cart-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Cyclohexene_Cs_cart.inp</span><a class="headerlink" href="#cyclohexene-cs-cart-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
-<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=30 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Title
-<span class="hll"><span class="linenos">10</span>CS
-</span><span class="linenos">11</span>
-<span class="linenos">12</span>C     6.0    -1.35474    -0.12747    -0.65064
-<span class="linenos">13</span>C     6.0    -0.07172     0.23663    -1.42064
-<span class="linenos">14</span>C     6.0     1.42646    -0.10916    -0.75855
-<span class="linenos">15</span>H     1.0    -2.30450    -0.39699    -1.22064
-<span class="linenos">16</span>H     1.0     1.75283    -1.13977    -1.12040
-<span class="linenos">17</span>H     1.0    -0.12286    -0.30664    -2.42156
-<span class="linenos">18</span>H     1.0     2.17392     0.67089    -1.12244
-<span class="linenos">19</span>H     1.0    -0.10252     1.36058    -1.60873
-<span class="linenos">20</span> $END
-<span class="hll"><span class="linenos">21</span> $ZMAT IZMAT(1)=1,2,1, 1,3,1, 2,3,1,2, 1,4,2, 2,4,2,1, 3,4,2,1,3, 1,5,3, 
-</span><span class="hll"><span class="linenos">22</span>    2,5,3,1, 3,5,3,1,4, 1,6,5, 2,6,5,3, 3,6,5,3,1, 1,7,1, 2,7,1,2, 3,7,1,2,3, 
-</span><span class="hll"><span class="linenos">23</span>    1,8,2, 2,8,2,1, 3,8,2,1,4, 1,9,5, 2,9,5,6, 3,9,5,6,3, 1,10,6, 2,10,6,5, 
-</span><span class="hll"><span class="linenos">24</span>    3,10,6,5,9, 1,11,3, 2,11,3,1, 3,11,3,1,5, 1,12,4, 2,12,4,2, 3,12,4,2,6, 
-</span><span class="hll"><span class="linenos">25</span>    1,13,5, 2,13,5,9, 3,13,5,9,6, 1,14,6, 2,14,6,10, 3,14,6,10,5, 1,15,3, 
-</span><span class="hll"><span class="linenos">26</span>    2,15,3,11, 3,15,3,11,1, 1,16,4, 2,16,4,12, 3,16,4,12,2 $END
-</span></pre></div>
-</div>
-</div>
-<p>This calculation completed <strong>normally</strong>. After it finished we find this block of text for the final results. The last <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code> entry reveals that the calculation has reached a stationary point and finished. The energy is reported along with the symmetry unique <em>xyz</em> cartessian coordinates, the full set of coordinates and the <strong>internal coordinates</strong> that were listed in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix.</p>
-<p><strong>Examine</strong> the values in <a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 78</span></a>. You will <strong>see</strong> that the 3,5 bond length is the bond that will be extended as the two atoms of ethylene depart the atoms of the butadiene. The 4,6 bond length is not in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> list. But it will be identical to the 3,5 bond as required by the symmetry <strong>point grou</strong>p. If we lock it, will will lock both.</p>
+<p>We know that <em>C<sub>s</sub></em> cyclohexene is not the lowest energy conformer. But by <strong>enforcing</strong> the <em>C<sub>s</sub></em> symmetry we can hold it in this conformation while it minimizes. Open <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with <em>Z-matrix</em> coordinates but the calculation immediately failed. The nature of the <em>Z-matrix</em> often results in tiny <strong>rounding errors</strong> in the coordinate values <strong>combining</strong> to a slightly bigger error by the time the positioning has worked its way <strong>along</strong> all the internal cooridnates. This error was obviously enough to place an atom or two outside of the <strong>tolerance</strong> for the symmetry calculation. We should use <code class="docutils literal notranslate"><span class="pre">Unique</span> <span class="pre">Coordinates</span></code> for symmetry calculations. The input file is reproduced in <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 78</span></a>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-cart-log">
-<div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Cyclohexene_Cs_cart.log</span><a class="headerlink" href="#cyclohexene-cs-cart-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Cyclohexene_Cs_cart.log</span><a class="headerlink" href="#cyclohexene-cs-cart-log" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7629</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">13</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">233.0092034708</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000982</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000328</span>
 <span class="linenos">7630</span>
 <span class="linenos">7631</span>
@@ -867,6 +864,40 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="literal-block-wrapper docutils container" id="cyclohexene-cs-cart-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Cyclohexene_Cs_cart.inp</span><a class="headerlink" href="#cyclohexene-cs-cart-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
+<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
+<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
+<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=30 $END
+<span class="linenos"> 8</span> $DATA 
+<span class="linenos"> 9</span>Title
+<span class="hll"><span class="linenos">10</span>CS
+</span><span class="linenos">11</span>
+<span class="linenos">12</span>C     6.0    -1.35474    -0.12747    -0.65064
+<span class="linenos">13</span>C     6.0    -0.07172     0.23663    -1.42064
+<span class="linenos">14</span>C     6.0     1.42646    -0.10916    -0.75855
+<span class="linenos">15</span>H     1.0    -2.30450    -0.39699    -1.22064
+<span class="linenos">16</span>H     1.0     1.75283    -1.13977    -1.12040
+<span class="linenos">17</span>H     1.0    -0.12286    -0.30664    -2.42156
+<span class="linenos">18</span>H     1.0     2.17392     0.67089    -1.12244
+<span class="linenos">19</span>H     1.0    -0.10252     1.36058    -1.60873
+<span class="linenos">20</span> $END
+<span class="hll"><span class="linenos">21</span> $ZMAT IZMAT(1)=1,2,1, 1,3,1, 2,3,1,2, 1,4,2, 2,4,2,1, 3,4,2,1,3, 1,5,3, 
+</span><span class="hll"><span class="linenos">22</span>    2,5,3,1, 3,5,3,1,4, 1,6,5, 2,6,5,3, 3,6,5,3,1, 1,7,1, 2,7,1,2, 3,7,1,2,3, 
+</span><span class="hll"><span class="linenos">23</span>    1,8,2, 2,8,2,1, 3,8,2,1,4, 1,9,5, 2,9,5,6, 3,9,5,6,3, 1,10,6, 2,10,6,5, 
+</span><span class="hll"><span class="linenos">24</span>    3,10,6,5,9, 1,11,3, 2,11,3,1, 3,11,3,1,5, 1,12,4, 2,12,4,2, 3,12,4,2,6, 
+</span><span class="hll"><span class="linenos">25</span>    1,13,5, 2,13,5,9, 3,13,5,9,6, 1,14,6, 2,14,6,10, 3,14,6,10,5, 1,15,3, 
+</span><span class="hll"><span class="linenos">26</span>    2,15,3,11, 3,15,3,11,1, 1,16,4, 2,16,4,12, 3,16,4,12,2 $END
+</span></pre></div>
+</div>
+</div>
+<p>This calculation completed <strong>normally</strong>. After it finished we find this block of text for the final results. The last <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code> entry reveals that the calculation has reached a stationary point and finished. The energy is reported along with the symmetry unique <em>xyz</em> cartessian coordinates, the full set of coordinates and the <strong>internal coordinates</strong> that were listed in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix.</p>
+<p><strong>Examine</strong> the values in <a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 77</span></a>. You will <strong>see</strong> that the 3,5 bond length is the bond that will be extended as the two atoms of ethylene depart the atoms of the butadiene. The 4,6 bond length is not in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> list. But it will be identical to the 3,5 bond as required by the symmetry <strong>point grou</strong>p. If we lock it, will will lock both.</p>
+</div>
 </div>
 <div class="section" id="proposing-a-hypothetical-transition-state">
 <h2>Proposing a Hypothetical Transition State<a class="headerlink" href="#proposing-a-hypothetical-transition-state" title="Permalink to this headline">¶</a></h2>
@@ -883,7 +914,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We will construct an input file with the correct code to freeze the coordinate. <strong>First</strong> we will run a quick job to check the calculation and have <em>GAMESS</em> generate the internal coordinates automatically.  Then we will <strong>set up</strong> an input file where we use this internal coordinate information to <strong>identify</strong> the two bonds that we wish to change. We will <strong>freeze</strong> those bonds at <strong>various lengths</strong> and optimize the geometry of the molecule otherwise. As we optimize at various lengths, we will be <strong>scanning</strong> through the reaction coordinate.</p>
 <div class="section" id="build-an-input-file">
 <h4>Build an input file<a class="headerlink" href="#build-an-input-file" title="Permalink to this headline">¶</a></h4>
-<p>As above, I will take the <strong>input file</strong> derived from the optimized structure (see <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 77</span></a>). I will <strong>modify</strong> the file to change the parameters for a simple check run. Observe that in <a class="reference internal" href="#cyclohexene-cs-internal-check-inp"><span class="std std-numref">Listing 79</span></a> I have changed the <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and added the command <code class="docutils literal notranslate"><span class="pre">EXETYPE=CHECK</span></code>. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will <strong>check</strong> for any errors. There is no <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group here as that does not apply in a single-step <strong>energy</strong> calculation. I then used the <code class="docutils literal notranslate"><span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span></code> command to auto-generqte the internal coordinates. the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list informs <em>GAMESS</em> that some connections may be <strong>too long</strong> to be detected as a bond, but we do want them to be treated as a bond.</p>
+<p>As above, I will take the <strong>input file</strong> derived from the optimized structure (see <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 78</span></a>). I will <strong>modify</strong> the file to change the parameters for a simple check run. Observe that in <a class="reference internal" href="#cyclohexene-cs-internal-check-inp"><span class="std std-numref">Listing 79</span></a> I have changed the <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and added the command <code class="docutils literal notranslate"><span class="pre">EXETYPE=CHECK</span></code>. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will <strong>check</strong> for any errors. There is no <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group here as that does not apply in a single-step <strong>energy</strong> calculation. I then used the <code class="docutils literal notranslate"><span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span></code> command to auto-generqte the internal coordinates. the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list informs <em>GAMESS</em> that some connections may be <strong>too long</strong> to be detected as a bond, but we do want them to be treated as a bond.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-check-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-check-inp" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MULT=1 COORD=UNIQUE NZVAR=42 
@@ -910,43 +941,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>This input file was <strong>submitted</strong> using <em>GamessQ</em>. When the job has finished the .log file and the .dat file will contain information that we will need to <strong>manually copy</strong>. We will need the list of internal coordinates that we <strong>generated</strong> to create a new <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> matrix. We will also need the length of the 3,5 and 4,6 bonds so that we can <strong>freeze</strong> them at that exact value. You will observe that the <code class="docutils literal notranslate"><span class="pre">DLC=.TRUE.</span></code> command results in many internal coordinates being created (in this case it is 89). We will have to ensure that the <code class="docutils literal notranslate"><span class="pre">NZVAR</span></code> matches this number in the new input file.</p>
 <p><strong>Search</strong> your computer for the .dat file. it will have the same names as the input file but <strong>end</strong> in the .dat <strong>extension</strong>. In this file will be a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group for your molecule that was automatically generated by <em>GAMESS</em>. <strong>Copy and paste</strong> it into your input file. Change the <code class="docutils literal notranslate"><span class="pre">AUTO</span></code> flag to <code class="docutils literal notranslate"><span class="pre">.FALSE.</span></code> as we will now be using the <code class="docutils literal notranslate"><span class="pre">ZMAT</span></code> list and do not want it changed by <em>GAMESS</em> anymore. We will change <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">OPTIMIZE</span></code> and return the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group to the file.</p>
-<p>Now find the .log file and <strong>locate</strong> the list of internal coordinates. I observe that the 3,5 stretch and the 4,6 stretch coordinates are listed a 1.5411834 Å. I have shown a except of the relevent section of the .log file in <a class="reference internal" href="#cyclohexene-cs-internal-check-log"><span class="std std-numref">Listing 80</span></a>. You may notice that there are <strong>redundant coordinates</strong> for the 4,6 and 3,6 bonds. The extra copies are forced in by the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> command in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group.</p>
-<div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-check-log">
-<div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.log</span><a class="headerlink" href="#cyclohexene-cs-internal-check-log" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">810</span>                     <span class="o">--------------------</span>
-<span class="linenos">811</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
-<span class="linenos">812</span>                     <span class="o">--------------------</span>
-<span class="linenos">813</span>
-<span class="linenos">814</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
-<span class="linenos">815</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
-<span class="linenos">816</span> <span class="o">----------------------------------------------------------------</span>
-<span class="linenos">817</span>   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">1</span>  <span class="mi">7</span>                     <span class="mf">2.0349043</span>       <span class="mf">1.0768251</span>
-<span class="linenos">818</span>   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">1</span>  <span class="mi">3</span>                     <span class="mf">2.8514326</span>       <span class="mf">1.5089133</span>
-<span class="linenos">819</span>   <span class="mi">3</span> <span class="n">STRETCH</span>   <span class="mi">1</span>  <span class="mi">2</span>                     <span class="mf">2.4944812</span>       <span class="mf">1.3200227</span>
-<span class="linenos">820</span>   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">4</span>                     <span class="mf">2.8514326</span>       <span class="mf">1.5089133</span>
-<span class="linenos">821</span>   <span class="mi">5</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">8</span>                     <span class="mf">2.0349043</span>       <span class="mf">1.0768251</span>
-<span class="linenos">822</span>   <span class="mi">6</span> <span class="n">STRETCH</span>   <span class="mi">3</span> <span class="mi">15</span>                     <span class="mf">2.0586389</span>       <span class="mf">1.0893849</span>
-<span class="hll"><span class="linenos">823</span>   <span class="mi">7</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">5</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
-</span><span class="linenos">824</span>   <span class="mi">8</span> <span class="n">STRETCH</span>   <span class="mi">3</span> <span class="mi">11</span>                     <span class="mf">2.0504843</span>       <span class="mf">1.0850696</span>
-<span class="linenos">825</span>   <span class="mi">9</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">5</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
-<span class="linenos">826</span>  <span class="mi">10</span> <span class="n">STRETCH</span>   <span class="mi">4</span> <span class="mi">12</span>                     <span class="mf">2.0504843</span>       <span class="mf">1.0850696</span>
-<span class="hll"><span class="linenos">827</span>  <span class="mi">11</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">6</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
-</span><span class="linenos">828</span>  <span class="mi">12</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">6</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
-<span class="linenos">829</span>  <span class="mi">13</span> <span class="n">STRETCH</span>   <span class="mi">4</span> <span class="mi">16</span>                     <span class="mf">2.0586389</span>       <span class="mf">1.0893849</span>
-<span class="linenos">830</span>  <span class="mi">14</span> <span class="n">STRETCH</span>   <span class="mi">5</span> <span class="mi">13</span>                     <span class="mf">2.0516282</span>       <span class="mf">1.0856749</span>
-<span class="linenos">831</span>  <span class="mi">15</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">6</span>                     <span class="mf">2.9292350</span>       <span class="mf">1.5500845</span>
-<span class="linenos">832</span>  <span class="mi">16</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">9</span>                     <span class="mf">2.0503910</span>       <span class="mf">1.0850203</span>
-<span class="linenos">833</span>  <span class="mi">17</span> <span class="n">STRETCH</span>   <span class="mi">6</span> <span class="mi">14</span>                     <span class="mf">2.0516282</span>       <span class="mf">1.0856749</span>
-<span class="linenos">834</span>  <span class="mi">18</span> <span class="n">STRETCH</span>   <span class="mi">6</span> <span class="mi">10</span>                     <span class="mf">2.0503910</span>       <span class="mf">1.0850203</span>
-<span class="linenos">835</span>  <span class="mi">19</span> <span class="n">BEND</span>      <span class="mi">1</span>  <span class="mi">3</span> <span class="mi">11</span>                  <span class="mf">1.9384410</span>     <span class="mf">111.0644875</span>
-<span class="linenos">836</span>  <span class="mi">20</span> <span class="n">BEND</span>      <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">5</span>                  <span class="mf">1.9419391</span>     <span class="mf">111.2649171</span>
-<span class="linenos">837</span>  <span class="mi">21</span> <span class="n">BEND</span>      <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">5</span>                  <span class="mf">1.9419391</span>     <span class="mf">111.2649171</span>
-</pre></div>
-</div>
-</div>
-<p>Now that we have the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group <strong>from</strong> the .dat file and the bond distance <strong>from</strong> the .log file, we can <strong>set up</strong> the input file as described above. the new file is shown in <a class="reference internal" href="#cyclohexene-cs-internal-zmat-inp"><span class="std std-numref">Listing 81</span></a></p>
+<p>Now find the .log file and <strong>locate</strong> the list of internal coordinates. I observe that the 3,5 stretch and the 4,6 stretch coordinates are listed a 1.5411834 Å. I have shown a except of the relevent section of the .log file in <a class="reference internal" href="#cyclohexene-cs-internal-check-log"><span class="std std-numref">Listing 81</span></a>. You may notice that there are <strong>redundant coordinates</strong> for the 4,6 and 3,6 bonds. The extra copies are forced in by the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> command in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-zmat-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 81 </span><span class="caption-text">Cyclohexene_Cs_Internal_ZMAT.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-zmat-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Cyclohexene_Cs_Internal_ZMAT.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-zmat-inp" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">  1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MULT=1 COORD=UNIQUE NZVAR=103 
 </span><span class="linenos">  2</span>    MOLPLT=.TRUE. $END
 <span class="linenos">  3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1078,6 +1077,41 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-check-log">
+<div class="code-block-caption"><span class="caption-number">Listing 81 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.log</span><a class="headerlink" href="#cyclohexene-cs-internal-check-log" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">810</span>                     <span class="o">--------------------</span>
+<span class="linenos">811</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
+<span class="linenos">812</span>                     <span class="o">--------------------</span>
+<span class="linenos">813</span>
+<span class="linenos">814</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
+<span class="linenos">815</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
+<span class="linenos">816</span> <span class="o">----------------------------------------------------------------</span>
+<span class="linenos">817</span>   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">1</span>  <span class="mi">7</span>                     <span class="mf">2.0349043</span>       <span class="mf">1.0768251</span>
+<span class="linenos">818</span>   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">1</span>  <span class="mi">3</span>                     <span class="mf">2.8514326</span>       <span class="mf">1.5089133</span>
+<span class="linenos">819</span>   <span class="mi">3</span> <span class="n">STRETCH</span>   <span class="mi">1</span>  <span class="mi">2</span>                     <span class="mf">2.4944812</span>       <span class="mf">1.3200227</span>
+<span class="linenos">820</span>   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">4</span>                     <span class="mf">2.8514326</span>       <span class="mf">1.5089133</span>
+<span class="linenos">821</span>   <span class="mi">5</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">8</span>                     <span class="mf">2.0349043</span>       <span class="mf">1.0768251</span>
+<span class="linenos">822</span>   <span class="mi">6</span> <span class="n">STRETCH</span>   <span class="mi">3</span> <span class="mi">15</span>                     <span class="mf">2.0586389</span>       <span class="mf">1.0893849</span>
+<span class="hll"><span class="linenos">823</span>   <span class="mi">7</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">5</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
+</span><span class="linenos">824</span>   <span class="mi">8</span> <span class="n">STRETCH</span>   <span class="mi">3</span> <span class="mi">11</span>                     <span class="mf">2.0504843</span>       <span class="mf">1.0850696</span>
+<span class="linenos">825</span>   <span class="mi">9</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">5</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
+<span class="linenos">826</span>  <span class="mi">10</span> <span class="n">STRETCH</span>   <span class="mi">4</span> <span class="mi">12</span>                     <span class="mf">2.0504843</span>       <span class="mf">1.0850696</span>
+<span class="hll"><span class="linenos">827</span>  <span class="mi">11</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">6</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
+</span><span class="linenos">828</span>  <span class="mi">12</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">6</span>                     <span class="mf">2.9124143</span>       <span class="mf">1.5411834</span>
+<span class="linenos">829</span>  <span class="mi">13</span> <span class="n">STRETCH</span>   <span class="mi">4</span> <span class="mi">16</span>                     <span class="mf">2.0586389</span>       <span class="mf">1.0893849</span>
+<span class="linenos">830</span>  <span class="mi">14</span> <span class="n">STRETCH</span>   <span class="mi">5</span> <span class="mi">13</span>                     <span class="mf">2.0516282</span>       <span class="mf">1.0856749</span>
+<span class="linenos">831</span>  <span class="mi">15</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">6</span>                     <span class="mf">2.9292350</span>       <span class="mf">1.5500845</span>
+<span class="linenos">832</span>  <span class="mi">16</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">9</span>                     <span class="mf">2.0503910</span>       <span class="mf">1.0850203</span>
+<span class="linenos">833</span>  <span class="mi">17</span> <span class="n">STRETCH</span>   <span class="mi">6</span> <span class="mi">14</span>                     <span class="mf">2.0516282</span>       <span class="mf">1.0856749</span>
+<span class="linenos">834</span>  <span class="mi">18</span> <span class="n">STRETCH</span>   <span class="mi">6</span> <span class="mi">10</span>                     <span class="mf">2.0503910</span>       <span class="mf">1.0850203</span>
+<span class="linenos">835</span>  <span class="mi">19</span> <span class="n">BEND</span>      <span class="mi">1</span>  <span class="mi">3</span> <span class="mi">11</span>                  <span class="mf">1.9384410</span>     <span class="mf">111.0644875</span>
+<span class="linenos">836</span>  <span class="mi">20</span> <span class="n">BEND</span>      <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">5</span>                  <span class="mf">1.9419391</span>     <span class="mf">111.2649171</span>
+<span class="linenos">837</span>  <span class="mi">21</span> <span class="n">BEND</span>      <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">5</span>                  <span class="mf">1.9419391</span>     <span class="mf">111.2649171</span>
+</pre></div>
+</div>
+</div>
+<p>Now that we have the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group <strong>from</strong> the .dat file and the bond distance <strong>from</strong> the .log file, we can <strong>set up</strong> the input file as described above. the new file is shown in <a class="reference internal" href="#cyclohexene-cs-internal-zmat-inp"><span class="std std-numref">Listing 80</span></a></p>
+</div>
 <div class="section" id="making-the-scan-files">
 <h4>Making the Scan Files<a class="headerlink" href="#making-the-scan-files" title="Permalink to this headline">¶</a></h4>
 <p>Now that we have an input file we can make a whole <strong>series</strong> of versions with different <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> lists. I will <strong>replace</strong> the numbers in the <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> list with the <strong>string</strong> <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>. I will then edit the <em>bash</em> shell script <a class="reference external" href="http://extract.sh">extract.sh</a> to create a <strong>series</strong> of values between 1.5 and 3 and write a <strong>series</strong> of input files with those values replacing the string.</p>
@@ -1160,35 +1194,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="the-transition-state-optimization">
 <h3>The Transition State optimization<a class="headerlink" href="#the-transition-state-optimization" title="Permalink to this headline">¶</a></h3>
 <p>Open the log file for the <strong>Hessian calculation</strong>. Click on <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Saddle</span> <span class="pre">Point</span></code>. Set # of <code class="docutils literal notranslate"><span class="pre">Z-matrix</span> <span class="pre">variables</span></code> to <code class="docutils literal notranslate"><span class="pre">42</span></code>. We will need to supply a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group. Set <code class="docutils literal notranslate"><span class="pre">Stat.</span> <span class="pre">Point</span></code> → <code class="docutils literal notranslate"><span class="pre">Initial</span> <span class="pre">Hessian</span></code> to <code class="docutils literal notranslate"><span class="pre">Calculate</span></code> (again, we could have cut this out of the .dat file and included it in the input file but the time saving is minimal in this case). Save the input file.</p>
-<p>To get a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group we will again set up an energy check <strong>calculation</strong> with the internal coordinates set to auto generate. I will open the <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Energy</span></code> and the <code class="docutils literal notranslate"><span class="pre">Exe.</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Check</span></code>. I will save the input file and then edit it to add the final line: <code class="docutils literal notranslate"><span class="pre">$ZMAT</span> <span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span> <span class="pre">$END</span></code>. The input file is presented in <a class="reference internal" href="#cyclohexene-ts-zmat-check-inp"><span class="std std-numref">Listing 85</span></a>. The <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list will be very important here as the bond length is <strong>far past</strong> what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.</p>
-<div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-check-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 85 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Check.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-check-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="hll"><span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
-</span><span class="linenos"> 3</span>    NZVAR=42 MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Cyclohexene
-<span class="linenos"> 9</span>CS
-<span class="linenos">10</span>
-<span class="linenos">11</span>C     6.0    -1.23614    -0.19463    -0.66001
-<span class="linenos">12</span>C     6.0    -0.03784     0.34641    -1.40039
-<span class="linenos">13</span>C     6.0     1.27863    -0.15469    -0.77504
-<span class="linenos">14</span>H     1.0    -2.07996    -0.56134    -1.21953
-<span class="linenos">15</span>H     1.0     1.45310    -1.16622    -1.12664
-<span class="linenos">16</span>H     1.0    -0.07030     0.07059    -2.44931
-<span class="linenos">17</span>H     1.0     2.10150     0.44450    -1.15258
-<span class="linenos">18</span>H     1.0    -0.06272     1.43514    -1.37198
-<span class="linenos">19</span> $END
-<span class="linenos">20</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
-</pre></div>
-</div>
-</div>
-<p>Run the check calculation in <em>GAMESS</em> and <strong>hunt down</strong> the .dat file. Copy the $ZMAT group out of it and paste it into the saddlepoint input file. There are 89 entries in the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> list so we must change the <code class="docutils literal notranslate"><span class="pre">NZVAR</span></code> from 42 to 89. With this <strong>list</strong> of internal coordinates established, <em>GAMESS</em> will report their values in the log file and we will be able to directly obtain the bond lengths for the 3,5 and 4,6 bonds in the <strong>transition state</strong> (assuming the calculation succeeds). The edited input file is displayed in <a class="reference internal" href="#cyclohexene-ts-zmat-saddle-inp"><span class="std std-numref">Listing 86</span></a>.</p>
+<p>To get a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group we will again set up an energy check <strong>calculation</strong> with the internal coordinates set to auto generate. I will open the <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Energy</span></code> and the <code class="docutils literal notranslate"><span class="pre">Exe.</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Check</span></code>. I will save the input file and then edit it to add the final line: <code class="docutils literal notranslate"><span class="pre">$ZMAT</span> <span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span> <span class="pre">$END</span></code>. The input file is presented in <a class="reference internal" href="#cyclohexene-ts-zmat-check-inp"><span class="std std-numref">Listing 86</span></a>. The <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list will be very important here as the bond length is <strong>far past</strong> what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-saddle-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 85 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-inp" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>!   File created by MacMolPlt 7.7.2
 <span class="hll"><span class="linenos">  2</span> $CONTRL SCFTYP=RHF RUNTYP=SADPOINT MAXIT=30 MULT=1 NZVAR=89 MOLPLT=.TRUE. $END
 </span><span class="linenos">  3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
@@ -1305,12 +1315,39 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
+<div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-check-inp">
+<div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Check.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-check-inp" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
+<span class="hll"><span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
+</span><span class="linenos"> 3</span>    NZVAR=42 MOLPLT=.TRUE. $END
+<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
+<span class="linenos"> 7</span> $DATA 
+<span class="linenos"> 8</span>Cyclohexene
+<span class="linenos"> 9</span>CS
+<span class="linenos">10</span>
+<span class="linenos">11</span>C     6.0    -1.23614    -0.19463    -0.66001
+<span class="linenos">12</span>C     6.0    -0.03784     0.34641    -1.40039
+<span class="linenos">13</span>C     6.0     1.27863    -0.15469    -0.77504
+<span class="linenos">14</span>H     1.0    -2.07996    -0.56134    -1.21953
+<span class="linenos">15</span>H     1.0     1.45310    -1.16622    -1.12664
+<span class="linenos">16</span>H     1.0    -0.07030     0.07059    -2.44931
+<span class="linenos">17</span>H     1.0     2.10150     0.44450    -1.15258
+<span class="linenos">18</span>H     1.0    -0.06272     1.43514    -1.37198
+<span class="linenos">19</span> $END
+<span class="linenos">20</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
+</pre></div>
+</div>
+</div>
+<p>Run the check calculation in <em>GAMESS</em> and <strong>hunt down</strong> the .dat file. Copy the $ZMAT group out of it and paste it into the saddlepoint input file. There are 89 entries in the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> list so we must change the <code class="docutils literal notranslate"><span class="pre">NZVAR</span></code> from 42 to 89. With this <strong>list</strong> of internal coordinates established, <em>GAMESS</em> will report their values in the log file and we will be able to directly obtain the bond lengths for the 3,5 and 4,6 bonds in the <strong>transition state</strong> (assuming the calculation succeeds). The edited input file is displayed in <a class="reference internal" href="#cyclohexene-ts-zmat-saddle-inp"><span class="std std-numref">Listing 85</span></a>.</p>
 <p>The calculation was succesful and the <strong>saddle point</strong> was immediately located.  We were almost exactly there already. We <strong>started</strong> with a 3,5 and 6,4 bond length of 2.200 Å and the sadlle point has a bond length of 2.202 Å.</p>
 </div>
 </div>
 <div class="section" id="discussion-of-the-reaction-coordinate">
 <h2>Discussion of the Reaction Coordinate<a class="headerlink" href="#discussion-of-the-reaction-coordinate" title="Permalink to this headline">¶</a></h2>
-<p>Let us <strong>examine</strong> the output files for the optimized cyclohexene (<a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 78</span></a>), the optimized transition state (<a class="reference internal" href="#cyclohexene-ts-zmat-saddle-log"><span class="std std-numref">Listing 88</span></a>) and for the partial optimization at 3.000 Å (<a class="reference internal" href="#cyclohexene-cs-scan-inp-scan-3-00-log"><span class="std std-numref">Listing 87</span></a>). We can <strong>read</strong> the internal coordinates for the C-C distances from the final structure in each file.</p>
+<p>Let us <strong>examine</strong> the output files for the optimized cyclohexene (<a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 77</span></a>), the optimized transition state (<a class="reference internal" href="#cyclohexene-ts-zmat-saddle-log"><span class="std std-numref">Listing 88</span></a>) and for the partial optimization at 3.000 Å (<a class="reference internal" href="#cyclohexene-cs-scan-inp-scan-3-00-log"><span class="std std-numref">Listing 87</span></a>). We can <strong>read</strong> the internal coordinates for the C-C distances from the final structure in each file.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-scan-inp-scan-3-00-log">
 <div class="code-block-caption"><span class="caption-number">Listing 87 </span><span class="caption-text">Cyclohexene_Cs_scan.inp_SCAN_3.00.log</span><a class="headerlink" href="#cyclohexene-cs-scan-inp-scan-3-00-log" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">15795</span>                     <span class="o">--------------------</span>
@@ -1512,6 +1549,8 @@ H     1.0     0.00682     1.46650    -1.06163
 </dl>
 </div>
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1546,10 +1585,10 @@ H     1.0     0.00682     1.46650    -1.06163
             <p class="prev-next-title">Butadiene.log</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="9_Solvent.html" title="next page">
+    <a class='right-next' id="next-link" href="8_Reaction_Coord_Scan_Data.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Solvent: The Environment Matters</p>
+        <p class="prev-next-title">Data Workflow</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

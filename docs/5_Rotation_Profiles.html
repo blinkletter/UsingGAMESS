@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Butane: Rotation Energy Profiles &#8212; Fun With GAMESS</title>
+    <title>5. Butane: Rotation Energy Profiles &#8212; Fun With GAMESS</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -56,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="GAMESS Workflow" href="5_Rotation_Profiles_Workflow.html" />
-    <link rel="prev" title="Ethane: Symmetry in Calculations" href="4_Ethane.html" />
+    <link rel="prev" title="4. Ethane: Symmetry in Calculations" href="4_Ethane.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,32 +102,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -148,20 +161,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -178,17 +191,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -429,7 +454,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Butane: Rotation Energy Profiles</h1>
+                <h1>5. Butane: Rotation Energy Profiles</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -592,7 +617,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="butane-rotation-energy-profiles">
-<h1>Butane: Rotation Energy Profiles<a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this headline">¶</a></h1>
+<h1>5. Butane: Rotation Energy Profiles<a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this headline">¶</a></h1>
 <p>One of the easiest chemical <strong>transformations</strong> to model and explore in computational chemistry is <strong>conformational</strong> changes. We will start with potential energy profiles for <strong>rotation</strong>. We will build butane using the build tools in <em>wxMacMolPlt</em> and then submit the data to <em>GAMESS</em> as an optimization calculation via <em>GamessQ</em>.</p>
 <p>No more symmetry (for now). If we want to rotate molecules around bonds, the symmetry will be <strong>changing</strong> with the rotation. Do consider that symmetry saved a lot of computational effort and should be considered carefully when using expensive methods. We will downgrade our <strong>method</strong> for optimizations to HF/3-21G</p>
 <div class="section" id="learning-goals">
@@ -627,10 +652,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can now take the data file that was <strong>written</strong> out by <em>MacMolPlt</em> and use it as the input for <em>GAMESS</em>.</p>
 <div class="section" id="the-gamess-input-file">
 <h3>The <em>GAMESS</em> Input File<a class="headerlink" href="#the-gamess-input-file" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><em>Unix</em> comes with many text editors that will run in the terminal but most people would use a GUI tool. Microsoft <em>Visual Studio Code</em> is free and runs on all systems.</p>
+</div>
 <p><strong>Open</strong> the input file you just saved from <em>MacMolPlt</em> in a text editor.  You should see the following text…</p>
 <div class="literal-block-wrapper docutils container" id="butane-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 41 </span><span class="caption-text">butane.inp</span><a class="headerlink" href="#butane-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
+<div class="hide-input highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
 <span class="hll"><span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
 </span><span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
 <span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -670,10 +699,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="linenos">38</span>                1,14,4, 2,14,4,12, 3,14,4,12,13 $END
 </pre></div>
 </div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><em>Unix</em> comes with many text editors that will run in the terminal but most people would use a GUI tool. <em>BBedit</em> is a professional grade text editor and a free version is available for <em>MacOS</em> computers. Microsoft <em>Visual Studio Code</em> is also free.</p>
 </div>
 </div>
 <div class="section" id="interpreting-the-input-file">
@@ -1228,7 +1253,7 @@ butane-SCAN.inp_180_131.log: NSERCH:  <span class="m">23</span>  <span class="nv
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Ethane: Symmetry in Calculations</p>
+            <p class="prev-next-title">4. Ethane: Symmetry in Calculations</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="5_Rotation_Profiles_Workflow.html" title="next page">

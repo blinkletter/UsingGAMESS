@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -53,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Building Your System" href="1_Setup.html" />
+    <link rel="next" title="1. Building Your System" href="1_Setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,32 +99,44 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Setup.html">
-   Building Your System
+   1. Building Your System
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1A_Unix.html">
+     Using Unix
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_SmallMolecules.html">
-   Water: Getting Started
+   2. Water: Getting Started
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Visual_Input.html">
-   Methane: Visual Input and Output
+   3. Methane: Visual Input and Output
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Ethane.html">
-   Ethane: Symmetry in Calculations
+   4. Ethane: Symmetry in Calculations
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Rotation_Profiles.html">
-   Butane: Rotation Energy Profiles
+   5. Butane: Rotation Energy Profiles
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -145,20 +158,20 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Pi_Orbitals.html">
-   Allyl Cation: π Orbitals
+   6. Allyl Cation: π Orbitals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Benzene.html">
-   Benzene: MOs and Symmetry
+   7. Benzene: MOs and Symmetry
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="7_Butadiene.html">
-   Butadiene: Transition State for Rotation
+   8. Butadiene: Transition State for Rotation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -175,17 +188,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="8A_Diels_Alder.html">
-   Diels-Alder Reaction: Intrinsic Reaction Coordinates
+   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
+     Data Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="9_Solvent.html">
-   Solvent: The Environment Matters
+   10. Solvent: The Environment Matters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -287,101 +312,9 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-your-system">
-     <span class="xref myst">
-      1. Building Your System
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#water-getting-started">
-     <span class="xref myst">
-      2. Water: Getting Started
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methane-visual-input-and-output">
-     <span class="xref myst">
-      3. Methane: Visual Input and Output
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ethane-symmetry-in-calculations">
-     <span class="xref myst">
-      4. Ethane: Symmetry in Calculations
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#butane-rotation-energy-profiles">
-     <span class="xref myst">
-      5. Butane: Rotation Energy Profiles
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#allyl-cation-benzene-orbitals">
-     <span class="xref myst">
-      6. Allyl Cation * Benzene: π Orbitals
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#benzene-mos-symmetry">
-     <span class="xref myst">
-      7. Benzene: MOs &amp; Symmetry
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#butadiene-transition-state-for-rotation">
-     <span class="xref myst">
-      8. Butadiene: Transition State for Rotation
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diels-alder-reaction-intrinsic-reaction-coordinates">
-     <span class="xref myst">
-      9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solvent-models">
-     <span class="xref myst">
-      10. Solvent Models
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#notes-and-comments">
      Notes and Comments
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#style">
-       Style
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bold-text">
-       Bold Text
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#other-font-highlights">
-       Other Font Highlights
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#line-numbers">
-       Line Numbers
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -419,101 +352,9 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-your-system">
-     <span class="xref myst">
-      1. Building Your System
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#water-getting-started">
-     <span class="xref myst">
-      2. Water: Getting Started
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methane-visual-input-and-output">
-     <span class="xref myst">
-      3. Methane: Visual Input and Output
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ethane-symmetry-in-calculations">
-     <span class="xref myst">
-      4. Ethane: Symmetry in Calculations
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#butane-rotation-energy-profiles">
-     <span class="xref myst">
-      5. Butane: Rotation Energy Profiles
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#allyl-cation-benzene-orbitals">
-     <span class="xref myst">
-      6. Allyl Cation * Benzene: π Orbitals
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#benzene-mos-symmetry">
-     <span class="xref myst">
-      7. Benzene: MOs &amp; Symmetry
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#butadiene-transition-state-for-rotation">
-     <span class="xref myst">
-      8. Butadiene: Transition State for Rotation
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diels-alder-reaction-intrinsic-reaction-coordinates">
-     <span class="xref myst">
-      9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solvent-models">
-     <span class="xref myst">
-      10. Solvent Models
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#notes-and-comments">
      Notes and Comments
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#style">
-       Style
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bold-text">
-       Bold Text
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#other-font-highlights">
-       Other Font Highlights
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#line-numbers">
-       Line Numbers
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -536,67 +377,22 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="table-of-contents">
 <h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
 <p>Below is a list of the chapters in this book and some notes on what you will find in each.</p>
-<div class="section" id="building-your-system">
-<h2><a class="reference internal" href="1_Setup.html"><span class="doc std std-doc">1. Building Your System</span></a><a class="headerlink" href="#building-your-system" title="Permalink to this headline">¶</a></h2>
-<p>Here you will be shown where to <strong>obtain the software</strong> and how to <strong>install and run it</strong> on a <em>MacOS Unix</em> system. These instructions should be easily applied to <em>Linux</em>. Essential <strong><em>Unix</em> tools</strong> will be explained.</p>
-</div>
-<div class="section" id="water-getting-started">
-<h2><a class="reference internal" href="2_SmallMolecules.html"><span class="doc std std-doc">2. Water: Getting Started</span></a><a class="headerlink" href="#water-getting-started" title="Permalink to this headline">¶</a></h2>
-<p>This chapter will introduce how to <strong>run a job</strong> in <em>GAMESS</em>. We will explore the ways that molecules are described to <em>GAMESS</em> in <strong>input files</strong>. We will see examples of using <em>xyz</em> <strong>Cartessian coordinates</strong> to describe the locations of atoms, using symmetry point groups so that we need only describe the symmetry unique atoms and using internal coordinates via the <em><strong>Z-matrix</strong></em>. We will optimize the structures of <strong>water and ammonia</strong> using <em>GAMESS</em>. We will use semi-empirical and <em>ab initio</em> methods and introduce the idea of <strong>levels of theory</strong> in calculations. <em>GAMESS</em> will be run using the command line in the terminal. Results will be interpretted using the <strong>log files</strong> generated as output from <em>GAMESS</em>.</p>
-</div>
-<div class="section" id="methane-visual-input-and-output">
-<h2><a class="reference internal" href="3_Visual_Input.html"><span class="doc std std-doc">3. Methane: Visual Input and Output</span></a><a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this headline">¶</a></h2>
-<p>Here we will see how to use the helper application <em><strong>MacMolPlt</strong></em> to build molecules and generate input files. We will run the <em>GAMESS</em> jobs using the batch controller application <em><strong>GamessQ</strong></em>. We will also use <em>MacMolPlt</em> to <strong>analyze</strong> the results and <strong>visualize</strong> structure, localize <em>bonding orbitals</em> and <em>molecular orbitals</em>.</p>
-</div>
-<div class="section" id="ethane-symmetry-in-calculations">
-<h2><a class="reference internal" href="4_Ethane.html"><span class="doc std std-doc">4. Ethane: Symmetry in Calculations</span></a><a class="headerlink" href="#ethane-symmetry-in-calculations" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes you want to explore the structure and energies of unstable systems, like transition states. We need to <strong>constrain the optimization</strong> to find a best structure in a high-energy situation. In this chapter we will explore the rotational <strong>energy profile</strong> of ethane using <strong>symmetry point groups</strong> to enforce the <em>anti</em> and the <em>eclipsed</em> conformations. We will calculate the energy for these two cases.</p>
-</div>
-<div class="section" id="butane-rotation-energy-profiles">
-<h2><a class="reference internal" href="5_Rotation_Profiles.html"><span class="doc std std-doc">5. Butane: Rotation Energy Profiles</span></a><a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this headline">¶</a></h2>
-<p>We can extend the idea of locking specific elements of a structure and performing a constrained optimization to explore the full <strong>potential energy surface</strong> for the rotation of the central C-C bond in butane. We will use <strong>internal coordinates</strong> to set values of for the torsion angle  and <strong>constrain</strong> that value using the $STATPT IFREEZ option. We will also use <em><strong>Unix</strong></em> tools to <strong>build</strong> a series of input files and <strong>extract</strong> the data from the result files. Interactive <em><strong>Python</strong></em> will be demonstrated for <strong>analyzing and plotting</strong> the data.</p>
-</div>
-<div class="section" id="allyl-cation-benzene-orbitals">
-<h2><a class="reference internal" href="6_Pi_Orbitals.html"><span class="doc std std-doc">6. Allyl Cation * Benzene: π Orbitals</span></a><a class="headerlink" href="#allyl-cation-benzene-orbitals" title="Permalink to this headline">¶</a></h2>
-<p>We have already used simplified Hückel molecular orbital theory and interactive <em>Python</em> to calculate the π-molecular orbitals for <strong>conjugated systems</strong>. Now let us demonstrate that goal with <em>GAMESS</em>. We will <strong>calculate and visualize</strong> the π-molecular orbitals for the <strong>allyl system</strong> using <em>GAMESS</em> and <em>MacMolPlt</em>. We will revisit the idea of using <strong>symmetry</strong> in calculations.</p>
-</div>
-<div class="section" id="benzene-mos-symmetry">
-<h2><a class="reference internal" href="6_Benzene.html"><span class="doc std std-doc">7. Benzene: MOs &amp; Symmetry</span></a><a class="headerlink" href="#benzene-mos-symmetry" title="Permalink to this headline">¶</a></h2>
-<p>We will explore <strong>more</strong> about π-molecular orbitals and aromaticity using benzene as an example. Along the way we will explore the symmetry builder tools in <em>MacMolPlt</em> in more detail and discuss some details of how symmetry affects the outcome of calculations.</p>
-</div>
-<div class="section" id="butadiene-transition-state-for-rotation">
-<h2><a class="reference internal" href="7_Butadiene.html"><span class="doc std std-doc">8. Butadiene: Transition State for Rotation</span></a><a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">¶</a></h2>
-<p>We will use internal <em><strong>Z-matrix</strong></em> coordinates and <em>Unix</em> tools to create a series of input files for <strong>constrained optization</strong> of different rotational conformers of butadiene. Interactive <em>Python</em> will be used to analyze and plot the results. Then we will explore <strong>optimizing a transition state</strong> structure for the highest energy point in the bond rotation.</p>
-</div>
-<div class="section" id="diels-alder-reaction-intrinsic-reaction-coordinates">
-<h2><a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</span></a><a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h2>
-<p>We’ve all seen those little movies of a <strong>reaction in progress</strong>. We can make our own movies. We will use the Diels-Alder cycloaddition reaction as an example to demonstrate a <strong>reaction coordinate scan</strong> using a new method to <strong>contrain coordinates</strong>. We will not use the <em>Z-matrix</em>, but will use unique Cartessian coordinates and freeze automatically-generated internal coordinates of specific atoms using the $ZMAT IFZMAT and FVALUE options. We can then use this system to generate a <strong>series of structures</strong> that may track near the <strong>reaction coordinate</strong>. From this series we will identify a structure that is near the transition state and perform a <strong>transition state optimization</strong>. Finally we will use the transition state as a starting point for following the potential energy surface down to the products on either side via an <strong>intrinsic reaction coordinate</strong> calculation. We will use <em>MacMolPlt</em> to assemble the complete reaction coordinate from the log files and <strong>visualize</strong> the structures. <em>MacMolPlt</em> will produce an <strong>energy plot</strong> for us. In the end, we will <strong>make a movie</strong>.</p>
-</div>
-<div class="section" id="solvent-models">
-<h2><a class="reference internal" href="9_Solvent.html"><span class="doc std std-doc">10. Solvent Models</span></a><a class="headerlink" href="#solvent-models" title="Permalink to this headline">¶</a></h2>
-<p>Organic chemists do not live in <strong>gas phase</strong>. Our reactions occur in <strong>solvents</strong>. <em>GAMESS</em> can include solvemnt effects through a variety of methods.  We will use the PCM method to <strong>simulate a solvent environment</strong> and observe the difference in calculations for an <em>S<sub>N</sub>2</em> reaction. We will again explore using <strong>symmetry</strong> to enforce geometry during optimization, <strong>saddle point</strong> optimization and <strong>intrinsic reaction coordinate</strong> calculations. This exercise will place an emphasis on using interactive <em>Python</em> tools to <strong>process</strong>, <strong>clean</strong> and <strong>tabulate</strong> the data.</p>
-</div>
+<p><a class="reference internal" href="1_Setup.html"><span class="doc std std-doc"><strong>1. Building Your System</strong></span></a>. Here you will be shown where to <strong>obtain the software</strong> and how to <strong>install and run it</strong> on a <em>MacOS Unix</em> system. These instructions should be easily applied to <em>Linux</em>. Essential <strong><em>Unix</em> tools</strong> will be explained.</p>
+<p><a class="reference internal" href="2_SmallMolecules.html"><span class="doc std std-doc"><strong>2. Water: Getting Started</strong></span></a>. This chapter will introduce how to <strong>run a job</strong> in <em>GAMESS</em>. We will explore the ways that molecules are described to <em>GAMESS</em> in <strong>input files</strong>. We will see examples of using <em>xyz</em> <strong>Cartessian coordinates</strong> to describe the locations of atoms, using symmetry point groups so that we need only describe the symmetry unique atoms and using internal coordinates via the <em><strong>Z-matrix</strong></em>. We will optimize the structures of <strong>water and ammonia</strong> using <em>GAMESS</em>. We will use semi-empirical and <em>ab initio</em> methods and introduce the idea of <strong>levels of theory</strong> in calculations. <em>GAMESS</em> will be run using the command line in the terminal. Results will be interpretted using the <strong>log files</strong> generated as output from <em>GAMESS</em>.</p>
+<p><a class="reference internal" href="3_Visual_Input.html"><span class="doc std std-doc"><strong>3. Methane: Visual Input and Output</strong></span></a>. Here we will see how to use the helper application <em><strong>MacMolPlt</strong></em> to build molecules and generate input files. We will run the <em>GAMESS</em> jobs using the batch controller application <em><strong>GamessQ</strong></em>. We will also use <em>MacMolPlt</em> to <strong>analyze</strong> the results and <strong>visualize</strong> structure, localize <em>bonding orbitals</em> and <em>molecular orbitals</em>.</p>
+<p><a class="reference internal" href="4_Ethane.html"><span class="doc std std-doc"><strong>4. Ethane: Symmetry in Calculations</strong></span></a>. Sometimes you want to explore the structure and energies of unstable systems, like transition states. We need to <strong>constrain the optimization</strong> to find a best structure in a high-energy situation. In this chapter we will explore the rotational <strong>energy profile</strong> of ethane using <strong>symmetry point groups</strong> to enforce the <em>anti</em> and the <em>eclipsed</em> conformations. We will calculate the energy for these two cases.</p>
+<p><a class="reference internal" href="5_Rotation_Profiles.html"><span class="doc std std-doc"><strong>5. Butane: Rotation Energy Profiles</strong></span></a>. We can extend the idea of locking specific elements of a structure and performing a constrained optimization to explore the full <strong>potential energy surface</strong> for the rotation of the central C-C bond in butane. We will use <strong>internal coordinates</strong> to set values of for the torsion angle  and <strong>constrain</strong> that value using the $STATPT IFREEZ option. We will also use <em><strong>Unix</strong></em> tools to <strong>build</strong> a series of input files and <strong>extract</strong> the data from the result files. Interactive <em><strong>Python</strong></em> will be demonstrated for <strong>analyzing and plotting</strong> the data.</p>
+<p><a class="reference internal" href="6_Pi_Orbitals.html"><span class="doc std std-doc"><strong>6. Allyl Cation * Benzene: π Orbitals</strong></span></a>. We have already used simplified Hückel molecular orbital theory and interactive <em>Python</em> to calculate the π-molecular orbitals for <strong>conjugated systems</strong>. Now let us demonstrate that goal with <em>GAMESS</em>. We will <strong>calculate and visualize</strong> the π-molecular orbitals for the <strong>allyl system</strong> using <em>GAMESS</em> and <em>MacMolPlt</em>. We will revisit the idea of using <strong>symmetry</strong> in calculations.</p>
+<p><a class="reference internal" href="6_Benzene.html"><span class="doc std std-doc"><strong>7. Benzene: MOs &amp; Symmetry</strong></span></a>. We will explore <strong>more</strong> about π-molecular orbitals and aromaticity using benzene as an example. Along the way we will explore the symmetry builder tools in <em>MacMolPlt</em> in more detail and discuss some details of how symmetry affects the outcome of calculations.</p>
+<p><a class="reference internal" href="7_Butadiene.html"><span class="doc std std-doc"><strong>8. Butadiene: Transition State for Rotation</strong></span></a>. We will use internal <em><strong>Z-matrix</strong></em> coordinates and <em>Unix</em> tools to create a series of input files for <strong>constrained optization</strong> of different rotational conformers of butadiene. Interactive <em>Python</em> will be used to analyze and plot the results. Then we will explore <strong>optimizing a transition state</strong> structure for the highest energy point in the bond rotation.</p>
+<p><a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc"><strong>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</strong></span></a>. We’ve all seen those little movies of a <strong>reaction in progress</strong>. We can make our own movies. We will use the Diels-Alder cycloaddition reaction as an example to demonstrate a <strong>reaction coordinate scan</strong> using a new method to <strong>contrain coordinates</strong>. We will not use the <em>Z-matrix</em>, but will use unique Cartessian coordinates and freeze automatically-generated internal coordinates of specific atoms using the $ZMAT IFZMAT and FVALUE options. We can then use this system to generate a <strong>series of structures</strong> that may track near the <strong>reaction coordinate</strong>. From this series we will identify a structure that is near the transition state and perform a <strong>transition state optimization</strong>. Finally we will use the transition state as a starting point for following the potential energy surface down to the products on either side via an <strong>intrinsic reaction coordinate</strong> calculation. We will use <em>MacMolPlt</em> to assemble the complete reaction coordinate from the log files and <strong>visualize</strong> the structures. <em>MacMolPlt</em> will produce an <strong>energy plot</strong> for us. In the end, we will <strong>make a movie</strong>.</p>
+<p><a class="reference internal" href="9_Solvent.html"><span class="doc std std-doc"><strong>10. Solvent Models</strong></span></a>. Organic chemists do not live in <strong>gas phase</strong>. Our reactions occur in <strong>solvents</strong>. <em>GAMESS</em> can include solvemnt effects through a variety of methods.  We will use the PCM method to <strong>simulate a solvent environment</strong> and observe the difference in calculations for an <em>S<sub>N</sub>2</em> reaction. We will again explore using <strong>symmetry</strong> to enforce geometry during optimization, <strong>saddle point</strong> optimization and <strong>intrinsic reaction coordinate</strong> calculations. This exercise will place an emphasis on using interactive <em>Python</em> tools to <strong>process</strong>, <strong>clean</strong> and <strong>tabulate</strong> the data.</p>
 <div class="section" id="notes-and-comments">
 <h2>Notes and Comments<a class="headerlink" href="#notes-and-comments" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="style">
-<h3>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
-<p>This book was started as notes to myself as I stumbled through <strong>learning</strong> how to use <em>GAMESS</em>. I wanted to build an exercise in visiualizing molecular orbitals but, as I realized how <strong>easy</strong> some calculations were, I decided to do <strong>more</strong>. I will continue to add to this book over time.</p>
-<p>Since it was written to me, by me, it has a casual and inconsistent <strong>style</strong>. You will see “I” and “we” mixed in with passive voice. I make no apologies. Feel free to <strong>send me comments and corrections</strong>. I do need an editor.</p>
-</div>
-<div class="section" id="bold-text">
-<h3>Bold Text<a class="headerlink" href="#bold-text" title="Permalink to this headline">¶</a></h3>
-<p>You will see many words in <strong>bold face</strong> fonts. I once took a course in student engagement and one recommendation was to intersperse bold <strong>highlights</strong> throughout a paragraph. This is apparently useful for helping students to <strong>read</strong>, especially now that we all have attention spans measured in <strong>seconds</strong> rather than <strong>minutes</strong>. I tried to keep the bold text on key words but often they are in patterns such as “<strong>big</strong>” and “<strong>small</strong>”. In other places bold is used just because it had been a <strong>while</strong> since the last bold word.</p>
-<p>Please let me know if this <strong>bold experiment</strong> is helpful or annoying.</p>
-</div>
-<div class="section" id="other-font-highlights">
-<h3>Other Font Highlights<a class="headerlink" href="#other-font-highlights" title="Permalink to this headline">¶</a></h3>
-<p>There is a <strong>code style</strong> used throughout the book. It is rendered as a <strong>monospace font</strong> in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries.</p>
-<p><strong>Italics</strong> are used for the traditional scientific uses and also for filenames of applications such as <em>GAMESS</em>.</p>
-</div>
-<div class="section" id="line-numbers">
-<h3>Line Numbers<a class="headerlink" href="#line-numbers" title="Permalink to this headline">¶</a></h3>
-<p>Many code listings include line numbers along the <strong>left edge</strong>. These are generated by the book itself and are not part of the text. You can <strong>cut and paste</strong> and the line numbers will not be included. I use them to refer to <strong>specific lines</strong> in discussions and to <strong>quickly find</strong> the relevant locations in enormous text files.</p>
-</div>
+<p><strong>Style</strong>. This book was started as notes to myself as I stumbled through <strong>learning</strong> how to use <em>GAMESS</em>. I wanted to build an exercise in visiualizing molecular orbitals but, as I realized how <strong>easy</strong> some calculations were, I decided to do <strong>more</strong>. Since it was written to me, by me, it has a casual and inconsistent <strong>style</strong>. You will see “I” and “we” mixed in with passive voice. I make no apologies. Feel free to <strong>send me comments and corrections</strong>. I do need an editor.</p>
+<p><strong>Bold Text</strong>. You will see many words in <strong>bold face</strong> fonts. I once took a course in student engagement and one recommendation was to intersperse bold <strong>highlights</strong> throughout a paragraph. This is apparently useful for helping students to <strong>read</strong>, especially now that we all have attention spans measured in <strong>seconds</strong> rather than <strong>minutes</strong>. I tried to keep the bold text on key words but often they are in patterns such as “<strong>big</strong>” and “<strong>small</strong>”. In other places bold is used just because it had been a <strong>while</strong> since the last bold word. Please let me know if this <strong>bold experiment</strong> is helpful or annoying.</p>
+<p><strong>Other Font Highlights</strong>. There is a <strong>code style</strong> used throughout the book. It is rendered as a <strong>monospace font</strong> in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries. <strong>Italics</strong> are used for the traditional scientific uses and also for filenames of applications such as <em>GAMESS</em>.</p>
+<p><strong>Line Numbers</strong>. Many code listings include line numbers along the <strong>left edge</strong>. These are generated by the book itself and are not part of the text. You can <strong>cut and paste</strong> and the line numbers will not be included. I use them to refer to <strong>specific lines</strong> in discussions and to <strong>quickly find</strong> the relevant locations in enormous text files.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -630,7 +426,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="1_Setup.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Building Your System</p>
+        <p class="prev-next-title">1. Building Your System</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

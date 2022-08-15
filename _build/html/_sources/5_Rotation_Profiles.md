@@ -1,4 +1,4 @@
-# Butane: Rotation Energy Profiles
+# 5. Butane: Rotation Energy Profiles
 
 One of the easiest chemical **transformations** to model and explore in computational chemistry is **conformational** changes. We will start with potential energy profiles for **rotation**. We will build butane using the build tools in *wxMacMolPlt* and then submit the data to *GAMESS* as an optimization calculation via *GamessQ*.
 
@@ -41,6 +41,9 @@ We can now take the data file that was **written** out by *MacMolPlt* and use it
 
 ### The *GAMESS* Input File
 
+```{margin}
+*Unix* comes with many text editors that will run in the terminal but most people would use a GUI tool. Microsoft *Visual Studio Code* is free and runs on all systems.
+```
 **Open** the input file you just saved from *MacMolPlt* in a text editor.  You should see the following text…
 
 ```{code-block} 
@@ -50,6 +53,7 @@ linenos: True
 lineno-start: 1
 emphasize-lines: 2,5,14
 caption: butane.inp
+class: hide-input
 ---
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
@@ -89,9 +93,6 @@ H   4    1.14000  12 109.4712  13 120.0000
                 1,12,4, 2,12,4,1,  3,12,4,1,6, 
                 1,13,4, 2,13,4,12, 3,13,4,12,1, 
                 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
-```
-```{note}
-*Unix* comes with many text editors that will run in the terminal but most people would use a GUI tool. *BBedit* is a professional grade text editor and a free version is available for *MacOS* computers. Microsoft *Visual Studio Code* is also free.
 ```
 
 ### Interpreting The Input File
