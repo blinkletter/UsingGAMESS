@@ -37,9 +37,6 @@ I then exported an **input file** using `Subwindow` &rarr; `Input Builder`. Be s
 ```{code-block} 
 ---
 name: AllylCat_6311_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: AllylCat_6311_U.inp
 ---
 !   File created by MacMolPlt 7.7.2
@@ -141,8 +138,6 @@ Below is the **input file** for the energy calculation that produced the orbital
 ```{code-block} 
 ---
 name: AllylCat_B3LYP_U_E.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 3
 caption: AllylCat_B3LYP_U_E.inp
 ---

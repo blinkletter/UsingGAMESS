@@ -52,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Benzene: MOs and Symmetry" href="6_Benzene.html" />
@@ -455,22 +455,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>I then exported an <strong>input file</strong> using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add <em>d</em> and <em>p</em> orbitals and use both diffuse functions. The diffuse functions are important as they improve results for <strong>charged</strong> systems. Here is the input file that was generated. Only the <em>unique atoms</em> (2 carbons, the third is defined by symmetry) are in the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-6311-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 54 </span><span class="caption-text">AllylCat_6311_U.inp</span><a class="headerlink" href="#allylcat-6311-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 ICHARG=1 MULT=1 MOLPLT=.TRUE. $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Allyl
-<span class="linenos"> 9</span>CNV 2
-<span class="linenos">10</span>
-<span class="linenos">11</span>C     6.0     0.00000     1.05078     0.00000
-<span class="linenos">12</span>C     6.0     0.00000     0.00000     1.10972
-<span class="linenos">13</span>H     1.0     0.00000     0.00000     2.24972
-<span class="linenos">14</span>H     1.0     0.00000     2.15957     0.26491
-<span class="linenos">15</span>H     1.0     0.00000     0.72580    -1.09270
-<span class="linenos">16</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 ICHARG=1 MULT=1 MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Allyl
+CNV 2
+
+C     6.0     0.00000     1.05078     0.00000
+C     6.0     0.00000     0.00000     1.10972
+H     1.0     0.00000     0.00000     2.24972
+H     1.0     0.00000     2.15957     0.26491
+H     1.0     0.00000     0.72580    -1.09270
+ $END
 </pre></div>
 </div>
 </div>
@@ -543,23 +543,23 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Below is the <strong>input file</strong> for the energy calculation that produced the orbitals in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-b3lyp-u-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">AllylCat_B3LYP_U_E.inp</span><a class="headerlink" href="#allylcat-b3lyp-u-e-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY DFTTYP=B3LYP MAXIT=30 ICHARG=1 MULT=1 
-<span class="hll"><span class="linenos"> 3</span>    LOCAL=RUEDNBRG MOLPLT=.TRUE. $END
-</span><span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Allyl
-<span class="linenos">10</span>CNV 2
-<span class="linenos">11</span>
-<span class="linenos">12</span> C           6.0   0.0000000000   1.1890383616   0.0382935299
-<span class="linenos">13</span> C           6.0   0.0000000000   0.0000000000   0.7413087631
-<span class="linenos">14</span> H           1.0   0.0000000000   0.0000000000   1.8262054383
-<span class="linenos">15</span> H           1.0   0.0000000000   2.1502830490   0.5462821494
-<span class="linenos">16</span> H           1.0   0.0000000000   1.2020058650  -1.0493127800
-<span class="linenos">17</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=ENERGY DFTTYP=B3LYP MAXIT=30 ICHARG=1 MULT=1 
+<span class="hll">    LOCAL=RUEDNBRG MOLPLT=.TRUE. $END
+</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Allyl
+CNV 2
+
+ C           6.0   0.0000000000   1.1890383616   0.0382935299
+ C           6.0   0.0000000000   0.0000000000   0.7413087631
+ H           1.0   0.0000000000   0.0000000000   1.8262054383
+ H           1.0   0.0000000000   2.1502830490   0.5462821494
+ H           1.0   0.0000000000   1.2020058650  -1.0493127800
+ $END
 </pre></div>
 </div>
 </div>

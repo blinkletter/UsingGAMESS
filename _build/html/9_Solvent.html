@@ -52,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Cleaning Workflow" href="10_Solvent_IRC_Plots.html" />
@@ -611,21 +611,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The <strong>unique</strong> coordinates will be 0,0,0 for <strong>carbon</strong>, 1,0,0 for the unique <strong>hydrogen</strong> and 0,0,2 for the unique <strong>chloride</strong>. I know that C-H bonds are generally about 1 Å and a typical C-Cl bond is 1.7 Å so I chose 2 Å since the bonds should be breaking and forming. Nobody knows the true values, but some people think that they can be calculated. The whole system will have a <strong>charge</strong> of -1.</p>
 <div class="literal-block-wrapper docutils container" id="sn2-321-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 90 </span><span class="caption-text">SN2_321_U.inp</span><a class="headerlink" href="#sn2-321-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
-<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>SN2
-<span class="linenos"> 9</span>DNH 3
-<span class="linenos">10</span>
-<span class="linenos">11</span>Cl    17.0    0.00000     0.00000     2.00000
-<span class="linenos">12</span>C     6.0     0.00000     0.00000     0.00000
-<span class="linenos">13</span>H     1.0     1.00000     0.00000     0.00000
-<span class="linenos">14</span> $END
-<span class="linenos">15</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=40 $END
+ $DATA 
+SN2
+DNH 3
+
+Cl    17.0    0.00000     0.00000     2.00000
+C     6.0     0.00000     0.00000     0.00000
+H     1.0     1.00000     0.00000     0.00000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 $END
 </pre></div>
 </div>
 </div>
@@ -633,22 +633,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The second input file will be a <strong>copy</strong> of the first. All I will do is <strong>add</strong> the $PCM group for a <strong>solvent</strong>. I will choose water.</p>
 <div class="literal-block-wrapper docutils container" id="sn2-h2o-321-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 91 </span><span class="caption-text">N2_H2O_321_U.inp</span><a class="headerlink" href="#sn2-h2o-321-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
-<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-<span class="hll"><span class="linenos"> 7</span> $PCM SOLVNT = WATER $END
-</span><span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>SN2
-<span class="linenos">10</span>DNH 3
-<span class="linenos">11</span>
-<span class="linenos">12</span>Cl    17.0    0.00000     0.00000     2.00000
-<span class="linenos">13</span>C     6.0     0.00000     0.00000     0.00000
-<span class="linenos">14</span>H     1.0     1.00000     0.00000     0.00000
-<span class="linenos">15</span> $END
-<span class="linenos">16</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=40 $END
+<span class="hll"> $PCM SOLVNT = WATER $END
+</span> $DATA 
+SN2
+DNH 3
+
+Cl    17.0    0.00000     0.00000     2.00000
+C     6.0     0.00000     0.00000     0.00000
+H     1.0     1.00000     0.00000     0.00000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 $END
 </pre></div>
 </div>
 </div>
@@ -669,48 +669,48 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Below are the Hessian input files for the two jobs. Observe how they <strong>differ</strong> only by the presence of the <code class="docutils literal notranslate"><span class="pre">$PCM</span></code> group.</p>
 <div class="literal-block-wrapper docutils container" id="sn2-d3h-321g-hess-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 92 </span><span class="caption-text">SN2_D3h_321G_HESS.inp</span><a class="headerlink" href="#sn2-d3h-321g-hess-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
-<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-<span class="linenos"> 7</span> $GUESS GUESS=HUCKEL $END
-<span class="hll"><span class="linenos"> 8</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
-</span><span class="linenos"> 9</span> $DATA 
-<span class="linenos">10</span>SN2
-<span class="linenos">11</span>DNH 3
-<span class="linenos">12</span>
-<span class="linenos">13</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
-<span class="linenos">14</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">15</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
-<span class="linenos">16</span> $END
-<span class="linenos">17</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
-<span class="linenos">18</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
+    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=40 $END
+ $GUESS GUESS=HUCKEL $END
+<span class="hll"> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+</span> $DATA 
+SN2
+DNH 3
+
+ CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+ $END
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-hess-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 93 </span><span class="caption-text">SN2_D3h_H2O_321G_HESS.inp</span><a class="headerlink" href="#sn2-d3h-h2o-321g-hess-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
-<span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-<span class="linenos"> 7</span> $GUESS GUESS=HUCKEL $END
-<span class="hll"><span class="linenos"> 8</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
-</span><span class="hll"><span class="linenos"> 9</span> $PCM SOLVNT = WATER $END
-</span><span class="linenos">10</span> $DATA 
-<span class="linenos">11</span>SN2
-<span class="linenos">12</span>DNH 3
-<span class="linenos">13</span>
-<span class="linenos">14</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
-<span class="linenos">15</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">16</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
-<span class="linenos">17</span> $END
-<span class="linenos">18</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
-<span class="linenos">19</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
+    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=40 $END
+ $GUESS GUESS=HUCKEL $END
+<span class="hll"> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+</span><span class="hll"> $PCM SOLVNT = WATER $END
+</span> $DATA 
+SN2
+DNH 3
+
+ CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+ $END
 </pre></div>
 </div>
 </div>
@@ -764,33 +764,33 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Now I will have the two input files that <strong>differ</strong> by having different <code class="docutils literal notranslate"><span class="pre">$HESS</span></code> groups and by whether a <code class="docutils literal notranslate"><span class="pre">$PCM</span></code> group is present to declare <strong>solvent</strong>. The solvent calculation input file is shown below.</p>
 <div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-sadl-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 95 </span><span class="caption-text">Excerpt from SN2_D3h_H2O_321G_SADL.inp</span><a class="headerlink" href="#sn2-d3h-h2o-321g-sadl-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=SADPOINT DFTTYP=B3LYP MAXIT=30 
-</span><span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-<span class="linenos"> 7</span> $GUESS GUESS=HUCKEL $END
-<span class="linenos"> 8</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
-<span class="hll"><span class="linenos"> 9</span> $PCM SOLVNT = WATER $END
-</span><span class="linenos">10</span> $DATA 
-<span class="linenos">11</span>SN2
-<span class="linenos">12</span>DNH 3
-<span class="linenos">13</span>
-<span class="linenos">14</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
-<span class="linenos">15</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">16</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
-<span class="linenos">17</span> $END
-<span class="linenos">18</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
-<span class="linenos">19</span> $END
-<span class="hll"><span class="linenos">20</span> $HESS
-</span><span class="linenos">21</span>ENERGY IS     -955.6969584956 E(NUC) IS      107.7130912280
-<span class="linenos">22</span> 1  1 7.24722865E-03 4.72760552E-09 1.40751890E-03 1.64032676E-03 6.23241611E-09
-<span class="linenos">23</span> 1  2-3.73066173E-05-1.28704249E-02 3.54710281E-09-5.72539922E-04 6.79441863E-04
-<span class="linenos">24</span> 1  3-8.50832638E-04 3.79570720E-03 6.79439778E-04 8.50829497E-04 3.79570862E-03
-<span class="linenos">25</span> ...
-<span class="linenos">26</span> ...
-<span class="linenos">27</span> Many More Lines...
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=ROHF RUNTYP=SADPOINT DFTTYP=B3LYP MAXIT=30 
+</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=40 $END
+ $GUESS GUESS=HUCKEL $END
+ $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+<span class="hll"> $PCM SOLVNT = WATER $END
+</span> $DATA 
+SN2
+DNH 3
+
+ CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+ $END
+<span class="hll"> $HESS
+</span>ENERGY IS     -955.6969584956 E(NUC) IS      107.7130912280
+ 1  1 7.24722865E-03 4.72760552E-09 1.40751890E-03 1.64032676E-03 6.23241611E-09
+ 1  2-3.73066173E-05-1.28704249E-02 3.54710281E-09-5.72539922E-04 6.79441863E-04
+ 1  3-8.50832638E-04 3.79570720E-03 6.79439778E-04 8.50829497E-04 3.79570862E-03
+ ...
+ ...
+ Many More Lines... 
 </pre></div>
 </div>
 </div>
@@ -865,65 +865,71 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Below</strong> are the first lines of the input files for the IRC calculations.  They will each have to be run again after <strong>changing</strong> <code class="docutils literal notranslate"><span class="pre">FORWRD=.TRUE.</span></code> to <code class="docutils literal notranslate"><span class="pre">FORWRD=.FALSE.</span></code> to run the other direction in the IRC.</p>
 <div class="literal-block-wrapper docutils container" id="sn2-d3h-321g-irc-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 98 </span><span class="caption-text">Excerpt from SN2_D3h_321G_IRC.inp</span><a class="headerlink" href="#sn2-d3h-321g-irc-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
-</span><span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="hll"><span class="linenos"> 6</span> $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
-</span><span class="hll"><span class="linenos"> 7</span>      SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
-</span><span class="linenos"> 8</span> $GUESS GUESS=HUCKEL $END
-<span class="linenos"> 9</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
-<span class="linenos">10</span> $DATA 
-<span class="linenos">11</span>SN2
-<span class="linenos">12</span>C1
-<span class="linenos">13</span> CL         17.0   0.0000000000   0.0000000000  -2.3842905066
-<span class="linenos">14</span> CL         17.0   0.0000000000  -0.0000000000   2.3842905066
-<span class="linenos">15</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">16</span> H           1.0  -0.5368882526   0.9299177315   0.0000000000
-<span class="linenos">17</span> H           1.0  -0.5368882526  -0.9299177315   0.0000000000
-<span class="linenos">18</span> H           1.0   1.0737765052  -0.0000000000  -0.0000000000
-<span class="linenos">19</span> $END
-<span class="linenos">20</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
-<span class="linenos">21</span> $END
-<span class="linenos">22</span> $HESS
-<span class="linenos">23</span>ENERGY IS     -955.6090406225 E(NUC) IS      107.7130912280
-<span class="linenos">24</span> 1  1 6.79543992E-03-5.28518145E-10-1.13662054E-05 1.86962073E-03-4.41178632E-07
-<span class="linenos">25</span> 1  2 1.84498964E-07-1.17868321E-02 4.91464415E-06 9.80471951E-06 3.79074842E-04
-<span class="linenos">26</span> 1  3-1.10591017E-03 3.64577504E-03 3.80950771E-04 1.10401128E-03 3.64690486E-03
-<span class="linenos">27</span> 1  4 2.36174580E-03-2.57404697E-06-7.29130292E-03
-<span class="linenos">28</span> 2  1-5.28518145E-10 6.86601184E-03-2.97887583E-09 4.40191839E-07 1.94030136E-03
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
+</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+<span class="hll"> $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
+</span><span class="hll">      SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
+</span> $GUESS GUESS=HUCKEL $END
+ $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+ $DATA 
+SN2
+C1
+ CL         17.0   0.0000000000   0.0000000000  -2.3842905066
+ CL         17.0   0.0000000000  -0.0000000000   2.3842905066
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0  -0.5368882526   0.9299177315   0.0000000000
+ H           1.0  -0.5368882526  -0.9299177315   0.0000000000
+ H           1.0   1.0737765052  -0.0000000000  -0.0000000000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+ $END
+ $HESS
+ENERGY IS     -955.6090406225 E(NUC) IS      107.7130912280
+ 1  1 6.79543992E-03-5.28518145E-10-1.13662054E-05 1.86962073E-03-4.41178632E-07
+ 1  2 1.84498964E-07-1.17868321E-02 4.91464415E-06 9.80471951E-06 3.79074842E-04
+ 1  3-1.10591017E-03 3.64577504E-03 3.80950771E-04 1.10401128E-03 3.64690486E-03
+ 1  4 2.36174580E-03-2.57404697E-06-7.29130292E-03
+ 2  1-5.28518145E-10 6.86601184E-03-2.97887583E-09 4.40191839E-07 1.94030136E-03
+ ...
+ ...
+ Many More Lines... 
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="sn2-d3h-h2o-321g-irc-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 99 </span><span class="caption-text">Excerpt from SN2_D3h_H2O_321G_IRC.inp</span><a class="headerlink" href="#sn2-d3h-h2o-321g-irc-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
-</span><span class="linenos"> 2</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="hll"><span class="linenos"> 6</span> $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
-</span><span class="hll"><span class="linenos"> 7</span>      SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
-</span><span class="linenos"> 8</span> $GUESS GUESS=HUCKEL $END
-<span class="linenos"> 9</span> $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
-<span class="hll"><span class="linenos">10</span> $PCM SOLVNT = WATER $END
-</span><span class="linenos">11</span> $DATA 
-<span class="linenos">12</span>SN2
-<span class="linenos">13</span>C1
-<span class="linenos">14</span> CL         17.0   0.0000240609  -0.0000000004  -2.3912433892
-<span class="linenos">15</span> CL         17.0   0.0000539071  -0.0000000002   2.3907345964
-<span class="linenos">16</span> C           6.0  -0.0001082120  -0.0000000588   0.0011965211
-<span class="linenos">17</span> H           1.0  -0.5383474068   0.9310013615   0.0003691778
-<span class="linenos">18</span> H           1.0  -0.5383478700  -0.9310011483   0.0003691615
-<span class="linenos">19</span> H           1.0   1.0752784580   0.0000005078   0.0026686497
-<span class="linenos">20</span> $END
-<span class="linenos">21</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
-<span class="linenos">22</span> $END
-<span class="linenos">23</span> $HESS
-<span class="linenos">24</span>ENERGY IS     -955.6969739956 E(NUC) IS      107.4285285723
-<span class="linenos">25</span> 1  1 6.95543756E-03 3.42600959E-09 9.55860879E-04 1.93857897E-03 1.77783245E-09
-<span class="linenos">26</span> 1  2-1.95792854E-04-1.25911383E-02 9.12793077E-09-4.63052182E-04 5.56425838E-04
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
+</span>    ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+<span class="hll"> $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
+</span><span class="hll">      SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
+</span> $GUESS GUESS=HUCKEL $END
+ $FORCE METHOD=SEMINUM VIBANL=.TRUE. $END
+<span class="hll"> $PCM SOLVNT = WATER $END
+</span> $DATA 
+SN2
+C1
+ CL         17.0   0.0000240609  -0.0000000004  -2.3912433892
+ CL         17.0   0.0000539071  -0.0000000002   2.3907345964
+ C           6.0  -0.0001082120  -0.0000000588   0.0011965211
+ H           1.0  -0.5383474068   0.9310013615   0.0003691778
+ H           1.0  -0.5383478700  -0.9310011483   0.0003691615
+ H           1.0   1.0752784580   0.0000005078   0.0026686497
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=1,3, 2,3 
+ $END
+ $HESS
+ENERGY IS     -955.6969739956 E(NUC) IS      107.4285285723
+ 1  1 6.95543756E-03 3.42600959E-09 9.55860879E-04 1.93857897E-03 1.77783245E-09
+ 1  2-1.95792854E-04-1.25911383E-02 9.12793077E-09-4.63052182E-04 5.56425838E-04
+ ...
+ ...
+ Many More Lines... 
 </pre></div>
 </div>
 </div>
@@ -948,42 +954,42 @@ const thebe_selector_output = ".output, .cell_output"
 <p>What is the calculated C-Cl <strong>bond length</strong> in the methyl chloride starting material? We can quickly modify the input file that we used for the transtion state search. All we need to do is <strong>change</strong> the point group. The transition state was <em>D<sub>3h</sub></em> and methyl chloride is <em>C<sub>3v</sub></em>. That change alone will give us the methyl chloride arrangement. Below are the <strong>two input files</strong> for this calculation. Compare them to <a class="reference internal" href="#sn2-321-u-inp"><span class="std std-numref">Listing 90</span></a> and <a class="reference internal" href="#sn2-h2o-321-u-inp"><span class="std std-numref">Listing 91</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="sn2-c3v-h2o-ch3cl-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 100 </span><span class="caption-text">SN2_C3V_H2O_CH3Cl.inp</span><a class="headerlink" href="#sn2-c3v-h2o-ch3cl-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1705</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
-<span class="linenos">1706</span>    ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
-<span class="linenos">1707</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos">1708</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="hll"><span class="linenos">1709</span> $SCF DIRSCF=.TRUE. $END
-</span><span class="hll"><span class="linenos">1710</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-</span><span class="hll"><span class="linenos">1711</span> $PCM SOLVNT = WATER $END
-</span><span class="linenos">1712</span> $DATA 
-<span class="linenos">1713</span>methyl Chloride
-<span class="hll"><span class="linenos">1714</span>CNV 3
-</span><span class="linenos">1715</span>
-<span class="linenos">1716</span>Cl    17.0    0.00000     0.00000     2.00000
-<span class="linenos">1717</span>C     6.0     0.00000     0.00000     0.00000
-<span class="linenos">1718</span>H     1.0     1.00000     0.00000     0.00000
-<span class="linenos">1719</span> $END
-<span class="linenos">1720</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+    ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="hll"> $SCF DIRSCF=.TRUE. $END
+</span><span class="hll"> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+</span><span class="hll"> $PCM SOLVNT = WATER $END
+</span> $DATA 
+methyl Chloride
+<span class="hll">CNV 3
+</span>
+Cl    17.0    0.00000     0.00000     2.00000
+C     6.0     0.00000     0.00000     0.00000
+H     1.0     1.00000     0.00000     0.00000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="sn2-c3v-ch3cl-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 101 </span><span class="caption-text">SN2_C3V_CH3Cl.inp</span><a class="headerlink" href="#sn2-c3v-ch3cl-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1705</span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
-<span class="linenos">1706</span>    ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
-<span class="linenos">1707</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos">1708</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="hll"><span class="linenos">1709</span> $SCF DIRSCF=.TRUE. $END
-</span><span class="hll"><span class="linenos">1710</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-</span><span class="hll"><span class="linenos">1711</span> $DATA 
-</span><span class="linenos">1712</span>methyl Chloride
-<span class="linenos">1713</span>CNV 3
-<span class="hll"><span class="linenos">1714</span>
-</span><span class="linenos">1715</span>Cl    17.0    0.00000     0.00000     2.00000
-<span class="linenos">1716</span>C     6.0     0.00000     0.00000     0.00000
-<span class="linenos">1717</span>H     1.0     1.00000     0.00000     0.00000
-<span class="linenos">1718</span> $END
-<span class="linenos">1719</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
+    ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+<span class="hll"> $SCF DIRSCF=.TRUE. $END
+</span><span class="hll"> $STATPT OPTTOL=0.0001 NSTEP=40 $END
+</span><span class="hll"> $DATA 
+</span>methyl Chloride
+CNV 3
+<span class="hll">
+</span>Cl    17.0    0.00000     0.00000     2.00000
+C     6.0     0.00000     0.00000     0.00000
+H     1.0     1.00000     0.00000     0.00000
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
 </pre></div>
 </div>
 </div>

@@ -5,9 +5,6 @@ Below is the output file for the butadiene optimization job.
 ```{code-block} 
 ---
 name: Butadiene.inpFILE
-linenos: True
-lineno-start: 1
-emphasize-lines:
 caption: Butadiene.inp
 ---
 !   File created by MacMolPlt 7.7.2

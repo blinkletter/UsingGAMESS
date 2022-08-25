@@ -21,8 +21,6 @@ We can start with a *Z-matrix* for ethane. If the structure **described** fits t
 ```{code-block} 
 ---
 name: Ethane_anti_AM1_Z.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 16
 caption: Ethane_anti_AM1_Z.inp
 ---
@@ -54,8 +52,6 @@ The result file produced the symmetry unique coordinates optimized at the AM1 le
 ```{code-block} 
 ---
 name: Ethane_anti_6311_U.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 20
 caption: Ethane_anti_6311_U.inp
 ---
@@ -105,8 +101,6 @@ The *syn* structure had *D<sub>3h</sub>* symmetry and the *Z-matrix* is **almost
 ```{code-block} 
 ---
 name: Ethane_syn_AM1_Z.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 16
 caption: Ethane_syn_AM1_Z.inp
 ---
@@ -136,8 +130,6 @@ Then we **used** the unique coordinate generated to create the HF/6-311G(d,p)++ 
 ```{code-block} 
 ---
 name: Ethane_syn_6311_U.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 20
 caption: Ethane_syn_6311_U.inp
 ---

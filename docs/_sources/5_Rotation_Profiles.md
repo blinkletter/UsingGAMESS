@@ -49,8 +49,6 @@ We can now take the data file that was **written** out by *MacMolPlt* and use it
 ```{code-block} 
 ---
 name: butane.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 2,5,14
 caption: butane.inp
 class: hide-input
@@ -322,8 +320,6 @@ Let us open the butane.inp file again with the text editor. We will **change** o
 ```{code-block} 
 ---
 name: butane60.inp
-linenos: True
-lineno-start: 7568
 emphasize-lines: 14
 caption: butane60.inp
 ---
@@ -370,7 +366,7 @@ Examining the first 10 lines of the **internal coordinates** of the result shows
 ---
 name: butane60_248.log1
 linenos: True
-lineno-start: 1
+lineno-start: 7568
 emphasize-lines: 13
 caption: butane60_248.log
 ---
@@ -423,8 +419,6 @@ I will use a text editor to change our input file. We will change the `4,1,2,3` 
 ```{code-block} 
 ---
 name: butane_scan_0.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 14
 caption: butane_scan_0.inp
 ---
@@ -614,8 +608,6 @@ Below is the new input file
 ```{code-block} 
 ---
 name: butane-SCAN.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 14
 caption: butane-SCAN.inp
 ---

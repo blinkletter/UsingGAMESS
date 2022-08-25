@@ -80,9 +80,6 @@ Below in {numref}`water.inp` is the text file for this first *GAMESS* run. I cre
 ```{code-block} 
 ---
 name: water.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: water.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
@@ -398,8 +395,6 @@ We will also **cut and paste** the final coordinates from the AM1 job. We should
 ```{code-block} 
 ---
 name: water321G.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 3
 caption: water321G.inp
 ---
@@ -475,8 +470,6 @@ We will use the coordinate data from the 3-21G run to start as **close** to the 
 ```{code-block} 
 ---
 name: water6311G.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 3
 caption: water6311G.inp
 ---
@@ -609,8 +602,6 @@ By using variables appropriately we can **make sure** that certain values are al
 ```{code-block} 
 ---
 name: water_Z_AM1.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 1
 caption: water_Z_AM1.inp
 ---
@@ -712,8 +703,6 @@ When constructing symmetrical molecules it can be useful to use **dummy atoms**.
 ```{code-block} 
 ---
 name: ammonia_ZX.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 
 caption: ammonia_ZX.inp
 ---
@@ -820,8 +809,6 @@ Now *GAMESS* will **track** those coordinates. In fact, *GAMESS* will be using t
 ```{code-block} 
 ---
 name: ammonia_UZ.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 2,14-16
 caption: ammonia_UZ.inp
 ---
@@ -899,8 +886,6 @@ We can take the result of the AM1 calculation and use it to build an **input fil
 ```{code-block} 
 ---
 name: ammonia_UZ_6311G.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 
 caption: ammonia_UZ_6311G.inp
 ---
@@ -1036,9 +1021,6 @@ The HF/3-21G **optimization** produced a structure that is **very close** to the
 ```{code-block} 
 ---
 name: methane_AM1_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: methane_AM1_U.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
@@ -1063,9 +1045,6 @@ H     1.0     0.7    0.7     0.7
 ```{code-block} 
 ---
 name: methane_321_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: methane_321_U.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -1091,9 +1070,6 @@ Td
 ```{code-block} 
 ---
 name: Methane_6311_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: Methane_6311_U.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -1120,9 +1096,6 @@ Td
 ```{code-block} 
 ---
 name: Methane_6311_U_E.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: Methane_6311_U_E.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
@@ -1153,9 +1126,6 @@ The below file was made to **check** the energy of the experimental structure. E
 ```{code-block} 
 ---
 name: Methane_6311_Z_E.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: Methane_6311_Z_E.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
@@ -1195,9 +1165,6 @@ The HF/3-21G optimization **produced** a structure that is very close to the HF/
 ```{code-block} 
 ---
 name: water_AM1_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: water_AM1_U.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -1240,9 +1207,6 @@ The HF/3-21G **optimization** produced a structure that is NOT close to the HF/6
 ```{code-block} 
 ---
 name: ammonia_AM1_ZD.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: ammonia_AM1_ZD.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -1270,9 +1234,6 @@ H  2  1.0  1  109.5  3  -120.0
 ```{code-block} 
 ---
 name: ammonia_321_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: ammonia_321_U.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -1296,9 +1257,6 @@ CNV 3
 ```{code-block} 
 ---
 name: ammonia_6311_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: ammonia_6311_U.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -1322,9 +1280,6 @@ CNV 3
 ```{code-block} 
 ---
 name: ammonia_6311_U_E.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: ammonia_6311_U_E.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
@@ -1348,9 +1303,6 @@ CNV 3
 ```{code-block} 
 ---
 name: ammonia_6311_Z_E.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: ammonia_6311_Z_E.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 

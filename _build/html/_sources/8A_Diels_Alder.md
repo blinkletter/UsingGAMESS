@@ -98,8 +98,6 @@ caption: Z-matrix from final structure in Cyclohexene_322.log
 ```{code-block} 
 ---
 name: Cyclohexene-ZMAT.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 12, 15, 16
 caption: Cyclohexene.inp
 ---
@@ -279,8 +277,6 @@ caption: Cyclohexene_Cs_cart.log
 ```{code-block} 
 ---
 name: Cyclohexene_Cs_cart.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 10, 21-26
 caption: Cyclohexene_Cs_cart.inp
 ---
@@ -343,8 +339,6 @@ As above, I will take the **input file** derived from the optimized structure (s
 ```{code-block} 
 ---
 name: Cyclohexene_Cs_Internal_Check.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 1, 19
 caption: Cyclohexene_Cs_Internal_Check.inp
 ---
@@ -377,8 +371,6 @@ Now find the .log file and **locate** the list of internal coordinates. I observ
 ```{code-block} 
 ---
 name: Cyclohexene_Cs_Internal_ZMAT.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 1, 20-22
 caption: Cyclohexene_Cs_Internal_ZMAT.inp
 ---
@@ -614,8 +606,6 @@ The `RUNTYPE` for a transition state optimization is `SADDLEPOINT`. We can set u
 ```{code-block} 
 ---
 name: Cyclohexene_TS_Hess.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 2
 caption: Cyclohexene_TS_Hess.inp
 ---
@@ -662,8 +652,6 @@ To get a `$ZMAT` group we will again set up an energy check **calculation** with
 ```{code-block} 
 ---
 name: Cyclohexene_TS_ZMAT_Saddle.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 2
 caption: Cyclohexene_TS_ZMAT_Saddle.inp
 ---
@@ -786,8 +774,6 @@ H     1.0     0.00494     1.46786    -1.06282
 ```{code-block} 
 ---
 name: Cyclohexene_TS_ZMAT_Check.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 2
 caption: Cyclohexene_TS_ZMAT_Check.inp
 ---

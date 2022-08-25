@@ -9,9 +9,6 @@ First we **write** an input file for butane. We will not use symmetry because we
 ```{code-block}
 ---
 name: butane-SCAN.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: butane-SCAN.inp
 ---
  $CONTRL 

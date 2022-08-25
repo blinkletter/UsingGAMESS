@@ -55,9 +55,6 @@ The **unique** coordinates will be 0,0,0 for **carbon**, 1,0,0 for the unique **
 ```{code-block} 
 ---
 name: SN2_321_U.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: SN2_321_U.inp
 ---
  $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
@@ -84,8 +81,6 @@ The second input file will be a **copy** of the first. All I will do is **add** 
 ```{code-block} 
 ---
 name: SN2_H2O_321_U.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 7
 caption: N2_H2O_321_U.inp
 ---
@@ -128,8 +123,6 @@ Below are the Hessian input files for the two jobs. Observe how they **differ** 
 ```{code-block} 
 ---
 name: SN2_D3h_321G_HESS.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 8
 caption: SN2_D3h_321G_HESS.inp
 ---
@@ -156,8 +149,6 @@ DNH 3
 ```{code-block} 
 ---
 name: SN2_D3h_H2O_321G_HESS.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 8,9
 caption: SN2_D3h_H2O_321G_HESS.inp
 ---
@@ -246,8 +237,6 @@ Now I will have the two input files that **differ** by having different `$HESS` 
 ```{code-block} 
 ---
 name: SN2_D3h_H2O_321G_SADL.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 1,9,20
 caption: Excerpt from SN2_D3h_H2O_321G_SADL.inp
 ---
@@ -277,7 +266,7 @@ ENERGY IS     -955.6969584956 E(NUC) IS      107.7130912280
  1  3-8.50832638E-04 3.79570720E-03 6.79439778E-04 8.50829497E-04 3.79570862E-03
  ...
  ...
- Many More Lines...
+ Many More Lines... 
 ```
 
 I ran both calculations and both were **successfull**.
@@ -368,8 +357,6 @@ In this case, I am **calculating** the orbitals, so I will not need the \$VEC gr
 ```{code-block} 
 ---
 name: SN2_D3h_321G_IRC.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 1, 6,7
 caption: Excerpt from SN2_D3h_321G_IRC.inp
 ---
@@ -401,6 +388,9 @@ ENERGY IS     -955.6090406225 E(NUC) IS      107.7130912280
  1  3-1.10591017E-03 3.64577504E-03 3.80950771E-04 1.10401128E-03 3.64690486E-03
  1  4 2.36174580E-03-2.57404697E-06-7.29130292E-03
  2  1-5.28518145E-10 6.86601184E-03-2.97887583E-09 4.40191839E-07 1.94030136E-03
+ ...
+ ...
+ Many More Lines... 
 ```
 
 
@@ -408,8 +398,6 @@ ENERGY IS     -955.6090406225 E(NUC) IS      107.7130912280
 ```{code-block} 
 ---
 name: SN2_D3h_H2O_321G_IRC.inp
-linenos: True
-lineno-start: 1
 emphasize-lines: 1, 6,7, 10
 caption: Excerpt from SN2_D3h_H2O_321G_IRC.inp
 ---
@@ -439,6 +427,9 @@ C1
 ENERGY IS     -955.6969739956 E(NUC) IS      107.4285285723
  1  1 6.95543756E-03 3.42600959E-09 9.55860879E-04 1.93857897E-03 1.77783245E-09
  1  2-1.95792854E-04-1.25911383E-02 9.12793077E-09-4.63052182E-04 5.56425838E-04
+ ...
+ ...
+ Many More Lines... 
 ```
 
 All four calculation completed **successfully**.
@@ -477,8 +468,6 @@ What is the calculated C-Cl **bond length** in the methyl chloride starting mate
 ```{code-block} 
 ---
 name: SN2_C3V_H2O_CH3Cl.inp
-linenos: True
-lineno-start: 1705
 emphasize-lines: 5,6,7,10
 caption: SN2_C3V_H2O_CH3Cl.inp
 ---
@@ -503,8 +492,6 @@ H     1.0     1.00000     0.00000     0.00000
 ```{code-block} 
 ---
 name: SN2_C3V_CH3Cl.inp
-linenos: True
-lineno-start: 1705
 emphasize-lines: 5,6,7,10
 caption: SN2_C3V_CH3Cl.inp
 ---

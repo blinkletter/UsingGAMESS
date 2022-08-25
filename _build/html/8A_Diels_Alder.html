@@ -711,39 +711,39 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Cyclohexene.inp</span><a class="headerlink" href="#cyclohexene-zmat-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
-<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=50 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Cyclohexene
-<span class="linenos">10</span>C1
-<span class="linenos">11</span>C
-<span class="hll"><span class="linenos">12</span>C   1    1.54000
-</span><span class="linenos">13</span>C   2    1.54000  1 120.0000
-<span class="linenos">14</span>C   1    1.54000  2 120.0000  3   0.0000
-<span class="hll"><span class="linenos">15</span>C   4    1.41037  1  89.6402  2  47.3676
-</span><span class="hll"><span class="linenos">16</span>C   3    1.42617  2  96.3800  5 -23.8081
-</span><span class="linenos">17</span>H   1    1.14000  4 120.0000  2 180.0000
-<span class="linenos">18</span>H   2    1.14000  1 120.0000  3 180.0000
-<span class="linenos">19</span>H   3    1.14000  6 112.6374  2 117.7914
-<span class="linenos">20</span>H   3    1.14000  9 110.4255  6 -126.1402
-<span class="linenos">21</span>H   4    1.14000  5 114.1752  1 116.4929
-<span class="linenos">22</span>H   4    1.14000  11 111.0397  5 -129.4079
-<span class="linenos">23</span>H   5    1.14000  4 104.3204  6 -122.5757
-<span class="linenos">24</span>H   5    1.14000  13 108.4843  4 111.1625
-<span class="linenos">25</span>H   6    1.14000  3 107.6066  5 -121.0604
-<span class="linenos">26</span>H   6    1.14000  15 109.0496  3 116.6663
-<span class="linenos">27</span> $END
-<span class="linenos">28</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,4, 
-<span class="linenos">29</span>    2,5,4,1, 3,5,4,1,2, 1,6,3, 2,6,3,2, 3,6,3,2,5, 1,7,1, 2,7,1,4, 3,7,1,4,2, 
-<span class="linenos">30</span>    1,8,2, 2,8,2,1, 3,8,2,1,3, 1,9,3, 2,9,3,6, 3,9,3,6,2, 1,10,3, 2,10,3,9, 
-<span class="linenos">31</span>    3,10,3,9,6, 1,11,4, 2,11,4,5, 3,11,4,5,1, 1,12,4, 2,12,4,11, 3,12,4,11,5, 
-<span class="linenos">32</span>    1,13,5, 2,13,5,4, 3,13,5,4,6, 1,14,5, 2,14,5,13, 3,14,5,13,4, 1,15,6, 
-<span class="linenos">33</span>    2,15,6,3, 3,15,6,3,5, 1,16,6, 2,16,6,15, 3,16,6,15,3 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=50 $END
+ $DATA 
+Cyclohexene
+C1
+C
+<span class="hll">C   1    1.54000
+</span>C   2    1.54000  1 120.0000
+C   1    1.54000  2 120.0000  3   0.0000
+<span class="hll">C   4    1.41037  1  89.6402  2  47.3676
+</span><span class="hll">C   3    1.42617  2  96.3800  5 -23.8081
+</span>H   1    1.14000  4 120.0000  2 180.0000
+H   2    1.14000  1 120.0000  3 180.0000
+H   3    1.14000  6 112.6374  2 117.7914
+H   3    1.14000  9 110.4255  6 -126.1402
+H   4    1.14000  5 114.1752  1 116.4929
+H   4    1.14000  11 111.0397  5 -129.4079
+H   5    1.14000  4 104.3204  6 -122.5757
+H   5    1.14000  13 108.4843  4 111.1625
+H   6    1.14000  3 107.6066  5 -121.0604
+H   6    1.14000  15 109.0496  3 116.6663
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,4, 
+    2,5,4,1, 3,5,4,1,2, 1,6,3, 2,6,3,2, 3,6,3,2,5, 1,7,1, 2,7,1,4, 3,7,1,4,2, 
+    1,8,2, 2,8,2,1, 3,8,2,1,3, 1,9,3, 2,9,3,6, 3,9,3,6,2, 1,10,3, 2,10,3,9, 
+    3,10,3,9,6, 1,11,4, 2,11,4,5, 3,11,4,5,1, 1,12,4, 2,12,4,11, 3,12,4,11,5, 
+    1,13,5, 2,13,5,4, 3,13,5,4,6, 1,14,5, 2,14,5,13, 3,14,5,13,4, 1,15,6, 
+    2,15,6,3, 3,15,6,3,5, 1,16,6, 2,16,6,15, 3,16,6,15,3 $END
 </pre></div>
 </div>
 </div>
@@ -866,32 +866,32 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-cart-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Cyclohexene_Cs_cart.inp</span><a class="headerlink" href="#cyclohexene-cs-cart-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
-<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=30 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Title
-<span class="hll"><span class="linenos">10</span>CS
-</span><span class="linenos">11</span>
-<span class="linenos">12</span>C     6.0    -1.35474    -0.12747    -0.65064
-<span class="linenos">13</span>C     6.0    -0.07172     0.23663    -1.42064
-<span class="linenos">14</span>C     6.0     1.42646    -0.10916    -0.75855
-<span class="linenos">15</span>H     1.0    -2.30450    -0.39699    -1.22064
-<span class="linenos">16</span>H     1.0     1.75283    -1.13977    -1.12040
-<span class="linenos">17</span>H     1.0    -0.12286    -0.30664    -2.42156
-<span class="linenos">18</span>H     1.0     2.17392     0.67089    -1.12244
-<span class="linenos">19</span>H     1.0    -0.10252     1.36058    -1.60873
-<span class="linenos">20</span> $END
-<span class="hll"><span class="linenos">21</span> $ZMAT IZMAT(1)=1,2,1, 1,3,1, 2,3,1,2, 1,4,2, 2,4,2,1, 3,4,2,1,3, 1,5,3, 
-</span><span class="hll"><span class="linenos">22</span>    2,5,3,1, 3,5,3,1,4, 1,6,5, 2,6,5,3, 3,6,5,3,1, 1,7,1, 2,7,1,2, 3,7,1,2,3, 
-</span><span class="hll"><span class="linenos">23</span>    1,8,2, 2,8,2,1, 3,8,2,1,4, 1,9,5, 2,9,5,6, 3,9,5,6,3, 1,10,6, 2,10,6,5, 
-</span><span class="hll"><span class="linenos">24</span>    3,10,6,5,9, 1,11,3, 2,11,3,1, 3,11,3,1,5, 1,12,4, 2,12,4,2, 3,12,4,2,6, 
-</span><span class="hll"><span class="linenos">25</span>    1,13,5, 2,13,5,9, 3,13,5,9,6, 1,14,6, 2,14,6,10, 3,14,6,10,5, 1,15,3, 
-</span><span class="hll"><span class="linenos">26</span>    2,15,3,11, 3,15,3,11,1, 1,16,4, 2,16,4,12, 3,16,4,12,2 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=30 $END
+ $DATA 
+Title
+<span class="hll">CS
+</span>
+C     6.0    -1.35474    -0.12747    -0.65064
+C     6.0    -0.07172     0.23663    -1.42064
+C     6.0     1.42646    -0.10916    -0.75855
+H     1.0    -2.30450    -0.39699    -1.22064
+H     1.0     1.75283    -1.13977    -1.12040
+H     1.0    -0.12286    -0.30664    -2.42156
+H     1.0     2.17392     0.67089    -1.12244
+H     1.0    -0.10252     1.36058    -1.60873
+ $END
+<span class="hll"> $ZMAT IZMAT(1)=1,2,1, 1,3,1, 2,3,1,2, 1,4,2, 2,4,2,1, 3,4,2,1,3, 1,5,3, 
+</span><span class="hll">    2,5,3,1, 3,5,3,1,4, 1,6,5, 2,6,5,3, 3,6,5,3,1, 1,7,1, 2,7,1,2, 3,7,1,2,3, 
+</span><span class="hll">    1,8,2, 2,8,2,1, 3,8,2,1,4, 1,9,5, 2,9,5,6, 3,9,5,6,3, 1,10,6, 2,10,6,5, 
+</span><span class="hll">    3,10,6,5,9, 1,11,3, 2,11,3,1, 3,11,3,1,5, 1,12,4, 2,12,4,2, 3,12,4,2,6, 
+</span><span class="hll">    1,13,5, 2,13,5,9, 3,13,5,9,6, 1,14,6, 2,14,6,10, 3,14,6,10,5, 1,15,3, 
+</span><span class="hll">    2,15,3,11, 3,15,3,11,1, 1,16,4, 2,16,4,12, 3,16,4,12,2 $END
 </span></pre></div>
 </div>
 </div>
@@ -917,25 +917,25 @@ const thebe_selector_output = ".output, .cell_output"
 <p>As above, I will take the <strong>input file</strong> derived from the optimized structure (see <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 78</span></a>). I will <strong>modify</strong> the file to change the parameters for a simple check run. Observe that in <a class="reference internal" href="#cyclohexene-cs-internal-check-inp"><span class="std std-numref">Listing 79</span></a> I have changed the <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and added the command <code class="docutils literal notranslate"><span class="pre">EXETYPE=CHECK</span></code>. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will <strong>check</strong> for any errors. There is no <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group here as that does not apply in a single-step <strong>energy</strong> calculation. I then used the <code class="docutils literal notranslate"><span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span></code> command to auto-generqte the internal coordinates. the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list informs <em>GAMESS</em> that some connections may be <strong>too long</strong> to be detected as a bond, but we do want them to be treated as a bond.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-check-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-check-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MULT=1 COORD=UNIQUE NZVAR=42 
-</span><span class="linenos"> 2</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Cyclohexene
-<span class="linenos"> 8</span>CS
-<span class="linenos"> 9</span>
-<span class="linenos">10</span> C           6.0  -1.2361448368  -0.1946329600  -0.6600113451
-<span class="linenos">11</span> C           6.0  -0.0378417377   0.3464128969  -1.4003885217
-<span class="linenos">12</span> C           6.0   1.6786263669  -0.1546858673  -0.7750422486
-<span class="linenos">13</span> H           1.0  -2.0799554481  -0.5613400776  -1.2195305741
-<span class="linenos">14</span> H           1.0   1.8530973204  -1.1662228431  -1.1266412274
-<span class="linenos">15</span> H           1.0  -0.0703048808   0.0705907162  -2.4493138697
-<span class="linenos">16</span> H           1.0   2.5015046661   0.4444993783  -1.1525848695
-<span class="linenos">17</span> H           1.0  -0.0627168721   1.4351432438  -1.3719834428
-<span class="linenos">18</span> $END
-<span class="hll"><span class="linenos">19</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MULT=1 COORD=UNIQUE NZVAR=42 
+</span>    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $DATA 
+Cyclohexene
+CS
+
+ C           6.0  -1.2361448368  -0.1946329600  -0.6600113451
+ C           6.0  -0.0378417377   0.3464128969  -1.4003885217
+ C           6.0   1.6786263669  -0.1546858673  -0.7750422486
+ H           1.0  -2.0799554481  -0.5613400776  -1.2195305741
+ H           1.0   1.8530973204  -1.1662228431  -1.1266412274
+ H           1.0  -0.0703048808   0.0705907162  -2.4493138697
+ H           1.0   2.5015046661   0.4444993783  -1.1525848695
+ H           1.0  -0.0627168721   1.4351432438  -1.3719834428
+ $END
+<span class="hll"> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
 </span></pre></div>
 </div>
 </div>
@@ -946,133 +946,133 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-zmat-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Cyclohexene_Cs_Internal_ZMAT.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-zmat-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">  1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MULT=1 COORD=UNIQUE NZVAR=103 
-</span><span class="linenos">  2</span>    MOLPLT=.TRUE. $END
-<span class="linenos">  3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos">  4</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos">  5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos">  6</span> $STATPT OPTTOL=0.0001 NSTEP=40 $END
-<span class="linenos">  7</span> $DATA 
-<span class="linenos">  8</span>Cyclohexene
-<span class="linenos">  9</span>CS
-<span class="linenos"> 10</span>
-<span class="linenos"> 11</span> C           6.0  -1.2361448368  -0.1946329600  -0.6600113451
-<span class="linenos"> 12</span> C           6.0  -0.0378417377   0.3464128969  -1.4003885217
-<span class="linenos"> 13</span> C           6.0   1.2786263669  -0.1546858673  -0.7750422486
-<span class="linenos"> 14</span> H           1.0  -2.0799554481  -0.5613400776  -1.2195305741
-<span class="linenos"> 15</span> H           1.0   1.4530973204  -1.1662228431  -1.1266412274
-<span class="linenos"> 16</span> H           1.0  -0.0703048808   0.0705907162  -2.4493138697
-<span class="linenos"> 17</span> H           1.0   2.1015046661   0.4444993783  -1.1525848695
-<span class="linenos"> 18</span> H           1.0  -0.0627168721   1.4351432438  -1.3719834428
-<span class="linenos"> 19</span> $END
-<span class="hll"><span class="linenos"> 20</span> $ZMAT AUTO=.FALSE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 
-</span><span class="hll"><span class="linenos"> 21</span>       IFZMAT(1)= 1,3,5,   1,4,6,
-</span><span class="hll"><span class="linenos"> 22</span>       FVALUE(1)= 1.5411834, 1.5411834,
-</span><span class="linenos"> 23</span>       IZMAT(1)=
-<span class="linenos"> 24</span>         1,   1,   7,
-<span class="linenos"> 25</span>         1,   1,   3,
-<span class="linenos"> 26</span>         1,   1,   2,
-<span class="linenos"> 27</span>         1,   2,   4,
-<span class="linenos"> 28</span>         1,   2,   8,
-<span class="linenos"> 29</span>         1,   3,  15,
-<span class="linenos"> 30</span>         1,   3,   5,
-<span class="linenos"> 31</span>         1,   3,  11,
-<span class="linenos"> 32</span>         1,   3,   5,
-<span class="linenos"> 33</span>         1,   4,  12,
-<span class="linenos"> 34</span>         1,   4,   6,
-<span class="linenos"> 35</span>         1,   4,   6,
-<span class="linenos"> 36</span>         1,   4,  16,
-<span class="linenos"> 37</span>         1,   5,  13,
-<span class="linenos"> 38</span>         1,   5,   6,
-<span class="linenos"> 39</span>         1,   5,   9,
-<span class="linenos"> 40</span>         1,   6,  14,
-<span class="linenos"> 41</span>         1,   6,  10,
-<span class="linenos"> 42</span>         2,   1,   3,  11,
-<span class="linenos"> 43</span>         2,   1,   3,   5,
-<span class="linenos"> 44</span>         2,   1,   3,   5,
-<span class="linenos"> 45</span>         2,   1,   3,  15,
-<span class="linenos"> 46</span>         2,   1,   2,   8,
-<span class="linenos"> 47</span>         2,   1,   2,   4,
-<span class="linenos"> 48</span>         2,   2,   4,  12,
-<span class="linenos"> 49</span>         2,   2,   4,  16,
-<span class="linenos"> 50</span>         2,   2,   1,   3,
-<span class="linenos"> 51</span>         2,   2,   4,   6,
-<span class="linenos"> 52</span>         2,   2,   1,   7,
-<span class="linenos"> 53</span>         2,   2,   4,   6,
-<span class="linenos"> 54</span>         2,   3,   1,   7,
-<span class="linenos"> 55</span>         2,   3,   5,   9,
-<span class="linenos"> 56</span>         2,   3,   5,   6,
-<span class="linenos"> 57</span>         2,   3,   5,  13,
-<span class="linenos"> 58</span>         2,   3,   5,   9,
-<span class="linenos"> 59</span>         2,   3,   5,   6,
-<span class="linenos"> 60</span>         2,   3,   5,  13,
-<span class="linenos"> 61</span>         2,   4,   6,   5,
-<span class="linenos"> 62</span>         2,   4,   6,  14,
-<span class="linenos"> 63</span>         2,   4,   6,  14,
-<span class="linenos"> 64</span>         2,   4,   2,   8,
-<span class="linenos"> 65</span>         2,   4,   6,  10,
-<span class="linenos"> 66</span>         2,   4,   6,   5,
-<span class="linenos"> 67</span>         2,   4,   6,  10,
-<span class="linenos"> 68</span>         2,   5,   3,  15,
-<span class="linenos"> 69</span>         2,   5,   3,  11,
-<span class="linenos"> 70</span>         2,   5,   6,  10,
-<span class="linenos"> 71</span>         2,   5,   6,  14,
-<span class="linenos"> 72</span>         2,   5,   3,  11,
-<span class="linenos"> 73</span>         2,   5,   3,  15,
-<span class="linenos"> 74</span>         2,   6,   4,  16,
-<span class="linenos"> 75</span>         2,   6,   4,  12,
-<span class="linenos"> 76</span>         2,   6,   4,  12,
-<span class="linenos"> 77</span>         2,   6,   5,   9,
-<span class="linenos"> 78</span>         2,   6,   5,  13,
-<span class="linenos"> 79</span>         2,   6,   4,  16,
-<span class="linenos"> 80</span>         2,   9,   5,  13,
-<span class="linenos"> 81</span>         2,  10,   6,  14,
-<span class="linenos"> 82</span>         2,  11,   3,  15,
-<span class="linenos"> 83</span>         2,  12,   4,  16,
-<span class="linenos"> 84</span>         3,   1,   3,   5,   9,
-<span class="linenos"> 85</span>         3,   1,   3,   5,   6,
-<span class="linenos"> 86</span>         3,   1,   2,   4,  16,
-<span class="linenos"> 87</span>         3,   1,   2,   4,   6,
-<span class="linenos"> 88</span>         3,   1,   3,   5,  13,
-<span class="linenos"> 89</span>         3,   1,   2,   4,  12,
-<span class="linenos"> 90</span>         3,   2,   1,   3,  15,
-<span class="linenos"> 91</span>         3,   2,   1,   3,  11,
-<span class="linenos"> 92</span>         3,   2,   4,   6,  10,
-<span class="linenos"> 93</span>         3,   2,   4,   6,  14,
-<span class="linenos"> 94</span>         3,   2,   4,   6,   5,
-<span class="linenos"> 95</span>         3,   2,   1,   3,   5,
-<span class="linenos"> 96</span>         3,   3,   5,   6,  10,
-<span class="linenos"> 97</span>         3,   3,   5,   6,  14,
-<span class="linenos"> 98</span>         3,   3,   5,   6,   4,
-<span class="linenos"> 99</span>         3,   3,   1,   2,   4,
-<span class="linenos">100</span>         3,   3,   1,   2,   8,
-<span class="linenos">101</span>         3,   4,   6,   5,   9,
-<span class="linenos">102</span>         3,   4,   6,   5,  13,
-<span class="linenos">103</span>         3,   4,   2,   1,   7,
-<span class="linenos">104</span>         3,   5,   3,   1,   7,
-<span class="linenos">105</span>         3,   5,   6,   4,  16,
-<span class="linenos">106</span>         3,   5,   6,   4,  12,
-<span class="linenos">107</span>         3,   6,   5,   3,  11,
-<span class="linenos">108</span>         3,   6,   5,   3,  15,
-<span class="linenos">109</span>         3,   6,   4,   2,   8,
-<span class="linenos">110</span>         3,   7,   1,   2,   8,
-<span class="linenos">111</span>         3,   7,   1,   3,  15,
-<span class="linenos">112</span>         3,   7,   1,   3,  11,
-<span class="linenos">113</span>         3,   8,   2,   4,  16,
-<span class="linenos">114</span>         3,   8,   2,   4,  12,
-<span class="linenos">115</span>         3,   9,   5,   6,  14,
-<span class="linenos">116</span>         3,   9,   5,   6,  10,
-<span class="linenos">117</span>         3,   9,   5,   3,  11,
-<span class="linenos">118</span>         3,   9,   5,   3,  15,
-<span class="linenos">119</span>         3,  10,   6,   5,  13,
-<span class="linenos">120</span>         3,  10,   6,   4,  16,
-<span class="linenos">121</span>         3,  10,   6,   4,  12,
-<span class="linenos">122</span>         3,  11,   3,   5,  13,
-<span class="linenos">123</span>         3,  12,   4,   6,  14,
-<span class="linenos">124</span>         3,  13,   5,   3,  15,
-<span class="linenos">125</span>         3,  13,   5,   6,  14,
-<span class="linenos">126</span>         3,  14,   6,   4,  16,
-<span class="linenos">127</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MULT=1 COORD=UNIQUE NZVAR=103 
+</span>    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=40 $END
+ $DATA 
+Cyclohexene
+CS
+
+ C           6.0  -1.2361448368  -0.1946329600  -0.6600113451
+ C           6.0  -0.0378417377   0.3464128969  -1.4003885217
+ C           6.0   1.2786263669  -0.1546858673  -0.7750422486
+ H           1.0  -2.0799554481  -0.5613400776  -1.2195305741
+ H           1.0   1.4530973204  -1.1662228431  -1.1266412274
+ H           1.0  -0.0703048808   0.0705907162  -2.4493138697
+ H           1.0   2.1015046661   0.4444993783  -1.1525848695
+ H           1.0  -0.0627168721   1.4351432438  -1.3719834428
+ $END
+<span class="hll"> $ZMAT AUTO=.FALSE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 
+</span><span class="hll">       IFZMAT(1)= 1,3,5,   1,4,6,
+</span><span class="hll">       FVALUE(1)= 1.5411834, 1.5411834,
+</span>       IZMAT(1)=
+         1,   1,   7,
+         1,   1,   3,
+         1,   1,   2,
+         1,   2,   4,
+         1,   2,   8,
+         1,   3,  15,
+         1,   3,   5,
+         1,   3,  11,
+         1,   3,   5,
+         1,   4,  12,
+         1,   4,   6,
+         1,   4,   6,
+         1,   4,  16,
+         1,   5,  13,
+         1,   5,   6,
+         1,   5,   9,
+         1,   6,  14,
+         1,   6,  10,
+         2,   1,   3,  11,
+         2,   1,   3,   5,
+         2,   1,   3,   5,
+         2,   1,   3,  15,
+         2,   1,   2,   8,
+         2,   1,   2,   4,
+         2,   2,   4,  12,
+         2,   2,   4,  16,
+         2,   2,   1,   3,
+         2,   2,   4,   6,
+         2,   2,   1,   7,
+         2,   2,   4,   6,
+         2,   3,   1,   7,
+         2,   3,   5,   9,
+         2,   3,   5,   6,
+         2,   3,   5,  13,
+         2,   3,   5,   9,
+         2,   3,   5,   6,
+         2,   3,   5,  13,
+         2,   4,   6,   5,
+         2,   4,   6,  14,
+         2,   4,   6,  14,
+         2,   4,   2,   8,
+         2,   4,   6,  10,
+         2,   4,   6,   5,
+         2,   4,   6,  10,
+         2,   5,   3,  15,
+         2,   5,   3,  11,
+         2,   5,   6,  10,
+         2,   5,   6,  14,
+         2,   5,   3,  11,
+         2,   5,   3,  15,
+         2,   6,   4,  16,
+         2,   6,   4,  12,
+         2,   6,   4,  12,
+         2,   6,   5,   9,
+         2,   6,   5,  13,
+         2,   6,   4,  16,
+         2,   9,   5,  13,
+         2,  10,   6,  14,
+         2,  11,   3,  15,
+         2,  12,   4,  16,
+         3,   1,   3,   5,   9,
+         3,   1,   3,   5,   6,
+         3,   1,   2,   4,  16,
+         3,   1,   2,   4,   6,
+         3,   1,   3,   5,  13,
+         3,   1,   2,   4,  12,
+         3,   2,   1,   3,  15,
+         3,   2,   1,   3,  11,
+         3,   2,   4,   6,  10,
+         3,   2,   4,   6,  14,
+         3,   2,   4,   6,   5,
+         3,   2,   1,   3,   5,
+         3,   3,   5,   6,  10,
+         3,   3,   5,   6,  14,
+         3,   3,   5,   6,   4,
+         3,   3,   1,   2,   4,
+         3,   3,   1,   2,   8,
+         3,   4,   6,   5,   9,
+         3,   4,   6,   5,  13,
+         3,   4,   2,   1,   7,
+         3,   5,   3,   1,   7,
+         3,   5,   6,   4,  16,
+         3,   5,   6,   4,  12,
+         3,   6,   5,   3,  11,
+         3,   6,   5,   3,  15,
+         3,   6,   4,   2,   8,
+         3,   7,   1,   2,   8,
+         3,   7,   1,   3,  15,
+         3,   7,   1,   3,  11,
+         3,   8,   2,   4,  16,
+         3,   8,   2,   4,  12,
+         3,   9,   5,   6,  14,
+         3,   9,   5,   6,  10,
+         3,   9,   5,   3,  11,
+         3,   9,   5,   3,  15,
+         3,  10,   6,   5,  13,
+         3,  10,   6,   4,  16,
+         3,  10,   6,   4,  12,
+         3,  11,   3,   5,  13,
+         3,  12,   4,   6,  14,
+         3,  13,   5,   3,  15,
+         3,  13,   5,   6,  14,
+         3,  14,   6,   4,  16,
+ $END
 </pre></div>
 </div>
 </div>
@@ -1161,27 +1161,27 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> for a transition state optimization is <code class="docutils literal notranslate"><span class="pre">SADDLEPOINT</span></code>. We can set up the <strong>input file</strong> using <em>MacMolPlt</em>. Open the log file for the optimization with bond distances set at 2.2 Å and use <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Hessian</span></code> and set the <code class="docutils literal notranslate"><span class="pre">MO</span> <span class="pre">Guess</span></code> to <code class="docutils literal notranslate"><span class="pre">Huckel</span></code> (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the <code class="docutils literal notranslate"><span class="pre">Vibrational</span> <span class="pre">Analysis</span></code> button is checked so the file is set to perform a <strong>vibrational anaysis</strong> so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in <a class="reference internal" href="#cyclohexene-ts-hess-inp"><span class="std std-numref">Listing 84</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-hess-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 84 </span><span class="caption-text">Cyclohexene_TS_Hess.inp</span><a class="headerlink" href="#cyclohexene-ts-hess-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="hll"><span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=HESSIAN EXETYP=RUN MAXIT=30 MULT=1
-</span><span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos"> 6</span> $GUESS GUESS=HUCKEL $END
-<span class="linenos"> 7</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 8</span> $FORCE METHOD=ANALYTIC VIBANL=.TRUE. $END
-<span class="linenos"> 9</span> $DATA 
-<span class="linenos">10</span>Cyclohexene
-<span class="linenos">11</span>CS
-<span class="linenos">12</span>
-<span class="linenos">13</span>C     6.0    -1.25696    -0.21327    -0.69596
-<span class="linenos">14</span>C     6.0    -0.33240     0.51308    -1.41520
-<span class="linenos">15</span>C     6.0     1.58158    -0.29544    -0.69202
-<span class="linenos">16</span>H     1.0    -1.83544    -0.96446    -1.20729
-<span class="linenos">17</span>H     1.0     1.46204    -1.22096    -1.22142
-<span class="linenos">18</span>H     1.0    -0.28274     0.39582    -2.48412
-<span class="linenos">19</span>H     1.0     2.14064     0.45769    -1.21783
-<span class="linenos">20</span>H     1.0     0.00494     1.46786    -1.06282
-<span class="linenos">21</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+<span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=HESSIAN EXETYP=RUN MAXIT=30 MULT=1
+</span>    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $GUESS GUESS=HUCKEL $END
+ $SCF DIRSCF=.TRUE. $END
+ $FORCE METHOD=ANALYTIC VIBANL=.TRUE. $END
+ $DATA 
+Cyclohexene
+CS
+
+C     6.0    -1.25696    -0.21327    -0.69596
+C     6.0    -0.33240     0.51308    -1.41520
+C     6.0     1.58158    -0.29544    -0.69202
+H     1.0    -1.83544    -0.96446    -1.20729
+H     1.0     1.46204    -1.22096    -1.22142
+H     1.0    -0.28274     0.39582    -2.48412
+H     1.0     2.14064     0.45769    -1.21783
+H     1.0     0.00494     1.46786    -1.06282
+ $END
 </pre></div>
 </div>
 </div>
@@ -1199,145 +1199,145 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-saddle-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 85 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>!   File created by MacMolPlt 7.7.2
-<span class="hll"><span class="linenos">  2</span> $CONTRL SCFTYP=RHF RUNTYP=SADPOINT MAXIT=30 MULT=1 NZVAR=89 MOLPLT=.TRUE. $END
-</span><span class="linenos">  3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
-<span class="linenos">  4</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos">  5</span> $GUESS GUESS=HUCKEL $END
-<span class="linenos">  6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos">  7</span> $STATPT OPTTOL=1e-05 NSTEP=200 HESS=CALC HSSEND=.t. $END
-<span class="linenos">  8</span> $FORCE METHOD=ANALYTIC VIBANL=.TRUE. $END
-<span class="linenos">  9</span> $DATA 
-<span class="linenos"> 10</span>Cyclohexene
-<span class="linenos"> 11</span>CS
-<span class="linenos"> 12</span>
-<span class="linenos"> 13</span>C     6.0    -1.25696    -0.21327    -0.69596
-<span class="linenos"> 14</span>C     6.0    -0.33240     0.51308    -1.41520
-<span class="linenos"> 15</span>C     6.0     1.58158    -0.29544    -0.69202
-<span class="linenos"> 16</span>H     1.0    -1.83544    -0.96446    -1.20729
-<span class="linenos"> 17</span>H     1.0     1.46204    -1.22096    -1.22142
-<span class="linenos"> 18</span>H     1.0    -0.28274     0.39582    -2.48412
-<span class="linenos"> 19</span>H     1.0     2.14064     0.45769    -1.21783
-<span class="linenos"> 20</span>H     1.0     0.00494     1.46786    -1.06282
-<span class="linenos"> 21</span> $END
-<span class="linenos"> 22</span> $ZMAT   
-<span class="linenos"> 23</span> IZMAT(1)=
-<span class="linenos"> 24</span>         1,   1,   2,
-<span class="linenos"> 25</span>         1,   1,   3,
-<span class="linenos"> 26</span>         1,   1,   7,
-<span class="linenos"> 27</span>         1,   2,   4,
-<span class="linenos"> 28</span>         1,   2,   8,
-<span class="linenos"> 29</span>         1,   3,  15,
-<span class="linenos"> 30</span>         1,   3,   5,
-<span class="linenos"> 31</span>         1,   3,  11,
-<span class="linenos"> 32</span>         1,   4,  16,
-<span class="linenos"> 33</span>         1,   4,  12,
-<span class="linenos"> 34</span>         1,   4,   6,
-<span class="linenos"> 35</span>         1,   5,   9,
-<span class="linenos"> 36</span>         1,   5,  13,
-<span class="linenos"> 37</span>         1,   5,   6,
-<span class="linenos"> 38</span>         1,   6,  14,
-<span class="linenos"> 39</span>         1,   6,  10,
-<span class="linenos"> 40</span>         2,   1,   3,  11,
-<span class="linenos"> 41</span>         2,   1,   3,   5,
-<span class="linenos"> 42</span>         2,   1,   3,  15,
-<span class="linenos"> 43</span>         2,   1,   2,   8,
-<span class="linenos"> 44</span>         2,   1,   2,   4,
-<span class="linenos"> 45</span>         2,   2,   1,   3,
-<span class="linenos"> 46</span>         2,   2,   4,   6,
-<span class="linenos"> 47</span>         2,   2,   4,  16,
-<span class="linenos"> 48</span>         2,   2,   1,   7,
-<span class="linenos"> 49</span>         2,   2,   4,  12,
-<span class="linenos"> 50</span>         2,   3,   1,   7,
-<span class="linenos"> 51</span>         2,   3,   5,   6,
-<span class="linenos"> 52</span>         2,   3,   5,  13,
-<span class="linenos"> 53</span>         2,   3,   5,   9,
-<span class="linenos"> 54</span>         2,   4,   6,  10,
-<span class="linenos"> 55</span>         2,   4,   6,  14,
-<span class="linenos"> 56</span>         2,   4,   6,   5,
-<span class="linenos"> 57</span>         2,   4,   2,   8,
-<span class="linenos"> 58</span>         2,   5,   3,  11,
-<span class="linenos"> 59</span>         2,   5,   6,  10,
-<span class="linenos"> 60</span>         2,   5,   6,  14,
-<span class="linenos"> 61</span>         2,   5,   3,  15,
-<span class="linenos"> 62</span>         2,   6,   5,  13,
-<span class="linenos"> 63</span>         2,   6,   5,   9,
-<span class="linenos"> 64</span>         2,   6,   4,  12,
-<span class="linenos"> 65</span>         2,   6,   4,  16,
-<span class="linenos"> 66</span>         2,   9,   5,  13,
-<span class="linenos"> 67</span>         2,  10,   6,  14,
-<span class="linenos"> 68</span>         2,  11,   3,  15,
-<span class="linenos"> 69</span>         2,  12,   4,  16,
-<span class="linenos"> 70</span>         3,   1,   2,   4,  12,
-<span class="linenos"> 71</span>         3,   1,   3,   5,   6,
-<span class="linenos"> 72</span>         3,   1,   2,   4,  16,
-<span class="linenos"> 73</span>         3,   1,   3,   5,  13,
-<span class="linenos"> 74</span>         3,   1,   3,   5,   9,
-<span class="linenos"> 75</span>         3,   1,   2,   4,   6,
-<span class="linenos"> 76</span>         3,   2,   4,   6,  10,
-<span class="linenos"> 77</span>         3,   2,   1,   3,   5,
-<span class="linenos"> 78</span>         3,   2,   4,   6,  14,
-<span class="linenos"> 79</span>         3,   2,   1,   3,  11,
-<span class="linenos"> 80</span>         3,   2,   4,   6,   5,
-<span class="linenos"> 81</span>         3,   2,   1,   3,  15,
-<span class="linenos"> 82</span>         3,   3,   1,   2,   4,
-<span class="linenos"> 83</span>         3,   3,   1,   2,   8,
-<span class="linenos"> 84</span>         3,   3,   5,   6,  10,
-<span class="linenos"> 85</span>         3,   3,   5,   6,  14,
-<span class="linenos"> 86</span>         3,   3,   5,   6,   4,
-<span class="linenos"> 87</span>         3,   4,   6,   5,  13,
-<span class="linenos"> 88</span>         3,   4,   6,   5,   9,
-<span class="linenos"> 89</span>         3,   4,   2,   1,   7,
-<span class="linenos"> 90</span>         3,   5,   6,   4,  12,
-<span class="linenos"> 91</span>         3,   5,   6,   4,  16,
-<span class="linenos"> 92</span>         3,   5,   3,   1,   7,
-<span class="linenos"> 93</span>         3,   6,   4,   2,   8,
-<span class="linenos"> 94</span>         3,   6,   5,   3,  11,
-<span class="linenos"> 95</span>         3,   6,   5,   3,  15,
-<span class="linenos"> 96</span>         3,   7,   1,   2,   8,
-<span class="linenos"> 97</span>         3,   7,   1,   3,  15,
-<span class="linenos"> 98</span>         3,   7,   1,   3,  11,
-<span class="linenos"> 99</span>         3,   8,   2,   4,  16,
-<span class="linenos">100</span>         3,   8,   2,   4,  12,
-<span class="linenos">101</span>         3,   9,   5,   3,  11,
-<span class="linenos">102</span>         3,   9,   5,   3,  15,
-<span class="linenos">103</span>         3,   9,   5,   6,  14,
-<span class="linenos">104</span>         3,   9,   5,   6,  10,
-<span class="linenos">105</span>         3,  10,   6,   4,  12,
-<span class="linenos">106</span>         3,  10,   6,   4,  16,
-<span class="linenos">107</span>         3,  10,   6,   5,  13,
-<span class="linenos">108</span>         3,  11,   3,   5,  13,
-<span class="linenos">109</span>         3,  12,   4,   6,  14,
-<span class="linenos">110</span>         3,  13,   5,   3,  15,
-<span class="linenos">111</span>         3,  13,   5,   6,  14,
-<span class="linenos">112</span>         3,  14,   6,   4,  16,
-<span class="linenos">113</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+<span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=SADPOINT MAXIT=30 MULT=1 NZVAR=89 MOLPLT=.TRUE. $END
+</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $GUESS GUESS=HUCKEL $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=1e-05 NSTEP=200 HESS=CALC HSSEND=.t. $END
+ $FORCE METHOD=ANALYTIC VIBANL=.TRUE. $END
+ $DATA 
+Cyclohexene
+CS
+
+C     6.0    -1.25696    -0.21327    -0.69596
+C     6.0    -0.33240     0.51308    -1.41520
+C     6.0     1.58158    -0.29544    -0.69202
+H     1.0    -1.83544    -0.96446    -1.20729
+H     1.0     1.46204    -1.22096    -1.22142
+H     1.0    -0.28274     0.39582    -2.48412
+H     1.0     2.14064     0.45769    -1.21783
+H     1.0     0.00494     1.46786    -1.06282
+ $END
+ $ZMAT   
+ IZMAT(1)=
+         1,   1,   2,
+         1,   1,   3,
+         1,   1,   7,
+         1,   2,   4,
+         1,   2,   8,
+         1,   3,  15,
+         1,   3,   5,
+         1,   3,  11,
+         1,   4,  16,
+         1,   4,  12,
+         1,   4,   6,
+         1,   5,   9,
+         1,   5,  13,
+         1,   5,   6,
+         1,   6,  14,
+         1,   6,  10,
+         2,   1,   3,  11,
+         2,   1,   3,   5,
+         2,   1,   3,  15,
+         2,   1,   2,   8,
+         2,   1,   2,   4,
+         2,   2,   1,   3,
+         2,   2,   4,   6,
+         2,   2,   4,  16,
+         2,   2,   1,   7,
+         2,   2,   4,  12,
+         2,   3,   1,   7,
+         2,   3,   5,   6,
+         2,   3,   5,  13,
+         2,   3,   5,   9,
+         2,   4,   6,  10,
+         2,   4,   6,  14,
+         2,   4,   6,   5,
+         2,   4,   2,   8,
+         2,   5,   3,  11,
+         2,   5,   6,  10,
+         2,   5,   6,  14,
+         2,   5,   3,  15,
+         2,   6,   5,  13,
+         2,   6,   5,   9,
+         2,   6,   4,  12,
+         2,   6,   4,  16,
+         2,   9,   5,  13,
+         2,  10,   6,  14,
+         2,  11,   3,  15,
+         2,  12,   4,  16,
+         3,   1,   2,   4,  12,
+         3,   1,   3,   5,   6,
+         3,   1,   2,   4,  16,
+         3,   1,   3,   5,  13,
+         3,   1,   3,   5,   9,
+         3,   1,   2,   4,   6,
+         3,   2,   4,   6,  10,
+         3,   2,   1,   3,   5,
+         3,   2,   4,   6,  14,
+         3,   2,   1,   3,  11,
+         3,   2,   4,   6,   5,
+         3,   2,   1,   3,  15,
+         3,   3,   1,   2,   4,
+         3,   3,   1,   2,   8,
+         3,   3,   5,   6,  10,
+         3,   3,   5,   6,  14,
+         3,   3,   5,   6,   4,
+         3,   4,   6,   5,  13,
+         3,   4,   6,   5,   9,
+         3,   4,   2,   1,   7,
+         3,   5,   6,   4,  12,
+         3,   5,   6,   4,  16,
+         3,   5,   3,   1,   7,
+         3,   6,   4,   2,   8,
+         3,   6,   5,   3,  11,
+         3,   6,   5,   3,  15,
+         3,   7,   1,   2,   8,
+         3,   7,   1,   3,  15,
+         3,   7,   1,   3,  11,
+         3,   8,   2,   4,  16,
+         3,   8,   2,   4,  12,
+         3,   9,   5,   3,  11,
+         3,   9,   5,   3,  15,
+         3,   9,   5,   6,  14,
+         3,   9,   5,   6,  10,
+         3,  10,   6,   4,  12,
+         3,  10,   6,   4,  16,
+         3,  10,   6,   5,  13,
+         3,  11,   3,   5,  13,
+         3,  12,   4,   6,  14,
+         3,  13,   5,   3,  15,
+         3,  13,   5,   6,  14,
+         3,  14,   6,   4,  16,
+ $END
 </pre></div>
 </div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-check-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Check.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-check-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="hll"><span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
-</span><span class="linenos"> 3</span>    NZVAR=42 MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Cyclohexene
-<span class="linenos"> 9</span>CS
-<span class="linenos">10</span>
-<span class="linenos">11</span>C     6.0    -1.23614    -0.19463    -0.66001
-<span class="linenos">12</span>C     6.0    -0.03784     0.34641    -1.40039
-<span class="linenos">13</span>C     6.0     1.27863    -0.15469    -0.77504
-<span class="linenos">14</span>H     1.0    -2.07996    -0.56134    -1.21953
-<span class="linenos">15</span>H     1.0     1.45310    -1.16622    -1.12664
-<span class="linenos">16</span>H     1.0    -0.07030     0.07059    -2.44931
-<span class="linenos">17</span>H     1.0     2.10150     0.44450    -1.15258
-<span class="linenos">18</span>H     1.0    -0.06272     1.43514    -1.37198
-<span class="linenos">19</span> $END
-<span class="linenos">20</span> $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+<span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
+</span>    NZVAR=42 MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $DATA 
+Cyclohexene
+CS
+
+C     6.0    -1.23614    -0.19463    -0.66001
+C     6.0    -0.03784     0.34641    -1.40039
+C     6.0     1.27863    -0.15469    -0.77504
+H     1.0    -2.07996    -0.56134    -1.21953
+H     1.0     1.45310    -1.16622    -1.12664
+H     1.0    -0.07030     0.07059    -2.44931
+H     1.0     2.10150     0.44450    -1.15258
+H     1.0    -0.06272     1.43514    -1.37198
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
 </pre></div>
 </div>
 </div>

@@ -52,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="GAMESS Workflow" href="5_Rotation_Profiles_Workflow.html" />
@@ -659,44 +659,44 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Open</strong> the input file you just saved from <em>MacMolPlt</em> in a text editor.  You should see the following text…</p>
 <div class="literal-block-wrapper docutils container" id="butane-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 41 </span><span class="caption-text">butane.inp</span><a class="headerlink" href="#butane-inp" title="Permalink to this code">¶</a></div>
-<div class="hide-input highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="hll"><span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
-</span><span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="hll"><span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-</span><span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Butane
-<span class="linenos">10</span>C1
-<span class="linenos">11</span>C
-<span class="linenos">12</span>C   1    1.54000
-<span class="linenos">13</span>C   2    1.54000  1  109.4712
-<span class="hll"><span class="linenos">14</span>C   1    1.54000  2  109.4712  3 -180.0000
-</span><span class="linenos">15</span>H   1    1.14000  2  109.4712  4 -120.0000
-<span class="linenos">16</span>H   1    1.14000  5  109.4712  2  120.0000
-<span class="linenos">17</span>H   2    1.14000  1  109.4712  3 -120.0000
-<span class="linenos">18</span>H   2    1.14000  7  109.4712  1  120.0000
-<span class="linenos">19</span>H   3    1.14000  2  109.4712  8    0.0000
-<span class="linenos">20</span>H   3    1.14000  9  109.4712  2  120.0000
-<span class="linenos">21</span>H   3    1.14000  9  109.4712  10 120.0000
-<span class="linenos">22</span>H   4    1.14000  1  109.4712  6   -0.0000
-<span class="linenos">23</span>H   4    1.14000  12 109.4712  1  120.0000
-<span class="linenos">24</span>H   4    1.14000  12 109.4712  13 120.0000
-<span class="linenos">25</span> $END
-<span class="linenos">26</span> $ZMAT IZMAT(1)=1,2,1, 
-<span class="linenos">27</span>                1,3,2,  2,3,2,1, 
-<span class="linenos">28</span>                1,4,1,  2,4,1,2,   3,4,1,2,3, 
-<span class="linenos">29</span>                1,5,1,  2,5,1,2,   3,5,1,2,4, 
-<span class="linenos">30</span>                1,6,1,  2,6,1,5,   3,6,1,5,2, 
-<span class="linenos">31</span>                1,7,2,  2,7,2,1,   3,7,2,1,3, 
-<span class="linenos">32</span>                1,8,2,  2,8,2,7,   3,8,2,7,1, 
-<span class="linenos">33</span>                1,9,3,  2,9,3,2,   3,9,3,2,8, 
-<span class="linenos">34</span>                1,10,3, 2,10,3,9,  3,10,3,9,2, 
-<span class="linenos">35</span>                1,11,3, 2,11,3,9,  3,11,3,9,10, 
-<span class="linenos">36</span>                1,12,4, 2,12,4,1,  3,12,4,1,6, 
-<span class="linenos">37</span>                1,13,4, 2,13,4,12, 3,13,4,12,1, 
-<span class="linenos">38</span>                1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+<div class="hide-input highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+<span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+</span>    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="hll"> $BASIS GBASIS=N21 NGAUSS=3 $END
+</span> $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1  109.4712
+<span class="hll">C   1    1.54000  2  109.4712  3 -180.0000
+</span>H   1    1.14000  2  109.4712  4 -120.0000
+H   1    1.14000  5  109.4712  2  120.0000
+H   2    1.14000  1  109.4712  3 -120.0000
+H   2    1.14000  7  109.4712  1  120.0000
+H   3    1.14000  2  109.4712  8    0.0000
+H   3    1.14000  9  109.4712  2  120.0000
+H   3    1.14000  9  109.4712  10 120.0000
+H   4    1.14000  1  109.4712  6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712  13 120.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 
+                1,3,2,  2,3,2,1, 
+                1,4,1,  2,4,1,2,   3,4,1,2,3, 
+                1,5,1,  2,5,1,2,   3,5,1,2,4, 
+                1,6,1,  2,6,1,5,   3,6,1,5,2, 
+                1,7,2,  2,7,2,1,   3,7,2,1,3, 
+                1,8,2,  2,8,2,7,   3,8,2,7,1, 
+                1,9,3,  2,9,3,2,   3,9,3,2,8, 
+                1,10,3, 2,10,3,9,  3,10,3,9,2, 
+                1,11,3, 2,11,3,9,  3,11,3,9,10, 
+                1,12,4, 2,12,4,1,  3,12,4,1,6, 
+                1,13,4, 2,13,4,12, 3,13,4,12,1, 
+                1,14,4, 2,14,4,12, 3,14,4,12,13 $END
 </pre></div>
 </div>
 </div>
@@ -876,36 +876,36 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let us open the butane.inp file again with the text editor. We will <strong>change</strong> only the value for the 4,1,2,3 torsion angle. The new file is shown below. We will name it as butane60.inp.</p>
 <div class="literal-block-wrapper docutils container" id="butane60-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 43 </span><span class="caption-text">butane60.inp</span><a class="headerlink" href="#butane60-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7568</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos">7569</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
-<span class="linenos">7570</span>    MOLPLT=.TRUE. $END
-<span class="linenos">7571</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos">7572</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos">7573</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos">7574</span> $STATPT OPTTOL=0.0001 NSTEP=30 $END
-<span class="linenos">7575</span> $DATA 
-<span class="linenos">7576</span>Butane
-<span class="linenos">7577</span>C1
-<span class="linenos">7578</span>C
-<span class="linenos">7579</span>C   1    1.54000
-<span class="linenos">7580</span>C   2    1.54000  1  109.4712
-<span class="hll"><span class="linenos">7581</span>C   1    1.54000  2  109.4712  3   60.0000
-</span><span class="linenos">7582</span>H   1    1.14000  2  109.4712  4 -120.0000
-<span class="linenos">7583</span>H   1    1.14000  5  109.4712  2  120.0000
-<span class="linenos">7584</span>H   2    1.14000  1  109.4712  3 -120.0000
-<span class="linenos">7585</span>H   2    1.14000  7  109.4712  1  120.0000
-<span class="linenos">7586</span>H   3    1.14000  2  109.4712  8    0.0000
-<span class="linenos">7587</span>H   3    1.14000  9  109.4712  2  120.0000
-<span class="linenos">7588</span>H   3    1.14000  9  109.4712  10 120.0000
-<span class="linenos">7589</span>H   4    1.14000  1  109.4712  6   -0.0000
-<span class="linenos">7590</span>H   4    1.14000  12 109.4712  1  120.0000
-<span class="linenos">7591</span>H   4    1.14000  12 109.4712  13 120.0000
-<span class="linenos">7592</span> $END
-<span class="linenos">7593</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
-<span class="linenos">7594</span>    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
-<span class="linenos">7595</span>    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
-<span class="linenos">7596</span>    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
-<span class="linenos">7597</span>    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=30 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1  109.4712
+<span class="hll">C   1    1.54000  2  109.4712  3   60.0000
+</span>H   1    1.14000  2  109.4712  4 -120.0000
+H   1    1.14000  5  109.4712  2  120.0000
+H   2    1.14000  1  109.4712  3 -120.0000
+H   2    1.14000  7  109.4712  1  120.0000
+H   3    1.14000  2  109.4712  8    0.0000
+H   3    1.14000  9  109.4712  2  120.0000
+H   3    1.14000  9  109.4712  10 120.0000
+H   4    1.14000  1  109.4712  6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712  13 120.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
 </pre></div>
 </div>
 </div>
@@ -916,22 +916,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Examining the first 10 lines of the <strong>internal coordinates</strong> of the result shows that the central C–C torsion is 67°. This is very close to the expected value. It is not exactly 60° because of the <strong>steric size</strong> of the methyl group.</p>
 <div class="literal-block-wrapper docutils container" id="butane60-248-log1">
 <div class="code-block-caption"><span class="caption-number">Listing 44 </span><span class="caption-text">butane60_248.log</span><a class="headerlink" href="#butane60-248-log1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>                     <span class="o">--------------------</span>
-<span class="linenos"> 2</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
-<span class="linenos"> 3</span>                     <span class="o">--------------------</span>
-<span class="linenos"> 4</span>
-<span class="linenos"> 5</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
-<span class="linenos"> 6</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
-<span class="linenos"> 7</span> <span class="o">----------------------------------------------------------------</span>
-<span class="linenos"> 8</span>   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">1</span>                     <span class="mf">2.9158702</span>       <span class="mf">1.5430121</span>
-<span class="linenos"> 9</span>   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">2</span>                     <span class="mf">2.9128559</span>       <span class="mf">1.5414171</span>
-<span class="linenos">10</span>   <span class="mi">3</span> <span class="n">BEND</span>      <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">1</span>                  <span class="mf">1.9742294</span>     <span class="mf">113.1150123</span>
-<span class="linenos">11</span>   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">1</span>                     <span class="mf">2.9128532</span>       <span class="mf">1.5414156</span>
-<span class="linenos">12</span>   <span class="mi">5</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9742485</span>     <span class="mf">113.1161071</span>
-<span class="hll"><span class="linenos">13</span>   <span class="mi">6</span> <span class="n">TORSION</span>   <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>               <span class="mf">1.1739939</span>      <span class="mf">67.2648974</span>
-</span><span class="linenos">14</span>   <span class="mi">7</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">1</span>                     <span class="mf">2.0521415</span>       <span class="mf">1.0859466</span>
-<span class="linenos">15</span>   <span class="mi">8</span> <span class="n">BEND</span>      <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9051708</span>     <span class="mf">109.1582461</span>
-<span class="linenos">16</span><span class="o">...</span><span class="n">Lines</span> <span class="n">Removed</span><span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7568</span>                     <span class="o">--------------------</span>
+<span class="linenos">7569</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
+<span class="linenos">7570</span>                     <span class="o">--------------------</span>
+<span class="linenos">7571</span>
+<span class="linenos">7572</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
+<span class="linenos">7573</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
+<span class="linenos">7574</span> <span class="o">----------------------------------------------------------------</span>
+<span class="linenos">7575</span>   <span class="mi">1</span> <span class="n">STRETCH</span>   <span class="mi">2</span>  <span class="mi">1</span>                     <span class="mf">2.9158702</span>       <span class="mf">1.5430121</span>
+<span class="linenos">7576</span>   <span class="mi">2</span> <span class="n">STRETCH</span>   <span class="mi">3</span>  <span class="mi">2</span>                     <span class="mf">2.9128559</span>       <span class="mf">1.5414171</span>
+<span class="linenos">7577</span>   <span class="mi">3</span> <span class="n">BEND</span>      <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">1</span>                  <span class="mf">1.9742294</span>     <span class="mf">113.1150123</span>
+<span class="linenos">7578</span>   <span class="mi">4</span> <span class="n">STRETCH</span>   <span class="mi">4</span>  <span class="mi">1</span>                     <span class="mf">2.9128532</span>       <span class="mf">1.5414156</span>
+<span class="linenos">7579</span>   <span class="mi">5</span> <span class="n">BEND</span>      <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9742485</span>     <span class="mf">113.1161071</span>
+<span class="hll"><span class="linenos">7580</span>   <span class="mi">6</span> <span class="n">TORSION</span>   <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>               <span class="mf">1.1739939</span>      <span class="mf">67.2648974</span>
+</span><span class="linenos">7581</span>   <span class="mi">7</span> <span class="n">STRETCH</span>   <span class="mi">5</span>  <span class="mi">1</span>                     <span class="mf">2.0521415</span>       <span class="mf">1.0859466</span>
+<span class="linenos">7582</span>   <span class="mi">8</span> <span class="n">BEND</span>      <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">2</span>                  <span class="mf">1.9051708</span>     <span class="mf">109.1582461</span>
+<span class="linenos">7583</span><span class="o">...</span><span class="n">Lines</span> <span class="n">Removed</span><span class="o">...</span>
 </pre></div>
 </div>
 </div>
@@ -957,36 +957,36 @@ const thebe_selector_output = ".output, .cell_output"
 <p>I will use a text editor to change our input file. We will change the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion to <code class="docutils literal notranslate"><span class="pre">0&amp;deg;</span></code> (<em>syn</em>) and then lock the sixth coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that <strong>corresponds</strong> to that internal coordinate. The new input file is shown below.</p>
 <div class="literal-block-wrapper docutils container" id="butane-scan-0-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">butane_scan_0.inp</span><a class="headerlink" href="#butane-scan-0-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
-<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=50 IFREEZ(1)=6 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Butane
-<span class="linenos">10</span>C1
-<span class="linenos">11</span>C
-<span class="linenos">12</span>C   1    1.54000
-<span class="linenos">13</span>C   2    1.54000  1 109.4712
-<span class="hll"><span class="linenos">14</span>C   1    1.54000  2 109.4712   3    0.0000
-</span><span class="linenos">15</span>H   1    1.14000  2 109.4712   4 -120.0000
-<span class="linenos">16</span>H   1    1.14000  5 109.4712   2  120.0000
-<span class="linenos">17</span>H   2    1.14000  1 109.4712   3 -120.0000
-<span class="linenos">18</span>H   2    1.14000  7 109.4712   1  120.0000
-<span class="linenos">19</span>H   3    1.14000  2 109.4712   8    0.0000
-<span class="linenos">20</span>H   3    1.14000  9 109.4712   2  120.0000
-<span class="linenos">21</span>H   3    1.14000  9 109.4712  10  120.0000
-<span class="linenos">22</span>H   4    1.14000  1 109.4712   6   -0.0000
-<span class="linenos">23</span>H   4    1.14000  12 109.4712  1  120.0000
-<span class="linenos">24</span>H   4    1.14000  12 109.4712 13  120.0000
-<span class="linenos">25</span> $END
-<span class="linenos">26</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
-<span class="linenos">27</span>    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
-<span class="linenos">28</span>    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
-<span class="linenos">29</span>    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
-<span class="linenos">30</span>    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=50 IFREEZ(1)=6 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1 109.4712
+<span class="hll">C   1    1.54000  2 109.4712   3    0.0000
+</span>H   1    1.14000  2 109.4712   4 -120.0000
+H   1    1.14000  5 109.4712   2  120.0000
+H   2    1.14000  1 109.4712   3 -120.0000
+H   2    1.14000  7 109.4712   1  120.0000
+H   3    1.14000  2 109.4712   8    0.0000
+H   3    1.14000  9 109.4712   2  120.0000
+H   3    1.14000  9 109.4712  10  120.0000
+H   4    1.14000  1 109.4712   6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712 13  120.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
 </pre></div>
 </div>
 </div>
@@ -1100,36 +1100,36 @@ The command <code class="docutils literal notranslate"><span class="pre">grep</s
 Below is the new input file</p>
 <div class="literal-block-wrapper docutils container" id="butane-scan-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">butane-SCAN.inp</span><a class="headerlink" href="#butane-scan-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>!   File created by MacMolPlt 7.7.2
-<span class="linenos"> 2</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
-<span class="linenos"> 3</span>    MOLPLT=.TRUE. $END
-<span class="linenos"> 4</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 5</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=1000 IFREEZ(1)=6 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Butane
-<span class="linenos">10</span>C1
-<span class="linenos">11</span>C
-<span class="linenos">12</span>C   1    1.54000
-<span class="linenos">13</span>C   2    1.54000  1 109.4712
-<span class="hll"><span class="linenos">14</span>C   1    1.54000  2 109.4712   3   NUMBER
-</span><span class="linenos">15</span>H   1    1.14000  2 109.4712   4 -120.0000
-<span class="linenos">16</span>H   1    1.14000  5 109.4712   2  120.0000
-<span class="linenos">17</span>H   2    1.14000  1 109.4712   3 -120.0000
-<span class="linenos">18</span>H   2    1.14000  7 109.4712   1  120.0000
-<span class="linenos">19</span>H   3    1.14000  2 109.4712   8    0.0000
-<span class="linenos">20</span>H   3    1.14000  9 109.4712   2  120.0000
-<span class="linenos">21</span>H   3    1.14000  9 109.4712  10  120.0000
-<span class="linenos">22</span>H   4    1.14000  1 109.4712   6   -0.0000
-<span class="linenos">23</span>H   4    1.14000  12 109.4712  1  120.0000
-<span class="linenos">24</span>H   4    1.14000  12 109.4712 13  119.0000
-<span class="linenos">25</span> $END
-<span class="linenos">26</span> $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
-<span class="linenos">27</span>    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
-<span class="linenos">28</span>    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
-<span class="linenos">29</span>    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
-<span class="linenos">30</span>    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=1000 IFREEZ(1)=6 $END
+ $DATA 
+Butane
+C1
+C
+C   1    1.54000
+C   2    1.54000  1 109.4712
+<span class="hll">C   1    1.54000  2 109.4712   3   NUMBER
+</span>H   1    1.14000  2 109.4712   4 -120.0000
+H   1    1.14000  5 109.4712   2  120.0000
+H   2    1.14000  1 109.4712   3 -120.0000
+H   2    1.14000  7 109.4712   1  120.0000
+H   3    1.14000  2 109.4712   8    0.0000
+H   3    1.14000  9 109.4712   2  120.0000
+H   3    1.14000  9 109.4712  10  120.0000
+H   4    1.14000  1 109.4712   6   -0.0000
+H   4    1.14000  12 109.4712  1  120.0000
+H   4    1.14000  12 109.4712 13  119.0000
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,1, 
+    2,5,1,2, 3,5,1,2,4, 1,6,1, 2,6,1,5, 3,6,1,5,2, 1,7,2, 2,7,2,1, 3,7,2,1,3, 
+    1,8,2, 2,8,2,7, 3,8,2,7,1, 1,9,3, 2,9,3,2, 3,9,3,2,8, 1,10,3, 2,10,3,9, 
+    3,10,3,9,2, 1,11,3, 2,11,3,9, 3,11,3,9,10, 1,12,4, 2,12,4,1, 3,12,4,1,6, 
+    1,13,4, 2,13,4,12, 3,13,4,12,1, 1,14,4, 2,14,4,12, 3,14,4,12,13 $END
 </pre></div>
 </div>
 </div>

@@ -52,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Methane: Visual Input and Output" href="3_Visual_Input.html" />
@@ -918,19 +918,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Below in <a class="reference internal" href="#water-inp"><span class="std std-numref">Listing 1</span></a> is the text file for this first <em>GAMESS</em> run. I created a file called water.inp and typed in the following text (feel free to cut and paste.)</p>
 <div class="literal-block-wrapper docutils container" id="water-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">water.inp</span><a class="headerlink" href="#water-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
-<span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 3</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Water
-<span class="linenos"> 8</span>CNV 2
-<span class="linenos"> 9</span>
-<span class="linenos">10</span>O     8.0   0.0   0.0   0.0
-<span class="linenos">11</span>H     1.0  -0.7   0.0  -0.7
-<span class="linenos">12</span>H     1.0   0.7   0.0  -0.7
-<span class="linenos">13</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 2
+
+O     8.0   0.0   0.0   0.0
+H     1.0  -0.7   0.0  -0.7
+H     1.0   0.7   0.0  -0.7
+ $END
 </pre></div>
 </div>
 </div>
@@ -1219,18 +1219,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We will also <strong>cut and paste</strong> the final coordinates from the AM1 job. We should always use the work of those who have gone before to advance our goals. We stand on the shoulders of giants. When we work up to very <strong>expensive</strong> methods, it is best to start with an optimized structure from a <strong>cheaper</strong> method.</p>
 <div class="literal-block-wrapper docutils container" id="water321g-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">water321G.inp</span><a class="headerlink" href="#water321g-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
-<span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="hll"><span class="linenos"> 3</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-</span><span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Water 3-21G
-<span class="linenos"> 8</span>CNV 2
-<span class="linenos"> 9</span>
-<span class="linenos">10</span>O           8.0   0.0000000000   0.0000000000   0.0083001974
-<span class="linenos">11</span>H           1.0  -0.7550350900   0.0000000000  -0.5866394549
-<span class="linenos">12</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="hll"> $BASIS GBASIS=N21 NGAUSS=3 $END
+</span> $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Water 3-21G
+CNV 2
+
+O           8.0   0.0000000000   0.0000000000   0.0083001974
+H           1.0  -0.7550350900   0.0000000000  -0.5866394549
+ $END
 </pre></div>
 </div>
 </div>
@@ -1280,18 +1280,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We will use the coordinate data from the 3-21G run to start as <strong>close</strong> to the true answer <strong>as possible</strong>. After running the job with the following input file we reached a stationary point after three optimization steps.</p>
 <div class="literal-block-wrapper docutils container" id="water6311g-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">water6311G.inp</span><a class="headerlink" href="#water6311g-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
-<span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="hll"><span class="linenos"> 3</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-</span><span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Water 6-311G(d,p)++
-<span class="linenos"> 8</span>CNV 2
-<span class="linenos"> 9</span>
-<span class="linenos">10</span> O           8.0   0.0000000000   0.0000000000  -0.0081020518
-<span class="linenos">11</span> H           1.0  -0.7804697613  -0.0000000000  -0.5784383303
-<span class="linenos">12</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+<span class="hll"> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+</span> $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Water 6-311G(d,p)++
+CNV 2
+
+ O           8.0   0.0000000000   0.0000000000  -0.0081020518
+ H           1.0  -0.7804697613  -0.0000000000  -0.5784383303
+ $END
 </pre></div>
 </div>
 </div>
@@ -1401,19 +1401,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p>By using variables appropriately we can <strong>make sure</strong> that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a <em>Z-matrix</em>. <a class="reference internal" href="#water-z-am1-inp1"><span class="std std-numref">Listing 15</span></a> shows the complete input file for an AM1 optimization of water using the <em>Z-matrix</em>.</p>
 <div class="literal-block-wrapper docutils container" id="water-z-am1-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">water_Z_AM1.inp</span><a class="headerlink" href="#water-z-am1-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
-</span><span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 3</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Water
-<span class="linenos"> 8</span>CNV 2
-<span class="linenos"> 9</span>
-<span class="linenos">10</span>H
-<span class="linenos">11</span>O  1  1.0
-<span class="linenos">12</span>H  2  1.0  1  109.5
-<span class="linenos">13</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
+</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 2
+
+H
+O  1  1.0
+H  2  1.0  1  109.5
+ $END
 </pre></div>
 </div>
 </div>
@@ -1480,21 +1480,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p>When constructing symmetrical molecules it can be useful to use <strong>dummy atoms</strong>. These are defined by the letter X in the <em>Z-matrix</em>.</p>
 <div class="literal-block-wrapper docutils container" id="ammonia-zx-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">ammonia_ZX.inp</span><a class="headerlink" href="#ammonia-zx-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
-<span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 3</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Ammonia
-<span class="linenos"> 8</span>CNV 3
-<span class="linenos"> 9</span>
-<span class="linenos">10</span>X
-<span class="linenos">11</span>N  1  1.0
-<span class="linenos">12</span>H  2  1.0  1  109.5
-<span class="linenos">13</span>H  2  1.0  1  109.5  3  +120.0
-<span class="linenos">14</span>H  2  1.0  1  109.5  3  -120.0
-<span class="linenos">15</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia
+CNV 3
+
+X
+N  1  1.0
+H  2  1.0  1  109.5
+H  2  1.0  1  109.5  3  +120.0
+H  2  1.0  1  109.5  3  -120.0
+ $END
 </pre></div>
 </div>
 </div>
@@ -1564,22 +1564,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Now <em>GAMESS</em> will <strong>track</strong> those coordinates. In fact, <em>GAMESS</em> will be using those coordinates to calculate <strong>gradients</strong>. Rather than a gradient in each axis for each atom, <em>GAMESS</em> will use the gradient for the energy function of that <strong>internal coordinate</strong>. With <strong>carefully designed</strong> internal coordinates, this can speed the calculation quite a bit. Below is the input file for an AM1 optimization using the results from the previous AM1 job.</p>
 <div class="literal-block-wrapper docutils container" id="ammonia-uz-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">ammonia_UZ.inp</span><a class="headerlink" href="#ammonia-uz-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="hll"><span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=6 $END
-</span><span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Ammonia
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span>N  7.0   0.0            0.0  -0.0630644261
-<span class="linenos">12</span>H  1.0   0.9385359335   0.0   0.2757943561
-<span class="linenos">13</span> $END
-<span class="hll"><span class="linenos">14</span> $ZMAT IZMAT(1)=1,2,1,  
-</span><span class="hll"><span class="linenos">15</span>                1,3,1,  2,3,1,2, 
-</span><span class="hll"><span class="linenos">16</span>                1,4,1,  2,4,1,2,  3,4,1,2,3   $END   
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+<span class="hll">  COORD=UNIQUE NZVAR=6 $END
+</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia
+CNV 3
+
+N  7.0   0.0            0.0  -0.0630644261
+H  1.0   0.9385359335   0.0   0.2757943561
+ $END
+<span class="hll"> $ZMAT IZMAT(1)=1,2,1,  
+</span><span class="hll">                1,3,1,  2,3,1,2, 
+</span><span class="hll">                1,4,1,  2,4,1,2,  3,4,1,2,3   $END   
 </span></pre></div>
 </div>
 </div>
@@ -1629,23 +1629,23 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can take the result of the AM1 calculation and use it to build an <strong>input file</strong> for HF/3-21G and HF/6-3111G(d,p)++ optimizations. Below is a file for the <strong>more expensive</strong> option.</p>
 <div class="literal-block-wrapper docutils container" id="ammonia-uz-6311g-inp1">
 <div class="code-block-caption"><span class="caption-number">Listing 21 </span><span class="caption-text">ammonia_UZ_6311G.inp</span><a class="headerlink" href="#ammonia-uz-6311g-inp1" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=6 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Ammonia
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span>N   7.0   0.0            0.0  -0.0630644261
-<span class="linenos">12</span>H   1.0   0.9385359335   0.0   0.2757943561
-<span class="linenos">13</span> $END
-<span class="linenos">14</span> $ZMAT IZMAT(1)=1,2,1,  
-<span class="linenos">15</span>                1,3,1,  2,3,1,2, 
-<span class="linenos">16</span>                1,4,1,  2,4,1,2,  
-<span class="linenos">17</span>                        2,4,1,3   $END  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia
+CNV 3
+
+N   7.0   0.0            0.0  -0.0630644261
+H   1.0   0.9385359335   0.0   0.2757943561
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  
+                        2,4,1,3   $END  
 </pre></div>
 </div>
 </div>
@@ -1771,95 +1771,95 @@ const thebe_selector_output = ".output, .cell_output"
 <h5>Appendix: Input files<a class="headerlink" href="#appendix-input-files" title="Permalink to this headline">¶</a></h5>
 <div class="literal-block-wrapper docutils container" id="methane-am1-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">methane_AM1_U.inp</span><a class="headerlink" href="#methane-am1-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
-<span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 3</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Methane
-<span class="linenos"> 8</span>Td
-<span class="linenos"> 9</span>
-<span class="linenos">10</span>C     6.0     0.0    0.0     0.0
-<span class="linenos">11</span>H     1.0     0.7    0.7     0.7
-<span class="linenos">12</span> $END
-<span class="linenos">13</span> $ZMAT IZMAT(1)= 1,2,1
-<span class="linenos">14</span>                 1,3,1,  2,3,1,2
-<span class="linenos">15</span>                 1,4,1,  2,4,1,3,  3,4,1,3,2
-<span class="linenos">16</span>                 1,5,1,  2,5,1,4,  3,5,1,4,3
-<span class="linenos">17</span>                 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Methane
+Td
+
+C     6.0     0.0    0.0     0.0
+H     1.0     0.7    0.7     0.7
+ $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="methane-321-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 24 </span><span class="caption-text">methane_321_U.inp</span><a class="headerlink" href="#methane-321-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span> COORD=UNIQUE NZVAR=9 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Methane 321
-<span class="linenos"> 9</span>Td
-<span class="linenos">10</span>
-<span class="linenos">11</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">12</span> H           1.0   0.6417914104   0.6417914104   0.6417914104
-<span class="linenos">13</span> $END
-<span class="linenos">14</span> $ZMAT IZMAT(1)= 1,2,1
-<span class="linenos">15</span>                 1,3,1,  2,3,1,2
-<span class="linenos">16</span>                 1,4,1,  2,4,1,3,  3,4,1,3,2
-<span class="linenos">17</span>                 1,5,1,  2,5,1,4,  3,5,1,4,3
-<span class="linenos">18</span>                 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+ COORD=UNIQUE NZVAR=9 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Methane 321
+Td
+
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   0.6417914104   0.6417914104   0.6417914104
+ $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
 </pre></div>
 </div>
 </div>
 <p></p>
 <div class="literal-block-wrapper docutils container" id="methane-6311-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">Methane_6311_U.inp</span><a class="headerlink" href="#methane-6311-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  NZVAR=9 COORD=UNIQUE $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 
-<span class="linenos"> 5</span>  DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Methane 6311
-<span class="linenos">10</span>Td
-<span class="linenos">11</span>
-<span class="linenos">12</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">13</span> H           1.0   0.6260053431   0.6260053431   0.6260053431
-<span class="linenos">14</span>  $END
-<span class="linenos">15</span> $ZMAT IZMAT(1)= 1,2,1
-<span class="linenos">16</span>                 1,3,1,  2,3,1,2
-<span class="linenos">17</span>                 1,4,1,  2,4,1,3,  3,4,1,3,2
-<span class="linenos">18</span>                 1,5,1,  2,5,1,4,  3,5,1,4,3
-<span class="linenos">19</span>                 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  NZVAR=9 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 
+  DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Methane 6311
+Td
+
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   0.6260053431   0.6260053431   0.6260053431
+  $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="methane-6311-u-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">Methane_6311_U_E.inp</span><a class="headerlink" href="#methane-6311-u-e-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  NZVAR=9 COORD=UNIQUE $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 
-<span class="linenos"> 5</span>  DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 6</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 7</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 8</span> $DATA 
-<span class="linenos"> 9</span>Methane 6311
-<span class="linenos">10</span>Td
-<span class="linenos">11</span>
-<span class="linenos">12</span> C           6.0   0.0000000000   0.0000000000   0.0000000000
-<span class="linenos">13</span> H           1.0   0.6260053431   0.6260053431   0.6260053431
-<span class="linenos">14</span>  $END
-<span class="linenos">15</span> $ZMAT IZMAT(1)= 1,2,1
-<span class="linenos">16</span>                 1,3,1,  2,3,1,2
-<span class="linenos">17</span>                 1,4,1,  2,4,1,3,  3,4,1,3,2
-<span class="linenos">18</span>                 1,5,1,  2,5,1,4,  3,5,1,4,3
-<span class="linenos">19</span>                 $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
+  NZVAR=9 COORD=UNIQUE $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 
+  DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Methane 6311
+Td
+
+ C           6.0   0.0000000000   0.0000000000   0.0000000000
+ H           1.0   0.6260053431   0.6260053431   0.6260053431
+  $END
+ $ZMAT IZMAT(1)= 1,2,1
+                 1,3,1,  2,3,1,2
+                 1,4,1,  2,4,1,3,  3,4,1,3,2
+                 1,5,1,  2,5,1,4,  3,5,1,4,3
+                 $END
 </pre></div>
 </div>
 </div>
@@ -1867,20 +1867,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The below file was made to <strong>check</strong> the energy of the experimental structure. Even with many decimal places, <em>GAMESS</em> still did not recognize the <strong>symmetry</strong> of the structure. So I used <em>C<sub>1</sub></em> symmetry instead. Note that there is NO BLANK LINE after the <em>C<sub>1</sub></em> symmetry designation.</p>
 <div class="literal-block-wrapper docutils container" id="methane-6311-z-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Methane_6311_Z_E.inp</span><a class="headerlink" href="#methane-6311-z-e-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
-<span class="linenos"> 2</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 3</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 4</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 5</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 6</span> $DATA 
-<span class="linenos"> 7</span>Methane
-<span class="linenos"> 8</span>C1
-<span class="linenos"> 9</span>H
-<span class="linenos">10</span>C  1  1.087
-<span class="linenos">11</span>H  2  1.087  1  109.4712206
-<span class="linenos">12</span>H  2  1.087  1  109.4712206  3  +120.0
-<span class="linenos">13</span>H  2  1.087  1  109.4712206  3  -120.0
-<span class="linenos">14</span> $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Methane
+C1
+H
+C  1  1.087
+H  2  1.087  1  109.4712206
+H  2  1.087  1  109.4712206  3  +120.0
+H  2  1.087  1  109.4712206  3  -120.0
+ $END
 </pre></div>
 </div>
 </div>
@@ -1937,23 +1937,23 @@ const thebe_selector_output = ".output, .cell_output"
 <h5>Appendix: Input files<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
 <div class="literal-block-wrapper docutils container" id="water-am1-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 28 </span><span class="caption-text">water_AM1_U.inp</span><a class="headerlink" href="#water-am1-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=ZMT NZVAR=3 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Water
-<span class="linenos"> 9</span>CNV 2
-<span class="linenos">10</span>
-<span class="linenos">11</span>O
-<span class="linenos">12</span>H  1  1.0
-<span class="linenos">13</span>H  1  1.0  2  109.5
-<span class="linenos">14</span> $END
-<span class="linenos">15</span> $ZMAT IZMAT(1)=1,2,1,
-<span class="linenos">16</span>                1,3,1,  2,3,1,2
-<span class="linenos">17</span>                $END
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=ZMT NZVAR=3 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 2
+
+O
+H  1  1.0
+H  1  1.0  2  109.5
+ $END
+ $ZMAT IZMAT(1)=1,2,1,
+                1,3,1,  2,3,1,2
+                $END
 </pre></div>
 </div>
 </div>
@@ -2009,112 +2009,112 @@ const thebe_selector_output = ".output, .cell_output"
 <h5>Appendix: Input files<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
 <div class="literal-block-wrapper docutils container" id="ammonia-am1-zd-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">ammonia_AM1_ZD.inp</span><a class="headerlink" href="#ammonia-am1-zd-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=ZMT NZVAR=6 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=AM1 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Ammonia AM1
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span>X
-<span class="linenos">12</span>N  1  1.0
-<span class="linenos">13</span>H  2  1.0  1  109.5
-<span class="linenos">14</span>H  2  1.0  1  109.5  3  +120.0
-<span class="linenos">15</span>H  2  1.0  1  109.5  3  -120.0
-<span class="linenos">16</span> $END
-<span class="linenos">17</span>! NOTE: Pretend dummy atom does not exist in the IZMAT matrix 
-<span class="linenos">18</span> $ZMAT IZMAT(1)=1,2,1,  
-<span class="linenos">19</span>                1,3,1,  2,3,1,2, 
-<span class="linenos">20</span>                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=ZMT NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=AM1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Ammonia AM1
+CNV 3
+
+X
+N  1  1.0
+H  2  1.0  1  109.5
+H  2  1.0  1  109.5  3  +120.0
+H  2  1.0  1  109.5  3  -120.0
+ $END
+! NOTE: Pretend dummy atom does not exist in the IZMAT matrix 
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="ammonia-321-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 30 </span><span class="caption-text">ammonia_321_U.inp</span><a class="headerlink" href="#ammonia-321-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=6 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N21 NGAUSS=3 $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Ammonia 3-21G
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span> N           7.0  -0.0000000000  -0.0000000000  -0.0601709286
-<span class="linenos">12</span> H           1.0   0.9385662553   0.0000000000   0.2786785817
-<span class="linenos">13</span> $END
-<span class="linenos">14</span> $ZMAT IZMAT(1)=1,2,1,  
-<span class="linenos">15</span>                1,3,1,  2,3,1,2, 
-<span class="linenos">16</span>                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Ammonia 3-21G
+CNV 3
+
+ N           7.0  -0.0000000000  -0.0000000000  -0.0601709286
+ H           1.0   0.9385662553   0.0000000000   0.2786785817
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 </pre></div>
 </div>
 </div>
 <p></p>
 <div class="literal-block-wrapper docutils container" id="ammonia-6311-u-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 31 </span><span class="caption-text">ammonia_6311_U.inp</span><a class="headerlink" href="#ammonia-6311-u-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=6 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Ammonia 6-311G(d,p)++
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span> N           7.0   0.0000000000   0.0000000000  -0.0501412961
-<span class="linenos">12</span> H           1.0   0.9619980493   0.0000000000   0.2322268510
-<span class="linenos">13</span> $END
-<span class="linenos">14</span> $ZMAT IZMAT(1)=1,2,1,  
-<span class="linenos">15</span>                1,3,1,  2,3,1,2, 
-<span class="linenos">16</span>                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Ammonia 6-311G(d,p)++
+CNV 3
+
+ N           7.0   0.0000000000   0.0000000000  -0.0501412961
+ H           1.0   0.9619980493   0.0000000000   0.2322268510
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="ammonia-6311-u-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 32 </span><span class="caption-text">ammonia_6311_U_E.inp</span><a class="headerlink" href="#ammonia-6311-u-e-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=UNIQUE NZVAR=6 $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=20 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Ammonia 6-311G(d,p)++
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span> N           7.0   0.0000000000   0.0000000000  -0.0501412961
-<span class="linenos">12</span> H           1.0   0.9619980493   0.0000000000   0.2322268510
-<span class="linenos">13</span> $END
-<span class="linenos">14</span> $ZMAT IZMAT(1)=1,2,1,  
-<span class="linenos">15</span>                1,3,1,  2,3,1,2, 
-<span class="linenos">16</span>                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
+  COORD=UNIQUE NZVAR=6 $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=20 $END
+ $DATA 
+Ammonia 6-311G(d,p)++
+CNV 3
+
+ N           7.0   0.0000000000   0.0000000000  -0.0501412961
+ H           1.0   0.9619980493   0.0000000000   0.2322268510
+ $END
+ $ZMAT IZMAT(1)=1,2,1,  
+                1,3,1,  2,3,1,2, 
+                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="ammonia-6311-z-e-inp">
 <div class="code-block-caption"><span class="caption-number">Listing 33 </span><span class="caption-text">ammonia_6311_Z_E.inp</span><a class="headerlink" href="#ammonia-6311-z-e-inp" title="Permalink to this code">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
-<span class="linenos"> 2</span>  COORD=ZMT $END
-<span class="linenos"> 3</span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
-<span class="linenos"> 4</span> $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
-<span class="linenos"> 5</span> $SCF DIRSCF=.TRUE. $END
-<span class="linenos"> 6</span> $STATPT OPTTOL=0.0001 NSTEP=100 $END
-<span class="linenos"> 7</span> $DATA 
-<span class="linenos"> 8</span>Water
-<span class="linenos"> 9</span>CNV 3
-<span class="linenos">10</span>
-<span class="linenos">11</span>X
-<span class="linenos">12</span>N  1  1.0
-<span class="linenos">13</span>H  2  1.0124  1  112.15
-<span class="linenos">14</span>H  2  1.0124  1  112.15  3  +120.0
-<span class="linenos">15</span>H  2  1.0124  1  112.15  3  -120.0
-<span class="linenos">16</span> $END
-<span class="linenos">17</span>! Angle of 112.15 is the X-N-H angle (from the dummy atom)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
+  COORD=ZMT $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=100 $END
+ $DATA 
+Water
+CNV 3
+
+X
+N  1  1.0
+H  2  1.0124  1  112.15
+H  2  1.0124  1  112.15  3  +120.0
+H  2  1.0124  1  112.15  3  -120.0
+ $END
+! Angle of 112.15 is the X-N-H angle (from the dummy atom)
 </pre></div>
 </div>
 </div>

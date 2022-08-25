@@ -37,9 +37,6 @@ Click on the `Edit and Save` button and you will get a text window with the gene
 ```{code-block} 
 ---
 name: amethane.inp
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: methane.inp
 ---
 !   File created by MacMolPlt 7.7.2
@@ -119,9 +116,6 @@ We can **construct** a symmetrical structure of methane using symmetry tools in 
 ```{code-block} 
 ---
 name: methane_AM1_U.inp1
-linenos: True
-lineno-start: 1
-emphasize-lines: 
 caption: methane_AM1_U.inp1
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
@@ -149,8 +143,6 @@ After submitting it, we will have the coordinates optimized at the AM1 level. We
 ```{code-block} 
 ---
 name: methane_6311_U_E.inp1
-linenos: True
-lineno-start: 1
 emphasize-lines: 2
 caption: methane_6311_U_E.inp
 ---

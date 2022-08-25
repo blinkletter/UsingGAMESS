@@ -72,7 +72,7 @@ display(df.head(3))
 #display(df_r.head(3))
 
 
-# In[22]:
+# In[4]:
 
 
 stride = df[:][[5]]               # forward progress 
@@ -92,7 +92,7 @@ print(stride_all.head())
 # 
 # We will **repeat** this for the energy files, adding the transition state energy to the top as above.
 
-# In[27]:
+# In[5]:
 
 
 df = pd.read_csv(energy_file, header = None, sep = r"\s+|_", engine = "python") 
@@ -101,7 +101,7 @@ display(df.head(3))
 display(df_r.head(3))
 
 
-# In[31]:
+# In[6]:
 
 
 energy = df[:][[3]]       # the forward energy list
@@ -125,7 +125,7 @@ print(energy_all)
 # 
 # Again this was repeated with the C-Cl bond length files. **Here** the zero position in included so it was **removed** from the reverse dataframe before it being appended to the end of the forward dataframe. The zero data point is kept at the top of the other dataframes so this will workout. The procedure will be **repeated** again for the second set of files.
 
-# In[32]:
+# In[7]:
 
 
 df = pd.read_csv(C_Cl_1_3_file, header = None, sep = r"\s+|_", engine = "python") 
@@ -136,7 +136,7 @@ df_r=df_r.drop(index=[0], axis="index")     # drop the transition state distance
 #display(df_r.head(3))
 
 
-# In[33]:
+# In[8]:
 
 
 CCl1 = df[:][[5]]       # the forward C-C1 (1,3) distances
@@ -148,7 +148,7 @@ CCl1_all.reset_index(drop=True, inplace=True)
 #print(CCl1_all)
 
 
-# In[34]:
+# In[9]:
 
 
 df = pd.read_csv(C_Cl_2_3_file, header = None, sep = r"\s+|_", engine = "python") 
@@ -159,7 +159,7 @@ df_r=df_r.drop(index=[0], axis="index")   # drop the transition state distance f
 #display(df_r.head(3))
 
 
-# In[35]:
+# In[10]:
 
 
 import numpy as np
@@ -180,7 +180,7 @@ CCl2_all.reset_index(drop=True, inplace=True)
 # 
 # We have **various lists** of corresponding values **extracted** from the log files. Now we will **join** the Dataframes containing each list to make a **data table**.  It is important that the `pd.reset_index()` method be applied to each list so that all have the **same** series of **index values**. The `pd.join()` method will align data acording to the index value. 
 
-# In[36]:
+# In[11]:
 
 
 data=stride_all.join([energy_all,CCl1_all,CCl2_all]) # Join all the lists together
@@ -194,7 +194,7 @@ display(data.head())
 # 
 # Now that we have a set of processed data we should **write it out** so that we can **use it again** and again without having to repeat this whole processing procedure. You will be writing two files in the end. After processing the solvent IRC data we will write the **file** "`SN2_IRC_Solvent_Data.txt`". then you will be **repeating** this whole shebang using the gas phase data extracts and, when you **return here**, we will write the file "`SN2_IRC_Data_GasPhase_Data.txt`".
 
-# In[37]:
+# In[12]:
 
 
 #writefilename = "SN2_IRC_Solvent_Data.txt"
@@ -208,7 +208,7 @@ data.to_csv(path+writefilename)
 # 
 # **Execute** the code block below and **then go back** to the top of this notebook and execute all the data cleaning and processing code **again**. You will now have a table of the gas phase data and will save it with the indicated filename. These *Jupyter* notebooks are meant to be **used and re-used** and copied and pasted.
 
-# In[38]:
+# In[13]:
 
 
 path = "/Users/blink/Documents/CompChem/Exercises/temp/"
@@ -233,7 +233,7 @@ TS_energy = -955.6090406225
 # 
 # I am leaving them here for your information. Please **proceed** to the next notebook to compare the data sets.
 
-# In[39]:
+# In[14]:
 
 
 import matplotlib.pyplot as plt
@@ -244,7 +244,7 @@ plt.plot(x,y, "k-")
 plt.show()
 
 
-# In[40]:
+# In[15]:
 
 
 x = data[:]["C-Cl1"]        # 1,3 bond distance
@@ -254,7 +254,7 @@ plt.plot(x,y, "k-")
 plt.show()
 
 
-# In[41]:
+# In[16]:
 
 
 x = data[:]["C-Cl2"]            # 2,3 bond distance
@@ -264,7 +264,7 @@ plt.plot(x,y, "k-")
 plt.show()
 
 
-# In[42]:
+# In[17]:
 
 
 x = data.index             # step number
@@ -272,10 +272,4 @@ y = data[:]["C-Cl1"]       # 1,3 bond distance
 
 plt.plot(x,y, "k-")
 plt.show()
-
-
-# In[ ]:
-
-
-
 
