@@ -1,38 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8. Butadiene: Transition State for Rotation &#8212; Fun With GAMESS</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -40,711 +47,361 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '7_Butadiene';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Butadiene.inp" href="butadiene.inp.html" />
     <link rel="prev" title="7. Benzene: MOs and Symmetry" href="6_Benzene.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="start.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="start.html">
-   Fun With GAMESS
-  </a>
- </li>
+    
+    
+    <img src="_static/Solvent_plot3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Solvent_plot3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="start.html">
+                    Fun With GAMESS
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1_Setup.html">1. Building Your System</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1A_Unix.html">Using Unix</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="1_Setup.html">
-   1. Building Your System
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1A_Unix.html">
-     Using Unix
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_SmallMolecules.html">
-   2. Water: Getting Started
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Visual_Input.html">
-   3. Methane: Visual Input and Output
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Ethane.html">
-   4. Ethane: Symmetry in Calculations
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="5_Rotation_Profiles.html">
-   5. Butane: Rotation Energy Profiles
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     <em>
-      GAMESS
-     </em>
-     Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Pi_Orbitals.html">
-   6. Allyl Cation: π Orbitals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Benzene.html">
-   7. Benzene: MOs and Symmetry
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   8. Butadiene: Transition State for Rotation
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.inp.html">
-     Butadiene.inp
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.log.html">
-     Butadiene.log
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="8A_Diels_Alder.html">
-   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="9_Solvent.html">
-   10. Solvent: The Environment Matters
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots.html">
-     Data Cleaning Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
-     Data Plotting Workflow
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_SmallMolecules.html">2. Water: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Visual_Input.html">3. Methane: Visual Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Ethane.html">4. Ethane: Symmetry in Calculations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5_Rotation_Profiles.html">5. Butane: Rotation Energy Profiles</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow.html"><em>GAMESS</em> Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Pi_Orbitals.html">6. Allyl Cation: π Orbitals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Benzene.html">7. Benzene: MOs and Symmetry</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">8. Butadiene: Transition State for Rotation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.inp.html">Butadiene.inp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.log.html">Butadiene.log</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="8A_Diels_Alder.html">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="9_Solvent.html">10. Solvent: The Environment Matters</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots.html">Data Cleaning Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">Data Plotting Workflow</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/7_Butadiene.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/7_Butadiene.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        </div>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>8. Butadiene: Transition State for Rotation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimizing-the-trans-conformer">
-   Optimizing the
-   <em>
-    trans
-   </em>
-   Conformer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-trans-butadiene">
-     Building
-     <em>
-      trans
-     </em>
-     -Butadiene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preparing-to-use-gamess">
-     Preparing to use
-     <em>
-      GAMESS
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimizing-the-structure">
-     Optimizing the Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-output-file">
-     The Output File
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-1-to-100-system-information-and-gamess-header">
-       Lines 1 to 100: System Information and
-       <em>
-        GAMESS
-       </em>
-       Header
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-114-to-139-input-file">
-       Lines 114 to 139: Input File
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-140-to-470-setup">
-       Lines 140 to 470: Setup
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-471-to-1431-initial-energy-calculation">
-       Lines 471 to 1431: Initial Energy Calculation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-1432-to-1626-the-first-optimization-step">
-       Lines 1432 to 1626: The First Optimization Step
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-1627-to-2949-seven-more-optimization-steps">
-       Lines 1627 to 2949: Seven More Optimization Steps
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-2890-to-3031-final-results">
-       Lines 2890 to 3031: Final Results
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-unix">
-   Using Unix
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extracting-information">
-     Extracting Information
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimized-geometry-of-the-s-cis-conformer">
-   Optimized Geometry of the
-   <em>
-    s-cis
-   </em>
-   Conformer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#changing-the-input-file">
-     Changing The Input File
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#running-the-job">
-     Running The Job
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#avoiding-traps-and-pitfalls">
-     Avoiding Traps and Pitfalls
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#breaking-the-symmetry">
-     Breaking The Symmetry
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-true-s-cis-structure">
-     The True
-     <em>
-      s-cis
-     </em>
-     Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confirmimng-the-s-trans-structure">
-     Confirmimng the
-     <em>
-      s-trans
-     </em>
-     Structure
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#freezing-a-coordinate">
-   Freezing a Coordinate
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-izmat-1-matrix">
-     The IZMAT(1) Matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-ifreez-1-command">
-     The IFREEZ(1) Command
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-potential-energy-surface-for-rotation">
-   The Potential Energy Surface for Rotation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-hypothesis">
-     The Hypothesis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#experimental-design">
-     Experimental Design
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-a-transition-state">
-   Finding A Transition State
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finding-the-imaginary-vibration">
-     Finding The Imaginary Vibration
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-the-saddle-point">
-     Calculating The Saddle Point
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#challenges">
-   Challenges
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-the-trans-conformer">Optimizing the <em>trans</em> Conformer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-trans-butadiene">Building <em>trans</em>-Butadiene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-use-gamess">Preparing to use <em>GAMESS</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-the-structure">Optimizing the Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-file">The Output File</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-1-to-100-system-information-and-gamess-header">Lines 1 to 100: System Information and <em>GAMESS</em> Header</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-114-to-139-input-file">Lines 114 to 139: Input File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-140-to-470-setup">Lines 140 to 470: Setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-471-to-1431-initial-energy-calculation">Lines 471 to 1431: Initial Energy Calculation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-1432-to-1626-the-first-optimization-step">Lines 1432 to 1626: The First Optimization Step</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-1627-to-2949-seven-more-optimization-steps">Lines 1627 to 2949: Seven More Optimization Steps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-2890-to-3031-final-results">Lines 2890 to 3031: Final Results</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-unix">Using Unix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-information">Extracting Information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimized-geometry-of-the-s-cis-conformer">Optimized Geometry of the <em>s-cis</em> Conformer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-input-file">Changing The Input File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-job">Running The Job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-traps-and-pitfalls">Avoiding Traps and Pitfalls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-the-symmetry">Breaking The Symmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-true-s-cis-structure">The True <em>s-cis</em> Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confirmimng-the-s-trans-structure">Confirmimng the <em>s-trans</em> Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freezing-a-coordinate">Freezing a Coordinate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-izmat-1-matrix">The IZMAT(1) Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ifreez-1-command">The IFREEZ(1) Command</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-potential-energy-surface-for-rotation">The Potential Energy Surface for Rotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hypothesis">The Hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-design">Experimental Design</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-transition-state">Finding A Transition State</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-imaginary-vibration">Finding The Imaginary Vibration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-saddle-point">Calculating The Saddle Point</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges">Challenges</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>8. Butadiene: Transition State for Rotation</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimizing-the-trans-conformer">
-   Optimizing the
-   <em>
-    trans
-   </em>
-   Conformer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-trans-butadiene">
-     Building
-     <em>
-      trans
-     </em>
-     -Butadiene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preparing-to-use-gamess">
-     Preparing to use
-     <em>
-      GAMESS
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimizing-the-structure">
-     Optimizing the Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-output-file">
-     The Output File
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-1-to-100-system-information-and-gamess-header">
-       Lines 1 to 100: System Information and
-       <em>
-        GAMESS
-       </em>
-       Header
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-114-to-139-input-file">
-       Lines 114 to 139: Input File
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-140-to-470-setup">
-       Lines 140 to 470: Setup
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-471-to-1431-initial-energy-calculation">
-       Lines 471 to 1431: Initial Energy Calculation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-1432-to-1626-the-first-optimization-step">
-       Lines 1432 to 1626: The First Optimization Step
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-1627-to-2949-seven-more-optimization-steps">
-       Lines 1627 to 2949: Seven More Optimization Steps
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lines-2890-to-3031-final-results">
-       Lines 2890 to 3031: Final Results
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-unix">
-   Using Unix
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extracting-information">
-     Extracting Information
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimized-geometry-of-the-s-cis-conformer">
-   Optimized Geometry of the
-   <em>
-    s-cis
-   </em>
-   Conformer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#changing-the-input-file">
-     Changing The Input File
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#running-the-job">
-     Running The Job
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#avoiding-traps-and-pitfalls">
-     Avoiding Traps and Pitfalls
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#breaking-the-symmetry">
-     Breaking The Symmetry
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-true-s-cis-structure">
-     The True
-     <em>
-      s-cis
-     </em>
-     Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confirmimng-the-s-trans-structure">
-     Confirmimng the
-     <em>
-      s-trans
-     </em>
-     Structure
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#freezing-a-coordinate">
-   Freezing a Coordinate
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-izmat-1-matrix">
-     The IZMAT(1) Matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-ifreez-1-command">
-     The IFREEZ(1) Command
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-potential-energy-surface-for-rotation">
-   The Potential Energy Surface for Rotation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-hypothesis">
-     The Hypothesis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#experimental-design">
-     Experimental Design
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-a-transition-state">
-   Finding A Transition State
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finding-the-imaginary-vibration">
-     Finding The Imaginary Vibration
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-the-saddle-point">
-     Calculating The Saddle Point
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#challenges">
-   Challenges
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="tex2jax_ignore mathjax_ignore section" id="butadiene-transition-state-for-rotation">
-<h1>8. Butadiene: Transition State for Rotation<a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">¶</a></h1>
+<h1>8. Butadiene: Transition State for Rotation<a class="headerlink" href="#butadiene-transition-state-for-rotation" title="Permalink to this headline">#</a></h1>
 <p>We expect butadiene to prefer a <strong>flat</strong> <em>syn</em> or <em>anti</em> conformation. These <strong>two</strong> possibile <strong>conformations</strong> are designated “<em>s-cis</em>” and “<em>s-trans</em>”. The “s” referrs to the σ bond involved. There should be an energy maximum when the <strong>torsion</strong> angle is 90° due to the loss of <strong>cojugation</strong> in when the two π bonds are orthogonal.</p>
 <p>The <strong>change</strong> in electronic structure as the central bond rotates is similar to a chemical <strong>reaction</strong>. Molecular orbitals are being substatially changed and we proceed from one stable conformation <strong>to another</strong>. We could view the highest energy point in this potential energy profile for rotation as a <strong>transition state</strong> in the change from <em>s-cis</em> to <em>s-trans</em>. In this chapter, we will explore the <strong>rotational potential energy profile</strong> for butadiene and introduce the concept of <strong>optimizing</strong> a transition state structure.</p>
 <p>We will <strong>model</strong> butadiene and determine its most stable <strong>configuration</strong> in the <em>s-trans</em> and <em>s-cis</em> rotational conformers. We will then estimate the energy <strong>difference</strong> between the two conformers using different levels of theory and use these values to estimate the equilibrium constant between the two states. We will  <strong>scan</strong> through a rotation of the central bond to locate the highest energy structure along the path. We will  use the <strong>energy barrier</strong> to calculate an estimate for the rate of the process for rotating between the conformations and draw a <strong>conclusion</strong> as to whether there is a barrier to rotation.</p>
 <p>Finally we will use an optimized <strong>structure</strong> that is near the energy <strong>maximum</strong> as a starting point for <strong>optimizing</strong> the structure of the <strong>transition state</strong> for the bond rotation.</p>
 <div class="section" id="optimizing-the-trans-conformer">
-<h2>Optimizing the <em>trans</em> Conformer<a class="headerlink" href="#optimizing-the-trans-conformer" title="Permalink to this headline">¶</a></h2>
+<h2>Optimizing the <em>trans</em> Conformer<a class="headerlink" href="#optimizing-the-trans-conformer" title="Permalink to this headline">#</a></h2>
 <p>We will begin with a <strong>review</strong> of building molecules and optimizing structure. We will <strong>build</strong> both <em>cis</em> and <em>trans</em>-butadiene and attempt to <strong>optimize</strong> the structures. We will learn about some pitfalls along the way. Let us now <strong>begin</strong> with <em>trans</em>.</p>
 <div class="section" id="building-trans-butadiene">
-<h3>Building <em>trans</em>-Butadiene<a class="headerlink" href="#building-trans-butadiene" title="Permalink to this headline">¶</a></h3>
+<h3>Building <em>trans</em>-Butadiene<a class="headerlink" href="#building-trans-butadiene" title="Permalink to this headline">#</a></h3>
 <p>Run <em>MacMolPlt</em>. Click on <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. Choose <code class="docutils literal notranslate"><span class="pre">carbon</span> <span class="pre">atoms</span></code> and set the <code class="docutils literal notranslate"><span class="pre">coordination</span> <span class="pre">number</span></code> to <code class="docutils literal notranslate"><span class="pre">3</span></code> (three bonds to an <em>sp<sup>2</sup></em> carbon). Then click in the window to <strong>build</strong> the molecule, A carbon with three connections will appear. Then click on one of the <strong>connections</strong> to add a new carbon. When you have added all four carbon atoms, change the atom to hydrogen and then click on the remaining connections to include C-H bonds. <strong>Trial and error</strong> are your true teachers.</p>
 <div class="figure align-default" id="fig7-1a">
 <a class="reference internal image-reference" href="_images/Butadiene1.png"><img alt="_images/Butadiene1.png" src="_images/Butadiene1.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text"><em><em>MacMolPlt</em> window with the initial structure for butadiene.</em></span><a class="headerlink" href="#fig7-1a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text"><em><em>MacMolPlt</em> window with the initial structure for butadiene.</em></span><a class="headerlink" href="#fig7-1a" title="Permalink to this image">#</a></p>
 </div>
 <p>The above <strong>initial structure</strong> is rough sketch. We will need to calculate the correct structure by creating an input file for <em>GAMESS</em>. Click on <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the following parameters:</p>
 <ul class="simple">
@@ -756,10 +413,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <div class="section" id="preparing-to-use-gamess">
-<h3>Preparing to use <em>GAMESS</em><a class="headerlink" href="#preparing-to-use-gamess" title="Permalink to this headline">¶</a></h3>
-<p>Here in <a class="reference internal" href="#inputfile1"><span class="std std-numref">Listing 57</span></a> is the input file generated by <em>MacMolPlt</em>…</p>
+<h3>Preparing to use <em>GAMESS</em><a class="headerlink" href="#preparing-to-use-gamess" title="Permalink to this headline">#</a></h3>
+<p>Here in <a class="reference internal" href="#inputfile1"><span class="std std-numref">Listing 48</span></a> is the input file generated by <em>MacMolPlt</em>…</p>
 <div class="literal-block-wrapper docutils container" id="inputfile1">
-<div class="code-block-caption"><span class="caption-number">Listing 57 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#inputfile1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#inputfile1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
     MOLPLT=.TRUE. $END
@@ -790,52 +447,52 @@ H   4    1.14000  9 120.0000  3 180.0000
 </div>
 </div>
 <div class="section" id="optimizing-the-structure">
-<h3>Optimizing the Structure<a class="headerlink" href="#optimizing-the-structure" title="Permalink to this headline">¶</a></h3>
+<h3>Optimizing the Structure<a class="headerlink" href="#optimizing-the-structure" title="Permalink to this headline">#</a></h3>
 <p>Now we will feed the <strong>input file</strong> into the <em>GAMESS</em> program. The job will run and produce an output file that will contain a description of the <strong>structure</strong> with the minimum calculated overall energy. This might be the most <strong>stable</strong> structure for our molecule.</p>
 <p>Run the <em>GamessQ</em> program as we did previously for <a class="reference internal" href="5_Rotation_Profiles.html"><span class="doc std std-doc">butane</span></a>. This will produce an <strong>output file</strong> that is rich in information. Below, we will also pause for a detailed <strong>discussion</strong> of the contents of the output .log file.</p>
 </div>
 <div class="section" id="the-output-file">
-<h3>The Output File<a class="headerlink" href="#the-output-file" title="Permalink to this headline">¶</a></h3>
+<h3>The Output File<a class="headerlink" href="#the-output-file" title="Permalink to this headline">#</a></h3>
 <p>The <em>GamessQ</em> window will <strong>show</strong> you when the job is done. An output file with the extension “.log” will be created.  This has all the <strong>results</strong> of the calculation. The entire file is presented in <a class="reference internal" href="#fig7-1b"><span class="std std-numref">Fig. 37</span></a> in very tiny print. The sections that will be discussed next are highlighted. The <a class="reference internal" href="butadiene.inp.html"><span class="doc std std-doc">input file</span></a> and the <a class="reference internal" href="butadiene.log.html"><span class="doc std std-doc">output file</span></a> are available in text format.</p>
 <div class="figure align-default" id="fig7-1b">
 <a class="reference internal image-reference" href="_images/BUTADIENE_Rotation-ALL.png"><img alt="_images/BUTADIENE_Rotation-ALL.png" src="_images/BUTADIENE_Rotation-ALL.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text"><em>The <em>GAMESS</em> output file with annotations. Click on it to zoom in.</em></span><a class="headerlink" href="#fig7-1b" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text"><em>The <em>GAMESS</em> output file with annotations. Click on it to zoom in.</em></span><a class="headerlink" href="#fig7-1b" title="Permalink to this image">#</a></p>
 </div>
 <div class="section" id="lines-1-to-100-system-information-and-gamess-header">
-<h4>Lines 1 to 100: System Information and <em>GAMESS</em> Header<a class="headerlink" href="#lines-1-to-100-system-information-and-gamess-header" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 1 to 100: System Information and <em>GAMESS</em> Header<a class="headerlink" href="#lines-1-to-100-system-information-and-gamess-header" title="Permalink to this headline">#</a></h4>
 <p>The <strong>first part</strong> of the file is information about the <strong>computer</strong> running <em>GAMESS</em> and the standard <em>GAMESS</em> header with credits and references.</p>
 </div>
 <div class="section" id="lines-114-to-139-input-file">
-<h4>Lines 114 to 139: Input File<a class="headerlink" href="#lines-114-to-139-input-file" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 114 to 139: Input File<a class="headerlink" href="#lines-114-to-139-input-file" title="Permalink to this headline">#</a></h4>
 <p>The next section is a <strong>copy</strong> of the <strong>input file</strong>. The “<code class="docutils literal notranslate"><span class="pre">INPUT</span> <span class="pre">CARD&gt;</span></code>” at the start of each line is an artifact of the FORTRAN heritage of <em>GAMESS</em>. There was once a day when each line would have been read in via a stack of <strong>paper punch cards</strong>. Never fold, spindle or mutilate your input file.</p>
 </div>
 <div class="section" id="lines-140-to-470-setup">
-<h4>Lines 140 to 470: Setup<a class="headerlink" href="#lines-140-to-470-setup" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 140 to 470: Setup<a class="headerlink" href="#lines-140-to-470-setup" title="Permalink to this headline">#</a></h4>
 <p>This section chronicles the <em>GAMESS</em> program <strong>setting up</strong> your calculations.  We see outputs of our structure in <strong>Cartesian coordinates</strong> and in <strong>internal coordinates</strong>. This is followed by a list of the basis set <strong>parameters</strong>. Then the electrons are described according to the instructions of the input file. Toward the end of the setup, we see the final statement of internal coordinates in lines 400 to 430. This was set up by the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group at the end of the input file.</p>
 <p>The important item here is that the <strong>sixth parameter</strong> in that set of internal <strong>coordinates</strong> is the <strong>dihedral angle</strong> along the central C–C bond of butadiene. It will always be the sixth item because the 1,2,3,4 parameter (the angle involving atoms 1,2,3 and 4) is the <strong>sixth</strong> in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> list. We will be <strong>freezing</strong> this sixth parameter when we get to exploring all possible angles for this dihedral. That is the purpose of the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group. We <strong>declare</strong> the parameters in the <em>Z-matrix</em> and can then address them by their position in the list.  If we did not declare the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> list then we would not know in advance where <em>GAMESS</em> chose to put that parameter in the list.</p>
 </div>
 <div class="section" id="lines-471-to-1431-initial-energy-calculation">
-<h4>Lines 471 to 1431: Initial Energy Calculation<a class="headerlink" href="#lines-471-to-1431-initial-energy-calculation" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 471 to 1431: Initial Energy Calculation<a class="headerlink" href="#lines-471-to-1431-initial-energy-calculation" title="Permalink to this headline">#</a></h4>
 <p>Next <em>GAMESS</em> performs an <strong>energy</strong> calculation using our initial input structure. The output includes data for molecular orbitals as well. <em>GAMESS</em> will give the MO information for the <strong>first and last</strong> calculations in an optimization run.</p>
 <p>This calculation provides the <strong>energy</strong> and the first derivative of the energy, the <strong>gradient</strong>. The gradient tells <em>GAMESS</em> which <strong>direction</strong> to change bond lengths and angles to follow a <strong>downhill</strong> slope in the energy function. We will keep following that slope to the <strong>bottom</strong>, hopefully.</p>
 </div>
 <div class="section" id="lines-1432-to-1626-the-first-optimization-step">
-<h4>Lines 1432 to 1626: The First Optimization Step<a class="headerlink" href="#lines-1432-to-1626-the-first-optimization-step" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 1432 to 1626: The First Optimization Step<a class="headerlink" href="#lines-1432-to-1626-the-first-optimization-step" title="Permalink to this headline">#</a></h4>
 <p>The <em>GAMESS</em> program takes the input structure and changes the <strong>bond lengths and angles</strong> according to the gradient. It takes baby steps so as not to overshoot a possible minimum-energy destination. After applying these small changes, <em>GAMESS</em> performs another energy and gradient <strong>calculation</strong>. You will see the new structure reported at the beginning of this calculation. If you <strong>compare</strong> the internal coordinates used in the initial energy calculation to the internal coordinates used in step 1 (compare lines 495-518 to lines 1457-1480) you will see the <strong>changes</strong> made. For example, the C=C double bond between atoms 1 and 2 has changed from 1.54 Å to 1.44 Å.</p>
 </div>
 <div class="section" id="lines-1627-to-2949-seven-more-optimization-steps">
-<h4>Lines 1627 to 2949: Seven More Optimization Steps<a class="headerlink" href="#lines-1627-to-2949-seven-more-optimization-steps" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 1627 to 2949: Seven More Optimization Steps<a class="headerlink" href="#lines-1627-to-2949-seven-more-optimization-steps" title="Permalink to this headline">#</a></h4>
 <p>This process is <strong>repeated again and again</strong>. The energy and gradient are calculated and then that information is used to change the structure along the downward slope of the energy function. This new structure is the input for the next energy and gradient calculation. We will repeat this process until the molecule is <strong>no longer changing</strong>. When the changes proposed by <em>GAMESS</em> drop below a certain threshold value, the program will declare that a “stationary point” has been reached. This is the place where the <strong>first derivative</strong> of the energy function is <strong>zero</strong>. It is the bottom of a well or the peak of a hill. Since we have been following the gradient downwards, we will assume that we have reached a <strong>minimum</strong> in energy.</p>
 <p>The energy is reported near the end of each optimization. We could <strong>extract</strong> these values and plot the progress with each step. Give it a try.</p>
 </div>
 <div class="section" id="lines-2890-to-3031-final-results">
-<h4>Lines 2890 to 3031: Final Results<a class="headerlink" href="#lines-2890-to-3031-final-results" title="Permalink to this headline">¶</a></h4>
+<h4>Lines 2890 to 3031: Final Results<a class="headerlink" href="#lines-2890-to-3031-final-results" title="Permalink to this headline">#</a></h4>
 <p>At the end of all this we have the <strong>final structure</strong> expressed in both Cartesian and internal coordinates and the final energy value for that structure. We can take these coordinates and use them in a new experiment if we wished. <strong>Examining</strong> the internal coordinates reported at the end of step 8 in lines 2909 to 2939 reveals that the C=C bond lengths (2,1 and 4,3) are 1.32 Å and the C–C bond length (3,2) is 1.47 Å. The dihedral angle along the C–C bond (4,3,2,1) is 180°.</p>
-<p>Below in <a class="reference internal" href="#selection1"><span class="std std-numref">Listing 58</span></a> is a section of the log file from step 8 that reports the <strong>final atomic coordinates</strong> and the energy. I extracted lines 2946 to 2995 and added line numbers.</p>
+<p>Below in <a class="reference internal" href="#selection1"><span class="std std-numref">Listing 49</span></a> is a section of the log file from step 8 that reports the <strong>final atomic coordinates</strong> and the energy. I extracted lines 2946 to 2995 and added line numbers.</p>
 <p>The energy is reported in line 2946. The internal coordinates that list bond lengths and angles are start at line 2969.  The set of Cartesian coordinates is <strong>useful</strong> as input for 3-diemsional molecular <strong>visualization</strong> programs like UCSF Chimera, VMD or Avagadro. The block of <em>xyz</em> Cartesian coordinates starts at line 2951.</p>
 <p>From the below internal coordinates, I can create a <strong>diagram</strong> of the optimized structure. See <a class="reference internal" href="#fig7-1c"><span class="std std-numref">Fig. 38</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="selection1">
-<div class="code-block-caption"><span class="caption-number">Listing 58 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#selection1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 49 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#selection1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">2946</span> <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">8</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">154.0594565686</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000626</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000215</span>
 </span><span class="linenos">2947</span>
 <span class="linenos">2948</span>
@@ -891,21 +548,21 @@ H   4    1.14000  9 120.0000  3 180.0000
 </div>
 <div class="figure align-default" id="fig7-1c">
 <a class="reference internal image-reference" href="_images/Butadiene5.png"><img alt="_images/Butadiene5.png" src="_images/Butadiene5.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text"><em>Final results from the output file (step 8)</em></span><a class="headerlink" href="#fig7-1c" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text"><em>Final results from the output file (step 8)</em></span><a class="headerlink" href="#fig7-1c" title="Permalink to this image">#</a></p>
 </div>
 <p>Take note that the diagram in <a class="reference internal" href="#fig7-1c"><span class="std std-numref">Fig. 38</span></a> was <strong>constructed</strong> by examining the <strong>text</strong> of the log file. We don’t have to use a graphical interface such as <em>MacMolPlt</em>. Often, using internal coordinates give us <strong>easy</strong> access to structural details.</p>
 </div>
 </div>
 </div>
 <div class="section" id="using-unix">
-<h2>Using Unix<a class="headerlink" href="#using-unix" title="Permalink to this headline">¶</a></h2>
+<h2>Using Unix<a class="headerlink" href="#using-unix" title="Permalink to this headline">#</a></h2>
 <p>Using the <em>Unix</em> skills described in the <a class="reference internal" href="1_Setup.html"><span class="doc std std-doc">Building Your System</span></a> document, we can <strong>manipulate</strong> the text output files to extract important pits of information.</p>
 <div class="section" id="extracting-information">
-<h3>Extracting Information<a class="headerlink" href="#extracting-information" title="Permalink to this headline">¶</a></h3>
+<h3>Extracting Information<a class="headerlink" href="#extracting-information" title="Permalink to this headline">#</a></h3>
 <p>We will now <strong>extract</strong> just the lines that we want from the large log file. <em>grep</em> is a tool that can be called from the shell. It will read the file line by line and return the lines that contain a text string.</p>
-<p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;NSERCH&quot;</span> <span class="pre">Butadiene_121.log</span> <span class="pre">&gt;</span> <span class="pre">energy.txt</span></code> will extract the <strong>text lines</strong> that I observed contained both the calculated energy and the step number for each optimization step. The file <code class="docutils literal notranslate"><span class="pre">energy.txt</span></code> now contains the following content shown in <a class="reference internal" href="#energies1"><span class="std std-numref">Listing 59</span></a>.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;NSERCH&quot;</span> <span class="pre">Butadiene_121.log</span> <span class="pre">&gt;</span> <span class="pre">energy.txt</span></code> will extract the <strong>text lines</strong> that I observed contained both the calculated energy and the step number for each optimization step. The file <code class="docutils literal notranslate"><span class="pre">energy.txt</span></code> now contains the following content shown in <a class="reference internal" href="#energies1"><span class="std std-numref">Listing 50</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="energies1">
-<div class="code-block-caption"><span class="caption-number">Listing 59 </span><span class="caption-text">energy.txt</span><a class="headerlink" href="#energies1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 50 </span><span class="caption-text">energy.txt</span><a class="headerlink" href="#energies1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">0</span> <span class="o">...</span>
           <span class="n">NSERCH</span><span class="o">=</span>  <span class="mi">0</span>     <span class="n">ENERGY</span><span class="o">=</span>    <span class="o">-</span><span class="mf">153.9541764</span>
  <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">153.9541763815</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.1079504</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0475879</span>
@@ -937,9 +594,9 @@ H   4    1.14000  9 120.0000  3 180.0000
 </div>
 </div>
 <p>You can see that this is <strong>every line</strong> in the file <strong>that contains</strong> the string “<code class="docutils literal notranslate"><span class="pre">NSERCH</span></code>”. I want just the lines that contain the energy and the gradient. So I will grep this file again for “<code class="docutils literal notranslate"><span class="pre">GRAD</span></code>”.</p>
-<p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;GRAD&quot;</span> <span class="pre">energy.txt</span> <span class="pre">&gt;</span> <span class="pre">energy2.txt</span></code> will produce the file named <code class="docutils literal notranslate"><span class="pre">energy2.txt</span></code> that contains the following lines shown in <a class="reference internal" href="#energies2"><span class="std std-numref">Listing 60</span></a></p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;GRAD&quot;</span> <span class="pre">energy.txt</span> <span class="pre">&gt;</span> <span class="pre">energy2.txt</span></code> will produce the file named <code class="docutils literal notranslate"><span class="pre">energy2.txt</span></code> that contains the following lines shown in <a class="reference internal" href="#energies2"><span class="std std-numref">Listing 51</span></a></p>
 <div class="literal-block-wrapper docutils container" id="energies2">
-<div class="code-block-caption"><span class="caption-number">Listing 60 </span><span class="caption-text">energy2.txt</span><a class="headerlink" href="#energies2" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 51 </span><span class="caption-text">energy2.txt</span><a class="headerlink" href="#energies2" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">153.9541763815</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.1079504</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0475879</span>
 <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">1</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">154.0213487172</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0820348</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0360230</span>
 <span class="n">NSERCH</span><span class="p">:</span>   <span class="mi">2</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">154.0529076654</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0642832</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0252608</span>
@@ -955,23 +612,23 @@ H   4    1.14000  9 120.0000  3 180.0000
 <p>I can then import <code class="docutils literal notranslate"><span class="pre">energy2.txt</span></code> into a Jupyter notebook and make a <strong>graph</strong> of the energy and the gradient as we go through the steps. In <a class="reference internal" href="#fig7-1d"><span class="std std-numref">Fig. 39</span></a>, we see a plot of the <strong>relative energies</strong> in each step. The energy in the result table was in Hartrees (<em>Ha</em>), a unit common in computational chemistry. There are 2625.5 <em>kJ/mole</em> in a Hartree.</p>
 <div class="figure align-default" id="fig7-1d">
 <a class="reference internal image-reference" href="_images/Butadiene6.png"><img alt="_images/Butadiene6.png" src="_images/Butadiene6.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text"><em>Plot of relative energy as the optimization proceeds. The left plot shows all steps and the right plot shows the energy from step 3 to the end.</em></span><a class="headerlink" href="#fig7-1d" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text"><em>Plot of relative energy as the optimization proceeds. The left plot shows all steps and the right plot shows the energy from step 3 to the end.</em></span><a class="headerlink" href="#fig7-1d" title="Permalink to this image">#</a></p>
 </div>
 <p>The energy changes <strong>quickly</strong> in the first few steps and then we keep making <strong>small changes</strong> until the <em>GAMESS</em> program halted the optimization.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can learn more about <em>grep</em> online.  Start at <a class="reference external" href="https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf">https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf</a> and then keep going. When you are ready for the next level search the web for “regular expressions”.</p>
+<p>You can learn more about <em>grep</em> online.  Start at https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf and then keep going. When you are ready for the next level search the web for “regular expressions”.</p>
 </div>
 </div>
 </div>
 <div class="section" id="optimized-geometry-of-the-s-cis-conformer">
-<h2>Optimized Geometry of the <em>s-cis</em> Conformer<a class="headerlink" href="#optimized-geometry-of-the-s-cis-conformer" title="Permalink to this headline">¶</a></h2>
+<h2>Optimized Geometry of the <em>s-cis</em> Conformer<a class="headerlink" href="#optimized-geometry-of-the-s-cis-conformer" title="Permalink to this headline">#</a></h2>
 <p>Butadiene can <strong>rotate</strong> around the central C–C bond. It can exist as a <em>s-cis</em> or a <em>s-trans</em> conformer. The energy barrier is small and the central bond can easily rotate. We could calculate the <strong>optimized</strong> structure for the <em>cis</em> conformer and compare that energy to the <em>trans</em> conformer.</p>
 <div class="section" id="changing-the-input-file">
-<h3>Changing The Input File<a class="headerlink" href="#changing-the-input-file" title="Permalink to this headline">¶</a></h3>
-<p>Let us rotate the central bond all the way around. The simplest way to do this is to <strong>change</strong> the 4,3,2,1 torsional angle from 180° to 0° in the <strong>input file</strong>. Here is the changed input file, butadiene.inp shown in <a class="reference internal" href="#butadiene-122inp"><span class="std std-numref">Listing 61</span></a>.</p>
+<h3>Changing The Input File<a class="headerlink" href="#changing-the-input-file" title="Permalink to this headline">#</a></h3>
+<p>Let us rotate the central bond all the way around. The simplest way to do this is to <strong>change</strong> the 4,3,2,1 torsional angle from 180° to 0° in the <strong>input file</strong>. Here is the changed input file, butadiene.inp shown in <a class="reference internal" href="#butadiene-122inp"><span class="std std-numref">Listing 52</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-122inp">
-<div class="code-block-caption"><span class="caption-number">Listing 61 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-122inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 52 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-122inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
     MOLPLT=.TRUE. $END
@@ -1002,10 +659,10 @@ H   4    1.14000  9 120.0000  3 180.0000
 </div>
 </div>
 <div class="section" id="running-the-job">
-<h3>Running The Job<a class="headerlink" href="#running-the-job" title="Permalink to this headline">¶</a></h3>
-<p>We will drop the changed file <strong>onto</strong> the <em>GamessQ</em> window to submit the calculation to <em>GAMESS</em>. In three seconds we are done and a new log file is created. I opened the file in a <strong>text editor</strong>, scrolled down to the last iteration and <strong>found</strong> the resulting optimized structure and energy. This text selection is shown in <a class="reference internal" href="#butadiene-122log"><span class="std std-numref">Listing 62</span></a>.</p>
+<h3>Running The Job<a class="headerlink" href="#running-the-job" title="Permalink to this headline">#</a></h3>
+<p>We will drop the changed file <strong>onto</strong> the <em>GamessQ</em> window to submit the calculation to <em>GAMESS</em>. In three seconds we are done and a new log file is created. I opened the file in a <strong>text editor</strong>, scrolled down to the last iteration and <strong>found</strong> the resulting optimized structure and energy. This text selection is shown in <a class="reference internal" href="#butadiene-122log"><span class="std std-numref">Listing 53</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-122log">
-<div class="code-block-caption"><span class="caption-number">Listing 62 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-122log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 53 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-122log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">2915</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>        <span class="n">GRADIENT</span>
 <span class="linenos">2916</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>         <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>     <span class="p">(</span><span class="n">H</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="n">H</span><span class="o">/</span><span class="n">RAD</span><span class="p">)</span>
 <span class="linenos">2917</span> <span class="o">----------------------------------------------------------------</span>
@@ -1046,20 +703,20 @@ H   4    1.14000  9 120.0000  3 180.0000
 <p>We see the torsion <code class="docutils literal notranslate"><span class="pre">4,3,2,1</span></code> value is <strong>zero</strong> in the optimized structure. Is the <strong>electronic demand</strong> to maximize planarity and π-orbital overlap able to completely trump the <strong>steric cost</strong> of pushing the end groups into close proximity? I don’t know about that. Look at the <code class="docutils literal notranslate"><span class="pre">3,2,1</span></code> bend. It represents the <strong>angle</strong> in the carbon chain. It is 126°. This is much larger than the ideal 120° angle. The bond angle is being <strong>forced</strong> to be minimize to fit the atoms steric clash. But is this the lowest energy structure for the <em>s-cis</em> form of butadiene. <a class="reference internal" href="#fig7-1e"><span class="std std-numref">Fig. 40</span></a> shows a <strong>diagram</strong> for the result of this optimization.</p>
 <div class="figure align-default" id="fig7-1e">
 <a class="reference internal image-reference" href="_images/Butadiene7.png"><img alt="_images/Butadiene7.png" src="_images/Butadiene7.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text"><em>Result of optimization of flat <em>s-cis</em> conformer.</em></span><a class="headerlink" href="#fig7-1e" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text"><em>Result of optimization of flat <em>s-cis</em> conformer.</em></span><a class="headerlink" href="#fig7-1e" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="avoiding-traps-and-pitfalls">
-<h3>Avoiding Traps and Pitfalls<a class="headerlink" href="#avoiding-traps-and-pitfalls" title="Permalink to this headline">¶</a></h3>
+<h3>Avoiding Traps and Pitfalls<a class="headerlink" href="#avoiding-traps-and-pitfalls" title="Permalink to this headline">#</a></h3>
 <p>The perfectly <strong>flat</strong> structure might be on a <strong>maximum</strong> energy point and unable to <strong>snap out of it</strong> because the gradients for the torsions are all calculated to be zero. Are we at a <strong>peak</strong> or in a valley?</p>
 </div>
 <div class="section" id="breaking-the-symmetry">
-<h3>Breaking The Symmetry<a class="headerlink" href="#breaking-the-symmetry" title="Permalink to this headline">¶</a></h3>
+<h3>Breaking The Symmetry<a class="headerlink" href="#breaking-the-symmetry" title="Permalink to this headline">#</a></h3>
 <p>Let’s simply <strong>set</strong> the torsions to 5° away from flat and then let the calculation run. I will also set <code class="docutils literal notranslate"><span class="pre">NSTEP=100</span></code> in the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group of settings. The original value was <code class="docutils literal notranslate"><span class="pre">20</span></code> and the calculation was stopping at 20.  If we stop on a count rather than when we find the stationary point we won’t be at the optimized <strong>destination</strong>. <code class="docutils literal notranslate"><span class="pre">NSTEP</span></code> should be set so that the calculation cannot take too long but I’m not worried about that here.</p>
 <p>I’m going to do the same with the <em>s-trans</em> conformer as well. In that calculation we had set the <code class="docutils literal notranslate"><span class="pre">4,3,2,1</span></code> torsion to 180° and it had remained there. We will <strong>tweak</strong> all the torsions by 5° here as well.</p>
-<p>Here in <a class="reference internal" href="#butadiene-125"><span class="std std-numref">Listing 63</span></a> is the new input file for the <em>s-cis</em> conformer…</p>
+<p>Here in <a class="reference internal" href="#butadiene-125"><span class="std std-numref">Listing 54</span></a> is the new input file for the <em>s-cis</em> conformer…</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-125">
-<div class="code-block-caption"><span class="caption-number">Listing 63 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-125" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 54 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-125" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   &quot;cis&quot; conformer
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
@@ -1091,10 +748,10 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 </div>
 <div class="section" id="the-true-s-cis-structure">
-<h3>The True <em>s-cis</em> Structure<a class="headerlink" href="#the-true-s-cis-structure" title="Permalink to this headline">¶</a></h3>
-<p>Below in <a class="reference internal" href="#butadiene-125log"><span class="std std-numref">Listing 64</span></a> is a text block from the result file.</p>
+<h3>The True <em>s-cis</em> Structure<a class="headerlink" href="#the-true-s-cis-structure" title="Permalink to this headline">#</a></h3>
+<p>Below in <a class="reference internal" href="#butadiene-125log"><span class="std std-numref">Listing 55</span></a> is a text block from the result file.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-125log">
-<div class="code-block-caption"><span class="caption-number">Listing 64 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-125log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-125log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7533</span>            <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>        <span class="n">GRADIENT</span>
 <span class="linenos">7534</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>         <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>     <span class="p">(</span><span class="n">H</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="n">H</span><span class="o">/</span><span class="n">RAD</span><span class="p">)</span>
 <span class="linenos">7535</span> <span class="o">----------------------------------------------------------------</span>
@@ -1137,16 +794,16 @@ H   4    1.14000  9 120.0000  3 175.0000
 <p>The vertical line is a “pipe”. It <strong>sends the output</strong> of the first command into the second. <strong>Pipes</strong> allow for stringing Unix tools <strong>together</strong> to do complex operations in a single command.  The result of that operation is in the file <code class="docutils literal notranslate"><span class="pre">energy3.txt</span></code> and I used the data to graph the energy change with each step. I opened the file in a Jupyter notebook and made the <strong>plot</strong> shown in <a class="reference internal" href="#fig7-1f"><span class="std std-numref">Fig. 41</span></a>.</p>
 <div class="figure align-default" id="fig7-1f">
 <a class="reference internal image-reference" href="_images/Butadiene8.png"><img alt="_images/Butadiene8.png" src="_images/Butadiene8.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text"><em>The energy path for minimization of the symmetry broken <em>s-cis</em> butadiene conformer. The left plot shows all steps and the right shows the energy from step 3 to the end.</em></span><a class="headerlink" href="#fig7-1f" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text"><em>The energy path for minimization of the symmetry broken <em>s-cis</em> butadiene conformer. The left plot shows all steps and the right shows the energy from step 3 to the end.</em></span><a class="headerlink" href="#fig7-1f" title="Permalink to this image">#</a></p>
 </div>
 <p>You can see in <a class="reference internal" href="#fig7-1f"><span class="std std-numref">Fig. 41</span></a> that the <strong>path</strong> to lowest energy was <strong>not</strong> as <strong>smooth</strong> when there are more options to explore. <em>GAMESS</em> took a <strong>wrong turn</strong> at least once. The changes applied according to the gradients were too large and we went <strong>too far</strong> along one of the energy gradients (there are 24 bond lengths, angles and torsions that are being adjusted) and various points. But <em>GAMESS</em> did find a <strong>minimum</strong> in the end. Is it the true minimum?</p>
 <p>Try <strong>tweaking</strong> some of the torsions the other way. Set just some of the 5° torsions to –5° and some of the 175° torsions to –175°. Run the optimization <strong>again</strong> and see if you achieved the <strong>same</strong> structure and energy. How did it go? Where we start can influence where we end up. The program just <strong>follows</strong> a path <strong>downwards</strong>. It has no idea if it is heading to a divot or a canyon. It will happily <strong>settle</strong> into the bottom of either.</p>
 </div>
 <div class="section" id="confirmimng-the-s-trans-structure">
-<h3>Confirmimng the <em>s-trans</em> Structure<a class="headerlink" href="#confirmimng-the-s-trans-structure" title="Permalink to this headline">¶</a></h3>
-<p>Below in <a class="reference internal" href="#butadiene-transinp"><span class="std std-numref">Listing 65</span></a> is the input file for the tweaked <em>s-trans</em> conformer, followed by the final structure and energy from the optimization calculation.</p>
+<h3>Confirmimng the <em>s-trans</em> Structure<a class="headerlink" href="#confirmimng-the-s-trans-structure" title="Permalink to this headline">#</a></h3>
+<p>Below in <a class="reference internal" href="#butadiene-transinp"><span class="std std-numref">Listing 56</span></a> is the input file for the tweaked <em>s-trans</em> conformer, followed by the final structure and energy from the optimization calculation.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-transinp">
-<div class="code-block-caption"><span class="caption-number">Listing 65 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-transinp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 56 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-transinp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   &quot;trans&quot; conformer
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
@@ -1178,7 +835,7 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 <p>Below is the <strong>final structure</strong> and energy.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-translog">
-<div class="code-block-caption"><span class="caption-number">Listing 66 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-translog" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 57 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-translog" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">3850</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>        <span class="n">GRADIENT</span>
 <span class="linenos">3851</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>         <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>     <span class="p">(</span><span class="n">H</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="n">H</span><span class="o">/</span><span class="n">RAD</span><span class="p">)</span>
 <span class="linenos">3852</span> <span class="o">----------------------------------------------------------------</span>
@@ -1222,17 +879,17 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 </div>
 <div class="section" id="freezing-a-coordinate">
-<h2>Freezing a Coordinate<a class="headerlink" href="#freezing-a-coordinate" title="Permalink to this headline">¶</a></h2>
+<h2>Freezing a Coordinate<a class="headerlink" href="#freezing-a-coordinate" title="Permalink to this headline">#</a></h2>
 <p>We can <strong>freeze</strong> any coordinate in a calculation. This kind of calculation is not a true optimization as one length, angle or torsion (or even more than one if you wish) is being <strong>held</strong> at the initial value while the others are <strong>allowed</strong> to find the lowest energy possible. We could freeze the <code class="docutils literal notranslate"><span class="pre">4,3,2,1</span></code> torsion and allow all the others to <strong>settle</strong> to what is best.</p>
 <p>In every coordinate list in our input files, the <code class="docutils literal notranslate"><span class="pre">4,3,2,1</span></code> torsion was the <strong>sixth coordinate</strong> in the list.  This was established in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that <strong>lists</strong> the coordinates in order in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix. This <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix was created by the <em>MacMolPlt</em> program that we used when we originally built the molecule. When you enter a value for the number of <code class="docutils literal notranslate"><span class="pre">ZMAT</span></code> variables in the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> then <em>MacMolPlt</em> will create the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group.</p>
 <div class="section" id="the-izmat-1-matrix">
-<h3>The IZMAT(1) Matrix<a class="headerlink" href="#the-izmat-1-matrix" title="Permalink to this headline">¶</a></h3>
+<h3>The IZMAT(1) Matrix<a class="headerlink" href="#the-izmat-1-matrix" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix in the <strong>input file</strong> presented below is a series of numbers separated by commas.  The white space inserted by <em>MacMolPlt</em> is unnecessary but <strong>helps</strong> to group each coordinate for the reader.</p>
 <p>The <strong>first number</strong> encountered is a “1”. This means that there will follow two atom numbers that define a <em>bond</em>. <code class="docutils literal notranslate"><span class="pre">1,2,1</span></code> defines a bond between atoms 2 and 1.</p>
 <p>If the <strong>next number</strong> encountered is a “2”, then the program considers the next three values to be the atom numbers that define a <strong>bond angle</strong>. <code class="docutils literal notranslate"><span class="pre">2,3,2,1</span></code> defines the angle between atoms 3,2 and 1.  It is also the third element in the list shown and we see that the bond angle <code class="docutils literal notranslate"><span class="pre">3,2,1</span></code> is the third coordinate in the output file data.</p>
 <p>When the number “3” is encountered at the <strong>start</strong> of a set then <em>GAMESS</em> looks to the following four values to define the atom numbers in a dihedral or bond <strong>torsion angle</strong>. <code class="docutils literal notranslate"><span class="pre">3,4,3,2,1</span></code> is the sixth set of values and defines the bond torsion for atoms 4,3,2 and 1.  This is the central C–C bond torsion. It is the sixth set of values in the <code class="docutils literal notranslate"><span class="pre">ZMAT</span></code> list and is the sixth line in the list of <code class="docutils literal notranslate"><span class="pre">ZMAT</span></code> coordinates used in <em>GAMESS</em>. This <strong>sixth coordinate</strong> is the coordinate that we want to freeze.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-cisfreeze">
-<div class="code-block-caption"><span class="caption-number">Listing 67 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-cisfreeze" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 58 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-cisfreeze" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   &quot;cis&quot; conformer with torsion held at 0 degrees
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
@@ -1266,11 +923,11 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 </div>
 <div class="section" id="the-ifreez-1-command">
-<h3>The IFREEZ(1) Command<a class="headerlink" href="#the-ifreez-1-command" title="Permalink to this headline">¶</a></h3>
+<h3>The IFREEZ(1) Command<a class="headerlink" href="#the-ifreez-1-command" title="Permalink to this headline">#</a></h3>
 <p>In the <strong>input file</strong> above, we see the command <code class="docutils literal notranslate"><span class="pre">IFREEZ(1)=6</span></code> in the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group. This will freeze the <strong>sixth</strong> <code class="docutils literal notranslate"><span class="pre">ZMAT</span></code> coordinate. We know that the C–C bond torsion is the sixth coordinate because of the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix.</p>
 <p>When we run the <strong>optimization</strong>, we get the following output file. <strong>Observe</strong> that the <strong>sixth</strong> line for torsion <code class="docutils literal notranslate"><span class="pre">4,3,2,1</span></code> is <strong>held</strong> at zero degrees in the final structure.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-cisfreezelog">
-<div class="code-block-caption"><span class="caption-number">Listing 68 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-cisfreezelog" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 59 </span><span class="caption-text">butadiene.log</span><a class="headerlink" href="#butadiene-cisfreezelog" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">3850</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>        <span class="n">GRADIENT</span>
 <span class="linenos">3851</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>         <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>     <span class="p">(</span><span class="n">H</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="n">H</span><span class="o">/</span><span class="n">RAD</span><span class="p">)</span>
 <span class="linenos">3852</span> <span class="o">----------------------------------------------------------------</span>
@@ -1311,23 +968,23 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 </div>
 <div class="section" id="the-potential-energy-surface-for-rotation">
-<h2>The Potential Energy Surface for Rotation<a class="headerlink" href="#the-potential-energy-surface-for-rotation" title="Permalink to this headline">¶</a></h2>
+<h2>The Potential Energy Surface for Rotation<a class="headerlink" href="#the-potential-energy-surface-for-rotation" title="Permalink to this headline">#</a></h2>
 <p>We now have three energy points for the <strong>rotation</strong> of the central bond in butadiene. We found the best <em>s-cis</em> conformer where the central bond <strong>torsion</strong> was 38.15°, We also found the best <em>s-trans</em> conformer where the <strong>torsion angle</strong> was 180°. And we <strong>locked</strong> the torsion to 0° and then found the best structure with that <strong>constraint</strong>. We now have the following potential energy <strong>surface</strong> for the rotation of the central bond. See <a class="reference internal" href="#fig7-1-9"><span class="std std-numref">Fig. 42</span></a>.</p>
 <div class="figure align-default" id="fig7-1-9">
 <a class="reference internal image-reference" href="_images/Butadiene9.png"><img alt="_images/Butadiene9.png" src="_images/Butadiene9.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text"><em>The hypothetical potential energy surface for bond rotation in butadiene.</em></span><a class="headerlink" href="#fig7-1-9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text"><em>The hypothetical potential energy surface for bond rotation in butadiene.</em></span><a class="headerlink" href="#fig7-1-9" title="Permalink to this image">#</a></p>
 </div>
 <div class="section" id="the-hypothesis">
-<h3>The Hypothesis<a class="headerlink" href="#the-hypothesis" title="Permalink to this headline">¶</a></h3>
+<h3>The Hypothesis<a class="headerlink" href="#the-hypothesis" title="Permalink to this headline">#</a></h3>
 <p>I have determined that there are <strong>two stable conformers</strong> (at least) at 38.15° and 180°. There will be a third conformer at –38.15° due to symmetry. I have a proposed <strong>energy barrier</strong> of rotation between the two <em>s-cis</em> forms at 38.15° and –38.15° around the C–C bond in butadiene. The energy calculated when holding the torsion at 0° is expected to be this barrier. The maximum electron stabilization occurs when π-orbitals are parallel and it is at a minimum when π-orbitals are at 90°.</p>
 <p>I therefore <strong>hypothesize</strong> that the energy barrier between the <em>s-cis</em> and <em>s-trans</em> forms will be at 90°. Will the energy barrier be greater or less than the barrier due to steric strain at 0°? It is time to perform an <strong>experiment</strong>.</p>
 </div>
 <div class="section" id="experimental-design">
-<h3>Experimental Design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
+<h3>Experimental Design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">#</a></h3>
 <p>I will perform the same geometry <strong>optimization</strong> calculations using a <strong>frozen</strong> torsion coordinate as before. I will choose 90° for the angle and then run the calculation. I will <strong>also</strong> calculate torsion angles of 85° and 95° to ensure that I am at or near a maximum at 90°.</p>
 <p>Below is an example <strong>input file</strong>. All we need to do is to change the angle of the <code class="docutils literal notranslate"><span class="pre">4,3,2,1</span></code> torsion coordinate. It will be frozen by the <code class="docutils literal notranslate"><span class="pre">IFREEZ(1)=6</span></code> command. We just submit the job to <em>GAMESS</em> via <em>GamessQ</em> and then dig through the log file to find the final <strong>structure and energy</strong>. Tools like <em>grep</em> will help a lot.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-90freeze">
-<div class="code-block-caption"><span class="caption-number">Listing 69 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-90freeze" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 60 </span><span class="caption-text">butadiene.inp</span><a class="headerlink" href="#butadiene-90freeze" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   90 degree conformer
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=24 
@@ -1381,7 +1038,7 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 <div class="figure align-default" id="fig7-1-10">
 <a class="reference internal image-reference" href="_images/Butadiene10.png"><img alt="_images/Butadiene10.png" src="_images/Butadiene10.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text"><em>The potential energy surface for bond rotation in butadiene.</em></span><a class="headerlink" href="#fig7-1-10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text"><em>The potential energy surface for bond rotation in butadiene.</em></span><a class="headerlink" href="#fig7-1-10" title="Permalink to this image">#</a></p>
 </div>
 <p>Surprise! We are <strong>not at a maximum</strong>. I will just keep changing the angle until we start coming back down. I will try 100°, 105° and 110°. I found that the energy value <strong>peaks</strong> at the 100° point and then starts to decrease. I then did many more angles and the results are plotted in <a class="reference internal" href="#fig7-1-11"><span class="std std-numref">Fig. 44</span></a>.</p>
 <p>Below is a table of the final energies and frozen torsion angles for each experiment that we performed.</p>
@@ -1416,35 +1073,35 @@ H   4    1.14000  9 120.0000  3 175.0000
 </div>
 <div class="figure align-default" id="fig7-1-11">
 <a class="reference internal image-reference" href="_images/Butadiene11.png"><img alt="_images/Butadiene11.png" src="_images/Butadiene11.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text"><em>The potential energy surface for bond rotation in butadiene.</em></span><a class="headerlink" href="#fig7-1-11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text"><em>The potential energy surface for bond rotation in butadiene.</em></span><a class="headerlink" href="#fig7-1-11" title="Permalink to this image">#</a></p>
 </div>
 <p>The peak in energy occurs <strong>somewhere</strong> between 100° and 105°. The values at each angle are very close, so I <strong>estimate</strong> the maximum energy is about midway between.</p>
 <div class="figure align-default" id="fig7-1-12">
 <a class="reference internal image-reference" href="_images/Butadiene12.png"><img alt="_images/Butadiene12.png" src="_images/Butadiene12.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text"><em>The structures corresponding to the maxima and minima in <a class="reference internal" href="#fig7-1-11"><span class="std std-numref">Fig. 44</span></a></em></span><a class="headerlink" href="#fig7-1-12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text"><em>The structures corresponding to the maxima and minima in <a class="reference internal" href="#fig7-1-11"><span class="std std-numref">Fig. 44</span></a></em></span><a class="headerlink" href="#fig7-1-12" title="Permalink to this image">#</a></p>
 </div>
 <p>Why is the maximum energy <strong>found</strong> at around 102° rather than exactly 90°? The <strong>electronic</strong> energy likely hits a maximum at 90° and then starts to decrease as the angle rotates forward to 180°. <strong>Steric</strong> repulsion from the other end of the molecule is still present and contributing to the total energy. It is decreasing as the angle opens up but results in an energy contribution that puts the maximum <strong>nearer</strong> to 100° compared to 90. It seems that the steric interaction between the ends of the molecule pushed both stationary points to the right. The expected electronic minimum of 0° was 38° and the <strong>expected</strong> maximum of 90° was &gt;100° when the steric effect is added in.</p>
 </div>
 </div>
 <div class="section" id="finding-a-transition-state">
-<h2>Finding A Transition State<a class="headerlink" href="#finding-a-transition-state" title="Permalink to this headline">¶</a></h2>
+<h2>Finding A Transition State<a class="headerlink" href="#finding-a-transition-state" title="Permalink to this headline">#</a></h2>
 <p>The <strong>peak</strong> of the energy barrier, between a C–C torsion of 100° and 105°, is the <strong>transition state</strong> for converting between the <em>s-trans</em> and <em>s-cis</em> conformers of butadiene. Can we find the <strong>exact point</strong> at which we reach maximum energy along then path of change?</p>
 <p>The coordinate that we are changing is the torsion angle along the central C–C bond. We have <strong>scanned</strong> that coordinate between 0° and 180°. Scanning in this way is a good way to get <strong>close</strong> to a transition state. Each scan point is an optimized structure for that give <strong>torsion value</strong>. So all other coordinates have been minimized in energy (we hope) for each step in the scan. In theory, we are following the <strong>lowest energy path</strong> (a valley) uphill and down over a <strong>saddle point</strong> (a mountain pass). The saddle point is the transition state. There is one direction (coordinate) that takes you <strong>up and then down</strong> in energy as the saddle point is crossed.  All other coordinates will only take you uphill (assuming that they are at minimum energy values after optimization).</p>
 <div class="figure align-default" id="fig7-1-13">
 <a class="reference internal image-reference" href="_images/Butadiene13.png"><img alt="_images/Butadiene13.png" src="_images/Butadiene13.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text"><em>An example of a saddle point in a potential energy surface for a reaction.<a class="footnote-reference brackets" href="#saddle2021" id="id1">1</a></em></span><a class="headerlink" href="#fig7-1-13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text"><em>An example of a saddle point in a potential energy surface for a reaction.<a class="footnote-reference brackets" href="#saddle2021" id="id1">1</a></em></span><a class="headerlink" href="#fig7-1-13" title="Permalink to this image">#</a></p>
 </div>
 <p>It is easy for <em>GAMESS</em> to find a <strong>minimum</strong>. It just follows every gradient downward. It is more challenging to find a <strong>saddle point</strong>, where one coordinate is maximized and all others are minimized. How do you find that balance point?</p>
 <p><em>GAMESS</em> has a <strong>calculation</strong> type called <code class="docutils literal notranslate"><span class="pre">RUNTYP=SADPOINT</span></code> that can do this. However, it needs to know what coordinate to follow to find the saddlepoint. The best way to do this is to construct a structure that is <strong>close</strong> to a hypothetical saddle point (our optimized scan for 100° seems like a good starting point)</p>
 <div class="section" id="finding-the-imaginary-vibration">
-<h3>Finding The Imaginary Vibration<a class="headerlink" href="#finding-the-imaginary-vibration" title="Permalink to this headline">¶</a></h3>
+<h3>Finding The Imaginary Vibration<a class="headerlink" href="#finding-the-imaginary-vibration" title="Permalink to this headline">#</a></h3>
 <p><em>GAMESS</em> still needs <strong>lots of help</strong>. First we need an <strong>imaginary vibration</strong> to follow. So we will have to perform a vibration calculation first. The imaginary vibration is often designated with a negative frequency. It is a vibration that moves along the <strong>reaction coordinate</strong>. All normal vibrations increase in energy as they move away from their centre points. The imaginary vibration is at a maximum at its centre. It is going downhill toward starting material or product as it <strong>moves away</strong> from the center.</p>
 <p>A <strong>structure</strong> that is optimized (except for the frozen coordinate) and is very near the transition state structure should have an imaginary vibration. We need to perform a <strong>vibration calculation</strong> first.</p>
 <p>I start with the result file for the potential energy scan done above. I <strong>chose</strong> the result for the optimization where we froze the C–C torsion at 100°. I opened the log file in <em>MacMolPlt</em> and then used <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> to create a new input file. I <strong>changed</strong> <code class="docutils literal notranslate"><span class="pre">RunType</span></code> to <code class="docutils literal notranslate"><span class="pre">Hessian</span></code>, which will calculate the information needed to determine the <strong>vibrations</strong> and their <strong>frequencies</strong>. These vibrations are the <strong>vectors</strong> along which the various coordinates are changed when we optimize.</p>
 <p>For <strong>finding</strong> the saddle point, we need to be <strong>close</strong> in structure and have a <strong>vector</strong> (the imaginary vibration) that <strong>points</strong> straight toward it. So we must calculate the <strong>Hessian</strong> matrix. With higher levels of theory this can take a long time, but we are using a very low level of theory and won’t have to wait long. In many cases 3-21G<sup>*</sup> will not be suitable for an accurate <strong>transition state</strong> in a reaction but, since we are not making or breaking bonds, we should be OK. We also set up a <code class="docutils literal notranslate"><span class="pre">Vibrational</span> <span class="pre">Analysis</span></code> so that vibrations would be <strong>calculated</strong> out of the Hessian data and reported in the result file.</p>
 <p>I saved the input file. It is reproduced below. You will see that the atom numbering is <strong>different</strong> than in the above cases. I set up a hydrogen as the first atom when I was building butadiene for the larger, more extensive torsion scan presented in figure 11. As a result the C–C torsion is <strong>represented</strong> by the <code class="docutils literal notranslate"><span class="pre">5,4,3,2</span></code> torsion coordinate and that is listed as the ninth element in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> list. Nothing changed that matters, you just need to be <strong>aware</strong> of where the torsion angle is in the <code class="docutils literal notranslate"><span class="pre">Z-matrix</span></code> so you can interpret the input file.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-hssian-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 70 </span><span class="caption-text">butadiene_Hess.inp</span><a class="headerlink" href="#butadiene-hssian-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 61 </span><span class="caption-text">butadiene_Hess.inp</span><a class="headerlink" href="#butadiene-hssian-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=HESSIAN EXETYP=RUN MAXIT=30 MULT=1 COORD=ZMT 
 </span>    NZVAR=24 MOLPLT=.TRUE. $END
@@ -1477,7 +1134,7 @@ H   5    1.07389  6 116.5615  4 180.0000
 <p>I <strong>submitted</strong> the job through <em>GamessQ</em> and, when finished, I opened the <strong>result file</strong> using <em>MacMolPlt</em>. I used <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Frequencies</span></code> to <strong>display the frequencies</strong> calculated from the Hessian matrix. I observe a single <strong>imaginary</strong> frequence and I can click on the line in the Frequency window to see vectors displayed graphically in the main window. I observe that these vectors are as expected for bond rotation, so I think we have a <strong>good starting point</strong> for a saddle point optimization.</p>
 <div class="figure align-default" id="fig7-1-14">
 <a class="reference internal image-reference" href="_images/Butadiene14.png"><img alt="_images/Butadiene14.png" src="_images/Butadiene14.png" style="width: 650px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text"><em><em>MacMolPlt</em> display with frequencies and vectors.</em></span><a class="headerlink" href="#fig7-1-14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text"><em><em>MacMolPlt</em> display with frequencies and vectors.</em></span><a class="headerlink" href="#fig7-1-14" title="Permalink to this image">#</a></p>
 </div>
 <p>The frequency list is shown below. The letter “i” after the first frequency indicates that it is <strong>imaginary</strong>. Don’t trust the numbers too much but I am impressed that we are within the ball park. For example, the C–H stretch frequencies should be in the 3040-3100 cm<sup>–1</sup> range and the calculation finds them near 3350 cm<sup>–1</sup>. Not bad.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Frequency</span>    <span class="n">Intensity</span>
@@ -1515,12 +1172,12 @@ H   5    1.07389  6 116.5615  4 180.0000
 </div>
 </div>
 <div class="section" id="calculating-the-saddle-point">
-<h3>Calculating The Saddle Point<a class="headerlink" href="#calculating-the-saddle-point" title="Permalink to this headline">¶</a></h3>
+<h3>Calculating The Saddle Point<a class="headerlink" href="#calculating-the-saddle-point" title="Permalink to this headline">#</a></h3>
 <p>Now that we know we have an acceptable <strong>imaginary frequency</strong> in our structure we can conduct a saddle point optimization calculation. I used <em>MacMolPlt</em> and the result file of the Hessian calculation to create a new input file for the <strong>transition state calculation</strong>. I set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span> <span class="pre">=</span> <span class="pre">Saddle</span> <span class="pre">Point</span></code> and then set the <code class="docutils literal notranslate"><span class="pre">Initial</span> <span class="pre">Hessian</span></code> to <code class="docutils literal notranslate"><span class="pre">Calculate</span></code>. This will run a <strong>saddle point optimization</strong> using a newly calculated Hessian matrix.  I could have read in the previous Hessian result that we just calculated by choosing <code class="docutils literal notranslate"><span class="pre">Read</span></code> (from <code class="docutils literal notranslate"><span class="pre">$HESS</span></code>). This would be useful if that calculation had been expensive.</p>
 <p>Below is the <strong>input file</strong> for the saddle point calculation. Observe that I edited the file and set the optimization tolerance to <code class="docutils literal notranslate"><span class="pre">OPTTOL=0.00001</span></code>. This is ten-fold <strong>tighter</strong> than for a typical optimization.
 z</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-saddle-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 71 </span><span class="caption-text">butadiene_saddle.inp</span><a class="headerlink" href="#butadiene-saddle-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 62 </span><span class="caption-text">butadiene_saddle.inp</span><a class="headerlink" href="#butadiene-saddle-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=SADPOINT EXETYP=RUN MAXIT=30 MULT=1 COORD=ZMT 
 </span>    NZVAR=24 MOLPLT=.TRUE. $END
@@ -1553,7 +1210,7 @@ H   5    1.07389  6 116.5615  4 180.0000
 </div>
 <p>I ran the job via <em>GamessQ</em> and a <strong>result file</strong> was produced. It completed without errors and I found the coordinates and energy near the end of the text file. The selected <strong>output</strong> is shown below.</p>
 <div class="literal-block-wrapper docutils container" id="butadiene-saddle-log">
-<div class="code-block-caption"><span class="caption-number">Listing 72 </span><span class="caption-text">butadiene_saddle.log</span><a class="headerlink" href="#butadiene-saddle-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 63 </span><span class="caption-text">butadiene_saddle.log</span><a class="headerlink" href="#butadiene-saddle-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">2850</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>        <span class="n">GRADIENT</span>
 <span class="linenos">2851</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>         <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>     <span class="p">(</span><span class="n">H</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="n">H</span><span class="o">/</span><span class="n">RAD</span><span class="p">)</span>
 <span class="linenos">2852</span> <span class="o">----------------------------------------------------------------</span>
@@ -1625,14 +1282,14 @@ H   5    1.07389  6 116.5615  4 180.0000
 <p>I had hypothesized that the transition state for bond rotation would occur between 100° and 105° and a little closer to 100° than 105°. I chose 102° to make the diagram in <a class="reference internal" href="#fig7-1-12"><span class="std std-numref">Fig. 45</span></a>. <em>GAMESS</em> proposes that the transition state occurs at 102.02°. Great minds think alike.</p>
 <div class="figure align-default" id="fig7-1-15">
 <a class="reference internal image-reference" href="_images/Butadiene15.png"><img alt="_images/Butadiene15.png" src="_images/Butadiene15.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text"><em>The complete rotational potential energy profile for butadiene.</em></span><a class="headerlink" href="#fig7-1-15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text"><em>The complete rotational potential energy profile for butadiene.</em></span><a class="headerlink" href="#fig7-1-15" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>These are the operations that we have performed over the course of this activity.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Build and Optimize</strong> symmetrical butadiene. We calculated the optimized geometry of butadiene using an initial structure that was perfectly flat for the <em>s-cis</em> conformer and the <em>s-trans</em> conformer. The calculation easily found the bond lengths and angles for minimum energy but was trapped in stationary points for the torsion coordinates due to the flat symmetry.</p></li>
 <li><p><strong>Optimize</strong> the asymmetrical structures of butadiene. We then started from a slightly randomized structure and found that the minimum for the <em>s-cis</em> conformer actually occurred when the C–C torsion was 38°. We also saw that the <em>s-trans</em> conformer did indeed find an almost flat optimized structure.</p></li>
 <li><p>Scan the torsion angle to create an <strong>energy profile</strong>. We then performed a series of optimization calculations with the torsion coordinate for the σ C–C bond frozen over a set of angles. This allowed us to observe that the transition state for rotation between <em>cis</em> and <em>trans</em> conformers was near a torsion angle of 102°.</p></li>
@@ -1641,14 +1298,14 @@ H   5    1.07389  6 116.5615  4 180.0000
 </ol>
 </div>
 <div class="section" id="challenges">
-<h2>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">¶</a></h2>
+<h2>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">#</a></h2>
 <p>Here are some activities that you can perform to <strong>increase</strong> your understanding of using <em>GAMESSS</em> to calculate potential energy profiles and transition states for bond rotations.</p>
 <p>Calculate the <strong>rotational</strong> energy profile for <strong>ethane</strong> and for the C-C bond of propane. Compare the energy barriers between them and also with the butadiene and butane calculations. How does a steric energy barrier in ethane compare that of butane? How does the electronic <strong>cost</strong> of <strong>breaking</strong> the conjugation in butadiene compare to breaking the C=C bond in ethylene.</p>
 <p>Calculaate the energy profile for <strong>rotating</strong> ethylene across the C=C double bond. What is the energy cost of effectively breaking a π-bond during a bond rotation. <strong>Compare</strong> that to the cost of breaking the conjugation in butadiene,</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="saddle2021"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Image of saddle point is adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Saddle_point.svg">https://commons.wikimedia.org/wiki/File:Saddle_point.svg</a> (accessed Nov. 15, 2021)</p>
+<dd><p>Image of saddle point is adapted from https://commons.wikimedia.org/wiki/File:Saddle_point.svg (accessed Nov. 15, 2021)</p>
 </dd>
 </dl>
 </div>
@@ -1668,7 +1325,7 @@ H   5    1.07389  6 116.5615  4 180.0000
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1676,44 +1333,150 @@ H   5    1.07389  6 116.5615  4 180.0000
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="6_Benzene.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">7. Benzene: MOs and Symmetry</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="6_Benzene.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7. Benzene: MOs and Symmetry</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="butadiene.inp.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="butadiene.inp.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Butadiene.inp</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Barry Linkletter<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-the-trans-conformer">Optimizing the <em>trans</em> Conformer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-trans-butadiene">Building <em>trans</em>-Butadiene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-use-gamess">Preparing to use <em>GAMESS</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-the-structure">Optimizing the Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-file">The Output File</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-1-to-100-system-information-and-gamess-header">Lines 1 to 100: System Information and <em>GAMESS</em> Header</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-114-to-139-input-file">Lines 114 to 139: Input File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-140-to-470-setup">Lines 140 to 470: Setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-471-to-1431-initial-energy-calculation">Lines 471 to 1431: Initial Energy Calculation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-1432-to-1626-the-first-optimization-step">Lines 1432 to 1626: The First Optimization Step</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-1627-to-2949-seven-more-optimization-steps">Lines 1627 to 2949: Seven More Optimization Steps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-2890-to-3031-final-results">Lines 2890 to 3031: Final Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-unix">Using Unix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-information">Extracting Information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimized-geometry-of-the-s-cis-conformer">Optimized Geometry of the <em>s-cis</em> Conformer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-input-file">Changing The Input File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-job">Running The Job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-traps-and-pitfalls">Avoiding Traps and Pitfalls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-the-symmetry">Breaking The Symmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-true-s-cis-structure">The True <em>s-cis</em> Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confirmimng-the-s-trans-structure">Confirmimng the <em>s-trans</em> Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freezing-a-coordinate">Freezing a Coordinate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-izmat-1-matrix">The IZMAT(1) Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ifreez-1-command">The IFREEZ(1) Command</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-potential-energy-surface-for-rotation">The Potential Energy Surface for Rotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hypothesis">The Hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-design">Experimental Design</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-transition-state">Finding A Transition State</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-imaginary-vibration">Finding The Imaginary Vibration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-saddle-point">Calculating The Saddle Point</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges">Challenges</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Barry Linkletter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
