@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>7. Benzene: MOs and Symmetry &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="8. Butadiene: Transition State for Rotation" href="7_Butadiene.html" />
     <link rel="prev" title="6. Allyl Cation: π Orbitals" href="6_Pi_Orbitals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -348,46 +350,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="benzene-mos-and-symmetry">
-<h1>7. Benzene: MOs and Symmetry<a class="headerlink" href="#benzene-mos-and-symmetry" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="benzene-mos-and-symmetry">
+<h1>7. Benzene: MOs and Symmetry<a class="headerlink" href="#benzene-mos-and-symmetry" title="Permalink to this heading">#</a></h1>
 <p>Benzene is the <strong>iconic</strong> organic molecule. Imagine if I had to design a superhero outfit for “Chemistry Man” (He can change phase from solid to liquid, but he requires a heat source to do so). I would choose a <strong>hexagon</strong>, representing the planar benzene structure, as the superhero <strong>symbol</strong> emblazoned on the cape.</p>
 <p>We have already created a** molecular orbital diagram** for the <em>p</em>-system of benzene using SHMO theory. Let us now <strong>repeat</strong> that exercise using <em>GAMESS</em>.</p>
-<div class="section" id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <p>In this exercise, we will accomplish the following…</p>
 <ol class="arabic simple">
 <li><p>Use <em>macMolPlt</em> to <strong>build</strong> benzene. We will use <strong>symmetry</strong> and the <em>D<sub>6h</sub></em> point group. We will also use the <em>C<sub>2v</sub></em> point group.</p></li>
 <li><p>We will then <strong>optimize</strong> the structure and <strong>visualize</strong> the orbitals.</p></li>
 <li><p>This will be a good system to demonstrate the benefits of symmetry. We will try an expensive energy calculation using the two point groups above and the *C<sub>1</sub> point group.</p></li>
 </ol>
-</div>
-<div class="section" id="building-benzene">
-<h2>Building Benzene<a class="headerlink" href="#building-benzene" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="building-benzene">
+<h2>Building Benzene<a class="headerlink" href="#building-benzene" title="Permalink to this heading">#</a></h2>
 <p>Using the <strong>symmetry building tools</strong> in <em>macMolPlt</em>, build benzene. With the <em>D<sub>6h</sub></em> point group you will be <strong>placing</strong> only two atoms in the <em>xy</em> plane. With the <em>C<sub>2v</sub></em> point group you will be placing 4 atoms in the <em>xz</em> plane with two of the atoms on the <em>z</em>-axis. Have fun and leave lots of time to <strong>make mistakes</strong>. We are beginning to leave behind the world of words; more and more you will find that <strong>doing</strong> will be your teacher.</p>
 <p>After a brief <strong>struggle</strong> I created the following two builds. How did you fare?</p>
-<div class="figure align-default" id="fig6-2a">
+<figure class="align-default" id="fig6-2a">
 <a class="reference internal image-reference" href="_images/pi-Benzene-1.png"><img alt="_images/pi-Benzene-1.png" src="_images/pi-Benzene-1.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text"><em>Benzene built using <em>D<sub>6h</sub></em> symmetry and <em>C<sub>2v</sub></em> symmetry. Take note that the <em>z</em>-axis is the highest order rotational axis (the <em>C<sub>6</sub></em> axis for <em>D<sub>6h</sub></em> benzene and the <em>C<sub>2</sub></em> axis for <em>C<sub>2v</sub></em> benzene).</em></span><a class="headerlink" href="#fig6-2a" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text"><em>Benzene built using <em>D<sub>6h</sub></em> symmetry and <em>C<sub>2v</sub></em> symmetry. Take note that the <em>z</em>-axis is the highest order rotational axis (the <em>C<sub>6</sub></em> axis for <em>D<sub>6h</sub></em> benzene and the <em>C<sub>2</sub></em> axis for <em>C<sub>2v</sub></em> benzene).</em></span><a class="headerlink" href="#fig6-2a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>I am aware that the <em>C<sub>2v</sub></em> structure above in <a class="reference internal" href="#fig6-2a"><span class="std std-numref">Fig. 33</span></a> is actually <em>C<sub>2h</sub>. I am using <em>C<sub>2v</sub></em> because the symmetry will reduce to that point group when a substutent is added. These files can be used in future calculations with substituted benzene</em></p>
 </div>
 <p>The <em>C<sub>2v</sub></em> optimization <strong>succeeded</strong> but the <em>D<sub>6h</sub></em> file failed. <em>macMolPlt</em> did not place the atoms precisely enough to fit the requirements of <em>GAMESS</em>. I decided to help it by keeping the <strong>unique</strong> atoms on the <em>x</em>-axis. Also, I realized that I could create a <em>C<sub>2v</sub></em> structure that had only three unique atoms. That would be 25% <strong>less expensive</strong> in our high-level energy calculation (I hope). It also fits better with some future builds for naphthalene and azulene that I have planned.  The four-atom <em>C<sub>2v</sub></em> will be useful for the creation of <strong>substituted</strong> benzene systems like the cumyl cation or aniline, so I will keep both around.</p>
-<div class="figure align-default" id="fig6-2b">
+<figure class="align-default" id="fig6-2b">
 <a class="reference internal image-reference" href="_images/pi-Benzene-2.png"><img alt="_images/pi-Benzene-2.png" src="_images/pi-Benzene-2.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text"><em>The new <em>D<sub>6h</sub></em> version of benzene and the three-atom <em>C<sub>2v</sub></em> version of benzene.</em></span><a class="headerlink" href="#fig6-2b" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text"><em>The new <em>D<sub>6h</sub></em> version of benzene and the three-atom <em>C<sub>2v</sub></em> version of benzene.</em></span><a class="headerlink" href="#fig6-2b" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Both the three-atom <em>C<sub>2v</sub></em> and the <em>x</em>-axis <em>D<sub>6h</sub></em> input files completed successfully. When a file fails, try <strong>different</strong> versions of coordinates and <strong>read</strong> the documentation if necessary. <em>GAMESS</em> is like a cat: you don’t train it, it trains you.</p>
-</div>
-<div class="section" id="evaluating-the-structure">
-<h2>Evaluating the Structure<a class="headerlink" href="#evaluating-the-structure" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="evaluating-the-structure">
+<h2>Evaluating the Structure<a class="headerlink" href="#evaluating-the-structure" title="Permalink to this heading">#</a></h2>
 <p><strong>Benzene</strong> is a very well-studied molecule and its structure is known. Below is a table that <strong>compares</strong> the HF/3-21G optimized structure with the literature values.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p></p></th>
-<th class="text-left head"><p>HF/3-21G</p></th>
-<th class="text-left head"><p>Literature<a class="footnote-reference brackets" href="#literatutebenzene" id="id1">1</a></p></th>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p>HF/3-21G</p></th>
+<th class="head text-left"><p>Literature<a class="footnote-reference brackets" href="#literatutebenzene" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></th>
 </tr>
 </thead>
 <tbody>
@@ -402,18 +408,18 @@ document.write(`
 </tbody>
 </table>
 <p>The HF/3-21G results were very close to the <strong>literature</strong> values. Now we will use these optimized coordinates in energy calculations to <strong>experience</strong> the benefits of symmetry.</p>
-</div>
-<div class="section" id="expensive-calculations">
-<h2>Expensive Calculations<a class="headerlink" href="#expensive-calculations" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="expensive-calculations">
+<h2>Expensive Calculations<a class="headerlink" href="#expensive-calculations" title="Permalink to this heading">#</a></h2>
 <p>We will <strong>calculate</strong> the energy of benzene using the HF/3-21G optimized structures. I will chose an extensive basis set and use an expensive method.</p>
 <p>We will use the B3LYP density functional <strong>method</strong> and use the Dunning aug-cc-pCVTZ <strong>basis set</strong>. This is a correlation-consistent basis set that includes <strong>extra</strong> orbital polarization functions. The “aug” indicates the diffuse functions are also present. When you examine the output file you will see that each carbon atom was calculated using 69 atomic orbitals. Each hydrogen came with 24 atomic orbitals. There were 564 atomic orbitals used in the <strong>calculation</strong> of the 564 molecular orbitals!
 B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we increase the number or orbitals (and the gaussian functions that approximate them), we increase effort enormously.</p>
 <p>I performed a B3LYP/aug-cc-pCVTZ <strong>energy calculation</strong> using <em>D<sub>3h</sub></em>, <em>C<sub>2v</sub></em> (4 atom) and <em>C<sub>2v</sub></em> (3 atom) symmetry. I <strong>also</strong> performed a calculation with <em>C<sub>1</sub></em> symmetry (that means no symmetry). Below is a table of the time it took for each calculation.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Symmetry</p></th>
-<th class="text-left head"><p>Time for B3LYP/aug-cc-pCVTZ</p></th>
-<th class="text-left head"><p>Energy</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Symmetry</p></th>
+<th class="head text-left"><p>Time for B3LYP/aug-cc-pCVTZ</p></th>
+<th class="head text-left"><p>Energy</p></th>
 </tr>
 </thead>
 <tbody>
@@ -437,32 +443,33 @@ B3LYP scales at n4 (some other DFT methods scale at n3). That means that when we
 </table>
 <p>Wow! The <em>D<sub>6h</sub></em> symmetry was almost five times <strong>faster</strong> than <em>C<sub>2v</sub></em> and almost ten times faster than <em>C<sub>1</sub></em>. The number of atoms in <em>C<sub>2v</sub></em> did not make much difference. The same number or electrons was involved and the physical space was <strong>half the volume</strong> in both cases. The physical space was 1/6th for <em>D<sub>6h</sub></em> compared to the <em>C<sub>1</sub></em> case (I actually have no idea how the space is divided when using symmetry groups. It will be used by the program to its <strong>best advantage</strong>.) <em>D<sub>6h</sub></em> has a horizontal sigma plane that will further subdivide the 3D space. So, <strong>perhaps</strong> we are at 1/12th the volume. It very much depends on how the software handles the <strong>opportunities</strong> provided by symmetry. Here we <strong>observe</strong> a huge benefit. We will always try to use the <strong>highest</strong> symmetry group possible when using <strong>expensive</strong> methods.</p>
 <p>All four input files started with the same <strong>coordinates</strong> (the optimized HF/6-31G structures at each symmetry). The calculated energies were virtually identical. Symmetry did not change the answer, but it changed the cost.</p>
-</div>
-<div class="section" id="visualization-of-molecular-orbitals">
-<h2>Visualization of Molecular Orbitals<a class="headerlink" href="#visualization-of-molecular-orbitals" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="visualization-of-molecular-orbitals">
+<h2>Visualization of Molecular Orbitals<a class="headerlink" href="#visualization-of-molecular-orbitals" title="Permalink to this heading">#</a></h2>
 <p>The molecular eigenvectors produced by the aug-cc-pCVTZ <strong>basis set</strong> included <em>f</em>-orbitals all the way out to the fifth energy shell. This <strong>huge number</strong> of interacting atomic orbitals gives more accurate results, but it can complicate the <strong>images</strong> of molecular orbitals. The three bonding π-MOs and the first two antibonding MOs were fine, but the highest level antibonding π-MO (<em>π<sub>6</sub></em>) was mixed with even higher-level empty orbitals and did not have that “textbook” appearance. I performed the energy calculation again using a minimal basis set (STO-3G) and had far fewer molecular orbitals to choose from. The π-MOs fit much better to the <strong>textbook</strong> idea. Am I sticking with a comfortable lie? Should I accept the truth?</p>
 <p>If you find it difficult to <strong>locate</strong> the higher level antibonding MOs in a sea of extra orbitals then try repeating the energy calculation with a smaller basis set. It will be less accurate but may give <strong>prettier pictures</strong>. <a class="reference internal" href="#fig6-2c"><span class="std std-numref">Fig. 35</span></a> presents the molecular orbitals produced from the two basis sets. Which do you prefer?</p>
-<div class="figure align-default" id="fig6-2c">
+<figure class="align-default" id="fig6-2c">
 <a class="reference internal image-reference" href="_images/pi-Benzene-3.png"><img alt="_images/pi-Benzene-3.png" src="_images/pi-Benzene-3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text"><em>π-MOs for benzene. The left-hand set is from the B3LYP/aug-cc-pCVTZ energy calculation and the right-hand set is from a HF/STO-3G energy calculation. Both sets were using the same optimized HF/3-21G geometry.</em></span><a class="headerlink" href="#fig6-2c" title="Permalink to this image">#</a></p>
-</div>
-</div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text"><em>π-MOs for benzene. The left-hand set is from the B3LYP/aug-cc-pCVTZ energy calculation and the right-hand set is from a HF/STO-3G energy calculation. Both sets were using the same optimized HF/3-21G geometry.</em></span><a class="headerlink" href="#fig6-2c" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>We practiced <strong>building</strong> slightly larger molecules using symmetry in <em>macMolPlt</em>. We then exported an input file and optimized the <strong>structure</strong> of benzene using different point groups. We compared the calculation time for an expensive energy calculation using the different symmetries and observed that <strong>higher symmetry</strong> gives faster results.</p>
-</div>
-<div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
 <p>After reading the above discussion, use <em>macMolPlt</em> to produce your <strong>own versions</strong> of the three symmetrical treatments of benzene above. Then build it without symmetry. You will have four versions of benzene structures at different symmetry. <strong>Optimize</strong> the structures at slightly higher theory than in this discussion (you could try HF/6-31G(d,p) or B3LYP/6-31G(d,p)).</p>
 <p>Report the <strong>bond lengths</strong>. Open the result files in <em>macMolPlt</em> and export <strong>images</strong> of the π-MO system. Compare it to your results from the SHMO method.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="literatutebenzene"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>NIST Computational Chemistry Comparison and Benchmark Database, <em>NIST Standard Reference Database Number 101</em>, Release 22, May <strong>2022</strong>, Editor: Russell D. Johnson III, http://cccbdb.nist.gov/ DOI:10.18434/T47C7Z</p>
-</dd>
-</dl>
-</div>
-</div>
+<aside class="footnote brackets" id="literatutebenzene" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>NIST Computational Chemistry Comparison and Benchmark Database, <em>NIST Standard Reference Database Number 101</em>, Release 22, May <strong>2022</strong>, Editor: Russell D. Johnson III, http://cccbdb.nist.gov/ DOI:10.18434/T47C7Z</p>
+</aside>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

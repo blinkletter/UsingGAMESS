@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>4. Ethane: Symmetry in Calculations &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -68,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="5. Butane: Rotation Energy Profiles" href="5_Rotation_Profiles.html" />
     <link rel="prev" title="3. Methane: Visual Input and Output" href="3_Visual_Input.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -356,27 +358,27 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="ethane-symmetry-in-calculations">
-<h1>4. Ethane: Symmetry in Calculations<a class="headerlink" href="#ethane-symmetry-in-calculations" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ethane-symmetry-in-calculations">
+<h1>4. Ethane: Symmetry in Calculations<a class="headerlink" href="#ethane-symmetry-in-calculations" title="Permalink to this heading">#</a></h1>
 <p>Ethane can <strong>rotate</strong> freely along the C–C bond. The lowest energy <strong>conformation</strong> is the <em>anti</em> form and the highest energy is the <em>syn</em> form. It is easy to get <em>GAMESS</em> to optimize the <em>anti</em> structure, the software will <strong>seek</strong> the lowest energy state. How do we get the <em>syn</em> form? We could do this by <strong>enforcing</strong> symmetry.</p>
-<div class="section" id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <p>This exercise will hopefully accomplish the following <strong>goals</strong> while learning new <strong>skills</strong>:</p>
 <ol class="arabic simple">
 <li><p>We will manually <strong>construct</strong> <em>Z-matrices</em> for larger molecules and identify an internal coordinate that defines the torsion angle between the two methyl groups of ethane.</p></li>
 <li><p>We will use the <strong>symmetry</strong> of the <em>anti</em> and <em>syn</em> conformations to <strong>lock</strong> their conformations</p></li>
 <li><p>We will determine optimized <strong>structure</strong> and the <strong>energy</strong> difference between the <em>syn</em> and <em>anti</em>-conformations and <strong>compare</strong> our results to literature values.</p></li>
 </ol>
-</div>
-<div class="section" id="point-groups-in-ethane">
-<h2>Point Groups in Ethane<a class="headerlink" href="#point-groups-in-ethane" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="point-groups-in-ethane">
+<h2>Point Groups in Ethane<a class="headerlink" href="#point-groups-in-ethane" title="Permalink to this heading">#</a></h2>
 <p>Each of the extreme cases in ethane has <strong>symmetry</strong>. They have <strong>different</strong> symmetry and so we can use that to our advantage. The symmetry of the <em>syn</em> conformation is <em>D<sub>3h</sub></em> and for the <em>anti</em> it is <em>D<sub>3d</sub></em>. By declaring the <strong>symmetry group</strong>, the optimization will start with that symmetry and end with that symmetry. This will enforce the <em>anti</em> conformation for us. Additionally, by symmetry, each molecule can be reduce to just two atoms for the purposes of the calculation. Using symmetry when possible will greatly <strong>reduce the cost</strong> of calculation.</p>
-</div>
-<div class="section" id="z-matrix-for-ethane">
-<h2><em>Z-Matrix</em> for Ethane<a class="headerlink" href="#z-matrix-for-ethane" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="z-matrix-for-ethane">
+<h2><em>Z-Matrix</em> for Ethane<a class="headerlink" href="#z-matrix-for-ethane" title="Permalink to this heading">#</a></h2>
 <p>We can start with a <em>Z-matrix</em> for ethane. If the structure <strong>described</strong> fits the symmetry group declared, then <em>GAMESS</em> will <strong>align</strong> it appropriately in the <em>xyz</em> coordinate system and <strong>identify</strong> the symmetry unique atoms. Take note of how the two methyl groups are set up so that they <strong>refer</strong> to their own atoms as much as possible and there is only one coordinate that describes the bond <strong>rotation</strong>. Below is the initial input file for the <em>anti</em> conformation with <em>D<sub>3d</sub></em> symmetry.</p>
 <div class="literal-block-wrapper docutils container" id="ethane-anti-am1-z-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 28 </span><span class="caption-text">Ethane_anti_AM1_Z.inp</span><a class="headerlink" href="#ethane-anti-am1-z-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 37 </span><span class="caption-text">Ethane_anti_AM1_Z.inp</span><a class="headerlink" href="#ethane-anti-am1-z-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -399,12 +401,12 @@ H   1  1.0  2  110  6  -120
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="anti-ethane">
-<h2><em>anti</em>-Ethane<a class="headerlink" href="#anti-ethane" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="anti-ethane">
+<h2><em>anti</em>-Ethane<a class="headerlink" href="#anti-ethane" title="Permalink to this heading">#</a></h2>
 <p>The result file produced the symmetry unique coordinates optimized at the AM1 level. I used those to <strong>construct</strong> an input file for the HF/6-311(d,p)++ optimization. That file is reproduced below. The IZMAT matrix was <strong>constructed</strong> using the <code class="docutils literal notranslate"><span class="pre">ENCODED</span> <span class="pre">Z</span> <span class="pre">MATRIX</span></code> section of the AM1 result file.</p>
 <div class="literal-block-wrapper docutils container" id="ethane-anti-6311-u-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">Ethane_anti_6311_U.inp</span><a class="headerlink" href="#ethane-anti-6311-u-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 38 </span><span class="caption-text">Ethane_anti_6311_U.inp</span><a class="headerlink" href="#ethane-anti-6311-u-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=18 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -433,10 +435,10 @@ DND 3
 <p>I altered one of the IZMAT coordinates to correspond to a H–C–H bond angle. In the last line, I changes the <code class="docutils literal notranslate"><span class="pre">2,7,2,1</span></code> (an H–C–C angle) to <code class="docutils literal notranslate"><span class="pre">2,7,2,6</span></code> (an H–C–H angle.)</p>
 </div>
 <p>We get an <strong>energy</strong> from this calculation and a <strong>geometry</strong> that we can read from the <code class="docutils literal notranslate"><span class="pre">INTERNAL</span> <span class="pre">COORDINATES</span></code> section of the result file. This section is available because we set <code class="docutils literal notranslate"><span class="pre">NZVAR=18</span></code> and provided the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> list. Here is a summary of the calculated <strong>data</strong> at HF/6311(d,p)++ level. Note that the internal coordinates chosen by <em>GAMESS</em> are not in the same pattern as the <em>Z-matrix</em>. We can manually <strong>choose</strong> these coordinates if we wish, but the number or coordinates must match the number of degrees of freedom (3n-6) and the coordinates must be able to be used to <strong>describe</strong> the position of all atoms.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Coordinate</p></th>
-<th class="text-left head"><p>Value</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Coordinate</p></th>
+<th class="head text-left"><p>Value</p></th>
 </tr>
 </thead>
 <tbody>
@@ -458,12 +460,12 @@ DND 3
 </tbody>
 </table>
 <p>The absolute QM energy value is just a number until we compare it to a similar structure. In this case we will <strong>compare</strong> it to a very similar structure, the <em>syn</em> conformation. This is probably the best case scenario for calculating <strong>relative</strong> energies between two situations.</p>
-</div>
-<div class="section" id="syn-ethane">
-<h2><em>syn</em>-Ethane<a class="headerlink" href="#syn-ethane" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="syn-ethane">
+<h2><em>syn</em>-Ethane<a class="headerlink" href="#syn-ethane" title="Permalink to this heading">#</a></h2>
 <p>The <em>syn</em> structure had <em>D<sub>3h</sub></em> symmetry and the <em>Z-matrix</em> is <strong>almost</strong> identical. We just had to <strong>change</strong> the one coordinate that defined the <strong>torsion</strong> angle between the two methyl groups. This is the 6,1,2,8 torsion angle (line 6 of the <em>Z-matrix</em>.) I just need to change the angle to zero degrees and the symmetry to <em>D<sub>3h</sub></em> and <strong>repeat</strong> all the above. First we altered the <em>anti</em> input file and submitted the job.</p>
 <div class="literal-block-wrapper docutils container" id="ethane-syn-am1-z-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 30 </span><span class="caption-text">Ethane_syn_AM1_Z.inp</span><a class="headerlink" href="#ethane-syn-am1-z-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 39 </span><span class="caption-text">Ethane_syn_AM1_Z.inp</span><a class="headerlink" href="#ethane-syn-am1-z-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -488,7 +490,7 @@ H   1  1.0  2  110  6  -120
 </div>
 <p>Then we <strong>used</strong> the unique coordinate generated to create the HF/6-311G(d,p)++ input file. Observe that the unique coordinates have been <strong>aligned</strong> by <em>GAMESS</em> into a <strong>different</strong> plane. In the <em>D<sub>3d</sub></em> <em>anti</em> symmetry, the <em>yz</em> plane was used for the unique atoms, and in the <em>D<sub>3h</sub></em> <em>syn</em> case, the <em>xz</em> plane was chosen.  The <em>x</em>-axis is the perpendicular 2-fold axis of symmetry (that defines the <em>D</em> rather than <em>C</em> point groups). This places the primary <em>σ<sub>d</sub></em>-plane in the <em>yz</em> plane for the <em>anti</em> conformation and in the <em>xz</em> for the <em>syn</em> conformation.  I had tried to just change the symmetry to <em>D<sub>3h</sub></em> and use the <strong>previous</strong> unique <em>D<sub>3d</sub></em> coordinates and the symmetry <strong>failed</strong>. Below is the HF/6-311G(d,p)++ input file.</p>
 <div class="literal-block-wrapper docutils container" id="ethane-syn-6311-u-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 31 </span><span class="caption-text">Ethane_syn_6311_U.inp</span><a class="headerlink" href="#ethane-syn-6311-u-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 40 </span><span class="caption-text">Ethane_syn_6311_U.inp</span><a class="headerlink" href="#ethane-syn-6311-u-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=18 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -513,10 +515,10 @@ DNH 3
 </div>
 </div>
 <p>By <strong>examining</strong> the output file, a summary of the result for the <em>syn</em> conformation can be made.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Coordinate</p></th>
-<th class="text-left head"><p>Value</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Coordinate</p></th>
+<th class="head text-left"><p>Value</p></th>
 </tr>
 </thead>
 <tbody>
@@ -538,15 +540,15 @@ DNH 3
 </tbody>
 </table>
 <p>We can now make some <strong>comparisons</strong>.</p>
-</div>
-<div class="section" id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
 <p>Here is the <strong>data</strong> gathered together so that we can explore the <strong>differences</strong> in bond lengths, angles and molecular energy.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Coordinate</p></th>
-<th class="text-left head"><p><em>syn</em> conformer</p></th>
-<th class="text-left head"><p><em>anti</em> conformer</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Coordinate</p></th>
+<th class="head text-left"><p><em>syn</em> conformer</p></th>
+<th class="head text-left"><p><em>anti</em> conformer</p></th>
 </tr>
 </thead>
 <tbody>
@@ -573,54 +575,58 @@ DNH 3
 </tbody>
 </table>
 <p>The C–C bond is <strong>shorter</strong> in the <em>anti</em> conformer, as expected. And the H–C–H angle was <strong>larger</strong>, as expected.</p>
-</div>
-<div class="section" id="the-controversy">
-<h2>The Controversy<a class="headerlink" href="#the-controversy" title="Permalink to this headline">#</a></h2>
-<p>The <strong>literature</strong> value for the ethane rotational energy barrier is 12.1 kJ/mole.<a class="footnote-reference brackets" href="#hirota1979" id="id1">1</a>  We were pretty close with this low level of theory. There has been lots of <strong>recent</strong> work in this subject. Despite its simplicity, or because of it, it has been a focus for theoretical investigations. It started with an argument that molecular orbital interactions <strong>stabilizing</strong> the <em>anti</em> conformation were the <strong>more important</strong> contributor to the energy difference compared to electronic <strong>repulsion</strong> in the <em>syn</em> conformation.<a class="footnote-reference brackets" href="#goodman2001" id="id2">2</a>  This is an idea that has been floated since the 1970’s<a class="footnote-reference brackets" href="#lowe1973" id="id3">3</a> but it gained new life with the Nature publication. People <strong>disagreed</strong> and the fight was on.<a class="footnote-reference brackets" href="#bickelhaupt2004" id="id4">4</a> There are ongoing efforts to further refine the <strong>model</strong> for the energy difference.<a class="footnote-reference brackets" href="#baranac2015" id="id5">5</a><a class="footnote-reference brackets" href="#mo2011" id="id6">6</a></p>
-</div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="the-controversy">
+<h2>The Controversy<a class="headerlink" href="#the-controversy" title="Permalink to this heading">#</a></h2>
+<p>The <strong>literature</strong> value for the ethane rotational energy barrier is 12.1 kJ/mole.<a class="footnote-reference brackets" href="#hirota1979" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>  We were pretty close with this low level of theory. There has been lots of <strong>recent</strong> work in this subject. Despite its simplicity, or because of it, it has been a focus for theoretical investigations. It started with an argument that molecular orbital interactions <strong>stabilizing</strong> the <em>anti</em> conformation were the <strong>more important</strong> contributor to the energy difference compared to electronic <strong>repulsion</strong> in the <em>syn</em> conformation.<a class="footnote-reference brackets" href="#goodman2001" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>  This is an idea that has been floated since the 1970’s<a class="footnote-reference brackets" href="#lowe1973" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> but it gained new life with the Nature publication. People <strong>disagreed</strong> and the fight was on.<a class="footnote-reference brackets" href="#bickelhaupt2004" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> There are ongoing efforts to further refine the <strong>model</strong> for the energy difference.<a class="footnote-reference brackets" href="#baranac2015" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#mo2011" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>We have learned more about <strong>constructing</strong> a <em>Z-matrix</em> and applied this knowledge to design a <em>Z-matrix</em> for ethane within which we can easily create any <strong>torsion angle</strong> we wish. We have observed how defining symmetry can <strong>enforce</strong> a given conformation while optimizing a structure. We have observed that the structures and the energy difference were reasonably close to <strong>literature values</strong>.</p>
 <p>In the exercise, you will also explore what happens when we remove the symmetry declaration. Go to the instructions for the exercise and have fun.</p>
-</div>
-<div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
 <p>Read the accompanying discussion above and then try the following activities.</p>
-<div class="section" id="the-activities">
-<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">#</a></h3>
+<section id="the-activities">
+<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this heading">#</a></h3>
 <p><strong>Repeat</strong> the activities described in the discussion but edit the input files to <strong>add</strong> a command to output data for <strong>localized</strong> orbitals. After you have result files for the optimized <em>D<sub>3h</sub></em> and <em>D<sub>3d</sub></em> structures, produce <strong>images</strong> of the molecules that display bond lengths and angles. Then produce images showing graphic representations of the unique <strong>local bonding orbitals</strong> (one C–C σ-bond and one C–H σ-bond will suffice). Report the energy difference for the two symmetries (<em>syn</em> and anti). Then present images for the bonding MOs for both symmetries. <strong>Compare</strong> their energies and their symmetries and discuss which best represent which local bonds (or combinations thereof.)</p>
 <p>Now <strong>set the symmetry</strong> of the <em>syn</em> structure to <em>C<sub>1</sub></em> (no symmetry – this will allow free bond rotation.) Run the optimization at the AM1 level. Is the result <em>syn</em> or <em>anti</em>. <strong>Discuss</strong> the result. If the result remains <em>syn</em> <strong>propose</strong> why <em>GAMESS</em> could not bring itself to start the bond rotation. Now <strong>change</strong> the torsion angle by 0.1°. Run the optimization <strong>again</strong>. Discus the result. <strong>Compare</strong> the energies of the <em>C<sub>1</sub></em> anti and the <em>C<sub>1</sub></em> <em>syn</em> structures at the HF/6-311G(d,p)++ level. <strong>Compare</strong> bond lengths and angles as well. Do they match with the results that used symmetry?</p>
-</div>
-<div class="section" id="the-report">
-<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-report">
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this heading">#</a></h3>
 <p>Create a ONE-PAGE <strong>document</strong> that presents the images of the molecules and local and molecular orbitals described above. <strong>Discuss</strong> the relative energies of the orbitals. Are there any degenerate sets? How many nodal planes are in each set? Can you see how the local orbitals could be combined to make the molecular orbitals?</p>
 <p>Did fixing the <strong>symmetry</strong> also fix the bond angles in the <em>syn</em> configuration? <strong>Present</strong> the consequences of removing the symmetry constraint. If there was no change in torsion when the symmetry was removed, <strong>propose</strong> a reason why. Why did a slight tip in the torsion angle <strong>solve</strong> the problem? Present the bond lengths and angles for the HF/6-311G(d,p)++ and discuss how they relate to the values with symmetry.</p>
 <p>Try <strong>running</strong> energy calculations at the HF/6-311G(d,p)++ level with and without symmetry and see if there is a difference in the <strong>time</strong> each calculation takes. Discuss the difference in time (there may be none as these are small molecules and modern personal computers are enormously powerful).</p>
 <p>Include an <strong>appendix</strong> with the text for all the input files that you used (please do not include any result files – there will be no trees left!) For these files preface each with the file name and a note on its purpose and use a fixed-width font.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="hirota1979"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>“Barrier to internal rotation in ethane from the microwave spectrum of CH<span class="math notranslate nohighlight">\(_3\)</span>CHD<span class="math notranslate nohighlight">\(_2\)</span>.” E. Hirota, S. Saito, Y. Endo,  <em>J. Chem. Phys.</em>, <strong>1979</strong>, <em>71</em>, 1183–1187. https://doi.org/10.1063/1.438464</p>
-</dd>
-<dt class="label" id="goodman2001"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>“Hyperconjugation not steric repulsion leads to the staggered structure of ethane”. V. Pophristic, L. Goodman, <em>Nature</em>, <strong>2001</strong>, <em>411</em>, 565–8. https://doi.org/10.1038/35079036</p>
-</dd>
-<dt class="label" id="lowe1973"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>“The Barrier to Internal Rotation in Ethane: A qualitative, intuitively useful explanation emerges from a comparison of different theoretical approaches”, J.P. Lowe, <em>Science</em>, <strong>1973</strong>, <em>179</em>, 527-32. https://doi.org/10.1126/science.179.4073.527 .</p>
-</dd>
-<dt class="label" id="bickelhaupt2004"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>“The case for steric repulsion causing the staggered conformation of ethane”. F.M. Bickelhaupt, E.J. Baerends, <em>Angew. Chem. Int. Ed.</em>, <strong>2003</strong>, <em>42</em>, 4183–4188. https://doi.org/10.1002/anie.200350947 .</p>
-</dd>
-<dt class="label" id="baranac2015"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>“Theoretical analysis of the rotational barrier in ethane: cause and consequences”. M. Baranac-Stojanović, <em>Structural Chemistry</em>, <strong>2015</strong>, <em>26</em>, 989–996. https://doi.org/10.1007/s11224-014-0557-5</p>
-</dd>
-<dt class="label" id="mo2011"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p>“Rotational barriers in alkanes”, Y. Mo, <em>WIREs Comp. Mol. Sci.</em>, <strong>2011</strong>, <em>1</em>, 164-171. https://doi.org/10.1002/wcms.22</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
+<aside class="footnote brackets" id="hirota1979" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>“Barrier to internal rotation in ethane from the microwave spectrum of CH<span class="math notranslate nohighlight">\(_3\)</span>CHD<span class="math notranslate nohighlight">\(_2\)</span>.” E. Hirota, S. Saito, Y. Endo,  <em>J. Chem. Phys.</em>, <strong>1979</strong>, <em>71</em>, 1183–1187. https://doi.org/10.1063/1.438464</p>
+</aside>
+<aside class="footnote brackets" id="goodman2001" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>“Hyperconjugation not steric repulsion leads to the staggered structure of ethane”. V. Pophristic, L. Goodman, <em>Nature</em>, <strong>2001</strong>, <em>411</em>, 565–8. https://doi.org/10.1038/35079036</p>
+</aside>
+<aside class="footnote brackets" id="lowe1973" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>“The Barrier to Internal Rotation in Ethane: A qualitative, intuitively useful explanation emerges from a comparison of different theoretical approaches”, J.P. Lowe, <em>Science</em>, <strong>1973</strong>, <em>179</em>, 527-32. https://doi.org/10.1126/science.179.4073.527 .</p>
+</aside>
+<aside class="footnote brackets" id="bickelhaupt2004" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>“The case for steric repulsion causing the staggered conformation of ethane”. F.M. Bickelhaupt, E.J. Baerends, <em>Angew. Chem. Int. Ed.</em>, <strong>2003</strong>, <em>42</em>, 4183–4188. https://doi.org/10.1002/anie.200350947 .</p>
+</aside>
+<aside class="footnote brackets" id="baranac2015" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>“Theoretical analysis of the rotational barrier in ethane: cause and consequences”. M. Baranac-Stojanović, <em>Structural Chemistry</em>, <strong>2015</strong>, <em>26</em>, 989–996. https://doi.org/10.1007/s11224-014-0557-5</p>
+</aside>
+<aside class="footnote brackets" id="mo2011" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p>“Rotational barriers in alkanes”, Y. Mo, <em>WIREs Comp. Mol. Sci.</em>, <strong>2011</strong>, <em>1</em>, 164-171. https://doi.org/10.1002/wcms.22</p>
+</aside>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

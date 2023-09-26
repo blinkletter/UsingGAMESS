@@ -115,7 +115,6 @@ The `$CONTRL` group establishes the **kind of calculation**. It may contain many
 ---
 linenos: True
 lineno-start: 1
-emphasize-lines: 
 caption: water.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
@@ -142,7 +141,6 @@ The `$SYSTEM` group defines parameters for the computer system.
 ---
 linenos: True
 lineno-start: 2
-emphasize-lines: 
 caption: water.inp
 ---
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -161,7 +159,6 @@ The `$BASIS` group defines the **theoretical rigor** of the calculation. We will
 ---
 linenos: True
 lineno-start: 3
-emphasize-lines: 
 caption: water.inp
 ---
  $BASIS GBASIS=AM1 $END
@@ -175,7 +172,6 @@ The `$SCF` group is specific to the way the calculation is **performed**. The fi
 ---
 linenos: True
 lineno-start: 4
-emphasize-lines: 
 caption: water.inp
 ---
  $SCF DIRSCF=.TRUE. $END
@@ -189,7 +185,6 @@ The `$STATPT` group establishes the parameters for deciding when we have reached
 ---
 linenos: True
 lineno-start: 5
-emphasize-lines: 
 caption: water.inp
 ---
  $STATPT OPTTOL=0.0001 NSTEP=100 $END
@@ -703,7 +698,6 @@ When constructing symmetrical molecules it can be useful to use **dummy atoms**.
 ```{code-block} 
 ---
 name: ammonia_ZX.inp1
-emphasize-lines: 
 caption: ammonia_ZX.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
@@ -740,7 +734,6 @@ name: fig5
 name: ammonia_ZX.log1
 linenos: True
 lineno-start: 783
-emphasize-lines: 
 caption: ammonia_ZX.log
 ---
 NSERCH:   4  E=       -9.1354556208  GRAD. MAX=  0.0000006  R.M.S.=  0.0000004
@@ -886,7 +879,6 @@ We can take the result of the AM1 calculation and use it to build an **input fil
 ```{code-block} 
 ---
 name: ammonia_UZ_6311G.inp1
-emphasize-lines: 
 caption: ammonia_UZ_6311G.inp
 ---
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
@@ -916,7 +908,6 @@ In the above input file, I set up the `$IZMAT` matrix differently and applied a 
 name: ammonia_UZ_6311G.log1
 linenos: True
 lineno-start: 1448
-emphasize-lines: 
 caption: ammonia_UZ_6311G.log
 ---
 NSERCH:   3  E=      -56.2147746439  GRAD. MAX=  0.0000023  R.M.S.=  0.0000013

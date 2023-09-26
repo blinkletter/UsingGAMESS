@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Data Workflow &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -68,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="6. Allyl Cation: π Orbitals" href="6_Pi_Orbitals.html" />
     <link rel="prev" title="GAMESS Workflow" href="5_Rotation_Profiles_Workflow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -380,8 +382,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-workflow">
-<h1>Data Workflow<a class="headerlink" href="#data-workflow" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-workflow">
+<h1>Data Workflow<a class="headerlink" href="#data-workflow" title="Permalink to this heading">#</a></h1>
 <p>If you open the <code class="docutils literal notranslate"><span class="pre">butane_result.txt</span></code> file in a text editor you will see nineteen lines of data, one line for ezch file.</p>
 <p>Within the file name is the torsion angle. The step number for the last energy calculation, NSERCH, is next. The energy follows that and the value is in units of Hartrees/molecule. We will want to convert that to kJ/mole. Then we have the energy gradient for the last structure of the optimization. It should be less than 0.0001 for the claulation to stop. We could have set this lower or higher. The last value recorded in each line is the RMS deviation for the gradient calculation.</p>
 <p><strong>butane_result.txt</strong></p>
@@ -408,8 +410,8 @@ document.write(`
 </div>
 <p>Observe that three of the jobs took a longer time to converge. We could open them in MacMolPlt and watch a “movie” of their journey and plot the energies along the way. Where did they get stuck? All three eventually found their way home, but only because this was a light-weight theory level and I was confidient in allowing for a large number of steps. If the level of theory was higher I might hav set the limit to 100 steps, or even 30 steps. All other jobs converged in less than 30 steps.</p>
 <p>Why did these three take so long? Bad luck with the exact structure of the input started them on the long path. Tweak a few bond lengths or angles and they might converge just like the others. Clearly, how you start matters. For high levels of theory it is important to start as close to the final answer as possible.</p>
-<div class="section" id="import-raw-data">
-<h2>Import Raw Data<a class="headerlink" href="#import-raw-data" title="Permalink to this headline">#</a></h2>
+<section id="import-raw-data">
+<h2>Import Raw Data<a class="headerlink" href="#import-raw-data" title="Permalink to this heading">#</a></h2>
 <p>We could edit the data in a text editor but we will do everything using the data analysis tools of Python and pandas. First we will import the data as a dataframe using pandas. The datafile must be in the same directory as this workbook, or you must specify the file path. Don’t worry, python will scream at you if you make a mistake and you will be able to fix any problems.</p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code> function to read the file and create a dataframe object. The <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">None</span></code> setting prevents the first line from being used to label the columns. The <code class="docutils literal notranslate"><span class="pre">sep</span> <span class="pre">=</span> <span class="pre">r&quot;\s+|_&quot;</span></code> establishes that one or more spaces separates columns and also the <code class="docutils literal notranslate"><span class="pre">_</span></code> character separates columns. The <code class="docutils literal notranslate"><span class="pre">engine</span> <span class="pre">=</span> <span class="pre">&quot;python&quot;</span></code> means to use the python engine rather than the default cpython engine. The cpython engine is much faster, but it is not compatible with the way I am using the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter. How do I know this? I got an error message that told me what to do.</p>
 <div class="cell docutils container">
@@ -540,9 +542,9 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="cleaning-the-data">
-<h2>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="cleaning-the-data">
+<h2>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this heading">#</a></h2>
 <p>Data cleaning is half the work in data analysis. We need to drop empty records and malformed records (each line could be considered a record in this case). We will need to drop any fields (the columns in eacxh record are the fields). Inspecting the dataframe shows me that I only need columns 2,5,7 and 10. We will rename the columns for what they represent. inspect the orginal dataframe above to see where I got my lables from.</p>
 <p>In the code below I create a new dataframe by selecting the four chosen columns out of the previous dataframe. Then I renamed the column headres from numbers to labels so I don’t forget what they are.</p>
 <div class="cell docutils container">
@@ -618,9 +620,9 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="processing-the-data">
-<h2>Processing the Data<a class="headerlink" href="#processing-the-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="processing-the-data">
+<h2>Processing the Data<a class="headerlink" href="#processing-the-data" title="Permalink to this heading">#</a></h2>
 <p>We now have a cleaned up data set. We could have done all of this in Excel by importing the text file, setting column breaks manually, deleting unwanted columns manually and then typing in names for the columns. Python and pandas may seem like a bit of work but it is not any more than you would do setting up the data in Excel.</p>
 <p>We know that a Hartree is <span class="math notranslate nohighlight">\(2625.7\, kJ/mole\)</span>. So we can convert the energy to a more familiar unit. Then we should set our lowest energy structure as the zero referemce and substract that value from all the energies to establish a relative scale.</p>
 <div class="cell docutils container">
@@ -817,9 +819,9 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="plotting-the-profile">
-<h2>Plotting the Profile<a class="headerlink" href="#plotting-the-profile" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="plotting-the-profile">
+<h2>Plotting the Profile<a class="headerlink" href="#plotting-the-profile" title="Permalink to this heading">#</a></h2>
 <p>Now we have a set of data that we can plot. Let us visualize the profile using the MatPlotLib library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -834,12 +836,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/42ffbf42157908da620265d2d8e052c1013a56f3082895c6751035cb30396ff1.png" src="_images/42ffbf42157908da620265d2d8e052c1013a56f3082895c6751035cb30396ff1.png" />
+<img alt="_images/be7dfc333d4f94c876bf5f36382f96080f3cc247203ca1fb14f4b2e09ebc50ec.png" src="_images/be7dfc333d4f94c876bf5f36382f96080f3cc247203ca1fb14f4b2e09ebc50ec.png" />
 </div>
 </div>
-</div>
-<div class="section" id="publication-quality">
-<h2>Publication Quality<a class="headerlink" href="#publication-quality" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="publication-quality">
+<h2>Publication Quality<a class="headerlink" href="#publication-quality" title="Permalink to this heading">#</a></h2>
 <p>We can be more stylish. I will use the stylesheet that I editted to my preference. It must be in the local directory.</p>
 <p>Divverent journals have different standards for plots. Just follow their instructions. many will hae stylesheets available for your word processor, for <span class="math notranslate nohighlight">\(\LaTeX\)</span> and  even for MacMolPlt. use the <code class="docutils literal notranslate"><span class="pre">savefig()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">fig</span></code> object to save the plot as a file. The <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> extension will tell it to save in PDF format.</p>
 <div class="cell docutils container">
@@ -865,7 +867,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f66577f3d5c82c07a57f9f4c9dfad349f6b361bb1f0e0293fd69c6df2b6b517.png" src="_images/3f66577f3d5c82c07a57f9f4c9dfad349f6b361bb1f0e0293fd69c6df2b6b517.png" />
+<img alt="_images/10592fc0feaeb8ef84c6e749e0f38a9180fc594966b536e737c2aed25c602bd3.png" src="_images/10592fc0feaeb8ef84c6e749e0f38a9180fc594966b536e737c2aed25c602bd3.png" />
 </div>
 </div>
 <p>The plot above is a “connect-the-dots” style plot.  There are many data points and it looks fine. We do not have an exact function to which to fit the data but we could apply the infamous “cubic spline.” We will use the <code class="docutils literal notranslate"><span class="pre">CubicSpline</span></code> function available from the <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code> library (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html">Documentation</a>) to generate a function that represents the curve fit.  We will then feed an x-axis of many data points into that function to create a x,y data set that represents that curve fit as a smooth line.</p>
@@ -898,12 +900,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/65b095c1a02ead9ff1d90d3d8746d7a25a8e12fbe0908d78bf7cc3017b08ad73.png" src="_images/65b095c1a02ead9ff1d90d3d8746d7a25a8e12fbe0908d78bf7cc3017b08ad73.png" />
+<img alt="_images/37e52c33279fe6260f56f4101057206de378ec668a7869fe7b0c278faabe01c0.png" src="_images/37e52c33279fe6260f56f4101057206de378ec668a7869fe7b0c278faabe01c0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="saving-the-data">
-<h2>Saving the Data<a class="headerlink" href="#saving-the-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="saving-the-data">
+<h2>Saving the Data<a class="headerlink" href="#saving-the-data" title="Permalink to this heading">#</a></h2>
 <p>We have imported, cleaned and processed the data. maybe we should save our work so we can use this data set directly and easily next time.  The dataframe object contains methods to do this. We will use the ‘pandas.DataFrame.to_csv()’ method(<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html">documentation</a>) to save the dataframe object as a csv text file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -936,8 +938,8 @@ document.write(`
 <span class="mi">18</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="o">-</span><span class="mf">156.4324667182</span><span class="p">,</span><span class="mf">6.05e-05</span><span class="p">,</span><span class="mf">0.0</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
