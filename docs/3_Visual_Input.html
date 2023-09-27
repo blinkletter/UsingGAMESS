@@ -1,38 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3. Methane: Visual Input and Output &#8212; Fun With GAMESS</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -40,489 +47,327 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3_Visual_Input';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Ethane: Symmetry in Calculations" href="4_Ethane.html" />
     <link rel="prev" title="2. Water: Getting Started" href="2_SmallMolecules.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="start.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="start.html">
-   Fun With GAMESS
-  </a>
- </li>
+    
+    
+    <img src="_static/Solvent_plot3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Solvent_plot3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="start.html">
+                    Fun With GAMESS
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1_Setup.html">1. Building Your System</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1A_Unix.html">Using Unix</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="1_Setup.html">
-   1. Building Your System
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1A_Unix.html">
-     Using Unix
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_SmallMolecules.html">
-   2. Water: Getting Started
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   3. Methane: Visual Input and Output
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Ethane.html">
-   4. Ethane: Symmetry in Calculations
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="5_Rotation_Profiles.html">
-   5. Butane: Rotation Energy Profiles
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     <em>
-      GAMESS
-     </em>
-     Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Pi_Orbitals.html">
-   6. Allyl Cation: π Orbitals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Benzene.html">
-   7. Benzene: MOs and Symmetry
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="7_Butadiene.html">
-   8. Butadiene: Transition State for Rotation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.inp.html">
-     Butadiene.inp
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.log.html">
-     Butadiene.log
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="8A_Diels_Alder.html">
-   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="9_Solvent.html">
-   10. Solvent: The Environment Matters
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots.html">
-     Data Cleaning Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
-     Data Plotting Workflow
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_SmallMolecules.html">2. Water: Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Methane: Visual Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Ethane.html">4. Ethane: Symmetry in Calculations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5_Rotation_Profiles.html">5. Butane: Rotation Energy Profiles</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow.html"><em>GAMESS</em> Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Pi_Orbitals.html">6. Allyl Cation: π Orbitals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Benzene.html">7. Benzene: MOs and Symmetry</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="7_Butadiene.html">8. Butadiene: Transition State for Rotation</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.inp.html">Butadiene.inp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.log.html">Butadiene.log</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="8A_Diels_Alder.html">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="9_Solvent.html">10. Solvent: The Environment Matters</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots.html">Data Cleaning Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">Data Plotting Workflow</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/3_Visual_Input.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/3_Visual_Input.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        </div>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3. Methane: Visual Input and Output</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-methane">
-   Making Methane
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-gamessq">
-   Using
-   <em>
-    GamessQ
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#viewing-in-macmolplt">
-   Viewing in
-   <em>
-    MacMolPlt
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#molecular-orbitals">
-   Molecular Orbitals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-mos">
-     Visualizing MOs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#t-sub-d-sub-methane">
-     <em>
-      T
-      <sub>
-       d
-      </sub>
-     </em>
-     Methane
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mos-for-t-sub-d-sub-methane">
-     MOs for
-     <em>
-      T
-      <sub>
-       d
-      </sub>
-     </em>
-     Methane
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-molecular-orbital-diagram">
-   A Molecular Orbital Diagram
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-multiverse">
-   The Multiverse
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-activities">
-     The Activities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-report">
-     The Report
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-methane">Making Methane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-gamessq">Using <em>GamessQ</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-in-macmolplt">Viewing in <em>MacMolPlt</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-orbitals">Molecular Orbitals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-mos">Visualizing MOs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sub-d-sub-methane"><em>T<sub>d</sub></em> Methane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mos-for-t-sub-d-sub-methane">MOs for <em>T<sub>d</sub></em> Methane</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-molecular-orbital-diagram">A Molecular Orbital Diagram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-multiverse">The Multiverse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-activities">The Activities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-report">The Report</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>3. Methane: Visual Input and Output</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-methane">
-   Making Methane
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-gamessq">
-   Using
-   <em>
-    GamessQ
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#viewing-in-macmolplt">
-   Viewing in
-   <em>
-    MacMolPlt
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#molecular-orbitals">
-   Molecular Orbitals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-mos">
-     Visualizing MOs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#t-sub-d-sub-methane">
-     <em>
-      T
-      <sub>
-       d
-      </sub>
-     </em>
-     Methane
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mos-for-t-sub-d-sub-methane">
-     MOs for
-     <em>
-      T
-      <sub>
-       d
-      </sub>
-     </em>
-     Methane
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-molecular-orbital-diagram">
-   A Molecular Orbital Diagram
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-multiverse">
-   The Multiverse
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-activities">
-     The Activities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-report">
-     The Report
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="tex2jax_ignore mathjax_ignore section" id="methane-visual-input-and-output">
-<h1>3. Methane: Visual Input and Output<a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this headline">¶</a></h1>
+<h1>3. Methane: Visual Input and Output<a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this headline">#</a></h1>
 <p>A <strong>hand crafted</strong> input file is a powerful thing. We can set it up exactly as we like. But there is another way. We can use various helper programs that enable the <strong>visual creation</strong> of a molecule and automatic generation of <em>GAMESS</em> input files. These files will often need further editing to get what you want out of <em>GAMESS</em> but, after we start using molecules larger than benzene, we will appreciate the <strong>graphical interface</strong> (and curse it often).</p>
 <p>When interpreting the <strong>output file</strong>, we can evaluate energies and bond lengths and angles easily. But <strong>visualization</strong> of the whole molecule will help see the <strong>relationships</strong> between distant atoms and also quickly identify structures that optimized to a nonsense answer. In addition, we can now interpret more mathematical aspects of the output like bond <strong>vibrations</strong> and mathematical <strong>surfaces</strong> that represent electron density and <strong>molecular orbital</strong> functions.</p>
 <p>The two applications that we will use are <em>MacMolPlt</em> and <em>Avogadro</em>. Both have different <strong>strengths</strong> and we will get to know them both. In this exercise, we will use <em>MacMolPlt</em>.</p>
 <div class="section" id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>In this exercise, we will <strong>accomplish</strong> the following…</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Use <em>MacMolPlt</em> to <strong>build</strong> molecules, generate input files and interpret results.</p></li>
 <li><p>Use <em>GamessQ</em> to <strong>submit</strong> jobs to <em>GAMESS</em></p></li>
 <li><p>Use <em>MacMolPlt</em> to generate graphical <strong>images</strong> of the molecule and surfaces that represent electron density and <strong>molecular orbitals</strong>.</p></li>
@@ -530,7 +375,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="making-methane">
-<h2>Making Methane<a class="headerlink" href="#making-methane" title="Permalink to this headline">¶</a></h2>
+<h2>Making Methane<a class="headerlink" href="#making-methane" title="Permalink to this headline">#</a></h2>
 <p>Open your copy of <em>wxMacMolPlt</em> and <strong>navigate</strong> to the build menu: <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. Select carbon with a coordination number of 4 and click in the empty window. Then select <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Hydrogens</span></code> to complete your structure of methane. Efforts to enforce symmetry on files created by <em>MacMolPlt</em> often fail and manual creation of files that use symmetry is preferred. <em>GAMESS</em> requires perfection when you are declaring symmetry. As a result, we will <strong>not use</strong> symmetry in this calculation.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -543,7 +388,7 @@ In the <code class="docutils literal notranslate"><span class="pre">Misc</span> 
 <p>In the <code class="docutils literal notranslate"><span class="pre">Stat.</span> <span class="pre">Point</span></code> window we can set the number of steps to a higher number that 20. We will use 20 for now.</p>
 <p>Click on the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">and</span> <span class="pre">Save</span></code> button and you will get a text window with the generated input file. You can make changes now or you can use a text editor later. Save the file. below is the file as saved by <em>MacMolPlt</em>.</p>
 <div class="literal-block-wrapper docutils container" id="amethane-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 34 </span><span class="caption-text">methane.inp</span><a class="headerlink" href="#amethane-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">methane.inp</span><a class="headerlink" href="#amethane-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 LOCAL=RUEDNBRG COORD=UNIQUE 
     $END
@@ -565,43 +410,43 @@ H     1.0     0.64179     0.64179     0.64179
 </div>
 </div>
 <div class="section" id="using-gamessq">
-<h2>Using <em>GamessQ</em><a class="headerlink" href="#using-gamessq" title="Permalink to this headline">¶</a></h2>
+<h2>Using <em>GamessQ</em><a class="headerlink" href="#using-gamessq" title="Permalink to this headline">#</a></h2>
 <p>Open <em>GamessQ</em> (first <strong>run</strong> the binary in a terminal window and then <strong>start</strong> the GUI by clicking on the application icon.) <strong>Drag and drop</strong> the input file into the <em>GamessQ</em> window. Watch as its status changes from pending to running to done. The output file will be in the directory <strong>specified</strong> in the <em>GamessQ</em> preference pane. Find that log file and <strong>open</strong> it in a text editor. <strong>Look</strong> quickly to the end of the file for the phrase <code class="docutils literal notranslate"><span class="pre">GAMESS</span> <span class="pre">TERMINATED</span> <span class="pre">NORMALLY</span></code>. If there was an error, trouble shoot the input file and <strong>try again</strong>. Find the <code class="docutils literal notranslate"><span class="pre">EQUILIBRIUM</span> <span class="pre">GEOMETRY</span> <span class="pre">LOCATED</span></code> statement and record the energy (and check the new optimized coordinates for sanity).</p>
 </div>
 <div class="section" id="viewing-in-macmolplt">
-<h2>Viewing in <em>MacMolPlt</em><a class="headerlink" href="#viewing-in-macmolplt" title="Permalink to this headline">¶</a></h2>
+<h2>Viewing in <em>MacMolPlt</em><a class="headerlink" href="#viewing-in-macmolplt" title="Permalink to this headline">#</a></h2>
 <p>Use <em>MacMolPlt</em> to <strong>open</strong> the .log file that was produced by <em>GAMESS</em>. You will see an <strong>image</strong> of the methane molecule. Practice <strong>rotating</strong> it and <strong>zooming</strong> in an out.</p>
 <p>We can <strong>measure</strong> lengths and angles in <em>MacMolPlt</em>. Click on an atom to select it. Then click on a second atom while holding <code class="docutils literal notranslate"><span class="pre">[SHIFT]</span></code>. Then select <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Annotations</span></code> → <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Length</span></code>. Do this with any three atoms and select <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Annotations</span></code> → <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Angle</span></code>. You can <strong>measure</strong> lengths angles and torsions right off the screen. You can <strong>display</strong> atom numbers with <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Atoms</span> <span class="pre">Labels</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Number</span></code>. <strong>Explore</strong> the menus and see what you can do.</p>
 <p>You can <strong>save</strong> the image in the window using <code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">Export</span></code>. Explore the <strong>options</strong> and see what makes the best image file for you. See <a class="reference internal" href="#fig1a"><span class="std std-numref">Fig. 6</span></a> for an example.</p>
 <div class="figure align-default" id="fig1a">
 <a class="reference internal image-reference" href="_images/Methane_Measured.png"><img alt="_images/Methane_Measured.png" src="_images/Methane_Measured.png" style="width: 250px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text"><em><em>MacMolPlt</em> view of methane with some annotations added.</em></span><a class="headerlink" href="#fig1a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text"><em><em>MacMolPlt</em> view of methane with some annotations added.</em></span><a class="headerlink" href="#fig1a" title="Permalink to this image">#</a></p>
 </div>
 <p>We can <strong>display</strong> the electron density surface of methane using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code>. Select <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Total</span> <span class="pre">Electron</span> <span class="pre">Density</span></code> from the list and chose settings until you get a <strong>picture</strong> like the one in <a class="reference internal" href="#fig2a"><span class="std std-numref">Fig. 7</span></a>.</p>
 <div class="figure align-default" id="fig2a">
 <a class="reference internal image-reference" href="_images/Methane_surface.png"><img alt="_images/Methane_surface.png" src="_images/Methane_surface.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>The electron density surface colored according to molecular electrostatic potential (MEP). Can you set the values to make the image look like this?</em></span><a class="headerlink" href="#fig2a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>The electron density surface colored according to molecular electrostatic potential (MEP). Can you set the values to make the image look like this?</em></span><a class="headerlink" href="#fig2a" title="Permalink to this image">#</a></p>
 </div>
 <p>Methane is very <strong>nonpolar</strong> so the MEP will be mostly one color. Molecules with heteroatoms will be more revealing in this regard.</p>
 </div>
 <div class="section" id="molecular-orbitals">
-<h2>Molecular Orbitals<a class="headerlink" href="#molecular-orbitals" title="Permalink to this headline">¶</a></h2>
+<h2>Molecular Orbitals<a class="headerlink" href="#molecular-orbitals" title="Permalink to this headline">#</a></h2>
 <p>We often see <strong>molecular orbital diagrams</strong> in textbooks. Let’s try to make our own for methane.</p>
 <div class="section" id="visualizing-mos">
-<h3>Visualizing MOs<a class="headerlink" href="#visualizing-mos" title="Permalink to this headline">¶</a></h3>
+<h3>Visualizing MOs<a class="headerlink" href="#visualizing-mos" title="Permalink to this headline">#</a></h3>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">surface</span></code> subwindow again and this time select <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">orbital</span></code> as the choice. Choose <code class="docutils literal notranslate"><span class="pre">Molecular</span> <span class="pre">Eigenvectors</span></code> as the orbital set and then <strong>change settings</strong> until you get an image similar to the one in <a class="reference internal" href="#fig3a"><span class="std std-numref">Fig. 8</span></a>.
 `</p>
 <div class="figure align-default" id="fig3a">
 <a class="reference internal image-reference" href="_images/Methane_HOMO-nosym.png"><img alt="_images/Methane_HOMO-nosym.png" src="_images/Methane_HOMO-nosym.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>One of the three degenerate HOMOs of methane. The lack of symmetry in the calculation leads to a lack of symmetry in the orbitals.</em></span><a class="headerlink" href="#fig3a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>One of the three degenerate HOMOs of methane. The lack of symmetry in the calculation leads to a lack of symmetry in the orbitals.</em></span><a class="headerlink" href="#fig3a" title="Permalink to this image">#</a></p>
 </div>
 <p>We see the familiar methane HOMO there but it is not <strong>perfectly</strong> symmetrical. We did not use symmetry in our calculations because input files generated by <em>MacMolPlt</em> often fail symmetry requirements.</p>
 </div>
 <div class="section" id="t-sub-d-sub-methane">
-<h3><em>T<sub>d</sub></em> Methane<a class="headerlink" href="#t-sub-d-sub-methane" title="Permalink to this headline">¶</a></h3>
+<h3><em>T<sub>d</sub></em> Methane<a class="headerlink" href="#t-sub-d-sub-methane" title="Permalink to this headline">#</a></h3>
 <p>We can <strong>construct</strong> a symmetrical structure of methane using symmetry tools in <em>MacMolPlt</em>. However, for now let us do this <strong>manually</strong>. First I will make an AM1 input file for structural <strong>optimization</strong> <em>T<sub>d</sub></em> methane.</p>
 <div class="literal-block-wrapper docutils container" id="methane-am1-u-inp1">
-<div class="code-block-caption"><span class="caption-number">Listing 35 </span><span class="caption-text">methane_AM1_U.inp1</span><a class="headerlink" href="#methane-am1-u-inp1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">methane_AM1_U.inp1</span><a class="headerlink" href="#methane-am1-u-inp1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -624,7 +469,7 @@ H     1.0     0.7    0.7     0.7
 </div>
 <p>After submitting it, we will have the coordinates optimized at the AM1 level. We can then <strong>copy</strong> them into an input file for the HF/6-311G(d,p)++ <strong>energy</strong> at <em>T<sub>d</sub></em> symmetry. I <strong>added the command</strong> for creating local bonding orbitals.</p>
 <div class="literal-block-wrapper docutils container" id="methane-6311-u-e-inp1">
-<div class="code-block-caption"><span class="caption-number">Listing 36 </span><span class="caption-text">methane_6311_U_E.inp</span><a class="headerlink" href="#methane-6311-u-e-inp1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">methane_6311_U_E.inp</span><a class="headerlink" href="#methane-6311-u-e-inp1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
 <span class="hll">  NZVAR=9 LOCAL=RUEDNBRG COORD=UNIQUE $END
 </span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -648,35 +493,35 @@ Td
 </div>
 </div>
 <div class="section" id="mos-for-t-sub-d-sub-methane">
-<h3>MOs for <em>T<sub>d</sub></em> Methane<a class="headerlink" href="#mos-for-t-sub-d-sub-methane" title="Permalink to this headline">¶</a></h3>
+<h3>MOs for <em>T<sub>d</sub></em> Methane<a class="headerlink" href="#mos-for-t-sub-d-sub-methane" title="Permalink to this headline">#</a></h3>
 <p>I <strong>openned</strong> the log file in <em>MacMolPlt</em> and when I <strong>displayed</strong> the HOMO for this symmetrical calculation the orbitals were perfect. It should be noted that both sets of MOs were really the same. It is exactly the same math. The less symmetrical image was produced using axes that did not perfectly align with the <strong>elements of symmetry</strong> of the orbitals. However, just because there was a little more <em>x</em> and a little less <em>y</em> does not change the way the orbitals behave. It’s just how the <strong>picture</strong> is calculated, the underlying math of the MO never changes. The new improved MO image is present in <a class="reference internal" href="#fig4a"><span class="std std-numref">Fig. 9</span></a>.</p>
 <div class="figure align-default" id="fig4a">
 <a class="reference internal image-reference" href="_images/Methane_HOMO-sym.png"><img alt="_images/Methane_HOMO-sym.png" src="_images/Methane_HOMO-sym.png" style="width: 250px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>The HOMO of methane generated from a calculation that used the Td symmetry requirement.
-Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Permalink to this image">¶</a></p>
+Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Permalink to this image">#</a></p>
 </div>
 <p>We are used to describing <strong>bonds</strong> around second-row elements like carbon as <em>sp</em>, <em>sp<sup>2</sup></em>, or <em>sp<sup>3</sup></em>. A <em>sp<sup>3</sup></em> bonding MO can be constructed from the overlap of the carbon <em>sp<sup>3</sup></em> AO and the hydrogens <em>s</em>-orbital. This would be a <strong>simple model</strong> that describes the electron pair for that bond (not really) and relates more directly to <strong>Lewis structure</strong> (if you prefer stick drawings to the truth of math.) In the <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code> window choose the <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Orbital</span></code> option and then choose the <code class="docutils literal notranslate"><span class="pre">Localized</span> <span class="pre">Orbitals</span></code> option from the <code class="docutils literal notranslate"><span class="pre">Orbital</span> <span class="pre">Set</span></code> menu. Select one of the orbitals and then <strong>choose</strong> settings that produce and image similar to what you see in <a class="reference internal" href="#fig5a"><span class="std std-numref">Fig. 10</span></a>. Have fun and try lots of settings.</p>
 <div class="figure align-default" id="fig5a">
 <a class="reference internal image-reference" href="_images/Methane_LOCAL_4.png"><img alt="_images/Methane_LOCAL_4.png" src="_images/Methane_LOCAL_4.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>A local bonding MO for the C–H bond in methane.</em></span><a class="headerlink" href="#fig5a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>A local bonding MO for the C–H bond in methane.</em></span><a class="headerlink" href="#fig5a" title="Permalink to this image">#</a></p>
 </div>
 <p>Which seems <strong>easier</strong> to interpret when explaining the C–H bond: the true MO or a local bonding MO model? When you are <strong>constructing</strong> a MO diagram using hybrid atomic orbitals, you will naturally be constructing the local bonding MOs from <em>sp<sup>3</sup></em> carbon AOs and hydrogen s-AOs. You can the further <strong>combine</strong> these local MOs to make the orthogonal MOs that actually describe the electronic structure.</p>
 </div>
 </div>
 <div class="section" id="a-molecular-orbital-diagram">
-<h2>A Molecular Orbital Diagram<a class="headerlink" href="#a-molecular-orbital-diagram" title="Permalink to this headline">¶</a></h2>
+<h2>A Molecular Orbital Diagram<a class="headerlink" href="#a-molecular-orbital-diagram" title="Permalink to this headline">#</a></h2>
 <p>In this exercise, you will be asked to <strong>construct</strong> MO diagrams with visualized MOs and local bonding MOs. Here is a pair of molecular orbital <strong>diagrams</strong>. <a class="reference internal" href="#fig6a"><span class="std std-numref">Fig. 11</span></a> uses the atomic orbitals to make the true molecular orbitals for the molecule. However it is often <strong>more informative</strong> to consider local molecular orbitals as presented in <a class="reference internal" href="#fig7a"><span class="std std-numref">Fig. 12</span></a>.</p>
 <div class="figure align-default" id="fig6a">
 <a class="reference internal image-reference" href="_images/MOs_Diagram_Methane1.png"><img alt="_images/MOs_Diagram_Methane1.png" src="_images/MOs_Diagram_Methane1.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>MO diagram for methane.</em></span><a class="headerlink" href="#fig6a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>MO diagram for methane.</em></span><a class="headerlink" href="#fig6a" title="Permalink to this image">#</a></p>
 </div>
 <div class="figure align-default" id="fig7a">
 <a class="reference internal image-reference" href="_images/MOs_Diagram_Methane2.png"><img alt="_images/MOs_Diagram_Methane2.png" src="_images/MOs_Diagram_Methane2.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>MO diagram using the local molecular orbital model.</em></span><a class="headerlink" href="#fig7a" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>MO diagram using the local molecular orbital model.</em></span><a class="headerlink" href="#fig7a" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="the-multiverse">
-<h2>The Multiverse<a class="headerlink" href="#the-multiverse" title="Permalink to this headline">¶</a></h2>
+<h2>The Multiverse<a class="headerlink" href="#the-multiverse" title="Permalink to this headline">#</a></h2>
 <p>The <em>T<sub>d</sub></em> symmetry <strong>enforces</strong> that the hydrogens are each in one of the octants of 3D space. This means that the cardinal planes are not through any of the hydrogen atoms. If you considered that the four hydrogens were each at corners of the cube, then the planes are slicing through the faces of the cube. This is why all three of the degenerate orbitals are <strong>identical</strong> in appearance.</p>
 <p>Your textbook may present <strong>different</strong> images of these orbitals. They are exactly the <strong>same</strong> orbitals, just with different placements of the cardinal planes w.r.t. the bonds. We used <em>C<sub>3v</sub></em> symmetry for the ammonia molecule and, if we had used it with the methane <em>Z-matrix</em> that was created by modifying the ammonia <em>Z-matrix</em>, it would have worked just fine. The <em>C<sub>3v</sub></em> symmetry requires that one of the four C–H bonds be along the <em>z</em>-axis. This means that two C–H bonds will be in a cardinal plane. The three degenerate orbitals all appear different because they each have a different relationship to the symmetry space. Despite this, they are identical. If orbitals have exactly the <strong>same</strong> energy then they are <strong>identical</strong>. The <em>C<sub>3v</sub></em> arrangement is perhaps the most useful for interpreting a reaction. A hydrogen abstraction by a radical will occur by the radical approaching along a <strong>bond axis</strong>. Adding that element will reduce the symmetry to <em>C<sub>3v</sub></em> from <em>T<sub>d</sub></em>. The molecular orbital that <strong>aligns</strong> with the <em>z</em>-axis best describes the <strong>frontier orbital</strong> that will guide the reaction as the atoms approach each other.</p>
 <p>Another <strong>option</strong> is to use the <em>C<sub>2v</sub></em> symmetry space. This will result in two separate pairs of C–H bonds being in cardinal planes. As a result two of the orbital images will appear identical with a third image being with a plane placed perpendicular to the other two. Again, it must be emphasized that all three degenerate molecular orbitals are <strong>identical</strong>.</p>
@@ -684,22 +529,22 @@ Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Per
 <p>You will be exploring these ideas in the exercise supported by this discussion. Good luck.</p>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>We have used <em>MacMolPlt</em> to <strong>build</strong> a small molecule and generate an input file for <em>GAMESS</em>. We have <strong>submitted</strong> that file to <em>GAMESS</em> via the <em>GamessQ</em> program.</p>
 <p>We have used <em>MacMolPlt</em> to <strong>measure</strong> bond lengths and angles and to <strong>visualize</strong> the molecular orbital data generated by <em>GAMESS</em>. We have exported the <strong>images</strong> in our favourite graphic file format.</p>
 <p>Where will we go from here? Open the instructions for the exercise that this discussion supports. Have fun.</p>
 </div>
 <div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
 <p>Read the discussion above and then try the following activities.</p>
 <div class="section" id="the-activities">
-<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">¶</a></h3>
+<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">#</a></h3>
 <p>You will have HF/6-311G(d,p)++ optimized structures for methane (<em>T<sub>d</sub></em>), Ammonia (<em>C<sub>3v</sub></em>) and water (<em>C<sub>2v</sub></em>) from a previous exercise. <strong>Use</strong> the data for those structures to perform an energy (or optimization) calculation and <strong>add</strong> the local orbital command to the <code class="docutils literal notranslate"><span class="pre">$SYSTEM</span></code> group.</p>
 <p>Use the result file with <em>MacMolPlt</em> to <strong>visualize</strong> the bonding molecular orbitals and the localized bonding orbitals. Are there degenerate sets in the molecular orbitals? Do any local orbitals resemble lone pairs? Do any of the MOs seem more closely related to lone pairs or more closely related to bonds? What are the relative energies of these MO sets and do the energies fit with expectations?</p>
 <p><strong>Construct</strong> input files for methane using <em>C<sub>3v</sub></em> and <em>C<sub>2v</sub></em> symmetry and <strong>compare</strong> the shapes of these versions of the orbitals to those in ammonia and water. What similarities and differences do you observe?</p>
 </div>
 <div class="section" id="the-report">
-<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">#</a></h3>
 <p><strong>Create</strong> a ONE-PAGE document summarizing your results. Create <strong>images</strong> for each of the three molecules: methane, water, and ammonia. <strong>Include</strong> bond length and angles in the images. Create images of the molecules with the electron density surface colored by electrostatic potential. <strong>Discuss</strong> the reasons for different bond lengths and angles using VSEPR theory.</p>
 <p>Create a SECOND ONE-PAGE document with images of local and molecular bonding orbitals for all three molecules. <strong>Identify</strong> which orbitals in each set best represent lone pairs and which best represent bonds to hydrogen atoms.</p>
 <p>Create a THIRD ONE-PAGE document that presents the images of the methane <strong>molecular orbitals</strong> using <em>C<sub>3v</sub></em> and <em>C<sub>2v</sub></em> symmetry. <strong>Compare</strong> these with the corresponding orbitals in ammonia and water.</p>
@@ -721,7 +566,7 @@ Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Per
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -729,44 +574,122 @@ Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Per
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="2_SmallMolecules.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">2. Water: Getting Started</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_SmallMolecules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2. Water: Getting Started</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="4_Ethane.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="4_Ethane.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">4. Ethane: Symmetry in Calculations</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Barry Linkletter<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-methane">Making Methane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-gamessq">Using <em>GamessQ</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-in-macmolplt">Viewing in <em>MacMolPlt</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-orbitals">Molecular Orbitals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-mos">Visualizing MOs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sub-d-sub-methane"><em>T<sub>d</sub></em> Methane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mos-for-t-sub-d-sub-methane">MOs for <em>T<sub>d</sub></em> Methane</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-molecular-orbital-diagram">A Molecular Orbital Diagram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-multiverse">The Multiverse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-activities">The Activities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-report">The Report</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Barry Linkletter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

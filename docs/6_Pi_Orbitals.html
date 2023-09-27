@@ -1,38 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6. Allyl Cation: π Orbitals &#8212; Fun With GAMESS</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -40,12 +47,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -54,388 +62,308 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '6_Pi_Orbitals';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Benzene: MOs and Symmetry" href="6_Benzene.html" />
     <link rel="prev" title="Data Workflow" href="5_Rotation_Profiles_Workflow_Data.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="start.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="start.html">
-   Fun With GAMESS
-  </a>
- </li>
+    
+    
+    <img src="_static/Solvent_plot3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Solvent_plot3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="start.html">
+                    Fun With GAMESS
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1_Setup.html">1. Building Your System</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1A_Unix.html">Using Unix</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="1_Setup.html">
-   1. Building Your System
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1A_Unix.html">
-     Using Unix
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_SmallMolecules.html">
-   2. Water: Getting Started
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Visual_Input.html">
-   3. Methane: Visual Input and Output
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Ethane.html">
-   4. Ethane: Symmetry in Calculations
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="5_Rotation_Profiles.html">
-   5. Butane: Rotation Energy Profiles
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     <em>
-      GAMESS
-     </em>
-     Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   6. Allyl Cation: π Orbitals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Benzene.html">
-   7. Benzene: MOs and Symmetry
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="7_Butadiene.html">
-   8. Butadiene: Transition State for Rotation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.inp.html">
-     Butadiene.inp
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.log.html">
-     Butadiene.log
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="8A_Diels_Alder.html">
-   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="9_Solvent.html">
-   10. Solvent: The Environment Matters
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots.html">
-     Data Cleaning Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
-     Data Plotting Workflow
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_SmallMolecules.html">2. Water: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Visual_Input.html">3. Methane: Visual Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Ethane.html">4. Ethane: Symmetry in Calculations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5_Rotation_Profiles.html">5. Butane: Rotation Energy Profiles</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow.html"><em>GAMESS</em> Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Allyl Cation: π Orbitals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Benzene.html">7. Benzene: MOs and Symmetry</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="7_Butadiene.html">8. Butadiene: Transition State for Rotation</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.inp.html">Butadiene.inp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.log.html">Butadiene.log</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="8A_Diels_Alder.html">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="9_Solvent.html">10. Solvent: The Environment Matters</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots.html">Data Cleaning Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">Data Plotting Workflow</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/6_Pi_Orbitals.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/6_Pi_Orbitals.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        </div>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. Allyl Cation: π Orbitals</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-allyl-system">
-   The Allyl System
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-charges">
-     Analysis of Charges
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analysis-of-molecular-orbitals">
-   Analysis of Molecular Orbitals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparing-ao-coefficients">
-   Comparing AO Coefficients
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-activity">
-     The Activity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-report">
-     The Report
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-allyl-system">The Allyl System</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-charges">Analysis of Charges</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-molecular-orbitals">Analysis of Molecular Orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-ao-coefficients">Comparing AO Coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-activity">The Activity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-report">The Report</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>6. Allyl Cation: π Orbitals</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-allyl-system">
-   The Allyl System
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-charges">
-     Analysis of Charges
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analysis-of-molecular-orbitals">
-   Analysis of Molecular Orbitals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparing-ao-coefficients">
-   Comparing AO Coefficients
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-activity">
-     The Activity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-report">
-     The Report
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="tex2jax_ignore mathjax_ignore section" id="allyl-cation-orbitals">
-<h1>6. Allyl Cation: π Orbitals<a class="headerlink" href="#allyl-cation-orbitals" title="Permalink to this headline">¶</a></h1>
+<h1>6. Allyl Cation: π Orbitals<a class="headerlink" href="#allyl-cation-orbitals" title="Permalink to this headline">#</a></h1>
 <p>Simplified <strong>Hückel Molecular Orbital Theory</strong> (SHMO) allows us to create π-molecular orbitals for planar systems. It is <strong>qualitatively</strong> accurate and often all one needs to interpret π-systems in physical organic chemistry. We have explored SHMO and created <strong>MO diagrams</strong> for ethylene, allyl anion &amp; cation, butadiene and the cumyl cation. We have modeled the phenol and the nitrobenzene system as well. And we explored the surprising polar nature of azulene compared to naphthalene. We did all this with <em>Python</em> and the <em>NumPy</em> &amp; <em>SciPy</em> packages.</p>
 <p>Can we do the same, only better, with <em>GAMESS</em>? Let’s get busy.</p>
 <div class="section" id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">¶</a></h2>
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
 <p>In this exercise, we will accomplish the following…</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Use <em>MacMolPlt</em> to <strong>build</strong> molecules, generate input files and interpret results and use <em>GamessQ</em> to submit jobs to <em>GAMESS</em></p></li>
 <li><p>Use <em>MacMolPlt</em> to generate graphical <strong>images</strong> of the molecule and surfaces that represent electron density and molecular and local orbitals.</p></li>
 <li><p>Use the colour-coded <strong>electrostatic potential energy surface</strong> to interpret the polarity of the molecules.</p></li>
@@ -444,17 +372,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="the-allyl-system">
-<h2>The Allyl System<a class="headerlink" href="#the-allyl-system" title="Permalink to this headline">¶</a></h2>
+<h2>The Allyl System<a class="headerlink" href="#the-allyl-system" title="Permalink to this headline">#</a></h2>
 <p>For an example we will build the <strong>allyl cation</strong> and examine the results of the calculation. First we will <strong>build</strong> the allyl group with <em>MacMolPlt</em> and attempt to use symmetry. If that fails, we will construct the molecule manually.</p>
 <p>In <em>MacMolPlt</em> first we will <strong>set the point group</strong> using <code class="docutils literal notranslate"><span class="pre">Molecule</span></code> → <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Point</span> <span class="pre">Group</span></code> → <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Group</span></code> → <code class="docutils literal notranslate"><span class="pre">Cnv</span></code> and then <code class="docutils literal notranslate"><span class="pre">…</span></code> → <code class="docutils literal notranslate"><span class="pre">Order</span> <span class="pre">of</span> <span class="pre">Principal</span> <span class="pre">Axis</span></code> → <code class="docutils literal notranslate"><span class="pre">2</span></code>. Set up the <strong>build</strong> with <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">with</span> <span class="pre">Symmetry</span></code> and then call the build window with <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. It helps to show the axes of the symmetry space via <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Axis</span></code>. After that, it is up to <strong>trial and error</strong>.</p>
 <p>You will find that each atom placed may be <strong>copied in space</strong> according to the point group. The <em>z</em>-axis is the principal axis. Give it a try. I managed to get a structure that resembles an allyl group. See <a class="reference internal" href="#fig6a1"><span class="std std-numref">Fig. 29</span></a> for an example.</p>
 <div class="figure align-default" id="fig6a1">
 <a class="reference internal image-reference" href="_images/pi_symmetryBuild.png"><img alt="_images/pi_symmetryBuild.png" src="_images/pi_symmetryBuild.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using <em>MacMolPlt</em>. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text"><em>Building an allyl cation with symmetry using <em>MacMolPlt</em>. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.</em></span><a class="headerlink" href="#fig6a1" title="Permalink to this image">#</a></p>
 </div>
 <p>I then exported an <strong>input file</strong> using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add <em>d</em> and <em>p</em> orbitals and use both diffuse functions. The diffuse functions are important as they improve results for <strong>charged</strong> systems. Here is the input file that was generated. Only the <em>unique atoms</em> (2 carbons, the third is defined by symmetry) are in the <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-6311-u-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 54 </span><span class="caption-text">AllylCat_6311_U.inp</span><a class="headerlink" href="#allylcat-6311-u-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">AllylCat_6311_U.inp</span><a class="headerlink" href="#allylcat-6311-u-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 ICHARG=1 MULT=1 MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -475,12 +403,12 @@ H     1.0     0.00000     0.72580    -1.09270
 </div>
 </div>
 <div class="section" id="analysis-of-charges">
-<h3>Analysis of Charges<a class="headerlink" href="#analysis-of-charges" title="Permalink to this headline">¶</a></h3>
+<h3>Analysis of Charges<a class="headerlink" href="#analysis-of-charges" title="Permalink to this headline">#</a></h3>
 <p>The file was <strong>submitted</strong> to <em>GAMESS</em> via <em>GamessQ</em>. The resulting .log file was opened with <em>MacMolPlt</em>.</p>
 <p>Bond distances and angles were <strong>measured</strong> as shown in <a class="reference internal" href="#fig6b"><span class="std std-numref">Fig. 30</span></a>. The structure is not a close match to the literature values.  For example, the C–C–C bond angle is 118° while the literature value is 124.6°. It is <strong>expected</strong> that the angle should be greater than 120° so I was suspicious of the result. Ions are <strong>tough</strong>. More expensive methods will be needed but we can still obtain fairly decent descriptions of the orbitals and charge density. They won’t be perfect, but will give us the general idea.</p>
 <div class="figure align-default" id="fig6b">
 <a class="reference internal image-reference" href="_images/pi_allylresult.png"><img alt="_images/pi_allylresult.png" src="_images/pi_allylresult.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text"><em>HF/6-3111(d,p)++ optimized structure of the allyl cation.</em></span><a class="headerlink" href="#fig6b" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text"><em>HF/6-3111(d,p)++ optimized structure of the allyl cation.</em></span><a class="headerlink" href="#fig6b" title="Permalink to this image">#</a></p>
 </div>
 <p>By using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code> → <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Electron</span> <span class="pre">Density</span></code> and choosing to colour by <code class="docutils literal notranslate"><span class="pre">MEP</span></code> (molecular electrostatic potential) we can obtain an <strong>image</strong> that represents the electron density of the molecule and the colours mapped onto the surface represent the <strong>charge</strong>. Red are regions that repel a positive charge and blue are regions that attract a positive charge. Green is neutral. We can see in <a class="reference internal" href="#fig6c"><span class="std std-numref">Fig. 31</span></a> that the positive charge is <strong>located</strong> on the two terminal carbon groups, as expected.</p>
 <div class="margin sidebar">
@@ -489,7 +417,7 @@ H     1.0     0.00000     0.72580    -1.09270
 </div>
 <div class="figure align-default" id="fig6c">
 <a class="reference internal image-reference" href="_images/pi_1.png"><img alt="_images/pi_1.png" src="_images/pi_1.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text"><em>Electron density surface coloured by electrostatic potential. <em>MacMolPlt</em> does not give the best color contrast, but it does the job.</em></span><a class="headerlink" href="#fig6c" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text"><em>Electron density surface coloured by electrostatic potential. <em>MacMolPlt</em> does not give the best color contrast, but it does the job.</em></span><a class="headerlink" href="#fig6c" title="Permalink to this image">#</a></p>
 </div>
 <p>We can get an <strong>approximation</strong> of the charge held by each group from the data in the result .log file. Open the result file in a text editor and <strong>search</strong> for the word “<code class="docutils literal notranslate"><span class="pre">LOWDIN</span></code>”. Find the last occurrence of that word in the file. You should see a block of text like the one below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">TOTAL</span> <span class="n">MULLIKEN</span> <span class="n">AND</span> <span class="n">LOWDIN</span> <span class="n">ATOMIC</span> <span class="n">POPULATIONS</span>
@@ -508,22 +436,22 @@ H     1.0     0.00000     0.72580    -1.09270
 <p>Here are my calculations. The atom numbers are revealed in the <em>MacMolPlt</em> image.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Group</p></th>
-<th class="text-align:left head"><p>Charge</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Group</p></th>
+<th class="text-left head"><p>Charge</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>C1+H5+H7</p></td>
-<td class="text-align:left"><p>+0.468</p></td>
+<tr class="row-even"><td class="text-left"><p>C1+H5+H7</p></td>
+<td class="text-left"><p>+0.468</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>C3+H4</p></td>
-<td class="text-align:left"><p>+0.065</p></td>
+<tr class="row-odd"><td class="text-left"><p>C3+H4</p></td>
+<td class="text-left"><p>+0.065</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>C2+H6+H8</p></td>
-<td class="text-align:left"><p>+0.468</p></td>
+<tr class="row-even"><td class="text-left"><p>C2+H6+H8</p></td>
+<td class="text-left"><p>+0.468</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Total</p></td>
-<td class="text-align:left"><p>+1.001</p></td>
+<tr class="row-odd"><td class="text-left"><p>Total</p></td>
+<td class="text-left"><p>+1.001</p></td>
 </tr>
 </tbody>
 </table>
@@ -531,18 +459,18 @@ H     1.0     0.00000     0.72580    -1.09270
 </div>
 </div>
 <div class="section" id="analysis-of-molecular-orbitals">
-<h2>Analysis of Molecular Orbitals<a class="headerlink" href="#analysis-of-molecular-orbitals" title="Permalink to this headline">¶</a></h2>
+<h2>Analysis of Molecular Orbitals<a class="headerlink" href="#analysis-of-molecular-orbitals" title="Permalink to this headline">#</a></h2>
 <p>The molecular orbital <strong>diagram</strong> can be created using data from the <em>GAMESS</em> result file as interpreted by <em>MacMolPlt</em>. We can provide images of the <strong>local</strong> bonding σ-orbitals and the π-orbitals to create a basic interpretation of the bonding and reactivity of the allyl cation. We can also use the calculated bonding MOs and their <strong>relative energies</strong> (the eigenvalues for each MO).</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code> → <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Molecular</span> <span class="pre">Orbitals</span></code> and explore the options to create <strong>images</strong> as seen in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a>. The energies for each molecular <strong>eigenvector</strong> (molecular orbital) is listed in the window. You can also find them in the result file. <strong>Search</strong> the .log file for “<code class="docutils literal notranslate"><span class="pre">MOLECULAR</span> <span class="pre">ORBITALS</span></code>” and you will see each MO as a column of values (the eigenvector) with an energy value at the top (the eigenvalue). The first three will be the 1<em>s</em> core orbitals of carbon. There will be 17 MOs that are created by the valence AOs. (<em>s</em>, <em>p<sub>x</sub></em>, <em>p<sub>y</sub></em>, <em>p<sub>z</sub></em> for each carbon and s for each hydrogen). The first eight valence MOs will be <strong>filled</strong> (that means the first 11 are filled counting the core orbitals). Eigenvectors 4 through 20 represent the bonding and antibonding MOs. Rather than use just 17 valence shell AOs, <em>GAMESS</em> used 104 AOs! It’s just being thorough and these higher level empty MOs do have slight effects on the energy and structure and are there to provide greater accuracy.</p>
 <p>Can you make a <strong>diagram</strong> like the one in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a>? I exported images from <em>MacMolPlt</em> and made the diagram using the graphics program <a class="reference external" href="https://affinity.serif.com"><em>Affinity Designer</em></a>, but you could use the free <a class="reference external" href="https://inkscape.org"><em>Inkscape</em></a> program as well.</p>
 <div class="figure align-default" id="fig6d">
 <a class="reference internal image-reference" href="_images/pi_MO-Diagram_lowres.png"><img alt="_images/pi_MO-Diagram_lowres.png" src="_images/pi_MO-Diagram_lowres.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text"><em>MO diagrams for the allyl cation. Whether we imagine the system using combinations of hybrid atomic orbitals to create local MOs or use the true AOs to calculate the global MOs we see that the LUMO is the same with both approaches and that is what counts.</em></span><a class="headerlink" href="#fig6d" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text"><em>MO diagrams for the allyl cation. Whether we imagine the system using combinations of hybrid atomic orbitals to create local MOs or use the true AOs to calculate the global MOs we see that the LUMO is the same with both approaches and that is what counts.</em></span><a class="headerlink" href="#fig6d" title="Permalink to this image">#</a></p>
 </div>
 <p>To get accurate energies for the <strong>molecular orbitals</strong>, I had to use a more advanced method. The <em>density functional theory</em> (DFT) method is another way of calculating wavefunctions. Like Hartee-Fock, it uses basis sets but rather than using Gaussian approximations of Slater-type atomic orbitals, it uses “functionals”. That’s all I know. There are many DFT methods. I used the B3LYP method, which I am told is good for <strong>ionic</strong> species. The orbitals in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a> were from a B3LYP/6-311(d,p)++ energy calculation of the HF/6-311(d,p)++ optimized structure.</p>
 <p>Below is the <strong>input file</strong> for the energy calculation that produced the orbitals in <a class="reference internal" href="#fig6d"><span class="std std-numref">Fig. 32</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-b3lyp-u-e-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">AllylCat_B3LYP_U_E.inp</span><a class="headerlink" href="#allylcat-b3lyp-u-e-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">AllylCat_B3LYP_U_E.inp</span><a class="headerlink" href="#allylcat-b3lyp-u-e-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY DFTTYP=B3LYP MAXIT=30 ICHARG=1 MULT=1 
 <span class="hll">    LOCAL=RUEDNBRG MOLPLT=.TRUE. $END
@@ -565,38 +493,38 @@ CNV 2
 </div>
 </div>
 <div class="section" id="comparing-ao-coefficients">
-<h2>Comparing AO Coefficients<a class="headerlink" href="#comparing-ao-coefficients" title="Permalink to this headline">¶</a></h2>
-<p>In SHMO theory we get the <strong>coefficients</strong> of each <em>p</em>-atomic orbital as they contribute to each π-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the <strong>result file</strong>. Presented in <a class="reference internal" href="#allylcat-b3lyp-u-e-log1"><span class="std std-numref">Listing 56</span></a> is a section for the output file. Look for the last occurrence of the string <code class="docutils literal notranslate"><span class="pre">EIGENVECTORS</span></code>.</p>
+<h2>Comparing AO Coefficients<a class="headerlink" href="#comparing-ao-coefficients" title="Permalink to this headline">#</a></h2>
+<p>In SHMO theory we get the <strong>coefficients</strong> of each <em>p</em>-atomic orbital as they contribute to each π-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the <strong>result file</strong>. Presented in <a class="reference internal" href="#allylcat-b3lyp-u-e-log1"><span class="std std-numref">Listing 47</span></a> is a section for the output file. Look for the last occurrence of the string <code class="docutils literal notranslate"><span class="pre">EIGENVECTORS</span></code>.</p>
 <p>We see that the <em>π<sub>x</sub></em> orbitals are the <em>p</em>-atomic orbitals that contribute to the π-MOs. (The molecule is in the <em>zy</em>-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following <strong>coefficients</strong> for the allyl <em>p<sub>x</sub></em>-AOs for their respective <strong>contributions</strong> to each of the π-MOs.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Orbital</p></th>
-<th class="text-align:left head"><p><span class="math notranslate nohighlight">\(C_1 p_x\)</span></p></th>
-<th class="text-align:left head"><p><span class="math notranslate nohighlight">\(C_3 p_x\)</span></p></th>
-<th class="text-align:left head"><p><span class="math notranslate nohighlight">\(C_2 p_x\)</span></p></th>
+<tr class="row-odd"><th class="text-left head"><p>Orbital</p></th>
+<th class="text-left head"><p><span class="math notranslate nohighlight">\(C_1 p_x\)</span></p></th>
+<th class="text-left head"><p><span class="math notranslate nohighlight">\(C_3 p_x\)</span></p></th>
+<th class="text-left head"><p><span class="math notranslate nohighlight">\(C_2 p_x\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>11</p></td>
-<td class="text-align:left"><p>0.134</p></td>
-<td class="text-align:left"><p>0.180</p></td>
-<td class="text-align:left"><p>0.134</p></td>
+<tr class="row-even"><td class="text-left"><p>11</p></td>
+<td class="text-left"><p>0.134</p></td>
+<td class="text-left"><p>0.180</p></td>
+<td class="text-left"><p>0.134</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>12</p></td>
-<td class="text-align:left"><p>0.200</p></td>
-<td class="text-align:left"><p>0</p></td>
-<td class="text-align:left"><p>-0.200</p></td>
+<tr class="row-odd"><td class="text-left"><p>12</p></td>
+<td class="text-left"><p>0.200</p></td>
+<td class="text-left"><p>0</p></td>
+<td class="text-left"><p>-0.200</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>13</p></td>
-<td class="text-align:left"><p>-0.134</p></td>
-<td class="text-align:left"><p>0.219</p></td>
-<td class="text-align:left"><p>-0.134</p></td>
+<tr class="row-even"><td class="text-left"><p>13</p></td>
+<td class="text-left"><p>-0.134</p></td>
+<td class="text-left"><p>0.219</p></td>
+<td class="text-left"><p>-0.134</p></td>
 </tr>
 </tbody>
 </table>
 <p>How do  these coefficients <strong>compare</strong> to the HMO method? They are <strong>smaller</strong> in magnitude because these <em>p</em>-orbitals are used in many of the other 104 orbitals that were <strong>included</strong> in the <em>GAMESS</em> calculation while SHMO only considers the three π-MOs.</p>
 <div class="literal-block-wrapper docutils container" id="allylcat-b3lyp-u-e-log1">
-<div class="code-block-caption"><span class="caption-number">Listing 56 </span><span class="caption-text">AllylCat_B3LYP_U_E.log</span><a class="headerlink" href="#allylcat-b3lyp-u-e-log1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text">AllylCat_B3LYP_U_E.log</span><a class="headerlink" href="#allylcat-b3lyp-u-e-log1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">FINAL</span> <span class="n">R</span><span class="o">-</span><span class="n">B3LYP</span> <span class="n">ENERGY</span> <span class="n">IS</span>     <span class="o">-</span><span class="mf">116.9224892059</span> <span class="n">AFTER</span>  <span class="mi">17</span> <span class="n">ITERATIONS</span>
  <span class="n">DFT</span> <span class="n">EXCHANGE</span> <span class="o">+</span> <span class="n">CORRELATION</span> <span class="n">ENERGY</span> <span class="o">=</span>       <span class="o">-</span><span class="mf">14.3077177400</span>
  <span class="n">TOTAL</span> <span class="n">ELECTRON</span> <span class="n">NUMBER</span>             <span class="o">=</span>        <span class="mf">22.0000988784</span>
@@ -658,23 +586,23 @@ CNV 2
 </div>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>We have created input files and produced output files for a <strong>charged molecule</strong>. We have optimized the <strong>structure</strong> at HF/6-311(d,p)++ and calculated the <strong>energy</strong> at B3LYP/6-311(d,p)++. We then <strong>visualized</strong> the electron density and colored the <strong>surface</strong> with the values of the <strong>electrostatic potential</strong>. This revealed that the ends of the cation shared the positive charge. We examined the contents of the result file and calculated the <strong>partial charges</strong> on the carbon groups and again observed equal charge sharing at the ends.</p>
 <p>We then visualized the <strong>local bonding MOs</strong> for representative C–H and C–C bonds. We also <strong>visualized</strong> the three π-MOs and the seven σ-MOs and created molecular orbital diagrams using the simple combination of hybrid AOs and also with the complete combination of all AOs. We also determined the <strong>coefficients</strong> for the <em>p</em>-AOs that contributed from each carbon atom toward the π-system.</p>
 </div>
 <div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
 <p>Read the accompanying discussion and then <strong>try</strong> the following exercises.</p>
 <div class="section" id="the-activity">
-<h3>The Activity<a class="headerlink" href="#the-activity" title="Permalink to this headline">¶</a></h3>
+<h3>The Activity<a class="headerlink" href="#the-activity" title="Permalink to this headline">#</a></h3>
 <p>Construct <strong>ethylene</strong> and then optimize the structure at HF/6-3111(d,p)++. Perform an <strong>energy</strong> calculation at B3LYP/6-311(d,p)++ with instructions to write data for <strong>localized MOs</strong>. Use symmetry in the construction of the input file.</p>
 </div>
 <div class="section" id="the-report">
-<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">¶</a></h3>
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">#</a></h3>
 <p>Present a ONE PAGE document with the molecular orbital diagram with <strong>images</strong> of the bonding orbitals. Present a table of charges for each carbon group (a carbon atom and all attached hydrogens). Present a table of <em>p</em>-orbital <strong>coefficients</strong> for each π-MO. Include an image of the electron density mapped with the electrostatic potential to demonstrate charge location (admittedly there will be no charges in ethylene, but other molecules will reveal detail here)</p>
 <p><strong>Compare</strong> the π-MOs, coefficients and <strong>charges</strong> from your <em>GAMESS</em> calculations to the values from the exercise with SHMO π-systems.</p>
 <p>Now <strong>repeat</strong> the exercise for the following situations as assigned. Don’t bother making any more images of σ-orbitals. Just show π-orbitals in your <strong>diagrams</strong> (but please do indicate the σ-orbitals with lines for relative energy levels and arrows for electrons).</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Allyl anion</p></li>
 <li><p>Butadiene</p></li>
 <li><p>Pentadienyl cation or anion</p></li>
@@ -698,7 +626,7 @@ CNV 2
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -706,44 +634,117 @@ CNV 2
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="5_Rotation_Profiles_Workflow_Data.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data Workflow</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5_Rotation_Profiles_Workflow_Data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Workflow</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="6_Benzene.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="6_Benzene.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">7. Benzene: MOs and Symmetry</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Barry Linkletter<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-allyl-system">The Allyl System</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-charges">Analysis of Charges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-molecular-orbitals">Analysis of Molecular Orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-ao-coefficients">Comparing AO Coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-activity">The Activity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-report">The Report</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Barry Linkletter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

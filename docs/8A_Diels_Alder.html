@@ -1,38 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates &#8212; Fun With GAMESS</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/tufte.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -40,626 +47,365 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '8A_Diels_Alder';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Workflow" href="8_Reaction_Coord_Scan_Data.html" />
     <link rel="prev" title="Butadiene.log" href="butadiene.log.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="start.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/Solvent_plot3.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Fun With GAMESS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="start.html">
-   Fun With GAMESS
-  </a>
- </li>
+    
+    
+    <img src="_static/Solvent_plot3.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Solvent_plot3.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="start.html">
+                    Fun With GAMESS
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1_Setup.html">1. Building Your System</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1A_Unix.html">Using Unix</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="1_Setup.html">
-   1. Building Your System
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1A_Unix.html">
-     Using Unix
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_SmallMolecules.html">
-   2. Water: Getting Started
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Visual_Input.html">
-   3. Methane: Visual Input and Output
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Ethane.html">
-   4. Ethane: Symmetry in Calculations
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="5_Rotation_Profiles.html">
-   5. Butane: Rotation Energy Profiles
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow.html">
-     <em>
-      GAMESS
-     </em>
-     Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Pi_Orbitals.html">
-   6. Allyl Cation: π Orbitals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Benzene.html">
-   7. Benzene: MOs and Symmetry
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="7_Butadiene.html">
-   8. Butadiene: Transition State for Rotation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.inp.html">
-     Butadiene.inp
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="butadiene.log.html">
-     Butadiene.log
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   9. Diels-Alder Reaction: Intrinsic Reaction Coordinates
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">
-     Data Workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="9_Solvent.html">
-   10. Solvent: The Environment Matters
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots.html">
-     Data Cleaning Workflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">
-     Data Plotting Workflow
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_SmallMolecules.html">2. Water: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Visual_Input.html">3. Methane: Visual Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Ethane.html">4. Ethane: Symmetry in Calculations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5_Rotation_Profiles.html">5. Butane: Rotation Energy Profiles</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow.html"><em>GAMESS</em> Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rotation_Profiles_Workflow_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Pi_Orbitals.html">6. Allyl Cation: π Orbitals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Benzene.html">7. Benzene: MOs and Symmetry</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="7_Butadiene.html">8. Butadiene: Transition State for Rotation</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.inp.html">Butadiene.inp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="butadiene.log.html">Butadiene.log</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Reaction_Coord_Scan_Data.html">Data Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="9_Solvent.html">10. Solvent: The Environment Matters</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots.html">Data Cleaning Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Solvent_IRC_Plots-Data.html">Data Plotting Workflow</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/8A_Diels_Alder.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/8A_Diels_Alder.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        </div>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#starting-the-journey-to-the-t-s">
-   Starting the Journey to the T.S.
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-cyclohexene">
-     Building Cyclohexene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-c-sub-s-sub-cyclohexene">
-     Building
-     <em>
-      C
-      <sub>
-       s
-      </sub>
-     </em>
-     Cyclohexene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimizing-c-sub-s-sub-cyclohexene">
-     Optimizing
-     <em>
-      C
-      <sub>
-       s
-      </sub>
-     </em>
-     Cyclohexene
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proposing-a-hypothetical-transition-state">
-   Proposing a Hypothetical Transition State
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#freezing-bonds-in-cartessian-coordinates">
-     Freezing Bonds in Cartessian Coordinates
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#build-an-input-file">
-       Build an input file
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-the-scan-files">
-       Making the Scan Files
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#running-the-optimization-series">
-       Running the optimization Series
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyzing-the-results">
-       Analyzing the Results
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-state-optimization">
-   Transition State Optimization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-hessian-calculation">
-     The Hessian Calculation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-transition-state-optimization">
-     The Transition State optimization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discussion-of-the-reaction-coordinate">
-   Discussion of the Reaction Coordinate
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#irc-calculations">
-   IRC Calculations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-and-running">
-     Setting Up and Running
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#add-the-irc-group">
-       Add the $IRC Group
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tracking-internal-coordinates">
-       Tracking Internal Coordinates
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#copy-in-hess-and-vec-groups">
-       Copy in $HESS and $VEC Groups
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#repeat-in-reverse">
-       Repeat in reverse
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-note-about-editing-input-files">
-       A Note About Editing Input Files
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-the-irc">
-     Visualizing the IRC
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-challenge">
-   A Challenge
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#make-it-break-the-rules">
-     Make It Break the Rules
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-reactions">
-     Other Reactions
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-the-journey-to-the-t-s">Starting the Journey to the T.S.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-cyclohexene">Building Cyclohexene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-c-sub-s-sub-cyclohexene">Building <em>C<sub>s</sub></em> Cyclohexene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-c-sub-s-sub-cyclohexene">Optimizing <em>C<sub>s</sub></em> Cyclohexene</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposing-a-hypothetical-transition-state">Proposing a Hypothetical Transition State</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freezing-bonds-in-cartessian-coordinates">Freezing Bonds in Cartessian Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-an-input-file">Build an input file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-scan-files">Making the Scan Files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-optimization-series">Running the optimization Series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-results">Analyzing the Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-state-optimization">Transition State Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hessian-calculation">The Hessian Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transition-state-optimization">The Transition State optimization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-the-reaction-coordinate">Discussion of the Reaction Coordinate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#irc-calculations">IRC Calculations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-and-running">Setting Up and Running</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-irc-group">Add the $IRC Group</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-internal-coordinates">Tracking Internal Coordinates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-in-hess-and-vec-groups">Copy in $HESS and $VEC Groups</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-in-reverse">Repeat in reverse</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-editing-input-files">A Note About Editing Input Files</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-irc">Visualizing the IRC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-challenge">A Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-it-break-the-rules">Make It Break the Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-reactions">Other Reactions</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#starting-the-journey-to-the-t-s">
-   Starting the Journey to the T.S.
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-cyclohexene">
-     Building Cyclohexene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-c-sub-s-sub-cyclohexene">
-     Building
-     <em>
-      C
-      <sub>
-       s
-      </sub>
-     </em>
-     Cyclohexene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimizing-c-sub-s-sub-cyclohexene">
-     Optimizing
-     <em>
-      C
-      <sub>
-       s
-      </sub>
-     </em>
-     Cyclohexene
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proposing-a-hypothetical-transition-state">
-   Proposing a Hypothetical Transition State
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#freezing-bonds-in-cartessian-coordinates">
-     Freezing Bonds in Cartessian Coordinates
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#build-an-input-file">
-       Build an input file
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-the-scan-files">
-       Making the Scan Files
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#running-the-optimization-series">
-       Running the optimization Series
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyzing-the-results">
-       Analyzing the Results
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-state-optimization">
-   Transition State Optimization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-hessian-calculation">
-     The Hessian Calculation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-transition-state-optimization">
-     The Transition State optimization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discussion-of-the-reaction-coordinate">
-   Discussion of the Reaction Coordinate
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#irc-calculations">
-   IRC Calculations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-and-running">
-     Setting Up and Running
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#add-the-irc-group">
-       Add the $IRC Group
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tracking-internal-coordinates">
-       Tracking Internal Coordinates
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#copy-in-hess-and-vec-groups">
-       Copy in $HESS and $VEC Groups
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#repeat-in-reverse">
-       Repeat in reverse
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-note-about-editing-input-files">
-       A Note About Editing Input Files
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-the-irc">
-     Visualizing the IRC
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-challenge">
-   A Challenge
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#make-it-break-the-rules">
-     Make It Break the Rules
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-reactions">
-     Other Reactions
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="tex2jax_ignore mathjax_ignore section" id="diels-alder-reaction-intrinsic-reaction-coordinates">
-<h1>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates<a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">¶</a></h1>
+<h1>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates<a class="headerlink" href="#diels-alder-reaction-intrinsic-reaction-coordinates" title="Permalink to this headline">#</a></h1>
 <p>One of the most <strong>useful</strong> activities in computational chemistry is examining <strong>reaction energy barriers</strong>. If we can compare the energy of a <strong>transition state</strong> as we change structure, we can learn the reasons for these <strong>kinetic</strong> effects and make predictions. Calculating transition state structure and energy is <strong>challenging</strong>. Partially formed bonds and separated charges require <strong>higher levels</strong> of theory to accurately describe and so the computation <strong>cost</strong> rises rapidly. The T.S. itself may not be easy to find, especially when there are high degrees of freedom (lots of ways to arrange the structure).</p>
 <p>So let us start with a common example, the <strong>Diels Alder reaction</strong>.  This pericyclic addition reaction is a good candidate for these calculations because of its <strong>organized</strong> transition state (fewer degrees of freedom) and lack of charge separation. We will perform a reaction coordinate <strong>scan</strong> in hopes of <strong>finding</strong> a structure that is <strong>close</strong> to the transitions state. We will then perform a Hessian calculation to confirm the presense of an <strong>imaginary vibration</strong>. If we have an imaginary vibration, we have a direction towards the transition state. We will then perform a <strong>saddlepoint optimization</strong> to find the transition state. Finally, we will perform an <strong>intrinsic reaction coordinate</strong> calculation to calculate the path from the transition state to the ground-state reactants on either side.</p>
 <div class="section" id="starting-the-journey-to-the-t-s">
-<h2>Starting the Journey to the T.S.<a class="headerlink" href="#starting-the-journey-to-the-t-s" title="Permalink to this headline">¶</a></h2>
+<h2>Starting the Journey to the T.S.<a class="headerlink" href="#starting-the-journey-to-the-t-s" title="Permalink to this headline">#</a></h2>
 <p>The easiest way to find the T.S. for a cycloaddition reaction is to start with a <strong>symmetrical</strong> system and run a <strong>scan</strong> of distances between the atoms that form the new bonds.  In a symmetrical system, the two bond lengths should be identical in the T.S. The reaction that we will model is presented in <a class="reference internal" href="#fig8-1"><span class="std std-numref">Fig. 49</span></a>.</p>
 <div class="figure align-default" id="fig8-1">
 <a class="reference internal image-reference" href="_images/Diels_1.png"><img alt="_images/Diels_1.png" src="_images/Diels_1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text"><em>A typical Diels-Alder cycloaddition reaction.</em></span><a class="headerlink" href="#fig8-1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text"><em>A typical Diels-Alder cycloaddition reaction.</em></span><a class="headerlink" href="#fig8-1" title="Permalink to this image">#</a></p>
 </div>
 <p>The easiest approach is to model the <strong>product</strong> and then calculate minimized structures as we force the two new bonds <strong>apart</strong>. Hopefully, we will encounter the transition state along that coordinate.</p>
 <p>First we will <strong>build</strong> the product, cyclohexene, using <em>MacMolPlt</em> and then create an <strong>input file</strong> for a structure optimization. We will use 6-31G<sup>*</sup> basis set. Our calculations should still finish in minutes – I hope.</p>
 <div class="section" id="building-cyclohexene">
-<h3>Building Cyclohexene<a class="headerlink" href="#building-cyclohexene" title="Permalink to this headline">¶</a></h3>
+<h3>Building Cyclohexene<a class="headerlink" href="#building-cyclohexene" title="Permalink to this headline">#</a></h3>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> tool panel in <em>wxMacMolPlt</em>, Chose carbon with a coordination number of 3. Add the two carbon atoms of the alkene group. Then increase the coordination number to 4 and add an <em>sp<sup>3</sup></em> carbon to each end of the alkene. Then add one more <em>sp<sup>3</sup></em> carbon to each of the current <em>sp<sup>3</sup></em> carbon atoms.  We now have six carbon atoms in total. Now grab each terminal <em>sp<sup>3</sup></em> carbon and move them in space to try to connect them together without breaking any bonds. Fiddle with it a bit and you’ll get the knack. In the end we will have a structure like that shown in <a class="reference internal" href="#fig8-2"><span class="std std-numref">Fig. 50</span></a>.</p>
 <div class="figure align-default" id="fig8-2">
 <a class="reference internal image-reference" href="_images/Diels_2.png"><img alt="_images/Diels_2.png" src="_images/Diels_2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text"><em>The initial structure for cyclohexene in MacMolPlt.</em></span><a class="headerlink" href="#fig8-2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text"><em>The initial structure for cyclohexene in MacMolPlt.</em></span><a class="headerlink" href="#fig8-2" title="Permalink to this image">#</a></p>
 </div>
 <p><strong>Export</strong> an input file from <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. We choose a <code class="docutils literal notranslate"><span class="pre">Runtype:</span> <span class="pre">Optimization</span></code>  with the <code class="docutils literal notranslate"><span class="pre">3-21G</span></code> basis set with <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">D</span> <span class="pre">Heavy</span> <span class="pre">Atom</span> <span class="pre">Polarization</span> <span class="pre">Function</span></code> (3-21G<sup>*</sup>). We set <code class="docutils literal notranslate"><span class="pre">Coord.</span> <span class="pre">Type:</span> <span class="pre">Z-Matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">of</span> <span class="pre">Z-Matrix</span> <span class="pre">Variables</span></code> to <code class="docutils literal notranslate"><span class="pre">42</span></code> (3 × 16 atoms – 6).</p>
-<p>I <strong>submitted</strong> the calculation to <em>GAMESS</em> via <em>GamessQ</em> and it ran successfully.  In <a class="reference internal" href="#cyclohexene-zmat-inp"><span class="std std-numref">Listing 76</span></a> is the input file and the <em>Z-matrix</em> for the resulting optimized structure.</p>
+<p>I <strong>submitted</strong> the calculation to <em>GAMESS</em> via <em>GamessQ</em> and it ran successfully.  In <a class="reference internal" href="#cyclohexene-zmat-inp"><span class="std std-numref">Listing 66</span></a> is the input file and the <em>Z-matrix</em> for the resulting optimized structure.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-log">
-<div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Z-matrix from final structure in Cyclohexene_322.log</span><a class="headerlink" href="#cyclohexene-zmat-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 65 </span><span class="caption-text">Z-matrix from final structure in Cyclohexene_322.log</span><a class="headerlink" href="#cyclohexene-zmat-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7359</span>                 <span class="o">-</span> <span class="o">-</span> <span class="n">ATOMS</span> <span class="o">-</span> <span class="o">-</span>         <span class="n">COORDINATE</span>      <span class="n">COORDINATE</span>
 <span class="linenos">7360</span> <span class="n">NO</span><span class="o">.</span>   <span class="n">TYPE</span>    <span class="n">I</span>  <span class="n">J</span>  <span class="n">K</span>  <span class="n">L</span>  <span class="n">M</span>  <span class="n">N</span>        <span class="p">(</span><span class="n">BOHR</span><span class="p">,</span><span class="n">RAD</span><span class="p">)</span>       <span class="p">(</span><span class="n">ANG</span><span class="p">,</span><span class="n">DEG</span><span class="p">)</span>
 <span class="linenos">7361</span> <span class="o">----------------------------------------------------------------</span>
@@ -710,7 +456,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-zmat-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Cyclohexene.inp</span><a class="headerlink" href="#cyclohexene-zmat-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 66 </span><span class="caption-text">Cyclohexene.inp</span><a class="headerlink" href="#cyclohexene-zmat-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
     MOLPLT=.TRUE. $END
@@ -748,33 +494,33 @@ H   6    1.14000  15 109.0496  3 116.6663
 </div>
 </div>
 <p>After the <strong>optimization</strong>, the following structure was calculated to have a minimum energy. It may not be the global minimum but it is the conformer that will relate to the path <strong>toward</strong> the transition state. Observe the changes. One large change is the distance between atoms 1 and 2 (the C=C alkene bond). In the <strong>initial</strong> structure it was created with the length of a single bond (1.54 Å) but it <strong>settled down</strong> to the length of a double bond (1.32 Å).</p>
-<p>The resulting <strong>log file</strong>, Cyclohexene_322.log, was opened and <strong>examined</strong> in a text editor. A selection from the log file is shown in <a class="reference internal" href="#cyclohexene-zmat-log"><span class="std std-numref">Listing 75</span></a>. We <strong>see</strong> that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two <strong>bond lengths</strong> are the 7<sup>th</sup> and 10<sup>th</sup> <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> coordinates.</p>
+<p>The resulting <strong>log file</strong>, Cyclohexene_322.log, was opened and <strong>examined</strong> in a text editor. A selection from the log file is shown in <a class="reference internal" href="#cyclohexene-zmat-log"><span class="std std-numref">Listing 65</span></a>. We <strong>see</strong> that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two <strong>bond lengths</strong> are the 7<sup>th</sup> and 10<sup>th</sup> <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> coordinates.</p>
 <p>I will <strong>open</strong> the log file with <em>MacMolPlt</em> and I chose to <strong>view</strong> the atom labels. I chose to <strong>display</strong> the atom numbers by selecting <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Labels</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Number</span></code>. We can now clearly <strong>see</strong> that the bond lengths between carbons 4,5 and 3,6 are going to define the reaction coordinate. See <a class="reference internal" href="#fig8-3"><span class="std std-numref">Fig. 51</span></a>.</p>
 <div class="figure align-default" id="fig8-3">
 <a class="reference internal image-reference" href="_images/Diels_3.png"><img alt="_images/Diels_3.png" src="_images/Diels_3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text"><em>Optimized structure of cyclohexene</em></span><a class="headerlink" href="#fig8-3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text"><em>Optimized structure of cyclohexene</em></span><a class="headerlink" href="#fig8-3" title="Permalink to this image">#</a></p>
 </div>
 <p>We did not use <strong>symmetry</strong> in the above calculation. The optimization <strong>found</strong> the symmetrical boat conformation of cyclohexene because we started very close to it with our initial structure. The more stable half-chair <strong>conformation</strong> could easily have been the result. Also, in my reading, I have learned that the boat conformation is a <strong>shallow energy well</strong> in a wide energy “plateau” between the two possible half-chair conformations.<a class="footnote-reference brackets" href="#shishkin2011" id="id1">1</a> This means that it has a high entropy and could easily swing off-track when we are trying to scan bond distances. However, <em>GAMESS</em> will maintain symmetry when we request it and the boat conformation is <em>C<sub>s</sub></em> and the half-chair is <em>C<sub>2</sub></em>. So we might be able to keep things <strong>in the groove</strong> that way. Be prepared to tack if the wind changes.</p>
 <p>As an exercise, let us <strong>construct</strong> the boat and half-chair versions of cyclohexene and compare their energies. We will use the symmetry builder function of <em>MacMolPlt</em> to build a molecule that fits the given symmetry exactly and then <strong>enforce</strong> that symmetry throughout the calculation.</p>
 </div>
 <div class="section" id="building-c-sub-s-sub-cyclohexene">
-<h3>Building <em>C<sub>s</sub></em> Cyclohexene<a class="headerlink" href="#building-c-sub-s-sub-cyclohexene" title="Permalink to this headline">¶</a></h3>
+<h3>Building <em>C<sub>s</sub></em> Cyclohexene<a class="headerlink" href="#building-c-sub-s-sub-cyclohexene" title="Permalink to this headline">#</a></h3>
 <p>Open <em>MacMolPlt</em> and start new file. Select <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Axis</span></code> to display the three <em>xyz</em> axes. We must <strong>keep track</strong> of the axes when building with symmetry. The <em>C<sub>s</sub></em> cyclohexene with have a <em>σ<sub>xy</sub></em> plane so we will want the three unique atoms above or below that plane so they can be <strong>reflected</strong> to the other side. However, <em>MacMolPlt</em> will place the first three atoms that you drop in into the <em>xy</em> plane. We will solve this by adding a single atom and then dragging it above the plane. Follow along and all will become clear.</p>
 <p>Now let us <strong>set up</strong> the symmetry build. Click on <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">with</span> <span class="pre">Symmetry</span></code>. Then we must <strong>define</strong> the symmetry we are using. Click on <code class="docutils literal notranslate"><span class="pre">Molecule</span></code> → <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Point</span> <span class="pre">Group</span></code> → <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Group</span></code> → <code class="docutils literal notranslate"><span class="pre">Cs</span></code>. We are now ready to add the first carbon.</p>
 <p>Click on <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code> and choose Carbon with a coordination number of 3 (this would be a <em>sp<sup>2</sup></em> carbon). Click in the <em>MacMolPlt</em> window to place the atom. Now rotate the view in the window so that the <em>xy</em> plane becomes horizontal and the <em>z</em>-axis is vertical. Drag the carbon atom upwards and observe how its <strong>reflection</strong> appears on the other side of the <em>xy</em> plane. Drag it until you get a double bond between the atom and its doppelganger. Now go back to the <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">Tools</span></code> and choose carbon with a coordination number of 4 (this is <em>sp<sup>3</sup></em>). Add a new carbon tom one of the bonds and then extend the chain one more carbon. You will have three atoms and three reflected atoms placed. Drag the finl carbon toward its mirror conterpart until <em>MacMolPlt</em> assigns a bond. Return to the <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">Tools</span></code> and choose Hydrogen. <strong>Populate</strong> all the remaining bonds with hydrogen atoms. We now have a starting structure.</p>
 <p>Now we need to center the molecule in the symmetry system. <em>MacMolPlt</em> can make all the right decisions for us. Click on <code class="docutils literal notranslate"><span class="pre">Molecule</span></code> → <code class="docutils literal notranslate"><span class="pre">Set</span> <span class="pre">Coordinates</span> <span class="pre">to</span> <span class="pre">principal</span> <span class="pre">Orientation</span></code> and the molecule will be centered on the <em>xyz</em> coordinate system. <strong>Save your work</strong>. The image in the MacMolPlt window might look like <a class="reference internal" href="#fig8-4"><span class="std std-numref">Fig. 52</span></a></p>
 <div class="figure align-default" id="fig8-4">
 <a class="reference internal image-reference" href="_images/Diels_4.png"><img alt="_images/Diels_4.png" src="_images/Diels_4.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text"><em>Initial build of <em>C<sub>s</sub></em> Cyclohexene</em></span><a class="headerlink" href="#fig8-4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text"><em>Initial build of <em>C<sub>s</sub></em> Cyclohexene</em></span><a class="headerlink" href="#fig8-4" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="optimizing-c-sub-s-sub-cyclohexene">
-<h3>Optimizing <em>C<sub>s</sub></em> Cyclohexene<a class="headerlink" href="#optimizing-c-sub-s-sub-cyclohexene" title="Permalink to this headline">¶</a></h3>
-<p>We know that <em>C<sub>s</sub></em> cyclohexene is not the lowest energy conformer. But by <strong>enforcing</strong> the <em>C<sub>s</sub></em> symmetry we can hold it in this conformation while it minimizes. Open <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with <em>Z-matrix</em> coordinates but the calculation immediately failed. The nature of the <em>Z-matrix</em> often results in tiny <strong>rounding errors</strong> in the coordinate values <strong>combining</strong> to a slightly bigger error by the time the positioning has worked its way <strong>along</strong> all the internal cooridnates. This error was obviously enough to place an atom or two outside of the <strong>tolerance</strong> for the symmetry calculation. We should use <code class="docutils literal notranslate"><span class="pre">Unique</span> <span class="pre">Coordinates</span></code> for symmetry calculations. The input file is reproduced in <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 78</span></a>.</p>
+<h3>Optimizing <em>C<sub>s</sub></em> Cyclohexene<a class="headerlink" href="#optimizing-c-sub-s-sub-cyclohexene" title="Permalink to this headline">#</a></h3>
+<p>We know that <em>C<sub>s</sub></em> cyclohexene is not the lowest energy conformer. But by <strong>enforcing</strong> the <em>C<sub>s</sub></em> symmetry we can hold it in this conformation while it minimizes. Open <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with <em>Z-matrix</em> coordinates but the calculation immediately failed. The nature of the <em>Z-matrix</em> often results in tiny <strong>rounding errors</strong> in the coordinate values <strong>combining</strong> to a slightly bigger error by the time the positioning has worked its way <strong>along</strong> all the internal cooridnates. This error was obviously enough to place an atom or two outside of the <strong>tolerance</strong> for the symmetry calculation. We should use <code class="docutils literal notranslate"><span class="pre">Unique</span> <span class="pre">Coordinates</span></code> for symmetry calculations. The input file is reproduced in <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 68</span></a>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-cart-log">
-<div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Cyclohexene_Cs_cart.log</span><a class="headerlink" href="#cyclohexene-cs-cart-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 67 </span><span class="caption-text">Cyclohexene_Cs_cart.log</span><a class="headerlink" href="#cyclohexene-cs-cart-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7629</span> <span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">13</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">233.0092034708</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000982</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000328</span>
 <span class="linenos">7630</span>
 <span class="linenos">7631</span>
@@ -865,7 +611,7 @@ H   6    1.14000  15 109.0496  3 116.6663
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-cart-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Cyclohexene_Cs_cart.inp</span><a class="headerlink" href="#cyclohexene-cs-cart-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 68 </span><span class="caption-text">Cyclohexene_Cs_cart.inp</span><a class="headerlink" href="#cyclohexene-cs-cart-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
     MOLPLT=.TRUE. $END
@@ -896,27 +642,27 @@ H     1.0    -0.10252     1.36058    -1.60873
 </div>
 </div>
 <p>This calculation completed <strong>normally</strong>. After it finished we find this block of text for the final results. The last <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code> entry reveals that the calculation has reached a stationary point and finished. The energy is reported along with the symmetry unique <em>xyz</em> cartessian coordinates, the full set of coordinates and the <strong>internal coordinates</strong> that were listed in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix.</p>
-<p><strong>Examine</strong> the values in <a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 77</span></a>. You will <strong>see</strong> that the 3,5 bond length is the bond that will be extended as the two atoms of ethylene depart the atoms of the butadiene. The 4,6 bond length is not in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> list. But it will be identical to the 3,5 bond as required by the symmetry <strong>point grou</strong>p. If we lock it, will will lock both.</p>
+<p><strong>Examine</strong> the values in <a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 67</span></a>. You will <strong>see</strong> that the 3,5 bond length is the bond that will be extended as the two atoms of ethylene depart the atoms of the butadiene. The 4,6 bond length is not in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> list. But it will be identical to the 3,5 bond as required by the symmetry <strong>point grou</strong>p. If we lock it, will will lock both.</p>
 </div>
 </div>
 <div class="section" id="proposing-a-hypothetical-transition-state">
-<h2>Proposing a Hypothetical Transition State<a class="headerlink" href="#proposing-a-hypothetical-transition-state" title="Permalink to this headline">¶</a></h2>
+<h2>Proposing a Hypothetical Transition State<a class="headerlink" href="#proposing-a-hypothetical-transition-state" title="Permalink to this headline">#</a></h2>
 <p>We now have the <em>C<sub>s</sub></em> strtucture of cyclohexene. This structure is <strong>on the path</strong> to the <em>retro</em>-Diels-Alder products. The half-chair <em>C<sub>2</sub></em> conformer is the <strong>most stable</strong>. It will be in equilibrium with the <em>C<sub>s</sub></em> boat conformer. From there, bonds must <strong>stretch</strong> as we move from cyclohexene, through a <strong>transition state</strong>, to butadiene and ethylene. We will consider our reaction to from <em>C<sub>2</sub></em> cyclohexene, through a <em>C<sub>2</sub></em>  transition state, to a <em>C<sub>2</sub></em>  arrangement of products. Does this seem reasonable to you?</p>
 <p>The scheme for the <strong>reaction</strong> with symmetries noted is shown in <a class="reference internal" href="#fig8-7"><span class="std std-numref">Fig. 53</span></a>. We will need to create a series of input files with longer and longer C-C bond lengths for the two breaking bonds. We will <strong>lock</strong> that internal coordinate in the <code class="docutils literal notranslate"><span class="pre">IZMAT(1)</span></code> matrix and allow the structure to <strong>relax</strong> with only that longer bond length <strong>enforced</strong>.</p>
 <div class="figure align-default" id="fig8-7">
 <a class="reference internal image-reference" href="_images/Diels_7.png"><img alt="_images/Diels_7.png" src="_images/Diels_7.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text"><em>Reaction coordinate for the retro-Diels_Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text"><em>Reaction coordinate for the retro-Diels_Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-7" title="Permalink to this image">#</a></p>
 </div>
 <div class="section" id="freezing-bonds-in-cartessian-coordinates">
-<h3>Freezing Bonds in Cartessian Coordinates<a class="headerlink" href="#freezing-bonds-in-cartessian-coordinates" title="Permalink to this headline">¶</a></h3>
+<h3>Freezing Bonds in Cartessian Coordinates<a class="headerlink" href="#freezing-bonds-in-cartessian-coordinates" title="Permalink to this headline">#</a></h3>
 <p>After searching the web I found a <a class="reference external" href="https://chemistry.stackexchange.com/questions/87389/how-do-i-perform-a-partial-optimisation-in-gamess">good discussion on how to perform a partial optimization</a>. this is a case of <strong>locking a coordinate</strong> (or set of coordinates) to a given value and then allowing the structure to be <strong>optimized</strong> with that constraint. We will need to set up internal coordinates and freeze them. What will <strong>introduce</strong> the <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> and the <code class="docutils literal notranslate"><span class="pre">IFFREEZ</span></code> list. We will need to use both in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group.</p>
 <p>When we have <strong>finished</strong> with this section compare using <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> and <code class="docutils literal notranslate"><span class="pre">IFFREEZ</span></code> in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group with using <code class="docutils literal notranslate"><span class="pre">IFREEZ</span></code> in the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group (as demonstrated in the <a class="reference internal" href="7_Butadiene.html"><span class="doc std std-doc">rotation energy profile for butadiene</span></a>). <strong>Both</strong> will freeze coordinates. How are these approaches similar and how are they different?</p>
 <p>We will construct an input file with the correct code to freeze the coordinate. <strong>First</strong> we will run a quick job to check the calculation and have <em>GAMESS</em> generate the internal coordinates automatically.  Then we will <strong>set up</strong> an input file where we use this internal coordinate information to <strong>identify</strong> the two bonds that we wish to change. We will <strong>freeze</strong> those bonds at <strong>various lengths</strong> and optimize the geometry of the molecule otherwise. As we optimize at various lengths, we will be <strong>scanning</strong> through the reaction coordinate.</p>
 <div class="section" id="build-an-input-file">
-<h4>Build an input file<a class="headerlink" href="#build-an-input-file" title="Permalink to this headline">¶</a></h4>
-<p>As above, I will take the <strong>input file</strong> derived from the optimized structure (see <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 78</span></a>). I will <strong>modify</strong> the file to change the parameters for a simple check run. Observe that in <a class="reference internal" href="#cyclohexene-cs-internal-check-inp"><span class="std std-numref">Listing 79</span></a> I have changed the <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and added the command <code class="docutils literal notranslate"><span class="pre">EXETYPE=CHECK</span></code>. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will <strong>check</strong> for any errors. There is no <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group here as that does not apply in a single-step <strong>energy</strong> calculation. I then used the <code class="docutils literal notranslate"><span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span></code> command to auto-generqte the internal coordinates. the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list informs <em>GAMESS</em> that some connections may be <strong>too long</strong> to be detected as a bond, but we do want them to be treated as a bond.</p>
+<h4>Build an input file<a class="headerlink" href="#build-an-input-file" title="Permalink to this headline">#</a></h4>
+<p>As above, I will take the <strong>input file</strong> derived from the optimized structure (see <a class="reference internal" href="#cyclohexene-cs-cart-inp"><span class="std std-numref">Listing 68</span></a>). I will <strong>modify</strong> the file to change the parameters for a simple check run. Observe that in <a class="reference internal" href="#cyclohexene-cs-internal-check-inp"><span class="std std-numref">Listing 69</span></a> I have changed the <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and added the command <code class="docutils literal notranslate"><span class="pre">EXETYPE=CHECK</span></code>. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will <strong>check</strong> for any errors. There is no <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group here as that does not apply in a single-step <strong>energy</strong> calculation. I then used the <code class="docutils literal notranslate"><span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span></code> command to auto-generqte the internal coordinates. the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list informs <em>GAMESS</em> that some connections may be <strong>too long</strong> to be detected as a bond, but we do want them to be treated as a bond.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-check-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-check-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 69 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-check-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MULT=1 COORD=UNIQUE NZVAR=42 
 </span>    MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -941,11 +687,11 @@ CS
 </div>
 <p>This input file was <strong>submitted</strong> using <em>GamessQ</em>. When the job has finished the .log file and the .dat file will contain information that we will need to <strong>manually copy</strong>. We will need the list of internal coordinates that we <strong>generated</strong> to create a new <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> matrix. We will also need the length of the 3,5 and 4,6 bonds so that we can <strong>freeze</strong> them at that exact value. You will observe that the <code class="docutils literal notranslate"><span class="pre">DLC=.TRUE.</span></code> command results in many internal coordinates being created (in this case it is 89). We will have to ensure that the <code class="docutils literal notranslate"><span class="pre">NZVAR</span></code> matches this number in the new input file.</p>
 <p><strong>Search</strong> your computer for the .dat file. it will have the same names as the input file but <strong>end</strong> in the .dat <strong>extension</strong>. In this file will be a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group for your molecule that was automatically generated by <em>GAMESS</em>. <strong>Copy and paste</strong> it into your input file. Change the <code class="docutils literal notranslate"><span class="pre">AUTO</span></code> flag to <code class="docutils literal notranslate"><span class="pre">.FALSE.</span></code> as we will now be using the <code class="docutils literal notranslate"><span class="pre">ZMAT</span></code> list and do not want it changed by <em>GAMESS</em> anymore. We will change <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">OPTIMIZE</span></code> and return the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group to the file.</p>
-<p>Now find the .log file and <strong>locate</strong> the list of internal coordinates. I observe that the 3,5 stretch and the 4,6 stretch coordinates are listed a 1.5411834 Å. I have shown a except of the relevent section of the .log file in <a class="reference internal" href="#cyclohexene-cs-internal-check-log"><span class="std std-numref">Listing 81</span></a>. You may notice that there are <strong>redundant coordinates</strong> for the 4,6 and 3,6 bonds. The extra copies are forced in by the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> command in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group.</p>
+<p>Now find the .log file and <strong>locate</strong> the list of internal coordinates. I observe that the 3,5 stretch and the 4,6 stretch coordinates are listed a 1.5411834 Å. I have shown a except of the relevent section of the .log file in <a class="reference internal" href="#cyclohexene-cs-internal-check-log"><span class="std std-numref">Listing 71</span></a>. You may notice that there are <strong>redundant coordinates</strong> for the 4,6 and 3,6 bonds. The extra copies are forced in by the <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> command in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-zmat-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Cyclohexene_Cs_Internal_ZMAT.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-zmat-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 70 </span><span class="caption-text">Cyclohexene_Cs_Internal_ZMAT.inp</span><a class="headerlink" href="#cyclohexene-cs-internal-zmat-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MULT=1 COORD=UNIQUE NZVAR=103 
 </span>    MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1078,7 +824,7 @@ CS
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-internal-check-log">
-<div class="code-block-caption"><span class="caption-number">Listing 81 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.log</span><a class="headerlink" href="#cyclohexene-cs-internal-check-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 71 </span><span class="caption-text">Cyclohexene_Cs_Internal_Check.log</span><a class="headerlink" href="#cyclohexene-cs-internal-check-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">810</span>                     <span class="o">--------------------</span>
 <span class="linenos">811</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
 <span class="linenos">812</span>                     <span class="o">--------------------</span>
@@ -1110,13 +856,13 @@ CS
 </pre></div>
 </div>
 </div>
-<p>Now that we have the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group <strong>from</strong> the .dat file and the bond distance <strong>from</strong> the .log file, we can <strong>set up</strong> the input file as described above. the new file is shown in <a class="reference internal" href="#cyclohexene-cs-internal-zmat-inp"><span class="std std-numref">Listing 80</span></a></p>
+<p>Now that we have the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group <strong>from</strong> the .dat file and the bond distance <strong>from</strong> the .log file, we can <strong>set up</strong> the input file as described above. the new file is shown in <a class="reference internal" href="#cyclohexene-cs-internal-zmat-inp"><span class="std std-numref">Listing 70</span></a></p>
 </div>
 <div class="section" id="making-the-scan-files">
-<h4>Making the Scan Files<a class="headerlink" href="#making-the-scan-files" title="Permalink to this headline">¶</a></h4>
-<p>Now that we have an input file we can make a whole <strong>series</strong> of versions with different <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> lists. I will <strong>replace</strong> the numbers in the <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> list with the <strong>string</strong> <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>. I will then edit the <em>bash</em> shell script <a class="reference external" href="http://extract.sh">extract.sh</a> to create a <strong>series</strong> of values between 1.5 and 3 and write a <strong>series</strong> of input files with those values replacing the string.</p>
+<h4>Making the Scan Files<a class="headerlink" href="#making-the-scan-files" title="Permalink to this headline">#</a></h4>
+<p>Now that we have an input file we can make a whole <strong>series</strong> of versions with different <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> lists. I will <strong>replace</strong> the numbers in the <code class="docutils literal notranslate"><span class="pre">FVALUE</span></code> list with the <strong>string</strong> <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>. I will then edit the <em>bash</em> shell script extract.sh to create a <strong>series</strong> of values between 1.5 and 3 and write a <strong>series</strong> of input files with those values replacing the string.</p>
 <div class="literal-block-wrapper docutils container" id="makescan-sh">
-<div class="code-block-caption"><span class="caption-number">Listing 82 </span><span class="caption-text"><a class="reference external" href="http://makescan.sh">makescan.sh</a></span><a class="headerlink" href="#makescan-sh" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 72 </span><span class="caption-text">makescan.sh</span><a class="headerlink" href="#makescan-sh" title="Permalink to this code">#</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">input_file</span><span class="o">=</span>Cyclohexene_Cs_scan.inp
 <span class="nv">spacer</span><span class="o">=</span>_SCAN_
 <span class="k">for</span> num <span class="k">in</span> <span class="k">$(</span>seq -w <span class="m">1</span>.45 <span class="m">0</span>.05 <span class="m">3</span>.00<span class="k">)</span>
@@ -1129,14 +875,14 @@ CS
 <p>We will now have a <strong>series</strong> of 32 input files that run optimizations with the 3,5 and 4,6 bond lengths at longer and longer values.</p>
 </div>
 <div class="section" id="running-the-optimization-series">
-<h4>Running the optimization Series<a class="headerlink" href="#running-the-optimization-series" title="Permalink to this headline">¶</a></h4>
+<h4>Running the optimization Series<a class="headerlink" href="#running-the-optimization-series" title="Permalink to this headline">#</a></h4>
 <p>I <strong>submitted</strong> the files as a <strong>batch</strong> by dragging them all into the <em>GamessQ</em> window. After 24 minutes the whole series was complete.</p>
 </div>
 <div class="section" id="analyzing-the-results">
-<h4>Analyzing the Results<a class="headerlink" href="#analyzing-the-results" title="Permalink to this headline">¶</a></h4>
-<p>I <strong>extracted</strong> the final energy from each file by <strong>modifying</strong> and running the <a class="reference external" href="http://extract.sh">extract.sh</a> script. I sent the output into a text file with the command <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">extract.sh</span> <span class="pre">&gt;</span> <span class="pre">results.txt</span></code>.</p>
+<h4>Analyzing the Results<a class="headerlink" href="#analyzing-the-results" title="Permalink to this headline">#</a></h4>
+<p>I <strong>extracted</strong> the final energy from each file by <strong>modifying</strong> and running the extract.sh script. I sent the output into a text file with the command <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">extract.sh</span> <span class="pre">&gt;</span> <span class="pre">results.txt</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="extract-sh">
-<div class="code-block-caption"><span class="caption-number">Listing 83 </span><span class="caption-text"><a class="reference external" href="http://extract.sh">extract.sh</a></span><a class="headerlink" href="#extract-sh" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 73 </span><span class="caption-text">extract.sh</span><a class="headerlink" href="#extract-sh" title="Permalink to this code">#</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> name <span class="k">in</span> Cyclohexene_Cs_scan.inp_SCAN*.log<span class="p">;</span> <span class="k">do</span>
     grep -H <span class="s2">&quot;NSERCH&quot;</span> <span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;GRAD&quot;</span> <span class="p">|</span> tail -n <span class="m">1</span>
 <span class="k">done</span>
@@ -1147,20 +893,20 @@ CS
 <p>The <strong>plot</strong> of the potential energy as we stretch the bond distances is presented in <a class="reference internal" href="#fig8-9"><span class="std std-numref">Fig. 54</span></a>.</p>
 <div class="figure align-default" id="fig8-9">
 <a class="reference internal image-reference" href="_images/Diels_9.png"><img alt="_images/Diels_9.png" src="_images/Diels_9.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text"><em>Reaction coordinate plot for the retro-Diels_Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text"><em>Reaction coordinate plot for the retro-Diels_Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-9" title="Permalink to this image">#</a></p>
 </div>
 <p>We observe that the <strong>highest energy</strong> occurs near 2.2 Å. This is a good file to use for the <strong>starting point</strong> in a transition state optimization.</p>
 </div>
 </div>
 </div>
 <div class="section" id="transition-state-optimization">
-<h2>Transition State Optimization<a class="headerlink" href="#transition-state-optimization" title="Permalink to this headline">¶</a></h2>
+<h2>Transition State Optimization<a class="headerlink" href="#transition-state-optimization" title="Permalink to this headline">#</a></h2>
 <p>We now have a <strong>starting position</strong> for a transition state optimization.</p>
 <div class="section" id="the-hessian-calculation">
-<h3>The Hessian Calculation<a class="headerlink" href="#the-hessian-calculation" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> for a transition state optimization is <code class="docutils literal notranslate"><span class="pre">SADDLEPOINT</span></code>. We can set up the <strong>input file</strong> using <em>MacMolPlt</em>. Open the log file for the optimization with bond distances set at 2.2 Å and use <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Hessian</span></code> and set the <code class="docutils literal notranslate"><span class="pre">MO</span> <span class="pre">Guess</span></code> to <code class="docutils literal notranslate"><span class="pre">Huckel</span></code> (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the <code class="docutils literal notranslate"><span class="pre">Vibrational</span> <span class="pre">Analysis</span></code> button is checked so the file is set to perform a <strong>vibrational anaysis</strong> so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in <a class="reference internal" href="#cyclohexene-ts-hess-inp"><span class="std std-numref">Listing 84</span></a>.</p>
+<h3>The Hessian Calculation<a class="headerlink" href="#the-hessian-calculation" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">RUNTYPE</span></code> for a transition state optimization is <code class="docutils literal notranslate"><span class="pre">SADDLEPOINT</span></code>. We can set up the <strong>input file</strong> using <em>MacMolPlt</em>. Open the log file for the optimization with bond distances set at 2.2 Å and use <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Hessian</span></code> and set the <code class="docutils literal notranslate"><span class="pre">MO</span> <span class="pre">Guess</span></code> to <code class="docutils literal notranslate"><span class="pre">Huckel</span></code> (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the <code class="docutils literal notranslate"><span class="pre">Vibrational</span> <span class="pre">Analysis</span></code> button is checked so the file is set to perform a <strong>vibrational anaysis</strong> so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in <a class="reference internal" href="#cyclohexene-ts-hess-inp"><span class="std std-numref">Listing 74</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-hess-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 84 </span><span class="caption-text">Cyclohexene_TS_Hess.inp</span><a class="headerlink" href="#cyclohexene-ts-hess-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 74 </span><span class="caption-text">Cyclohexene_TS_Hess.inp</span><a class="headerlink" href="#cyclohexene-ts-hess-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=HESSIAN EXETYP=RUN MAXIT=30 MULT=1
 </span>    MOLPLT=.TRUE. $END
@@ -1188,17 +934,17 @@ H     1.0     0.00494     1.46786    -1.06282
 <p>The input file was submitted to <em>GAMESS</em> and was <strong>successful</strong>. Now open the log file for the calculation. Go to <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Frequencies</span></code>. I observe that there is an <strong>imaginary frequency</strong> listed at the top of the list. Clicking on it reveals the vectors in the display window. Check the display and observe if the vectors allign with the reation coordinate. As we can see in <a class="reference internal" href="#fig8-10"><span class="std std-numref">Fig. 55</span></a>, they do. This structure will lead to a <strong>transition state</strong>. We can now perform the saddlepoint optimiation.</p>
 <div class="figure align-default" id="fig8-10">
 <a class="reference internal image-reference" href="_images/Diels_10.png"><img alt="_images/Diels_10.png" src="_images/Diels_10.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text"><em>Structure of the partial optimization with bond lengths of 2.2 Å. The imaginary vibration is displayed.</em></span><a class="headerlink" href="#fig8-10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text"><em>Structure of the partial optimization with bond lengths of 2.2 Å. The imaginary vibration is displayed.</em></span><a class="headerlink" href="#fig8-10" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="the-transition-state-optimization">
-<h3>The Transition State optimization<a class="headerlink" href="#the-transition-state-optimization" title="Permalink to this headline">¶</a></h3>
+<h3>The Transition State optimization<a class="headerlink" href="#the-transition-state-optimization" title="Permalink to this headline">#</a></h3>
 <p>Open the log file for the <strong>Hessian calculation</strong>. Click on <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Saddle</span> <span class="pre">Point</span></code>. Set # of <code class="docutils literal notranslate"><span class="pre">Z-matrix</span> <span class="pre">variables</span></code> to <code class="docutils literal notranslate"><span class="pre">42</span></code>. We will need to supply a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group. Set <code class="docutils literal notranslate"><span class="pre">Stat.</span> <span class="pre">Point</span></code> → <code class="docutils literal notranslate"><span class="pre">Initial</span> <span class="pre">Hessian</span></code> to <code class="docutils literal notranslate"><span class="pre">Calculate</span></code> (again, we could have cut this out of the .dat file and included it in the input file but the time saving is minimal in this case). Save the input file.</p>
-<p>To get a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group we will again set up an energy check <strong>calculation</strong> with the internal coordinates set to auto generate. I will open the <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Energy</span></code> and the <code class="docutils literal notranslate"><span class="pre">Exe.</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Check</span></code>. I will save the input file and then edit it to add the final line: <code class="docutils literal notranslate"><span class="pre">$ZMAT</span> <span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span> <span class="pre">$END</span></code>. The input file is presented in <a class="reference internal" href="#cyclohexene-ts-zmat-check-inp"><span class="std std-numref">Listing 86</span></a>. The <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list will be very important here as the bond length is <strong>far past</strong> what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.</p>
+<p>To get a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group we will again set up an energy check <strong>calculation</strong> with the internal coordinates set to auto generate. I will open the <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Energy</span></code> and the <code class="docutils literal notranslate"><span class="pre">Exe.</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Check</span></code>. I will save the input file and then edit it to add the final line: <code class="docutils literal notranslate"><span class="pre">$ZMAT</span> <span class="pre">AUTO=.TRUE.</span> <span class="pre">DLC=.TRUE.</span> <span class="pre">NONVDW(1)=3,5,</span> <span class="pre">4,6</span> <span class="pre">$END</span></code>. The input file is presented in <a class="reference internal" href="#cyclohexene-ts-zmat-check-inp"><span class="std std-numref">Listing 76</span></a>. The <code class="docutils literal notranslate"><span class="pre">NONVDW</span></code> list will be very important here as the bond length is <strong>far past</strong> what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-saddle-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 85 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=SADPOINT MAXIT=30 MULT=1 NZVAR=89 MOLPLT=.TRUE. $END
 </span> $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
@@ -1317,7 +1063,7 @@ H     1.0     0.00494     1.46786    -1.06282
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-check-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Check.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-check-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Check.inp</span><a class="headerlink" href="#cyclohexene-ts-zmat-check-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
 </span>    NZVAR=42 MOLPLT=.TRUE. $END
@@ -1341,15 +1087,15 @@ H     1.0    -0.06272     1.43514    -1.37198
 </pre></div>
 </div>
 </div>
-<p>Run the check calculation in <em>GAMESS</em> and <strong>hunt down</strong> the .dat file. Copy the $ZMAT group out of it and paste it into the saddlepoint input file. There are 89 entries in the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> list so we must change the <code class="docutils literal notranslate"><span class="pre">NZVAR</span></code> from 42 to 89. With this <strong>list</strong> of internal coordinates established, <em>GAMESS</em> will report their values in the log file and we will be able to directly obtain the bond lengths for the 3,5 and 4,6 bonds in the <strong>transition state</strong> (assuming the calculation succeeds). The edited input file is displayed in <a class="reference internal" href="#cyclohexene-ts-zmat-saddle-inp"><span class="std std-numref">Listing 85</span></a>.</p>
+<p>Run the check calculation in <em>GAMESS</em> and <strong>hunt down</strong> the .dat file. Copy the $ZMAT group out of it and paste it into the saddlepoint input file. There are 89 entries in the <code class="docutils literal notranslate"><span class="pre">IZMAT</span></code> list so we must change the <code class="docutils literal notranslate"><span class="pre">NZVAR</span></code> from 42 to 89. With this <strong>list</strong> of internal coordinates established, <em>GAMESS</em> will report their values in the log file and we will be able to directly obtain the bond lengths for the 3,5 and 4,6 bonds in the <strong>transition state</strong> (assuming the calculation succeeds). The edited input file is displayed in <a class="reference internal" href="#cyclohexene-ts-zmat-saddle-inp"><span class="std std-numref">Listing 75</span></a>.</p>
 <p>The calculation was succesful and the <strong>saddle point</strong> was immediately located.  We were almost exactly there already. We <strong>started</strong> with a 3,5 and 6,4 bond length of 2.200 Å and the sadlle point has a bond length of 2.202 Å.</p>
 </div>
 </div>
 <div class="section" id="discussion-of-the-reaction-coordinate">
-<h2>Discussion of the Reaction Coordinate<a class="headerlink" href="#discussion-of-the-reaction-coordinate" title="Permalink to this headline">¶</a></h2>
-<p>Let us <strong>examine</strong> the output files for the optimized cyclohexene (<a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 77</span></a>), the optimized transition state (<a class="reference internal" href="#cyclohexene-ts-zmat-saddle-log"><span class="std std-numref">Listing 88</span></a>) and for the partial optimization at 3.000 Å (<a class="reference internal" href="#cyclohexene-cs-scan-inp-scan-3-00-log"><span class="std std-numref">Listing 87</span></a>). We can <strong>read</strong> the internal coordinates for the C-C distances from the final structure in each file.</p>
+<h2>Discussion of the Reaction Coordinate<a class="headerlink" href="#discussion-of-the-reaction-coordinate" title="Permalink to this headline">#</a></h2>
+<p>Let us <strong>examine</strong> the output files for the optimized cyclohexene (<a class="reference internal" href="#cyclohexene-cs-cart-log"><span class="std std-numref">Listing 67</span></a>), the optimized transition state (<a class="reference internal" href="#cyclohexene-ts-zmat-saddle-log"><span class="std std-numref">Listing 78</span></a>) and for the partial optimization at 3.000 Å (<a class="reference internal" href="#cyclohexene-cs-scan-inp-scan-3-00-log"><span class="std std-numref">Listing 77</span></a>). We can <strong>read</strong> the internal coordinates for the C-C distances from the final structure in each file.</p>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-cs-scan-inp-scan-3-00-log">
-<div class="code-block-caption"><span class="caption-number">Listing 87 </span><span class="caption-text">Cyclohexene_Cs_scan.inp_SCAN_3.00.log</span><a class="headerlink" href="#cyclohexene-cs-scan-inp-scan-3-00-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Cyclohexene_Cs_scan.inp_SCAN_3.00.log</span><a class="headerlink" href="#cyclohexene-cs-scan-inp-scan-3-00-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">15795</span>                     <span class="o">--------------------</span>
 <span class="linenos">15796</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
 <span class="linenos">15797</span>                     <span class="o">--------------------</span>
@@ -1382,7 +1128,7 @@ H     1.0    -0.06272     1.43514    -1.37198
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="cyclohexene-ts-zmat-saddle-log">
-<div class="code-block-caption"><span class="caption-number">Listing 88 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.log</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-log" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Cyclohexene_TS_ZMAT_Saddle.log</span><a class="headerlink" href="#cyclohexene-ts-zmat-saddle-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">12192</span>                     <span class="o">--------------------</span>
 <span class="linenos">12193</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
 <span class="linenos">12194</span>                     <span class="o">--------------------</span>
@@ -1419,19 +1165,19 @@ H     1.0    -0.06272     1.43514    -1.37198
 <p>We can see that the ethylene group swings over the top of the butadiene terminal carbons as the reaction proceeds. The 2,4,6 bond angle is 111.3° in the cyclohexene and ends up at 99.2° in the product. This is <strong>consistent</strong> with the π-orbital interactions between <strong>frontier molecular orbitals</strong>.</p>
 <div class="figure align-default" id="fig8-11">
 <a class="reference internal image-reference" href="_images/Diels_11.png"><img alt="_images/Diels_11.png" src="_images/Diels_11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text"><em>The starting material, transition state and product for the retro-Diels-Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text"><em>The starting material, transition state and product for the retro-Diels-Alder reaction of cyclohexene</em></span><a class="headerlink" href="#fig8-11" title="Permalink to this image">#</a></p>
 </div>
 <p>So what is the <strong>reaction coordinate</strong>, really? We have used the breaking bond distance as the <em>x</em>-axis.  We could have used any of the bond <strong>distances</strong> as they all change during the reaction. We could have used the change in <strong>hybridization</strong> from tetrahedral <em>sp<sup>3</sup></em> to planar <em>sp<sup>2</sup></em> for carbon atoms. We could have used bond <strong>angles</strong> that changed. What is the best way to represent the progress of the reaction? You get to decide.</p>
 </div>
 <div class="section" id="irc-calculations">
-<h2>IRC Calculations<a class="headerlink" href="#irc-calculations" title="Permalink to this headline">¶</a></h2>
+<h2>IRC Calculations<a class="headerlink" href="#irc-calculations" title="Permalink to this headline">#</a></h2>
 <p>Now that we have an optimized <strong>transition state</strong> structure we can perform an intrinsic reaction coordinate (IRC) calculation. This will follow the imaginary vibration in one direction down to the ground state. We can then <strong>repeat</strong> the IRC in the <strong>other direction</strong>. The benefit of this calculation is that it will <strong>follow the gradient</strong> and is not limited to any specific series of coordinate values. If bond lengths change with different timings as a reaction proceeds then we will follow that groove. This will give us a more accurate pictuire of the journey from reactant to product (assuming you believe that computational chemistry relates to reality).</p>
 <p>The best <strong>reason</strong> to perform the IRC calculation is that it can be used to make a <strong>movie</strong> of the reaction. So let us give it a try.</p>
 <div class="section" id="setting-up-and-running">
-<h3>Setting Up and Running<a class="headerlink" href="#setting-up-and-running" title="Permalink to this headline">¶</a></h3>
+<h3>Setting Up and Running<a class="headerlink" href="#setting-up-and-running" title="Permalink to this headline">#</a></h3>
 <p>First we will take the transition state optimization log file and open it in <em>MacMolPlt</em>. We will use <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">IRC</span></code> and set the <code class="docutils literal notranslate"><span class="pre">MO</span> <span class="pre">Guess</span></code> to <code class="docutils literal notranslate"><span class="pre">MO</span> <span class="pre">Read</span> <span class="pre">$VEC</span></code>. We will also need to manually edit the file.</p>
 <div class="section" id="add-the-irc-group">
-<h4>Add the $IRC Group<a class="headerlink" href="#add-the-irc-group" title="Permalink to this headline">¶</a></h4>
+<h4>Add the $IRC Group<a class="headerlink" href="#add-the-irc-group" title="Permalink to this headline">#</a></h4>
 <p><em>MacMolPlt</em> will set up an IRC calculation but does not establish some <strong>essential parameters</strong> so you will need to add the <code class="docutils literal notranslate"><span class="pre">$IRC</span></code> group shown below</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
          SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
@@ -1444,22 +1190,22 @@ H     1.0    -0.06272     1.43514    -1.37198
 <p>The <code class="docutils literal notranslate"><span class="pre">FORWRD</span></code> flag establishes the <strong>initial direction</strong> over the saddle point. What is “forward” and what is “reverse” is meaningless. Setting it to <code class="docutils literal notranslate"><span class="pre">.true.</span></code> is one directions and <code class="docutils literal notranslate"><span class="pre">.false.</span></code> is the other. We will do <strong>two different jobs</strong> and flip this flag in each.</p>
 </div>
 <div class="section" id="tracking-internal-coordinates">
-<h4>Tracking Internal Coordinates<a class="headerlink" href="#tracking-internal-coordinates" title="Permalink to this headline">¶</a></h4>
+<h4>Tracking Internal Coordinates<a class="headerlink" href="#tracking-internal-coordinates" title="Permalink to this headline">#</a></h4>
 <p>Because I might want to extract bond lengths and angles from the log file, I will ask GAMESS to <strong>generate internal coordinates</strong> by including a <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that flags for redundant internal coordinates. I <strong>declare</strong> the two breaking bonds <strong>explicity</strong> so that they are not ignored as their lengths reach <strong>beyond</strong> the distance of a covalent bond. So add the following line to the input file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ZMAT NONVDW(1)=3,5, 4,6 DLC=.TRUE. AUTO=.TRUE. $END
 </pre></div>
 </div>
 </div>
 <div class="section" id="copy-in-hess-and-vec-groups">
-<h4>Copy in $HESS and $VEC Groups<a class="headerlink" href="#copy-in-hess-and-vec-groups" title="Permalink to this headline">¶</a></h4>
+<h4>Copy in $HESS and $VEC Groups<a class="headerlink" href="#copy-in-hess-and-vec-groups" title="Permalink to this headline">#</a></h4>
 <p>In this input file we are requesting that the MO data be <strong>read in</strong> from the <code class="docutils literal notranslate"><span class="pre">$VEC</span></code> group. You will find that data in the .dat file of the previous Hessian calculation. Copy and paste. If you want to use a guess then replace the <code class="docutils literal notranslate"><span class="pre">$GUESS</span></code> group with…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       $GUESS GUESS=HUCKEL $END
 </pre></div>
 </div>
 <p>You will need to find the <code class="docutils literal notranslate"><span class="pre">$HESS</span></code> group in the Hessian job .dat file that preceded this calculation. Cut it and paste it into this file after the <code class="docutils literal notranslate"><span class="pre">$VEC</span></code> group.</p>
-<p>the final input file is shown in redacted form in <a class="reference internal" href="#diels-alder-irc-inp"><span class="std std-numref">Listing 89</span></a>. I cut out hundreds of lines to make it fit this book.</p>
+<p>the final input file is shown in redacted form in <a class="reference internal" href="#diels-alder-irc-inp"><span class="std std-numref">Listing 79</span></a>. I cut out hundreds of lines to make it fit this book.</p>
 <div class="literal-block-wrapper docutils container" id="diels-alder-irc-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 89 </span><span class="caption-text">Excerpts from Diels_Alder_IRC.inp</span><a class="headerlink" href="#diels-alder-irc-inp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Excerpts from Diels_Alder_IRC.inp</span><a class="headerlink" href="#diels-alder-irc-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=IRC EXETYP=RUN MAXIT=30 MULT=1 MOLPLT=.TRUE. $END
 </span> $SYSTEM TIMLIM=525600 MEMORY=10000000 PARALL=.TRUE. $END
@@ -1510,41 +1256,41 @@ H     1.0     0.00682     1.46650    -1.06163
 <p>The file was submitted to GAMESS. the calclation was successful.</p>
 </div>
 <div class="section" id="repeat-in-reverse">
-<h4>Repeat in reverse<a class="headerlink" href="#repeat-in-reverse" title="Permalink to this headline">¶</a></h4>
+<h4>Repeat in reverse<a class="headerlink" href="#repeat-in-reverse" title="Permalink to this headline">#</a></h4>
 <p>We need to perform this calculation <strong>twice</strong> and <strong>flip</strong> the <code class="docutils literal notranslate"><span class="pre">FORWRD</span></code> flag in the second one. Then we can <strong>combine</strong> the two sets of frames in <em>MacMolPlt</em> to get the whole reaction coordinate. the input file was edited and the <code class="docutils literal notranslate"><span class="pre">FORWRD=.FALSE.</span></code> was changed to <code class="docutils literal notranslate"><span class="pre">FORWRD=.TRUE.</span></code>  the new file was submitted to <em>GAMESS</em>.</p>
 </div>
 <div class="section" id="a-note-about-editing-input-files">
-<h4>A Note About Editing Input Files<a class="headerlink" href="#a-note-about-editing-input-files" title="Permalink to this headline">¶</a></h4>
+<h4>A Note About Editing Input Files<a class="headerlink" href="#a-note-about-editing-input-files" title="Permalink to this headline">#</a></h4>
 <p>The true power of <em>GAMESS</em> can be accessed through the many, many, <strong>many options</strong> available. <em>macMolPlt</em> does not write files that dig deep into the features of <em>GAMESS</em>. It sticks to useful and common options. We have <strong>edited</strong> the input file above to access some features that will <strong>improve</strong> the results of our IRC calculation. I learned about these options by digging through the <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/documentation.html">GAMESS documentation</a> and reading useful web posts by others who writing similar educational articles. See <a class="reference external" href="https://medium.com/swlh/introduction-to-molecular-modelling-part-5-intrinsic-reaction-coordinate-af7ca328d88d">here</a> or <a class="reference external" href="http://molecularmodelingbasics.blogspot.com/2009/10/get-reaction-intrinsic-reaction.html">here</a> for some examples. Should I have simply left it to them? Am I reinventing the wheel? Yes, but it’s my wheel.</p>
 </div>
 </div>
 <div class="section" id="visualizing-the-irc">
-<h3>Visualizing the IRC<a class="headerlink" href="#visualizing-the-irc" title="Permalink to this headline">¶</a></h3>
+<h3>Visualizing the IRC<a class="headerlink" href="#visualizing-the-irc" title="Permalink to this headline">#</a></h3>
 <p>Open the log file for the first <strong>calculation</strong> in <em>MacMolPlt</em>. Then use <code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Frames</span> <span class="pre">from</span> <span class="pre">File</span></code>. Choose the log file for the reverse calculation in the file browser. Check the <code class="docutils literal notranslate"><span class="pre">Make</span> <span class="pre">these</span> <span class="pre">points</span> <span class="pre">negative</span></code> button as this run is in reverse.</p>
 <p>Now <strong>drag</strong> the scrubber across the bar at the bottom of the window and <strong>play your movie</strong> back and forth. Choose <code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">Energy</span> <span class="pre">Plot</span></code> to display an energy plot. the current structure will be highlighted on the plot as you <strong>scrub through</strong> all the structures.</p>
 <div class="figure align-default" id="fig8-12">
 <a class="reference internal image-reference" href="_images/Untitled.gif"><img alt="_images/Untitled.gif" src="_images/Untitled.gif" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text"><em>The Diels-Alder reaction IRC animation</em></span><a class="headerlink" href="#fig8-12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text"><em>The Diels-Alder reaction IRC animation</em></span><a class="headerlink" href="#fig8-12" title="Permalink to this image">#</a></p>
 </div>
 <p><strong>Watch</strong> how the <em>sp<sup>3</sup></em> carbons convert to <em>sp<sup>2</sup></em> as the bonds break. Also <strong>see</strong> how the ethylene moves to a more vertical angle over the butadiene as the bonds break. <strong>Spin</strong> the structure in the MacMolPlt window and <strong>watch</strong> the process from different sides. Can you <strong>see</strong> bond lengths change as 𝜋-bonds change to σ-bonds and vice versa.</p>
 </div>
 </div>
 <div class="section" id="a-challenge">
-<h2>A Challenge<a class="headerlink" href="#a-challenge" title="Permalink to this headline">¶</a></h2>
+<h2>A Challenge<a class="headerlink" href="#a-challenge" title="Permalink to this headline">#</a></h2>
 <div class="section" id="make-it-break-the-rules">
-<h3>Make It Break the Rules<a class="headerlink" href="#make-it-break-the-rules" title="Permalink to this headline">¶</a></h3>
+<h3>Make It Break the Rules<a class="headerlink" href="#make-it-break-the-rules" title="Permalink to this headline">#</a></h3>
 <p>We know that Diels-Alder reactions proceed with <em>suprafacial-suprafacial</em> (<em>ss</em>) <strong>stereochemistry</strong>. We can also obey the Woodward-Hoffmann orbital symmetry rules for this reaction with an <em>antarafacial-antarafacial</em> (<em>aa</em>) process. This process already has a starting point, the half-chair <em>C<sub>2</sub></em> cyclohexene.</p>
 <p>Optimize the structure of <em>C<sub>2</sub></em> cyclohexene. Then use it as a <strong>starting point</strong> for a reaction coordinate scan <strong>enforcing</strong> <em>C<sub>2</sub></em> symmetry. Can you oprimize the <em>C<sub>2</sub></em> transition state? If so, can an IRC be performed? It would be cool to <strong>compare</strong> the movies for the two reactions. Compare a plot of the potential energies across the reaction coordinate and <strong>comment</strong> on whether the <em>ss</em> or the <em>aa</em> is faster.</p>
 <p>I dare you. No, I double-dog-dare you. Now you <strong>cannot refuse</strong> my challenge.</p>
 </div>
 <div class="section" id="other-reactions">
-<h3>Other Reactions<a class="headerlink" href="#other-reactions" title="Permalink to this headline">¶</a></h3>
+<h3>Other Reactions<a class="headerlink" href="#other-reactions" title="Permalink to this headline">#</a></h3>
 <p>Can you take the methods <strong>demonstrated</strong> in this chapter and create an IRC for a <strong>conrotatory</strong> and a <strong>disrotatory</strong> electrocyclic reaction? Make the movie. All we really want to do is direct.</p>
 <p>Can you create an IRC of a [1,5]-H-shift <strong>sigmatropic rearrangement</strong>? Also try a [3,3] rearrangement. Model the <strong>Claisen</strong> rearrangement and the <strong>Cope</strong> rearrangement. Compare bond lengths in the transitions states and apply <strong>Hammond’s postulate</strong> when discussing these observations. Make the movies. They might go viral.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="shishkin2011"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>“Unusual Properties of Usual Molecules. Conformational Analysis of Cyclohexene, Its Derivatives and Heterocyclic Analogues.” O.V. Shishkin &amp; S.V. Shishkina, <em>Practical Aspects of Computational Chemistry I</em>, Leszczynski J., Shukla M. (eds), I. Springer, Dordrecht, <strong>2011</strong>, <em>557–578</em>. <a class="reference external" href="https://doi.org/10.1007/978-94-007-0919-5_19">https://doi.org/10.1007/978-94-007-0919-5_19</a></p>
+<dd><p>“Unusual Properties of Usual Molecules. Conformational Analysis of Cyclohexene, Its Derivatives and Heterocyclic Analogues.” O.V. Shishkin &amp; S.V. Shishkina, <em>Practical Aspects of Computational Chemistry I</em>, Leszczynski J., Shukla M. (eds), I. Springer, Dordrecht, <strong>2011</strong>, <em>557–578</em>. https://doi.org/10.1007/978-94-007-0919-5_19</p>
 </dd>
 </dl>
 </div>
@@ -1565,7 +1311,7 @@ H     1.0     0.00682     1.46650    -1.06163
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1573,44 +1319,143 @@ H     1.0     0.00682     1.46650    -1.06163
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="butadiene.log.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Butadiene.log</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="butadiene.log.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Butadiene.log</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="8_Reaction_Coord_Scan_Data.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="8_Reaction_Coord_Scan_Data.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Data Workflow</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Barry Linkletter<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-the-journey-to-the-t-s">Starting the Journey to the T.S.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-cyclohexene">Building Cyclohexene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-c-sub-s-sub-cyclohexene">Building <em>C<sub>s</sub></em> Cyclohexene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-c-sub-s-sub-cyclohexene">Optimizing <em>C<sub>s</sub></em> Cyclohexene</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposing-a-hypothetical-transition-state">Proposing a Hypothetical Transition State</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freezing-bonds-in-cartessian-coordinates">Freezing Bonds in Cartessian Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-an-input-file">Build an input file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-scan-files">Making the Scan Files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-optimization-series">Running the optimization Series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-results">Analyzing the Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-state-optimization">Transition State Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hessian-calculation">The Hessian Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transition-state-optimization">The Transition State optimization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-the-reaction-coordinate">Discussion of the Reaction Coordinate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#irc-calculations">IRC Calculations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-and-running">Setting Up and Running</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-irc-group">Add the $IRC Group</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-internal-coordinates">Tracking Internal Coordinates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-in-hess-and-vec-groups">Copy in $HESS and $VEC Groups</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-in-reverse">Repeat in reverse</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-editing-input-files">A Note About Editing Input Files</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-irc">Visualizing the IRC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-challenge">A Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-it-break-the-rules">Make It Break the Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-reactions">Other Reactions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Barry Linkletter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
