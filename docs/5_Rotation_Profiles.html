@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>5. Butane: Rotation Energy Profiles &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -68,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="GAMESS Workflow" href="5_Rotation_Profiles_Workflow.html" />
     <link rel="prev" title="4. Ethane: Symmetry in Calculations" href="4_Ethane.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -377,12 +379,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="butane-rotation-energy-profiles">
-<h1>5. Butane: Rotation Energy Profiles<a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="butane-rotation-energy-profiles">
+<h1>5. Butane: Rotation Energy Profiles<a class="headerlink" href="#butane-rotation-energy-profiles" title="Permalink to this heading">#</a></h1>
 <p>One of the easiest chemical <strong>transformations</strong> to model and explore in computational chemistry is <strong>conformational</strong> changes. We will start with potential energy profiles for <strong>rotation</strong>. We will build butane using the build tools in <em>wxMacMolPlt</em> and then submit the data to <em>GAMESS</em> as an optimization calculation via <em>GamessQ</em>.</p>
 <p>No more symmetry (for now). If we want to rotate molecules around bonds, the symmetry will be <strong>changing</strong> with the rotation. Do consider that symmetry saved a lot of computational effort and should be considered carefully when using expensive methods. We will downgrade our <strong>method</strong> for optimizations to HF/3-21G</p>
-<div class="section" id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <p>In this exercise, we will accomplish the following…</p>
 <ol class="arabic simple">
 <li><p>Use <em>MacMolPlt</em> to <strong>build</strong> molecules, generate input files and <strong>interpret</strong> results.</p></li>
@@ -391,14 +393,16 @@ document.write(`
 <li><p>Learn <strong>how to use</strong> the command-line Unix tools <em>sed</em> and <em>grep</em> to generate a large series of input files with different values for the frozen coordinate and to <strong>extract data</strong> quickly from large numbers of files. We will submit all these files at once via <em>GamessQ</em>.</p></li>
 <li><p>With these methods we will create a <strong>rotational energy profile</strong> around a given bond in an alkane.</p></li>
 </ol>
-</div>
-<div class="section" id="building-butane">
-<h2>Building Butane<a class="headerlink" href="#building-butane" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="building-butane">
+<h2>Building Butane<a class="headerlink" href="#building-butane" title="Permalink to this heading">#</a></h2>
 <p>Run <em>MacMolPlt</em>. Click on <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. Choose carbon atoms and set the coordination number to 4 (four bonds to an sp3 carbon). Then click in the window to <strong>build</strong> the molecule, A carbon with four connections will appear. Then click on one of the connections to add a new carbon. When you have added all four carbon atoms, change the build tool to hydrogen and then click on the remaining connections to include bonds. In the end you will have a window that looks <strong>like this</strong> perhaps.</p>
-<div class="figure align-default" id="fig5-1">
+<figure class="align-default" id="fig5-1">
 <a class="reference internal image-reference" href="_images/profiles_Picture1B.png"><img alt="_images/profiles_Picture1B.png" src="_images/profiles_Picture1B.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text"><em><em>MacMolPlt</em> window with the initial structure for butadiene.</em></span><a class="headerlink" href="#fig5-1" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text"><em><em>MacMolPlt</em> window with the initial structure for butadiene.</em></span><a class="headerlink" href="#fig5-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The structure in <a class="reference internal" href="#fig5-1"><span class="std std-numref">Fig. 13</span></a> is an initial <strong>rough sketch</strong>. Note that the terminal carbons are in <em>eclipsed</em> conformations. We will need to calculate the correct structure by creating an input file for <em>GAMESS</em>. Click on <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> and set the following <strong>parameters</strong>:</p>
 <ul class="simple">
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">Control</span></code> menu section, set <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type</span></code> to <code class="docutils literal notranslate"><span class="pre">Optimization</span></code>. This will instruct <em>GAMESS</em> that we are doing a calculation to find the optimizes molecular geometry.</p></li>
@@ -407,19 +411,19 @@ document.write(`
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">Misc.</span> <span class="pre">Prefs</span></code> section, check the <code class="docutils literal notranslate"><span class="pre">MolPlt</span></code> button. This will ensure that <em>GAMESS</em> outputs information in a format that can be read by the <em>MacMolPlt</em> application.</p></li>
 <li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">and</span> <span class="pre">Save</span></code> button in the bottom of the <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> window. Then click on <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">As…</span></code> and save your file. Choose a name like <code class="docutils literal notranslate"><span class="pre">butane.inp</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="preparing-to-use-gamess">
-<h2>Preparing to use <em>GAMESS</em><a class="headerlink" href="#preparing-to-use-gamess" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="preparing-to-use-gamess">
+<h2>Preparing to use <em>GAMESS</em><a class="headerlink" href="#preparing-to-use-gamess" title="Permalink to this heading">#</a></h2>
 <p>We can now take the data file that was <strong>written</strong> out by <em>MacMolPlt</em> and use it as the input for <em>GAMESS</em>.</p>
-<div class="section" id="the-gamess-input-file">
-<h3>The <em>GAMESS</em> Input File<a class="headerlink" href="#the-gamess-input-file" title="Permalink to this headline">#</a></h3>
-<div class="margin sidebar">
+<section id="the-gamess-input-file">
+<h3>The <em>GAMESS</em> Input File<a class="headerlink" href="#the-gamess-input-file" title="Permalink to this heading">#</a></h3>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><em>Unix</em> comes with many text editors that will run in the terminal but most people would use a GUI tool. Microsoft <em>Visual Studio Code</em> is free and runs on all systems.</p>
-</div>
+</aside>
 <p><strong>Open</strong> the input file you just saved from <em>MacMolPlt</em> in a text editor.  You should see the following text…</p>
 <div class="literal-block-wrapper docutils container" id="butane-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 32 </span><span class="caption-text">butane.inp</span><a class="headerlink" href="#butane-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 41 </span><span class="caption-text">butane.inp</span><a class="headerlink" href="#butane-inp" title="Permalink to this code">#</a></div>
 <div class="hide-input highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
 <span class="hll"> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
 </span>    MOLPLT=.TRUE. $END
@@ -461,9 +465,9 @@ H   4    1.14000  12 109.4712  13 120.0000
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="interpreting-the-input-file">
-<h3>Interpreting The Input File<a class="headerlink" href="#interpreting-the-input-file" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="interpreting-the-input-file">
+<h3>Interpreting The Input File<a class="headerlink" href="#interpreting-the-input-file" title="Permalink to this heading">#</a></h3>
 <p>The <em>GAMESS</em> input file <strong>starts</strong> off with essential settings and information in the <code class="docutils literal notranslate"><span class="pre">$CONTRL</span></code>, <code class="docutils literal notranslate"><span class="pre">$SYSTEM</span></code>, <code class="docutils literal notranslate"><span class="pre">$BASIS</span></code>, <code class="docutils literal notranslate"><span class="pre">$SCF</span></code> and <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> groups. Each group <strong>ends</strong> with <code class="docutils literal notranslate"><span class="pre">$END</span></code>. The settings within each group will be discussed where needed as we proceed, and detailed information is found in the <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/"><em>GAMESS</em> documentation</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -472,9 +476,9 @@ H   4    1.14000  12 109.4712  13 120.0000
 <p>The <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> group contains the <strong>description</strong> of the molecule. The first line after the declaration of <code class="docutils literal notranslate"><span class="pre">$DATA</span></code> is the name of the molecule. You can change “Title” to “Butane” in the input builder if you wish.</p>
 <p>The next line is the <strong>symmetry</strong>. We are not using symmetry, so the symmetry point group is declared to be <em>C<sub>1</sub></em> (no symmetry). Using symmetry will greatly reduce the work of the calculation. We will ignore this useful idea for now.</p>
 <p>The next line begins the <strong>structure</strong> of the molecule. We could use an <em>xyz</em> coordinate system but that is a block of numbers that can be difficult to interpret. We will use <strong>internal coordinates</strong> that describe each atoms relationship to another atom or atoms. This will make more sense when examined by the human eye and allows for greater control in setting up initial <strong>geometries</strong> and bond angles. The internal coordinate system that we will use is the <em>Z-matrix</em></p>
-</div>
-<div class="section" id="the-z-matrix">
-<h3>The <em>Z-Matrix</em><a class="headerlink" href="#the-z-matrix" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-z-matrix">
+<h3>The <em>Z-Matrix</em><a class="headerlink" href="#the-z-matrix" title="Permalink to this heading">#</a></h3>
 <p>The <em>Z-matrix</em> for butane is composed of 14 lines for the 14 atoms. Here is the <em>Z-matrix</em> that was produced by <em>MacMolPlt</em>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
 <span class="n">C</span>   <span class="mi">1</span>    <span class="mf">1.54000</span>
@@ -517,36 +521,40 @@ H   4    1.14000  12 109.4712  13 120.0000
 </pre></div>
 </div>
 <p>And that describes the following structures as we read each line…</p>
-<div class="figure align-default" id="fig5-2a">
+<figure class="align-default" id="fig5-2a">
 <a class="reference internal image-reference" href="_images/profiles_Picture2A.png"><img alt="_images/profiles_Picture2A.png" src="_images/profiles_Picture2A.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>The 10th line of the <em>Z-matrix</em> is applied.</em></span><a class="headerlink" href="#fig5-2a" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>The 10th line of the <em>Z-matrix</em> is applied.</em></span><a class="headerlink" href="#fig5-2a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>By the <strong>last line</strong>, we will have constructed the following molecule. Note how the tenth line describes the bond, bond angle and dihedral angle for hydrogen atom #10 as shown in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 15</span></a>.</p>
-<div class="figure align-default" id="fig5-2">
+<figure class="align-default" id="fig5-2">
 <a class="reference internal image-reference" href="_images/profiles_Picture2.png"><img alt="_images/profiles_Picture2.png" src="_images/profiles_Picture2.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>The 10th line of the <em>Z-matrix</em> is applied.</em></span><a class="headerlink" href="#fig5-2" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>The 10th line of the <em>Z-matrix</em> is applied.</em></span><a class="headerlink" href="#fig5-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We now have our molecule with the nuclei <strong>positioned</strong> in space (relative to each other via internal coordinates). The <em>GAMESS</em> program will place the nuclei in a Cartesian space and then calculate the locations of electrons from first principles using <em>ab initio</em> quantum mechanical calculations. We did tell <em>GAMESS</em> that all electrons were <strong>paired</strong> (no radicals) by using the <code class="docutils literal notranslate"><span class="pre">MULT=1</span></code> parameter and we did not specify a charge so that means there is no charge by <strong>default</strong>.</p>
 <p>We must always start <strong>close</strong> to the correct structure so that the calculation will snap to the closest lower energy minimum. If we <strong>start</strong> crazy, we might just <strong>end up</strong> crazy.</p>
 <p>The final <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group describes a list of <strong>descriptors</strong> for every bond length, bond angle and dihedral angle. We will leave it be for now but will return to it soon.</p>
-</div>
-</div>
-<div class="section" id="finding-optimal-structure-using-gamess">
-<h2>Finding Optimal Structure Using <em>GAMESS</em><a class="headerlink" href="#finding-optimal-structure-using-gamess" title="Permalink to this headline">#</a></h2>
-<div class="section" id="optimizing-the-structure">
-<h3>Optimizing the Structure<a class="headerlink" href="#optimizing-the-structure" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="finding-optimal-structure-using-gamess">
+<h2>Finding Optimal Structure Using <em>GAMESS</em><a class="headerlink" href="#finding-optimal-structure-using-gamess" title="Permalink to this heading">#</a></h2>
+<section id="optimizing-the-structure">
+<h3>Optimizing the Structure<a class="headerlink" href="#optimizing-the-structure" title="Permalink to this heading">#</a></h3>
 <p>Now we will feed the input file into the <em>GAMESS</em> program. <strong>Run</strong> the <em>GamessQ</em> program. You will get a window. <strong>Drag</strong> your input file into the window. <em>GamessQ</em> will ask you how many processors to use. Choose “one” for now. Your modern computer probably has 4 cores or more so we can always throw more power at the problem but this small calculation won’t need any heavy iron.</p>
 <p>The job will <strong>run</strong> and produce an output file that will <strong>contain</strong> a description of the structure with the minimum overall energy. This might be the most stable structure for our molecule.</p>
-</div>
-<div class="section" id="the-output-file">
-<h3>The Output File<a class="headerlink" href="#the-output-file" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-output-file">
+<h3>The Output File<a class="headerlink" href="#the-output-file" title="Permalink to this heading">#</a></h3>
 <p>A <strong>detailed</strong> discussion of a <em>GAMESS</em> <strong>output file</strong> is presented in the next chapter where we repeat this exercise with butadiene. There will also be a discussion of useful <em>Unix</em> tools for making everything that we do here much easier. For now we will do things the <strong>hard way</strong>.</p>
 <p>The <em>GamessQ</em> program will copy the input file and produce an output file to the folder designated it its preference pane. The file will have a number <strong>appended</strong>. In our case, the input file was named butane.inp.  The files written are the copy of the input file and the output file. In this case they were: butane_246.inp and butane_246.log. (Yes, I have run 245 jobs already trying to figure out how to use <em>GAMESS</em>.)</p>
 <p>The log file has <strong>thousands of lines</strong> of text (assuming it didn’t crash out with an error because I goofed up the input file.) There is ultimately a line that states <code class="docutils literal notranslate"><span class="pre">EXECUTION</span> <span class="pre">OF</span> <span class="pre">GAMESS</span> <span class="pre">TERMINATED</span> <span class="pre">NORMALLY</span></code>. Open the log file and <strong>search</strong> for the word <code class="docutils literal notranslate"><span class="pre">NORMALLY</span></code> in the text. The phrase should appear near the end of the file. If you find the word <code class="docutils literal notranslate"><span class="pre">ABNORMALLY</span></code> instead, then the run has crashed out. <strong>Error information</strong> will be in the file to troubleshoot. Crashes are almost always a problem with the input file.</p>
 <p>The run exited in a controlled manner, but that does not mean that things went well. Let us examine the butane_246.log file. <strong>Each step</strong> of the search for an energy minimum involved calculating the <strong>function</strong> that describes the energy and then calculating the <strong>derivative</strong> of that function for each atom. The derivative is the gradient (a slope). If the gradient is zero then we are at a <strong>stationary point</strong> (either a maximum or minimum) and if the slope has a value then there is a <strong>direction</strong> downhill. <em>GAMESS</em> will calculate the change for each atom that will <strong>follow</strong> that gradient. The change will be applied to each atom and the new structure will be recalculated. This will repeat until the total gradient for the molecule has reached a very small value, indicating that we are at the <strong>bottom</strong> (or top!) of an energy surface.</p>
-</div>
-<div class="section" id="are-we-done">
-<h3>Are We Done?<a class="headerlink" href="#are-we-done" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="are-we-done">
+<h3>Are We Done?<a class="headerlink" href="#are-we-done" title="Permalink to this heading">#</a></h3>
 <p>Each <strong>step</strong> in initiated in the text of the log file by the term <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code>. If we <strong>search</strong> through the text file until the last time <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code> appears we will find the <strong>final</strong> structural calculation and result (there are better ways to do this.) In our case we see the last line containing <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code> is…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">20</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4322927357</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0017274</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0008046</span>
 </pre></div>
@@ -556,9 +564,9 @@ H   4    1.14000  12 109.4712  13 120.0000
 </pre></div>
 </div>
 <p>So no, we are <strong>not done</strong>. We need to set <code class="docutils literal notranslate"><span class="pre">NSTEP</span></code> to a higher number. Normally 20 steps is <strong>enough</strong> and we are likely close. I will open butane.inp in a text editor and change <code class="docutils literal notranslate"><span class="pre">NSTEP=20</span></code> to <code class="docutils literal notranslate"><span class="pre">NSTEP=30</span></code>.</p>
-</div>
-<div class="section" id="optimized-structure-and-energy">
-<h3>Optimized Structure and Energy<a class="headerlink" href="#optimized-structure-and-energy" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="optimized-structure-and-energy">
+<h3>Optimized Structure and Energy<a class="headerlink" href="#optimized-structure-and-energy" title="Permalink to this heading">#</a></h3>
 <p>The new output file generated is butane_247.log and the final line containing NSERCH is…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">28</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4324667260</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000511</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000220</span>
 </pre></div>
@@ -569,13 +577,15 @@ H   4    1.14000  12 109.4712  13 120.0000
 </div>
 <p>…So we now know that <em>GAMESS</em> has declared the calculation a <strong>success</strong>.</p>
 <p>We can <strong>open</strong> the log file in <em>MacMolPlt</em> and it will <strong>display</strong> the final structure shown in <a class="reference internal" href="#fig5-3"><span class="std std-numref">Fig. 16</span></a>. There is a <strong>slider</strong> at the bottom of the window that will show all the structures in the <strong>journey</strong> if you scrub it back and forth.</p>
-<div class="figure align-default" id="fig5-3">
+<figure class="align-default" id="fig5-3">
 <a class="reference internal image-reference" href="_images/profiles_Picture3.png"><img alt="_images/profiles_Picture3.png" src="_images/profiles_Picture3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text"><em>The optimized structure as calculated by <em>GAMESS</em>.</em></span><a class="headerlink" href="#fig5-3" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text"><em>The optimized structure as calculated by <em>GAMESS</em>.</em></span><a class="headerlink" href="#fig5-3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Immediately after the last <code class="docutils literal notranslate"><span class="pre">NSERCH</span></code> line is a series of data blocks containing the <strong>structural information</strong>. We can see the molecule described in Cartesian <em>xyz</em> coordinates. Following that, we see a block that describes all the <strong>internal coordinates</strong> (bond lengths, angles and torsions). There are 36 such coordinates and observe how each <strong>corresponds</strong> to an entry in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group at the end of the butane.inp input file. This data block is reproduced below.</p>
 <div class="literal-block-wrapper docutils container" id="butane-247-log">
-<div class="code-block-caption"><span class="caption-number">Listing 33 </span><span class="caption-text">butane_247.log</span><a class="headerlink" href="#butane-247-log" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 42 </span><span class="caption-text">butane_247.log</span><a class="headerlink" href="#butane-247-log" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">8834</span>                     <span class="o">--------------------</span>
 <span class="linenos">8835</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
 <span class="linenos">8836</span>                     <span class="o">--------------------</span>
@@ -623,20 +633,22 @@ H   4    1.14000  12 109.4712  13 120.0000
 </div>
 </div>
 <p>The sixth coordinate in the list describes the <strong>torsion</strong> around the central C—C bond (atoms 1 and 2) as described by the <strong>dihedral angle</strong> between the bonds to the other two carbons. See <a class="reference internal" href="#fig5-4"><span class="std std-numref">Fig. 17</span></a> for a diagram describing that coordinate.</p>
-<div class="figure align-default" id="fig5-4">
+<figure class="align-default" id="fig5-4">
 <a class="reference internal image-reference" href="_images/profiles_Picture4.png"><img alt="_images/profiles_Picture4.png" src="_images/profiles_Picture4.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text"><em>The coordinate describing the central C–C bond torsion.</em></span><a class="headerlink" href="#fig5-4" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text"><em>The coordinate describing the central C–C bond torsion.</em></span><a class="headerlink" href="#fig5-4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We have found the <strong>structure and energy</strong> of the most stable conformer, the <em>anti</em> conformer.</p>
-</div>
-</div>
-<div class="section" id="the-other-conformer">
-<h2>The Other Conformer<a class="headerlink" href="#the-other-conformer" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="the-other-conformer">
+<h2>The Other Conformer<a class="headerlink" href="#the-other-conformer" title="Permalink to this heading">#</a></h2>
 <p>We started the calculation above with a structure that was already <em>anti</em> in conformation. It is no surprise that we then <strong>settled</strong> into a bottom of an energy well that describes that situation.</p>
 <p>There is another <strong>stable</strong> conformer, the <em>gauche</em> conformer. In this conformer the torsion angle should be near 60°. If we set the 4,1,2,3 bond torsion to 60° in the input file and then run an optimization calculation, <em>GAMESS</em> will settle down into the <strong>nearest</strong> energy well, which should be the <em>gauche</em> conformer.</p>
 <p>Let us open the butane.inp file again with the text editor. We will <strong>change</strong> only the value for the 4,1,2,3 torsion angle. The new file is shown below. We will name it as butane60.inp.</p>
 <div class="literal-block-wrapper docutils container" id="butane60-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 34 </span><span class="caption-text">butane60.inp</span><a class="headerlink" href="#butane60-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 43 </span><span class="caption-text">butane60.inp</span><a class="headerlink" href="#butane60-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -676,7 +688,7 @@ H   4    1.14000  12 109.4712  13 120.0000
 </div>
 <p>Examining the first 10 lines of the <strong>internal coordinates</strong> of the result shows that the central C–C torsion is 67°. This is very close to the expected value. It is not exactly 60° because of the <strong>steric size</strong> of the methyl group.</p>
 <div class="literal-block-wrapper docutils container" id="butane60-248-log1">
-<div class="code-block-caption"><span class="caption-number">Listing 35 </span><span class="caption-text">butane60_248.log</span><a class="headerlink" href="#butane60-248-log1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 44 </span><span class="caption-text">butane60_248.log</span><a class="headerlink" href="#butane60-248-log1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">7568</span>                     <span class="o">--------------------</span>
 <span class="linenos">7569</span>                     <span class="n">INTERNAL</span> <span class="n">COORDINATES</span>
 <span class="linenos">7570</span>                     <span class="o">--------------------</span>
@@ -696,28 +708,30 @@ H   4    1.14000  12 109.4712  13 120.0000
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="communication-the-results">
-<h2>Communication The Results<a class="headerlink" href="#communication-the-results" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="communication-the-results">
+<h2>Communication The Results<a class="headerlink" href="#communication-the-results" title="Permalink to this heading">#</a></h2>
 <p>We can use <em>MacMolPlt</em> to create <strong>images</strong> of the two results. We will load in the log file of each. As an example we will use the most recent result stored as butane60_248.log. I will use the mouse pointer to select the four carbon atoms. Then I will <strong>display</strong> the value of the dihedral angle by choosing <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Annotations</span></code> → <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Dihedral</span></code>. I then choose <code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">Export…</span></code> and export the image as PNG. There are many settings here, feel free to explore. In the end I generated the two images shown in <a class="reference internal" href="#fig5-5"><span class="std std-numref">Fig. 18</span></a>.</p>
-<div class="figure align-default" id="fig5-5">
+<figure class="align-default" id="fig5-5">
 <a class="reference internal image-reference" href="_images/profiles_Picture5.png"><img alt="_images/profiles_Picture5.png" src="_images/profiles_Picture5.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text"><em>The optimized <em>gauche</em> and <em>anti</em> conformations</em></span><a class="headerlink" href="#fig5-5" title="Permalink to this image">#</a></p>
-</div>
-</div>
-<div class="section" id="the-energy">
-<h2>The Energy<a class="headerlink" href="#the-energy" title="Permalink to this headline">#</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text"><em>The optimized <em>gauche</em> and <em>anti</em> conformations</em></span><a class="headerlink" href="#fig5-5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-energy">
+<h2>The Energy<a class="headerlink" href="#the-energy" title="Permalink to this heading">#</a></h2>
 <p>The energy of each <strong>structure</strong> was calculated.  The energy reported is the “energy of atomization.” This is the energy released when these atoms come together. If a gas of neutral carbon atoms (only 4 electrons in their valence shells – very unhappy) combined with neutral hydrogen atoms (also with unfilled valence shells) then the <strong>energy</strong> reported by <em>GAMESS</em> is what is released (per molecule). The unit for this atomization energy is Hartrees.</p>
 <p>One <strong>Hartree</strong> (<em>Ha</em>) is 4.3597 × 10<sup>−18</sup> <em>J</em>. When we <strong>multiply</strong> by Avogadro’s number we get 2625.50 <em>kJ/mole</em></p>
 <p>The <strong>energies</strong> for the final structures in our two calculations are: E = -156.4324667260 <em>Ha</em> for the <em>anti</em> conformer and E = -156.4312439164 <em>Ha</em> for the <em>gauche</em> conformer. The difference is 0.001223 <em>Ha</em>. This comes out to 3.21 <em>kJ/mole</em>. The <strong>literature</strong> vale is 3.8 <em>kJ/mole</em>, so even this low level of theory (3-21G) performed well.</p>
-</div>
-<div class="section" id="freezing-a-coordinate">
-<h2>Freezing a Coordinate<a class="headerlink" href="#freezing-a-coordinate" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="freezing-a-coordinate">
+<h2>Freezing a Coordinate<a class="headerlink" href="#freezing-a-coordinate" title="Permalink to this heading">#</a></h2>
 <p>Allowing the structure to <strong>relax</strong> to minimums at torsional angles of near 180° (<em>anti</em>) and 60° (<em>gauche</em>) merely requires <strong>allowing</strong> it to happen. But how do we optimize a structure for a maximum? The <em>syn</em> conformer and the <em>eclipsed</em> conformer are each <strong>peaks</strong> in energy. We can <strong>freeze</strong> the value for any of the coordinates in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group using the <code class="docutils literal notranslate"><span class="pre">IFREEZ</span></code> setting within the <code class="docutils literal notranslate"><span class="pre">$STATPT</span></code> group.</p>
 <p>The sixth coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group is for the central C–C bond <strong>torsion</strong>. If we add the command <code class="docutils literal notranslate"><span class="pre">IFREEZ(1)=6</span></code> then the value of that <strong>internal coordinate</strong> will not be able to change.  All the other bond lengths, angles and torsions will seek their lowest energy so we will hopefully find the lowest energy versions of the <em>syn</em> and <em>eclipsed</em> conformations.</p>
 <p>I will use a text editor to change our input file. We will change the <code class="docutils literal notranslate"><span class="pre">4,1,2,3</span></code> torsion to <code class="docutils literal notranslate"><span class="pre">0&amp;deg;</span></code> (<em>syn</em>) and then lock the sixth coordinate in the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group that <strong>corresponds</strong> to that internal coordinate. The new input file is shown below.</p>
 <div class="literal-block-wrapper docutils container" id="butane-scan-0-inp1">
-<div class="code-block-caption"><span class="caption-number">Listing 36 </span><span class="caption-text">butane_scan_0.inp</span><a class="headerlink" href="#butane-scan-0-inp1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">butane_scan_0.inp</span><a class="headerlink" href="#butane-scan-0-inp1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -764,41 +778,49 @@ H   4    1.14000  12 109.4712 13  120.0000
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSERCH</span><span class="p">:</span>  <span class="mi">26</span>  <span class="n">E</span><span class="o">=</span>     <span class="o">-</span><span class="mf">156.4267263644</span>  <span class="n">GRAD</span><span class="o">.</span> <span class="n">MAX</span><span class="o">=</span>  <span class="mf">0.0000638</span>  <span class="n">R</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">S</span><span class="o">.=</span>  <span class="mf">0.0000200</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="the-energy-profile">
-<h2>The Energy Profile<a class="headerlink" href="#the-energy-profile" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="the-energy-profile">
+<h2>The Energy Profile<a class="headerlink" href="#the-energy-profile" title="Permalink to this heading">#</a></h2>
 <p>We now have points for <strong>all four</strong> identified conformers. If we use the <em>anti</em> conformer as the base, we can calculate the difference in energy to the two maximums. We calculate that the <em>anti</em> conformer is <span class="math notranslate nohighlight">\(25.3 \, kJ/mole\)</span> higher in energy and the <em>eclipsed</em> conformer is <span class="math notranslate nohighlight">\(15.2 \, kJ/mole\)</span>.</p>
 <p>We could use this information to <strong>sketch</strong> out the rotational energy profile. The line in <a class="reference internal" href="#fig5-6"><span class="std std-numref">Fig. 19</span></a> is just drawn in and has no mathematical value, although it’s likely close to how the energy changes with torsion angle. Remember, we are using a low level of theory and are in <strong>gas phase</strong>, so accuracy will be low but the trend is clear.</p>
-<div class="figure align-default" id="fig5-6">
+<figure class="align-default" id="fig5-6">
 <a class="reference internal image-reference" href="_images/profiles_Picture6.png"><img alt="_images/profiles_Picture6.png" src="_images/profiles_Picture6.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>Rotational energy profile for butane.</em></span><a class="headerlink" href="#fig5-6" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>Rotational energy profile for butane.</em></span><a class="headerlink" href="#fig5-6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We can display images that represent the minimized structures for the <em>syn</em> and <em>eclipsed</em> conformers using <em>MacMolPlt</em> as we did above. See <a class="reference internal" href="#fig5-7"><span class="std std-numref">Fig. 20</span></a>.</p>
-<div class="figure align-default" id="fig5-7">
+<figure class="align-default" id="fig5-7">
 <a class="reference internal image-reference" href="_images/profiles_Picture7.png"><img alt="_images/profiles_Picture7.png" src="_images/profiles_Picture7.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>The calculated structure for the <em>anti</em>, <em>eclipsed</em>, <em>gauche</em>, and <em>syn</em> conformers.</em></span><a class="headerlink" href="#fig5-7" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>The calculated structure for the <em>anti</em>, <em>eclipsed</em>, <em>gauche</em>, and <em>syn</em> conformers.</em></span><a class="headerlink" href="#fig5-7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We can <strong>repeat</strong> these calculations again and again using <strong>different values</strong> for the 4,1,2,3 torsion. All it takes is typing and time.</p>
 <p>In the <strong>next chapter</strong> you will see ways to use the power of your computer and <em>Unix</em> tools to enable these operations to be <strong>done quickly</strong>. Below is a plot of data points between zero and 180°. I performed calculations at 5° intervals. It took only minutes to manually <strong>create</strong> the 36 input files and then drop them all into <em>GamessQ</em>. After a pause to brew a coffee, the jobs finished (it is a low cost level of theory – we could use basis sets that would result in run times of days on my little desktop computer.) I then was able to <strong>extract</strong> the energies with a single command and get a <strong>plot</strong> in less than a minute of effort. That is the power of <em>Unix</em>. See <a class="reference internal" href="#fig5-8"><span class="std std-numref">Fig. 21</span></a></p>
-<div class="figure align-default" id="fig5-8">
+<figure class="align-default" id="fig5-8">
 <a class="reference internal image-reference" href="_images/profiles_Picture8.png"><img alt="_images/profiles_Picture8.png" src="_images/profiles_Picture8.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G level.</em></span><a class="headerlink" href="#fig5-8" title="Permalink to this image">#</a></p>
-</div>
-<div class="section" id="higher-level-theory">
-<h3>Higher Level Theory<a class="headerlink" href="#higher-level-theory" title="Permalink to this headline">#</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G level.</em></span><a class="headerlink" href="#fig5-8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="higher-level-theory">
+<h3>Higher Level Theory<a class="headerlink" href="#higher-level-theory" title="Permalink to this heading">#</a></h3>
 <p>For fun I set up a <strong>calculation</strong> for a scan of the central C–C torsion using the 6-311G(d,p)++ level of theory. I selected the 6-31G basis set. Then I set the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">D</span> <span class="pre">atom</span> <span class="pre">polarization</span> <span class="pre">functions</span></code> to 1 and the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Light</span> <span class="pre">atom</span> <span class="pre">polarization</span> <span class="pre">functions</span></code> to 1. <a class="reference internal" href="#fig5-9"><span class="std std-numref">Fig. 22</span></a> is a plot of the 3-21G level compared to the 6-311G(d,p)++ level.</p>
-<div class="figure align-default" id="fig5-9">
+<figure class="align-default" id="fig5-9">
 <a class="reference internal image-reference" href="_images/profiles_Picture9.png"><img alt="_images/profiles_Picture9.png" src="_images/profiles_Picture9.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G (black) and 6-311G(d,p)++ level (orange).</em></span><a class="headerlink" href="#fig5-9" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text"><em>Rotational energy profile for butane at 3-21G (black) and 6-311G(d,p)++ level (orange).</em></span><a class="headerlink" href="#fig5-9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>You can see that they are very similar. The <strong>torsion angle</strong> for the <em>gauche</em> conformer was calculated to be 65° when using the 6-311G(d,p)++ basis set (compared to 67°). The <strong>energy profile</strong> is very similar. When using 1st and 2nd row elements with no charges or strained bonds, the 3-21G basis set gives good results.</p>
-</div>
-</div>
-<div class="section" id="using-unix">
-<h2>Using Unix<a class="headerlink" href="#using-unix" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="using-unix">
+<h2>Using Unix<a class="headerlink" href="#using-unix" title="Permalink to this heading">#</a></h2>
 <p>Using the <em>Unix</em> skills described in the Setting Up <em>GAMESS</em> document, we can <strong>manipulate</strong> the text output files to <strong>extract</strong> important bits of information. First open a window in your terminal emulator.</p>
-<div class="section" id="extracting-information">
-<h3>Extracting Information<a class="headerlink" href="#extracting-information" title="Permalink to this headline">#</a></h3>
+<section id="extracting-information">
+<h3>Extracting Information<a class="headerlink" href="#extracting-information" title="Permalink to this heading">#</a></h3>
 <p>We will now extract just the <strong>lines that we want</strong> from the large log file. <em>grep</em> is a tool that can be called from the shell. It will read the file line by line and return only the lines that contain a given text string.
 The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;NSERCH&quot;</span> <span class="pre">butane60_248.log</span> <span class="pre">&gt;</span> <span class="pre">energy.txt</span></code> will extract the text lines that I observed contained both the calculated energy and the step number for each optimization step. The file <code class="docutils literal notranslate"><span class="pre">energy.txt</span></code> now <strong>contains</strong> the following content.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BEGINNING</span> <span class="n">GEOMETRY</span> <span class="n">SEARCH</span> <span class="n">POINT</span> <span class="n">NSERCH</span><span class="o">=</span>   <span class="mi">0</span> <span class="o">...</span>
@@ -842,25 +864,29 @@ The command <code class="docutils literal notranslate"><span class="pre">grep</s
 </pre></div>
 </div>
 <p>I can then import <code class="docutils literal notranslate"><span class="pre">energy2.txt</span></code> into a spreadsheet program or <strong>pandas dataframe</strong> and make a graph of the energy and the gradient as we go through the steps. In <a class="reference internal" href="#fig5-10a"><span class="std std-numref">Fig. 23</span></a> and <a class="reference internal" href="#fig5-10b"><span class="std std-numref">Fig. 24</span></a>, we see these plots. The energy in the <strong>result table</strong> was in Hartrees, a unit common in computational chemistry. We will convert to <em>kJ/mole</em>.</p>
-<div class="figure align-default" id="fig5-10a">
+<figure class="align-default" id="fig5-10a">
 <a class="reference internal image-reference" href="_images/profiles_Picture10A.png"><img alt="_images/profiles_Picture10A.png" src="_images/profiles_Picture10A.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text"><em>Plot of relative energy energy at each optimization step as the minimization proceeds.</em></span><a class="headerlink" href="#fig5-10a" title="Permalink to this image">#</a></p>
-</div>
-<div class="figure align-default" id="fig5-10b">
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text"><em>Plot of relative energy energy at each optimization step as the minimization proceeds.</em></span><a class="headerlink" href="#fig5-10a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig5-10b">
 <a class="reference internal image-reference" href="_images/profiles_Picture10B.png"><img alt="_images/profiles_Picture10B.png" src="_images/profiles_Picture10B.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text"><em>Plot of the gradient calculated before each optimization step.</em></span><a class="headerlink" href="#fig5-10b" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text"><em>Plot of the gradient calculated before each optimization step.</em></span><a class="headerlink" href="#fig5-10b" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The energy <strong>changes</strong> quickly in the first few steps and then we keep making small changes until the <em>GAMESS</em> program halted the optimization. There was one phase where the process found a <strong>steeper</strong> path to the finish line. It’s like going down a ski hill. You will always follow the <strong>steepest</strong> line from where you are standing, not always the best line. And you will encounter trees occasionally.</p>
 <p>Instead of <strong>searching</strong> through the output file for the energy and gradient at each step, we used <em>grep</em> to extract the lines that we needed automatically.</p>
-</div>
-<div class="section" id="making-many-similar-files">
-<h3>Making Many Similar Files<a class="headerlink" href="#making-many-similar-files" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="making-many-similar-files">
+<h3>Making Many Similar Files<a class="headerlink" href="#making-many-similar-files" title="Permalink to this heading">#</a></h3>
 <p>We can use <em>Unix</em> tools to quickly produce a series of files for the <strong>scan</strong> of the torsion coordinate for the central C–C bond of butane.</p>
 <p>First I will create a <strong>new version</strong> of the input file that we have been using and I will replace the value for the frozen torsion coordinate with the string <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>.
  
 Below is the new input file</p>
 <div class="literal-block-wrapper docutils container" id="butane-scan-inp1">
-<div class="code-block-caption"><span class="caption-number">Listing 37 </span><span class="caption-text">butane-SCAN.inp</span><a class="headerlink" href="#butane-scan-inp1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">butane-SCAN.inp</span><a class="headerlink" href="#butane-scan-inp1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -896,12 +922,12 @@ H   4    1.14000  12 109.4712 13  119.0000
 </div>
 <p>I then created the following <strong>script</strong> file in my text editor. You will have to <strong>change</strong> the first filename to suit your own series and can change the values in the series if you wish.</p>
 <div class="literal-block-wrapper docutils container" id="makescan-sh2">
-<div class="code-block-caption"><span class="caption-number">Listing 38 </span><span class="caption-text">makescan.sh</span><a class="headerlink" href="#makescan-sh2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text">makescan.sh</span><a class="headerlink" href="#makescan-sh2" title="Permalink to this code">#</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">input_file</span><span class="o">=</span>butane-SCAN.inp
 <span class="nv">spacer</span><span class="o">=</span>_
-<span class="k">for</span> num <span class="k">in</span> <span class="k">$(</span>seq -w <span class="m">000</span> <span class="m">010</span> <span class="m">180</span><span class="k">)</span>
+<span class="k">for</span><span class="w"> </span>num<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span>-w<span class="w"> </span><span class="m">000</span><span class="w"> </span><span class="m">010</span><span class="w"> </span><span class="m">180</span><span class="k">)</span>
 <span class="k">do</span>
-  sed <span class="s2">&quot;s/NUMBER/</span><span class="nv">$num</span><span class="s2">/&quot;</span> <span class="nv">$input_file</span> &gt; <span class="s2">&quot;</span><span class="nv">$input_file$spacer$num</span><span class="s2">.inp&quot;</span>
+<span class="w">  </span>sed<span class="w"> </span><span class="s2">&quot;s/NUMBER/</span><span class="nv">$num</span><span class="s2">/&quot;</span><span class="w"> </span><span class="nv">$input_file</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input_file$spacer$num</span><span class="s2">.inp&quot;</span>
 <span class="k">done</span>
 </pre></div>
 </div>
@@ -915,9 +941,9 @@ H   4    1.14000  12 109.4712 13  119.0000
 <p>Nineteen files will be <strong>created</strong> with values written into the 4,1,2,3 torsion coordinate from 0 to 180 degrees. <strong>Examine</strong> any of the new files and see that this is true. Select all the new input files and drop them onto the <em>GamessQ</em> window. In a few minutes all the files will have been run and nineteen new output files will result.</p>
 <p>We now have <strong>nineteen outout files</strong>. We can use the previous <em>grep</em> commands and take the final energy <strong>from each file</strong>. Or we could <strong>automate</strong> the process with the following shell script.</p>
 <div class="literal-block-wrapper docutils container" id="extract-sh2">
-<div class="code-block-caption"><span class="caption-number">Listing 39 </span><span class="caption-text">extract.sh</span><a class="headerlink" href="#extract-sh2" title="Permalink to this code">#</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> name <span class="k">in</span> butane-SCAN*.log<span class="p">;</span> <span class="k">do</span>
-    grep -H <span class="s2">&quot;NSERCH&quot;</span> <span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;GRAD&quot;</span> <span class="p">|</span> tail -n <span class="m">1</span>
+<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text">extract.sh</span><a class="headerlink" href="#extract-sh2" title="Permalink to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>name<span class="w"> </span><span class="k">in</span><span class="w"> </span>butane-SCAN*.log<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>grep<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;NSERCH&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;GRAD&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 <span class="k">done</span>
 </pre></div>
 </div>
@@ -928,62 +954,64 @@ H   4    1.14000  12 109.4712 13  119.0000
 </div>
 <p>The butane-result.txt file now contains the <strong>last energy value</strong> for each result file.</p>
 <div class="literal-block-wrapper docutils container" id="butane-result-txt1">
-<div class="code-block-caption"><span class="caption-number">Listing 40 </span><span class="caption-text">butane-result.txt</span><a class="headerlink" href="#butane-result-txt1" title="Permalink to this code">#</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>butane-SCAN.inp_000_113.log: NSERCH:  <span class="m">23</span>  <span class="nv">E</span><span class="o">=</span>     -156.4228465418  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000585  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000204
-butane-SCAN.inp_010_114.log: NSERCH:  <span class="m">18</span>  <span class="nv">E</span><span class="o">=</span>     -156.4233726910  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000931  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000255
-butane-SCAN.inp_020_115.log: NSERCH:  <span class="m">16</span>  <span class="nv">E</span><span class="o">=</span>     -156.4247889225  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000789  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000273
-butane-SCAN.inp_030_116.log: NSERCH:  <span class="m">16</span>  <span class="nv">E</span><span class="o">=</span>     -156.4267021853  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000394  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000149
-butane-SCAN.inp_040_117.log: NSERCH:  <span class="m">19</span>  <span class="nv">E</span><span class="o">=</span>     -156.4286426893  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000765  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000260
-butane-SCAN.inp_050_118.log: NSERCH:  <span class="m">18</span>  <span class="nv">E</span><span class="o">=</span>     -156.4301847220  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000241  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000105
-butane-SCAN.inp_060_119.log: NSERCH:  <span class="m">23</span>  <span class="nv">E</span><span class="o">=</span>     -156.4310615763  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000675  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000212
-butane-SCAN.inp_070_120.log: NSERCH:  <span class="m">25</span>  <span class="nv">E</span><span class="o">=</span>     -156.4312168483  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000339  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000129
-butane-SCAN.inp_080_121.log: NSERCH:  <span class="m">24</span>  <span class="nv">E</span><span class="o">=</span>     -156.4306888649  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000987  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000300
-butane-SCAN.inp_090_122.log: NSERCH:  <span class="m">26</span>  <span class="nv">E</span><span class="o">=</span>     -156.4295739060  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000494  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000155
-butane-SCAN.inp_100_123.log: NSERCH:1000  <span class="nv">E</span><span class="o">=</span>     -156.4251866611  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0059215  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0016768
-butane-SCAN.inp_110_124.log: NSERCH:  <span class="m">23</span>  <span class="nv">E</span><span class="o">=</span>     -156.4271414620  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000819  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000247
-butane-SCAN.inp_120_125.log: NSERCH:  <span class="m">24</span>  <span class="nv">E</span><span class="o">=</span>     -156.4267263463  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000884  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000234
-butane-SCAN.inp_130_126.log: NSERCH: <span class="m">284</span>  <span class="nv">E</span><span class="o">=</span>     -156.4271134924  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000383  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000148
-butane-SCAN.inp_140_127.log: NSERCH:  <span class="m">21</span>  <span class="nv">E</span><span class="o">=</span>     -156.4281850977  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000701  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000323
-butane-SCAN.inp_150_128.log: NSERCH:  <span class="m">21</span>  <span class="nv">E</span><span class="o">=</span>     -156.4296331216  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000712  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000225
-butane-SCAN.inp_160_129.log: NSERCH: <span class="m">698</span>  <span class="nv">E</span><span class="o">=</span>     -156.4310602050  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000561  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000155
-butane-SCAN.inp_170_130.log: NSERCH:  <span class="m">20</span>  <span class="nv">E</span><span class="o">=</span>     -156.4320918106  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000675  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000216
-butane-SCAN.inp_180_131.log: NSERCH:  <span class="m">23</span>  <span class="nv">E</span><span class="o">=</span>     -156.4324667182  GRAD. <span class="nv">MAX</span><span class="o">=</span>  <span class="m">0</span>.0000605  R.M.S.<span class="o">=</span>  <span class="m">0</span>.0000189
+<div class="code-block-caption"><span class="caption-number">Listing 49 </span><span class="caption-text">butane-result.txt</span><a class="headerlink" href="#butane-result-txt1" title="Permalink to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>butane-SCAN.inp_000_113.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">23</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4228465418<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000585<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000204
+butane-SCAN.inp_010_114.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">18</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4233726910<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000931<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000255
+butane-SCAN.inp_020_115.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">16</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4247889225<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000789<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000273
+butane-SCAN.inp_030_116.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">16</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4267021853<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000394<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000149
+butane-SCAN.inp_040_117.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">19</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4286426893<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000765<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000260
+butane-SCAN.inp_050_118.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">18</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4301847220<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000241<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000105
+butane-SCAN.inp_060_119.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">23</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4310615763<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000675<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000212
+butane-SCAN.inp_070_120.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">25</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4312168483<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000339<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000129
+butane-SCAN.inp_080_121.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">24</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4306888649<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000987<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000300
+butane-SCAN.inp_090_122.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">26</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4295739060<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000494<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000155
+butane-SCAN.inp_100_123.log:<span class="w"> </span>NSERCH:1000<span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4251866611<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0059215<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0016768
+butane-SCAN.inp_110_124.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">23</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4271414620<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000819<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000247
+butane-SCAN.inp_120_125.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">24</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4267263463<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000884<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000234
+butane-SCAN.inp_130_126.log:<span class="w"> </span>NSERCH:<span class="w"> </span><span class="m">284</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4271134924<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000383<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000148
+butane-SCAN.inp_140_127.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">21</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4281850977<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000701<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000323
+butane-SCAN.inp_150_128.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">21</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4296331216<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000712<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000225
+butane-SCAN.inp_160_129.log:<span class="w"> </span>NSERCH:<span class="w"> </span><span class="m">698</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4310602050<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000561<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000155
+butane-SCAN.inp_170_130.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">20</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4320918106<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000675<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000216
+butane-SCAN.inp_180_131.log:<span class="w"> </span>NSERCH:<span class="w">  </span><span class="m">23</span><span class="w">  </span><span class="nv">E</span><span class="o">=</span><span class="w">     </span>-156.4324667182<span class="w">  </span>GRAD.<span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000605<span class="w">  </span>R.M.S.<span class="o">=</span><span class="w">  </span><span class="m">0</span>.0000189
 </pre></div>
 </div>
 </div>
 <p>You can see that <strong>one run failed</strong> to find a result. After 1000 steps it still had a large gradient and the energy is still high. We could graph the energy per step and the gradients as we did before and see the path taken. We could manually <strong>check that file</strong> and perhaps change a few values to see if that helps. However, we have lots of points so we could just drop that one from the data set. I loaded butane-result.txt into a <em>pandas</em> dataframe in <em>Python</em> and produced the following <strong>plot</strong> in <a class="reference internal" href="#fig5-11"><span class="std std-numref">Fig. 25</span></a>.</p>
 <p>We can load the log file into <em>MacMolPlt</em> and <strong>scrub</strong> along the minimization <strong>path</strong>. We can also <strong>plot</strong> the energy and gradients within <em>MacMolPlt</em>. Seek and you will find.</p>
-<div class="figure align-default" id="fig5-11">
+<figure class="align-default" id="fig5-11">
 <a class="reference internal image-reference" href="_images/profiles_Picture11.png"><img alt="_images/profiles_Picture11.png" src="_images/profiles_Picture11.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text"><em>The rotational energy profile for butane. It behaves as expected.</em></span><a class="headerlink" href="#fig5-11" title="Permalink to this image">#</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text"><em>The rotational energy profile for butane. It behaves as expected.</em></span><a class="headerlink" href="#fig5-11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>We used <em>MacMolPlt</em> to <strong>build</strong> a model of butane and export an initial input file for an optimization calculation. We <strong>optimized</strong> the structure for the <em>anti</em> conformation and found the <em>gauche</em> conformation by starting with an initial structure that was to <strong>near</strong> that conformation. Thus we located the <strong>global</strong> minimum and a <strong>local</strong> minimum on the <strong>rotational energy surface</strong>.</p>
 <p>Then we edited the file to <strong>freeze</strong> the coordinate that corresponded to the central C–C <strong>bond rotation</strong> and the set the internal coordinate for that <strong>torsion</strong> to 0° and 120° to find the energy of the <em>syn</em> conformation and an <em>eclipsed</em> conformation. With this, we have the important parts of the rotational energy profile.</p>
 <p>We learned how to use <em>Unix</em> tools to <strong>extract</strong> information from large text files and from multiple text files and we learned how to <strong>create</strong> multiple input files using an <strong>automated</strong> process. We were introduced to the idea of shell scripts and to useful tools such as <em>grep</em> and <em>sed</em>.</p>
 <p>We examined the <strong>format</strong> of the <code class="docutils literal notranslate"><span class="pre">Z-matrix</span></code> in detail. We used the <strong>internal coordinates</strong> to easily create the series of input files for the rotational coordinate scan. Using <em>Unix</em> tools, we created many input files with frozen torsion coordinates to create a rotational energy profile. We used <em>GamessQ</em> to submit the files as a <strong>batch job</strong>. We extracted the energy from these files and plotted the complete rotational energy profile.</p>
-</div>
-<div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
 <p>Read the accompanying discussion and then try the following exercises.</p>
-<div class="section" id="the-activities">
-<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">#</a></h3>
+<section id="the-activities">
+<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this heading">#</a></h3>
 <p><strong>Construct</strong> ethane, propane, butane, 2-methylbutane using <em>MacMolPlt</em>. <strong>Export</strong> input files for <em>GAMESS</em> with <code class="docutils literal notranslate"><span class="pre">Z-matrices</span></code> and using the <code class="docutils literal notranslate"><span class="pre">$ZMAT</span></code> group for declaring internal coordinates.</p>
 <p><strong>Identify</strong> all likely minima and maxima along the <strong>rotational energy surface</strong> using the central C–C torsion coordinate of each molecule. <strong>Calculate</strong> the HF/3-21G energy for optimized structures at these points in the coordinate. Use frozen coordinates (or symmetry) for the energy maxima. <strong>Create</strong> a table with the energies and torsion angles for all your calculations (relative to the global minimum in each) with units in <em>kJ/mole</em> and degrees.</p>
 <p>Using <em>Unix</em> tools (or brute force) <strong>generate</strong> input files for rotational energy scans of these molecules. Produce a <strong>plot</strong> of energy vs. angle to create a <strong>visual representation</strong> of the rotational energy profile of each molecule. Try placing all four profiles on the same plot for comparison.</p>
-</div>
-<div class="section" id="the-report">
-<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-report">
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this heading">#</a></h3>
 <p>Present a ONE PAGE <strong>document</strong> with the table of angles and energies for maxima and minima that you generated. Include the plot of the entire rotational energy profile and <strong>comment</strong> if it fits with your table.</p>
 <p>If you brute forced the operation, please <strong>report the time</strong> it took to create all the files and extract the energy data from each result file. If you used the <em>Unix</em> tools, please <strong>report the time</strong> as well. The table and plot must be professional in appearance.</p>
-</div>
-</div>
+</section>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

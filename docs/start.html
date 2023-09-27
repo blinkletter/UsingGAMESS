@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Fun With GAMESS &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Building Your System" href="1_Setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -346,15 +348,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="fun-with-gamess">
-<h1>Fun With <em>GAMESS</em><a class="headerlink" href="#fun-with-gamess" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="fun-with-gamess">
+<h1>Fun With <em>GAMESS</em><a class="headerlink" href="#fun-with-gamess" title="Permalink to this heading">#</a></h1>
 <p>This resource is intended to help organic chemistry students set up the <em><strong>GAMESS</strong></em> computational chemistry software on their own computer and perform a series of small calculations. It supports my course in physical organic chemistry. There is another course available in computational chemistry that will take you much farther if you catch the bug here. I hear that that course is all math, but mine is all fun. Let us have some <strong>fun with <em>GAMESS</em></strong>.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="_images/SN2_2_copy.gif" src="_images/SN2_2_copy.gif" />
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="table-of-contents">
-<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h1>
+</figure>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h1>
 <p>Below is a list of the chapters in this book and some notes on what you will find in each.</p>
 <p><a class="reference internal" href="1_Setup.html"><span class="doc std std-doc"><strong>1. Building Your System</strong></span></a>. Here you will be shown where to <strong>obtain the software</strong> and how to <strong>install and run it</strong> on a <em>MacOS Unix</em> system. These instructions should be easily applied to <em>Linux</em>. Essential <strong><em>Unix</em> tools</strong> will be explained.</p>
 <p><a class="reference internal" href="2_SmallMolecules.html"><span class="doc std std-doc"><strong>2. Water: Getting Started</strong></span></a>. This chapter will introduce how to <strong>run a job</strong> in <em>GAMESS</em>. We will explore the ways that molecules are described to <em>GAMESS</em> in <strong>input files</strong>. We will see examples of using <em>xyz</em> <strong>Cartessian coordinates</strong> to describe the locations of atoms, using symmetry point groups so that we need only describe the symmetry unique atoms and using internal coordinates via the <em><strong>Z-matrix</strong></em>. We will optimize the structures of <strong>water and ammonia</strong> using <em>GAMESS</em>. We will use semi-empirical and <em>ab initio</em> methods and introduce the idea of <strong>levels of theory</strong> in calculations. <em>GAMESS</em> will be run using the command line in the terminal. Results will be interpretted using the <strong>log files</strong> generated as output from <em>GAMESS</em>.</p>
@@ -366,16 +368,16 @@ document.write(`
 <p><a class="reference internal" href="7_Butadiene.html"><span class="doc std std-doc"><strong>8. Butadiene: Transition State for Rotation</strong></span></a>. We will use internal <em><strong>Z-matrix</strong></em> coordinates and <em>Unix</em> tools to create a series of input files for <strong>constrained optization</strong> of different rotational conformers of butadiene. Interactive <em>Python</em> will be used to analyze and plot the results. Then we will explore <strong>optimizing a transition state</strong> structure for the highest energy point in the bond rotation.</p>
 <p><a class="reference internal" href="8A_Diels_Alder.html"><span class="doc std std-doc"><strong>9. Diels-Alder Reaction: Intrinsic Reaction Coordinates</strong></span></a>. We’ve all seen those little movies of a <strong>reaction in progress</strong>. We can make our own movies. We will use the Diels-Alder cycloaddition reaction as an example to demonstrate a <strong>reaction coordinate scan</strong> using a new method to <strong>contrain coordinates</strong>. We will not use the <em>Z-matrix</em>, but will use unique Cartessian coordinates and freeze automatically-generated internal coordinates of specific atoms using the $ZMAT IFZMAT and FVALUE options. We can then use this system to generate a <strong>series of structures</strong> that may track near the <strong>reaction coordinate</strong>. From this series we will identify a structure that is near the transition state and perform a <strong>transition state optimization</strong>. Finally we will use the transition state as a starting point for following the potential energy surface down to the products on either side via an <strong>intrinsic reaction coordinate</strong> calculation. We will use <em>MacMolPlt</em> to assemble the complete reaction coordinate from the log files and <strong>visualize</strong> the structures. <em>MacMolPlt</em> will produce an <strong>energy plot</strong> for us. In the end, we will <strong>make a movie</strong>.</p>
 <p><a class="reference internal" href="9_Solvent.html"><span class="doc std std-doc"><strong>10. Solvent Models</strong></span></a>. Organic chemists do not live in <strong>gas phase</strong>. Our reactions occur in <strong>solvents</strong>. <em>GAMESS</em> can include solvemnt effects through a variety of methods.  We will use the PCM method to <strong>simulate a solvent environment</strong> and observe the difference in calculations for an <em>S<sub>N</sub>2</em> reaction. We will again explore using <strong>symmetry</strong> to enforce geometry during optimization, <strong>saddle point</strong> optimization and <strong>intrinsic reaction coordinate</strong> calculations. This exercise will place an emphasis on using interactive <em>Python</em> tools to <strong>process</strong>, <strong>clean</strong> and <strong>tabulate</strong> the data.</p>
-<div class="section" id="notes-and-comments">
-<h2>Notes and Comments<a class="headerlink" href="#notes-and-comments" title="Permalink to this headline">#</a></h2>
+<section id="notes-and-comments">
+<h2>Notes and Comments<a class="headerlink" href="#notes-and-comments" title="Permalink to this heading">#</a></h2>
 <p><strong>Style</strong>. This book was started as notes to myself as I stumbled through <strong>learning</strong> how to use <em>GAMESS</em>. I wanted to build an exercise in visiualizing molecular orbitals but, as I realized how <strong>easy</strong> some calculations were, I decided to do <strong>more</strong>. Since it was written to me, by me, it has a casual and inconsistent <strong>style</strong>. You will see “I” and “we” mixed in with passive voice. I make no apologies. Feel free to <strong>send me comments and corrections</strong>. I do need an editor.</p>
 <p><strong>Bold Text</strong>. You will see many words in <strong>bold face</strong> fonts. I once took a course in student engagement and one recommendation was to intersperse bold <strong>highlights</strong> throughout a paragraph. This is apparently useful for helping students to <strong>read</strong>, especially now that we all have attention spans measured in <strong>seconds</strong> rather than <strong>minutes</strong>. I tried to keep the bold text on key words but often they are in patterns such as “<strong>big</strong>” and “<strong>small</strong>”. In other places bold is used just because it had been a <strong>while</strong> since the last bold word. Please let me know if this <strong>bold experiment</strong> is helpful or annoying.</p>
 <p><strong>Other Font Highlights</strong>. There is a <strong>code style</strong> used throughout the book. It is rendered as a <strong>monospace font</strong> in red/pink when in a paragraph and as monospace font with a grey background when in blocks. It is used for code, text that is being quoted from text files, and for command line entries. <strong>Italics</strong> are used for the traditional scientific uses and also for filenames of applications such as <em>GAMESS</em>.</p>
 <p><strong>Line Numbers</strong>. Many code listings include line numbers along the <strong>left edge</strong>. These are generated by the book itself and are not part of the text of the original file. I use them to refer to <strong>specific lines</strong> in discussions and to <strong>quickly find</strong> the relevant locations in enormous text files. I do not use them in presentations of input files so that you can more easily use that code via cut-and-paste.</p>
-</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
