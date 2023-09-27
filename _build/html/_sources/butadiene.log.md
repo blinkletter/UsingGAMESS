@@ -3,14 +3,16 @@
 Below is the output file for the butadiene optimization job.
 
 **Butadiene.log**
-```{code-block} 
+
+```{code-block}
 ---
 name: Butadiene.logFILE
 linenos: True
 lineno-start: 1
-emphasize-lines:
+emphasize-lines: 1
 caption: Butadiene.log
 ---
+
 ----- GAMESS execution script 'rungms' -----
 This job is running on host Barrys-MacBook-Pro-13.local
 under operating system Darwin at Tue 2 Nov 2021 00:37:04 ADT

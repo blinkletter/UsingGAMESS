@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Data Cleaning Workflow &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Data Plotting Workflow" href="10_Solvent_IRC_Plots-Data.html" />
     <link rel="prev" title="10. Solvent: The Environment Matters" href="9_Solvent.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -387,13 +389,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-cleaning-workflow">
-<h1>Data Cleaning Workflow<a class="headerlink" href="#data-cleaning-workflow" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-cleaning-workflow">
+<h1>Data Cleaning Workflow<a class="headerlink" href="#data-cleaning-workflow" title="Permalink to this heading">#</a></h1>
 <p>As <strong>discussed</strong> in the exercise we have <strong>extracted</strong> the IRC log files for the gas-phase and solvent calculations to obtain the following files. In addition we have <strong>observed</strong> that the energy at step zero is -955.6969739956 <em>Ha</em> for the solvent and -955.6090406225 <em>Ha</em> for gas-phase.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Files</p></th>
-<th class="text-left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Files</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -412,10 +414,10 @@ document.write(`
 </tbody>
 </table>
 <p>And the corresponding gas phase result files.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Files</p></th>
-<th class="text-left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Files</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -433,8 +435,8 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<div class="section" id="load-your-tools">
-<h2>Load Your Tools<a class="headerlink" href="#load-your-tools" title="Permalink to this headline">#</a></h2>
+<section id="load-your-tools">
+<h2>Load Your Tools<a class="headerlink" href="#load-your-tools" title="Permalink to this heading">#</a></h2>
 <p>Load in the modules needed for this exercise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -445,15 +447,16 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="importing-raw-data">
-<h2>Importing Raw Data<a class="headerlink" href="#importing-raw-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="importing-raw-data">
+<h2>Importing Raw Data<a class="headerlink" href="#importing-raw-data" title="Permalink to this heading">#</a></h2>
 <p>We could have <strong>edited</strong> the data in a text editor, but we will do everything using the data analysis tools of <em>Python</em> and <em>pandas</em>. First we will <strong>import</strong> the data as a dataframe using <em>pandas</em>. The datafile must be in the same directory as this workbook, or you must specify the file path. Don’t worry, <em>Python</em> will scream at you if you make a mistake and you will be able to <strong>fix any problems</strong>.</p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code> function to <strong>read each file</strong> and create a dataframe object. The <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">None</span></code> setting prevents the first line from being used to label the columns. The <code class="docutils literal notranslate"><span class="pre">sep</span> <span class="pre">=</span> <span class="pre">r&quot;\s+|_&quot;</span></code> establishes that one or more spaces <strong>separates</strong> columns and also the <code class="docutils literal notranslate"><span class="pre">_</span></code> character separates columns. The <code class="docutils literal notranslate"><span class="pre">engine</span> <span class="pre">=</span> <span class="pre">&quot;python&quot;</span></code> means to use the python engine rather than the default <em>cpython</em> engine. The <em>cpython</em> engine is much faster, but it is not compatible with the way I am using the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter. How do I know this? I got an error message that told me what to do.</p>
 <p>The block of code <strong>below</strong> sets up the data files for importing the solvent data. This way we can change the filenames here and will not need to edit them in the document later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/Users/blink/Documents/CompChem/Exercises/temp/&quot;</span>   <span class="c1"># This is the folder where the data is. You will have your own different path.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/blinkletter/UsingGAMESS/main/data/&quot;</span>
+
 
 <span class="n">stride_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;stride.txt&quot;</span>
 <span class="n">stride_r_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;stride_r.txt&quot;</span>
@@ -468,9 +471,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cleaning-the-data">
-<h2>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="cleaning-the-data">
+<h2>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this heading">#</a></h2>
 <p>Data cleaning is <strong>half the work</strong> in data analysis. We need to drop empty and malformed records (each line could be considered a record in this case). We will need to drop any fields (the columns in each record are the fields). that we don’t need. Inspecting the dataframe shows me that I only need a single column from each file. We will also rename the column for what it represents.</p>
 <p>In the code below I create a new dataframe by <strong>selecting</strong> the chosen column out of the previous dataframe. we will need to <strong>invert</strong> the sign on the stride_r (reaction progress) for the <strong>reverse data</strong>. Then we will <strong>append</strong> it to the stride dataframe. We will then create a dataframe for the stride value of <strong>zero</strong> and append it to the the top of the dataframe (this value will be the first in the dataframe.) Then I <strong>renamed</strong> the column header so I don’t forget what it is.</p>
 <div class="cell tag_hide-input docutils container">
@@ -489,83 +492,67 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">stride_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">stride_r_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s+|_&quot;</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File /usr/local/lib/python3.9/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File /usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py:680,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">680</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py:575,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">575</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py:933,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">932</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">933</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1217,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1213</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;rb&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1214</span> <span class="c1"># error: No overload variant of &quot;get_handle&quot; matches argument types</span>
-<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="c1"># &quot;Union[str, PathLike[str], ReadCsvBuffer[bytes], ReadCsvBuffer[str]]&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="c1"># , &quot;str&quot;, &quot;bool&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1217</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1218</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1222</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1223</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1225</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1226</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1227</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1228</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/pandas/io/common.py:789,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">789</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/blink/Documents/CompChem/Exercises/temp/stride.txt&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AT</td>
+      <td>PATH</td>
+      <td>DISTANCE</td>
+      <td>STOTAL</td>
+      <td>=</td>
+      <td>0.09998</td>
+      <td>SQRT(AMU)-BOHR</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AT</td>
+      <td>PATH</td>
+      <td>DISTANCE</td>
+      <td>STOTAL</td>
+      <td>=</td>
+      <td>0.19993</td>
+      <td>SQRT(AMU)-BOHR</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AT</td>
+      <td>PATH</td>
+      <td>DISTANCE</td>
+      <td>STOTAL</td>
+      <td>=</td>
+      <td>0.29991</td>
+      <td>SQRT(AMU)-BOHR</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -600,8 +587,8 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="rinse-and-repeat">
-<h3>Rinse and Repeat<a class="headerlink" href="#rinse-and-repeat" title="Permalink to this headline">#</a></h3>
+<section id="rinse-and-repeat">
+<h3>Rinse and Repeat<a class="headerlink" href="#rinse-and-repeat" title="Permalink to this heading">#</a></h3>
 <p>We will <strong>repeat</strong> this for the energy files, adding the transition state energy to the top as above.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -770,9 +757,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="more-cleaning">
-<h3>More Cleaning<a class="headerlink" href="#more-cleaning" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="more-cleaning">
+<h3>More Cleaning<a class="headerlink" href="#more-cleaning" title="Permalink to this heading">#</a></h3>
 <p>Again this was repeated with the C-Cl bond length files. <strong>Here</strong> the zero position in included so it was <strong>removed</strong> from the reverse dataframe before it being appended to the end of the forward dataframe. The zero data point is kept at the top of the other dataframes so this will workout. The procedure will be <strong>repeated</strong> again for the second set of files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -825,14 +812,14 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="documentation-is-important">
-<h3>Documentation is Important<a class="headerlink" href="#documentation-is-important" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="documentation-is-important">
+<h3>Documentation is Important<a class="headerlink" href="#documentation-is-important" title="Permalink to this heading">#</a></h3>
 <p>Take note of the <strong>descriptions</strong> for how I <strong>converted</strong> the text data files into dataframes and then <strong>processed</strong> them to create the individual dataframes for each type of <strong>data</strong>. This <strong>documentation</strong> is not a waste of time. Next week, I will have no memory of what I did. I will be able to <strong>follow</strong> my own work and trouble shoot any errors because of this documentation. Most importantly, others will be able to recognize my genius or <strong>correct</strong> my mistakes</p>
-</div>
-</div>
-<div class="section" id="collate-and-write-data-table">
-<h2>Collate and Write Data Table<a class="headerlink" href="#collate-and-write-data-table" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="collate-and-write-data-table">
+<h2>Collate and Write Data Table<a class="headerlink" href="#collate-and-write-data-table" title="Permalink to this heading">#</a></h2>
 <p>We have <strong>various lists</strong> of corresponding values <strong>extracted</strong> from the log files. Now we will <strong>join</strong> the Dataframes containing each list to make a <strong>data table</strong>.  It is important that the <code class="docutils literal notranslate"><span class="pre">pd.reset_index()</span></code> method be applied to each list so that all have the <strong>same</strong> series of <strong>index values</strong>. The <code class="docutils literal notranslate"><span class="pre">pd.join()</span></code> method will align data acording to the index value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,8 +902,8 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<div class="section" id="writing-data-files">
-<h3>Writing Data Files<a class="headerlink" href="#writing-data-files" title="Permalink to this headline">#</a></h3>
+<section id="writing-data-files">
+<h3>Writing Data Files<a class="headerlink" href="#writing-data-files" title="Permalink to this heading">#</a></h3>
 <p>Now that we have a set of processed data we should <strong>write it out</strong> so that we can <strong>use it again</strong> and again without having to repeat this whole processing procedure. You will be writing two files in the end. After processing the solvent IRC data we will write the <strong>file</strong> “<code class="docutils literal notranslate"><span class="pre">SN2_IRC_Solvent_Data.txt</span></code>”. then you will be <strong>repeating</strong> this whole shebang using the gas phase data extracts and, when you <strong>return here</strong>, we will write the file “<code class="docutils literal notranslate"><span class="pre">SN2_IRC_Data_GasPhase_Data.txt</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -929,10 +916,10 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="do-it-all-again">
-<h2>Do It All Again<a class="headerlink" href="#do-it-all-again" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="do-it-all-again">
+<h2>Do It All Again<a class="headerlink" href="#do-it-all-again" title="Permalink to this heading">#</a></h2>
 <p><strong>Execute</strong> the code block below and <strong>then go back</strong> to the top of this notebook and execute all the data cleaning and processing code <strong>again</strong>. You will now have a table of the gas phase data and will save it with the indicated filename. These <em>Jupyter</em> notebooks are meant to be <strong>used and re-used</strong> and copied and pasted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -951,13 +938,13 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="your-ready-to-plot">
-<h2>Your Ready to Plot<a class="headerlink" href="#your-ready-to-plot" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="your-ready-to-plot">
+<h2>Your Ready to Plot<a class="headerlink" href="#your-ready-to-plot" title="Permalink to this heading">#</a></h2>
 <p>We now have the <strong>two data tables saved</strong> as text files. We will use them in the <a class="reference internal" href="10_Solvent_IRC_Plots-Data.html"><span class="doc std std-doc">next notebook</span></a> where we will plot the data and see if there is a <strong>difference</strong> between the solvent and gas-phase calculations.</p>
-</div>
-<div class="section" id="plots">
-<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this heading">#</a></h2>
 <p>Below are some <strong>quick</strong> plots of various value pairs. They confirm that my data processing did not cause any disasterous misalignments of data series. They were just used for <strong>diagnostic</strong> purposes (I found some really big mistakes that showed up as crazy zig-zag plots before I figure all this out).</p>
 <p>I am leaving them here for your information. Please <strong>proceed</strong> to the next notebook to compare the data sets.</p>
 <div class="cell docutils container">
@@ -972,7 +959,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b2f2a448020c8a5e24c30b0f088f7e0271b13dcf8b7f3c6caace1cf7ecaf1c99.png" src="_images/b2f2a448020c8a5e24c30b0f088f7e0271b13dcf8b7f3c6caace1cf7ecaf1c99.png" />
+<img alt="_images/8f4b0abefd6aee8868f112ecf0bf72b4db503f677acfeccc95082e502d6ee024.png" src="_images/8f4b0abefd6aee8868f112ecf0bf72b4db503f677acfeccc95082e502d6ee024.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -986,7 +973,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fcaaaee2062868ea0db8b53f9de4292b55b4c5f7eee3e769661b0a4ca8329eef.png" src="_images/fcaaaee2062868ea0db8b53f9de4292b55b4c5f7eee3e769661b0a4ca8329eef.png" />
+<img alt="_images/709e237168caf95fa65ad0197e85bde6ce172ad1a17af38899076a172a615138.png" src="_images/709e237168caf95fa65ad0197e85bde6ce172ad1a17af38899076a172a615138.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1000,7 +987,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7602bf4e513dbf0372c04a490cf7cf6ca5801b21d7f94cb644c9ef81ffd6a7ad.png" src="_images/7602bf4e513dbf0372c04a490cf7cf6ca5801b21d7f94cb644c9ef81ffd6a7ad.png" />
+<img alt="_images/b27e1d4edbc2802bae3ba81417fd70f2a25e7f028074c9804c8b3baf47dd74c6.png" src="_images/b27e1d4edbc2802bae3ba81417fd70f2a25e7f028074c9804c8b3baf47dd74c6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1014,11 +1001,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1d68182c1a23a810a7b139530e9dec50880f6f7eca150644d13b41bb28bb9a10.png" src="_images/1d68182c1a23a810a7b139530e9dec50880f6f7eca150644d13b41bb28bb9a10.png" />
+<img alt="_images/bd4e3514c895137791462565b24a25284f57f2979ae50db220caf051975bf3da.png" src="_images/bd4e3514c895137791462565b24a25284f57f2979ae50db220caf051975bf3da.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

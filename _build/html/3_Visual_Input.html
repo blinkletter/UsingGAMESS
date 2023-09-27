@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>3. Methane: Visual Input and Output &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4. Ethane: Symmetry in Calculations" href="4_Ethane.html" />
     <link rel="prev" title="2. Water: Getting Started" href="2_SmallMolecules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -359,13 +361,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="methane-visual-input-and-output">
-<h1>3. Methane: Visual Input and Output<a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="methane-visual-input-and-output">
+<h1>3. Methane: Visual Input and Output<a class="headerlink" href="#methane-visual-input-and-output" title="Permalink to this heading">#</a></h1>
 <p>A <strong>hand crafted</strong> input file is a powerful thing. We can set it up exactly as we like. But there is another way. We can use various helper programs that enable the <strong>visual creation</strong> of a molecule and automatic generation of <em>GAMESS</em> input files. These files will often need further editing to get what you want out of <em>GAMESS</em> but, after we start using molecules larger than benzene, we will appreciate the <strong>graphical interface</strong> (and curse it often).</p>
 <p>When interpreting the <strong>output file</strong>, we can evaluate energies and bond lengths and angles easily. But <strong>visualization</strong> of the whole molecule will help see the <strong>relationships</strong> between distant atoms and also quickly identify structures that optimized to a nonsense answer. In addition, we can now interpret more mathematical aspects of the output like bond <strong>vibrations</strong> and mathematical <strong>surfaces</strong> that represent electron density and <strong>molecular orbital</strong> functions.</p>
 <p>The two applications that we will use are <em>MacMolPlt</em> and <em>Avogadro</em>. Both have different <strong>strengths</strong> and we will get to know them both. In this exercise, we will use <em>MacMolPlt</em>.</p>
-<div class="section" id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <p>In this exercise, we will <strong>accomplish</strong> the following…</p>
 <ol class="arabic simple">
 <li><p>Use <em>MacMolPlt</em> to <strong>build</strong> molecules, generate input files and interpret results.</p></li>
@@ -373,14 +375,14 @@ document.write(`
 <li><p>Use <em>MacMolPlt</em> to generate graphical <strong>images</strong> of the molecule and surfaces that represent electron density and <strong>molecular orbitals</strong>.</p></li>
 <li><p>Identify the molecular orbitals that are most closely associated with the <strong>bonding local molecular orbitals</strong> and lone pair local MOs. How do you think about bonds and electronic structure? Do you think using <strong>local</strong> MOs that align with the Lewis structure or do you think using the molecular orbitals that describe the combined interactions of all atomic orbitals.</p></li>
 </ol>
-</div>
-<div class="section" id="making-methane">
-<h2>Making Methane<a class="headerlink" href="#making-methane" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="making-methane">
+<h2>Making Methane<a class="headerlink" href="#making-methane" title="Permalink to this heading">#</a></h2>
 <p>Open your copy of <em>wxMacMolPlt</em> and <strong>navigate</strong> to the build menu: <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Build</span> <span class="pre">Tools</span></code>. Select carbon with a coordination number of 4 and click in the empty window. Then select <code class="docutils literal notranslate"><span class="pre">Builder</span></code> → <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Hydrogens</span></code> to complete your structure of methane. Efforts to enforce symmetry on files created by <em>MacMolPlt</em> often fail and manual creation of files that use symmetry is preferred. <em>GAMESS</em> requires perfection when you are declaring symmetry. As a result, we will <strong>not use</strong> symmetry in this calculation.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><em>MacMolPlt</em> has a <strong>symmetry builder</strong> function that can apply the point group as you build the molecule. We will discuss it later.</p>
-</div>
+</aside>
 <p>Select <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">Builder</span></code> to start making an <strong>input file</strong> for <em>GAMESS</em>. In the <code class="docutils literal notranslate"><span class="pre">Basis</span></code> window select 6-311G for the basis set. Set “1” for <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">and</span> <span class="pre">light</span> <span class="pre">atom</span> <span class="pre">polarization</span> <span class="pre">functions</span></code> (this is the “d,p” in the 6-311G(d,p) basis set.) Check the <code class="docutils literal notranslate"><span class="pre">Diffuse</span> <span class="pre">l-shell</span></code> and <code class="docutils literal notranslate"><span class="pre">s-shell</span></code> options (this is the “++” in 6-311G(d,p)++.)</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">Control</span></code> window select <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Type:</span> <span class="pre">Optimization</span></code> and also select <code class="docutils literal notranslate"><span class="pre">Localization</span> <span class="pre">Method:</span> <span class="pre">Edmiston-Ruedenberg</span></code>. The localization method will command <em>GAMESS</em> to write <strong>information</strong> into the output file that can be used to make <strong>local</strong> bonding molecular orbitals (we will be using them very soon in this exercise).</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">Data</span></code> window make sure that the coordinate option is set to <code class="docutils literal notranslate"><span class="pre">Unique</span> <span class="pre">Cartesian</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">symmetry</span> <span class="pre">point</span> <span class="pre">group</span></code> to <em>C<sub>1</sub></em>. With <em>C<sub>1</sub></em>, every atom will be unique as we are not declaring symmetry.
@@ -388,7 +390,7 @@ In the <code class="docutils literal notranslate"><span class="pre">Misc</span> 
 <p>In the <code class="docutils literal notranslate"><span class="pre">Stat.</span> <span class="pre">Point</span></code> window we can set the number of steps to a higher number that 20. We will use 20 for now.</p>
 <p>Click on the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">and</span> <span class="pre">Save</span></code> button and you will get a text window with the generated input file. You can make changes now or you can use a text editor later. Save the file. below is the file as saved by <em>MacMolPlt</em>.</p>
 <div class="literal-block-wrapper docutils container" id="amethane-inp">
-<div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">methane.inp</span><a class="headerlink" href="#amethane-inp" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 34 </span><span class="caption-text">methane.inp</span><a class="headerlink" href="#amethane-inp" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 LOCAL=RUEDNBRG COORD=UNIQUE 
     $END
@@ -408,45 +410,51 @@ H     1.0     0.64179     0.64179     0.64179
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="using-gamessq">
-<h2>Using <em>GamessQ</em><a class="headerlink" href="#using-gamessq" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="using-gamessq">
+<h2>Using <em>GamessQ</em><a class="headerlink" href="#using-gamessq" title="Permalink to this heading">#</a></h2>
 <p>Open <em>GamessQ</em> (first <strong>run</strong> the binary in a terminal window and then <strong>start</strong> the GUI by clicking on the application icon.) <strong>Drag and drop</strong> the input file into the <em>GamessQ</em> window. Watch as its status changes from pending to running to done. The output file will be in the directory <strong>specified</strong> in the <em>GamessQ</em> preference pane. Find that log file and <strong>open</strong> it in a text editor. <strong>Look</strong> quickly to the end of the file for the phrase <code class="docutils literal notranslate"><span class="pre">GAMESS</span> <span class="pre">TERMINATED</span> <span class="pre">NORMALLY</span></code>. If there was an error, trouble shoot the input file and <strong>try again</strong>. Find the <code class="docutils literal notranslate"><span class="pre">EQUILIBRIUM</span> <span class="pre">GEOMETRY</span> <span class="pre">LOCATED</span></code> statement and record the energy (and check the new optimized coordinates for sanity).</p>
-</div>
-<div class="section" id="viewing-in-macmolplt">
-<h2>Viewing in <em>MacMolPlt</em><a class="headerlink" href="#viewing-in-macmolplt" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="viewing-in-macmolplt">
+<h2>Viewing in <em>MacMolPlt</em><a class="headerlink" href="#viewing-in-macmolplt" title="Permalink to this heading">#</a></h2>
 <p>Use <em>MacMolPlt</em> to <strong>open</strong> the .log file that was produced by <em>GAMESS</em>. You will see an <strong>image</strong> of the methane molecule. Practice <strong>rotating</strong> it and <strong>zooming</strong> in an out.</p>
 <p>We can <strong>measure</strong> lengths and angles in <em>MacMolPlt</em>. Click on an atom to select it. Then click on a second atom while holding <code class="docutils literal notranslate"><span class="pre">[SHIFT]</span></code>. Then select <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Annotations</span></code> → <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Length</span></code>. Do this with any three atoms and select <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Annotations</span></code> → <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Angle</span></code>. You can <strong>measure</strong> lengths angles and torsions right off the screen. You can <strong>display</strong> atom numbers with <code class="docutils literal notranslate"><span class="pre">View</span></code> → <code class="docutils literal notranslate"><span class="pre">Atoms</span> <span class="pre">Labels</span></code> → <code class="docutils literal notranslate"><span class="pre">Atom</span> <span class="pre">Number</span></code>. <strong>Explore</strong> the menus and see what you can do.</p>
 <p>You can <strong>save</strong> the image in the window using <code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">Export</span></code>. Explore the <strong>options</strong> and see what makes the best image file for you. See <a class="reference internal" href="#fig1a"><span class="std std-numref">Fig. 6</span></a> for an example.</p>
-<div class="figure align-default" id="fig1a">
+<figure class="align-default" id="fig1a">
 <a class="reference internal image-reference" href="_images/Methane_Measured.png"><img alt="_images/Methane_Measured.png" src="_images/Methane_Measured.png" style="width: 250px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text"><em><em>MacMolPlt</em> view of methane with some annotations added.</em></span><a class="headerlink" href="#fig1a" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><em><em>MacMolPlt</em> view of methane with some annotations added.</em></span><a class="headerlink" href="#fig1a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We can <strong>display</strong> the electron density surface of methane using <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code>. Select <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Total</span> <span class="pre">Electron</span> <span class="pre">Density</span></code> from the list and chose settings until you get a <strong>picture</strong> like the one in <a class="reference internal" href="#fig2a"><span class="std std-numref">Fig. 7</span></a>.</p>
-<div class="figure align-default" id="fig2a">
+<figure class="align-default" id="fig2a">
 <a class="reference internal image-reference" href="_images/Methane_surface.png"><img alt="_images/Methane_surface.png" src="_images/Methane_surface.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>The electron density surface colored according to molecular electrostatic potential (MEP). Can you set the values to make the image look like this?</em></span><a class="headerlink" href="#fig2a" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>The electron density surface colored according to molecular electrostatic potential (MEP). Can you set the values to make the image look like this?</em></span><a class="headerlink" href="#fig2a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Methane is very <strong>nonpolar</strong> so the MEP will be mostly one color. Molecules with heteroatoms will be more revealing in this regard.</p>
-</div>
-<div class="section" id="molecular-orbitals">
-<h2>Molecular Orbitals<a class="headerlink" href="#molecular-orbitals" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="molecular-orbitals">
+<h2>Molecular Orbitals<a class="headerlink" href="#molecular-orbitals" title="Permalink to this heading">#</a></h2>
 <p>We often see <strong>molecular orbital diagrams</strong> in textbooks. Let’s try to make our own for methane.</p>
-<div class="section" id="visualizing-mos">
-<h3>Visualizing MOs<a class="headerlink" href="#visualizing-mos" title="Permalink to this headline">#</a></h3>
+<section id="visualizing-mos">
+<h3>Visualizing MOs<a class="headerlink" href="#visualizing-mos" title="Permalink to this heading">#</a></h3>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">surface</span></code> subwindow again and this time select <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">orbital</span></code> as the choice. Choose <code class="docutils literal notranslate"><span class="pre">Molecular</span> <span class="pre">Eigenvectors</span></code> as the orbital set and then <strong>change settings</strong> until you get an image similar to the one in <a class="reference internal" href="#fig3a"><span class="std std-numref">Fig. 8</span></a>.
 `</p>
-<div class="figure align-default" id="fig3a">
+<figure class="align-default" id="fig3a">
 <a class="reference internal image-reference" href="_images/Methane_HOMO-nosym.png"><img alt="_images/Methane_HOMO-nosym.png" src="_images/Methane_HOMO-nosym.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>One of the three degenerate HOMOs of methane. The lack of symmetry in the calculation leads to a lack of symmetry in the orbitals.</em></span><a class="headerlink" href="#fig3a" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>One of the three degenerate HOMOs of methane. The lack of symmetry in the calculation leads to a lack of symmetry in the orbitals.</em></span><a class="headerlink" href="#fig3a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We see the familiar methane HOMO there but it is not <strong>perfectly</strong> symmetrical. We did not use symmetry in our calculations because input files generated by <em>MacMolPlt</em> often fail symmetry requirements.</p>
-</div>
-<div class="section" id="t-sub-d-sub-methane">
-<h3><em>T<sub>d</sub></em> Methane<a class="headerlink" href="#t-sub-d-sub-methane" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="t-sub-d-sub-methane">
+<h3><em>T<sub>d</sub></em> Methane<a class="headerlink" href="#t-sub-d-sub-methane" title="Permalink to this heading">#</a></h3>
 <p>We can <strong>construct</strong> a symmetrical structure of methane using symmetry tools in <em>MacMolPlt</em>. However, for now let us do this <strong>manually</strong>. First I will make an AM1 input file for structural <strong>optimization</strong> <em>T<sub>d</sub></em> methane.</p>
 <div class="literal-block-wrapper docutils container" id="methane-am1-u-inp1">
-<div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">methane_AM1_U.inp1</span><a class="headerlink" href="#methane-am1-u-inp1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 35 </span><span class="caption-text">methane_AM1_U.inp1</span><a class="headerlink" href="#methane-am1-u-inp1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -469,7 +477,7 @@ H     1.0     0.7    0.7     0.7
 </div>
 <p>After submitting it, we will have the coordinates optimized at the AM1 level. We can then <strong>copy</strong> them into an input file for the HF/6-311G(d,p)++ <strong>energy</strong> at <em>T<sub>d</sub></em> symmetry. I <strong>added the command</strong> for creating local bonding orbitals.</p>
 <div class="literal-block-wrapper docutils container" id="methane-6311-u-e-inp1">
-<div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">methane_6311_U_E.inp</span><a class="headerlink" href="#methane-6311-u-e-inp1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 36 </span><span class="caption-text">methane_6311_U_E.inp</span><a class="headerlink" href="#methane-6311-u-e-inp1" title="Permalink to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
 <span class="hll">  NZVAR=9 LOCAL=RUEDNBRG COORD=UNIQUE $END
 </span> $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -491,68 +499,76 @@ Td
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="mos-for-t-sub-d-sub-methane">
-<h3>MOs for <em>T<sub>d</sub></em> Methane<a class="headerlink" href="#mos-for-t-sub-d-sub-methane" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="mos-for-t-sub-d-sub-methane">
+<h3>MOs for <em>T<sub>d</sub></em> Methane<a class="headerlink" href="#mos-for-t-sub-d-sub-methane" title="Permalink to this heading">#</a></h3>
 <p>I <strong>openned</strong> the log file in <em>MacMolPlt</em> and when I <strong>displayed</strong> the HOMO for this symmetrical calculation the orbitals were perfect. It should be noted that both sets of MOs were really the same. It is exactly the same math. The less symmetrical image was produced using axes that did not perfectly align with the <strong>elements of symmetry</strong> of the orbitals. However, just because there was a little more <em>x</em> and a little less <em>y</em> does not change the way the orbitals behave. It’s just how the <strong>picture</strong> is calculated, the underlying math of the MO never changes. The new improved MO image is present in <a class="reference internal" href="#fig4a"><span class="std std-numref">Fig. 9</span></a>.</p>
-<div class="figure align-default" id="fig4a">
+<figure class="align-default" id="fig4a">
 <a class="reference internal image-reference" href="_images/Methane_HOMO-sym.png"><img alt="_images/Methane_HOMO-sym.png" src="_images/Methane_HOMO-sym.png" style="width: 250px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>The HOMO of methane generated from a calculation that used the Td symmetry requirement.
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>The HOMO of methane generated from a calculation that used the Td symmetry requirement.
 Local Bonding Orbitals</em></span><a class="headerlink" href="#fig4a" title="Permalink to this image">#</a></p>
-</div>
+</figcaption>
+</figure>
 <p>We are used to describing <strong>bonds</strong> around second-row elements like carbon as <em>sp</em>, <em>sp<sup>2</sup></em>, or <em>sp<sup>3</sup></em>. A <em>sp<sup>3</sup></em> bonding MO can be constructed from the overlap of the carbon <em>sp<sup>3</sup></em> AO and the hydrogens <em>s</em>-orbital. This would be a <strong>simple model</strong> that describes the electron pair for that bond (not really) and relates more directly to <strong>Lewis structure</strong> (if you prefer stick drawings to the truth of math.) In the <code class="docutils literal notranslate"><span class="pre">Subwindow</span></code> → <code class="docutils literal notranslate"><span class="pre">Surfaces</span></code> window choose the <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Orbital</span></code> option and then choose the <code class="docutils literal notranslate"><span class="pre">Localized</span> <span class="pre">Orbitals</span></code> option from the <code class="docutils literal notranslate"><span class="pre">Orbital</span> <span class="pre">Set</span></code> menu. Select one of the orbitals and then <strong>choose</strong> settings that produce and image similar to what you see in <a class="reference internal" href="#fig5a"><span class="std std-numref">Fig. 10</span></a>. Have fun and try lots of settings.</p>
-<div class="figure align-default" id="fig5a">
+<figure class="align-default" id="fig5a">
 <a class="reference internal image-reference" href="_images/Methane_LOCAL_4.png"><img alt="_images/Methane_LOCAL_4.png" src="_images/Methane_LOCAL_4.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>A local bonding MO for the C–H bond in methane.</em></span><a class="headerlink" href="#fig5a" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>A local bonding MO for the C–H bond in methane.</em></span><a class="headerlink" href="#fig5a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Which seems <strong>easier</strong> to interpret when explaining the C–H bond: the true MO or a local bonding MO model? When you are <strong>constructing</strong> a MO diagram using hybrid atomic orbitals, you will naturally be constructing the local bonding MOs from <em>sp<sup>3</sup></em> carbon AOs and hydrogen s-AOs. You can the further <strong>combine</strong> these local MOs to make the orthogonal MOs that actually describe the electronic structure.</p>
-</div>
-</div>
-<div class="section" id="a-molecular-orbital-diagram">
-<h2>A Molecular Orbital Diagram<a class="headerlink" href="#a-molecular-orbital-diagram" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="a-molecular-orbital-diagram">
+<h2>A Molecular Orbital Diagram<a class="headerlink" href="#a-molecular-orbital-diagram" title="Permalink to this heading">#</a></h2>
 <p>In this exercise, you will be asked to <strong>construct</strong> MO diagrams with visualized MOs and local bonding MOs. Here is a pair of molecular orbital <strong>diagrams</strong>. <a class="reference internal" href="#fig6a"><span class="std std-numref">Fig. 11</span></a> uses the atomic orbitals to make the true molecular orbitals for the molecule. However it is often <strong>more informative</strong> to consider local molecular orbitals as presented in <a class="reference internal" href="#fig7a"><span class="std std-numref">Fig. 12</span></a>.</p>
-<div class="figure align-default" id="fig6a">
+<figure class="align-default" id="fig6a">
 <a class="reference internal image-reference" href="_images/MOs_Diagram_Methane1.png"><img alt="_images/MOs_Diagram_Methane1.png" src="_images/MOs_Diagram_Methane1.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>MO diagram for methane.</em></span><a class="headerlink" href="#fig6a" title="Permalink to this image">#</a></p>
-</div>
-<div class="figure align-default" id="fig7a">
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>MO diagram for methane.</em></span><a class="headerlink" href="#fig6a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig7a">
 <a class="reference internal image-reference" href="_images/MOs_Diagram_Methane2.png"><img alt="_images/MOs_Diagram_Methane2.png" src="_images/MOs_Diagram_Methane2.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>MO diagram using the local molecular orbital model.</em></span><a class="headerlink" href="#fig7a" title="Permalink to this image">#</a></p>
-</div>
-</div>
-<div class="section" id="the-multiverse">
-<h2>The Multiverse<a class="headerlink" href="#the-multiverse" title="Permalink to this headline">#</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>MO diagram using the local molecular orbital model.</em></span><a class="headerlink" href="#fig7a" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-multiverse">
+<h2>The Multiverse<a class="headerlink" href="#the-multiverse" title="Permalink to this heading">#</a></h2>
 <p>The <em>T<sub>d</sub></em> symmetry <strong>enforces</strong> that the hydrogens are each in one of the octants of 3D space. This means that the cardinal planes are not through any of the hydrogen atoms. If you considered that the four hydrogens were each at corners of the cube, then the planes are slicing through the faces of the cube. This is why all three of the degenerate orbitals are <strong>identical</strong> in appearance.</p>
 <p>Your textbook may present <strong>different</strong> images of these orbitals. They are exactly the <strong>same</strong> orbitals, just with different placements of the cardinal planes w.r.t. the bonds. We used <em>C<sub>3v</sub></em> symmetry for the ammonia molecule and, if we had used it with the methane <em>Z-matrix</em> that was created by modifying the ammonia <em>Z-matrix</em>, it would have worked just fine. The <em>C<sub>3v</sub></em> symmetry requires that one of the four C–H bonds be along the <em>z</em>-axis. This means that two C–H bonds will be in a cardinal plane. The three degenerate orbitals all appear different because they each have a different relationship to the symmetry space. Despite this, they are identical. If orbitals have exactly the <strong>same</strong> energy then they are <strong>identical</strong>. The <em>C<sub>3v</sub></em> arrangement is perhaps the most useful for interpreting a reaction. A hydrogen abstraction by a radical will occur by the radical approaching along a <strong>bond axis</strong>. Adding that element will reduce the symmetry to <em>C<sub>3v</sub></em> from <em>T<sub>d</sub></em>. The molecular orbital that <strong>aligns</strong> with the <em>z</em>-axis best describes the <strong>frontier orbital</strong> that will guide the reaction as the atoms approach each other.</p>
 <p>Another <strong>option</strong> is to use the <em>C<sub>2v</sub></em> symmetry space. This will result in two separate pairs of C–H bonds being in cardinal planes. As a result two of the orbital images will appear identical with a third image being with a plane placed perpendicular to the other two. Again, it must be emphasized that all three degenerate molecular orbitals are <strong>identical</strong>.</p>
 <p>I prefer the <em>T<sub>d</sub></em> MO set since it does emphasize the idea that all three degenerate MOs are <strong>identical</strong>. (How many times have I said that already?) The <em>C<sub>3v</sub></em> set is best for explaining frontier orbital interactions with an <strong>approaching</strong> radical, but I prefer using the idea of a <strong>local</strong> bonding C–H σ-orbital when discussing a reaction with a C–H bond. <strong>Compare</strong> the local orbital with the <em>z</em>-axis MO and see how they are both great for discussing <strong>frontier</strong> molecular orbital theory.  The <strong>local</strong> orbital is far easier to use when we want to invoke the anti-bonding orbital that an approaching radical will actually be interacting with.</p>
 <p>You will be exploring these ideas in the exercise supported by this discussion. Good luck.</p>
-</div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>We have used <em>MacMolPlt</em> to <strong>build</strong> a small molecule and generate an input file for <em>GAMESS</em>. We have <strong>submitted</strong> that file to <em>GAMESS</em> via the <em>GamessQ</em> program.</p>
 <p>We have used <em>MacMolPlt</em> to <strong>measure</strong> bond lengths and angles and to <strong>visualize</strong> the molecular orbital data generated by <em>GAMESS</em>. We have exported the <strong>images</strong> in our favourite graphic file format.</p>
 <p>Where will we go from here? Open the instructions for the exercise that this discussion supports. Have fun.</p>
-</div>
-<div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
 <p>Read the discussion above and then try the following activities.</p>
-<div class="section" id="the-activities">
-<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this headline">#</a></h3>
+<section id="the-activities">
+<h3>The Activities<a class="headerlink" href="#the-activities" title="Permalink to this heading">#</a></h3>
 <p>You will have HF/6-311G(d,p)++ optimized structures for methane (<em>T<sub>d</sub></em>), Ammonia (<em>C<sub>3v</sub></em>) and water (<em>C<sub>2v</sub></em>) from a previous exercise. <strong>Use</strong> the data for those structures to perform an energy (or optimization) calculation and <strong>add</strong> the local orbital command to the <code class="docutils literal notranslate"><span class="pre">$SYSTEM</span></code> group.</p>
 <p>Use the result file with <em>MacMolPlt</em> to <strong>visualize</strong> the bonding molecular orbitals and the localized bonding orbitals. Are there degenerate sets in the molecular orbitals? Do any local orbitals resemble lone pairs? Do any of the MOs seem more closely related to lone pairs or more closely related to bonds? What are the relative energies of these MO sets and do the energies fit with expectations?</p>
 <p><strong>Construct</strong> input files for methane using <em>C<sub>3v</sub></em> and <em>C<sub>2v</sub></em> symmetry and <strong>compare</strong> the shapes of these versions of the orbitals to those in ammonia and water. What similarities and differences do you observe?</p>
-</div>
-<div class="section" id="the-report">
-<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-report">
+<h3>The Report<a class="headerlink" href="#the-report" title="Permalink to this heading">#</a></h3>
 <p><strong>Create</strong> a ONE-PAGE document summarizing your results. Create <strong>images</strong> for each of the three molecules: methane, water, and ammonia. <strong>Include</strong> bond length and angles in the images. Create images of the molecules with the electron density surface colored by electrostatic potential. <strong>Discuss</strong> the reasons for different bond lengths and angles using VSEPR theory.</p>
 <p>Create a SECOND ONE-PAGE document with images of local and molecular bonding orbitals for all three molecules. <strong>Identify</strong> which orbitals in each set best represent lone pairs and which best represent bonds to hydrogen atoms.</p>
 <p>Create a THIRD ONE-PAGE document that presents the images of the methane <strong>molecular orbitals</strong> using <em>C<sub>3v</sub></em> and <em>C<sub>2v</sub></em> symmetry. <strong>Compare</strong> these with the corresponding orbitals in ammonia and water.</p>
 <p>Include an <strong>appendix</strong> with the text input files used with <em>GAMESS</em> for all the above.</p>
 <p>In all your discussions be brief, but consider the questions raised above. Do your best to make the document in a clear and <strong>professional</strong> style.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

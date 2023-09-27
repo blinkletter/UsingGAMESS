@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>1. Building Your System &#8212; Fun With GAMESS</title>
   
   
@@ -44,6 +45,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Using Unix" href="1A_Unix.html" />
     <link rel="prev" title="Fun With GAMESS" href="start.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -374,54 +376,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="building-your-system">
-<h1>1. Building Your System<a class="headerlink" href="#building-your-system" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="building-your-system">
+<h1>1. Building Your System<a class="headerlink" href="#building-your-system" title="Permalink to this heading">#</a></h1>
 <p>First we must build a system of <em><strong>tools</strong></em> for computational chemistry. You can <strong>acquire</strong> the software and <strong>install</strong> it on your computer using the following <strong>instructions</strong>.</p>
-<div class="section" id="the-software">
-<h2>The Software<a class="headerlink" href="#the-software" title="Permalink to this headline">#</a></h2>
+<section id="the-software">
+<h2>The Software<a class="headerlink" href="#the-software" title="Permalink to this heading">#</a></h2>
 <p>We have some intuition about <strong>chemical structure and energy</strong>. We know that butane is at its lowest energy in the <em>anti</em> conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond the nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its <strong>electronic structure</strong>. We can demonstrate these effects and <strong>explore consequences of changes in structure</strong> on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are <strong>free to all</strong> or free for academic use.</p>
-<p><em><strong>GAMESS</strong></em><a class="footnote-reference brackets" href="#gamess1" id="id1">1</a><a class="footnote-reference brackets" href="#gamess2" id="id2">2</a><a class="footnote-reference brackets" href="#gamess-link" id="id3">3</a> is an <em>ab initio</em> computation package for investigating molecular structure and energy. There are others, such as <em><strong>NWChem</strong></em> <a class="footnote-reference brackets" href="#nwchem" id="id4">4</a><a class="footnote-reference brackets" href="#nwchem-link" id="id5">5</a> and <em><strong>ORCA</strong></em> <a class="footnote-reference brackets" href="#orca" id="id6">6</a><a class="footnote-reference brackets" href="#orca-link" id="id7">7</a>.</p>
-<p><em><strong>MacMolPlt</strong></em> <a class="footnote-reference brackets" href="#id21" id="id8">8</a><a class="footnote-reference brackets" href="#macmolplt-link" id="id9">9</a>  is a graphical front end for <em>GAMESS</em>. It can build molecules, export input files and interpret the output files produced by GAMESS. <em><strong>Avogadro</strong></em> <a class="footnote-reference brackets" href="#id22" id="id10">10</a><a class="footnote-reference brackets" href="#avogadro-link" id="id11">11</a> is a more modern option but lacks some useful tools compared to <em>MacMolPlt</em>. There are others, such as <em><strong>Gabedit</strong></em> <a class="footnote-reference brackets" href="#gabedit" id="id12">12</a><a class="footnote-reference brackets" href="#gabedit-link" id="id13">13</a> and <em><strong>Molden</strong></em>. <a class="footnote-reference brackets" href="#molden" id="id14">14</a><a class="footnote-reference brackets" href="#molden-link" id="id15">15</a></p>
+<p><em><strong>GAMESS</strong></em><a class="footnote-reference brackets" href="#gamess1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#gamess2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#gamess-link" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> is an <em>ab initio</em> computation package for investigating molecular structure and energy. There are others, such as <em><strong>NWChem</strong></em> <a class="footnote-reference brackets" href="#nwchem" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#nwchem-link" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> and <em><strong>ORCA</strong></em> <a class="footnote-reference brackets" href="#orca" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#orca-link" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.</p>
+<p><em><strong>MacMolPlt</strong></em> <a class="footnote-reference brackets" href="#id21" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#macmolplt-link" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>  is a graphical front end for <em>GAMESS</em>. It can build molecules, export input files and interpret the output files produced by GAMESS. <em><strong>Avogadro</strong></em> <a class="footnote-reference brackets" href="#id22" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#avogadro-link" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a> is a more modern option but lacks some useful tools compared to <em>MacMolPlt</em>. There are others, such as <em><strong>Gabedit</strong></em> <a class="footnote-reference brackets" href="#gabedit" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#gabedit-link" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a> and <em><strong>Molden</strong></em>. <a class="footnote-reference brackets" href="#molden" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#molden-link" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></a></p>
 <p>We will use <em>GAMESS</em> and <em>MacMolPlt</em> together. We will also use <em>Avagadro</em>.</p>
 <p>These instructions below <strong>assume</strong> that you are using a <em>Unix</em>-based computer, like a <em>Linux</em> system or an Apple <em>MacOS</em> computer. I have lived in this <em>Unix</em> world my whole academic life and am largely unfamiliar with <em>Windows</em> systems. However, the websites below have information on installing these tools on <em>Windows</em> systems.</p>
-<div class="section" id="gamess">
-<h3><em>GAMESS</em><a class="headerlink" href="#gamess" title="Permalink to this headline">#</a></h3>
+<section id="gamess">
+<h3><em>GAMESS</em><a class="headerlink" href="#gamess" title="Permalink to this heading">#</a></h3>
 <p><em>GAMESS</em> is proprietary application that performs <strong>quantum mechanical calculations</strong>. There is too much about quantum chemistry to even begin to explain it here. We will use it as a mysterious black box so be sure to follow the recipes. The <strong><em>GAMESS</em> software and instructions</strong> can be obtained <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/">here</a></p>
 <p>You will need to apply for a <strong>free academic license</strong> and wait for a reply with a password for downloading <em>GAMESS</em>. You can obtain compiled executable binaries for <em>Windows</em>, <em>Linux</em> and <em>MacOS</em> machines. You can also get the source code if you want to compile it yourself.</p>
-</div>
-<div class="section" id="gamessq">
-<h3><em>GamessQ</em><a class="headerlink" href="#gamessq" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="gamessq">
+<h3><em>GamessQ</em><a class="headerlink" href="#gamessq" title="Permalink to this heading">#</a></h3>
 <p><em>GamessQ</em> is a graphical <strong>batch queue</strong> for <em>GAMESS</em>. You will be able to add files to the queue and observe their progress. It is the best way to run <em>GAMESS</em> so I recommend using it. The <strong>software and instructions</strong> can be obtained <a class="reference external" href="https://www.msg.chem.iastate.edu/GAMESS/GamessQ/">here</a></p>
-</div>
-<div class="section" id="macmolplt">
-<h3><em>MacMolPlt</em><a class="headerlink" href="#macmolplt" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="macmolplt">
+<h3><em>MacMolPlt</em><a class="headerlink" href="#macmolplt" title="Permalink to this heading">#</a></h3>
 <p><em>MacMolPlt</em> is a <strong>graphical interface</strong> for building molecules, creating input files for <em>GAMESS</em> and then <strong>visualizing</strong> the information in the output files produced by <em>GAMESS</em>. It can be obtained <a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">here</a></p>
-</div>
-<div class="section" id="avogadro">
-<h3>Avogadro<a class="headerlink" href="#avogadro" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="avogadro">
+<h3>Avogadro<a class="headerlink" href="#avogadro" title="Permalink to this heading">#</a></h3>
 <p><em>Avogadro</em> is similar to <em>MacMolPlt</em> but more modern is style. It is <strong>open source</strong> and benefits from many contributors. <em>Avogadro</em> can be obtained <a class="reference external" href="http://avogadro.cc">here</a></p>
-</div>
-<div class="section" id="required-tools">
-<h3>Required Tools<a class="headerlink" href="#required-tools" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="required-tools">
+<h3>Required Tools<a class="headerlink" href="#required-tools" title="Permalink to this heading">#</a></h3>
 <p>We will need a text editor. Microsoft provides a <strong>free cross-platform text editor</strong> designed for writing code called <em><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></em>. I will be using <em>Visual Studio Code</em> in my demonstrations as it works on all our computers.</p>
 <p>You will need a <strong>Terminal Emulator</strong>. We will be accessing the <em>Unix</em> file system and tools. On a <em>MacOS</em> system there is an application called <em>Terminal</em> that will allow us to access the real computer that lives inside your computer. <em>Visual Studio Code</em> has a built-in terminal emulator.</p>
-</div>
-</div>
-<div class="section" id="installing-gamess">
-<h2>Installing GAMESS<a class="headerlink" href="#installing-gamess" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="installing-gamess">
+<h2>Installing GAMESS<a class="headerlink" href="#installing-gamess" title="Permalink to this heading">#</a></h2>
 <p><em>GAMESS</em> is a modern and constantly updated suite of software. However, it has no interface that the user interacts with. <strong>Input files</strong> will be submitted to <em>GAMESS</em> and <strong>output files</strong> will be sent back. It is controlled from the command line or via helper applications like <em>GamessQ</em> (see below). So, we will need to do a small amount of configuring via a text editor.</p>
-<div class="section" id="obtain-and-install">
-<h3>Obtain and Install<a class="headerlink" href="#obtain-and-install" title="Permalink to this headline">#</a></h3>
+<section id="obtain-and-install">
+<h3>Obtain and Install<a class="headerlink" href="#obtain-and-install" title="Permalink to this heading">#</a></h3>
 <p>Apply for a <strong>license</strong> for <em>GAMESS</em> by following the instruction on the <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">Mark Gordon group website</a>. You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer.</p>
-<p>The <em>GAMESS</em> application is available as a pre-compiled binary for <em>MacOS</em> and <em>Windows</em>.<a class="footnote-reference brackets" href="#linux" id="id16">16</a>  I received my email, <strong>followed the instructions</strong> and downloaded a file for the latest version of the <em>MacOS</em> binary. I decompressed the file and placed the resulting <code class="docutils literal notranslate"><span class="pre">gamess</span></code> directory folder in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder.</p>
-</div>
-<div class="section" id="the-gamess-folder">
-<h3>The GAMESS Folder<a class="headerlink" href="#the-gamess-folder" title="Permalink to this headline">#</a></h3>
+<p>The <em>GAMESS</em> application is available as a pre-compiled binary for <em>MacOS</em> and <em>Windows</em>.<a class="footnote-reference brackets" href="#linux" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a>  I received my email, <strong>followed the instructions</strong> and downloaded a file for the latest version of the <em>MacOS</em> binary. I decompressed the file and placed the resulting <code class="docutils literal notranslate"><span class="pre">gamess</span></code> directory folder in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder.</p>
+</section>
+<section id="the-gamess-folder">
+<h3>The GAMESS Folder<a class="headerlink" href="#the-gamess-folder" title="Permalink to this heading">#</a></h3>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> directory are several <strong>important files</strong>. Two of which you may chose to edit. Below are the files and some brief descriptions.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>File</p></th>
-<th class="text-left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-left"><p>File</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -452,9 +454,9 @@ document.write(`
 </tbody>
 </table>
 <p>The <em>rungms</em> and <em>gms</em> scripts contain variables that can be changed to <strong>customize</strong> the behaviour of <em>GAMESS</em> on your computer.</p>
-</div>
-<div class="section" id="editing-rungms">
-<h3>Editing RUNGMS<a class="headerlink" href="#editing-rungms" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="editing-rungms">
+<h3>Editing RUNGMS<a class="headerlink" href="#editing-rungms" title="Permalink to this heading">#</a></h3>
 <p>Open <em>rungms</em> in a <strong>text editor</strong>. The first lines of the script define directories for the <strong>scratch files</strong>. These are important to define. The default is the home directory of the <em>rungms</em> script, but you will likely want your result files to appear somewhere else. I changed the first four lines of the script…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">TARGET</span><span class="o">=</span><span class="n">sockets</span>
 <span class="nb">set</span> <span class="n">SCR</span><span class="o">=./</span>
@@ -473,25 +475,25 @@ document.write(`
 <p>Be sure to create the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess/scr</span></code> directory.</p>
 <p>The user scratch directory (<code class="docutils literal notranslate"><span class="pre">USERSCR</span></code>) contains data files that are written out with the completion of a calculation. These files contain <strong>orbital and frequency data</strong> among many other sets of useful information. We only occasionally need these files, but they will now be stored in a directory of my choice rather than the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> directory. Be sure to create that directory where it is expected to be.</p>
 <p>The location of the <em>GAMESS</em> binary file is specified with <code class="docutils literal notranslate"><span class="pre">GMSPATH</span></code>. I set it to the location of the <code class="docutils literal notranslate"><span class="pre">gamess.30Jun2020R1.x</span></code> binary in my <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> folder. The <em>gms</em> script generally does not need any changes, but you may want to change the very last line that declares the location of <em>rungms</em>. <em>gms</em> is used to run a <em>GAMESS</em> job from the command line and assumes that <em>rungms</em> is in the same directory as <em>gms</em>.</p>
-</div>
-<div class="section" id="running-gamess">
-<h3>Running GAMESS<a class="headerlink" href="#running-gamess" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="running-gamess">
+<h3>Running GAMESS<a class="headerlink" href="#running-gamess" title="Permalink to this heading">#</a></h3>
 <p><em>GAMESS</em> can be run from the <strong>terminal command line</strong> by calling <em>gms</em>. For example, the command:
 <code class="docutils literal notranslate"><span class="pre">gms</span> <span class="pre">cyclohexane.inp</span></code> will call the <em>rungms</em> script using 1 processor and produce a result file called <code class="docutils literal notranslate"><span class="pre">cyclohexane.log</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">gms</span> <span class="pre">-l</span> <span class="pre">result.log</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">cyclohexane.inp</span></code> will do the same, but write the result to a file named <code class="docutils literal notranslate"><span class="pre">result.log</span></code> and use 2 processors in your computer.</p>
 <p>We will <strong>begin</strong> with using the terminal <strong>command line</strong> to run <em>GAMESS</em>. Later, we will use a <strong>batch controller</strong> called <em>GamessQ</em>.</p>
-</div>
-</div>
-<div class="section" id="installing-gamessq">
-<h2>Installing <em>GamessQ</em><a class="headerlink" href="#installing-gamessq" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="installing-gamessq">
+<h2>Installing <em>GamessQ</em><a class="headerlink" href="#installing-gamessq" title="Permalink to this heading">#</a></h2>
 <p><em>GamessQ</em> is a batch controller for <em>GAMESS</em> provided by the Gordon group. It is available from the <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">same web site</a>. It can <strong>queue</strong> a whole batch of filkes and send them to be executed one at a time while you sleep.</p>
-<div class="section" id="id17">
-<h3>Obtain and Install<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<section id="id17">
+<h3>Obtain and Install<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <p>Download the compressed file and extract it. Put the resulting folder in <code class="docutils literal notranslate"><span class="pre">/Applications</span></code>. In the <code class="docutils literal notranslate"><span class="pre">/Applications/GamessQ</span></code> directory we will see the following files…</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>File</p></th>
-<th class="text-left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-left"><p>File</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
@@ -506,24 +508,24 @@ document.write(`
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="running-gamessq">
-<h3>Running <em>GamessQ</em><a class="headerlink" href="#running-gamessq" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="running-gamessq">
+<h3>Running <em>GamessQ</em><a class="headerlink" href="#running-gamessq" title="Permalink to this heading">#</a></h3>
 <p>You will need to run the <em>gamessqd</em> application <strong>first</strong>. If you double-click on it, it will run via a terminal window. The <em>Terminal</em> app will open and run the executable binary <em>gamessqd</em>. It will keep running as long as that terminal window is open. After this <strong>daemon</strong> has been launched, you will double-click on the <em>GamessQ</em> application to <strong>open</strong> the graphic interface. <em>GamessQ</em> will not run if <em>gamessqd</em> has not already been activated.</p>
 <p><strong>Click</strong> on the <em>GamessQ</em> icon to run the program. In the menus, open <code class="docutils literal notranslate"><span class="pre">GamessQ</span></code> → <code class="docutils literal notranslate"><span class="pre">Preferences</span></code> and you will see two <strong>important settings</strong>. The first is the location of the <strong>spool directory</strong> for <em>GamessQ</em>. This is where <em>GamessQ</em> will move the final result files from a <em>GAMESS</em> calculation. The second is the location of the directory for the <strong><em>rungms</em> script</strong> that runs <em>GAMESS</em>.  Create a directory for the result files and point <em>GamessQ</em> there. And then enter the location of the <code class="docutils literal notranslate"><span class="pre">/Applications/gamess</span></code> folder. Now it is <strong>ready to launch</strong> jobs.</p>
-</div>
-<div class="section" id="using-gamessq">
-<h3>Using <em>GamessQ</em><a class="headerlink" href="#using-gamessq" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="using-gamessq">
+<h3>Using <em>GamessQ</em><a class="headerlink" href="#using-gamessq" title="Permalink to this heading">#</a></h3>
 <p>To use <em>GamessQ</em>, you <strong>drag and drop</strong> the text input files onto its window. This will place the job in the <strong>queue</strong>. You can see when jobs are <strong>waiting, running and finished</strong>. You can drop in dozens of jobs and let them run over the weekend this way.</p>
-<p>There is a <strong>command line version</strong> of <em>GamessQ</em> that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run <em>GAMESS</em>. You will be able to <em>telnet</em> (look it up) using <em>ssh</em><a class="footnote-reference brackets" href="#telnet" id="id18">17</a> (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using <em>gamessq</em> directly.</p>
-</div>
-<div class="section" id="summary-of-system-setup">
-<h3>Summary of System Setup<a class="headerlink" href="#summary-of-system-setup" title="Permalink to this headline">#</a></h3>
+<p>There is a <strong>command line version</strong> of <em>GamessQ</em> that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run <em>GAMESS</em>. You will be able to <em>telnet</em> (look it up) using <em>ssh</em><a class="footnote-reference brackets" href="#telnet" id="id18" role="doc-noteref"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></a> (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using <em>gamessq</em> directly.</p>
+</section>
+<section id="summary-of-system-setup">
+<h3>Summary of System Setup<a class="headerlink" href="#summary-of-system-setup" title="Permalink to this heading">#</a></h3>
 <p>The following <strong>directories</strong> were created and <strong>files and settings</strong> altered accordingly:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Directory Created</p></th>
-<th class="text-left head"><p>Where to make changes</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Directory Created</p></th>
+<th class="head text-left"><p>Where to make changes</p></th>
 </tr>
 </thead>
 <tbody>
@@ -540,13 +542,13 @@ document.write(`
 </table>
 <p>With this setup, we will see copies of the input files and the result files appear in the <code class="docutils literal notranslate"><span class="pre">GAMESS-RESULTS</span></code> directory. The data files will appear in the <code class="docutils literal notranslate"><span class="pre">GAMESS-SCR</span></code> directory. BEWARE! Result files and input file copies in <code class="docutils literal notranslate"><span class="pre">GAMESS-RESULTS</span></code> will be deleted whenever you clear the queue in <em>GamessQ</em> by clicking on the <code class="docutils literal notranslate"><span class="pre">cleanup</span></code> button. So be sure to copy them to somewhere else if you want to be sure to keep them.</p>
 <p>You can <strong>create your own setup</strong> however you like. Just edit the <em>rungms</em> script and the <em>GamessQ</em> preferences accordingly.</p>
-</div>
-</div>
-<div class="section" id="installing-macmolplt">
-<h2>Installing <em>MacMolPlt</em><a class="headerlink" href="#installing-macmolplt" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="installing-macmolplt">
+<h2>Installing <em>MacMolPlt</em><a class="headerlink" href="#installing-macmolplt" title="Permalink to this heading">#</a></h2>
 <p><em>MacMolPlt</em> is a molecular editing and visualization application. It can be used to <strong>construct</strong> 3-D structures and create <strong>input files</strong> for <em>GAMESS</em>. It can <strong>interpret</strong> the resulting output files and produce <strong>visualizations</strong> of bond vibrations and frequencies, molecular energies and molecular orbitals and more.</p>
-<div class="section" id="id19">
-<h3>Obtain and Install<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<section id="id19">
+<h3>Obtain and Install<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h3>
 <p>You can obtain <em>MacMolPlt</em> at the <a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">github repository</a>. Just unpack the downloaded file and put the application folder in your <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> directory. If you are running <em>MacOS 12</em> (<em>Monterey</em>) or later, you will have to edit a <strong>configuration file</strong> within the application container itself. Don’t worry, instructions are in the warning box below.</p>
 <div class="dropdown admonition warning">
 <p class="admonition-title">Warning</p>
@@ -556,90 +558,105 @@ document.write(`
 <p>Find the application icon and right-click on it. Select Show package Contents from the drop-down menu. navigate and find the info.plist file and open it to make your changes. Back it up before you do so. This will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.</p>
 <p>On <em>MacOS 11</em> and earlier, you can check a box in the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Info</span></code> menu item of <em>wxMacMolPlt</em> for <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Low</span> <span class="pre">Resolution.</span></code> Apple deprecated this option and eliminated it in <em>MacOS 12</em>, hence the <strong>awkward work-around</strong> above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.</p>
 </div>
-</div>
-<div class="section" id="using-wxmacmolplt">
-<h3>Using <em>wxMacMolPlt</em><a class="headerlink" href="#using-wxmacmolplt" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="using-wxmacmolplt">
+<h3>Using <em>wxMacMolPlt</em><a class="headerlink" href="#using-wxmacmolplt" title="Permalink to this heading">#</a></h3>
 <p>The application itself is called <em>wxMacMolPlt</em>. I will continue to refer to it as <em>MacMolPlt</em> in this document. Just click on the application icon and you will get a blank window to <strong>start building</strong> a molecule. Explore the menu and you will quickly get the hang of it.</p>
 <p>An <a class="reference external" href="http://brettbode.github.io/wxmacmolplt/">instruction manual</a> is available on the website. More specific instructions on using <em>MacMolPlt</em> will be given in each exercise where we <strong>build</strong> molecules, <strong>optimize</strong> their structure and <strong>analyze</strong> the results of <em>GAMESS</em> calculations. Practice makes perfect.</p>
-</div>
-</div>
-<div class="section" id="installing-avogadro">
-<h2>Installing Avogadro<a class="headerlink" href="#installing-avogadro" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="installing-avogadro">
+<h2>Installing Avogadro<a class="headerlink" href="#installing-avogadro" title="Permalink to this heading">#</a></h2>
 <p><em>Avogadro</em> is an open source application for <strong>building molecules</strong> and can export and interpret input and output files for <em>GAMESS</em>. It has many interesting features to explore. One very useful tool is the auto-optimization feature that will minimize the energy of your molecule using <strong>molecular mechanics</strong>. This will produce a structure that is closer to ground state and therefore faster to optimize in <em>GAMESS</em>.</p>
-<div class="section" id="id20">
-<h3>Obtain and Install<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<section id="id20">
+<h3>Obtain and Install<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
 <p>You can <a class="reference external" href="http://avogadro.cc">download <em>Avogadro</em></a> from the project’s website. Install the software and that’s it. Open it and <strong>explore</strong> the menus.</p>
-</div>
-<div class="section" id="using-avogadro">
-<h3>Using Avogadro<a class="headerlink" href="#using-avogadro" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="using-avogadro">
+<h3>Using Avogadro<a class="headerlink" href="#using-avogadro" title="Permalink to this heading">#</a></h3>
 <p>An <a class="reference external" href="http://avogadro.cc">instruction manual</a> is available at the same website. We will explore <em>Avogadro</em> as we perform our experiments. There is no substitute for trial and error.</p>
-</div>
-</div>
-<div class="section" id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
 <p>We are now ready to do some calculations. We can <strong>build</strong> molecules and create <strong>input files</strong> using <em>MacMolPlt</em> or <em>Avogadro</em>. We can <strong>submit</strong> the files to <em>GAMESS</em> using <em>GamessQ</em>. We can then <strong>extract</strong> specific information using <em>Unix</em> tools and shell scripts or load the result files into <em>MacMolPlt</em> or <em>Avogadro</em> to <strong>visualize</strong> the result. We will be able to explore how steric strain arises in molecules and how structure affects the transition state in reactions. We will be able to see graphical representations of molecular orbitals and, in many cases, the local bonding orbitals that more closely align with Lewis structure. I hope that you will gain a <strong>more intuitive understanding</strong> of molecular structure and reaction kinetics.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="gamess1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>“General atomic and molecular electronic structure system” Michael W. Schmidt et. al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. https://doi.org/10.1002/jcc.540141112</p>
-</dd>
-<dt class="label" id="gamess2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>“Recent developments in the general atomic and molecular electronic structure system”
+<aside class="footnote brackets" id="gamess1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>“General atomic and molecular electronic structure system” Michael W. Schmidt et. al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. https://doi.org/10.1002/jcc.540141112</p>
+</aside>
+<aside class="footnote brackets" id="gamess2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>“Recent developments in the general atomic and molecular electronic structure system”
 Giuseppe M.J. Barca et. al., J. Chem. Phys., 2020, 152, 154102, https://doi.org/10.1063/5.0005188</p>
-</dd>
-<dt class="label" id="gamess-link"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>https://www.msg.chem.iastate.edu/gamess/</p>
-</dd>
-<dt class="label" id="nwchem"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>“NWChem: a comprehensive and scalable open-source solution for large scale molecular simulations”
+</aside>
+<aside class="footnote brackets" id="gamess-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>https://www.msg.chem.iastate.edu/gamess/</p>
+</aside>
+<aside class="footnote brackets" id="nwchem" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>“NWChem: a comprehensive and scalable open-source solution for large scale molecular simulations”
 M. Valiev et. al.,  Comput. Phys. Commun., 2010, 181, 1477. https://doi.org/10.1016/j.cpc.2010.04.018</p>
-</dd>
-<dt class="label" id="nwchem-link"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>https://nwchemgit.github.io</p>
-</dd>
-<dt class="label" id="orca"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p>“Software update: The ORCA program system, version 4.0” Frank Neese, Wiley Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. https://doi.org/10.1002/wcms.1327</p>
-</dd>
-<dt class="label" id="orca-link"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
-<dd><p>https://orcaforum.kofo.mpg.de/app.php/portal</p>
-</dd>
-<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
-<dd><p>“MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, Mol. Graphics and Modeling, 1999, 16, 133-138. https://doi.org/10.1016/s1093-3263(99)00002-9</p>
-</dd>
-<dt class="label" id="macmolplt-link"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
-<dd><p>http://brettbode.github.io/wxmacmolplt/</p>
-</dd>
-<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
-<dd><p>“Avogadro: an advanced semantic chemical editor, visualization, and analysis platform”
+</aside>
+<aside class="footnote brackets" id="nwchem-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>https://nwchemgit.github.io</p>
+</aside>
+<aside class="footnote brackets" id="orca" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p>“Software update: The ORCA program system, version 4.0” Frank Neese, Wiley Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. https://doi.org/10.1002/wcms.1327</p>
+</aside>
+<aside class="footnote brackets" id="orca-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>https://orcaforum.kofo.mpg.de/app.php/portal</p>
+</aside>
+<aside class="footnote brackets" id="id21" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">8</a><span class="fn-bracket">]</span></span>
+<p>“MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, Mol. Graphics and Modeling, 1999, 16, 133-138. https://doi.org/10.1016/s1093-3263(99)00002-9</p>
+</aside>
+<aside class="footnote brackets" id="macmolplt-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">9</a><span class="fn-bracket">]</span></span>
+<p>http://brettbode.github.io/wxmacmolplt/</p>
+</aside>
+<aside class="footnote brackets" id="id22" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">10</a><span class="fn-bracket">]</span></span>
+<p>“Avogadro: an advanced semantic chemical editor, visualization, and analysis platform”
 Marcus D Hanwell et. al., J. Cheminform., 2012, 4, 17. https://doi.org/10.1186/1758-2946-4-17</p>
-</dd>
-<dt class="label" id="avogadro-link"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
-<dd><p>http://avogadro.cc</p>
-</dd>
-<dt class="label" id="gabedit"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
-<dd><p>“Gabedit - A graphical user interface for computational chemistry softwares”
+</aside>
+<aside class="footnote brackets" id="avogadro-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">11</a><span class="fn-bracket">]</span></span>
+<p>http://avogadro.cc</p>
+</aside>
+<aside class="footnote brackets" id="gabedit" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">12</a><span class="fn-bracket">]</span></span>
+<p>“Gabedit - A graphical user interface for computational chemistry softwares”
 A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. https://doi.org/10.1002/jcc.21600</p>
-</dd>
-<dt class="label" id="gabedit-link"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
-<dd><p>http://gabedit.sourceforge.net/home.html</p>
-</dd>
-<dt class="label" id="molden"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
-<dd><p>“Molden: a pre- and post-processing program for molecular and electronic structures” D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). https://doi.org/10.1023/A:1008193805436</p>
-</dd>
-<dt class="label" id="molden-link"><span class="brackets"><a class="fn-backref" href="#id15">15</a></span></dt>
-<dd><p>https://www.theochem.ru.nl/molden/</p>
-</dd>
-<dt class="label" id="linux"><span class="brackets"><a class="fn-backref" href="#id16">16</a></span></dt>
-<dd><p><em>Linux</em> users will have to compile the source code. Go for it! Please make notes on your epic journey and share them with your peers. Everyone should use <em>Linux</em>, we just need you to show us the way. I am too timid and so I use <em>MacOS</em>. I envy you, but I will not join you; others may if you lead them. Rock on!</p>
-</dd>
-<dt class="label" id="telnet"><span class="brackets"><a class="fn-backref" href="#id18">17</a></span></dt>
-<dd><p>Your <em>Unix</em> system will have a secure shell (<em>ssh</em>) tool that can be called using the <em>ssh</em> command. It will likely be an implementation of the <em>OpenSSH</em> suite of internet tools. No one uses <em>telnet</em> anymore, but it has become a verb for the act of using <em>ssh</em>.</p>
-</dd>
-</dl>
-</div>
+</aside>
+<aside class="footnote brackets" id="gabedit-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">13</a><span class="fn-bracket">]</span></span>
+<p>http://gabedit.sourceforge.net/home.html</p>
+</aside>
+<aside class="footnote brackets" id="molden" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">14</a><span class="fn-bracket">]</span></span>
+<p>“Molden: a pre- and post-processing program for molecular and electronic structures” D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). https://doi.org/10.1023/A:1008193805436</p>
+</aside>
+<aside class="footnote brackets" id="molden-link" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">15</a><span class="fn-bracket">]</span></span>
+<p>https://www.theochem.ru.nl/molden/</p>
+</aside>
+<aside class="footnote brackets" id="linux" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">16</a><span class="fn-bracket">]</span></span>
+<p><em>Linux</em> users will have to compile the source code. Go for it! Please make notes on your epic journey and share them with your peers. Everyone should use <em>Linux</em>, we just need you to show us the way. I am too timid and so I use <em>MacOS</em>. I envy you, but I will not join you; others may if you lead them. Rock on!</p>
+</aside>
+<aside class="footnote brackets" id="telnet" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">17</a><span class="fn-bracket">]</span></span>
+<p>Your <em>Unix</em> system will have a secure shell (<em>ssh</em>) tool that can be called using the <em>ssh</em> command. It will likely be an implementation of the <em>OpenSSH</em> suite of internet tools. No one uses <em>telnet</em> anymore, but it has become a verb for the act of using <em>ssh</em>.</p>
+</aside>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
