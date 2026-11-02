@@ -46,13 +46,14 @@ We can now take the data file that was **written** out by *MacMolPlt* and use it
 ```
 **Open** the input file you just saved from *MacMolPlt* in a text editor.  You should see the following text…
 
-```{code-block} 
----
-name: butane.inp
-emphasize-lines: 2,5,14
-caption: butane.inp
-class: hide-input
----
+```{code-block} text
+:label: butane-inp
+:filename: butane.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2,5,14
+:class: hide-input
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -97,7 +98,7 @@ H   4    1.14000  12 109.4712  13 120.0000
 
 The *GAMESS* input file **starts** off with essential settings and information in the `$CONTRL`, `$SYSTEM`, `$BASIS`, `$SCF` and `$STATPT` groups. Each group **ends** with `$END`. The settings within each group will be discussed where needed as we proceed, and detailed information is found in the [*GAMESS* documentation](https://www.msg.chem.iastate.edu/GAMESS/)
 
-```{Note}
+```{note}
 All white space must be spaces, not tabs. And all lines that start with a \$ symbol must have that \$ symbol in the **second** column, not the first. Examine the above file and observe this fact.
 ```
 
@@ -111,7 +112,7 @@ The next line begins the **structure** of the molecule. We could use an *xyz* co
 
 The *Z-matrix* for butane is composed of 14 lines for the 14 atoms. Here is the *Z-matrix* that was produced by *MacMolPlt*.
 
-```
+```text
 C
 C   1    1.54000
 C   2    1.54000  1  109.4712
@@ -132,20 +133,20 @@ Let us build the *Z-matrix* **line by line** using the example above.
 
 The **first** atom in the matrix is a carbon and will be atom \#1 in the system. 
 
-```
+```text
 C
 ```
 
 The **second** atom is also a carbon and will be atom \#2. It is 1.54 Å away from that atom \#1. For two atoms, all we need to define the molecule is that single **bond lengt**h value.
 
-```
+```text
 C
 C   1    1.54000
 ```
 
 The **third** line is atom \#3. In this matrix it describes the third carbon atom in butadiene. It will be 1.54 Å from atom \#2 but now the distance no longer completely describes its position in the system. We know the **distance** from atom \#2 to this atom \#3, but we also now need a bond **angle** between atoms \#3, 2 and 1. In *sp<sup>3</sup>* carbons that angle is 109.4&deg; (120 for *sp<sup>2</sup>* and 180&deg; for *sp*).
 
-```
+```text
 C
 C   1    1.54000
 C   2    1.54000  1  109.4712
@@ -155,7 +156,7 @@ The **fourth** line describes the fourth carbon atom, atom \#4. It is 1.54 Å fr
 
 This fourth line is very important. This dihedral angle is the **bond rotation** along the central C–C bond. This is the angle we will be using to rotate the centre bond of butane. {numref}`fig5-2A` shows the `Z-matrix` so far.
 
-```
+```text
 C
 C   1    1.54000
 C   2    1.54000  1  109.4712
@@ -209,11 +210,11 @@ The run exited in a controlled manner, but that does not mean that things went w
 ### Are We Done?
 
 Each **step** in initiated in the text of the log file by the term `NSERCH`. If we **search** through the text file until the last time `NSERCH` appears we will find the **final** structural calculation and result (there are better ways to do this.) In our case we see the last line containing `NSERCH` is…
-```
+```text
 NSERCH:  20  E=     -156.4322927357  GRAD. MAX=  0.0017274  R.M.S.=  0.0008046
 ```
 The **maximum** number of iterations was set to 20 in the input file (look for NSTEP=20 in the butane.inp file). So we have **reached that maximum**. Just a few lines later we get the news…
-```
+```text
       ***** FAILURE TO LOCATE STATIONARY POINT, TOO MANY STEPS TAKEN *****
 ```
 So no, we are **not done**. We need to set `NSTEP` to a higher number. Normally 20 steps is **enough** and we are likely close. I will open butane.inp in a text editor and change `NSTEP=20` to `NSTEP=30`.
@@ -221,11 +222,11 @@ So no, we are **not done**. We need to set `NSTEP` to a higher number. Normally 
 ### Optimized Structure and Energy
 
 The new output file generated is butane_247.log and the final line containing NSERCH is…
-```
+```text
 NSERCH:  28  E=     -156.4324667260  GRAD. MAX=  0.0000511  R.M.S.=  0.0000220
 ```
 We **reached the end** of the calculation before the maximum number of steps. We also see the line…
-```
+```text
        ***** EQUILIBRIUM GEOMETRY LOCATED *****
 ```
 …So we now know that *GAMESS* has declared the calculation a **success**.
@@ -243,14 +244,13 @@ name: fig5-3
 
 Immediately after the last `NSERCH` line is a series of data blocks containing the **structural information**. We can see the molecule described in Cartesian *xyz* coordinates. Following that, we see a block that describes all the **internal coordinates** (bond lengths, angles and torsions). There are 36 such coordinates and observe how each **corresponds** to an entry in the `$ZMAT` group at the end of the butane.inp input file. This data block is reproduced below.
 
-```{code-block} 
----
-name: butane_247.log
-linenos: True
-lineno-start: 8834
-emphasize-lines: 13
-caption: butane_247.log
----
+```{code-block} text
+:label: butane_247-log
+:filename: butane_247.log
+:linenos: True
+:lineno-start: 8834
+:emphasize-lines: 8846
+
                      --------------------
                      INTERNAL COORDINATES
                      --------------------
@@ -317,12 +317,13 @@ There is another **stable** conformer, the *gauche* conformer. In this conformer
 
 Let us open the butane.inp file again with the text editor. We will **change** only the value for the 4,1,2,3 torsion angle. The new file is shown below. We will name it as butane60.inp.
 
-```{code-block} 
----
-name: butane60.inp
-emphasize-lines: 14
-caption: butane60.inp
----
+```{code-block} text
+:label: butane60-inp
+:filename: butane60.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 14
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -357,19 +358,18 @@ H   4    1.14000  12 109.4712  13 120.0000
 
 We **submit** the job via *GamessQ* and the **log file** butane60_248.log is produced. Searching for the last occurrence of NSERCH reveals that we have reached a **final structure** after 23 steps.
 
-```
+```text
 NSERCH:  23  E=     -156.4312439164  GRAD. MAX=  0.0000721  R.M.S.=  0.0000279
 ```
 Examining the first 10 lines of the **internal coordinates** of the result shows that the central C–C torsion is 67&deg;. This is very close to the expected value. It is not exactly 60&deg; because of the **steric size** of the methyl group.
 
-```{code-block} 
----
-name: butane60_248.log1
-linenos: True
-lineno-start: 7568
-emphasize-lines: 13
-caption: butane60_248.log
----
+```{code-block} text
+:label: butane60_248-log1
+:filename: butane60_248.log
+:linenos: True
+:lineno-start: 7568
+:emphasize-lines: 7580
+
                      --------------------
                      INTERNAL COORDINATES
                      --------------------
@@ -416,12 +416,13 @@ The sixth coordinate in the `$ZMAT` group is for the central C–C bond **torsio
 
 I will use a text editor to change our input file. We will change the `4,1,2,3` torsion to `0&deg;` (*syn*) and then lock the sixth coordinate in the `$ZMAT` group that **corresponds** to that internal coordinate. The new input file is shown below.
 
-```{code-block} 
----
-name: butane_scan_0.inp1
-emphasize-lines: 14
-caption: butane_scan_0.inp
----
+```{code-block} text
+:label: butane_scan_0-inp1
+:filename: butane_scan_0.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 14
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -456,7 +457,7 @@ H   4    1.14000  12 109.4712 13  120.0000
 
 The calculation **failed** because of the high symmetry of this `Z-matrix`. I found this **error message** new the end of a short log file.
 
-```
+```text
 UNABLE TO GENERATE PRINCIPAL AXES 
 ```
 
@@ -464,13 +465,13 @@ The **zero degree** torsion resulted in a situation where *GAMESS* was **unable*
 
 It did help. *GAMESS* converts your *Z-matrix* into Cartesian *xyz* data for the calculation. If it cannot decide how your molecule relates to the three axes then it will choke. If you get an error like the above just tweak a few values to break symmetry. Here is the **final energy** reported.
 
-```
+```text
 NSERCH:  23  E=     -156.4228465004  GRAD. MAX=  0.0000753  R.M.S.=  0.0000261
 ```
 
 I then set the **torsion angle** to 120&deg; (*eclipsed*) and submitted the calculation again. I searched the log file for the final NSERCH line and again found an energy for the optimized **structure** with the C–C torsion frozen at 120&deg;. The reported energy was…
 
-```
+```text
 NSERCH:  26  E=     -156.4267263644  GRAD. MAX=  0.0000638  R.M.S.=  0.0000200
 ```
 
@@ -534,7 +535,7 @@ Using the *Unix* skills described in the Setting Up *GAMESS* document, we can **
 We will now extract just the **lines that we want** from the large log file. *grep* is a tool that can be called from the shell. It will read the file line by line and return only the lines that contain a given text string. 
 The command `grep "NSERCH" butane60_248.log > energy.txt` will extract the text lines that I observed contained both the calculated energy and the step number for each optimization step. The file `energy.txt` now **contains** the following content.
 
-```
+```text
 BEGINNING GEOMETRY SEARCH POINT NSERCH=   0 ...
           NSERCH=  0     ENERGY=    -156.3973907
  NSERCH:   0  E=     -156.3973906884  GRAD. MAX=  0.0345239  R.M.S.=  0.0202989
@@ -559,7 +560,7 @@ NSERCH:  17  E=     -156.4310603910  GRAD. MAX=  0.0005127  R.M.S.=  0.0001197
 You can see that this is **every** line in the file that includes the string `NSERCH`. I want just the lines that **contain** the energy and the gradient. So I will *grep* this file again for `GRAD`.
 
 The command `grep "GRAD" energy.txt > energy2.txt` will produce the file named `energy2.txt` that contains the following lines.
-```
+```text
  NSERCH:   0  E=     -156.3973906884  GRAD. MAX=  0.0345239  R.M.S.=  0.0202989
  NSERCH:   1  E=     -156.4193191232  GRAD. MAX=  0.0156691  R.M.S.=  0.0064738
  NSERCH:   2  E=     -156.4203894091  GRAD. MAX=  0.0120703  R.M.S.=  0.0050416
@@ -605,12 +606,13 @@ First I will create a **new version** of the input file that we have been using 
  
 Below is the new input file
 
-```{code-block} 
----
-name: butane-SCAN.inp1
-emphasize-lines: 14
-caption: butane-SCAN.inp
----
+```{code-block} text
+:label: butane-scan-inp1
+:filename: butane-SCAN.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 14
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
     MOLPLT=.TRUE. $END
@@ -646,10 +648,10 @@ H   4    1.14000  12 109.4712 13  119.0000
 I then created the following **script** file in my text editor. You will have to **change** the first filename to suit your own series and can change the values in the series if you wish.
 
 ```{code-block} bash
----
-name: makescan.sh2
-caption: makescan.sh
----
+:label: makescan.sh2
+:filename: makescan.sh
+:linenos: True
+:lineno-start: 1
 input_file=butane-SCAN.inp
 spacer=_
 for num in $(seq -w 000 010 180)
@@ -664,7 +666,7 @@ You can **learn more** about each tool used in this script by using the *man* to
 
 Once I create the butane-SCAN.inp input file and the makescan.sh script, I am ready. I can **run the script** by calling it with the shell that I want to run it. We will use the bash shell. Use the following command to run the script.
 
-```
+```text
 bash makescan.sh
 ```
 
@@ -684,7 +686,7 @@ done
 
 The vertical characters are “pipes”. The **output** of a command is **piped** as the input of the **next command**. The first two *grep* commands will create the list of energies and gradients from a given file and the tail command will take the last line. The script will output the last `NSERCH` line in each .log file and we will **write** those lines into the butane-result.txt file as shown below.
 
-```
+```text
 bash extract.sh > butane-result.txt
 ```
 

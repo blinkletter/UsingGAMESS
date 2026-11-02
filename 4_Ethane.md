@@ -18,12 +18,13 @@ Each of the extreme cases in ethane has **symmetry**. They have **different** sy
 
 We can start with a *Z-matrix* for ethane. If the structure **described** fits the symmetry group declared, then *GAMESS* will **align** it appropriately in the *xyz* coordinate system and **identify** the symmetry unique atoms. Take note of how the two methyl groups are set up so that they **refer** to their own atoms as much as possible and there is only one coordinate that describes the bond **rotation**. Below is the initial input file for the *anti* conformation with *D<sub>3d</sub>* symmetry.
 
-```{code-block} 
----
-name: Ethane_anti_AM1_Z.inp
-emphasize-lines: 16
-caption: Ethane_anti_AM1_Z.inp
----
+```{code-block} text
+:label: ethane_anti_am1_z-inp
+:filename: Ethane_anti_AM1_Z.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 16
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -49,12 +50,13 @@ H   1  1.0  2  110  6  -120
 
 The result file produced the symmetry unique coordinates optimized at the AM1 level. I used those to **construct** an input file for the HF/6-311(d,p)++ optimization. That file is reproduced below. The IZMAT matrix was **constructed** using the `ENCODED Z MATRIX` section of the AM1 result file.
 
-```{code-block} 
----
-name: Ethane_anti_6311_U.inp
-emphasize-lines: 20
-caption: Ethane_anti_6311_U.inp
----
+```{code-block} text
+:label: ethane_anti_6311_u-inp
+:filename: Ethane_anti_6311_U.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 20
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=18 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -98,12 +100,13 @@ The absolute QM energy value is just a number until we compare it to a similar s
 
 The *syn* structure had *D<sub>3h</sub>* symmetry and the *Z-matrix* is **almost** identical. We just had to **change** the one coordinate that defined the **torsion** angle between the two methyl groups. This is the 6,1,2,8 torsion angle (line 6 of the *Z-matrix*.) I just need to change the angle to zero degrees and the symmetry to *D<sub>3h</sub>* and **repeat** all the above. First we altered the *anti* input file and submitted the job.
 
-```{code-block} 
----
-name: Ethane_syn_AM1_Z.inp
-emphasize-lines: 16
-caption: Ethane_syn_AM1_Z.inp
----
+```{code-block} text
+:label: ethane_syn_am1_z-inp
+:filename: Ethane_syn_AM1_Z.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 16
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -127,12 +130,13 @@ H   1  1.0  2  110  6  -120
 
 Then we **used** the unique coordinate generated to create the HF/6-311G(d,p)++ input file. Observe that the unique coordinates have been **aligned** by *GAMESS* into a **different** plane. In the *D<sub>3d</sub>* *anti* symmetry, the *yz* plane was used for the unique atoms, and in the *D<sub>3h</sub>* *syn* case, the *xz* plane was chosen.  The *x*-axis is the perpendicular 2-fold axis of symmetry (that defines the *D* rather than *C* point groups). This places the primary *&sigma;<sub>d</sub>*-plane in the *yz* plane for the *anti* conformation and in the *xz* for the *syn* conformation.  I had tried to just change the symmetry to *D<sub>3h</sub>* and use the **previous** unique *D<sub>3d</sub>* coordinates and the symmetry **failed**. Below is the HF/6-311G(d,p)++ input file.
 
-```{code-block} 
----
-name: Ethane_syn_6311_U.inp
-emphasize-lines: 20
-caption: Ethane_syn_6311_U.inp
----
+```{code-block} text
+:label: ethane_syn_6311_u-inp
+:filename: Ethane_syn_6311_U.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 20
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=18 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END

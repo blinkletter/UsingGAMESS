@@ -14,7 +14,7 @@ A common method that is less costly is to treat solvent like an electric field. 
 
 The PCM model can be included in the *GAMESS* calculation by adding a `$PCM` group. There are many **parameters** that can be included but we will use it without any changes by simply declaring the `SOLVNT` parameter.
 
-```
+```text
  $PCM SOLVNT = WATER $END
 ```
 There are many solvent **options**. See the [*GAMESS* documentation](https://www.msg.chem.iastate.edu/gamess/documentation.html) for more information. Other **popular** choices are WATER, CH3OH, BENZENE, C6H12, THF and DMSO
@@ -52,11 +52,10 @@ Our first input file will be in the ags phase. I used the B3LYP DFT **method** b
 
 The **unique** coordinates will be 0,0,0 for **carbon**, 1,0,0 for the unique **hydrogen** and 0,0,2 for the unique **chloride**. I know that C-H bonds are generally about 1 &angst; and a typical C-Cl bond is 1.7 &angst; so I chose 2 &angst; since the bonds should be breaking and forming. Nobody knows the true values, but some people think that they can be calculated. The whole system will have a **charge** of -1. 
 
-```{code-block} 
----
-name: SN2_321_U.inp
-caption: SN2_321_U.inp
----
+```{code-block} text
+:label: sn2_321_u-inp
+:filename: SN2_321_U.inp
+
  $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -78,12 +77,11 @@ The transition state must, by symmetry, be **defined** by the *D<sub>3h</sub>* p
 
 The second input file will be a **copy** of the first. All I will do is **add** the $PCM group for a **solvent**. I will choose water.
 
-```{code-block} 
----
-name: SN2_H2O_321_U.inp
-emphasize-lines: 7
-caption: N2_H2O_321_U.inp
----
+```{code-block} text
+:label: sn2_h2o_321_u-inp
+:filename: N2_H2O_321_U.inp
+:emphasize-lines: 7
+
  $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -120,12 +118,11 @@ So I **copied** in the coordinates, **changed** to `RUNTYP=HESSIAN` and ran the 
 
 Below are the Hessian input files for the two jobs. Observe how they **differ** only by the presence of the `$PCM` group.
 
-```{code-block} 
----
-name: SN2_D3h_321G_HESS.inp
-emphasize-lines: 8
-caption: SN2_D3h_321G_HESS.inp
----
+```{code-block} text
+:label: sn2_d3h_321g_hess-inp
+:filename: SN2_D3h_321G_HESS.inp
+:emphasize-lines: 8
+
  $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -146,12 +143,11 @@ DNH 3
  $END
 ```
 
-```{code-block} 
----
-name: SN2_D3h_H2O_321G_HESS.inp
-emphasize-lines: 8,9
-caption: SN2_D3h_H2O_321G_HESS.inp
----
+```{code-block} text
+:label: sn2_d3h_h2o_321g_hess-inp
+:filename: SN2_D3h_H2O_321G_HESS.inp
+:emphasize-lines: 8,9
+
  $CONTRL SCFTYP=ROHF RUNTYP=HESSIAN DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -177,14 +173,13 @@ The **log files** showed that the Hessian calculations took over two minutes eac
 
 The results revealed an imaginary vibration in both files. Look for the block of frequency results at the end of the Hessian log file. A small section is excerpted below.
 
-```{code-block} 
----
-name: SN2_D3h_321G_HESS.log
-linenos: True
-lineno-start: 2764
-emphasize-lines: 11,16,19,22
-caption: Excerpt from SN2_D3h_321G_HESS.log
----
+```{code-block} text
+:label: sn2_d3h_321g_hess-log
+:linenos: True
+:lineno-start: 2764
+:emphasize-lines: 11,16,19,22
+:caption: Excerpt from SN2_D3h_321G_HESS.log
+
  --- SYMMETRY FOR NORMAL MODES ---
  INCLUDING TRANSLATION AND ROTATION
     2*A1'    0*A1"    3*A2'    6*A2"    7*E''   10*E'  
@@ -213,7 +208,7 @@ caption: Excerpt from SN2_D3h_321G_HESS.log
                    Y  0.00019186 -0.28790877  0.08833730 -0.02155593  0.05361895
 ```
 
-Observe that in {numref}`SN2_D3h_321G_HESS.log`, there is a frequency labelled `207.30 I`. The "I" indicates an **imaginary frequency**. We might say that is has a frequency of -207.3&nbsp;*cm<sub>-1</sub>*. Below it are the vectors for **motion** of each atom in the vibrations. We can see that there is motion of the *z*-axis for the C and both Cl atoms. Both chlorides are moving at 0.046 in one direction (let us say "left") and the central carbon is moving at 0.267 in the other direction (to the "right"). The **carbon** is the **lightest** element and will take on the **largest** motion in this vibration. One bond is getting **shorter** and one is getting **longer**. This is consistent with the outcome of the reaction. We have **found** the imaginary vibration that aligns with the transition state. **Both** log files showed similar results. I used *MacMolPlt* to visiualize the vibration as shown in {numref}`fig9_3`.
+Observe that in {numref}`sn2_d3h_321g_hess-log`, there is a frequency labelled `207.30 I`. The "I" indicates an **imaginary frequency**. We might say that is has a frequency of -207.3&nbsp;*cm<sub>-1</sub>*. Below it are the vectors for **motion** of each atom in the vibrations. We can see that there is motion of the *z*-axis for the C and both Cl atoms. Both chlorides are moving at 0.046 in one direction (let us say "left") and the central carbon is moving at 0.267 in the other direction (to the "right"). The **carbon** is the **lightest** element and will take on the **largest** motion in this vibration. One bond is getting **shorter** and one is getting **longer**. This is consistent with the outcome of the reaction. We have **found** the imaginary vibration that aligns with the transition state. **Both** log files showed similar results. I used *MacMolPlt* to visiualize the vibration as shown in {numref}`fig9_3`.
 
 ```{figure} images/Solvent_3.png
 ---
@@ -234,12 +229,11 @@ You must use the `$HESS` group from the solvent run for the solvent saddlepoint.
 
 Now I will have the two input files that **differ** by having different `$HESS` groups and by whether a `$PCM` group is present to declare **solvent**. The solvent calculation input file is shown below.
 
-```{code-block} 
----
-name: SN2_D3h_H2O_321G_SADL.inp
-emphasize-lines: 1,9,20
-caption: Excerpt from SN2_D3h_H2O_321G_SADL.inp
----
+```{code-block} text
+:label: sn2_d3h_h2o_321g_sadl-inp
+:emphasize-lines: 1,9,20
+:caption: Excerpt from SN2_D3h_H2O_321G_SADL.inp
+
  $CONTRL SCFTYP=ROHF RUNTYP=SADPOINT DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -279,14 +273,13 @@ We now have data for optimized saddle points of **both gas-phase and solvent** c
 
 Below are the coordinates for the **two results**.  We immediately see that, while the **gas phase** system maintained the *D<sub>3h</sub>* symmetry, the **solvent** calculation again broke symmetry.  It was held at the saddle point by the math of the saddle point calculation, but was clearly fighting to twist out of the *D<sub>3h</sub>* shape.
 
-```{code-block} 
----
-name: SN2_D3h_321G_SADL.log
-linenos: True
-lineno-start: 1295
-emphasize-lines: 11,12,13,16
-caption: Excerpt from SN2_D3h_321G_SADL.log
----
+```{code-block} text
+:label: sn2_d3h_321g_sadl-log
+:linenos: True
+:lineno-start: 1295
+:emphasize-lines: 11,12,13,16
+:caption: Excerpt from SN2_D3h_321G_SADL.log
+
       ***** SADDLE POINT LOCATED *****
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
    ATOM   CHARGE       X              Y              Z
@@ -305,14 +298,13 @@ caption: Excerpt from SN2_D3h_321G_SADL.log
  H           1.0   1.0737765052  -0.0000000000  -0.0000000000
 ```
 
-```{code-block} 
----
-name: SN2_D3h_H2O_321G_SADL.log
-linenos: True
-lineno-start: 1705
-emphasize-lines: 5,6,7,10
-caption: Excerpt from SN2_D3h_H2O_321G_SADL.log
----
+```{code-block} text
+:label: sn2_d3h_h2o_321g_sadl-log
+:linenos: True
+:lineno-start: 1705
+:emphasize-lines: 5,6,7,10
+:caption: Excerpt from SN2_D3h_H2O_321G_SADL.log
+
       ***** SADDLE POINT LOCATED *****
  COORDINATES OF ALL ATOMS ARE (ANGS)
    ATOM   CHARGE       X              Y              Z
@@ -354,12 +346,11 @@ In this case, I am **calculating** the orbitals, so I will not need the \$VEC gr
 
 **Below** are the first lines of the input files for the IRC calculations.  They will each have to be run again after **changing** `FORWRD=.TRUE.` to `FORWRD=.FALSE.` to run the other direction in the IRC.
 
-```{code-block} 
----
-name: SN2_D3h_321G_IRC.inp
-emphasize-lines: 1, 6,7
-caption: Excerpt from SN2_D3h_321G_IRC.inp
----
+```{code-block} text
+:label: sn2_d3h_321g_irc-inp
+:emphasize-lines: 1, 6,7
+:caption: Excerpt from SN2_D3h_321G_IRC.inp
+
  $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -395,12 +386,11 @@ ENERGY IS     -955.6090406225 E(NUC) IS      107.7130912280
 
 
 
-```{code-block} 
----
-name: SN2_D3h_H2O_321G_IRC.inp
-emphasize-lines: 1, 6,7, 10
-caption: Excerpt from SN2_D3h_H2O_321G_IRC.inp
----
+```{code-block} text
+:label: sn2_d3h_h2o_321g_irc-inp
+:emphasize-lines: 1, 6,7, 10
+:caption: Excerpt from SN2_D3h_H2O_321G_IRC.inp
+
  $CONTRL SCFTYP=ROHF RUNTYP=IRC DFTTYP=B3LYP MAXIT=30 
     ICHARG=-1 MULT=1 COORD=UNIQUE NZVAR=12 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -463,14 +453,13 @@ name: fig9_6
 
 ### The Ground State
 
-What is the calculated C-Cl **bond length** in the methyl chloride starting material? We can quickly modify the input file that we used for the transtion state search. All we need to do is **change** the point group. The transition state was *D<sub>3h</sub>* and methyl chloride is *C<sub>3v</sub>*. That change alone will give us the methyl chloride arrangement. Below are the **two input files** for this calculation. Compare them to {numref}`SN2_321_U.inp` and {numref}`SN2_H2O_321_U.inp`.
+What is the calculated C-Cl **bond length** in the methyl chloride starting material? We can quickly modify the input file that we used for the transtion state search. All we need to do is **change** the point group. The transition state was *D<sub>3h</sub>* and methyl chloride is *C<sub>3v</sub>*. That change alone will give us the methyl chloride arrangement. Below are the **two input files** for this calculation. Compare them to {numref}`sn2_321_u-inp` and {numref}`sn2_h2o_321_u-inp`.
 
-```{code-block} 
----
-name: SN2_C3V_H2O_CH3Cl.inp
-emphasize-lines: 5,6,7,10
-caption: SN2_C3V_H2O_CH3Cl.inp
----
+```{code-block} text
+:label: sn2_c3v_h2o_ch3cl-inp
+:filename: SN2_C3V_H2O_CH3Cl.inp
+:emphasize-lines: 5,6,7,10
+
  $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
     ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -489,12 +478,11 @@ H     1.0     1.00000     0.00000     0.00000
  $ZMAT AUTO=.TRUE. DLC=.TRUE. $END
 ```
 
-```{code-block} 
----
-name: SN2_C3V_CH3Cl.inp
-emphasize-lines: 5,6,7,10
-caption: SN2_C3V_CH3Cl.inp
----
+```{code-block} text
+:label: sn2_c3v_ch3cl-inp
+:filename: SN2_C3V_CH3Cl.inp
+:emphasize-lines: 5,6,7,10
+
  $CONTRL SCFTYP=ROHF RUNTYP=OPTIMIZE DFTTYP=B3LYP MAXIT=30 
     ICHARG=-0 MULT=1 COORD=UNIQUE NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -563,13 +551,12 @@ Experience is a good teacher. You will learn what to look for and when you do th
 Here we see that there are 50 entries in the C-Cl lists but only 49 in the energy.txt and stride.txt lists. this is because step zero had a stride of zero (not explicitly reported, but obvious when you think about it) and the energy for step zero was the saddle point energy which is reported with the text "`FINAL RO-B3LYP ENERGY`" on a line near the beginning of the .log file.
 ```
 
-If I did write a **shell script** I might just collect the commands all in one file so that they can be run as a batch. Below in {numref}`processIRC.sh` is an example. Here I am **processing** the data for the gas phase IRC. You can modify the filenames to suit.
+If I did write a **shell script** I might just collect the commands all in one file so that they can be run as a batch. Below in {numref}`processirc-sh` is an example. Here I am **processing** the data for the gas phase IRC. You can modify the filenames to suit.
 
-```{code-block} 
----
-name: processIRC.sh
-caption: processIRC.sh
----
+```{code-block} text
+:label: processirc-sh
+:filename: processIRC.sh
+
 grep "AT PATH DISTANCE STOTAL" SN2_321G_D3h_IRC_3R.log > gstride_r.txt
 grep "          TOTAL ENERGY" SN2_321G_D3h_IRC_3R.log > genergy_r.txt
 grep "STRETCH   1  3" SN2_321G_D3h_IRC_3R.log > gC-Cl-1-3_r.txt

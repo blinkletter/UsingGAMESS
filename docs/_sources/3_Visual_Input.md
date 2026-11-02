@@ -34,11 +34,10 @@ In the `Stat. Point` window we can set the number of steps to a higher number th
 
 Click on the `Edit and Save` button and you will get a text window with the generated input file. You can make changes now or you can use a text editor later. Save the file. below is the file as saved by *MacMolPlt*.
 
-```{code-block} 
----
-name: amethane.inp
-caption: methane.inp
----
+```{code-block} text
+:label: amethane-inp
+:filename: methane.inp
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 LOCAL=RUEDNBRG COORD=UNIQUE 
     $END
@@ -113,11 +112,10 @@ We see the familiar methane HOMO there but it is not **perfectly** symmetrical. 
 
 We can **construct** a symmetrical structure of methane using symmetry tools in *MacMolPlt*. However, for now let us do this **manually**. First I will make an AM1 input file for structural **optimization** *T<sub>d</sub>* methane. 
 
-```{code-block} 
----
-name: methane_AM1_U.inp1
-caption: methane_AM1_U.inp1
----
+```{code-block} text
+:label: methane_am1_u-inp1
+:filename: methane_AM1_U.inp1
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -140,12 +138,11 @@ H     1.0     0.7    0.7     0.7
 
 After submitting it, we will have the coordinates optimized at the AM1 level. We can then **copy** them into an input file for the HF/6-311G(d,p)++ **energy** at *T<sub>d</sub>* symmetry. I **added the command** for creating local bonding orbitals.
 
-```{code-block} 
----
-name: methane_6311_U_E.inp1
-emphasize-lines: 2
-caption: methane_6311_U_E.inp
----
+```{code-block} text
+:label: methane_6311_u_e-inp1
+:filename: methane_6311_U_E.inp
+:emphasize-lines: 2
+
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
   NZVAR=9 LOCAL=RUEDNBRG COORD=UNIQUE $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END

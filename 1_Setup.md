@@ -91,14 +91,14 @@ The *rungms* and *gms* scripts contain variables that can be changed to **custom
 
 Open *rungms* in a **text editor**. The first lines of the script define directories for the **scratch files**. These are important to define. The default is the home directory of the *rungms* script, but you will likely want your result files to appear somewhere else. I changed the first four lines of the script…
 
-```
+```text
 set TARGET=sockets
 set SCR=./
 set USERSCR=./
 set GMSPATH=./
 ```
 to…
-```
+```text
 set TARGET=sockets
 set SCR=/Applications/gamess/scr
 set USERSCR=/Users/Barry/Documents/CompChem/GAMESS-SCR

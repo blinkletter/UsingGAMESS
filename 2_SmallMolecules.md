@@ -75,13 +75,12 @@ What values should we use for *a* and *b*? We know that the **bond angle** shoul
 
 We now need to create a **text file** that will be read into *GAMESS* to provide the information for the calculation. We must tell *GAMESS* what **kind** of calculation, the **methods** to use for determining energy, The **conditions** for declaring a satisfactory structure, and the **data** for the structure.
 
-Below in {numref}`water.inp` is the text file for this first *GAMESS* run. I created a file called water.inp and typed in the following text (feel free to cut and paste.)
+Below in {numref}`water-inp` is the text file for this first *GAMESS* run. I created a file called water.inp and typed in the following text (feel free to cut and paste.)
 
-```{code-block} 
----
-name: water.inp
-caption: water.inp
----
+```{code-block} text
+:label: water-inp
+:caption: water.inp
+:linenos: True
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -111,12 +110,11 @@ Here is a quick **overview** of the groups used in our first job. We will add to
 
 The `$CONTRL` group establishes the **kind of calculation**. It may contain many parameters. The ones used here are our beginning set.
 
-```{code-block} 
----
-linenos: True
-lineno-start: 1
-caption: water.inp
----
+```{code-block} text
+:caption: water.inp
+:linenos: True
+:lineno-start: 1
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=CART $END
 ```
 
@@ -137,12 +135,11 @@ The `CART` coordinate option has been deprecated in modern versions of *GAMESS*.
 
 The `$SYSTEM` group defines parameters for the computer system.
 
-```{code-block} 
----
-linenos: True
-lineno-start: 2
-caption: water.inp
----
+```{code-block} text
+:caption: water.inp
+:linenos: True
+:lineno-start: 2
+
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
 ```
 
@@ -155,12 +152,11 @@ caption: water.inp
 
 The `$BASIS` group defines the **theoretical rigor** of the calculation. We will discuss this in more detail later. By using the AM1 level of theory we are declaring that we will use **semi-empirical** methods. This is a very **low level** calculation and requires little in computer resources. We will soon explore methods that will take some serious computer time (and time is money.)
 
-```{code-block} 
----
-linenos: True
-lineno-start: 3
-caption: water.inp
----
+```{code-block} text
+:caption: water.inp
+:linenos: True
+:lineno-start: 3
+
  $BASIS GBASIS=AM1 $END
 ```
 
@@ -168,12 +164,11 @@ caption: water.inp
 
 The `$SCF` group is specific to the way the calculation is **performed**. The first derivative of the energy function is calculated and stored in a temporary file on disk. Later, when it is needed again, it is read from the disk (it is called several times in the calculation method.) Modern processors can actually **recalculate** this function from scratch faster than a computer hard disk can spin. The `DIRSCF=.TRUE.` command sets *GAMESS* to recalculate the function **each time** it is needed rather than read from the much slower disk drive (modern SSD storage may change this requirement – computers are improving all the time.)
 
-```{code-block} 
----
-linenos: True
-lineno-start: 4
-caption: water.inp
----
+```{code-block} text
+:caption: water.inp
+:linenos: True
+:lineno-start: 4
+
  $SCF DIRSCF=.TRUE. $END
 ```
 
@@ -181,12 +176,11 @@ caption: water.inp
 
 The `$STATPT` group establishes the parameters for deciding when we have reached a “**stationary point**” where the derivative of the energy function is near zero (zero slope is likely the bottom of an energy well, the lowest point along the path that *GAMESS* has taken).
 
-```{code-block} 
----
-linenos: True
-lineno-start: 5
-caption: water.inp
----
+```{code-block} text
+:caption: water.inp
+:linenos: True
+:lineno-start: 5
+
  $STATPT OPTTOL=0.0001 NSTEP=100 $END
 ```
 | Parameter | Notes |
@@ -199,13 +193,12 @@ caption: water.inp
 
 The above groups instructed *GAMESS* how to treat the next group, the **star of the show**, the `$DATA` group. Let us now examine this importanjt part of the input file.
 
-```{code-block} 
----
-linenos: True
-lineno-start: 6
-emphasize-lines: 3
-caption: water.inp
----
+```{code-block} text
+:caption: water.inp
+:linenos: True
+:lineno-start: 6
+:emphasize-lines: 8
+
  $DATA 
 Water
 CNV 2
@@ -233,7 +226,7 @@ Now we have an **input file** named `water.inp`. We can run that job via *Gamess
 
 Open a terminal emulator window and type in the following command…
 
-```
+```text
 gms water.inp
 ```
 
@@ -256,16 +249,15 @@ Enter `gms help` for information about using *gms*.
 
 The result file is named `water.log` in this case. Open it in a **text editor** and examine the contents.
 
-**Search** for the string NSERCH. Every time it appears involves setting up or declaring the results of an energy calculation. The first time it appears we see the text show in the excerpt of {numref}`water.log1`
+**Search** for the string NSERCH. Every time it appears involves setting up or declaring the results of an energy calculation. The first time it appears we see the text show in the excerpt of {numref}`water-log1`
 
-```{code-block} 
----
-name: water.log1
-linenos: True
-lineno-start: 287
-emphasize-lines: 11,12,13
-caption: water.log
----
+```{code-block} text
+:label: water-log1
+:caption: water.log
+:linenos: True
+:lineno-start: 287
+:emphasize-lines: 297-299
+
 BEGINNING GEOMETRY SEARCH POINT NSERCH=   0 ...
 
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
@@ -283,17 +275,16 @@ BEGINNING GEOMETRY SEARCH POINT NSERCH=   0 ...
 
 We see that *GAMESS* has found the **unique atoms** of the **point group**. From these, all the atoms can be created. *GAMESS* is using our initial values but has positioned the center of mass at the origin by adding 0.0783 Å to the *z*-axis.
 
-Keep searching for NSERCH. Almost **200 lines later** in the water.log result file we see that we have finished step zero ({numref}`water.log2`.) 
+Keep searching for NSERCH. Almost **200 lines later** in the water.log result file we see that we have finished step zero ({numref}`water-log2`.) 
 
 
-```{code-block} 
----
-name: water.log2
-linenos: True
-lineno-start: 432
-emphasize-lines: 1, 10
-caption: water.log
----
+```{code-block} text
+:label: water-log2
+:caption: water.log
+:linenos: True
+:lineno-start: 432
+:emphasize-lines: 432,441
+
 NSERCH:   0  E=      -12.8027678782  GRAD. MAX=  0.0593284  R.M.S.=  0.0244052
 
           FORCE CONSTANT MATRIX NOT UPDATED --- TAKING FIRST STEP
@@ -321,16 +312,15 @@ NSERCH:   0  E=      -12.8027678782  GRAD. MAX=  0.0593284  R.M.S.=  0.0244052
 
 The initial **energy** and the derivative (slope or gradient of the energy function) has been **calculated**. The gradient w.r.t. each axis will be used to compute a distance to **move** for each atom. Each change is **applied** and the data set for step one is declared a few lines later.
 
-The energy and gradients will be computed again and the coordinates altered accordingly. This will **repeat** until we fulfil the conditions for the stationary point set in the `$STATPT` group. In our example, the **stationary point** is declared to be located after we finish step 3 as shown in {numref}`water.log3`
+The energy and gradients will be computed again and the coordinates altered accordingly. This will **repeat** until we fulfil the conditions for the stationary point set in the `$STATPT` group. In our example, the **stationary point** is declared to be located after we finish step 3 as shown in {numref}`water-log3`
 
-```{code-block} 
----
-name: water.log3
-linenos: True
-lineno-start: 689
-emphasize-lines: 1, 13-15
-caption: water.log
----
+```{code-block} text
+:label: water-log3
+:caption: water.log
+:linenos: True
+:lineno-start: 689
+:emphasize-lines: 689, 701-703
+
 NSERCH:   3  E=      -12.8093121210  GRAD. MAX=  0.0000133  R.M.S.=  0.0000072
 
 
@@ -381,18 +371,19 @@ We will use 3-21G, a very low cost basis set and 6-311G(d,p)++, a much more comp
 
 We will change the `$BASIS` group in the `water.inp` file to use the 3-21G basis set
 
-```
+```text
 $BASIS GBASIS=N21 NGAUSS=3 $END
 ```
 
 We will also **cut and paste** the final coordinates from the AM1 job. We should always use the work of those who have gone before to advance our goals. We stand on the shoulders of giants. When we work up to very **expensive** methods, it is best to start with an optimized structure from a **cheaper** method.
 
-```{code-block} 
----
-name: water321G.inp1
-emphasize-lines: 3
-caption: water321G.inp
----
+```{code-block} text
+:label: water321g-inp1
+:caption: water321G.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 3
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=N21 NGAUSS=3 $END
@@ -406,24 +397,23 @@ O           8.0   0.0000000000   0.0000000000   0.0083001974
 H           1.0  -0.7550350900   0.0000000000  -0.5866394549
  $END
 ```
-The **changes** from the original input file have been highlighted in {numref}`water321G.inp1`. Note that the `COORD` parameter has been changed to `UNIQUE`. *GAMESS* reported the *xyz* coordinates of the **symmetry unique atoms** in the previous output file. Since we are now using unique coordinates we must inform the software of that fact. 
+The **changes** from the original input file have been highlighted in {numref}`water321g-inp1`. Note that the `COORD` parameter has been changed to `UNIQUE`. *GAMESS* reported the *xyz* coordinates of the **symmetry unique atoms** in the previous output file. Since we are now using unique coordinates we must inform the software of that fact. 
 
 I ran the job via the *gms* script.
 
-```
+```text
 gms water_321G.inp
 ```
 
-A **result file** named water_321G.log was created. I **searched** for the last occurrence of `NSERCH` and found the results. The job reached a stationary point after five optimization steps. We now have the energy and structure at the HF/3-21G level. {numref}`water321G.log1` is an **excerpt** of the output file.
+A **result file** named water_321G.log was created. I **searched** for the last occurrence of `NSERCH` and found the results. The job reached a stationary point after five optimization steps. We now have the energy and structure at the HF/3-21G level. {numref}`water321g-log1` is an **excerpt** of the output file.
 
-```{code-block} 
----
-name: water321G.log1
-linenos: True
-lineno-start: 1019
-emphasize-lines: 1
-caption: water321G.log
----
+```{code-block} text
+:label: water321g-log1
+:caption: water321G.log
+:linenos: True
+:lineno-start: 1019
+:emphasize-lines: 1019
+
 NSERCH:   5  E=      -75.5859597578  GRAD. MAX=  0.0000143  R.M.S.=  0.0000060
 
 
@@ -456,18 +446,18 @@ The **bond lengths** are slightly longer and the calculated **energy** is very d
 
 By changing the `$BASIS` group to the following we will be implementing the 6-311G(d,p)++ basis set.
 
-```
+```text
 $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
 ```
 
 We will use the coordinate data from the 3-21G run to start as **close** to the true answer **as possible**. After running the job with the following input file we reached a stationary point after three optimization steps.
 
-```{code-block} 
----
-name: water6311G.inp1
-emphasize-lines: 3
-caption: water6311G.inp
----
+```{code-block} text
+:label: water6311g-inp1
+:caption: water6311G.inp
+:linenos: True
+:emphasize-lines: 3
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=UNIQUE $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
@@ -484,14 +474,13 @@ CNV 2
 
 Here is an excerpt from the output file.
 
-```{code-block} 
----
-name: water6311G.log1
-linenos: True
-lineno-start: 1345
-emphasize-lines: 1
-caption: water6311G.log
----
+```{code-block} text
+:label: water6311g-log1
+:caption: water6311G.log
+:linenos: True
+:lineno-start: 1345
+:emphasize-lines: 1345
+
 NSERCH:   5  E=      -76.0534461703  GRAD. MAX=  0.0000111  R.M.S.=  0.0000051
 
 
@@ -530,9 +519,9 @@ If we **calculate** the HF/6-311G(d,p)++ energy **using** the HF/3-21G optimized
 
 Hartrees? You may notice that data tables in the output file report energy in **Hartree units**, distances in both **Angstroms** and **Bohr atomic units** and angles in degrees and in radians. Deep inside *GAMESS*, the math uses Bohr a.u. for distance and radians for angles in its calculations. It also uses the elementary charge and mass of the electron and Planck’s constant. The Hartree is an energy unit derived from the **fundamental** measurements of a hydrogen atom and the intrinsic properties of space and time. 
 
-```{margin}
-Keep this conversion factor close by: 1 Hartree = 2,625.5 *kJ/mole*.
-```
+
+**Keep** this conversion factor close by: 1 Hartree = 2,625.5 *kJ/mole*.
+
 *GAMESS* will output distances and angles in **familiar** units such as Angstroms and degrees but will always report energy in Hartrees. One Hartree is 4.3597 &times; 10<sup>−18</sup> *J*. When we multiply by Avogadro’s number we get 2625.50 *kJ/mole*.
 
 
@@ -544,7 +533,7 @@ Imagine three towns in a flat prairie, the last three towns on Earth. If I start
 
 Here is a *Z-matrix* for our town map…
 
-```
+```text
 A
 B  1  10
 C  2   5  1  45
@@ -561,7 +550,7 @@ It can be interpreted as…
 
 Here is a *Z-matrix* for the molecule water. It is interpreted in {numref}`fig3`
 
-```
+```text
 Water
 CNV 2
 
@@ -580,7 +569,7 @@ name: fig3
 
 *GAMESS* will **attempt** to fit the molecule to your declared symmetry point group and define a principal axis, etc. However, if your initial structure does not fit the point group the calculation will **fail**. To fit the *C<sub>2v</sun>* point group, the two bond lengths must be the same in the *Z-matrix* for water. One way that we can make sure that this is true is to use **variables** in the *Z-matrix*. Consider the example below.
 
-```
+```text
 Water
 CNV 2
 
@@ -592,14 +581,15 @@ bond_length=1.0
 bond_angle=109.5
 ```
 
-By using variables appropriately we can **make sure** that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a *Z-matrix*. {numref}`water_Z_AM1.inp1` shows the complete input file for an AM1 optimization of water using the *Z-matrix*.
+By using variables appropriately we can **make sure** that certain values are always identical, as required in a given point group. However, sometime we must be creative to enforce symmetry in a *Z-matrix*. {numref}`water_z_am1-inp1` shows the complete input file for an AM1 optimization of water using the *Z-matrix*.
 
-```{code-block} 
----
-name: water_Z_AM1.inp1
-emphasize-lines: 1
-caption: water_Z_AM1.inp
----
+```{code-block} text
+:label: water_z_am1-inp1
+:caption: water_Z_AM1.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 1
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -621,14 +611,13 @@ When we submit the job, *GAMESS* will use the *Z-matrix* to create a set of Cart
 
 The *Z-matrix* is useful because we can **see** directly the **bond lengths and angles** in the result. We will not have to use trigonometry to calculate the bond angle from the *xyz* data. In the excerpt from the result file shown below, we see that we reached an **optimized** geometry after 3 steps and that the AM1 Bond lengths were calculated to be 0.961 Å and the bond angle to be 103.5&deg;. Note that *GAMESS* oriented the water molecule in the *xz* plane, as expected, but that it has the molecule **upside-down** compared to our original Cartesian input file described above. Interesting.
 
-```{code-block} 
----
-name: water_Z_AM1.log1
-linenos: True
-lineno-start: 976
-emphasize-lines: 1
-caption: water_Z_AM1.log
----
+```{code-block} text
+:label: water_z_am1-log1
+:caption: water_Z_AM1.log
+:linenos: True
+:lineno-start: 976
+:emphasize-lines: 976
+
 NSERCH:   6  E=      -12.8093121220  GRAD. MAX=  0.0000047  R.M.S.=  0.0000020
 
 
@@ -657,7 +646,7 @@ We could now paste the new *Z-matrix* or the unique coordinates into the HF/3-21
 
 Water is a planar system (for the atoms) but **ammonia** is going to require a **third dimension**. Here is one option for the *Z-matrix*.
 
-```
+```text
 Ammonia
 CNV 3
 
@@ -679,7 +668,7 @@ name: fig4
 
 But when I submit the job with the above the **calculation failed**. Near the end of the short result file that was produced was the following text message.
 
-```
+```text
 ERROR!
  YOUR CART/ZMT/ZMTMPC INPUT GENERATED 12 ATOMS,
  BUT ONLY 4 ATOMS WERE PRESENT IN YOUR $DATA.
@@ -695,11 +684,10 @@ There is another way.
 
 When constructing symmetrical molecules it can be useful to use **dummy atoms**. These are defined by the letter X in the *Z-matrix*.
 
-```{code-block} 
----
-name: ammonia_ZX.inp1
-caption: ammonia_ZX.inp
----
+```{code-block} text
+:label: ammonia_zx-inp1
+:caption: ammonia_ZX.inp
+:linenos: True
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -717,7 +705,7 @@ H  2  1.0  1  109.5  3  -120.0
  $END
 ```
 
-Using this matrix gives a **successful** calculation for the optimized geometry of ammonia at the AM1 level. The **Z-matrix** is outlined in {numref}`fig4` and the input file is described in {numref}`ammonia_ZX.inp1`.
+Using this matrix gives a **successful** calculation for the optimized geometry of ammonia at the AM1 level. The **Z-matrix** is outlined in {numref}`fig4` and the input file is described in {numref}`ammonia_zx-inp1`.
 
 ```{figure} images/Dummy_Atoms.png
 ---
@@ -727,15 +715,14 @@ name: fig5
 *The Z-matrix for ammonia with a dummy atom to define symmetry*
 ```
 
-{numref}`ammonia_ZX.log1` is an **excerpt** from the result file. You will see that the *Z-matrix* was **not recreated**.  This is because the **dummy atom** was used only in creating the initail *xyz* coordinates. It is not present in the calculation and *GAMESS* does not include it. *GAMESS* **cannot create** a *Z-matrix* that is guaranteed to fit the *C<sub>2v</sub>* symmetry without using dummy atoms, so it is sticking with Cartesian coordinates.
+{numref}`ammonia_zx-log1` is an **excerpt** from the result file. You will see that the *Z-matrix* was **not recreated**.  This is because the **dummy atom** was used only in creating the initail *xyz* coordinates. It is not present in the calculation and *GAMESS* does not include it. *GAMESS* **cannot create** a *Z-matrix* that is guaranteed to fit the *C<sub>2v</sub>* symmetry without using dummy atoms, so it is sticking with Cartesian coordinates.
 
-```{code-block} 
----
-name: ammonia_ZX.log1
-linenos: True
-lineno-start: 783
-caption: ammonia_ZX.log
----
+```{code-block} text
+:label: ammonia_zx-log1
+:caption: ammonia_ZX.log
+:linenos: True
+:lineno-start: 783
+
 NSERCH:   4  E=       -9.1354556208  GRAD. MAX=  0.0000006  R.M.S.=  0.0000004
 
 
@@ -776,7 +763,7 @@ We must **declare** that we are using internal coordinates in the `$CONTRL` grou
  
 We will then construct the `$ZMAT` group as follows…
 
-```
+```text
 $ZMAT IZMAT(1)=1,2,1,  
                1,3,1,  2,3,1,2, 
                1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
@@ -790,7 +777,7 @@ The `IZMAT` matrix is populated by a series of numbers. Each **group** starts wi
 
 This would **correspond** to the failed *Z-matrix* that we used before we applied the dummy atoms. It is reproduced below.
 
-```
+```text
 N
 H   1   1.0
 H   1   1.0   2   109.5
@@ -799,12 +786,13 @@ H   1   1.0   2   109.5   3   120
 
 Now *GAMESS* will **track** those coordinates. In fact, *GAMESS* will be using those coordinates to calculate **gradients**. Rather than a gradient in each axis for each atom, *GAMESS* will use the gradient for the energy function of that **internal coordinate**. With **carefully designed** internal coordinates, this can speed the calculation quite a bit. Below is the input file for an AM1 optimization using the results from the previous AM1 job.
 
-```{code-block} 
----
-name: ammonia_UZ.inp1
-emphasize-lines: 2,14-16
-caption: ammonia_UZ.inp
----
+```{code-block} text
+:label: ammonia_uz-inp1
+:caption: ammonia_UZ.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2, 14-16
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=6 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -831,14 +819,13 @@ Take note of the **list** of internal coordinates that was written out by *GAMES
 
 Since the `$DATA` group was copied from the result of the **same** AM1 method, we started at a stationary point and so no optimization was performed. What is **different** is that *GAMESS* now includes the list of internal coordinates with the structural data. We can easily **see the values** for all the lengths and angles.
 
-```{code-block} 
----
-name: ammonia_UZ.log1
-linenos: True
-lineno-start: 484
-emphasize-lines: 1,31
-caption: ammonia_UZ.log
----
+```{code-block} text
+:label: ammonia_uz-log1
+:caption: ammonia_UZ.log
+:linenos: True
+:lineno-start: 484
+:emphasize-lines: 484,514
+
 NSERCH:   0  E=       -9.1354556208  GRAD. MAX=  0.0000009  R.M.S.=  0.0000004
 
 
@@ -876,11 +863,11 @@ We observe that the bond lengths are all **exactly** the same and the bond angle
 
 We can take the result of the AM1 calculation and use it to build an **input file** for HF/3-21G and HF/6-3111G(d,p)++ optimizations. Below is a file for the **more expensive** option.
 
-```{code-block} 
----
-name: ammonia_UZ_6311G.inp1
-caption: ammonia_UZ_6311G.inp
----
+```{code-block} text
+:label: ammonia_uz_6311g-inp1
+:caption: ammonia_UZ_6311G.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=6 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -903,13 +890,12 @@ H   1.0   0.9385359335   0.0   0.2757943561
 In the above input file, I set up the `$IZMAT` matrix differently and applied a **bend** rather than a **torsion** for the last coordinate. This way I have coordinates that describe all three bond lengths and all three bends. I can do this because the torsion angles are set by the **symmetry group** (spaced evenly around the principal axis.) Now see how that is reflected in the results. An excerpt from the result file is shown below. **Be careful** here, *GAMESS* must have a way to define the torsion angle via an internal coordinate when we are using internal coordinates. Here we had the symmetry constraints to handle that role. That won't always be the case.
 
 
-```{code-block} 
----
-name: ammonia_UZ_6311G.log1
-linenos: True
-lineno-start: 1448
-caption: ammonia_UZ_6311G.log
----
+```{code-block} text
+:label: ammonia_uz_6311g-log1
+:caption: ammonia_UZ_6311G.log
+:linenos: True
+:lineno-start: 1448
+
 NSERCH:   3  E=      -56.2147746439  GRAD. MAX=  0.0000023  R.M.S.=  0.0000013
 
 
@@ -1009,11 +995,11 @@ The HF/3-21G **optimization** produced a structure that is **very close** to the
 ##### Appendix: Input files
 
 
-```{code-block} 
----
-name: methane_AM1_U.inp
-caption: methane_AM1_U.inp
----
+```{code-block} text
+:label: methane_am1_u-inp
+:caption: methane_AM1_U.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=AM1 $END
@@ -1033,11 +1019,11 @@ H     1.0     0.7    0.7     0.7
                  $END
 ```
 
-```{code-block} 
----
-name: methane_321_U.inp
-caption: methane_321_U.inp
----
+```{code-block} text
+:label: methane_321_u-inp
+:caption: methane_321_U.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
  COORD=UNIQUE NZVAR=9 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1058,11 +1044,11 @@ Td
                  $END
 ```
  
-```{code-block} 
----
-name: Methane_6311_U.inp
-caption: Methane_6311_U.inp
----
+```{code-block} text
+:label: methane_6311_u-inp
+:caption: Methane_6311_U.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   NZVAR=9 COORD=UNIQUE $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1084,11 +1070,11 @@ Td
                  $END
 ```
 
-```{code-block} 
----
-name: Methane_6311_U_E.inp
-caption: Methane_6311_U_E.inp
----
+```{code-block} text
+:label: methane_6311_u_e-inp
+:caption: Methane_6311_U_E.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
   NZVAR=9 COORD=UNIQUE $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1114,11 +1100,11 @@ Td
 
 The below file was made to **check** the energy of the experimental structure. Even with many decimal places, *GAMESS* still did not recognize the **symmetry** of the structure. So I used *C<sub>1</sub>* symmetry instead. Note that there is NO BLANK LINE after the *C<sub>1</sub>* symmetry designation. 
 
-```{code-block} 
----
-name: Methane_6311_Z_E.inp
-caption: Methane_6311_Z_E.inp
----
+```{code-block} text
+:label: methane_6311_z_e-inp
+:caption: Methane_6311_Z_E.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
  $BASIS GBASIS=N311 NGAUSS=6 NDFUNC=1 NPFUNC=1 DIFFSP=.TRUE. DIFFS=.TRUE. $END
@@ -1153,11 +1139,11 @@ The HF/3-21G optimization **produced** a structure that is very close to the HF/
 
 ##### Appendix: Input files
 
-```{code-block} 
----
-name: water_AM1_U.inp
-caption: water_AM1_U.inp
----
+```{code-block} text
+:label: water_am1_u-inp
+:caption: water_AM1_U.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT NZVAR=3 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1195,11 +1181,11 @@ The HF/3-21G **optimization** produced a structure that is NOT close to the HF/6
  
 ##### Appendix: Input files
 
-```{code-block} 
----
-name: ammonia_AM1_ZD.inp
-caption: ammonia_AM1_ZD.inp
----
+```{code-block} text
+:label: ammonia_am1_zd-inp
+:caption: ammonia_AM1_ZD.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT NZVAR=6 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1222,11 +1208,11 @@ H  2  1.0  1  109.5  3  -120.0
                 1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 ```
 
-```{code-block} 
----
-name: ammonia_321_U.inp
-caption: ammonia_321_U.inp
----
+```{code-block} text
+:label: ammonia_321_u-inp
+:caption: ammonia_321_U.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=6 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1245,11 +1231,11 @@ CNV 3
                 1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 ```
  
-```{code-block} 
----
-name: ammonia_6311_U.inp
-caption: ammonia_6311_U.inp
----
+```{code-block} text
+:label: ammonia_6311_u-inp
+:caption: ammonia_6311_U.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=6 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1268,11 +1254,11 @@ CNV 3
                 1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 ```
 
-```{code-block} 
----
-name: ammonia_6311_U_E.inp
-caption: ammonia_6311_U_E.inp
----
+```{code-block} text
+:label: ammonia_6311_u_e-inp
+:caption: ammonia_6311_U_E.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
   COORD=UNIQUE NZVAR=6 $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -1291,11 +1277,11 @@ CNV 3
                 1,4,1,  2,4,1,2,  3,4,1,2,3   $END  
 ```
 
-```{code-block} 
----
-name: ammonia_6311_Z_E.inp
-caption: ammonia_6311_Z_E.inp
----
+```{code-block} text
+:label: ammonia_6311_z_e-inp
+:caption: ammonia_6311_Z_E.inp
+:linenos: True
+:lineno-start: 1
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY MAXIT=30 MULT=1 ICHARG=0 
   COORD=ZMT $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END

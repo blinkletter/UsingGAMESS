@@ -35,17 +35,19 @@ name: fig8_2
 
 **Export** an input file from `Subwindow` &rarr; `Input Builder`. We choose a `Runtype: Optimization`  with the `3-21G` basis set with `1 D Heavy Atom Polarization Function` (3-21G<sup>\*</sup>). We set `Coord. Type: Z-Matrix` and `# of Z-Matrix Variables` to `42` (3 × 16 atoms – 6).
 
-I **submitted** the calculation to *GAMESS* via *GamessQ* and it ran successfully.  In {numref}`Cyclohexene-ZMAT.inp` is the input file and the *Z-matrix* for the resulting optimized structure.
+I **submitted** the calculation to *GAMESS* via *GamessQ* and it ran successfully.  In {numref}`cyclohexene-zmat-inp` is the input file and the *Z-matrix* for the resulting optimized structure.
+
 
 ````{margin}
-```{code-block} 
----
-name: Cyclohexene-ZMAT.log
-linenos: True
-lineno-start: 7359
-emphasize-lines: 4, 10, 13
-caption: Z-matrix from final structure in Cyclohexene_322.log
----
+```{code-block} text
+:label: Cyclohexene-ZMAT.log
+:linenos: True
+:lineno-start: 7359
+:emphasize-lines: 7362,7368,7371
+:caption: Z-matrix from final structure in Cyclohexene_322.log
+:class: scroll-box
+
+
                  - - ATOMS - -         COORDINATE      COORDINATE
  NO.   TYPE    I  J  K  L  M  N        (BOHR,RAD)       (ANG,DEG)
  ----------------------------------------------------------------
@@ -95,12 +97,13 @@ caption: Z-matrix from final structure in Cyclohexene_322.log
 ````
 
 
-```{code-block} 
----
-name: Cyclohexene-ZMAT.inp
-emphasize-lines: 12, 15, 16
-caption: Cyclohexene.inp
----
+```{code-block} text
+:label: cyclohexene-zmat-inp
+:filename: Cyclohexene.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 12, 15, 16
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
     MOLPLT=.TRUE. $END
@@ -176,16 +179,18 @@ name: fig8_4
 
 ### Optimizing *C<sub>s</sub>* Cyclohexene
 
-We know that *C<sub>s</sub>* cyclohexene is not the lowest energy conformer. But by **enforcing** the *C<sub>s</sub>* symmetry we can hold it in this conformation while it minimizes. Open `Subwindow` &rarr; `Input Builder` and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with *Z-matrix* coordinates but the calculation immediately failed. The nature of the *Z-matrix* often results in tiny **rounding errors** in the coordinate values **combining** to a slightly bigger error by the time the positioning has worked its way **along** all the internal cooridnates. This error was obviously enough to place an atom or two outside of the **tolerance** for the symmetry calculation. We should use `Unique Coordinates` for symmetry calculations. The input file is reproduced in {numref}`Cyclohexene_Cs_cart.inp`.
+We know that *C<sub>s</sub>* cyclohexene is not the lowest energy conformer. But by **enforcing** the *C<sub>s</sub>* symmetry we can hold it in this conformation while it minimizes. Open `Subwindow` &rarr; `Input Builder` and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with *Z-matrix* coordinates but the calculation immediately failed. The nature of the *Z-matrix* often results in tiny **rounding errors** in the coordinate values **combining** to a slightly bigger error by the time the positioning has worked its way **along** all the internal cooridnates. This error was obviously enough to place an atom or two outside of the **tolerance** for the symmetry calculation. We should use `Unique Coordinates` for symmetry calculations. The input file is reproduced in {numref}`cyclohexene_cs_cart-inp`.
+
+
 ````{margin}
-```{code-block} 
----
-name: Cyclohexene_Cs_cart.log
-linenos: True
-lineno-start: 7629
-emphasize-lines: 4, 44,45,47, 50, 53
-caption: Cyclohexene_Cs_cart.log
----
+```{code-block} text
+:label: Cyclohexene_Cs_cart.log
+:linenos: True
+:lineno-start: 7629
+:emphasize-lines: 7632, 7672,7673,7675, 7678, 7681
+:filename: Cyclohexene_Cs_cart.log
+:class: scroll-box
+
  NSERCH:  13  E=     -233.0092034708  GRAD. MAX=  0.0000982  R.M.S.=  0.0000328
 
 
@@ -274,12 +279,13 @@ caption: Cyclohexene_Cs_cart.log
 ```
 ````
 
-```{code-block} 
----
-name: Cyclohexene_Cs_cart.inp
-emphasize-lines: 10, 21-26
-caption: Cyclohexene_Cs_cart.inp
----
+```{code-block} text
+:label: cyclohexene_cs_cart-inp
+:filename: Cyclohexene_Cs_cart.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 10, 21-26
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
     MOLPLT=.TRUE. $END
@@ -334,14 +340,15 @@ We will construct an input file with the correct code to freeze the coordinate. 
 
 #### Build an input file
 
-As above, I will take the **input file** derived from the optimized structure (see {numref}`Cyclohexene_Cs_cart.inp`). I will **modify** the file to change the parameters for a simple check run. Observe that in {numref}`Cyclohexene_Cs_Internal_Check.inp` I have changed the `RUNTYPE` to `ENERGY` and added the command `EXETYPE=CHECK`. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will **check** for any errors. There is no `$STATPT` group here as that does not apply in a single-step **energy** calculation. I then used the `AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6` command to auto-generqte the internal coordinates. the `NONVDW` list informs *GAMESS* that some connections may be **too long** to be detected as a bond, but we do want them to be treated as a bond.
+As above, I will take the **input file** derived from the optimized structure (see {numref}`cyclohexene_cs_cart-inp`). I will **modify** the file to change the parameters for a simple check run. Observe that in {numref}`cyclohexene_cs_internal_check-inp` I have changed the `RUNTYPE` to `ENERGY` and added the command `EXETYPE=CHECK`. This will keep the calculation to one step (calculating the energy of the bstructure as entered) and will **check** for any errors. There is no `$STATPT` group here as that does not apply in a single-step **energy** calculation. I then used the `AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6` command to auto-generqte the internal coordinates. the `NONVDW` list informs *GAMESS* that some connections may be **too long** to be detected as a bond, but we do want them to be treated as a bond.
 
-```{code-block} 
----
-name: Cyclohexene_Cs_Internal_Check.inp
-emphasize-lines: 1, 19
-caption: Cyclohexene_Cs_Internal_Check.inp
----
+```{code-block} text
+:label: cyclohexene_cs_internal_check-inp
+:filename: Cyclohexene_Cs_Internal_Check.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 1,19
+
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MULT=1 COORD=UNIQUE NZVAR=42 
     MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -366,14 +373,18 @@ This input file was **submitted** using *GamessQ*. When the job has finished the
 
 **Search** your computer for the .dat file. it will have the same names as the input file but **end** in the .dat **extension**. In this file will be a `$ZMAT` group for your molecule that was automatically generated by *GAMESS*. **Copy and paste** it into your input file. Change the `AUTO` flag to `.FALSE.` as we will now be using the `ZMAT` list and do not want it changed by *GAMESS* anymore. We will change `RUNTYPE` to `OPTIMIZE` and return the `$STATPT` group to the file.  
 
-Now find the .log file and **locate** the list of internal coordinates. I observe that the 3,5 stretch and the 4,6 stretch coordinates are listed a 1.5411834 Å. I have shown a except of the relevent section of the .log file in {numref}`Cyclohexene_Cs_Internal_Check.log`. You may notice that there are **redundant coordinates** for the 4,6 and 3,6 bonds. The extra copies are forced in by the `NONVDW` command in the `$ZMAT` group.
+Now find the .log file and **locate** the list of internal coordinates. I observe that the 3,5 stretch and the 4,6 stretch coordinates are listed a 1.5411834 Å. I have shown a except of the relevent section of the .log file in {numref}`cyclohexene_cs_internal_check-log`. You may notice that there are **redundant coordinates** for the 4,6 and 3,6 bonds. The extra copies are forced in by the `NONVDW` command in the `$ZMAT` group.
+
+
+
 ````{margin}
-```{code-block} 
----
-name: Cyclohexene_Cs_Internal_ZMAT.inp
-emphasize-lines: 1, 20-22
-caption: Cyclohexene_Cs_Internal_ZMAT.inp
----
+```{code-block} text
+:label: Cyclohexene_Cs_Internal_ZMAT.inp
+:filename: Cyclohexene_Cs_Internal_ZMAT.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 1, 20-22
+
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MULT=1 COORD=UNIQUE NZVAR=103 
     MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -504,14 +515,13 @@ CS
 ```
 ````
 
-```{code-block} 
----
-name: Cyclohexene_Cs_Internal_Check.log
-linenos: True
-lineno-start: 810
-emphasize-lines: 14, 18
-caption: Cyclohexene_Cs_Internal_Check.log
----
+```{code-block} text
+:label: cyclohexene_cs_internal_check-log
+:filename: Cyclohexene_Cs_Internal_Check.log
+:linenos: True
+:lineno-start: 810
+:emphasize-lines: 823, 827
+
                      --------------------
                      INTERNAL COORDINATES
                      --------------------
@@ -549,10 +559,8 @@ Now that we have the `$ZMAT` group **from** the .dat file and the bond distance 
 Now that we have an input file we can make a whole **series** of versions with different `FVALUE` lists. I will **replace** the numbers in the `FVALUE` list with the **string** `NUMBER`. I will then edit the *bash* shell script extract.sh to create a **series** of values between 1.5 and 3 and write a **series** of input files with those values replacing the string. 
 
 ```{code-block} shell
----
-name: makescan.sh
-caption: makescan.sh
----
+:label: makescan.sh
+:caption: makescan.sh
 input_file=Cyclohexene_Cs_scan.inp
 spacer=_SCAN_
 for num in $(seq -w 1.45 0.05 3.00)
@@ -572,10 +580,8 @@ I **submitted** the files as a **batch** by dragging them all into the *GamessQ*
 I **extracted** the final energy from each file by **modifying** and running the extract.sh script. I sent the output into a text file with the command `bash extract.sh > results.txt`.
 
 ```{code-block} shell
----
-name: extract.sh
-caption: extract.sh
----
+:label: extract.sh
+:caption: extract.sh
 for name in Cyclohexene_Cs_scan.inp_SCAN*.log; do
     grep -H "NSERCH" "$name" | grep "GRAD" | tail -n 1
 done
@@ -601,14 +607,15 @@ We now have a **starting position** for a transition state optimization.
 
 ### The Hessian Calculation
 
-The `RUNTYPE` for a transition state optimization is `SADDLEPOINT`. We can set up the **input file** using *MacMolPlt*. Open the log file for the optimization with bond distances set at 2.2&nbsp;Å and use `Subwindow` &rarr; `Input Builder`. Set the `Run Type` to `Hessian` and set the `MO Guess` to `Huckel` (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the `Vibrational Analysis` button is checked so the file is set to perform a **vibrational anaysis** so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in {numref}`Cyclohexene_TS_Hess.inp`. 
+The `RUNTYPE` for a transition state optimization is `SADDLEPOINT`. We can set up the **input file** using *MacMolPlt*. Open the log file for the optimization with bond distances set at 2.2&nbsp;Å and use `Subwindow` &rarr; `Input Builder`. Set the `Run Type` to `Hessian` and set the `MO Guess` to `Huckel` (we could have read the MO data from the .dat file for the previous calculation but we are using a low level of theory so we wont bother saving that small amount of time). In Hess. Options make sure that the `Vibrational Analysis` button is checked so the file is set to perform a **vibrational anaysis** so that we can identify an imaginary vibration (hopefully). Save the input file. The file is presented in {numref}`cyclohexene_ts_hess-inp`. 
 
-```{code-block} 
----
-name: Cyclohexene_TS_Hess.inp
-emphasize-lines: 2
-caption: Cyclohexene_TS_Hess.inp
----
+```{code-block} text
+:label: cyclohexene_ts_hess-inp
+:filename: Cyclohexene_TS_Hess.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=HESSIAN EXETYP=RUN MAXIT=30 MULT=1
     MOLPLT=.TRUE. $END
@@ -646,15 +653,16 @@ name: fig8_10
 
 Open the log file for the **Hessian calculation**. Click on `Subwindow` &rarr; `Input Builder`. Set the `Run Type` to `Saddle Point`. Set # of `Z-matrix variables` to `42`. We will need to supply a `$ZMAT` group. Set `Stat. Point` &rarr; `Initial Hessian` to `Calculate` (again, we could have cut this out of the .dat file and included it in the input file but the time saving is minimal in this case). Save the input file.
 
-To get a `$ZMAT` group we will again set up an energy check **calculation** with the internal coordinates set to auto generate. I will open the `Subwindow` &rarr; `Input Builder` and set the `Run Type` to `Energy` and the `Exe. Type` to `Check`. I will save the input file and then edit it to add the final line: `$ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END`. The input file is presented in {numref}`Cyclohexene_TS_ZMAT_Check.inp`. The `NONVDW` list will be very important here as the bond length is **far past** what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.
+To get a `$ZMAT` group we will again set up an energy check **calculation** with the internal coordinates set to auto generate. I will open the `Subwindow` &rarr; `Input Builder` and set the `Run Type` to `Energy` and the `Exe. Type` to `Check`. I will save the input file and then edit it to add the final line: `$ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END`. The input file is presented in {numref}`cyclohexene_ts_zmat_check-inp`. The `NONVDW` list will be very important here as the bond length is **far past** what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.
 
 ````{margin}
-```{code-block} 
----
-name: Cyclohexene_TS_ZMAT_Saddle.inp
-emphasize-lines: 2
-caption: Cyclohexene_TS_ZMAT_Saddle.inp
----
+```{code-block} text
+:label: Cyclohexene_TS_ZMAT_Saddle.inp
+:filename: Cyclohexene_TS_ZMAT_Saddle.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=SADPOINT MAXIT=30 MULT=1 NZVAR=89 MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 PARALL=.TRUE. $END
@@ -771,12 +779,13 @@ H     1.0     0.00494     1.46786    -1.06282
 ```
 ````
 
-```{code-block} 
----
-name: Cyclohexene_TS_ZMAT_Check.inp
-emphasize-lines: 2
-caption: Cyclohexene_TS_ZMAT_Check.inp
----
+```{code-block} text
+:label: cyclohexene_ts_zmat_check-inp
+:filename: Cyclohexene_TS_ZMAT_Check.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
     NZVAR=42 MOLPLT=.TRUE. $END
@@ -805,16 +814,15 @@ The calculation was succesful and the **saddle point** was immediately located. 
 
 ## Discussion of the Reaction Coordinate
 
-Let us **examine** the output files for the optimized cyclohexene ({numref}`Cyclohexene_Cs_cart.log`), the optimized transition state ({numref}`Cyclohexene_TS_ZMAT_Saddle.log`) and for the partial optimization at 3.000&nbsp;Å ({numref}`Cyclohexene_Cs_scan.inp_SCAN_3.00.log`). We can **read** the internal coordinates for the C-C distances from the final structure in each file. 
+Let us **examine** the output files for the optimized cyclohexene ({numref}`Cyclohexene_Cs_cart.log`), the optimized transition state ({numref}`cyclohexene_ts_zmat_saddle-log`) and for the partial optimization at 3.000&nbsp;Å ({numref}`cyclohexene_cs_scan-inp_scan_3-00-log`). We can **read** the internal coordinates for the C-C distances from the final structure in each file. 
 
-```{code-block} 
----
-name: Cyclohexene_Cs_scan.inp_SCAN_3.00.log
-linenos: True
-lineno-start: 15795
-emphasize-lines: 8,9,11,12,13,22
-caption: Cyclohexene_Cs_scan.inp_SCAN_3.00.log
----
+```{code-block} text
+:label: cyclohexene_cs_scan-inp_scan_3-00-log
+:filename: Cyclohexene_Cs_scan.inp_SCAN_3.00.log
+:linenos: True
+:lineno-start: 15795
+:emphasize-lines: 15802,15803,15805-15807,15816
+
                      --------------------
                      INTERNAL COORDINATES
                      --------------------
@@ -845,14 +853,13 @@ caption: Cyclohexene_Cs_scan.inp_SCAN_3.00.log
   21 BEND      1  3  5                  1.7320087      99.2367887
 ```
 
-```{code-block} 
----
-name: Cyclohexene_TS_ZMAT_Saddle.log
-linenos: True
-lineno-start: 12192
-emphasize-lines: 8,9,11,14,18,21
-caption: Cyclohexene_TS_ZMAT_Saddle.log
----
+```{code-block} text
+:label: cyclohexene_ts_zmat_saddle-log
+:filename: Cyclohexene_TS_ZMAT_Saddle.log
+:linenos: True
+:lineno-start: 12192
+:emphasize-lines: 12199,12200,12202,12205,12209,12212
+
                      --------------------
                      INTERNAL COORDINATES
                      --------------------
@@ -910,7 +917,7 @@ First we will take the transition state optimization log file and open it in *Ma
 #### Add the \$IRC Group
 
 *MacMolPlt* will set up an IRC calculation but does not establish some **essential parameters** so you will need to add the `$IRC` group shown below
-```
+```text
     $IRC PACE=GS2 OPTTOL=0.0001 MXOPT=300 STRIDE=0.30 
          SADDLE=.TRUE. TSENGY=.TRUE. FORWRD=.TRUE. NPOINT=300 $END
 ```
@@ -928,27 +935,28 @@ The `FORWRD` flag establishes the **initial direction** over the saddle point. W
 
 Because I might want to extract bond lengths and angles from the log file, I will ask GAMESS to **generate internal coordinates** by including a `$ZMAT` group that flags for redundant internal coordinates. I **declare** the two breaking bonds **explicity** so that they are not ignored as their lengths reach **beyond** the distance of a covalent bond. So add the following line to the input file.
 
-```
+```text
 $ZMAT NONVDW(1)=3,5, 4,6 DLC=.TRUE. AUTO=.TRUE. $END
 ```
 
 #### Copy in \$HESS and \$VEC Groups
 
 In this input file we are requesting that the MO data be **read in** from the `$VEC` group. You will find that data in the .dat file of the previous Hessian calculation. Copy and paste. If you want to use a guess then replace the `$GUESS` group with...
-```
+```text
        $GUESS GUESS=HUCKEL $END
 ```
 You will need to find the `$HESS` group in the Hessian job .dat file that preceded this calculation. Cut it and paste it into this file after the `$VEC` group.
 
-the final input file is shown in redacted form in {numref}`Diels_Alder_IRC.inp`. I cut out hundreds of lines to make it fit this book.
+the final input file is shown in redacted form in {numref}`diels_alder_irc-inp`. I cut out hundreds of lines to make it fit this book.
 
 
-```{code-block} 
----
-name: Diels_Alder_IRC.inp
-emphasize-lines: 2, 4, 6, 22,23, 34
-caption: Excerpts from Diels_Alder_IRC.inp
----
+```{code-block} text
+:label: diels_alder_irc-inp
+:caption: Excerpts from Diels_Alder_IRC.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2, 4, 6, 22,23, 34
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=IRC EXETYP=RUN MAXIT=30 MULT=1 MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=10000000 PARALL=.TRUE. $END

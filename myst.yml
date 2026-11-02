@@ -1,0 +1,62 @@
+version: 1
+project:
+  title: Fun With GAMESS
+  authors:
+    - name: Barry Linkletter
+      affiliations:
+        - University of Prince Edward Island
+  copyright: '2026'
+  description: A webbook of Python examples and exercises for chemistry students.
+  license: CC-BY-NC-4.0
+  bibliography:
+    - references.bib
+
+  exclude:
+    - _build
+    - Thumbs.db
+    - .DS_Store
+    - '**.ipynb_checkpoints'
+  github: blinkletter/UsingGAMESS
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: start.md
+    - file: 1_Setup.md
+      children:
+        - file: 1A_Unix.md
+    - file: 2_SmallMolecules.md
+    - file: 3_Visual_Input.md
+    - file: 4_Ethane.md
+    - file: 5_Rotation_Profiles.md
+      children:
+        - file: 5_Rotation_Profiles_Workflow.md
+        - file: 5_Rotation_Profiles_Workflow_Data.ipynb
+    - file: 6_Pi_Orbitals.md
+    - file: 6_Benzene.md
+    - file: 7_Butadiene.md
+      children:
+        - file: butadiene.inp.md
+        - file: butadiene.log.md
+    - file: 8A_Diels_Alder.md
+      children:
+        - file: 8_Reaction_Coord_Scan_Data.ipynb
+    - file: 9_Solvent.md
+      children:
+        - file: 10_Solvent_IRC_Plots.ipynb
+        - file: 10_Solvent_IRC_Plots-Data.ipynb
+site:
+  options:
+    logo: images/Solvent_plot3.png
+    logo_text: Fun with GAMESS
+    style: ./custom.css
+    folders: true
+  #    baseurl: /samplewebbook/
+#    favicon: images/favicon_io/favicon.ico
+    # used https://favicon.io/favicon-generator/
+#    hide_authors: true
+#    hide_footer_links: true # Hide the previous/next links in the footer
+#    hide_outline: true # Hide the document outline on all pages (right side)
+#    hide_toc: true # left side table of contents
+  template: book-theme

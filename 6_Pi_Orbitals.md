@@ -34,11 +34,12 @@ name: fig6A1
  
 I then exported an **input file** using `Subwindow` &rarr; `Input Builder`. Be sure to make sure that the multiplicity is 1 (singlet) and the charge is 1 (cation). Use the 6-311G basis set and add *d* and *p* orbitals and use both diffuse functions. The diffuse functions are important as they improve results for **charged** systems. Here is the input file that was generated. Only the *unique atoms* (2 carbons, the third is defined by symmetry) are in the `$DATA` group.
 
-```{code-block} 
----
-name: AllylCat_6311_U.inp
-caption: AllylCat_6311_U.inp
----
+```{code-block} text
+:label: allylcat_6311_u-inp
+:filename: AllylCat_6311_U.inp
+:linenos: True
+:lineno-start: 1
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 ICHARG=1 MULT=1 MOLPLT=.TRUE. $END
  $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
@@ -87,7 +88,7 @@ name: fig6C
 
 We can get an **approximation** of the charge held by each group from the data in the result .log file. Open the result file in a text editor and **search** for the word “`LOWDIN`”. Find the last occurrence of that word in the file. You should see a block of text like the one below.
 
-```
+```text
           TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
        ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
     1 C             6.233846   -0.233846         5.819533    0.180467
@@ -135,12 +136,13 @@ To get accurate energies for the **molecular orbitals**, I had to use a more adv
 
 Below is the **input file** for the energy calculation that produced the orbitals in {numref}`fig6D`.
 
-```{code-block} 
----
-name: AllylCat_B3LYP_U_E.inp
-emphasize-lines: 3
-caption: AllylCat_B3LYP_U_E.inp
----
+```{code-block} text
+:label: allylcat_b3lyp_u_e-inp
+:filename: AllylCat_B3LYP_U_E.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 3
+
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=ENERGY DFTTYP=B3LYP MAXIT=30 ICHARG=1 MULT=1 
     LOCAL=RUEDNBRG MOLPLT=.TRUE. $END
@@ -162,7 +164,7 @@ CNV 2
 
 ## Comparing AO Coefficients
 
-In SHMO theory we get the **coefficients** of each *p*-atomic orbital as they contribute to each &pi;-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the **result file**. Presented in {numref}`AllylCat_B3LYP_U_E.log1` is a section for the output file. Look for the last occurrence of the string `EIGENVECTORS`.
+In SHMO theory we get the **coefficients** of each *p*-atomic orbital as they contribute to each &pi;-molecular orbital. These coefficients make the list of numbers that make up the Eigenvectors for each HMO. There are similar coefficients in the molecular eigenvectors in the **result file**. Presented in {numref}`allylcat_b3lyp_u_e-log1` is a section for the output file. Look for the last occurrence of the string `EIGENVECTORS`.
 
 We see that the *&pi;<sub>x</sub>* orbitals are the *p*-atomic orbitals that contribute to the &pi;-MOs. (The molecule is in the *zy*-plane.) The terminal carbons are C1 and C2 and the central carbon is C3. Thus we have the following **coefficients** for the allyl *p<sub>x</sub>*-AOs for their respective **contributions** to each of the &pi;-MOs.
 
@@ -175,12 +177,13 @@ We see that the *&pi;<sub>x</sub>* orbitals are the *p*-atomic orbitals that con
 
 How do  these coefficients **compare** to the HMO method? They are **smaller** in magnitude because these *p*-orbitals are used in many of the other 104 orbitals that were **included** in the *GAMESS* calculation while SHMO only considers the three &pi;-MOs.		
 
-```{code-block} 
----
-name: AllylCat_B3LYP_U_E.log1
-emphasize-lines: 28, 38, 48
-caption: AllylCat_B3LYP_U_E.log
----
+```{code-block} text
+:label: allylcat_b3lyp_u_e-log1
+:filename: AllylCat_B3LYP_U_E.log
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 28, 38, 48
+
  FINAL R-B3LYP ENERGY IS     -116.9224892059 AFTER  17 ITERATIONS
  DFT EXCHANGE + CORRELATION ENERGY =       -14.3077177400
  TOTAL ELECTRON NUMBER             =        22.0000988784

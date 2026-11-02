@@ -6,11 +6,12 @@ Here will be presented the **step by step** workflow for calculating the energy 
 
 First we **write** an input file for butane. We will not use symmetry because we want to rotate the bond to many different angles. We will use the *Z-matrix* method because it will identify the central **torsion** as a coordinate. Then we can **lock** that coordinate.
 
-```{code-block}
----
-name: butane-SCAN.inp
-caption: butane-SCAN.inp
----
+```{code-block} text
+:label: butane-scan-inp
+:filename: butane-SCAN.inp
+:linenos: True
+:lineno-start: 1
+
  $CONTRL 
      SCFTYP=RHF 
      RUNTYP=OPTIMIZE 
@@ -73,10 +74,11 @@ You will see that not all angles are 109.47&deg;. I **jiggled** some to avoid an
 We will then use the following **shell script** to replace the string "NUMBER" with number from a list and create a new file with a name series based on the list. The script is shown below.
 
 ```{code-block} bash
----
-name: makescan.sh1
-caption: makescan.sh
----
+:label: makescan.sh1
+:filename: makescan.sh
+:linenos: True
+:lineno-start: 1
+
 input_file=butane-SCAN.inp
 spacer=_
 for num in $(seq -w 000 010 180)
@@ -92,6 +94,7 @@ I **executed** the script with the following command:
 ```shell
 bash makescan.sh
 ```
+
 ````{margin}
 ```{figure} images/workflow1.png
 ---
@@ -122,10 +125,11 @@ We now have nineteen jobs to submit to *GAMESS*. I will use the *GamessQ* GUI in
 When the jobs are all complete we will run a *bash* script that will **extract** the last `NSERCH ENERGY` line from each file and save this set of lines in a single result file that we will name `butane_result.txt`. The script is presented below.
 
 ```{code-block} bash
----
-name: extract.sh1
-caption: extract.sh
----
+:filename: extract.sh1
+:label: extract.sh
+:linenos: True
+:lineno-start: 1
+
 for name in butane_SCAN*.log; do
     grep -H "NSERCH" "$name" | grep "GRAD" | tail -n 1
 done
@@ -151,11 +155,10 @@ bash extract.sh > butane_result.txt
 
 If you open the `butane_result.txt` file in a text editor you will see nineteen lines of data, one line for each file. 
 
-```{code-block}
----
-name: butane_result.txt
-caption: butane_result.txt
----
+```{code-block} text
+:label: butane_result-txt
+:filename: butane_result.txt
+
 butane_SCAN.inp_000_303.log: NSERCH:  23  E=     -156.4228465418  GRAD. MAX=  0.0000585  R.M.S.=  0.0000204
 butane_SCAN.inp_010_304.log: NSERCH:  18  E=     -156.4233726910  GRAD. MAX=  0.0000931  R.M.S.=  0.0000255
 butane_SCAN.inp_020_305.log: NSERCH:  16  E=     -156.4247889225  GRAD. MAX=  0.0000789  R.M.S.=  0.0000273
