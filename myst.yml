@@ -8,8 +8,8 @@ project:
   copyright: '2026'
   description: A webbook of Python examples and exercises for chemistry students.
   license: CC-BY-NC-4.0
-  bibliography:
-    - references.bib
+#  bibliography:
+#    - references.bib
 
   exclude:
     - _build

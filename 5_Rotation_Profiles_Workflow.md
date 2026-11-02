@@ -125,8 +125,8 @@ We now have nineteen jobs to submit to *GAMESS*. I will use the *GamessQ* GUI in
 When the jobs are all complete we will run a *bash* script that will **extract** the last `NSERCH ENERGY` line from each file and save this set of lines in a single result file that we will name `butane_result.txt`. The script is presented below.
 
 ```{code-block} bash
-:filename: extract.sh1
-:label: extract.sh
+:filename: extract.sh
+:label: extract.sh3
 :linenos: True
 :lineno-start: 1
 
