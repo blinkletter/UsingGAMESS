@@ -827,7 +827,7 @@ Since the `$DATA` group was copied from the result of the **same** AM1 method, w
 :emphasize-lines: 484,514
 
 NSERCH:   0  E=       -9.1354556208  GRAD. MAX=  0.0000009  R.M.S.=  0.0000004
- 
+  
 
       ***** EQUILIBRIUM GEOMETRY LOCATED *****
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
