@@ -9,6 +9,10 @@ Source: ~/gamess2023R2claude/GamessQ/gamessq-1.2.2 (extracted from gamessq-1.2.2
 - `./src/gamessq -h` prints help then hangs on exit (CLI mode skips wx GUI init; likely wx 3.3 shutdown issue) — unresolved; command-line interface may be unreliable
 - Next: put gamessqd in /usr/local/bin, configure spool dir + GAMESS path (dir containing `gms`), test a job
 
+## Don't use This
+
+The source code is from 2013. This is 2026! I got the GUI up and running with Claude's help, but it is buggy and crashes often. **I give up**.
+
 ## From INSTALL
 - Requires wxWidgets >= 3.0 (wx-config on PATH, or `./configure --with-wx-config=...`)
 - `./configure && make`; on macOS `./bundle.sh` makes GamessQ.app
