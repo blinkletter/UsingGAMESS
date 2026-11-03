@@ -10,7 +10,7 @@ The easiest way to find the T.S. for a cycloaddition reaction is to start with a
 
 ```{figure} images/Diels_1.png
 ---
-width: 600px
+width: 450px
 name: fig8_1
 ---
 *A typical Diels-Alder cycloaddition reaction.*
@@ -27,7 +27,7 @@ Using the `Builder` tool panel in *wxMacMolPlt*, Chose carbon with a coordinatio
 
 ```{figure} images/Diels_2.png
 ---
-width: 500px
+width: 450px
 name: fig8_2
 ---
 *The initial structure for cyclohexene in MacMolPlt.*
@@ -38,7 +38,53 @@ name: fig8_2
 I **submitted** the calculation to *GAMESS* via *GamessQ* and it ran successfully.  In {numref}`cyclohexene-zmat-inp` is the input file and the *Z-matrix* for the resulting optimized structure.
 
 
-````{margin}
+```{code-block} text
+:label: cyclohexene-zmat-inp
+:caption: Cyclohexene.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 12, 15, 16
+:class: scroll-box
+
+!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=50 $END
+ $DATA 
+Cyclohexene
+C1
+C
+C   1    1.54000
+C   2    1.54000  1 120.0000
+C   1    1.54000  2 120.0000  3   0.0000
+C   4    1.41037  1  89.6402  2  47.3676
+C   3    1.42617  2  96.3800  5 -23.8081
+H   1    1.14000  4 120.0000  2 180.0000
+H   2    1.14000  1 120.0000  3 180.0000
+H   3    1.14000  6 112.6374  2 117.7914
+H   3    1.14000  9 110.4255  6 -126.1402
+H   4    1.14000  5 114.1752  1 116.4929
+H   4    1.14000  11 111.0397  5 -129.4079
+H   5    1.14000  4 104.3204  6 -122.5757
+H   5    1.14000  13 108.4843  4 111.1625
+H   6    1.14000  3 107.6066  5 -121.0604
+H   6    1.14000  15 109.0496  3 116.6663
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,4, 
+    2,5,4,1, 3,5,4,1,2, 1,6,3, 2,6,3,2, 3,6,3,2,5, 1,7,1, 2,7,1,4, 3,7,1,4,2, 
+    1,8,2, 2,8,2,1, 3,8,2,1,3, 1,9,3, 2,9,3,6, 3,9,3,6,2, 1,10,3, 2,10,3,9, 
+    3,10,3,9,6, 1,11,4, 2,11,4,5, 3,11,4,5,1, 1,12,4, 2,12,4,11, 3,12,4,11,5, 
+    1,13,5, 2,13,5,4, 3,13,5,4,6, 1,14,5, 2,14,5,13, 3,14,5,13,4, 1,15,6, 
+    2,15,6,3, 3,15,6,3,5, 1,16,6, 2,16,6,15, 3,16,6,15,3 $END
+```
+After the **optimization**, the following structure was calculated to have a minimum energy. It may not be the global minimum but it is the conformer that will relate to the path **toward** the transition state. Observe the changes. One large change is the distance between atoms 1 and 2 (the C=C alkene bond). In the **initial** structure it was created with the length of a single bond (1.54&nbsp;Å) but it **settled down** to the length of a double bond (1.32&nbsp;Å).
+
+The resulting **log file**, Cyclohexene_322.log, was opened and **examined** in a text editor. A selection from the log file is shown in {numref}`Cyclohexene-ZMAT.log`. We **see** that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two **bond lengths** are the 7<sup>th</sup> and 10<sup>th</sup> `$ZMAT` coordinates. 
+
+
 ```{code-block} text
 :label: Cyclohexene-ZMAT.log
 :linenos: True
@@ -94,70 +140,24 @@ I **submitted** the calculation to *GAMESS* via *GamessQ* and it ran successfull
   41 BEND     16  6 15                  1.8747644     107.4160889
   42 TORSION  16  6 15  3               2.0534373     117.6532891
 ```
-````
 
-
-```{code-block} text
-:label: cyclohexene-zmat-inp
-:filename: Cyclohexene.inp
-:linenos: True
-:lineno-start: 1
-:emphasize-lines: 12, 15, 16
-
-!   File created by MacMolPlt 7.7.2
- $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=42 NOSYM=1 
-    MOLPLT=.TRUE. $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=N21 NGAUSS=3 NDFUNC=1 $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=50 $END
- $DATA 
-Cyclohexene
-C1
-C
-C   1    1.54000
-C   2    1.54000  1 120.0000
-C   1    1.54000  2 120.0000  3   0.0000
-C   4    1.41037  1  89.6402  2  47.3676
-C   3    1.42617  2  96.3800  5 -23.8081
-H   1    1.14000  4 120.0000  2 180.0000
-H   2    1.14000  1 120.0000  3 180.0000
-H   3    1.14000  6 112.6374  2 117.7914
-H   3    1.14000  9 110.4255  6 -126.1402
-H   4    1.14000  5 114.1752  1 116.4929
-H   4    1.14000  11 111.0397  5 -129.4079
-H   5    1.14000  4 104.3204  6 -122.5757
-H   5    1.14000  13 108.4843  4 111.1625
-H   6    1.14000  3 107.6066  5 -121.0604
-H   6    1.14000  15 109.0496  3 116.6663
- $END
- $ZMAT IZMAT(1)=1,2,1, 1,3,2, 2,3,2,1, 1,4,1, 2,4,1,2, 3,4,1,2,3, 1,5,4, 
-    2,5,4,1, 3,5,4,1,2, 1,6,3, 2,6,3,2, 3,6,3,2,5, 1,7,1, 2,7,1,4, 3,7,1,4,2, 
-    1,8,2, 2,8,2,1, 3,8,2,1,3, 1,9,3, 2,9,3,6, 3,9,3,6,2, 1,10,3, 2,10,3,9, 
-    3,10,3,9,6, 1,11,4, 2,11,4,5, 3,11,4,5,1, 1,12,4, 2,12,4,11, 3,12,4,11,5, 
-    1,13,5, 2,13,5,4, 3,13,5,4,6, 1,14,5, 2,14,5,13, 3,14,5,13,4, 1,15,6, 
-    2,15,6,3, 3,15,6,3,5, 1,16,6, 2,16,6,15, 3,16,6,15,3 $END
-```
-After the **optimization**, the following structure was calculated to have a minimum energy. It may not be the global minimum but it is the conformer that will relate to the path **toward** the transition state. Observe the changes. One large change is the distance between atoms 1 and 2 (the C=C alkene bond). In the **initial** structure it was created with the length of a single bond (1.54&nbsp;Å) but it **settled down** to the length of a double bond (1.32&nbsp;Å).
-
-The resulting **log file**, Cyclohexene_322.log, was opened and **examined** in a text editor. A selection from the log file is shown in {numref}`Cyclohexene-ZMAT.log`. We **see** that the bonds that we want to stretch as we move toward the transition state are C5–C4 and C6–C3 (highlighted above). These two **bond lengths** are the 7<sup>th</sup> and 10<sup>th</sup> `$ZMAT` coordinates. 
 
 I will **open** the log file with *MacMolPlt* and I chose to **view** the atom labels. I chose to **display** the atom numbers by selecting `View` &rarr; `Atom Labels` &rarr; `Atom Number`. We can now clearly **see** that the bond lengths between carbons 4,5 and 3,6 are going to define the reaction coordinate. See {numref}`fig8_3`.
 
 
 ```{figure} images/Diels_3.png
 ---
-width: 600px
+width: 450px
 name: fig8_3
 ---
 *Optimized structure of cyclohexene*
 ```
 
-We did not use **symmetry** in the above calculation. The optimization **found** the symmetrical boat conformation of cyclohexene because we started very close to it with our initial structure. The more stable half-chair **conformation** could easily have been the result. Also, in my reading, I have learned that the boat conformation is a **shallow energy well** in a wide energy “plateau” between the two possible half-chair conformations.[^Shishkin2011] This means that it has a high entropy and could easily swing off-track when we are trying to scan bond distances. However, *GAMESS* will maintain symmetry when we request it and the boat conformation is *C<sub>s</sub>* and the half-chair is *C<sub>2</sub>*. So we might be able to keep things **in the groove** that way. Be prepared to tack if the wind changes.
+We did not use **symmetry** in the above calculation. The optimization **found** the symmetrical boat conformation of cyclohexene because we started very close to it with our initial structure. The more stable half-chair **conformation** could easily have been the result. Also, in my reading, I have learned that the boat conformation is a **shallow energy well** in a wide energy “plateau” between the two possible half-chair conformations {cite:p}`Shishkin2011`. This means that it has a high entropy and could easily swing off-track when we are trying to scan bond distances. However, *GAMESS* will maintain symmetry when we request it and the boat conformation is *C<sub>s</sub>* and the half-chair is *C<sub>2</sub>*. So we might be able to keep things **in the groove** that way. Be prepared to tack if the wind changes.
 
 As an exercise, let us **construct** the boat and half-chair versions of cyclohexene and compare their energies. We will use the symmetry builder function of *MacMolPlt* to build a molecule that fits the given symmetry exactly and then **enforce** that symmetry throughout the calculation.
 
-[^Shishkin2011]: “Unusual Properties of Usual Molecules. Conformational Analysis of Cyclohexene, Its Derivatives and Heterocyclic Analogues.” O.V. Shishkin & S.V. Shishkina, *Practical Aspects of Computational Chemistry I*, Leszczynski J., Shukla M. (eds), I. Springer, Dordrecht, **2011**, *557–578*. https://doi.org/10.1007/978-94-007-0919-5_19 
+%[^Shishkin2011]: “Unusual Properties of Usual Molecules. Conformational Analysis of Cyclohexene, Its Derivatives and Heterocyclic Analogues.” O.V. Shishkin & S.V. Shishkina, *Practical Aspects of Computational Chemistry I*, Leszczynski J., Shukla M. (eds), I. Springer, Dordrecht, **2011**, *557–578*. https://doi.org/10.1007/978-94-007-0919-5_19 
 
 ### Building *C<sub>s</sub>* Cyclohexene
 
@@ -171,7 +171,7 @@ Now we need to center the molecule in the symmetry system. *MacMolPlt* can make 
 
 ```{figure} images/Diels_4.png
 ---
-width: 600px
+width: 500px
 name: fig8_4
 ---
 *Initial build of *C<sub>s</sub>* Cyclohexene*
@@ -182,13 +182,52 @@ name: fig8_4
 We know that *C<sub>s</sub>* cyclohexene is not the lowest energy conformer. But by **enforcing** the *C<sub>s</sub>* symmetry we can hold it in this conformation while it minimizes. Open `Subwindow` &rarr; `Input Builder` and set up an optimization at the 6-31G<sup>*</sup> level. I initially created a GAMESS input file with *Z-matrix* coordinates but the calculation immediately failed. The nature of the *Z-matrix* often results in tiny **rounding errors** in the coordinate values **combining** to a slightly bigger error by the time the positioning has worked its way **along** all the internal cooridnates. This error was obviously enough to place an atom or two outside of the **tolerance** for the symmetry calculation. We should use `Unique Coordinates` for symmetry calculations. The input file is reproduced in {numref}`cyclohexene_cs_cart-inp`.
 
 
-````{margin}
+```{code-block} text
+:label: cyclohexene_cs_cart-inp
+:caption: Cyclohexene_Cs_cart.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 10, 21-26
+:class: scroll-box
+
+!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
+    MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $STATPT OPTTOL=0.0001 NSTEP=30 $END
+ $DATA 
+Title
+CS
+
+C     6.0    -1.35474    -0.12747    -0.65064
+C     6.0    -0.07172     0.23663    -1.42064
+C     6.0     1.42646    -0.10916    -0.75855
+H     1.0    -2.30450    -0.39699    -1.22064
+H     1.0     1.75283    -1.13977    -1.12040
+H     1.0    -0.12286    -0.30664    -2.42156
+H     1.0     2.17392     0.67089    -1.12244
+H     1.0    -0.10252     1.36058    -1.60873
+ $END
+ $ZMAT IZMAT(1)=1,2,1, 1,3,1, 2,3,1,2, 1,4,2, 2,4,2,1, 3,4,2,1,3, 1,5,3, 
+    2,5,3,1, 3,5,3,1,4, 1,6,5, 2,6,5,3, 3,6,5,3,1, 1,7,1, 2,7,1,2, 3,7,1,2,3, 
+    1,8,2, 2,8,2,1, 3,8,2,1,4, 1,9,5, 2,9,5,6, 3,9,5,6,3, 1,10,6, 2,10,6,5, 
+    3,10,6,5,9, 1,11,3, 2,11,3,1, 3,11,3,1,5, 1,12,4, 2,12,4,2, 3,12,4,2,6, 
+    1,13,5, 2,13,5,9, 3,13,5,9,6, 1,14,6, 2,14,6,10, 3,14,6,10,5, 1,15,3, 
+    2,15,3,11, 3,15,3,11,1, 1,16,4, 2,16,4,12, 3,16,4,12,2 $END
+```
+This calculation completed **normally**. After it finished we find this block of text for the final results. The last `NSERCH` entry reveals that the calculation has reached a stationary point and finished. The energy is reported along with the symmetry unique *xyz* cartessian coordinates, the full set of coordinates and the **internal coordinates** that were listed in the `IZMAT(1)` matrix. 
+
+**Examine** the values in {numref}`Cyclohexene_Cs_cart.log`. You will **see** that the 3,5 bond length is the bond that will be extended as the two atoms of ethylene depart the atoms of the butadiene. The 4,6 bond length is not in the `IZMAT(1)` list. But it will be identical to the 3,5 bond as required by the symmetry **point grou**p. If we lock it, will will lock both.
+
+
 ```{code-block} text
 :label: Cyclohexene_Cs_cart.log
 :linenos: True
 :lineno-start: 7629
 :emphasize-lines: 7632, 7672,7673,7675, 7678, 7681
-:filename: Cyclohexene_Cs_cart.log
+:caption: Cyclohexene_Cs_cart.log
 :class: scroll-box
 
  NSERCH:  13  E=     -233.0092034708  GRAD. MAX=  0.0000982  R.M.S.=  0.0000328
@@ -277,45 +316,7 @@ We know that *C<sub>s</sub>* cyclohexene is not the lowest energy conformer. But
   41 BEND     16  4 12                  1.8530987     106.1747371
   42 TORSION  16  4 12  2              -2.0680856    -118.4925790
 ```
-````
 
-```{code-block} text
-:label: cyclohexene_cs_cart-inp
-:filename: Cyclohexene_Cs_cart.inp
-:linenos: True
-:lineno-start: 1
-:emphasize-lines: 10, 21-26
-
-!   File created by MacMolPlt 7.7.2
- $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=UNIQUE NZVAR=42 
-    MOLPLT=.TRUE. $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
- $SCF DIRSCF=.TRUE. $END
- $STATPT OPTTOL=0.0001 NSTEP=30 $END
- $DATA 
-Title
-CS
-
-C     6.0    -1.35474    -0.12747    -0.65064
-C     6.0    -0.07172     0.23663    -1.42064
-C     6.0     1.42646    -0.10916    -0.75855
-H     1.0    -2.30450    -0.39699    -1.22064
-H     1.0     1.75283    -1.13977    -1.12040
-H     1.0    -0.12286    -0.30664    -2.42156
-H     1.0     2.17392     0.67089    -1.12244
-H     1.0    -0.10252     1.36058    -1.60873
- $END
- $ZMAT IZMAT(1)=1,2,1, 1,3,1, 2,3,1,2, 1,4,2, 2,4,2,1, 3,4,2,1,3, 1,5,3, 
-    2,5,3,1, 3,5,3,1,4, 1,6,5, 2,6,5,3, 3,6,5,3,1, 1,7,1, 2,7,1,2, 3,7,1,2,3, 
-    1,8,2, 2,8,2,1, 3,8,2,1,4, 1,9,5, 2,9,5,6, 3,9,5,6,3, 1,10,6, 2,10,6,5, 
-    3,10,6,5,9, 1,11,3, 2,11,3,1, 3,11,3,1,5, 1,12,4, 2,12,4,2, 3,12,4,2,6, 
-    1,13,5, 2,13,5,9, 3,13,5,9,6, 1,14,6, 2,14,6,10, 3,14,6,10,5, 1,15,3, 
-    2,15,3,11, 3,15,3,11,1, 1,16,4, 2,16,4,12, 3,16,4,12,2 $END
-```
-This calculation completed **normally**. After it finished we find this block of text for the final results. The last `NSERCH` entry reveals that the calculation has reached a stationary point and finished. The energy is reported along with the symmetry unique *xyz* cartessian coordinates, the full set of coordinates and the **internal coordinates** that were listed in the `IZMAT(1)` matrix. 
-
-**Examine** the values in {numref}`Cyclohexene_Cs_cart.log`. You will **see** that the 3,5 bond length is the bond that will be extended as the two atoms of ethylene depart the atoms of the butadiene. The 4,6 bond length is not in the `IZMAT(1)` list. But it will be identical to the 3,5 bond as required by the symmetry **point grou**p. If we lock it, will will lock both.
 ## Proposing a Hypothetical Transition State
 
 We now have the *C<sub>s</sub>* strtucture of cyclohexene. This structure is **on the path** to the *retro*-Diels-Alder products. The half-chair *C<sub>2</sub>* conformer is the **most stable**. It will be in equilibrium with the *C<sub>s</sub>* boat conformer. From there, bonds must **stretch** as we move from cyclohexene, through a **transition state**, to butadiene and ethylene. We will consider our reaction to from *C<sub>2</sub>* cyclohexene, through a *C<sub>2</sub>*  transition state, to a *C<sub>2</sub>*  arrangement of products. Does this seem reasonable to you?
@@ -324,7 +325,7 @@ The scheme for the **reaction** with symmetries noted is shown in {numref}`fig8_
 
 ```{figure} images/Diels_7.png
 ---
-width: 600px
+width: 450px
 name: fig8_7
 ---
 *Reaction coordinate for the retro-Diels_Alder reaction of cyclohexene*
@@ -344,7 +345,7 @@ As above, I will take the **input file** derived from the optimized structure (s
 
 ```{code-block} text
 :label: cyclohexene_cs_internal_check-inp
-:filename: Cyclohexene_Cs_Internal_Check.inp
+:caption: Cyclohexene_Cs_Internal_Check.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 1,19
@@ -377,13 +378,52 @@ Now find the .log file and **locate** the list of internal coordinates. I observ
 
 
 
-````{margin}
+```{code-block} text
+:label: cyclohexene_cs_internal_check-log
+:caption: Cyclohexene_Cs_Internal_Check.log
+:linenos: True
+:lineno-start: 810
+:emphasize-lines: 823, 827
+
+                     --------------------
+                     INTERNAL COORDINATES
+                     --------------------
+
+                 - - ATOMS - -         COORDINATE      COORDINATE
+ NO.   TYPE    I  J  K  L  M  N        (BOHR,RAD)       (ANG,DEG)
+ ----------------------------------------------------------------
+   1 STRETCH   1  7                     2.0349043       1.0768251
+   2 STRETCH   1  3                     2.8514326       1.5089133
+   3 STRETCH   1  2                     2.4944812       1.3200227
+   4 STRETCH   2  4                     2.8514326       1.5089133
+   5 STRETCH   2  8                     2.0349043       1.0768251
+   6 STRETCH   3 15                     2.0586389       1.0893849
+   7 STRETCH   3  5                     2.9124143       1.5411834
+   8 STRETCH   3 11                     2.0504843       1.0850696
+   9 STRETCH   3  5                     2.9124143       1.5411834
+  10 STRETCH   4 12                     2.0504843       1.0850696
+  11 STRETCH   4  6                     2.9124143       1.5411834
+  12 STRETCH   4  6                     2.9124143       1.5411834
+  13 STRETCH   4 16                     2.0586389       1.0893849
+  14 STRETCH   5 13                     2.0516282       1.0856749
+  15 STRETCH   5  6                     2.9292350       1.5500845
+  16 STRETCH   5  9                     2.0503910       1.0850203
+  17 STRETCH   6 14                     2.0516282       1.0856749
+  18 STRETCH   6 10                     2.0503910       1.0850203
+  19 BEND      1  3 11                  1.9384410     111.0644875
+  20 BEND      1  3  5                  1.9419391     111.2649171
+  21 BEND      1  3  5                  1.9419391     111.2649171
+```
+
+Now that we have the `$ZMAT` group **from** the .dat file and the bond distance **from** the .log file, we can **set up** the input file as described above. The new file is shown in {numref}`Cyclohexene_Cs_Internal_ZMAT.inp`
+
 ```{code-block} text
 :label: Cyclohexene_Cs_Internal_ZMAT.inp
-:filename: Cyclohexene_Cs_Internal_ZMAT.inp
+:caption: Cyclohexene_Cs_Internal_ZMAT.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 1, 20-22
+:class: scroll-box
 
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MULT=1 COORD=UNIQUE NZVAR=103 
     MOLPLT=.TRUE. $END
@@ -513,46 +553,8 @@ CS
          3,  14,   6,   4,  16,
  $END
 ```
-````
 
-```{code-block} text
-:label: cyclohexene_cs_internal_check-log
-:filename: Cyclohexene_Cs_Internal_Check.log
-:linenos: True
-:lineno-start: 810
-:emphasize-lines: 823, 827
 
-                     --------------------
-                     INTERNAL COORDINATES
-                     --------------------
-
-                 - - ATOMS - -         COORDINATE      COORDINATE
- NO.   TYPE    I  J  K  L  M  N        (BOHR,RAD)       (ANG,DEG)
- ----------------------------------------------------------------
-   1 STRETCH   1  7                     2.0349043       1.0768251
-   2 STRETCH   1  3                     2.8514326       1.5089133
-   3 STRETCH   1  2                     2.4944812       1.3200227
-   4 STRETCH   2  4                     2.8514326       1.5089133
-   5 STRETCH   2  8                     2.0349043       1.0768251
-   6 STRETCH   3 15                     2.0586389       1.0893849
-   7 STRETCH   3  5                     2.9124143       1.5411834
-   8 STRETCH   3 11                     2.0504843       1.0850696
-   9 STRETCH   3  5                     2.9124143       1.5411834
-  10 STRETCH   4 12                     2.0504843       1.0850696
-  11 STRETCH   4  6                     2.9124143       1.5411834
-  12 STRETCH   4  6                     2.9124143       1.5411834
-  13 STRETCH   4 16                     2.0586389       1.0893849
-  14 STRETCH   5 13                     2.0516282       1.0856749
-  15 STRETCH   5  6                     2.9292350       1.5500845
-  16 STRETCH   5  9                     2.0503910       1.0850203
-  17 STRETCH   6 14                     2.0516282       1.0856749
-  18 STRETCH   6 10                     2.0503910       1.0850203
-  19 BEND      1  3 11                  1.9384410     111.0644875
-  20 BEND      1  3  5                  1.9419391     111.2649171
-  21 BEND      1  3  5                  1.9419391     111.2649171
-```
-
-Now that we have the `$ZMAT` group **from** the .dat file and the bond distance **from** the .log file, we can **set up** the input file as described above. the new file is shown in {numref}`Cyclohexene_Cs_Internal_ZMAT.inp`
 
 #### Making the Scan Files
 
@@ -593,7 +595,7 @@ The **plot** of the potential energy as we stretch the bond distances is present
 
 ```{figure} images/Diels_9.png
 ---
-width: 600px
+width: 450px
 name: fig8_9
 ---
 *Reaction coordinate plot for the retro-Diels_Alder reaction of cyclohexene*
@@ -611,7 +613,7 @@ The `RUNTYPE` for a transition state optimization is `SADDLEPOINT`. We can set u
 
 ```{code-block} text
 :label: cyclohexene_ts_hess-inp
-:filename: Cyclohexene_TS_Hess.inp
+:caption: Cyclohexene_TS_Hess.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 2
@@ -643,7 +645,7 @@ The input file was submitted to *GAMESS* and was **successful**. Now open the lo
 
 ```{figure} images/Diels_10.png
 ---
-width: 600px
+width: 450px
 name: fig8_10
 ---
 *Structure of the partial optimization with bond lengths of 2.2&nbsp;Å. The imaginary vibration is displayed.*
@@ -655,13 +657,45 @@ Open the log file for the **Hessian calculation**. Click on `Subwindow` &rarr; `
 
 To get a `$ZMAT` group we will again set up an energy check **calculation** with the internal coordinates set to auto generate. I will open the `Subwindow` &rarr; `Input Builder` and set the `Run Type` to `Energy` and the `Exe. Type` to `Check`. I will save the input file and then edit it to add the final line: `$ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END`. The input file is presented in {numref}`cyclohexene_ts_zmat_check-inp`. The `NONVDW` list will be very important here as the bond length is **far past** what is expected for a covalent bond and would not be detected in the automatic internal coordinates otherwise.
 
-````{margin}
+
 ```{code-block} text
-:label: Cyclohexene_TS_ZMAT_Saddle.inp
-:filename: Cyclohexene_TS_ZMAT_Saddle.inp
+:label: cyclohexene_ts_zmat_check-inp
+:caption: Cyclohexene_TS_ZMAT_Check.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 2
+:class: scroll-box
+
+!   File created by MacMolPlt 7.7.2
+ $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
+    NZVAR=42 MOLPLT=.TRUE. $END
+ $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
+ $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
+ $SCF DIRSCF=.TRUE. $END
+ $DATA 
+Cyclohexene
+CS
+
+C     6.0    -1.23614    -0.19463    -0.66001
+C     6.0    -0.03784     0.34641    -1.40039
+C     6.0     1.27863    -0.15469    -0.77504
+H     1.0    -2.07996    -0.56134    -1.21953
+H     1.0     1.45310    -1.16622    -1.12664
+H     1.0    -0.07030     0.07059    -2.44931
+H     1.0     2.10150     0.44450    -1.15258
+H     1.0    -0.06272     1.43514    -1.37198
+ $END
+ $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
+```
+Run the check calculation in *GAMESS* and **hunt down** the .dat file. Copy the $ZMAT group out of it and paste it into the saddlepoint input file. There are 89 entries in the `IZMAT` list so we must change the `NZVAR` from 42 to 89. With this **list** of internal coordinates established, *GAMESS* will report their values in the log file and we will be able to directly obtain the bond lengths for the 3,5 and 4,6 bonds in the **transition state** (assuming the calculation succeeds). The edited input file is displayed in {numref}`Cyclohexene_TS_ZMAT_Saddle.inp`.
+
+```{code-block} text
+:label: Cyclohexene_TS_ZMAT_Saddle.inp
+:caption: Cyclohexene_TS_ZMAT_Saddle.inp
+:linenos: True
+:lineno-start: 1
+:emphasize-lines: 2
+:class: scroll-box
 
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=SADPOINT MAXIT=30 MULT=1 NZVAR=89 MOLPLT=.TRUE. $END
@@ -777,37 +811,6 @@ H     1.0     0.00494     1.46786    -1.06282
          3,  14,   6,   4,  16,
  $END
 ```
-````
-
-```{code-block} text
-:label: cyclohexene_ts_zmat_check-inp
-:filename: Cyclohexene_TS_ZMAT_Check.inp
-:linenos: True
-:lineno-start: 1
-:emphasize-lines: 2
-
-!   File created by MacMolPlt 7.7.2
- $CONTRL SCFTYP=RHF RUNTYP=ENERGY EXETYP=CHECK MAXIT=30 MULT=1 COORD=UNIQUE 
-    NZVAR=42 MOLPLT=.TRUE. $END
- $SYSTEM TIMLIM=525600 MEMORY=1000000 $END
- $BASIS GBASIS=N31 NGAUSS=6 NDFUNC=1 $END
- $SCF DIRSCF=.TRUE. $END
- $DATA 
-Cyclohexene
-CS
-
-C     6.0    -1.23614    -0.19463    -0.66001
-C     6.0    -0.03784     0.34641    -1.40039
-C     6.0     1.27863    -0.15469    -0.77504
-H     1.0    -2.07996    -0.56134    -1.21953
-H     1.0     1.45310    -1.16622    -1.12664
-H     1.0    -0.07030     0.07059    -2.44931
-H     1.0     2.10150     0.44450    -1.15258
-H     1.0    -0.06272     1.43514    -1.37198
- $END
- $ZMAT AUTO=.TRUE. DLC=.TRUE. NONVDW(1)=3,5, 4,6 $END
-```
-Run the check calculation in *GAMESS* and **hunt down** the .dat file. Copy the $ZMAT group out of it and paste it into the saddlepoint input file. There are 89 entries in the `IZMAT` list so we must change the `NZVAR` from 42 to 89. With this **list** of internal coordinates established, *GAMESS* will report their values in the log file and we will be able to directly obtain the bond lengths for the 3,5 and 4,6 bonds in the **transition state** (assuming the calculation succeeds). The edited input file is displayed in {numref}`Cyclohexene_TS_ZMAT_Saddle.inp`.
 
 The calculation was succesful and the **saddle point** was immediately located.  We were almost exactly there already. We **started** with a 3,5 and 6,4 bond length of 2.200&nbsp;Å and the sadlle point has a bond length of 2.202&nbsp;Å.
 
@@ -818,7 +821,7 @@ Let us **examine** the output files for the optimized cyclohexene ({numref}`Cycl
 
 ```{code-block} text
 :label: cyclohexene_cs_scan-inp_scan_3-00-log
-:filename: Cyclohexene_Cs_scan.inp_SCAN_3.00.log
+:caption: Cyclohexene_Cs_scan.inp_SCAN_3.00.log
 :linenos: True
 :lineno-start: 15795
 :emphasize-lines: 15802,15803,15805-15807,15816
@@ -855,7 +858,7 @@ Let us **examine** the output files for the optimized cyclohexene ({numref}`Cycl
 
 ```{code-block} text
 :label: cyclohexene_ts_zmat_saddle-log
-:filename: Cyclohexene_TS_ZMAT_Saddle.log
+:caption: Cyclohexene_TS_ZMAT_Saddle.log
 :linenos: True
 :lineno-start: 12192
 :emphasize-lines: 12199,12200,12202,12205,12209,12212
@@ -897,7 +900,7 @@ We can see that the ethylene group swings over the top of the butadiene terminal
 
 ```{figure} images/Diels_11.png
 ---
-width: 600px
+width: 450px
 name: fig8_11
 ---
 *The starting material, transition state and product for the retro-Diels-Alder reaction of cyclohexene*
@@ -1021,7 +1024,7 @@ Now **drag** the scrubber across the bar at the bottom of the window and **play 
 
 ```{figure} images/Untitled.gif
 ---
-width: 600px
+width: 450px
 name: fig8_12
 ---
 *The Diels-Alder reaction IRC animation*

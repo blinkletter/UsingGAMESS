@@ -19,7 +19,7 @@ In this exercise, we will **accomplish** the following…
 
 Open your copy of *wxMacMolPlt* and **navigate** to the build menu: `Builder` &rarr; `Show Build Tools`. Select carbon with a coordination number of 4 and click in the empty window. Then select `Builder` &rarr; `Add Hydrogens` to complete your structure of methane. Efforts to enforce symmetry on files created by *MacMolPlt* often fail and manual creation of files that use symmetry is preferred. *GAMESS* requires perfection when you are declaring symmetry. As a result, we will **not use** symmetry in this calculation. 
 
-```{margin}
+```{note}
 *MacMolPlt* has a **symmetry builder** function that can apply the point group as you build the molecule. We will discuss it later.
 ```
 
@@ -198,7 +198,7 @@ In this exercise, you will be asked to **construct** MO diagrams with visualized
 
 ```{figure} images/MOs_Diagram_Methane1.png
 ---
-width: 700px
+width: 500px
 name: fig6A
 ---
 *MO diagram for methane.*

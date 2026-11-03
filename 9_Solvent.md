@@ -29,7 +29,7 @@ Symmetry makes life easy. If we consider chloride **reacting** with methylchlori
 
 ```{figure} images/Solvent_1.png
 ---
-width: 600px
+width: 450px
 name: fig9_1
 ---
 *A symmetrical *S<sub>N</sun>2* reaction. *
@@ -40,7 +40,7 @@ There will be only **three** unique atoms. The primary axis in *GAMESS* is the *
 
 ```{figure} images/Solvent_2.png
 ---
-width: 600px
+width: 450
 name: fig9_2
 ---
 *A symmetrical *S<sub>N</sun>2* reaction. *
@@ -54,7 +54,7 @@ The **unique** coordinates will be 0,0,0 for **carbon**, 1,0,0 for the unique **
 
 ```{code-block} text
 :label: sn2_321_u-inp
-:filename: SN2_321_U.inp
+:caption: SN2_321_U.inp
 :linenos: True
 :lineno-start: 1
 
@@ -81,7 +81,7 @@ The second input file will be a **copy** of the first. All I will do is **add** 
 
 ```{code-block} text
 :label: sn2_h2o_321_u-inp
-:filename: N2_H2O_321_U.inp
+:caption: N2_H2O_321_U.inp
 :emphasize-lines: 7
 :linenos: True
 :lineno-start: 1
@@ -107,10 +107,10 @@ H     1.0     1.00000     0.00000     0.00000
 ### Initial Results
 
 I submitted the jobs to *GAMESS* and after a **few minutes** I had my result files in hand.  I openned them and found the last occurance of `NSERCH`, which usually occurs at the **final optimized structure**. I found the list of internal coordinates and took note of the bond distances (the angles are defined by the point group and will be perfect, by definition.) What are the C-H and C-Cl bond lengths?
-```{margin}
+```{note}
 I had used *C<sub>3h</sub>* symmetry in my first attempts while learning how to do this. What can I say, point groups are not my thing. As a result the calculation completed in both cases but gave an incorrect structure for the solvent job. We are actually optimizing a saddle point here and *GAMESS* will try to escape downhill unless the symmetry makes an air-tight constraint. 
 ```
-The water calculation setteld down to a seemingly **stable** *D<sub>3h</sub>* structure but it **kept fighting** that answer. the gradient never found a low value that would end the calculation as the structure **thrashed** (ever so slightly) around the saddle point. Eventually it fell over the edge and broke symmetry to find a structure that appears to be the **starting materials**/products. It **failed** to find a transition state-like structure.
+The water calculation settled down to a seemingly **stable** *D<sub>3h</sub>* structure but it **kept fighting** that answer. the gradient never found a low value that would end the calculation as the structure **thrashed** (ever so slightly) around the saddle point. Eventually it fell over the edge and broke symmetry to find a structure that appears to be the **starting materials**/products. It **failed** to find a transition state-like structure.
 
 
 
@@ -124,7 +124,7 @@ Below are the Hessian input files for the two jobs. Observe how they **differ** 
 
 ```{code-block} text
 :label: sn2_d3h_321g_hess-inp
-:filename: SN2_D3h_321G_HESS.inp
+:caption: SN2_D3h_321G_HESS.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 8
@@ -151,7 +151,7 @@ DNH 3
 
 ```{code-block} text
 :label: sn2_d3h_h2o_321g_hess-inp
-:filename: SN2_D3h_H2O_321G_HESS.inp
+:caption: SN2_D3h_H2O_321G_HESS.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 8,9
@@ -220,7 +220,7 @@ Observe that in {numref}`sn2_d3h_321g_hess-log`, there is a frequency labelled `
 
 ```{figure} images/Solvent_3.png
 ---
-width: 600px
+width: 450px
 name: fig9_3
 ---
 *The imaginary vibration for the gas-phase Hessian calculation. The solvent calculation gave similar results.*
@@ -449,7 +449,7 @@ Compare the two IRC profiles below. In the "products", the gas phase profile kee
 
 ```{figure} images/SN2_2.gif
 ---
-width: 700px
+width: 500px
 name: fig9_5
 ---
 *The IRC result for gas phase*
@@ -457,7 +457,7 @@ name: fig9_5
 
 ```{figure} images/SN2_H2O_2.gif
 ---
-width: 700px
+width: 500px
 name: fig9_6
 ---
 *The IRC result for solvent*
@@ -471,7 +471,7 @@ What is the calculated C-Cl **bond length** in the methyl chloride starting mate
 
 ```{code-block} text
 :label: sn2_c3v_h2o_ch3cl-inp
-:filename: SN2_C3V_H2O_CH3Cl.inp
+:caption: SN2_C3V_H2O_CH3Cl.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 5,6,7,10
@@ -496,7 +496,7 @@ H     1.0     1.00000     0.00000     0.00000
 
 ```{code-block} text
 :label: sn2_c3v_ch3cl-inp
-:filename: SN2_C3V_CH3Cl.inp
+:caption: SN2_C3V_CH3Cl.inp
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 5,6,7,10
@@ -561,8 +561,8 @@ grep "STRETCH   1  3" IRClogfilename.log > C-Cl-1-3.txt
 grep "STRETCH   2  3" IRClogfilename.log > C-Cl-2-3.txt
 ```
 I could write a quick **shell script** to do all this and generate the four files. But I'm too lazy to make my life easier.
-```{margin}
-Experience is a good teacher. You will learn what to look for and when you do this again you will have everything set up for. Always take notes as you work. 
+```{note}
+Experience is a good teacher. You will learn what to look for and, when you do this again, you will have everything set up. Always take notes as you work. 
 ```
 
 ```{warning}
@@ -571,9 +571,9 @@ Here we see that there are 50 entries in the C-Cl lists but only 49 in the energ
 
 If I did write a **shell script** I might just collect the commands all in one file so that they can be run as a batch. Below in {numref}`processirc-sh` is an example. Here I am **processing** the data for the gas phase IRC. You can modify the filenames to suit.
 
-```{code-block} text
+```{code-block} bash
 :label: processirc-sh
-:filename: processIRC.sh
+:caption: processIRC.sh
 
 grep "AT PATH DISTANCE STOTAL" SN2_321G_D3h_IRC_3R.log > gstride_r.txt
 grep "          TOTAL ENERGY" SN2_321G_D3h_IRC_3R.log > genergy_r.txt
@@ -621,7 +621,7 @@ The stride value should be similar for each since it is the same bonds in both c
 
 ```{figure} images/Solvent_plot1.png
 ---
-width: 500px
+width: 450px
 name: fig9_7
 ---
 *The IRC expressed as a plot of relative energy vs. stride. Black is the solvent IRC and red is the gas phase IRC*
@@ -636,7 +636,7 @@ There are **two** C-Cl distances in each IRC: the **incoming** nucleophile and t
 
 ```{figure} images/Solvent_plot2.png
 ---
-width: 500px
+width: 450px
 name: fig9_8
 ---
 *The IRC expressed as a plot of distances to nucleophile and leaving group. Black is the solvent IRC and red is the gas phase IRC*
@@ -651,7 +651,7 @@ We can use a 3D plot to combine the information in the two previous plots above.
 
 ```{figure} images/Solvent_plot3.png
 ---
-width: 500px
+width: 450px
 name: fig9_9
 ---
 *The IRC for the reaction in solvent*

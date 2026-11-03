@@ -21,7 +21,7 @@ Run *MacMolPlt*. Click on `Builder` &rarr; `Show Build Tools`. Choose carbon ato
 
 ```{figure} images/profiles_Picture1B.png
 ---
-width: 600px
+width: 450px
 name: fig5-1
 ---
 **MacMolPlt* window with the initial structure for butadiene.*
@@ -52,7 +52,7 @@ We can now take the data file that was **written** out by *MacMolPlt* and use it
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 2,5,14
-:class: hide-input
+:class: scroll-box
 
 !   File created by MacMolPlt 7.7.2
  $CONTRL SCFTYP=RHF RUNTYP=OPTIMIZE MAXIT=30 MULT=1 COORD=ZMT NZVAR=36 
@@ -167,7 +167,7 @@ And that describes the following structures as we read each line…
 
 ```{figure} images/profiles_Picture2A.png
 ---
-width: 500px
+width: 450px
 name: fig5-2A
 ---
 *The 10th line of the *Z-matrix* is applied.*
@@ -177,7 +177,7 @@ By the **last line**, we will have constructed the following molecule. Note how 
 
 ```{figure} images/profiles_Picture2.png
 ---
-width: 700px
+width: 500px
 name: fig5-2
 ---
 *The 10th line of the *Z-matrix* is applied.*
@@ -236,7 +236,7 @@ We can **open** the log file in *MacMolPlt* and it will **display** the final st
 
 ```{figure} images/profiles_Picture3.png
 ---
-width: 600px
+width: 450px
 name: fig5-3
 ---
 *The optimized structure as calculated by *GAMESS*.*
@@ -250,6 +250,7 @@ Immediately after the last `NSERCH` line is a series of data blocks containing t
 :linenos: True
 :lineno-start: 8834
 :emphasize-lines: 8846
+:class: scroll-box
 
                      --------------------
                      INTERNAL COORDINATES
@@ -301,7 +302,7 @@ The sixth coordinate in the list describes the **torsion** around the central C�
 
 ```{figure} images/profiles_Picture4.png
 ---
-width: 600px
+width: 500px
 name: fig5-4
 ---
 *The coordinate describing the central C–C bond torsion.*
@@ -483,7 +484,7 @@ We could use this information to **sketch** out the rotational energy profile. T
 
 ```{figure} images/profiles_Picture6.png
 ---
-width: 500px
+width: 450px
 name: fig5-6
 ---
 *Rotational energy profile for butane.*
@@ -506,7 +507,7 @@ In the **next chapter** you will see ways to use the power of your computer and 
 
 ```{figure} images/profiles_Picture8.png
 ---
-width: 500px
+width: 450px
 name: fig5-8
 ---
 *Rotational energy profile for butane at 3-21G level.*
@@ -518,7 +519,7 @@ For fun I set up a **calculation** for a scan of the central C–C torsion using
 
 ```{figure} images/profiles_Picture9.png
 ---
-width: 500px
+width: 450px
 name: fig5-9
 ---
 *Rotational energy profile for butane at 3-21G (black) and 6-311G(d,p)++ level (orange).*
@@ -581,14 +582,14 @@ I can then import `energy2.txt` into a spreadsheet program or **pandas dataframe
    
 ```{figure} images/profiles_Picture10A.png
 ---
-width: 500px
+width: 450px
 name: fig5-10A
 ---
 *Plot of relative energy energy at each optimization step as the minimization proceeds.*
 ```
 ```{figure} images/profiles_Picture10B.png
 ---
-width: 500px
+width: 450px
 name: fig5-10B
 ---
 *Plot of the gradient calculated before each optimization step.*
@@ -724,7 +725,7 @@ We can load the log file into *MacMolPlt* and **scrub** along the minimization *
 
 ```{figure} images/profiles_Picture11.png
 ---
-width: 500px
+width: 450px
 name: fig5-11
 ---
 *The rotational energy profile for butane. It behaves as expected.*

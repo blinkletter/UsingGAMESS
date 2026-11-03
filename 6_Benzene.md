@@ -20,7 +20,7 @@ After a brief **struggle** I created the following two builds. How did you fare?
 
 ```{figure} images/pi-Benzene-1.png
 ---
-width: 700px
+width: 500px
 name: fig6_2A
 ---
 *Benzene built using *D<sub>6h</sub>* symmetry and *C<sub>2v</sub>* symmetry. Take note that the *z*-axis is the highest order rotational axis (the *C<sub>6</sub>* axis for *D<sub>6h</sub>* benzene and the *C<sub>2</sub>* axis for *C<sub>2v</sub>* benzene).*
@@ -34,7 +34,7 @@ The *C<sub>2v</sub>* optimization **succeeded** but the *D<sub>6h</sub>* file fa
 
 ```{figure} images/pi-Benzene-2.png
 ---
-width: 700px
+width: 500px
 name: fig6_2B
 ---
 *The new *D<sub>6h</sub>* version of benzene and the three-atom *C<sub>2v</sub>* version of benzene.*
@@ -44,9 +44,9 @@ Both the three-atom *C<sub>2v</sub>* and the *x*-axis *D<sub>6h</sub>* input fil
 
 ## Evaluating the Structure
 
-**Benzene** is a very well-studied molecule and its structure is known. Below is a table that **compares** the HF/3-21G optimized structure with the literature values. 
+**Benzene** is a very well-studied molecule and its structure is known. Below is a table that **compares** the HF/3-21G optimized structure with the literature values {cite:p}`literatutebenzene`. 
 
-|               |	HF/3-21G	| Literature[^literatutebenzene] |
+|               |	HF/3-21G	| Literature |
 | :----         | :-----        | :-----                         |
 | C–C length	| 1.385 Å	    |   1.397 Å                      |
 | C–H length	| 1.072 Å	    |   1.084 Å                      |
@@ -83,7 +83,7 @@ If you find it difficult to **locate** the higher level antibonding MOs in a sea
 
 ```{figure} images/pi-Benzene-3.png
 ---
-width: 600px
+width: 500px
 name: fig6_2C
 ---
 *&pi;-MOs for benzene. The left-hand set is from the B3LYP/aug-cc-pCVTZ energy calculation and the right-hand set is from a HF/STO-3G energy calculation. Both sets were using the same optimized HF/3-21G geometry.*
@@ -102,5 +102,4 @@ After reading the above discussion, use *macMolPlt* to produce your **own versio
 Report the **bond lengths**. Open the result files in *macMolPlt* and export **images** of the &pi;-MO system. Compare it to your results from the SHMO method.
 
 
-[^literatutebenzene]: NIST Computational Chemistry Comparison and Benchmark Database, *NIST Standard Reference Database Number 101*, Release 22, May **2022**, Editor: Russell D. Johnson III, http://cccbdb.nist.gov/ DOI:10.18434/T47C7Z
 

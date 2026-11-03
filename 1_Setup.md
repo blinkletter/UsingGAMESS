@@ -9,31 +9,31 @@ First we must build a system of ***tools*** for computational chemistry. You can
 
 We have some intuition about **chemical structure and energy**. We know that butane is at its lowest energy in the *anti* conformation and that there is a small energy barrier to bond rotation due to steric clash. We know that the amide bond the nitrogen is planar, rather than tetrahedral, and has a higher energy barrier to rotation due to its **electronic structure**. We can demonstrate these effects and **explore consequences of changes in structure** on our desktop using a computer and software that can calculate the energy of molecules. There are software packages that cost many thousands of dollars (per year!) and there are options that are **free to all** or free for academic use.
 
-***GAMESS***[^gamess1][^gamess2][^gamess_link] is an *ab initio* computation package for investigating molecular structure and energy. There are others, such as ***NWChem*** [^nwchem][^nwchem_link] and ***ORCA*** [^orca][^orca_link]. 
+***GAMESS*** {cite:p}`gamess1`, {cite:p}`gamess2` is an *ab initio* computation package for investigating molecular structure and energy. There are others, such as ***NWChem*** {cite:p}`nwchem`  and ***ORCA*** {cite:p}`orca`. 
 
-***MacMolPlt*** [^macmolplt][^macmolplt_link]  is a graphical front end for *GAMESS*. It can build molecules, export input files and interpret the output files produced by GAMESS. ***Avogadro*** [^avogadro][^avogadro_link] is a more modern option but lacks some useful tools compared to *MacMolPlt*. There are others, such as ***Gabedit*** [^gabedit][^gabedit_link] and ***Molden***. [^molden][^molden_link] 
+***MacMolPlt*** {cite:p}`macmolplt` is a graphical front end for *GAMESS*. It can build molecules, export input files and interpret the output files produced by GAMESS. ***Avogadro*** {cite:p}`avogadro` is a more modern option but lacks some useful tools compared to *MacMolPlt*. There are others, such as ***Gabedit*** {cite:p}`gabedit`, ([Website](http://gabedit.sourceforge.net/home.html)) and ***Molden***. {cite:p}`molden`, ([Website](https://www.theochem.ru.nl/molden/)) 
 
 We will use *GAMESS* and *MacMolPlt* together. We will also use *Avagadro*. 
 
-[^gamess1]:  "General atomic and molecular electronic structure system" Michael W. Schmidt et. al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. https://doi.org/10.1002/jcc.540141112
-[^gamess2]:  “Recent developments in the general atomic and molecular electronic structure system” 
-Giuseppe M.J. Barca et. al., J. Chem. Phys., 2020, 152, 154102, https://doi.org/10.1063/5.0005188
-[^gamess_link]:  https://www.msg.chem.iastate.edu/gamess/
-[^nwchem]:  "NWChem: a comprehensive and scalable open-source solution for large scale molecular simulations" 
-M. Valiev et. al.,  Comput. Phys. Commun., 2010, 181, 1477. https://doi.org/10.1016/j.cpc.2010.04.018
-[^nwchem_link]:  https://nwchemgit.github.io
-[^orca]:  "Software update: The ORCA program system, version 4.0" Frank Neese, Wiley Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. https://doi.org/10.1002/wcms.1327
-[^orca_link]:  https://orcaforum.kofo.mpg.de/app.php/portal
-[^macmolplt]:  “MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, Mol. Graphics and Modeling, 1999, 16, 133-138. https://doi.org/10.1016/s1093-3263(99)00002-9
-[^macmolplt_link]:  http://brettbode.github.io/wxmacmolplt/
-[^avogadro]:  “Avogadro: an advanced semantic chemical editor, visualization, and analysis platform” 
-Marcus D Hanwell et. al., J. Cheminform., 2012, 4, 17. https://doi.org/10.1186/1758-2946-4-17
-[^avogadro_link]: http://avogadro.cc
-[^gabedit]:  “Gabedit - A graphical user interface for computational chemistry softwares” 
-A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. https://doi.org/10.1002/jcc.21600
-[^gabedit_link]:  http://gabedit.sourceforge.net/home.html
-[^molden]:  “Molden: a pre- and post-processing program for molecular and electronic structures” D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). https://doi.org/10.1023/A:1008193805436
-[^molden_link]: https://www.theochem.ru.nl/molden/
+%[^gamess1]:  "General atomic and molecular electronic structure system" Michael W. Schmidt et. %al., Journal of Computational Chemistry. 1993, 14 , 1347–1363. https://doi.org/10.1002/jcc.%540141112
+%[^gamess2]:  “Recent developments in the general atomic and molecular electronic structure system” 
+%Giuseppe M.J. Barca et. al., J. Chem. Phys., 2020, 152, 154102, https://doi.org/10.1063/5.0005188
+%[^gamess_link]:  https://www.msg.chem.iastate.edu/gamess/
+%[^nwchem]:  "NWChem: a comprehensive and scalable open-source solution for large scale molecular %simulations" 
+%M. Valiev et. al.,  Comput. Phys. Commun., 2010, 181, 1477. https://doi.org/10.1016/j.cpc.2010.04.%018
+%[^nwchem_link]:  https://nwchemgit.github.io
+%[^orca]:  "Software update: The ORCA program system, version 4.0" Frank Neese, Wiley %Interdisciplinary Reviews: Computational Molecular Science, 2018, 1, e1327. https://doi.org/10.%1002/wcms.1327
+%[^orca_link]:  https://orcaforum.kofo.mpg.de/app.php/portal
+%[^macmolplt]:  “MacMolPlt: a graphical user interface for GAMESS” B.M. Bode and M.S.J. Gordon, %Mol. Graphics and Modeling, 1999, 16, 133-138. https://doi.org/10.1016/s1093-3263(99)00002-9
+%[^macmolplt_link]:  http://brettbode.github.io/wxmacmolplt/
+%[^avogadro]:  “Avogadro: an advanced semantic chemical editor, visualization, and analysis %platform” 
+%Marcus D Hanwell et. al., J. Cheminform., 2012, 4, 17. https://doi.org/10.1186/1758-2946-4-17
+%[^avogadro_link]: http://avogadro.cc
+%[^gabedit]:  “Gabedit - A graphical user interface for computational chemistry softwares” 
+%A.R. Allouche, Journal of Computational Chemistry, 2011, 32, 174-182. https://doi.org/10.1002/jcc.%21600
+%[^gabedit_link]:  http://gabedit.sourceforge.net/home.html
+%[^molden]:  “Molden: a pre- and post-processing program for molecular and electronic structures” %D. Schaftenaar, J. Noordik, J. Comput. Aided Mol. Des., 2000, 14, 123–134 (2000). https://doi.org/%10.1023/A:1008193805436
+%[^molden_link]: https://www.theochem.ru.nl/molden/
 
 These instructions below **assume** that you are using a *Unix*-based computer, like a *Linux* system or an Apple *MacOS* computer. I have lived in this *Unix* world my whole academic life and am largely unfamiliar with *Windows* systems. However, the websites below have information on installing these tools on *Windows* systems. 
 
@@ -68,7 +68,12 @@ You will need a **Terminal Emulator**. We will be accessing the *Unix* file syst
 
 Apply for a **license** for *GAMESS* by following the instruction on the [Mark Gordon group website](https://www.msg.chem.iastate.edu/gamess/). You will receive an email with instructions on downloading the files. You can download the source code or a pre-compiled binary for a your computer. 
 
-The *GAMESS* application is available as a pre-compiled binary for *MacOS* and *Windows*.[^linux]  I received my email, **followed the instructions** and downloaded a file for the latest version of the *MacOS* binary. I decompressed the file and placed the resulting `gamess` directory folder in my `/Applications` folder.
+The *GAMESS* application is available as a pre-compiled binary for *MacOS* and *Windows*.  I received my email, **followed the instructions** and downloaded a file for the latest version of the *MacOS* binary. I decompressed the file and placed the resulting `gamess` directory folder in my `/Applications` folder.
+
+```{note}
+:class: dropdown
+*Linux* users will have to compile the source code. Go for it! Please make notes on your epic journey and share them with your peers. Everyone should use *Linux*, we just need you to show us the way. I am too timid and so I use *MacOS*. I envy you, but I will not join you; others may if you lead them. Rock on!
+```
 
 ### The GAMESS Folder
 
@@ -147,8 +152,12 @@ You will need to run the *gamessqd* application **first**. If you double-click o
 
 To use *GamessQ*, you **drag and drop** the text input files onto its window. This will place the job in the **queue**. You can see when jobs are **waiting, running and finished**. You can drop in dozens of jobs and let them run over the weekend this way.
 
-There is a **command line version** of *GamessQ* that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run *GAMESS*. You will be able to *telnet* (look it up) using *ssh*[^telnet] (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using *gamessq* directly. 
+There is a **command line version** of *GamessQ* that you can compile and run directly on your computer. This can be useful if you want to set up a dedicated computer to run *GAMESS*. You will be able to *telnet* (look it up) using *ssh* (look it up) into your account on that computer. Then you can transfer over input files and submit jobs to the queue using *gamessq* directly. 
 
+```{note}
+:class: dropdown
+Your *Unix* system will have a secure shell (*ssh*) tool that can be called using the *ssh* command. It will likely be an implementation of the *OpenSSH* suite of internet tools. No one uses *telnet* anymore, but it has become a verb for the act of using *ssh*.
+```
 
 ### Summary of System Setup
 
@@ -177,14 +186,16 @@ You can obtain *MacMolPlt* at the [github repository](http://brettbode.github.io
 
 ```{warning}
 :class: dropdown
-On more modern *MacOS* computers (*MacOS 12* and later) you will need to **edit** the `info.plist` file in the package of the *MacMolPlt* application and add the following parameter in the first `<dict>` group…
+On more older *MacOS* computers (*MacOS 12* to *MacOS 15* running MacMolPlt version 7.7.2) you may need to **edit** the `info.plist` file in the package of the *MacMolPlt* application and add the following parameter in the first `<dict>` group…
   
   `<key>NSHighResolutionCapable</key>` <br>
   `<string>False</string>`
 
 Find the application icon and right-click on it. Select Show package Contents from the drop-down menu. navigate and find the info.plist file and open it to make your changes. Back it up before you do so. This will force the program to operate in old-fashioned regular resolution. It is an old program and expects old screens.
 
-On *MacOS 11* and earlier, you can check a box in the `Get Info` menu item of *wxMacMolPlt* for `Open in Low Resolution.` Apple deprecated this option and eliminated it in *MacOS 12*, hence the **awkward work-around** above. I have no idea what the new “Apple Silicon” macs will do with this. Buy me a new MacBook and I’ll let you know.
+On *MacOS 11* and earlier, you can check a box in the `Get Info` menu item of *wxMacMolPlt* for `Open in Low Resolution.` Apple deprecated this option and eliminated it in *MacOS 12*, hence the **awkward work-around** above. 
+
+MacMolPlt has been updated to version 7.7.3 and this problem has been fixed.
 ```
 
 ### Using *wxMacMolPlt*
@@ -215,5 +226,3 @@ An [instruction manual](http://avogadro.cc) is available at the same website. We
 We are now ready to do some calculations. We can **build** molecules and create **input files** using *MacMolPlt* or *Avogadro*. We can **submit** the files to *GAMESS* using *GamessQ*. We can then **extract** specific information using *Unix* tools and shell scripts or load the result files into *MacMolPlt* or *Avogadro* to **visualize** the result. We will be able to explore how steric strain arises in molecules and how structure affects the transition state in reactions. We will be able to see graphical representations of molecular orbitals and, in many cases, the local bonding orbitals that more closely align with Lewis structure. I hope that you will gain a **more intuitive understanding** of molecular structure and reaction kinetics.
 
 
-[^linux]: *Linux* users will have to compile the source code. Go for it! Please make notes on your epic journey and share them with your peers. Everyone should use *Linux*, we just need you to show us the way. I am too timid and so I use *MacOS*. I envy you, but I will not join you; others may if you lead them. Rock on!
-[^telnet]: Your *Unix* system will have a secure shell (*ssh*) tool that can be called using the *ssh* command. It will likely be an implementation of the *OpenSSH* suite of internet tools. No one uses *telnet* anymore, but it has become a verb for the act of using *ssh*.

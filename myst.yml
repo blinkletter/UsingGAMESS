@@ -8,8 +8,8 @@ project:
   copyright: '2026'
   description: A webbook of Python examples and exercises for chemistry students.
   license: CC-BY-NC-4.0
-#  bibliography:
-#    - references.bib
+  bibliography:
+    - references.bib
 
   exclude:
     - _build
@@ -26,6 +26,8 @@ project:
     - file: 1_Setup.md
       children:
         - file: 1A_Unix.md
+        - file: 1C-CompilingGAMESS-USonM5MacBookAir.md
+        - file: 1B-CompileInstruction2023.md
     - file: 2_SmallMolecules.md
     - file: 3_Visual_Input.md
     - file: 4_Ethane.md

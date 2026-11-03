@@ -37,7 +37,7 @@ Water has three atoms that have found an **arrangement** in space for the nuclei
 
 ```{figure} images/GAMESS_AXES.png
 ---
-width: 700px
+width: 500px
 name: fig1
 ---
 *The axis scheme for *GAMESS* atomic coordinates*
@@ -53,7 +53,7 @@ Symmetry is beautiful. It also helps with math. If a molecule has symmetry, we s
 
 ```{figure} images/WATER_AXES.png
 ---
-width: 700px
+width: 500px
 name: fig2
 ---
 *Water positioned in *GAMESS* 3D space with the *C<sub>2</sub>* axis along the *z*-axis and the primary *&sigma;<sub>v</sub>* plane as the xz plane*
@@ -561,7 +561,7 @@ H  2  1.0  1  109.5
 
 ```{figure} images/Zmatrix.png
 ---
-width: 600px
+width: 500px
 name: fig3
 ---
 *Parsing the *Z-matrix* for water*
@@ -660,7 +660,7 @@ This describes the *Z-matrix* as shown parsed in {numref}`fig4`
 
 ```{figure} images/Zmatrix_Ammonia.png
 ---
-width: 800px
+width: 500px
 name: fig4
 ---
 *A *Z-matrix* for ammonia*
@@ -709,7 +709,7 @@ Using this matrix gives a **successful** calculation for the optimized geometry 
 
 ```{figure} images/Dummy_Atoms.png
 ---
-width: 800px
+width: 500px
 name: fig5
 ---
 *The Z-matrix for ammonia with a dummy atom to define symmetry*

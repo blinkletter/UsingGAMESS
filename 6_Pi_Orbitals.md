@@ -26,7 +26,7 @@ You will find that each atom placed may be **copied in space** according to the 
 
 ```{figure} images/pi_symmetryBuild.png
 ---
-width: 550
+width: 500
 name: fig6A1
 ---
 *Building an allyl cation with symmetry using *MacMolPlt*. The solid atoms are the ones that I placed and the faded ones are being generated according to the requirements of the point group.*
@@ -66,7 +66,7 @@ Bond distances and angles were **measured** as shown in {numref}`fig6B`. The str
 
 ```{figure} images/pi_allylresult.png
 ---
-width: 550
+width: 450
 name: fig6B
 ---
 *HF/6-3111(d,p)++ optimized structure of the allyl cation.*
@@ -79,7 +79,7 @@ Someday, I will explore using *Multiwfn*, a package for analyzing molecular wave
 
 ```{figure} images/pi_1.png
 ---
-width: 550
+width: 450
 name: fig6C
 ---
 *Electron density surface coloured by electrostatic potential. *MacMolPlt* does not give the best color contrast, but it does the job.*
@@ -183,6 +183,7 @@ How do  these coefficients **compare** to the HMO method? They are **smaller** i
 :linenos: True
 :lineno-start: 1
 :emphasize-lines: 28, 38, 48
+:class: scroll-box
 
  FINAL R-B3LYP ENERGY IS     -116.9224892059 AFTER  17 ITERATIONS
  DFT EXCHANGE + CORRELATION ENERGY =       -14.3077177400

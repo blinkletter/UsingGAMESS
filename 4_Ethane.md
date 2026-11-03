@@ -187,7 +187,7 @@ The C–C bond is **shorter** in the *anti* conformer, as expected. And the H–
  
 ## The Controversy
 
-The **literature** value for the ethane rotational energy barrier is 12.1 kJ/mole.[^Hirota1979]  We were pretty close with this low level of theory. There has been lots of **recent** work in this subject. Despite its simplicity, or because of it, it has been a focus for theoretical investigations. It started with an argument that molecular orbital interactions **stabilizing** the *anti* conformation were the **more important** contributor to the energy difference compared to electronic **repulsion** in the *syn* conformation.[^Goodman2001]  This is an idea that has been floated since the 1970’s[^Lowe1973] but it gained new life with the Nature publication. People **disagreed** and the fight was on.[^Bickelhaupt2004] There are ongoing efforts to further refine the **model** for the energy difference.[^Baranac2015][^Mo2011]
+The **literature** value for the ethane rotational energy barrier is 12.1 kJ/mol {cite:p}`Hirota1979`.  We were pretty close with this low level of theory. There has been lots of **recent** work in this subject. Despite its simplicity, or because of it, it has been a focus for theoretical investigations. It started with an argument that molecular orbital interactions **stabilizing** the *anti* conformation were the **more important** contributor to the energy difference compared to electronic **repulsion** in the *syn* conformation {cite:p}`Goodman2001`.  This is an idea that has been floated since the 1970’s {cite:p}`Lowe1973` but it gained new life with the Nature publication. People **disagreed** and the fight was on {cite:p}`Bickelhaupt2004`. There are ongoing efforts to further refine the **model** for the energy difference {cite:p}`Baranac2015`, {cite:p}`Mo2011`.
 
 ## Summary
 
@@ -196,12 +196,12 @@ We have learned more about **constructing** a *Z-matrix* and applied this knowle
 In the exercise, you will also explore what happens when we remove the symmetry declaration. Go to the instructions for the exercise and have fun.
 
 
-[^Hirota1979]:  “Barrier to internal rotation in ethane from the microwave spectrum of CH$_3$CHD$_2$.” E. Hirota, S. Saito, Y. Endo,  *J. Chem. Phys.*, **1979**, *71*, 1183–1187. https://doi.org/10.1063/1.438464 
-[^Goodman2001]: "Hyperconjugation not steric repulsion leads to the staggered structure of ethane". V. Pophristic, L. Goodman, *Nature*, **2001**, *411*, 565–8. https://doi.org/10.1038/35079036 
-[^Lowe1973]: “The Barrier to Internal Rotation in Ethane: A qualitative, intuitively useful explanation emerges from a comparison of different theoretical approaches”, J.P. Lowe, *Science*, **1973**, *179*, 527-32. https://doi.org/10.1126/science.179.4073.527 .
-[^Bickelhaupt2004]: "The case for steric repulsion causing the staggered conformation of ethane". F.M. Bickelhaupt, E.J. Baerends, *Angew. Chem. Int. Ed.*, **2003**, *42*, 4183–4188. https://doi.org/10.1002/anie.200350947 .
-[^Baranac2015]: "Theoretical analysis of the rotational barrier in ethane: cause and consequences". M. Baranac-Stojanović, *Structural Chemistry*, **2015**, *26*, 989–996. https://doi.org/10.1007/s11224-014-0557-5
-[^Mo2011]: “Rotational barriers in alkanes”, Y. Mo, *WIREs Comp. Mol. Sci.*, **2011**, *1*, 164-171. https://doi.org/10.1002/wcms.22 
+%[^Hirota1979]:  “Barrier to internal rotation in ethane from the microwave spectrum of %CH$_3$CHD$_2$.” E. Hirota, S. Saito, Y. Endo,  *J. Chem. Phys.*, **1979**, *71*, 1183–1187. %https://doi.org/10.1063/1.438464 
+%[^Goodman2001]: "Hyperconjugation not steric repulsion leads to the staggered structure of %ethane". V. Pophristic, L. Goodman, *Nature*, **2001**, *411*, 565–8. https://doi.org/10.1038/%35079036 
+%[^Lowe1973]: “The Barrier to Internal Rotation in Ethane: A qualitative, intuitively useful %explanation emerges from a comparison of different theoretical approaches”, J.P. Lowe, *Science*, %**1973**, *179*, 527-32. https://doi.org/10.1126/science.179.4073.527 .
+%[^Bickelhaupt2004]: "The case for steric repulsion causing the staggered conformation of ethane". %F.M. Bickelhaupt, E.J. Baerends, *Angew. Chem. Int. Ed.*, **2003**, *42*, 4183–4188. https://doi.%org/10.1002/anie.200350947 .
+%[^Baranac2015]: "Theoretical analysis of the rotational barrier in ethane: cause and %consequences". M. Baranac-Stojanović, *Structural Chemistry*, **2015**, *26*, 989–996. https://doi.%org/10.1007/s11224-014-0557-5
+%[^Mo2011]: “Rotational barriers in alkanes”, Y. Mo, *WIREs Comp. Mol. Sci.*, **2011**, *1*, %164-171. https://doi.org/10.1002/wcms.22 
 
 
 ## Exercise
