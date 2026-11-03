@@ -28,6 +28,7 @@ project:
         - file: 1A_Unix.md
         - file: 1C-CompilingGAMESS-USonM5MacBookAir.md
         - file: 1B-CompileInstruction2023.md
+        - file: CompileGamessQ.md
     - file: 2_SmallMolecules.md
     - file: 3_Visual_Input.md
     - file: 4_Ethane.md
